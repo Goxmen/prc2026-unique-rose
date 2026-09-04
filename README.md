@@ -84,7 +84,7 @@ mc cp unique-rose_vN.parquet opensky/prc-2026-unique-rose/
 Works on Linux/WSL and macOS. You need Python 3.11+, git, and the MinIO client `mc`.
 
 ```sh
-git clone https://github.com/GITHUB_USER/PRC.git
+git clone https://github.com/Goxmen/PRC.git
 cd PRC
 
 # Python environment
