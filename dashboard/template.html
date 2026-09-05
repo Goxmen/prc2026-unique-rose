@@ -1,0 +1,516 @@
+<title>Taxi-Out Race</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.10);
+  --blue: #2a78d6;
+  --rose-fill: #e87ba4;
+  --rose-stroke: #d55181;
+  --rose-wash: rgba(232, 123, 164, 0.13);
+  --good: #0ca30c;
+  --good-text: #006300;
+  --critical: #d03b3b;
+  --halo: #fcfcfb;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255, 255, 255, 0.10);
+    --blue: #3987e5;
+    --rose-fill: #d55181;
+    --rose-stroke: #e87ba4;
+    --rose-wash: rgba(213, 81, 129, 0.20);
+    --good: #0ca30c;
+    --good-text: #0ca30c;
+    --critical: #d03b3b;
+    --halo: #1a1a19;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --baseline: #383835;
+  --border: rgba(255, 255, 255, 0.10);
+  --blue: #3987e5;
+  --rose-fill: #d55181;
+  --rose-stroke: #e87ba4;
+  --rose-wash: rgba(213, 81, 129, 0.20);
+  --good: #0ca30c;
+  --good-text: #0ca30c;
+  --critical: #d03b3b;
+  --halo: #1a1a19;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 0;
+}
+.mono { font-family: "IBM Plex Mono", ui-monospace, "SF Mono", Consolas, monospace; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 48px; }
+
+header.top {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
+  padding: 26px 0 6px;
+}
+.wordmark {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 19px; font-weight: 600; letter-spacing: 0.14em;
+  margin: 0;
+}
+.wordmark .rose { color: var(--rose-stroke); }
+.subline { color: var(--ink2); font-size: 13px; }
+.top-right { margin-left: auto; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--border); border-radius: 999px;
+  padding: 3px 11px; font-size: 12px; color: var(--ink2);
+  background: var(--surface); white-space: nowrap;
+}
+.chip .mono { font-weight: 500; color: var(--ink); }
+#liveDot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex: none; }
+#liveDot.live { background: var(--good); }
+@media (prefers-reduced-motion: no-preference) {
+  #liveDot.live { animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: 0.35; } }
+}
+
+section { margin-top: 22px; }
+h2 {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink2); margin: 0 0 10px;
+}
+h2 .note { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--muted); margin-left: 8px; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px 12px; }
+.tile .label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.tile .value { font-size: 27px; font-weight: 600; margin-top: 2px; }
+.tile .value small { font-size: 15px; font-weight: 500; color: var(--ink2); }
+.tile .sub { font-size: 12px; color: var(--ink2); margin-top: 2px; }
+.tile.us { border-left: 3px solid var(--rose-stroke); }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--ink2); margin-bottom: 6px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.k-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+.k-diamond { width: 9px; height: 9px; background: var(--rose-fill); border: 1.5px solid var(--rose-stroke); transform: rotate(45deg); }
+.k-line { width: 16px; height: 0; border-top: 2px solid var(--blue); }
+#chart { width: 100%; }
+#chart svg { display: block; }
+.axis-label { fill: var(--muted); font-size: 11px; font-family: "IBM Plex Mono", monospace; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.baseline { stroke: var(--baseline); stroke-width: 1; }
+.dot-other { fill: var(--blue); opacity: 0.55; }
+.dot-other:hover { opacity: 1; }
+.mark-us { fill: var(--rose-fill); stroke: var(--rose-stroke); stroke-width: 1.5; }
+.frontier { stroke: var(--blue); stroke-width: 2; fill: none; }
+.mark-label { fill: var(--ink2); font-size: 11px; font-weight: 600; paint-order: stroke; stroke: var(--halo); stroke-width: 3px; }
+#tooltip {
+  position: absolute; pointer-events: none; display: none; z-index: 3;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+  padding: 7px 10px; font-size: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  max-width: 260px;
+}
+#tooltip .t1 { font-weight: 600; }
+#tooltip .t2 { color: var(--ink2); }
+.chart-holder { position: relative; }
+
+.grid2 { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 12px; align-items: start; }
+@media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th {
+  text-align: left; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); font-weight: 500; padding: 6px 8px; border-bottom: 1px solid var(--baseline);
+  white-space: nowrap;
+}
+th.num, td.num { text-align: right; }
+td { padding: 5px 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+td.num, .tab { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; font-size: 12.5px; }
+tr.us-row td { background: var(--rose-wash); }
+tr.us-row td:first-child { box-shadow: inset 3px 0 0 var(--rose-stroke); }
+.teamchip { font-weight: 600; }
+.filechip { color: var(--ink2); }
+.dim { color: var(--muted); }
+.prize { display: inline-block; border: 1px solid var(--baseline); border-radius: 4px; font-size: 10px; padding: 0 5px; margin-left: 6px; color: var(--ink2); vertical-align: 1px; }
+th.sortable { cursor: pointer; }
+th.sortable:hover { color: var(--ink); }
+th .arrow { font-size: 9px; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 10px; }
+select, button {
+  font: inherit; color: var(--ink); background: var(--surface);
+  border: 1px solid var(--baseline); border-radius: 6px; padding: 5px 10px;
+}
+button { cursor: pointer; }
+button:hover { border-color: var(--muted); }
+select:focus-visible, button:focus-visible, th.sortable:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
+.count { color: var(--muted); font-size: 12px; }
+
+.status { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; }
+.status .ic { font-size: 12px; }
+.status.ok .ic { color: var(--good); }
+.status.ok { color: var(--good-text); }
+.status.bad .ic, .status.bad { color: var(--critical); }
+.status.wait { color: var(--muted); }
+
+footer { margin-top: 30px; padding-top: 12px; border-top: 1px solid var(--grid); color: var(--muted); font-size: 12px; line-height: 1.6; }
+footer .mono { font-size: 11px; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1 class="wordmark">TAXI-OUT <span class="rose">RACE</span></h1>
+    <span class="subline">PRC Data Challenge 2026 · team unique-rose</span>
+    <div class="top-right">
+      <span class="chip" id="deadlineChip" title=""><span class="mono" id="deadlineText">—</span>&nbsp;to deadline</span>
+      <span class="chip"><span id="liveDot"></span><span id="liveText">snapshot</span>&nbsp;·&nbsp;<span id="updatedText" class="mono">—</span></span>
+    </div>
+  </header>
+
+  <section class="stats" id="stats"></section>
+
+  <section>
+    <h2>The race so far <span class="note">every scored submission · lower RMSE is better</span></h2>
+    <div class="card chart-holder">
+      <div class="legend">
+        <span><span class="k-dot"></span>other teams</span>
+        <span><span class="k-diamond"></span>unique-rose</span>
+        <span><span class="k-line"></span>leading score</span>
+      </div>
+      <div id="chart"></div>
+      <div id="tooltip"></div>
+    </div>
+  </section>
+
+  <div class="grid2">
+    <section>
+      <h2>Leaderboard <span class="note">rank = best RMSE per team</span></h2>
+      <div class="card tablewrap" id="leaderboard"></div>
+    </section>
+    <section>
+      <h2>Our submissions</h2>
+      <div class="card tablewrap" id="ours"></div>
+    </section>
+  </div>
+
+  <section>
+    <h2>All submissions</h2>
+    <div class="card">
+      <div class="controls">
+        <label for="teamFilter" class="count">team</label>
+        <select id="teamFilter"></select>
+        <button id="oursBtn" type="button">unique-rose only</button>
+        <span class="count" id="feedCount"></span>
+      </div>
+      <div class="tablewrap" id="feed"></div>
+      <div style="margin-top:10px"><button id="moreBtn" type="button" hidden>Show 100 more</button></div>
+    </div>
+  </section>
+
+  <footer>
+    Sources: the competition leaderboard API at datacomp.opensky-network.org and the
+    <span class="mono">prc-2026-unique-rose</span> bucket. Data refreshes live when the store is updated —
+    regenerate with <span class="mono">pipeline/dashboard_data.py</span> and ask Claude to push it.
+    Page source: <span class="mono">dashboard/</span> in the team repo.
+  </footer>
+</div>
+
+<script>
+const BOOTSTRAP = __BOOTSTRAP__;
+const TEAM = "unique-rose";
+
+const state = {
+  meta: BOOTSTRAP.meta,
+  leaderboard: BOOTSTRAP.leaderboard,
+  teams: BOOTSTRAP.teams,
+  ours: BOOTSTRAP.ours,
+  feed: BOOTSTRAP.feed,
+};
+const ui = { filter: "", sortKey: "processedAt", sortDir: -1, shown: 100 };
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmtScore = (v) => (v == null ? "—" : Number(v).toFixed(2));
+const fmtInt = (v) => (v == null ? "—" : Number(v).toLocaleString("en-US"));
+const version = (f) => { const m = /_v(\d+)\.parquet$/.exec(f || ""); return m ? "v" + m[1] : f; };
+const fmtAbs = (iso) => new Date(iso).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
+function fmtRel(iso) {
+  const s = (Date.now() - new Date(iso)) / 1000;
+  if (s < 90) return "just now";
+  if (s < 5400) return Math.round(s / 60) + " min ago";
+  if (s < 129600) return Math.round(s / 3600) + " h ago";
+  return Math.round(s / 86400) + " d ago";
+}
+
+function feedRows() {
+  const rows = [];
+  for (const chunk of state.feed) {
+    const c = chunk.columns;
+    for (const r of chunk.rows) {
+      const o = {};
+      c.forEach((k, i) => (o[k] = r[i]));
+      rows.push(o);
+    }
+  }
+  return rows;
+}
+
+function renderStats() {
+  const teams = state.leaderboard.teams;
+  const us = teams.find((t) => t.name === TEAM);
+  const usRank = us ? teams.indexOf(us) + 1 : null;
+  const podium = teams[2];
+  const rows = feedRows();
+  const lastAt = rows.length ? rows.map((r) => r.processedAt).sort().at(-1) : null;
+  const gap = us && podium ? us.best - podium.best : null;
+  $("stats").innerHTML = `
+    <div class="tile us">
+      <div class="label">Our best RMSE</div>
+      <div class="value tab">${us ? fmtScore(us.best) : "—"}<small> s</small></div>
+      <div class="sub">${us ? esc(version(us.bestFile)) + " · " + us.count + " scored" : "no scored submission yet"}</div>
+    </div>
+    <div class="tile">
+      <div class="label">Rank</div>
+      <div class="value tab">${usRank ?? "—"}<small> / ${teams.length} scoring</small></div>
+      <div class="sub">${fmtInt(state.meta.registeredTeams)} teams registered · leader ${esc(teams[0].name)} at ${fmtScore(teams[0].best)} s</div>
+    </div>
+    <div class="tile">
+      <div class="label">Gap to podium</div>
+      <div class="value tab">${gap == null ? "—" : "+" + fmtScore(gap)}<small> s</small></div>
+      <div class="sub">#3 ${podium ? esc(podium.name) + " · " + fmtScore(podium.best) + " s" : "—"}</div>
+    </div>
+    <div class="tile">
+      <div class="label">Board activity</div>
+      <div class="value tab">${fmtInt(state.meta.submissionCount)}<small> scored</small></div>
+      <div class="sub">${lastAt ? "latest " + fmtRel(lastAt) : ""}</div>
+    </div>`;
+}
+
+function renderLeaderboard() {
+  const teams = state.leaderboard.teams;
+  const lead = teams[0]?.best;
+  const roster = new Map((state.teams?.teams || []).map((t) => [t.name, t]));
+  $("leaderboard").innerHTML = `<table>
+    <thead><tr><th class="num">#</th><th>team</th><th>country</th><th class="num">best rmse</th><th class="num">Δ leader</th><th class="num">subs</th><th class="num">last active</th></tr></thead>
+    <tbody>${teams.map((t, i) => `
+      <tr${t.name === TEAM ? ' class="us-row"' : ""}>
+        <td class="num">${i + 1}${i < 3 ? '<span class="prize">prize</span>' : ""}</td>
+        <td class="teamchip">${esc(t.name)}</td>
+        <td class="dim">${esc(roster.get(t.name)?.country ?? "—")}</td>
+        <td class="num" title="${esc(t.bestFile)}">${fmtScore(t.best)}</td>
+        <td class="num dim">${i === 0 ? "—" : "+" + fmtScore(t.best - lead)}</td>
+        <td class="num">${t.count}</td>
+        <td class="num dim" title="${fmtAbs(t.lastAt)}">${fmtRel(t.lastAt)}</td>
+      </tr>`).join("")}
+    </tbody></table>
+    <div class="count" style="margin-top:8px">${fmtInt((state.meta.registeredTeams ?? teams.length) - teams.length)} more teams are registered but have not scored yet.</div>`;
+}
+
+function renderOurs() {
+  const items = state.ours.items || [];
+  if (!items.length) {
+    $("ours").innerHTML = '<div class="dim">No uploads in the bucket yet.</div>';
+    return;
+  }
+  const chip = (s) =>
+    s === "Succeeded" ? '<span class="status ok"><span class="ic">✓</span>scored</span>'
+    : s === "Pending" ? '<span class="status wait"><span class="ic">◌</span>pending</span>'
+    : `<span class="status bad"><span class="ic">✕</span>${esc(String(s).toLowerCase())}</span>`;
+  $("ours").innerHTML = `<table>
+    <thead><tr><th>file</th><th>status</th><th class="num">rmse</th><th class="num">pairs used</th><th class="num">uploaded</th></tr></thead>
+    <tbody>${items.map((it) => `
+      <tr>
+        <td class="filechip tab">${esc(it.file)}</td>
+        <td>${chip(it.status)}</td>
+        <td class="num">${fmtScore(it.score)}</td>
+        <td class="num dim">${fmtInt(it.usedPairs)}</td>
+        <td class="num dim" title="${fmtAbs(it.uploadedAt)}">${fmtRel(it.uploadedAt)}</td>
+      </tr>`).join("")}
+    </tbody></table>`;
+}
+
+function renderFeed() {
+  const all = feedRows();
+  const teams = [...new Set(all.map((r) => r.team))].sort();
+  const sel = $("teamFilter");
+  const prev = ui.filter;
+  sel.innerHTML = '<option value="">All teams</option>' + teams.map((t) => `<option${t === prev ? " selected" : ""} value="${esc(t)}">${esc(t)}</option>`).join("");
+
+  let rows = prev ? all.filter((r) => r.team === prev) : all;
+  const dir = ui.sortDir, key = ui.sortKey;
+  rows = rows.slice().sort((a, b) => (a[key] > b[key] ? dir : a[key] < b[key] ? -dir : 0));
+  $("feedCount").textContent = `${rows.length.toLocaleString("en-US")} submissions`;
+
+  const arrow = (k) => (k === key ? `<span class="arrow">${dir === 1 ? "▲" : "▼"}</span>` : "");
+  const shown = rows.slice(0, ui.shown);
+  $("feed").innerHTML = `<table>
+    <thead><tr>
+      <th class="sortable" data-key="processedAt" tabindex="0">scored ${arrow("processedAt")}</th>
+      <th class="sortable" data-key="team" tabindex="0">team ${arrow("team")}</th>
+      <th>file</th>
+      <th class="sortable num" data-key="score" tabindex="0">rmse ${arrow("score")}</th>
+      <th class="num">pairs used</th>
+    </tr></thead>
+    <tbody>${shown.map((r) => `
+      <tr${r.team === TEAM ? ' class="us-row"' : ""}>
+        <td class="dim tab" title="${fmtAbs(r.processedAt)}">${fmtRel(r.processedAt)}</td>
+        <td class="teamchip">${esc(r.team)}</td>
+        <td class="filechip tab">${esc(r.file)}</td>
+        <td class="num">${fmtScore(r.score)}</td>
+        <td class="num dim">${fmtInt(r.usedPairs)}</td>
+      </tr>`).join("")}
+    </tbody></table>`;
+  $("moreBtn").hidden = rows.length <= ui.shown;
+  $("feed").querySelectorAll("th.sortable").forEach((th) => {
+    const go = () => {
+      const k = th.dataset.key;
+      if (ui.sortKey === k) ui.sortDir *= -1;
+      else { ui.sortKey = k; ui.sortDir = k === "team" ? 1 : -1; }
+      renderFeed();
+    };
+    th.addEventListener("click", go);
+    th.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+  });
+}
+
+function renderChart() {
+  const holder = $("chart");
+  const rows = feedRows().slice().sort((a, b) => (a.processedAt < b.processedAt ? -1 : 1));
+  if (!rows.length) { holder.innerHTML = ""; return; }
+  const W = Math.max(holder.clientWidth || 600, 320), H = 300;
+  const m = { l: 52, r: 18, t: 14, b: 30 };
+  const t0 = +new Date(rows[0].processedAt), t1 = Math.max(+new Date(rows.at(-1).processedAt), t0 + 1);
+  const scores = rows.map((r) => r.score);
+  let yMin = Math.min(...scores), yMax = Math.max(...scores);
+  const pad = (yMax - yMin) * 0.06 || 10;
+  yMin = Math.floor((yMin - pad) / 50) * 50; yMax = Math.ceil((yMax + pad) / 50) * 50;
+  const X = (t) => m.l + ((t - t0) / (t1 - t0)) * (W - m.l - m.r);
+  const Y = (v) => m.t + ((yMax - v) / (yMax - yMin)) * (H - m.t - m.b);
+
+  let g = "";
+  const step = (yMax - yMin) > 300 ? 100 : 50;
+  for (let v = yMin; v <= yMax; v += step) {
+    g += `<line class="gridline" x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}"></line>` +
+         `<text class="axis-label" x="${m.l - 8}" y="${Y(v) + 3.5}" text-anchor="end">${v}</text>`;
+  }
+  const day = 86400000;
+  const firstDay = new Date(t0); firstDay.setHours(0, 0, 0, 0);
+  for (let t = +firstDay; t <= t1; t += day) {
+    if (t < t0 - day / 2) continue;
+    const x = X(Math.max(t, t0));
+    g += `<text class="axis-label" x="${x}" y="${H - 8}" text-anchor="${t <= t0 ? "start" : "middle"}">${new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric" })}</text>`;
+  }
+  g += `<line class="baseline" x1="${m.l}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}"></line>`;
+  g += `<text class="axis-label" transform="rotate(-90 12 ${H / 2})" x="12" y="${H / 2}" text-anchor="middle">RMSE (s)</text>`;
+
+  let best = Infinity, path = "";
+  for (const r of rows) {
+    const x = X(+new Date(r.processedAt));
+    if (r.score < best) {
+      path += path ? ` H ${x.toFixed(1)} V ${Y(r.score).toFixed(1)}` : `M ${x.toFixed(1)} ${Y(r.score).toFixed(1)}`;
+      best = r.score;
+    }
+  }
+  path += ` H ${W - m.r}`;
+  g += `<path class="frontier" d="${path}"></path>`;
+  g += `<text class="mark-label" x="${W - m.r}" y="${Y(best) - 7}" text-anchor="end">best ${fmtScore(best)}</text>`;
+
+  let dots = "", ours = "";
+  rows.forEach((r, i) => {
+    const x = X(+new Date(r.processedAt)), y = Y(r.score);
+    if (r.team === TEAM) {
+      const nearRight = x > W - m.r - 70;
+      ours += `<path class="mark-us" data-i="${i}" d="M ${x} ${y - 6.5} L ${x + 6.5} ${y} L ${x} ${y + 6.5} L ${x - 6.5} ${y} Z"></path>` +
+              `<text class="mark-label" x="${nearRight ? x - 10 : x}" y="${Math.max(y - 11, 12)}" text-anchor="${nearRight ? "end" : "middle"}">${esc(version(r.file))} · ${fmtScore(r.score)}</text>`;
+    } else {
+      dots += `<circle class="dot-other" data-i="${i}" cx="${x}" cy="${y}" r="3.5"></circle>`;
+    }
+  });
+
+  holder.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Scatter of every scored submission over time; lower RMSE is better">${g}${dots}${ours}</svg>`;
+
+  const tip = $("tooltip");
+  holder.querySelectorAll("[data-i]").forEach((el) => {
+    el.addEventListener("mousemove", (e) => {
+      const r = rows[+el.dataset.i];
+      tip.innerHTML = `<div class="t1">${esc(r.team)}</div><div class="t2 tab">${esc(r.file)}</div>` +
+        `<div class="tab">RMSE ${fmtScore(r.score)} s</div><div class="t2">${fmtAbs(r.processedAt)}</div>`;
+      tip.style.display = "block";
+      const box = holder.closest(".chart-holder").getBoundingClientRect();
+      let tx = e.clientX - box.left + 14, ty = e.clientY - box.top + 10;
+      tip.style.left = Math.min(tx, box.width - tip.offsetWidth - 6) + "px";
+      tip.style.top = Math.min(ty, box.height - tip.offsetHeight - 6) + "px";
+    });
+    el.addEventListener("mouseleave", () => { tip.style.display = "none"; });
+  });
+}
+
+function renderTop() {
+  $("updatedText").textContent = "data " + fmtRel(state.meta.updatedAt);
+  $("updatedText").title = fmtAbs(state.meta.updatedAt);
+  const ms = new Date(state.meta.deadlineUtc) - Date.now();
+  const d = Math.floor(ms / 86400000), h = Math.floor((ms % 86400000) / 3600000);
+  $("deadlineText").textContent = ms > 0 ? `${d}d ${String(h).padStart(2, "0")}h` : "closed";
+  $("deadlineChip").title = "Submissions close " + fmtAbs(state.meta.deadlineUtc);
+}
+
+function render() {
+  renderTop(); renderStats(); renderChart(); renderLeaderboard(); renderOurs(); renderFeed();
+}
+
+$("teamFilter").addEventListener("change", (e) => { ui.filter = e.target.value; ui.shown = 100; renderFeed(); });
+$("oursBtn").addEventListener("click", () => { ui.filter = TEAM; ui.shown = 100; renderFeed(); });
+$("moreBtn").addEventListener("click", () => { ui.shown += 100; renderFeed(); });
+let rsz;
+window.addEventListener("resize", () => { clearTimeout(rsz); rsz = setTimeout(renderChart, 150); });
+render();
+setInterval(renderTop, 60000);
+
+(async () => {
+  const db = await window.claude.use("db");
+  if (!db) return; // static snapshot remains
+  const live = () => { $("liveDot").classList.add("live"); $("liveText").textContent = "live"; };
+  const docSub = (path, key) =>
+    db.doc(path).onSnapshot((snap) => {
+      if (snap.exists) { state[key] = snap.data(); live(); render(); }
+    }, () => {});
+  docSub("dashboard/meta", "meta");
+  docSub("dashboard/leaderboard", "leaderboard");
+  docSub("dashboard/teams", "teams");
+  docSub("dashboard/ours", "ours");
+  db.collection("feed").onSnapshot((qs) => {
+    if (!qs.empty) {
+      state.feed = qs.docs.map((d) => d.data()).sort((a, b) => a.i - b.i);
+      live(); render();
+    }
+  }, () => {});
+})();
+</script>
