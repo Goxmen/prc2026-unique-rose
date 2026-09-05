@@ -102,6 +102,15 @@ mc mirror opensky/prc-2026-datasets/ data/
 
 The team MinIO keys are shared privately (ask a teammate) — never commit them.
 
+### Where credentials live (never in this repo)
+
+- **GitHub** — authenticated via the `gh` CLI (`gh auth login`); the token sits in
+  `~/.config/gh/hosts.yml` and `gh` acts as git's credential helper, so `git push`
+  needs no further setup. Check with `gh auth status`. No PATs are used.
+- **OpenSky MinIO** — keys in `~/.mc/config.json` (the `opensky` alias set above).
+
+`CLAUDE.md` documents this environment for AI coding agents.
+
 ### Repo layout
 
 - `data/` — parquet datasets, gitignored; refresh with `mc mirror` (see above). `data/FEATURES.md` documents the columns.
