@@ -11,7 +11,9 @@ local environment so a fresh agent session can work without rediscovery.
   The OAuth token lives in `~/.config/gh/hosts.yml`; verify with
   `gh auth status`. On gunes's WSL machine `gh` is at `~/.local/bin/gh`
   (add `~/.local/bin` to PATH); on macOS it's a Homebrew install on PATH.
-  There is no PAT anywhere.
+  There is also a GitHub PAT for this repo in `.env` at the repo root
+  (`GHP=...`) for direct API access when `gh` isn't available. `.env` is
+  gitignored — it must NEVER be committed (repo goes public later).
 - **Data (OpenSky MinIO)**: keys live in `~/.mc/config.json` under the alias
   `opensky` (endpoint `https://s3.opensky-network.org`). On WSL, `mc` is at
   `~/.local/bin/mc`. Datasets are NOT in git; sync with

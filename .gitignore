@@ -4,6 +4,12 @@ data/*
 *.parquet
 tmp
 
+# secrets — never track
+.env
+
+# WSL download-marker junk
+*:Zone.Identifier
+
 # Python
 __pycache__/
 *.pyc
