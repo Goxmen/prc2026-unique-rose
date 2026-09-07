@@ -1,0 +1,243 @@
+# What the harness found
+
+Written 2026-09-07, after the first three harness runs and submission v3.
+
+The short version: **this competition is not mainly a taxi-out prediction
+problem.** Roughly 60–80% of the RMSE is decided by about a hundred rows whose
+labels are corrupt, most of them at Rome Fiumicino, and the biggest single score
+improvement available came from letting those rows into training rather than
+from any feature or model change. Official score went 533.38 → 405.70 on the
+back of 546 extra training rows.
+
+Everything below is reproducible from the scripts in this directory.
+
+---
+
+## 1. Phase 0 audit (`audit.py`)
+
+**The availability contract is exactly as documented.** In `ranking.parquet`,
+only `BLOCK_TIME_UTC_mvt` and `TAXITIME_SEC_mvt` are blank for DEP rows.
+Everything else survives: takeoff time, runway, stand at 100%, all `_flt`
+columns at 98.5%. Arrival rows are fully populated, taxi-in labels included.
+
+**`AOBT_3_flt` is not a leak.** This mattered: if the flown-trajectory actual
+off-block reproduced the true off-block, `mvt_minus_aobt3_sec` would be the
+target itself and the whole harness would be measuring noise. It doesn't.
+
+| estimate | coverage | exact match | within 60 s | median abs err | p90 abs err |
+|---|---|---|---|---|---|
+| `AOBT_3_flt` | 98.9% | **0.7%** | 21.0% | 175 s | 513 s |
+| `EOBT_1_flt` | 98.9% | 0.5% | 12.7% | 303 s | 1075 s |
+| `LOBT_flt` | 98.9% | 0.4% | 11.3% | 359 s | 1143 s |
+| `SCHED_TIME_UTC_mvt` | 100% | 0.4% | 9.6% | 481 s | 2399 s |
+
+**`MVT_ID_mvt` correlates 0.991 with time** across all 4,167,797 rows. It is not
+in the feature set and must stay out. It also has to be stripped before any
+adversarial validation, or it will separate 2025 from 2026 on its own.
+
+**The target is violently heavy-tailed.** 2,085,047 departures, mean 991 s,
+sd 546 s, but p99 = 2,339 s and p99.9 = 4,501 s. **The worst 1% of rows carry
+58.1% of the total squared error.** No duplicate movement IDs.
+
+**Scoring weights**: Jan 2026 = 152,719 rows (44.29%), Jul 2026 = 192,122
+(55.71%). July is the larger half.
+
+---
+
+## 2. The corrupt labels
+
+### What they are
+
+584 departures in 2025 have a taxi-out over 7,200 s. Sorted by size, the largest
+look like a clean off-by-one-day bug — block time and takeoff at nearly the same
+clock time, one day apart:
+
+```
+block 2025-07-20 08:00:04   takeoff 2025-07-21 08:28:56   -> "taxi-out" 88,132 s
+block 2025-12-27 18:14:57   takeoff 2025-12-28 18:35:02   -> "taxi-out" 87,605 s
+```
+
+**But that pattern does not generalise**, and it is worth recording that it was
+tested and rejected:
+
+| offset from a whole number of days | rows | plausible taxi-out after subtracting |
+|---|---|---|
+| ~0 days (7,202–42,661 s) | 550 | — no day structure at all |
+| ~1 day | 33 | only 14 |
+| ~2 days | 1 | 0 |
+
+So a "subtract 24 h" repair covers 14 of 584 rows. More fundamentally, repairing
+labels cannot help: the corruption is in the ground truth we are **graded
+against**, not only in training. Predicting the true 1,200 s on a row labelled
+87,600 s eats the full squared error. The corruption is unfixable — it is only
+hedgeable.
+
+### Where they live
+
+| group | rows | rate > 7200 s | mean taxi |
+|---|---|---|---|
+| LIRF, **no** flight-plan match | 1,488 | **29.5%** | **6,531 s** |
+| LIRF, with flight-plan match | 159,216 | 0.026% | 1,145 s |
+| all monsters | 584 | — | 82.4% have `AOBT_3_flt` NULL |
+| all normal rows | 2,084,463 | — | 1.05% have `AOBT_3_flt` NULL |
+
+LIRF alone has sd 1,332 s against 302–453 s at every other airport.
+
+### They are in the 2026 ground truth
+
+Departure labels for the test months are hidden, but **arrival** taxi-ins are
+populated in `ranking.parquet`. They still carry the artifact: a 50,517 s
+arrival at LFPG in Jan 2026, 41,885 s at LIRF in Jul 2026, 13 LIRF arrivals over
+two hours in July. The organizers did not clean this.
+
+And the risky departures are identifiable in the scored set: **107 rows in Jan
+2026 and 276 in Jul 2026** are LIRF departures with no flight-plan match.
+
+### How much of the score they own
+
+From the saved OOF predictions of the `baseline-tail` run:
+
+| fold | rows > 7200 s | share of rows | share of squared error | RMSE | RMSE without them |
+|---|---|---|---|---|---|
+| `dec_jan26` | 38 | 0.023% | **61.8%** | 362.9 | 224.4 |
+| `jul_stale` | 120 | 0.063% | **79.2%** | 625.8 | 285.2 |
+
+LIRF is 7.3% of December rows and 67.5% of its squared error; 8.0% of July rows
+and 83.9% of its squared error.
+
+The apparent "July is catastrophically harder than December" gap — 626 vs 363 —
+is mostly these rows. On non-corrupt flights the gap is 285 vs 224.
+
+---
+
+## 3. The experiment that mattered
+
+`MAX_TAXI_SEC = 7200` removed the corrupt rows from training while leaving them
+in the test. Under squared loss the optimal prediction is the conditional mean
+*including* tail mass, so the filter was suppressing the only signal that pays.
+
+`--max-taxi-sec 200000` (run `keep-tail`, id `20260907T000018Z`):
+
+| fold | baseline-tail | keep-tail | delta | paired SE | verdict |
+|---|---|---|---|---|---|
+| `apr` | 297.38 | 272.45 | −25.2 | 17.8 | tie |
+| `aug` | 400.88 | 316.84 | −85.9 | 27.3 | **wins** |
+| `oct` | 266.38 | 259.76 | −8.8 | 8.5 | tie |
+| `dec_jan26` | 362.55 | 296.94 | −66.4 | 23.8 | **wins** |
+| `jul_stale` | 625.04 | 547.46 | −77.3 | 21.9 | **wins** |
+| `jul_fresh` | 620.63 | 545.09 | −75.3 | 21.9 | **wins** |
+| **pooled projection** | **526.05** | **454.66** | **−71.4** | | |
+
+December's training set grew from 1,918,459 to 1,919,005 rows. **546 rows,
+0.03% more data, worth 71 seconds.**
+
+**Use a paired bootstrap, not the `boot se` column, to compare two models.**
+`boot se` (65–70 s on the rehearsals) is the uncertainty of an absolute level.
+Two models scored on identical rows share their tail draws, so the SE of the
+difference is ~22 s and these results are real at z ≈ −3.
+
+### What it costs
+
+`ex-tail` gets worse everywhere — `jul_stale` goes 284.9 → 358.4. The model
+hedges toward corruption and predicts real flights less well. We are fitting a
+partly corrupt label set because that is what is scored. This should be stated
+plainly in any writeup of the method.
+
+### How safe the bet is
+
+Break-even if 2026 has less corruption than 2025:
+
+- **January: profitable down to 7.4%** of 2025's rate — robust.
+- **July: profitable down to 34.2%** — thin, and July is 55.7% of the score.
+
+---
+
+## 4. The staleness thesis does not survive
+
+`ch07-prc-validation.html` built its central argument on July 2026's rolling
+features being six months stale. Measured as the paired difference
+`jul_stale − jul_fresh`, that costs:
+
+| run | staleness penalty |
+|---|---|
+| `baseline` | +5.25 s (sd 0.11) |
+| `baseline-tail` | +4.40 s (sd 0.32) |
+| `keep-tail` | +2.37 s (sd 0.22) |
+
+Under 1% of the fold RMSE, and shrinking as the model gets better.
+
+**Why**: the top stale-able feature by gain is `stand_taxi_90d` — how long it
+takes to get from a given stand to the runway. That is airport **geometry**, and
+geometry does not drift over six months. The plan assumed the useful rolling
+features would be behavioural (operator habits, which do drift); they are
+physical. The freeze rule is still correct and costs nothing to keep, but it is
+not where the difficulty lives.
+
+---
+
+## 5. Leaderboard, and whether the harness predicts it
+
+| submission | model | official RMSE |
+|---|---|---|
+| v1 | airport-mean baseline | 661.57 |
+| v2 | LightGBM on raw columns (`train.py`, 3000 rounds) | 533.38 |
+| **v3** | harness `keep-tail` config via `submit.py` | **405.70** |
+
+Position: **#37 of 59 scored teams** (275 registered) at the time of writing.
+
+**Calibration.** v3 is the first genuine paired point — same config, same code
+path as harness run `20260907T000018Z`:
+
+```
+local pooled projection   454.66
+official                  405.70
+offset                    -48.96
+```
+
+The harness was **pessimistic by 49 s (10.8%)**. That is the expected direction:
+of the three biases printed with the projection, the dominant one is that
+`jul_stale` trains on 6 months while the real model gets 12. One point is not a
+calibration — record two more with `log_official.py` before trusting an offset.
+
+For reference, `baseline-tail` projected 526.05 and the nearest real model (v2)
+scored 533.38, within 1.4%. Not controlled — v2 has no time features and used
+3000 rounds — but it points the same way.
+
+---
+
+## 6. Corrections to earlier work in this repo
+
+- **`ch07-prc-validation.html` says 11 airports. There are 10** (EDDF, EDDM,
+  EGLL, EHAM, LEBL, LEMD, LFPG, LIRF, LSZH, LTFM). The top-level README is right.
+- The same page cites the simulation as `viz/ch07-prc-validation.py`; it lives in
+  `VALIDATION/`.
+- **`eda/eda_distributions.py:78` hard-clips the taxi-out histogram at 60
+  minutes** (`np.clip(mins, 0, 60)`, `set_xlim(0, 61)`). The clip is named in the
+  axis label, but a 24-hour taxi-out and a 61-minute one land in the same bar, and
+  no other panel in that script looks past p90. The rows that own most of the
+  RMSE were outside the field of view of the entire distributions pass. Worth a
+  fix before the repo goes public.
+- `train.py` uses 3000 boosting rounds; the harness and `submit.py` use 800.
+  Keep them aligned or the harness is ranking a different model than you ship.
+
+---
+
+## 7. Open questions
+
+- **`--fpl-flag` is wired but never run.** `has_flight_plan` makes the
+  flight-plan match explicit instead of leaving it as a NaN inside
+  `mvt_minus_aobt3_sec`. Expect little effect at the default filter — those rows
+  are not in training to learn from — and more at `--max-taxi-sec 200000`. The
+  interesting cell is the interaction, so run the 2×2, not two A/Bs.
+- **`--train-months N`** (fixed rolling training window) is implemented and
+  unused. With expanding windows the iterate folds train on 3, 7 and 9 months, so
+  their scores are not comparable to each other and an idea ranking learned at 3
+  months may not hold at 12. With only 2025 available you can have a fixed length,
+  a seasonal spread, or a length near the real 12 months — any two, never all three.
+- **`--lag-train-days`** (train on staleness-matched features) is implemented and
+  unused. Low priority now that staleness measures under 1%.
+- **Nothing has been done about LIRF specifically** beyond letting the tail into
+  training. Given it owns 67–84% of the squared error, a Rome-specific model or
+  an explicit corruption-probability model is probably the largest remaining lever.
+- **Adversarial validation has not been run at all** (Phase 1 of the original
+  plan). Strip `MVT_ID_mvt` first.
