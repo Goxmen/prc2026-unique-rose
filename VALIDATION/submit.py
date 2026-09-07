@@ -1,140 +1,142 @@
-"""Train the harness-validated configuration on all of 2025 and fill a submission.
+"""Refit protocol v3 on all of 2025 and fill the official submission template.
 
-This is the harness's model, not train.py's: the time features from
-features_time.py, and the training filter that keep-tail showed is worth ~71 s
-of pooled projection. train.py predates both and is left alone.
-
-The one thing that needs care here is the feature horizon. Departure taxi-out
-labels stop at 2025-12-31 and never resume, so the STALE_ABLE windows are frozen
-there — exactly as jul_stale rehearsed. But arrival taxi-ins and all movement
-timestamps ARE present in ranking.parquet for both test months, so those tables
-are built from 2025 *plus* the ranking rows and stay current. Getting that wrong
-in either direction is the difference between the score you rehearsed and a
-surprise.
-
-Run: .venv/bin/python VALIDATION/submit.py --version 3
+--run-id loads a completed v3 experiment's model configuration and checks any
+explicit overrides. Uploading remains a separate mc cp command.
 """
 
 import argparse
-import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-import lightgbm as lgb
 import numpy as np
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
-from tqdm import tqdm
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "pipeline"))
-sys.path.insert(0, str(ROOT / "VALIDATION"))
-from common import (  # noqa: E402
-    CATEGORICAL, MIN_TAXI_SEC, RANKING, RAW_COLS, SUBMISSIONS, TEAM, TEMPLATE,
-    TRAIN_GLOB, connect,
-)
-from features_time import TimeFeatures  # noqa: E402
-from harness import PARAMS, TAIL_SEC, as_categorical, matrix  # noqa: E402
+from common import RANKING, RAW_COLS, SUBMISSIONS, TEAM, TEMPLATE, connect
+from harness import load
+from modeling import (PARAMS, training_matrix, validation_matrix, choose_rounds,
+                      fit_booster, predict, month_rows)
+from protocol import VERSION, SCORE_VERSION, MAX_TAXI_SEC
+from records import read_run, write_json, sha256, MODEL_FILES
 
-FREEZE = "2025-12-31"  # last day a departure taxi-out will ever be known
+FREEZE = "2025-12-31"
+DEFAULTS = {"max_taxi_sec": MAX_TAXI_SEC, "rounds": 800, "fpl_flag": False,
+            "lag_train_days": 0, "early_stopping_rounds": 0, "threads": 8}
 
 
-def main():
-    ap = argparse.ArgumentParser()
+def resolve_config(args):
+    run = read_run(args.run_id)[0] if args.run_id else None
+    if run and (run.get("protocol") != VERSION or run.get("status") != "complete"):
+        raise ValueError("--run-id must identify a completed v3 experiment")
+    if run and run["config"]["sample"] != 1:
+        raise ValueError("a sampled/smoke run cannot establish a submission recipe")
+    config = {}
+    for name, default in DEFAULTS.items():
+        reference = run["config"].get(name, default) if run else default
+        explicit = getattr(args, name)
+        if run and explicit is not None and explicit != reference:
+            raise ValueError(f"--{name.replace('_', '-')} differs from the linked validation run")
+        config[name] = reference if explicit is None else explicit
+    seed = args.seed if args.seed is not None else (run["config"]["seeds"][0] if run else 42)
+    if run:
+        if seed not in run["config"]["seeds"]:
+            raise ValueError("submission seed was not evaluated in the linked run")
+        for name in MODEL_FILES:
+            if run["source"]["files"].get(name) != sha256(ROOT / name):
+                raise ValueError(f"{name} changed since validation; validate the current model code first")
+        if run["config"]["params"] != PARAMS:
+            raise ValueError("LightGBM parameters changed since validation")
+    if config["rounds"] < 1 or config["max_taxi_sec"] < 1:
+        raise ValueError("rounds and training-label ceiling must be positive")
+    if any(config[k] < 0 for k in ["lag_train_days", "early_stopping_rounds", "threads"]):
+        raise ValueError("lag, early-stopping patience and threads must be nonnegative")
+    return config, seed, run
+
+
+def fill_template(template, movement_ids, predictions):
+    ids = pd.Index(movement_ids)
+    wanted = pd.Index(template.column("MVT_ID_mvt").to_pandas())
+    values = np.asarray(predictions, dtype=float)
+    if ids.hasnans or not ids.is_unique or wanted.hasnans or not wanted.is_unique:
+        raise ValueError("submission IDs must be nonmissing and unique")
+    if len(ids) != len(wanted) or len(values) != len(ids) or set(ids) != set(wanted):
+        raise ValueError("ranking and template IDs/row counts do not match")
+    if not np.isfinite(values).all():
+        raise ValueError("nonfinite submission predictions")
+    ordered = pd.Series(np.maximum(values, 0), index=ids).reindex(wanted).to_numpy()
+    rounded = np.rint(ordered)
+    if (rounded > np.iinfo(np.int32).max).any():
+        raise ValueError("prediction exceeds the template's int32 range")
+    field = template.schema.field("TAXITIME_SEC_mvt")
+    out = template.set_column(template.schema.get_field_index(field.name), field,
+                              pa.array(rounded.astype(np.int32), type=field.type))
+    if not out.schema.equals(template.schema):
+        raise ValueError("submission schema drifted from template")
+    return out
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--version", type=int, required=True, help="N in unique-rose_vN.parquet")
-    ap.add_argument("--max-taxi-sec", type=int, default=200_000,
-                    help="training filter ceiling; 200000 is the keep-tail setting")
-    ap.add_argument("--rounds", type=int, default=800, help="match the harness so the score transfers")
-    ap.add_argument("--seed", type=int, default=42)
-    ap.add_argument("--fpl-flag", action="store_true", help="only if the harness showed it helps")
-    ap.add_argument("--run-id", default="", help="harness run this reproduces; goes in the log")
-    args = ap.parse_args()
-
-    con = connect()
-    print("loading 2025…")
-    dep = con.sql(f"""SELECT TAXITIME_SEC_mvt AS taxi_sec, {RAW_COLS}
-        FROM read_parquet('{TRAIN_GLOB}')
-        WHERE PHASE_mvt = 'DEP' AND TAXITIME_SEC_mvt IS NOT NULL""").df()
-    arr = con.sql(f"""SELECT TAXITIME_SEC_mvt AS taxi_sec, ADES_mvt, MVT_TIME_UTC_mvt
-        FROM read_parquet('{TRAIN_GLOB}')
-        WHERE PHASE_mvt = 'ARR' AND TAXITIME_SEC_mvt IS NOT NULL""").df()
-    print("loading ranking…")
-    rank = con.sql(f"""SELECT MVT_ID_mvt AS mvt_id, {RAW_COLS}
-        FROM read_parquet('{RANKING}') WHERE PHASE_mvt = 'DEP'""").df()
-    rank_arr = con.sql(f"""SELECT TAXITIME_SEC_mvt AS taxi_sec, ADES_mvt, MVT_TIME_UTC_mvt
-        FROM read_parquet('{RANKING}')
-        WHERE PHASE_mvt = 'ARR' AND TAXITIME_SEC_mvt IS NOT NULL""").df()
-    print(f"  2025 dep {len(dep):,} | 2025 arr {len(arr):,} | "
-          f"ranking dep {len(rank):,} | ranking arr {len(rank_arr):,}")
-
-    # Robust range for the aggregate tables; the tunable filter is training-only.
-    agg_dep = dep["taxi_sec"].between(MIN_TAXI_SEC, TAIL_SEC).to_numpy()
-    arr_all = pd.concat([arr, rank_arr], ignore_index=True)
-    agg_arr = arr_all["taxi_sec"].between(MIN_TAXI_SEC, TAIL_SEC).to_numpy()
-    tf = TimeFeatures(
-        dep[agg_dep],                       # taxi-out windows: 2025 only, frozen below
-        arr_all[agg_arr],                   # taxi-in windows: current through Jul 2026
-        dep_events=pd.concat([dep, rank], ignore_index=True),
-        arr_events=arr_all,
-    )
-    freeze_day = int((pd.Timestamp(FREEZE) - pd.Timestamp("2025-01-01")).days)
-    print(f"feature tables span {tf.n_days} days; taxi-out windows frozen at {FREEZE} (day {freeze_day})")
-
-    keep = dep["taxi_sec"].between(MIN_TAXI_SEC, args.max_taxi_sec).to_numpy()
-    print(f"training on {keep.sum():,} departures (filter <= {args.max_taxi_sec}s)")
-    X_tr = matrix(dep[keep], tf, freeze_day=None, fpl_flag=args.fpl_flag)
-    X_rk = matrix(rank, tf, freeze_day=freeze_day, fpl_flag=args.fpl_flag)
-    X_tr, X_rk = as_categorical(X_tr, X_rk)
-    y = dep.loc[keep, "taxi_sec"].to_numpy(float)
-
-    params = dict(PARAMS, seed=args.seed, bagging_seed=args.seed + 1,
-                  feature_fraction_seed=args.seed + 2)
-    bar = tqdm(total=args.rounds, desc="fit 2025", unit="rnd")
-    booster = lgb.train(params, lgb.Dataset(X_tr, y, categorical_feature=CATEGORICAL),
-                        num_boost_round=args.rounds,
-                        callbacks=[lambda e: bar.update(e.iteration + 1 - bar.n)])
-    bar.close()
-
-    chunk = 20_000
-    pred = np.clip(np.concatenate([
-        booster.predict(X_rk.iloc[i:i + chunk])
-        for i in tqdm(range(0, len(X_rk), chunk), desc="predict", unit="chunk")
-    ]), 0, None)
-    rank["pred"] = pred
-
-    template = pq.read_table(TEMPLATE)
-    ids = template.column("MVT_ID_mvt").to_pandas()
-    filled = ids.map(rank.set_index("mvt_id")["pred"])
-    assert len(ids) == len(rank), f"template {len(ids)} rows vs ranking {len(rank)}"
-    assert not filled.isna().any(), "some template MVT_IDs got no prediction"
-    out = template.set_column(
-        template.schema.get_field_index("TAXITIME_SEC_mvt"), "TAXITIME_SEC_mvt",
-        pa.array(np.rint(filled).astype(np.int32), type=pa.int32()))
-    assert out.schema.equals(template.schema), "schema drifted from the template"
-
-    SUBMISSIONS.mkdir(exist_ok=True)
+    ap.add_argument("--run-id", default="", help="completed v3 run ID or result.json; inherit its recipe")
+    ap.add_argument("--max-taxi-sec", type=int, help="default 200000 or linked run's ceiling")
+    ap.add_argument("--rounds", type=int, help="default 800 or linked run's fixed count/inner cap")
+    ap.add_argument("--seed", type=int, help="default 42 or the linked run's first seed")
+    ap.add_argument("--fpl-flag", action="store_true", default=None)
+    ap.add_argument("--lag-train-days", type=int)
+    ap.add_argument("--early-stopping-rounds", type=int, help="inner Jan-Nov fit / December selection")
+    ap.add_argument("--threads", type=int)
+    args = ap.parse_args(argv)
+    if args.version < 1:
+        ap.error("--version must be positive")
+    config, seed, run = resolve_config(args)
     dest = SUBMISSIONS / f"{TEAM}_v{args.version}.parquet"
+    if dest.exists():
+        raise ValueError(f"{dest} already exists; choose the next submission version")
+    con = connect()
+    dep, arr = load(con, 1.0)
+    rank = con.sql(f"""SELECT MVT_ID_mvt mvt_id, {RAW_COLS}
+        FROM read_parquet('{RANKING}') WHERE PHASE_mvt = 'DEP'""").df()
+    rank_arr = con.sql(f"""SELECT TAXITIME_SEC_mvt taxi_sec, ADES_mvt, MVT_TIME_UTC_mvt
+        FROM read_parquet('{RANKING}') WHERE PHASE_mvt = 'ARR'""").df()
+    con.close()
+    if run:
+        # Prevent a validated recipe from silently moving onto another dataset.
+        for source in run["data_identity"]:
+            path = ROOT / "data" / source["file"]
+            if not path.is_file() or sha256(path) != source["sha256"]:
+                raise ValueError(f"dataset changed since validation: {source['file']}")
+    rounds, inner = choose_rounds(dep, arr, seed, config, FREEZE)
+    X, y, cats = training_matrix(dep, arr, config)
+    booster = fit_booster(X, y, seed, rounds, config, "refit all 2025")
+    prediction = pd.Series(index=rank.index, dtype=float)
+    # Each released month is an island; do not let one prediction batch supply
+    # unavailable intermediate history to another.
+    for month in sorted(pd.to_datetime(rank.MVT_TIME_UTC_mvt).dt.strftime("%Y-%m").unique()):
+        part = month_rows(rank, month)
+        V = validation_matrix(dep, arr, part, month_rows(rank_arr, month), FREEZE, cats, config)
+        prediction.loc[part.index] = predict(booster, V)
+    out = fill_template(pq.read_table(TEMPLATE), rank.mvt_id, prediction.to_numpy())
+    SUBMISSIONS.mkdir(exist_ok=True)
     pq.write_table(out, dest)
-    meta = {
+    booster.save_model(str(dest.with_suffix(".model.txt")))
+    write_json(dest.with_suffix(".meta.json"), {
+        "protocol": VERSION, "score_version": SCORE_VERSION,
         "written_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "harness_run_id": args.run_id, "max_taxi_sec": args.max_taxi_sec,
-        "rounds": args.rounds, "seed": args.seed, "fpl_flag": args.fpl_flag,
-        "freeze": FREEZE, "train_rows": int(keep.sum()), "params": params,
-    }
-    dest.with_suffix(".meta.json").write_text(json.dumps(meta, indent=2) + "\n")
-
-    v = filled.to_numpy()
-    is_jan = pd.to_datetime(rank.set_index("mvt_id").loc[ids, "MVT_TIME_UTC_mvt"]).dt.month.to_numpy() == 1
-    print(f"\nwrote {dest.relative_to(ROOT)}  ({len(v):,} rows)")
-    print(f"  overall  mean {v.mean():7.1f}s  median {np.median(v):7.1f}s  max {v.max():8.1f}s")
-    print(f"  Jan 2026 mean {v[is_jan].mean():7.1f}s  ({is_jan.sum():,} rows)")
-    print(f"  Jul 2026 mean {v[~is_jan].mean():7.1f}s  ({(~is_jan).sum():,} rows)")
-    print(f"\nsubmit:  mc cp {dest} opensky/prc-2026-{TEAM}/")
-    print(f"then:    .venv/bin/python VALIDATION/log_official.py --run {args.run_id or '<run_id>'} "
-          f"--official <score> --submission {dest.name}")
+        "harness_run_id": run["run_id"] if run else None, "config": config, "seed": seed,
+        "selected_rounds": rounds, "inner_selection": inner, "train_rows": len(y),
+        "freeze": FREEZE, "features": X.columns.tolist(), "params": PARAMS,
+        "model_source": {name: sha256(ROOT / name) for name in MODEL_FILES},
+        "full_benchmark_validated": bool(run and run.get("full_benchmark")),
+    })
+    print(f"Wrote {dest}: {out.num_rows:,} rows; protocol {VERSION}, seed {seed}, {rounds} rounds.")
+    print(f"Upload with: mc cp {dest} opensky/prc-2026-{TEAM}/")
 
 
 if __name__ == "__main__":
     main()
+

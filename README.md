@@ -118,6 +118,7 @@ The team MinIO keys are shared privately (ask a teammate) — never commit them.
 - `data/` — parquet datasets, gitignored; refresh with `mc mirror` (see above). `data/FEATURES.md` documents the columns.
 - `eda/` — exploratory analysis scripts, notebooks, and generated figures.
 - `pipeline/` — training & submission pipeline. `train.py` fits the model and reports holdout RMSE (Nov+Dec 2025); `predict.py` fills the submission template into `submissions/` (gitignored, like `models/`).
+- `VALIDATION/` — the validation protocol ([v3](VALIDATION/VALIDATION_PROTOCOL_V3.md)) and the harness that runs it; see [VALIDATION/README.md](VALIDATION/README.md) and [VALIDATION/FINDINGS.md](VALIDATION/FINDINGS.md).
 - `dashboard/` — source of the team's live leaderboard page (a Claude artifact). `pipeline/dashboard_data.py` rebuilds the data payloads from the leaderboard API + team bucket into `tmp/dashboard/`; the page reads them from the artifact's database, so refreshing the data needs no republish.
 
 ## Approach *(TBD)*

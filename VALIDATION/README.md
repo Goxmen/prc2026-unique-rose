@@ -1,170 +1,197 @@
-# Validation harness
+# Validation harness (protocol v3)
 
-The plan is in [`ch07-prc-validation.html`](ch07-prc-validation.html). This is the
-part of it that runs, plus four corrections to the design that page describes.
+The rules are in [`VALIDATION_PROTOCOL_V3.md`](VALIDATION_PROTOCOL_V3.md); this
+file is the operating manual for the code that implements them. Read
+[`FINDINGS.md`](FINDINGS.md) first for what the earlier harness turned up: the
+score is decided by about a hundred rows with corrupt labels, mostly at Rome, and
+letting them into training was worth more than any feature. The original design
+page, [`ch07-prc-validation.html`](ch07-prc-validation.html), and
+[`VALIDATION_PROTOCOL_V2.md`](VALIDATION_PROTOCOL_V2.md) are kept for history.
 
-**Read [`FINDINGS.md`](FINDINGS.md) first** — what the harness actually turned up,
-including the reason the score is decided by about a hundred corrupt rows and
-why the page's central staleness argument does not survive contact with the data.
+## What a run does
 
-## What the page got right, and what changed here
+Six reusable models, sixteen evaluations, three seeds. Each model `M1`–`M6` is
+fitted on a six-month window of 2025 and reused for every validation month
+assigned to it. `A` folds validate the month right after training (`k = 1`);
+`B` folds validate three to six months later with the same model.
 
-The page's core rule is kept exactly: **features built from past departure
-taxi-outs are computed for validation rows at the fold's training cutoff, never
-at the row's own date.** In the 2026 test months the freshest taxi-out label we
-will ever own is 2025-12-31, so any window feature must be evaluated in that
-condition or the fold score is measuring a model we cannot deploy.
-
-Four things are done differently.
-
-**1. Staleness is measured as a difference, not a level.** The page reads the
-July rehearsal's absolute RMSE as an estimate of July 2026. It cannot be one:
-that fold trains on 6 months while the real July model gets 12, so its level is
-inflated by a training-size handicap that has nothing to do with staleness. The
-harness therefore runs the July fold twice — `jul_stale` (freeze Jan 31) and
-`jul_fresh` (freeze Jun 30) — and reports the **paired difference**. Training
-size cancels in the difference, so that number is comparable across runs and is
-the headline output.
-
-**2. The iterate folds are spread across seasons.** The page tunes on Sep/Oct/Nov,
-all autumn, then ships to a January and a July test. Here they are April, August
-and October.
-
-**3. Every fold runs under several seeds and carries a bootstrap band.** The page
-reports single numbers and then argues elsewhere that taxi-out is heavy-tailed
-enough to need a bootstrap. Both bands are printed; a difference smaller than
-them is not a result.
-
-**4. The lag-training experiment is redone properly.** The page's simulation
-"killed" the idea of training on staleness-matched features, but its
-implementation lagged *every* rolling feature by six months, including a
-same-day congestion term that is pure noise once lagged. `--lag-train-days`
-lags only the taxi-out windows and leaves the fresh features alone.
-
-## The availability contract
-
-Three feature classes, in [`features_time.py`](features_time.py). The class
-decides the freeze; it is not a flag anyone has to remember.
-
-| class | features | frozen? | why |
+| model | train | A fold (next month) | B folds (longer gap) |
 |---|---|---|---|
-| `STALE_ABLE` | `op_taxi_30d`, `rwy_taxi_30d`, `aphour_taxi_30d`, `stand_taxi_90d` | **yes** | built from DEP taxi-outs, which stop at 2025-12-31 |
-| `FRESH_ROLL` | `arr_taxiin_7d` | no | ARR rows keep `BLOCK_TIME` and `TAXITIME` in `ranking.parquet` (verified: all 152,871 Jan + 191,822 Jul arrivals populated) |
-| `FRESH_NOW` | `dep_actual_30m_before`, `arr_actual_30m_before`, `dep_sched_60m_around` | no | movement counts from timestamps that survive in ranking; no target involved |
+| M1 | Jan–Jun | A1 → Jul | B1 → Sep, B2 → Oct, B3 → Nov, B4 → Dec |
+| M2 | Feb–Jul | A2 → Aug | B5 → Oct, B6 → Nov, B7 → Dec |
+| M3 | Mar–Aug | A3 → Sep | B8 → Nov, B9 → Dec |
+| M4 | Apr–Sep | A4 → Oct | B10 → Dec |
+| M5 | May–Oct | A5 → Nov | |
+| M6 | Jun–Nov | A6 → Dec | |
 
-The "after" window is built from **scheduled** times, not actual ones, so it
-stays knowable at off-block.
+Optional diagnostics, each costing one more fit per seed: `G7` (Jan–May → Dec,
+a real seven-month gap on five training months), `F1` (Jan–Nov → Dec, the
+near-final training size), `W1` (Feb–Dec → Jan, retrospective, without any
+departure-history features), and `S1` (M1 scored on July with departure history
+frozen at January 31, the feature-only staleness check against `A1`).
 
-## Folds
+The legacy names `jul_fresh, aug, sep, oct, nov, dec_jan26, jul_stale` map onto
+`A1`–`A6` and `S1`; `apr` still exists but needs `--train-months 3` or less.
 
-| fold | role | train | validate | freeze |
-|---|---|---|---|---|
-| `apr` | iterate | Jan–Mar | Apr | Mar 31 |
-| `aug` | iterate | Jan–Jul | Aug | Jul 31 |
-| `oct` | iterate | Jan–Sep | Oct | Sep 30 |
-| `dec_jan26` | rehearsal, Jan-2026 island | Jan–Nov | Dec | Nov 30 |
-| `jul_stale` | rehearsal, Jul-2026 island | Jan–Jun | Jul | **Jan 31** |
-| `jul_fresh` | control for the above | Jan–Jun | Jul | Jun 30 |
-| `sep` | iterate, **off by default** | Jan–Aug | Sep | Aug 31 |
-| `nov` | iterate, **off by default** | Jan–Oct | Nov | Oct 31 |
+## The availability rules, and where each one lives
 
-`sep` and `nov` exist so `--train-months` has enough feasible folds to build a
-fixed-length iterate set; name them with `--folds` to switch them on.
+| rule (protocol §3) | implementation |
+|---|---|
+| Labels, categories and target aggregates come only from the training window | `harness.execute` slices the window with `modeling.period_rows` before anything is built; `modeling.context` never sees other months |
+| Training rolling features are causal | `TimeFeatures.transform(freeze_day=None)` ends every window the day before the row |
+| Validation departure history is frozen at the cutoff | `validation_matrix` passes the fold's `freeze` as `freeze_day` for `op_taxi_30d`, `op_taxi_30d_n`, `rwy_taxi_30d`, `aphour_taxi_30d`, `stand_taxi_90d` |
+| Current context = training window + the validation month, nothing in between | `validation_matrix` is given the training frames plus that month's rows only, so B4 sees Jan–Jun and Dec; December 1 has no arrival history |
+| Traffic counts ignore the departure label | `modeling.observable` strips `taxi_sec` and `BLOCK_TIME_UTC_mvt` before event tables are built; arrival taxi-ins are filtered to 1–7,200 s on both sides |
+| Missing history stays missing | no fill; `arrival_history_available` and `arrival_history_days_available` are saved per prediction and summarised for days 1–7 |
 
-Tune on the iterate folds. Leave the rehearsals alone for comparing finished
-candidates. Training rows are filtered to the plausible taxi-out range;
-**validation rows never are**, because the leaderboard does not filter either.
+`tests/test_v3.py` pins each of these with a small synthetic dataset:
+
+```bash
+.venv/bin/python -m unittest VALIDATION/tests/test_v3.py
+```
+
+## Training configuration
+
+Reference: the LightGBM parameters in `modeling.PARAMS`, **800 fixed rounds**,
+seeds **42, 142, 242**, training labels **1–200,000 s** (`--max-taxi-sec`),
+aggregate inputs 1–7,200 s, negative predictions clipped to zero, unrounded
+predictions for local scores. Validation rows are never filtered.
+
+`--early-stopping-rounds N` switches to inner selection: fit on the first five
+months of the window, pick the round count on the sixth, refit on all six, and
+use that one model for every horizon of the window. The selected counts and the
+extra fit time are recorded per model and seed under `models` in `result.json`.
+Changing this policy makes the run a different series; rerun the baseline
+under the same policy before comparing.
+
+## Scores
+
+Everything is pooled per flight (protocol §6). A flight's loss is its squared
+error averaged over seeds; a December flight that is predicted by both B4 and
+B7 contributes the mean of those two losses, once.
+
+| readout | folds | meaning |
+|---|---|---|
+| `R_A` | A1–A6 | next-month performance, all July–December flights |
+| `R_B_long` | B3, B4, B7 | longer gap (`k >= 5`), November and December only |
+| `R_B_k3` … `R_B_k6`, `R_B_all` | B folds by gap / all | descriptive |
+| `R_combined` | | `sqrt(w_jan R_A² + w_jul R_B_long²)` with the ranking row counts as weights; a **provisional diagnostic**, never a leaderboard forecast |
+| `B1_vs_A3` … `B10_vs_A6`, `S1_vs_A1` | | longer-gap minus next-month RMSE on the *same* flights |
+
+A `_partial` suffix means the run did not contain every fold of that group;
+`full_benchmark` in the record is true only for an unsampled, six-month,
+A-plus-B run.
+
+Every run also reports, per fold and for `R_A` / `R_B_long`: RMSE on targets
+at or below 7,200 s; count, RMSE and squared-error share of targets above it;
+per-airport RMSE; LIRF split by `AOBT_3_flt` present/missing; and the arrival
+history coverage of days 1–7. Empty slices print `N/A`.
+
+## Comparing two runs
+
+Pass `--baseline <run id>` to a new run, or recompute afterwards:
+
+```bash
+.venv/bin/python VALIDATION/compare.py --run <candidate> --baseline <baseline>
+.venv/bin/python VALIDATION/compare.py --run <candidate> --baseline <baseline> --block-days 3
+```
+
+Differences are **candidate minus baseline**, so negative favours the
+candidate. Each carries a 95% interval from 2,000 paired bootstrap replicates
+that resample UTC calendar days within every validation month, using the same
+day draws for both runs, every seed and every fold. `--block-days` resamples
+multi-day blocks for close calls where disruptions persist. The report marks
+each interval `improvement`, `regression` or `inconclusive`; an inconclusive
+interval is not evidence of equivalence. Per-seed differences and per-airport
+differences that oppose the headline are printed alongside. The baseline must be
+a v3 run with the same seeds, folds, data files and round policy, or the
+comparison refuses.
+
+Decide on `R_A` and inspect `R_B_long` before advancing a milestone. If they
+disagree, look at the paired intervals, the matched-month aging rows, the
+seeds and the tail slices before blaming the horizon.
 
 ## Running it
 
 ```bash
-# wiring check, ~2 min. Scores are meaningless (a 5% sample shrinks every
-# congestion count by 20x) — this only proves the plumbing works.
+# execution check only, a few minutes: 5% sample, 100 rounds, one seed.
+# Sampled scores cannot rank anything (the congestion counts shrink 20x).
 .venv/bin/python VALIDATION/harness.py --smoke
 
-# Phase 0 audit, ~1-2 min, no training. Read this before trusting any fold.
-.venv/bin/python VALIDATION/audit.py
+# print the schedule and fit count without loading data
+.venv/bin/python VALIDATION/harness.py --dry-run --folds all
 
-# the real run, roughly an hour on a laptop (6 folds x 3 seeds x 800 rounds)
-.venv/bin/python VALIDATION/harness.py --label baseline
+# the default v3 benchmark: 16 evaluations, 6 models x 3 seeds = 18 fits
+.venv/bin/python VALIDATION/harness.py --label baseline-v3
 
-# does training on stale features help the July island? (2 folds only, ~15 min)
-.venv/bin/python VALIDATION/harness.py --label lag180 \
-    --folds jul_stale,jul_fresh --lag-train-days 180
+# a candidate, paired against that baseline
+.venv/bin/python VALIDATION/harness.py --label fpl-flag --fpl-flag --baseline <baseline id>
+
+# everything, including G7/F1/W1/S1 (27 fits per seed set)
+.venv/bin/python VALIDATION/harness.py --label full --folds all
 ```
 
-Three more knobs, all documented in `--help`:
+Other flags: `--seeds`, `--rounds`, `--train-months` (a different length is a
+variant, not the v3 benchmark), `--lag-train-days`, `--max-taxi-sec`,
+`--early-stopping-rounds`, `--bootstrap-reps`, `--bootstrap-seed`,
+`--block-days`, `--threads`, `--output-dir`. All of them are recorded.
 
-```bash
-# keep the corrupt long-tail rows in training. This is the change that moved the
-# official score 533 -> 406; see FINDINGS.md section 3.
---max-taxi-sec 200000
+Each run writes `runs/v3_<timestamp>/`:
 
-# fixed rolling training window, so fold scores are comparable to each other.
-# Folds whose window will not fit inside 2025 are skipped with a message.
---train-months 6
+- `result.json` — configuration, dataset hashes, git commit, per-model rounds
+  and fit times, fold definitions and context months, the full report with
+  every slice and interval, and (later) the official score. Tracked in git.
+- `oof_<fold>_seed<seed>.parquet` — movement ID, time, airport, target, flight
+  plan flag, coverage indicators and prediction for every fold and seed.
+- `models/` — the fitted boosters; `source/` and `source.patch` — the exact
+  code, including uncommitted changes. These stay local (gitignored).
+- one summary line appended to `runs/experiments.jsonl`.
 
-# add has_flight_plan, an explicit flag for the rows where corrupt labels
-# concentrate. Wired but never run — see FINDINGS.md section 7.
---fpl-flag
-```
+Runs from the previous harness (ids without the `v3_` prefix) remain in
+`runs/`; their scores use a different definition and are never compared with
+v3 numbers.
 
 ## Submitting
 
-`submit.py` trains the harness-validated configuration on all of 2025 and fills
-the template. It is deliberately separate from `pipeline/train.py`, which has
-none of the time features and hardcodes the old filter.
+`submit.py` refits the validated recipe on all twelve months and fills the
+template, scoring January and July as separate islands with departure history
+frozen at 2025-12-31 and only that month's arrivals and movements as context.
 
 ```bash
-.venv/bin/python VALIDATION/submit.py --version 3 --run-id <harness run_id>
-mc cp submissions/unique-rose_v3.parquet opensky/prc-2026-unique-rose/
-mc cat opensky/prc-2026-unique-rose/unique-rose_v3.parquet_result.json   # the score
+.venv/bin/python VALIDATION/submit.py --version 4 --run-id <v3 run id>
+mc cp submissions/unique-rose_v4.parquet opensky/prc-2026-unique-rose/
+mc cat opensky/prc-2026-unique-rose/unique-rose_v4.parquet_result.json   # the score
 ```
 
-The horizon split matters here and is easy to get wrong in either direction:
-departure taxi-out windows freeze at 2025-12-31 forever, but arrival taxi-ins and
-every movement timestamp exist inside the ranking months, so those tables are
-built from 2025 **plus** the ranking rows and stay current. Feature tables span
-577 days.
-
-Each run writes `runs/<run_id>/result.json`, per-fold OOF predictions, and one
-line in `runs/experiments.jsonl`.
-
-## Reading the output
-
-- **Per-fold RMSE** with `seed sd` (model noise) and `boot se` (sampling noise).
-  Ignore differences inside those bands.
-- **Staleness penalty** — the paired `jul_stale − jul_fresh`. The trustworthy number.
-- **Pooled projection** — Dec and July squared errors pooled on the real test
-  weights (Jan 152,719 / Jul 192,122 rows, so July is 55.7% of the score).
-  It is **not** a forecast. Its known biases are printed with it, and they do not
-  all point the same way. Its purpose is to be tracked against official scores.
+With `--run-id` the recipe (rounds, label ceiling, flags, first seed) is taken
+from that run; any explicit flag that disagrees with it is an error, as is a
+change to the model code or the data files since the run. Without `--run-id`
+the defaults apply and the metadata says so. A `.meta.json` and the model are
+written next to the submission.
 
 ## Closing the loop with the leaderboard
 
 ```bash
-.venv/bin/python VALIDATION/log_official.py --run <run_id> --official 412.7 \
-    --submission unique-rose_v3.parquet
+.venv/bin/python VALIDATION/log_official.py --run <v3 run id> --official 401.2 \
+    --submission unique-rose_v4.parquet
 .venv/bin/python VALIDATION/log_official.py --report
 ```
 
-One pair proves nothing. After three or more, the report prints the offset, its
-spread, and the local↔official correlation. A **stable offset** means the
-leaderboard score can be derived as `official ≈ local + offset`. A **sign flip**
-means the harness has stopped tracking what pays — stop feature work and find
-out why.
+The report groups matched local/official pairs by score definition, so legacy
+pooled projections and v3 `R_combined` values are listed as separate series.
+It prints the offsets, their spread, the correlation once three pairs exist,
+and any pair whose local and official changes point in opposite directions.
+Repeated sign disagreement means the protocol needs revisiting before more
+feature work.
 
-## Known caveats
+## Known limits
 
-- Neither rehearsal ages the *model*, only its features. The real July model is
-  seven months old at prediction time and no fold built from one year can copy
-  that. Expect July to be the harder half.
-- `--sample` and `--smoke` distort the congestion counts. Never compare a
-  sampled score to a full one.
-- `AOBT_3_flt` was checked and is **not** a leak (exact match on 0.7% of rows,
-  median error 175 s), so the fold scores measure something real. The audit
-  re-checks this on every run.
-- Comparing two models? Use a **paired** bootstrap on their OOF predictions, not
-  the `boot se` column. That column is the uncertainty of an absolute level; two
-  models scored on the same rows share their tail draws, and the SE of the
-  difference is roughly three times smaller.
+- Neither A nor B is a calibrated estimate of its named 2026 month. The longest
+  gaps land in November and December, not in July.
+- December takes part in development, so `F1` is a training-size check, not an
+  untouched test. `W1` trains on future months with fewer features and cannot
+  verify the deployed model.
+- Bootstrap intervals condition on these fitted models and these months. They
+  say nothing about a different year.
+- Repeated searching over the same six validation months can overfit them
+  despite the intervals. Record failed experiments too.

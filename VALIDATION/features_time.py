@@ -107,11 +107,10 @@ class _Key:
 
 
 class TimeFeatures:
-    """Fit the aggregate tables once on all of 2025, then serve any cutoff.
+    """Build tables from explicitly scoped history and observable context.
 
-    Building on the full year is safe because a window sum never reads past its
-    cutoff, and every cutoff we ask for is at or before the fold's training end.
-    It means one build for the whole harness instead of one per fold.
+    The caller supplies only the fold's training labels and available movement
+    months. A cutoff cannot substitute for this lower-bound and context masking.
     """
 
     def __init__(self, dep: pd.DataFrame, arr: pd.DataFrame, n_days: int | None = None,
@@ -128,8 +127,8 @@ class TimeFeatures:
         """
         dep_events = dep if dep_events is None else dep_events
         arr_events = arr if arr_events is None else arr_events
-        self._span = max(day_index(f["MVT_TIME_UTC_mvt"]).max()
-                         for f in (dep, arr, dep_events, arr_events) if len(f))
+        self._span = max((day_index(f["MVT_TIME_UTC_mvt"]).max()
+                          for f in (dep, arr, dep_events, arr_events) if len(f)), default=0)
         self.n_days = int(n_days or self._span + 1)
         dep_day = day_index(dep["MVT_TIME_UTC_mvt"])
         arr_day = day_index(arr["MVT_TIME_UTC_mvt"])
@@ -189,6 +188,8 @@ class TimeFeatures:
 
     def _window(self, name, codes, cut):
         cs, cc = self.tbl[name]
+        if cs.shape[0] == 0:
+            return np.full(len(codes), np.nan), np.zeros(len(codes))
         cut = np.clip(cut, -1, self.n_days - 1)
         hi = cut + 1
         lo = np.maximum(hi - STALE_ABLE.get(name, 7), 0)
