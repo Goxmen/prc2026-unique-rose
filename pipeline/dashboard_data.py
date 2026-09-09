@@ -17,9 +17,11 @@ Run: .venv/bin/python pipeline/dashboard_data.py
 """
 
 import json
+import os
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 from urllib.request import urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -27,12 +29,33 @@ OUT = ROOT / "tmp" / "dashboard"
 
 TEAM = "unique-rose"
 BUCKET = f"opensky/prc-2026-{TEAM}/"
+S3_ENDPOINT = "s3.opensky-network.org"
 API = (
     "https://datacomp.opensky-network.org/api/competitions/"
     "bb3693e1-26bc-4a9e-8619-4fe78b4eab0c"
 )
 DEADLINE_UTC = "2026-10-11T21:59:59Z"  # 11 Oct 2026 23:59:59 CEST
 CHUNK = 1000  # feed rows per db doc (db doc cap is 256 KiB)
+
+
+def mc_environment():
+    """Use root .env MinIO keys without printing them or changing mc config."""
+    env = os.environ.copy()
+    values = {key: env.get(key) for key in ("ACCESS_KEY", "SECRET_KEY")}
+    env_file = ROOT / ".env"
+    if env_file.exists() and not all(values.values()):
+        for raw_line in env_file.read_text().splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            if key in values and not values[key]:
+                values[key] = value.strip().strip("'\"")
+    if all(values.values()):
+        access = quote(values["ACCESS_KEY"], safe="")
+        secret = quote(values["SECRET_KEY"], safe="")
+        env["MC_HOST_opensky"] = f"https://{access}:{secret}@{S3_ENDPOINT}"
+    return env
 
 
 def fetch_leaderboard():
@@ -64,14 +87,25 @@ def fetch_teams():
         page += 1
 
 
-def fetch_bucket():
-    """Our uploads: parquet files merged with their *_result.json, via mc."""
+def fetch_bucket(*, strict=False):
+    """Our uploads: parquet files merged with their *_result.json, via mc.
+
+    ``strict`` is used by the agent-facing status command: it is better for a
+    score check to fail visibly than to report an empty bucket after an auth or
+    network error.  The dashboard build keeps its historical best-effort
+    behaviour.
+    """
     try:
         ls = subprocess.run(
-            ["mc", "ls", "--json", BUCKET], capture_output=True, text=True, timeout=60
+            ["mc", "ls", "--json", BUCKET], capture_output=True, text=True,
+            timeout=60, env=mc_environment(),
         )
+        if ls.returncode != 0:
+            raise RuntimeError(ls.stderr.strip() or f"mc ls exited {ls.returncode}")
         entries = [json.loads(line) for line in ls.stdout.splitlines() if line.strip()]
-    except (OSError, subprocess.TimeoutExpired) as e:
+    except (OSError, subprocess.TimeoutExpired, json.JSONDecodeError, RuntimeError) as e:
+        if strict:
+            raise RuntimeError(f"could not list {BUCKET}: {e}") from e
         print(f"warning: mc ls failed ({e}); dashboard will lack upload metadata")
         return []
     files = {e["key"]: e for e in entries if e.get("type") == "file"}
@@ -89,18 +123,25 @@ def fetch_bucket():
         }
         if key + "_result.json" in files:
             for attempt in range(3):  # mc cat hits intermittent S3 timeouts
-                cat = subprocess.run(
-                    ["mc", "cat", BUCKET + key + "_result.json"],
-                    capture_output=True, text=True, timeout=60,
-                )
-                if cat.returncode == 0:
-                    result = json.loads(cat.stdout)
-                    item["status"] = result.get("status", "Unknown")
-                    item["score"] = result.get("score")
-                    item["usedPairs"] = result.get("used_pairs")
-                    break
+                try:
+                    cat = subprocess.run(
+                        ["mc", "cat", BUCKET + key + "_result.json"],
+                        capture_output=True, text=True, timeout=60,
+                        env=mc_environment(),
+                    )
+                    if cat.returncode == 0:
+                        result = json.loads(cat.stdout)
+                        item["status"] = result.get("status", "Unknown")
+                        item["score"] = result.get("score")
+                        item["usedPairs"] = result.get("used_pairs")
+                        break
+                except (OSError, subprocess.TimeoutExpired, json.JSONDecodeError):
+                    pass
             else:
-                print(f"warning: could not read result for {key}: {cat.stderr.strip()}")
+                message = f"could not read result for {key}"
+                if strict:
+                    raise RuntimeError(message)
+                print(f"warning: {message}")
         ours.append(item)
     return ours
 

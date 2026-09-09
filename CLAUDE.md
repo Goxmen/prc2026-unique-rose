@@ -27,6 +27,15 @@ Fill `TAXITIME_SEC_mvt` in a copy of `data/submitting.parquet` (don't touch
 `MVT_ID_mvt`), name it `unique-rose_v<N>.parquet`, upload with
 `mc cp unique-rose_vN.parquet opensky/prc-2026-unique-rose/`.
 
+## Leaderboard checks
+
+When asked about our latest score, best score, score history, rank, or the
+public leaderboard, run `.venv/bin/python pipeline/leaderboard_status.py
+--json`. It reads the public competition API and our MinIO result files live;
+the broken competition webpage is not needed. Distinguish the latest upload
+from the best score. If live access fails, `--cached` is an allowed fallback,
+but identify the result as stale and report its timestamp.
+
 ## Constraints
 
 - Repo is private during the challenge but MUST be public under GPLv3 before it
