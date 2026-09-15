@@ -45,3 +45,6 @@ but identify the result as stale and report its timestamp.
   is the one tracked exception (column docs).
 - Team: gunes (GitHub `Goxmen`, WSL) and Ioana (GitHub `ioana2303`, macOS).
   `git pull` before working; branches + PRs for larger changes.
+- `eda/feature_sweep.ipynb` follows the section rules in `eda/SECTION_STYLE.md` (skeleton,
+  honest-holdout numbers, tables-over-prose, process: explain and get approval before
+  restructuring a section). Read it before touching the notebook.
