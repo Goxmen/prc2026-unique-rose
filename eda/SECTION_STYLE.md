@@ -17,7 +17,15 @@ or the reasoning behind it. §1–§8 are the reference: copy their form.
    check there are no error outputs, then splice the executed cells back in place. Untouched cells
    keep their outputs and execution counts. Confirm recovery counts and derived-file row counts are
    identical to before.
-4. **Leave the rest alone.** Do not renumber other cells, do not touch other sections, do not
+4. **One column per section, even when the column is dull.** A section covers its own column and
+   *hands* derived forms to the column that owns them — §11's wake lookup belongs to `WK_TBL_CAT_flt`,
+   §16's operator prefix to `AIRCRAFT_OPERATOR_flt`. Measure a neighbouring column only as far as
+   choosing your own column's form requires, then name in one line which section owns the conclusion.
+   If your column turns out to be worth nothing on its own, **that is the finding** — write it and
+   stop; do not annex the neighbour that is worth something. (§16 drifted exactly this way: the
+   callsign is worth 0.2 s once the operator is known, so the section grew an operator study that
+   `AIRCRAFT_OPERATOR_flt` should own.)
+5. **Leave the rest alone.** Do not renumber other cells, do not touch other sections, do not
    commit unless asked. New sections are inserted *before* the closing "Features so far" matrix
    section, the roadmap in cell 0 gets its ✅, and the matrix gets the column (skeleton row
    "matrix") — a section is not finished until it is in the matrix.
@@ -90,6 +98,9 @@ Keep evidence cells that justify a decision, even when they are long.
 table), `typ_wake`/`ROTORCRAFT` (type → wake lookup and the completed rotorcraft list, §11),
 `TYPE_FINAL` (the plan's code first, §11a), `PFX` (the stand's prefix, §13), `lab_d`/`lab_b`/`lab_cat` (raw-label
 holdout tables and the raw-label ladder, §14), `lob_d`/`lob_ladder`/`TWINS` (the plan-clock ladder and the twin layers' clocks, §15),
+`TWINCS`/`hash_pfx`/`FINALOP` (the twin layers' callsigns, the hash → prefix map and the operator
+precedence, §16 — the closing matrix reads `TWINCS`), `TWINSI` (the twin layers'
+initial off-block clock, §21 — the closing matrix reads it too),
 and the helpers `cat_stats`, `order_stats`, `style`, `TGT`, `eta`, `rho`, `cramers_v`,
 `target_assoc`, `assoc_chart`. A section may use any name defined above it; it must not
 redefine one that a later section reads. Running the notebook top to bottom must work; running a
