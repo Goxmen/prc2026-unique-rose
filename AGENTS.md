@@ -49,6 +49,31 @@ but identify the result as stale and report its timestamp.
   honest-holdout numbers, tables-over-prose, process: explain and get approval before
   restructuring a section). Read it before touching the notebook.
 
+## Current improvement work — handoff
+
+When asked to **continue the improvement plan**, read
+[`VALIDATION/IMPROVEMENT_PLAN.md`](VALIDATION/IMPROVEMENT_PLAN.md), starting with
+its "Resume here" section, and
+[`VALIDATION/STAGE0_RESULTS.md`](VALIDATION/STAGE0_RESULTS.md).
+
+- **Stage 0 is complete. Stage 1 / R1 (exact-twin flight-plan recovery) is next.**
+  Do not repeat Stage 0 or jump to the Rome rule before the recovery experiment.
+- Baseline run: `v3_20260915T225301657023Z`. Its results, checkpoint comparison,
+  loss charts, source snapshots and predictions are saved under `VALIDATION/runs/`.
+- Latest verdict: **800 rounds performed better than 1,500**. The saved B0
+  record is the completed 1,500-round experiment; the plan explains how its
+  saved 800-round predictions can supply a reference. Keep the chosen round
+  count and baseline explicit; never attribute a simultaneous round-count
+  change to recovery.
+- The shared loader/provenance fields are implemented and feature equivalence
+  was verified. Recovery matching itself is **not implemented**. The Rome
+  six-hour rule has exploratory results only; it has not been submitted.
+- The user authorizes local training/validation. Defer twelve-month refits and
+  uploads until experiments finish and submission configurations are selected.
+- The implementation, plans, concise results, and charts are maintained on
+  `main`. Models, prediction parquets, and source snapshots remain gitignored
+  and available on this machine; a fresh clone needs those copied or regenerated.
+
 ## Working cheaply — read this before touching the feature sweep
 
 A full read of `eda/feature_sweep.ipynb` costs ~300k tokens and a carelessly built section another

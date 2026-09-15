@@ -16,12 +16,13 @@ import pyarrow.parquet as pq
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "pipeline"))
-from common import RANKING, RAW_COLS, SUBMISSIONS, TEAM, TEMPLATE, connect
+from common import RANKING, SUBMISSIONS, TEAM, TEMPLATE, connect
 from harness import load
 from modeling import (PARAMS, training_matrix, validation_matrix, choose_rounds,
                       fit_booster, predict, month_rows)
 from protocol import VERSION, SCORE_VERSION, MAX_TAXI_SEC
 from records import read_run, write_json, sha256, MODEL_FILES
+from movement_data import load_phase
 
 FREEZE = "2025-12-31"
 DEFAULTS = {"max_taxi_sec": MAX_TAXI_SEC, "rounds": 800, "fpl_flag": False,
@@ -90,6 +91,8 @@ def main(argv=None):
     ap.add_argument("--lag-train-days", type=int)
     ap.add_argument("--early-stopping-rounds", type=int, help="inner Jan-Nov fit / December selection")
     ap.add_argument("--threads", type=int)
+    ap.add_argument("--track-training-loss", action="store_true",
+                    help="record training RMSE at each round and show it in the progress bar")
     args = ap.parse_args(argv)
     if args.version < 1:
         ap.error("--version must be positive")
@@ -99,10 +102,8 @@ def main(argv=None):
         raise ValueError(f"{dest} already exists; choose the next submission version")
     con = connect()
     dep, arr = load(con, 1.0)
-    rank = con.sql(f"""SELECT MVT_ID_mvt mvt_id, {RAW_COLS}
-        FROM read_parquet('{RANKING}') WHERE PHASE_mvt = 'DEP'""").df()
-    rank_arr = con.sql(f"""SELECT TAXITIME_SEC_mvt taxi_sec, ADES_mvt, MVT_TIME_UTC_mvt
-        FROM read_parquet('{RANKING}') WHERE PHASE_mvt = 'ARR'""").df()
+    rank = load_phase(con, str(RANKING), "DEP")
+    rank_arr = load_phase(con, str(RANKING), "ARR")
     con.close()
     if run:
         # Prevent a validated recipe from silently moving onto another dataset.
@@ -112,7 +113,14 @@ def main(argv=None):
                 raise ValueError(f"dataset changed since validation: {source['file']}")
     rounds, inner = choose_rounds(dep, arr, seed, config, FREEZE)
     X, y, cats = training_matrix(dep, arr, config)
-    booster = fit_booster(X, y, seed, rounds, config, "refit all 2025")
+    history = {} if args.track_training_loss else None
+    booster = fit_booster(X, y, seed, rounds, config, "refit all 2025", training_history=history)
+    if history is not None:
+        write_json(dest.with_suffix(".training_loss.json"), {
+            "file": dest.name, "max_taxi_sec": config["max_taxi_sec"],
+            "seed": seed, "train_rows": len(y), "metric": "training_rmse_seconds",
+            "rmse": history["training"]["rmse"],
+        })
     prediction = pd.Series(index=rank.index, dtype=float)
     # Each released month is an island; do not let one prediction batch supply
     # unavailable intermediate history to another.
@@ -139,4 +147,3 @@ def main(argv=None):
 
 if __name__ == "__main__":
     main()
-

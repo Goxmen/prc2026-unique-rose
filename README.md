@@ -111,7 +111,7 @@ The team MinIO keys are shared privately (ask a teammate) — never commit them.
   `gh` is unavailable. Never commit `.env` or token values.
 - **OpenSky MinIO** — keys in `~/.mc/config.json` (the `opensky` alias set above).
 
-`CLAUDE.md` documents this environment for AI coding agents.
+`AGENTS.md` documents this environment for AI coding agents.
 
 ### Repo layout
 

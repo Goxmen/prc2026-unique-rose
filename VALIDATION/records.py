@@ -9,7 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 RUNS = ROOT / "VALIDATION" / "runs"
 LOG = RUNS / "experiments.jsonl"
-MODEL_FILES = ["pipeline/common.py", "VALIDATION/features_time.py", "VALIDATION/modeling.py"]
+MODEL_FILES = ["pipeline/common.py", "VALIDATION/features_time.py", "VALIDATION/modeling.py",
+               "VALIDATION/movement_data.py"]
 
 
 def clean(value):
@@ -32,11 +33,18 @@ def write_json(path, value):
     temp.replace(path)
 
 
-def append_log(record, directory=RUNS):
+def append_log(record, directory=RUNS, replace_existing=False):
     log = Path(directory) / "experiments.jsonl"
     log.parent.mkdir(parents=True, exist_ok=True)
     summary = {k: v for k, v in record.items() if k not in {"folds", "models", "source", "report"}}
     summary["report"] = {"scores": record.get("report", {}).get("scores", {})}
+    if replace_existing:
+        rows = [json.loads(line) for line in log.read_text().splitlines() if line.strip()] if log.exists() else []
+        rows = [row for row in rows if row["run_id"] != record["run_id"]] + [summary]
+        temp = log.with_suffix(".tmp")
+        temp.write_text("".join(json.dumps(clean(row), allow_nan=False) + "\n" for row in rows))
+        temp.replace(log)
+        return
     with log.open("a") as fh:
         fh.write(json.dumps(clean(summary), allow_nan=False) + "\n")
 

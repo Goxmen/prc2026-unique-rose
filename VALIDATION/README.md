@@ -8,6 +8,11 @@ letting them into training was worth more than any feature. The original design
 page, [`ch07-prc-validation.html`](ch07-prc-validation.html), and
 [`VALIDATION_PROTOCOL_V2.md`](VALIDATION_PROTOCOL_V2.md) are kept for history.
 
+Current experiment order: [`IMPROVEMENT_PLAN.md`](IMPROVEMENT_PLAN.md) starts with
+flight-plan recovery, then the Rome six-hour rule, timestamp corrections, and
+models of the recording patterns. It records local comparisons and the planned
+leaderboard checks.
+
 ## What a run does
 
 Six reusable models, sixteen evaluations, three seeds. Each model `M1`–`M6` is
@@ -51,6 +56,28 @@ The legacy names `jul_fresh, aug, sep, oct, nov, dec_jan26, jul_stale` map onto
 ```
 
 ## Training configuration
+
+The current recovery experiment series uses **1,500 fixed rounds** and a new B0
+reference; see [the plan](IMPROVEMENT_PLAN.md). Pass `--rounds 1500` explicitly.
+The 800-round reference below describes the original v3 series and remains the
+CLI default for reproducibility of historical commands.
+
+Use `--fit-workers 1 --threads 8` on this machine. Stage 0's short CPU probe
+favoured two four-thread fits, but the sustained run showed a large parallel
+slowdown. The optional `--fit-workers 2 --threads 8` mode shares an eight-thread
+budget across two fits (four each), with eight for an unpaired final seed.
+Models are fitted once per window and seed and reused across their assigned
+folds. Every fit records its actual thread count and per-round training loss.
+
+`resume_run.py --run <id> --threads 8 --fit-workers 1` continues an interrupted
+run using completed models and folds. It requires unchanged model source and
+data, records execution-setting changes and continuation source snapshots, and
+keeps one final entry per run in the experiment log.
+
+`--checkpoints 800` also saves the 800-tree predictions from each longer fit in
+the same prediction parquet. After completion, `summarize_baseline.py --run <id>`
+plots the training curves and makes the paired 1,500-versus-800-round comparison.
+Checkpoint scoring is diagnostic; it does not select rounds or early-stop.
 
 Reference: the LightGBM parameters in `modeling.PARAMS`, **800 fixed rounds**,
 seeds **42, 142, 242**, training labels **1–200,000 s** (`--max-taxi-sec`),
@@ -168,6 +195,50 @@ from that run; any explicit flag that disagrees with it is an error, as is a
 change to the model code or the data files since the run. Without `--run-id`
 the defaults apply and the metadata says so. A `.meta.json` and the model are
 written next to the submission.
+
+### Full-year threshold sweep with direct submission
+
+`sweep_taxi_thresholds.py` trains and uploads one model for each ceiling:
+**10,000, 16,000, 22,000, 32,000, 50,000, 70,000, and 90,000 seconds**.
+Every fit uses all twelve training months, 800 fixed rounds, seed 42, and the
+same features as submission v3 (`fpl_flag=False`). It skips local validation
+and early stopping; ordinary template/schema/ID checks still run. The ceiling
+filters training target rows; historical aggregates retain their existing
+1–7,200-second input filter.
+
+```bash
+# Preview the seven version IDs, checking both local files and the live bucket.
+.venv/bin/python VALIDATION/sweep_taxi_thresholds.py --dry-run
+
+# Train all seven models sequentially and upload each as soon as it is ready.
+.venv/bin/python VALIDATION/sweep_taxi_thresholds.py
+
+# Continue using the manifest path printed when the sweep started.
+.venv/bin/python VALIDATION/sweep_taxi_thresholds.py --resume VALIDATION/sweeps/<id>.json
+
+# Refresh scores later; scoring may still be pending when the uploads finish.
+.venv/bin/python VALIDATION/sweep_taxi_thresholds.py --status VALIDATION/sweeps/<id>.json
+```
+
+The script automatically assigns the next seven unused `unique-rose_vN.parquet`
+IDs. `VALIDATION/sweeps/<id>.json` records the threshold-to-filename mapping,
+settings, source/data hashes, training row counts, upload progress, and official
+scores. Keep this small manifest in git to share the mapping. Models, prediction
+parquets, and per-submission metadata remain under gitignored `submissions/`.
+The uploaded objects also carry `sweep-id`, `max-taxi-sec`, and `sha256` metadata.
+
+The terminal shows an overall **seven-model progress bar** plus the current
+model's **boosting-round progress and training RMSE**. Each model writes
+`submissions/unique-rose_vN.training_loss.json` with RMSE for all 800 rounds.
+`VALIDATION/sweeps/<id>_training_loss.png` overlays the curves and updates after
+each model finishes. These are losses on each model's filtered training rows;
+use official scores to compare thresholds, since the training sets differ.
+
+On resume, completed uploads are verified by content and skipped; completed fits
+are reused. Source/data changes and ID collisions stop the sweep. If interrupted
+while writing a model's output files, incomplete artifacts cause an explicit
+error; move that version's partial local files aside before resuming. Check the
+printed manifest rather than assuming IDs from an earlier preview are reserved.
 
 ## Closing the loop with the leaderboard
 

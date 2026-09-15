@@ -102,16 +102,28 @@ def validation_matrix(dep, arr, val_dep, val_arr, freeze, cats, config, departur
     return apply_categories(X, cats)
 
 
-def fit_booster(X, y, seed, rounds, config, desc, validation=None):
+def fit_booster(X, y, seed, rounds, config, desc, validation=None, training_history=None):
     params = dict(PARAMS, seed=seed, bagging_seed=seed + 1,
                   feature_fraction_seed=seed + 2, num_threads=config.get("threads", 0))
     train = lgb.Dataset(X, y, categorical_feature=CATEGORICAL)
     with tqdm(total=rounds, desc=desc, unit="rnd", leave=False) as bar:
-        callbacks = [lambda e: bar.update(e.iteration + 1 - bar.n)]
+        def progress(env):
+            for name, metric, value, *_ in env.evaluation_result_list or []:
+                if name == "training" and metric == "rmse":
+                    bar.set_postfix(train_rmse=f"{value:.2f}", refresh=False)
+            bar.update(env.iteration + 1 - bar.n)
+
+        callbacks = [progress]
         kwargs = {}
+        if training_history is not None:
+            # Measure the training set itself; this introduces no holdout split.
+            kwargs.update(valid_sets=[train], valid_names=["training"])
+            callbacks.append(lgb.record_evaluation(training_history))
         if validation is not None:
             vx, vy = validation
-            kwargs["valid_sets"] = [lgb.Dataset(vx, vy, reference=train)]
+            kwargs.setdefault("valid_sets", []).append(lgb.Dataset(vx, vy, reference=train))
+            if training_history is not None:
+                kwargs["valid_names"].append("validation")
             callbacks.append(lgb.early_stopping(config["early_stopping_rounds"], verbose=False))
         return lgb.train(params, train, num_boost_round=rounds, callbacks=callbacks, **kwargs)
 
@@ -135,8 +147,8 @@ def choose_rounds(dep, arr, seed, config, train_end, departure_history=True):
                     "rounds": rounds, "train_rows": len(y), "validation_rows": len(va)}
 
 
-def predict(booster, X):
-    return np.clip(np.concatenate([booster.predict(X.iloc[i:i + 20_000])
+def predict(booster, X, num_iteration=None):
+    return np.clip(np.concatenate([booster.predict(X.iloc[i:i + 20_000], num_iteration=num_iteration)
                                   for i in range(0, len(X), 20_000)]), 0, None)
 
 

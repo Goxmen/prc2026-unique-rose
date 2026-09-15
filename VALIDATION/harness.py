@@ -6,10 +6,12 @@ Compare: --baseline <v3 run ID>. Inspect dates and fit counts with --dry-run.
 """
 
 import argparse
+import copy
 import glob
 import sys
 import time
 from collections import OrderedDict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,13 +21,14 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "pipeline"))
-from common import RAW_COLS, TRAIN_GLOB, RANKING, connect
+from common import TRAIN_GLOB, RANKING, connect
 from modeling import (PARAMS, training_matrix, validation_matrix, choose_rounds, fit_booster,
                       predict, prediction_frame, period_rows, month_rows)
 from protocol import (VERSION, SCORE_VERSION, MAX_TAXI_SEC, MAIN_NAMES, DEFAULT_FOLDS,
                       select_folds, window_key)
 from records import RUNS, write_json, append_log, read_run, source_snapshot, data_identity
 from reporting import report, print_report
+from movement_data import load_phase
 
 
 def parser():
@@ -48,7 +51,12 @@ def parser():
     ap.add_argument("--block-days", type=int, default=1, help="paired calendar-day block length (default 1)")
     ap.add_argument("--early-stopping-rounds", type=int, default=0,
                     help="0 fixes rounds; positive patience enables inner last-training-month selection")
-    ap.add_argument("--threads", type=int, default=8, help="LightGBM threads (default 8; 0 automatic)")
+    ap.add_argument("--threads", type=int, default=8,
+                    help="training thread budget shared across concurrent fits (default 8; 0 automatic for one fit)")
+    ap.add_argument("--fit-workers", type=int, default=1, help="concurrent seed fits per window (default 1)")
+    ap.add_argument("--recovery", choices=["off"], default="off",
+                    help="record the recovery-off baseline; matching is not implemented yet")
+    ap.add_argument("--checkpoints", default="", help="comma-separated earlier rounds to score diagnostically")
     ap.add_argument("--dry-run", action="store_true", help="show schedule without loading data")
     ap.add_argument("--output-dir", type=Path, default=RUNS, help="parent directory for run artifacts")
     return ap
@@ -68,6 +76,16 @@ def parse_args(argv=None):
             ap.error(f"--{name.replace('_', '-')} must be nonnegative")
     if not 0 < args.sample <= 1:
         ap.error("--sample must be in (0, 1]")
+    try:
+        args.checkpoints = sorted(set(int(n) for n in args.checkpoints.split(",") if n))
+    except ValueError:
+        ap.error("--checkpoints must be comma-separated integers")
+    if any(n < 1 or n >= args.rounds for n in args.checkpoints):
+        ap.error("checkpoints must be positive and below --rounds")
+    if args.checkpoints and args.early_stopping_rounds:
+        ap.error("checkpoints require fixed rounds")
+    if args.fit_workers < 1 or (args.fit_workers > 1 and args.threads < args.fit_workers):
+        ap.error("--fit-workers must be positive and concurrent fits need at least one budgeted thread each")
     return args
 
 
@@ -91,11 +109,8 @@ def plan(args):
 
 
 def load(con, sample):
-    frac = f"USING SAMPLE {sample * 100:.4f} PERCENT (bernoulli, 7)" if sample < 1 else ""
-    dep = con.sql(f"""SELECT MVT_ID_mvt mvt_id, TAXITIME_SEC_mvt taxi_sec, {RAW_COLS}
-        FROM read_parquet('{TRAIN_GLOB}') WHERE PHASE_mvt = 'DEP' {frac}""").df()
-    arr = con.sql(f"""SELECT TAXITIME_SEC_mvt taxi_sec, ADES_mvt, MVT_TIME_UTC_mvt
-        FROM read_parquet('{TRAIN_GLOB}') WHERE PHASE_mvt = 'ARR' {frac}""").df()
+    dep = load_phase(con, TRAIN_GLOB, "DEP", sample)
+    arr = load_phase(con, TRAIN_GLOB, "ARR", sample)
     if dep.mvt_id.isna().any() or dep.mvt_id.duplicated().any():
         raise ValueError("missing or duplicate departure movement IDs")
     if not np.isfinite(dep.taxi_sec.to_numpy(float)).all():
@@ -115,31 +130,78 @@ def ranking_weights(con):
     return {"jan_rows": jan, "jul_rows": jul, "jan_fraction": jan / (jan + jul)}
 
 
-def execute(dep, arr, windows, config, outdir):
+def execute(dep, arr, windows, config, outdir, resume_progress=None):
     """Fit once per window/seed; validation features never reach model fitting."""
-    folds, models = {}, {}
+    saved = copy.deepcopy(resume_progress or {})
+    folds, models = saved.get("folds", {}), saved.get("models", {})
     model_dir = Path(outdir) / "models"
     model_dir.mkdir(parents=True, exist_ok=True)
     for number, ((start, end, history), evals) in enumerate(windows.items(), 1):
         model_id = f"M{number}"
+        existing = models.get(model_id, {})
+        if (all(str(seed) in existing.get("seeds", {}) for seed in config["seeds"])
+                and all(fold.name in folds for fold in evals)):
+            print(f"Reused completed {model_id} and its {len(evals)} folds.")
+            continue
         td, ta = period_rows(dep, start, end), period_rows(arr, start, end)
         X, y, cats = training_matrix(td, ta, config, history)
         boosters = {}
-        models[model_id] = {"train_start": start, "train_end": end, "train_rows": len(y),
-                            "departure_history": history, "features": X.columns.tolist(), "seeds": {}}
+        info = {"train_start": start, "train_end": end, "train_rows": len(y),
+                "departure_history": history, "features": X.columns.tolist()}
+        if existing and any(existing[key] != value for key, value in info.items()):
+            raise ValueError(f"Training representation changed for resumed {model_id}")
+        models.setdefault(model_id, dict(info, seeds={}))
         for seed in config["seeds"]:
+            if str(seed) in models[model_id]["seeds"]:
+                import lightgbm as lgb
+                path = Path(outdir) / models[model_id]["seeds"][str(seed)]["model"]
+                boosters[seed] = lgb.Booster(model_file=str(path))
+                boosters[seed].params["num_threads"] = config.get("threads", 0)
+        def fit_seed(seed, fit_threads):
+            fit_config = dict(config, threads=fit_threads)
             t0 = time.monotonic()
-            rounds, inner = choose_rounds(td, ta, seed, config, end, history)
+            rounds, inner = choose_rounds(td, ta, seed, fit_config, end, history)
             t1 = time.monotonic()
-            booster = fit_booster(X, y, seed, rounds, config, f"{model_id}/{seed}")
+            training_history = {}
+            booster = fit_booster(X, y, seed, rounds, fit_config, f"{model_id}/{seed}",
+                                  training_history=training_history)
             model_path = model_dir / f"{model_id}_seed{seed}.txt"
             booster.save_model(str(model_path))
-            boosters[seed] = booster
-            models[model_id]["seeds"][str(seed)] = {
+            loss_path = model_path.with_suffix(".training_loss.json")
+            write_json(loss_path, {"model_id": model_id, "seed": seed,
+                                  "rounds": rounds, "train_rows": len(y),
+                                  "rmse": training_history["training"]["rmse"]})
+            details = {
                 "rounds": rounds, "inner_selection": inner, "model": str(model_path.relative_to(outdir)),
+                "training_loss": str(loss_path.relative_to(outdir)),
+                "training_rmse_final": training_history["training"]["rmse"][-1],
+                "fit_threads": fit_threads,
                 "inner_seconds": round(t1 - t0, 1), "fit_seconds": round(time.monotonic() - t1, 1)}
+            return seed, booster, details
+
+        def keep_fit(result):
+            seed, booster, details = result
+            boosters[seed] = booster
+            models[model_id]["seeds"][str(seed)] = details
+            write_json(Path(outdir) / "progress.json", {"models": models, "folds": folds})
+
+        workers = config.get("fit_workers", 1)
+        pending = [seed for seed in config["seeds"] if seed not in boosters]
+        for offset in range(0, len(pending), workers):
+            batch = pending[offset:offset + workers]
+            fit_threads = config.get("threads", 0) // len(batch)
+            if len(batch) == 1:
+                keep_fit(fit_seed(batch[0], fit_threads))
+            else:
+                # Each worker owns its Dataset/Booster; the feature matrix is read-only.
+                with ThreadPoolExecutor(max_workers=len(batch)) as pool:
+                    futures = [pool.submit(fit_seed, seed, fit_threads) for seed in batch]
+                    for future in as_completed(futures):
+                        keep_fit(future.result())
         del X
         for fold in evals:
+            if fold.name in folds:
+                continue
             vd, va = month_rows(dep, fold.val), month_rows(arr, fold.val)
             if vd.empty:
                 raise ValueError(f"no validation rows for {fold.name}/{fold.val}")
@@ -153,7 +215,10 @@ def execute(dep, arr, windows, config, outdir):
                 if not np.isfinite(pred).all():
                     raise ValueError(f"nonfinite predictions in {fold.name}/{seed}")
                 file = f"oof_{fold.name}_seed{seed}.parquet"
-                frame.assign(fold=fold.name, seed=seed, pred=pred).to_parquet(Path(outdir) / file, index=False)
+                checkpoint_preds = {f"pred_round_{n}": predict(booster, V, num_iteration=n)
+                                    for n in config.get("checkpoints", [])}
+                frame.assign(fold=fold.name, seed=seed, pred=pred, **checkpoint_preds).to_parquet(
+                    Path(outdir) / file, index=False)
                 fold_record["predictions"][str(seed)] = file
             folds[fold.name] = fold_record
             print(f"Scored {fold.name} ({fold.val}) on {len(frame):,} flights using {model_id}.")

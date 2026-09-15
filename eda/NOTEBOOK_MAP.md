@@ -2,7 +2,7 @@
 
 Read **this file instead of the notebook**. The notebook is 4.5 MB (~510k characters of text plus
 3.6 MB of embedded figures); reading it in full costs roughly 300k tokens. This map is ~4k. Open
-individual cells when you need them — see "Working with the notebook" in `CLAUDE.md`.
+individual cells when you need them — see "Working cheaply" in `AGENTS.md`.
 
 Shape: 180 cells. §N of the sweep = one column of the challenge files, in file order. Section form
 is fixed by `SECTION_STYLE.md`; the names each section defines are listed in its §7.
@@ -91,6 +91,6 @@ findings tables are stale; stop and say so.
 - **Some cells are not reproducible run to run.** Cells 94, 95, 96, 102 and 103 print different row
   *orders* on each execution — `mode()`, `arg_max()` and unordered `LIMIT`s break ties arbitrarily.
   The values are stable; only tied rows move. Anything a findings table quotes needs an explicit
-  tie-breaker (rule 5 in `CLAUDE.md`); §16's cells have them. Worth fixing in §11/§11a when that
+  tie-breaker (rule 5 in `AGENTS.md`); §16's cells have them. Worth fixing in §11/§11a when that
   section is next touched — until then, do not re-splice those cells' outputs just because they
   changed, and do not quote a tied row from them.

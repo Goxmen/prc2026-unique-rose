@@ -26,6 +26,7 @@ def same_flights(left, right):
 
 def load_losses(record, directory):
     losses = {}
+    prediction_column = record.get("prediction_column", "pred")
     seeds = tuple(record["config"]["seeds"])
     order = {f.name: i for i, f in enumerate(FOLDS)}
     for fold, info in sorted(record["folds"].items(), key=lambda item: order.get(item[0], len(order))):
@@ -34,7 +35,7 @@ def load_losses(record, directory):
             frame = pd.read_parquet(Path(directory) / info["predictions"][str(seed)])
             if frame.mvt_id.isna().any() or frame.mvt_id.duplicated().any():
                 raise ValueError(f"duplicate/missing movement IDs in {fold}/{seed}")
-            if not np.isfinite(frame[["y", "pred"]].to_numpy()).all():
+            if not np.isfinite(frame[["y", prediction_column]].to_numpy()).all():
                 raise ValueError(f"nonfinite targets/predictions in {fold}/{seed}")
             if not frame.seed.eq(seed).all() or not frame.fold.eq(fold).all():
                 raise ValueError(f"prediction file identifies the wrong fold/seed: {fold}/{seed}")
@@ -48,7 +49,7 @@ def load_losses(record, directory):
                 same_flights(meta, frame)
                 if not meta[COVERAGE].equals(frame[COVERAGE]):
                     raise ValueError("feature availability changed across seeds")
-            sq.append((frame.y.to_numpy() - frame.pred.to_numpy()) ** 2)
+            sq.append((frame.y.to_numpy() - frame[prediction_column].to_numpy()) ** 2)
         losses[fold] = Loss(meta, np.stack(sq), seeds)
     return losses
 
