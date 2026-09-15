@@ -48,3 +48,46 @@ but identify the result as stale and report its timestamp.
 - `eda/feature_sweep.ipynb` follows the section rules in `eda/SECTION_STYLE.md` (skeleton,
   honest-holdout numbers, tables-over-prose, process: explain and get approval before
   restructuring a section). Read it before touching the notebook.
+
+## Working cheaply — read this before touching the feature sweep
+
+A full read of `eda/feature_sweep.ipynb` costs ~300k tokens and a carelessly built section another
+~160k. A section should cost **60–80k**. Every tool call re-sends the whole conversation, so cost
+scales with calls × context, not with the size of the thing you are looking at.
+
+1. **Never read the notebook in full.** Read `eda/NOTEBOOK_MAP.md` (~4k) for orientation, then open
+   only the cells you need. Never `Read` the `.ipynb` directly — it embeds 3.6 MB of figures.
+
+   ```sh
+   # the section index, with cell numbers
+   .venv/bin/python -c "import json;[print(i,l) for i,c in enumerate(json.load(open('eda/feature_sweep.ipynb'))['cells']) for l in ''.join(c['source']).split(chr(10)) if l.startswith('#'+chr(35))]"
+   # one cell's source, no outputs
+   .venv/bin/python -c "import json,sys;print(''.join(json.load(open('eda/feature_sweep.ipynb'))['cells'][int(sys.argv[1])]['source']))" 104
+   ```
+
+2. **Measure in one script, not six.** Put every exploratory query for a section in a single
+   labelled script and run it once. Cap every `LIMIT`, print aggregates, never dump raw rows.
+   Redirect long output to a file in the scratchpad and `grep`/`sed` the part you need.
+
+3. **Decide the whole cell list before the first clean-kernel run.** Write all the code cells *and*
+   the list of numbers the findings will quote, then execute once. Each extra run–splice–reverify
+   cycle costs ~30k. If you find yourself adding "one more piece of evidence", you planned too late.
+
+4. **Copy the ladder helper, do not rewrite it.** Group-mean ladders must cascade rung by rung
+   (`std_rungs` in §13 is the model). A helper that falls back straight to the airport mean produces
+   nonsense on 4+ key groups and you will not notice until the numbers look absurd.
+
+5. **Quote only reproducible numbers.** `mode()` and an unordered `LIMIT` break ties arbitrarily and
+   change between runs. Add explicit tie-breakers (`ORDER BY n DESC, <key>`, or
+   `QUALIFY row_number() OVER (PARTITION BY k ORDER BY n DESC, v) = 1`) anywhere a findings table
+   quotes the result.
+
+6. **Rebuild the derived files once, at the start** (~30 s) if `data/derived/` is absent, and check
+   the row counts against `NOTEBOOK_MAP.md` before trusting anything downstream.
+
+7. **Do not re-verify what a tool already told you.** No re-reading a file you just wrote, no second
+   pass over output you have already seen. Check numbers against the executed outputs *once*, and
+   remember that printed tables have no thousands separators.
+
+8. **Say what a step will cost before an expensive detour.** Rebuilding derived data, a multi-minute
+   run, or a full-file read: mention it in one line and continue, so the cost is visible.
