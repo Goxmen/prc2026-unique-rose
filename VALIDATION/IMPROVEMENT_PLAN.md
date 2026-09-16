@@ -3,7 +3,27 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — Stage 4 complete; Q0 retained
+## Resume here — leaderboard checks complete; Q0-4h best observed
+
+**All five selected submissions succeeded on 2026-09-16.** On branch
+`leaderboard-five-candidates`, based on Stage 4: B0-800/v12 **406.4281**,
+Q0/v13 **354.4303**, Q1/v14 **354.0004**, Q0-4h/v15 **344.3114**,
+Q1-4h/v16 **344.4821** seconds. The live snapshot at 16:46:48 UTC puts the
+team 96th of 152 scoring teams, with v15 best and v16 latest. The four-hour
+baseline improves on the matched baseline by **62.1167 s (15.28%)**.
+Rule gains transferred to LB; recovery is mixed across thresholds. The
+[full report](reports/LEADERBOARD_RESULTS.md) records all three CV readouts,
+seed-42 results, direction agreement, LB–CV gaps and paired changes/intervals.
+The [execution note](docs/LEADERBOARD_EXECUTION.md) and
+[manifest](reports/leaderboard_selected_20260916.json) preserve exact recipes
+and artifacts. Two full-year fits took 2.067/4.461 minutes; four-hour recipes
+were registered from saved predictions with no CV refits. All 56 tests passed.
+The daily five-slot allowance is consumed. Keep Q0 as the six-hour control
+and Q0-4h as the best observed submission. Next: discuss the user's proposed
+training-routing experiment; no new exclusion/correction model or extra
+submission is authorized automatically.
+
+### Completed modelling stages and selection history
 
 **Stages 1–4 are complete. Do not promote M1; keep Q0 as the conservative
 control.** Work is on `stage4-timestamp-mixture`, based on Stage 3. M1
@@ -17,8 +37,8 @@ linked-recipe checks pass. No recovery audit, CPU probe, notebook-cache
 rebuild, full-year refit or upload ran.
 **The first leaderboard queue is selected:** B0-800, Q0, Q1, Q0-4h and Q1-4h.
 See the [frozen candidate list and plain-language recipes](docs/LEADERBOARD_CANDIDATES.md).
-Preparation and controlled leaderboard checks are next; no refit or upload
-was performed during selection. Do not start another modelling sweep automatically.
+No refit or upload was performed during selection; the subsequently authorized
+execution is complete above. Do not start another modelling sweep automatically.
 The user also expanded the later leaderboard checks to explicitly measure
 direction agreement and the absolute LB–CV gap, as specified below.
 
@@ -42,7 +62,7 @@ Four hours gives the best point estimates: 296.2785/255.6200 for B0-800 and
 292.8785/257.4787 for R3 (R_A/R_B_long). Its next-month gains over six hours
 are supported by pointwise intervals; longer-gap intervals touch zero.
 Retain four hours as a promising sensitivity candidate. Q0/Q1 remain six-hour
-controls; no new threshold was promoted or installed in a submission recipe.
+controls; four-hour recipes were subsequently registered for the controlled LB check.
 
 The [1–3 hour extension](reports/STAGE2_THRESHOLD_SWEEP_LOW.md) is complete
 (1.631 minutes, no fits). Four hours remains best on next-month and combined
@@ -55,8 +75,8 @@ The complete [1–8 hour score table and verdict](reports/STAGE2_THRESHOLD_RESUL
 are recorded together. The user's future sequence is also recorded below:
 check selected candidates on the leaderboard, then, if gains transfer, discuss
 excluding rule-handled rows from model training and later correcting the rule
-with a model. These are future proposals; no submissions or exclusions based
-on the observable rule trigger have started.
+with a model. The selected submissions are complete above; training exclusions
+and rule correction remain proposals for discussion.
 
 | Experiment | Artifact / state |
 |---|---|
@@ -72,6 +92,9 @@ on the observable rule trigger have started.
 | T1, clock features | `runs/v3_20260916T132038893775Z/result.json`, complete; R_A 298.9328, R_B_long 256.2445; both changes versus Q0 inconclusive |
 | T2, residual target | `runs/v3_20260916T134231489815Z/result.json`, complete; R_A 419.6226, R_B_long 439.4680; do not promote |
 | M1, timestamp mixture | `runs/v3_20260916T144408082362Z/result.json`, complete; R_A 544.8410, R_B_long 519.0849; do not promote; 51.768 minutes |
+| Q0-4h, linked rule recipe | `runs/v3_20260916T164054429797Z/result.json`; original four-hour sweep reproduced; LB v15 344.3114 |
+| Q1-4h, linked rule recipe | `runs/v3_20260916T164247756836Z/result.json`; original four-hour sweep reproduced; LB v16 344.4821 |
+| Selected leaderboard checks | All five scored; [full comparison](reports/LEADERBOARD_RESULTS.md); v15 best observed; 56 tests pass |
 | Verification | 55 tests; M1 linked source checks pass; Stage 4 paired comparisons, component curves and false-high diagnostics complete; prior audits retained |
 
 **The planned modelling stages are complete.** The
@@ -80,7 +103,7 @@ correction discussion are also recorded below. Do not automatically start
 another threshold or residual-baseline sweep. Keep Q0 as the conservative
 comparison parent and retain the separate four-hour sensitivity candidate.
 Do not repeat recovery audits, CPU tuning or notebook caches without relevant
-changes. Full-year refits and uploads remain deferred pending selection.
+changes. The selected full-year refits and uploads are complete above.
 Historical Q0/Q1/recovery recipes retain their frozen-source requirements;
 current code now includes M1; older T1/T2 and Q0/Q1 wrappers require their
 frozen source for refits.
@@ -99,8 +122,8 @@ with fitting caused swapping, so full-data audits and experiments also run
 sequentially. Thread comparisons preserved predictions to numerical precision;
 explicit prediction thread counts gave bit-for-bit equality.
 
-The user authorizes local six-month training and validation. Full-year refits
-and uploads remain deferred until configurations are selected. No automatic
+The user authorized local six-month training and validation, then explicitly
+authorized the selected five full-year refits/submission variants. No automatic
 submission schedule or quota retry is authorized by this plan.
 
 Existing notebook caches were preserved and checked against their raw donors.
@@ -446,8 +469,8 @@ User proposal recorded after the threshold sweeps, 2026-09-16:
    the controlled submission procedure below. Explicitly check direction
    agreement and LB-minus-CV gaps; the user added these to scope on 2026-09-16.
    The first five candidates are now selected in
-   [the frozen queue](docs/LEADERBOARD_CANDIDATES.md); the submission session
-   has not started.
+   [the frozen queue](docs/LEADERBOARD_CANDIDATES.md); all five subsequently
+   scored successfully. Rule gains transferred; recovery remained mixed.
 2. **If the improvement transfers**, discuss a separate experiment that removes
    rule-handled rows from the model's training population. At prediction time,
    route those cases to the rule and let the model handle the other cases.
@@ -490,11 +513,11 @@ Follow [protocol v3](docs/PROTOCOL.md):
 The user-authorized selection is complete: **B0-800, Q0, Q1, Q0-4h, Q1-4h**,
 in that order. The [frozen queue](docs/LEADERBOARD_CANDIDATES.md) records exact
 recipes, source runs, CV results and controlled pairs. It was selected before
-viewing new official scores. Four-hour results still need linked recipe
-registration; this requires saved-prediction processing, not CV retraining.
-Final preparation uses two underlying twelve-month models (baseline and R3),
+viewing new official scores. The four-hour recipes were subsequently registered
+from saved predictions, reproducing the sweep without CV retraining.
+Final preparation used two underlying twelve-month models (baseline and R3),
 800 rounds, seed 42 and the exact validated logic, reusing predictions for rule
-variants. No full-year refit or upload has started in this selection step.
+variants. All five authorized uploads succeeded; see the execution summary above.
 
 For every successfully scored candidate, produce a linked comparison table:
 

@@ -128,6 +128,48 @@ def main():
         lines += ['## Paired changes', '',
                   '![Leaderboard versus CV changes](leaderboard_cv_changes.png)', '',
                   '[PDF chart](leaderboard_cv_changes.pdf).', '']
+    if all(item['score'] is not None for item in items.values()):
+        best = min(items.values(), key=lambda item: item['score'])
+        gain = items['B0-800']['score']-best['score']
+        findings = [
+            '## Findings', '',
+            f"**Best observed candidate: {best['codename']} / v{best['version']}, "
+            f"{best['score']:.4f} s.** This improves on the matched B0-800 submission by "
+            f"{gain:.4f} s ({100*gain/items['B0-800']['score']:.2f}%). All five scored successfully "
+            'on 344,841 rows.', '',
+            'The six-hour rule and both reductions from six to four hours improve LB, agreeing '
+            'with all three standard CV point-estimate directions. The magnitudes differ: '
+            f"Q0 − B0-800 is {result['comparisons'][0]['delta_lb']:.4f} s on LB versus "
+            f"{result['comparisons'][0]['standard']['R_combined']['delta_cv']:.4f} s in combined CV; "
+            f"Q0-4h − Q0 is {result['comparisons'][2]['delta_lb']:.4f} s versus "
+            f"{result['comparisons'][2]['standard']['R_combined']['delta_cv']:.4f} s.", '',
+            f"Recovery changes LB by {result['comparisons'][1]['delta_lb']:.4f} s at six hours "
+            f"and {result['comparisons'][4]['delta_lb']:.4f} s at four hours. Its next-month CV "
+            'gain and longer-gap CV regression disagree with each other; its combined intervals '
+            'include zero. Recovery is not a consistent improvement across the two LB controls. '
+            'The four-hour recovery comparison also disagrees with combined CV point-estimate direction.', '',
+            f"For the best candidate, LB minus standard combined CV is "
+            f"{best['score']-best['cv_standard']['R_combined']:.4f} s. Directional transfer does not "
+            'make CV an accurate absolute leaderboard forecast.', '',
+            'The rule-transfer evidence supports discussing the proposed training-routing experiment '
+            'next. No new training exclusion or rule-correction model has been implemented. '
+            'Four hours is the best observed candidate in this selected comparison, not a proven global optimum.', '',
+        ]
+        insertion = lines.index('## Score levels and LB minus CV')
+        lines[insertion:insertion] = findings
+    live_path = REPORTS/'leaderboard_live_20260916.json'
+    if live_path.exists():
+        live = json.loads(live_path.read_text())
+        history = {item['file']: item for item in live['history']}
+        if any(history[item['file']]['score'] != item['score'] for item in items.values()):
+            raise ValueError('Live leaderboard and verified submission results disagree')
+        team = live['team']
+        lines[4:4] = [f"Live leaderboard snapshot **{live['updatedAt']}**: rank "
+                      f"**{team['rank']}/{team['scoringTeamCount']}** scoring teams "
+                      f"({team['registeredTeamCount']} registered). Best: {team['bestFile']} "
+                      f"at {team['bestScore']:.4f}; latest: {team['latest']['file']} "
+                      f"at {team['latest']['score']:.4f}. "
+                      '[Saved live snapshot](leaderboard_live_20260916.json).', '']
     (REPORTS/'LEADERBOARD_RESULTS.md').write_text('\n'.join(lines))
     print(json.dumps({k:{'LB':v['official_rmse'], 'CV':v['standard']['R_combined'],
                           'gap':v['lb_minus_cv']['standard']['R_combined']} for k,v in result['levels'].items()}, indent=2))
