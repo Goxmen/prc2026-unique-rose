@@ -15,7 +15,7 @@ No training, no model: just the facts the harness depends on. Answers, in order:
      resolution of an RMSE comparison?
   6. The Jan/Jul row counts that weight the pooled leaderboard projection.
 
-Run: .venv/bin/python VALIDATION/audit.py
+Run: .venv/bin/python VALIDATION/tools/audit.py
 """
 
 import sys
@@ -24,9 +24,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "VALIDATION"))
 sys.path.insert(0, str(ROOT / "pipeline"))
-from common import MAX_TAXI_SEC, MIN_TAXI_SEC, RANKING, TRAIN_GLOB, connect  # noqa: E402
+from common import MIN_TAXI_SEC, RANKING, TRAIN_GLOB, connect  # noqa: E402
+from protocol import MAX_TAXI_SEC  # noqa: E402
 
 OBT_COLS = ["AOBT_3_flt", "LOBT_flt", "IOBT_flt", "EOBT_1_flt", "SCHED_TIME_UTC_mvt"]
 
@@ -135,7 +137,8 @@ def main():
     print(f"   much smaller, and the band scales with them. As a rough rule the SE stays near")
     print(f"   {rel:.1f}% of whatever RMSE you score, so a model at R s has a band around")
     print(f"   +/-{1.96 * rel / 100:.3f} x R. The harness computes the true per-fold band from")
-    print("   actual model residuals — use that one, and treat anything inside it as a tie.")
+    print("   actual model residuals. Compare models with paired differences; an interval")
+    print("   crossing zero is inconclusive, not evidence of a tie.")
 
     print("\nAudit complete. Nothing was trained and nothing was written.")
 

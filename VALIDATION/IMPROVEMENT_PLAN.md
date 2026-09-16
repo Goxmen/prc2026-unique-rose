@@ -6,7 +6,7 @@ Update the status and results here as each stage finishes.
 ## Resume here — handoff after Stage 0
 
 **Next task: Stage 1 / R1, exact-twin flight-plan recovery.** Stage 0 is complete;
-read [its results](STAGE0_RESULTS.md) before changing or rerunning the baseline.
+read [its results](reports/STAGE0.md) before changing or rerunning the baseline.
 No recovery candidate has been fitted yet. The user's previous instruction to
 stop at Stage 0 was fulfilled; a new request to continue resumes at R1.
 
@@ -110,7 +110,7 @@ versus an estimated 26.30 s sequentially. The shared-matrix implementation then
 completed a two-seed batch in **20.38 s**, with **1,394 MiB** reported peak RSS.
 Probe predictions differed from the eight-thread reference by at most
 `9.1e-13` seconds. Full-experiment speedup is not inferred from fit timing alone.
-See [the CPU benchmark](benchmarks/stage0_threads_20260915T224428Z.json).
+See [the CPU benchmark](reports/benchmarks/stage0_threads_20260915T224428Z.json).
 
 **Sustained-run correction:** on M2, the paired four-thread fits took 272.0 and
 272.4 seconds each while the single eight-thread fit took 58.0 seconds. That
@@ -143,7 +143,7 @@ for the recovery experiments.
 
 ## Stage 0 — establish a comparable baseline
 
-**Complete.** See [Stage 0 results](STAGE0_RESULTS.md). Frozen B0 run:
+**Complete.** See [Stage 0 results](reports/STAGE0.md). Frozen B0 run:
 `v3_20260915T225301657023Z`; `R_A=371.0708`, `R_B_long=335.2416`.
 The same models' 800-round checkpoints scored better: the next-month difference
 is a supported regression (+4.3035 s); the longer-gap difference is inconclusive.
@@ -332,7 +332,7 @@ untested components into one unexplained change.
 
 ## How we decide locally
 
-Follow [protocol v3](VALIDATION_PROTOCOL_V3.md):
+Follow [protocol v3](docs/PROTOCOL.md):
 
 - Report `R_A` and `R_B_long` together. `R_combined` is a provisional summary,
   not a leaderboard forecast. Average squared errors across seeds and repeated

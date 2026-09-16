@@ -15,7 +15,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import modeling
-import sweep_taxi_thresholds as sweep
+from tools import sweep_taxi_thresholds as sweep
 from records import MODEL_FILES, write_json
 
 

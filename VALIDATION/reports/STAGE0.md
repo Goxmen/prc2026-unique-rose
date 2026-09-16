@@ -4,7 +4,7 @@ Completed 2026-09-16 local time. Recovery experiments have not started.
 
 ## Frozen baseline
 
-- **Run:** [`v3_20260915T225301657023Z`](runs/v3_20260915T225301657023Z/result.json).
+- **Run:** [`v3_20260915T225301657023Z`](../runs/v3_20260915T225301657023Z/result.json).
 - **Recipe:** 1,500 fixed rounds; seeds 42, 142, 242; original model features;
   recovery off; training labels 1–200,000 seconds; all validation labels scored.
 - **Coverage:** six six-month training windows, 18 fitted models, 16 folds and
@@ -42,9 +42,9 @@ recovery comparisons; any return to 800 rounds must be explicit rather than
 bundled with a recovery change. These are reused development folds, not a new
 independent test or an official score.
 
-- [Paired checkpoint report](runs/v3_20260915T225301657023Z/comparison_round800.json)
-- [Training-loss chart](runs/v3_20260915T225301657023Z/training_loss.png)
-- [Training-loss PDF](runs/v3_20260915T225301657023Z/training_loss.pdf)
+- [Paired checkpoint report](../runs/v3_20260915T225301657023Z/comparison_round800.json)
+- [Training-loss chart](../runs/v3_20260915T225301657023Z/training_loss.png)
+- [Training-loss PDF](../runs/v3_20260915T225301657023Z/training_loss.pdf)
 
 ## Recovery-off equivalence
 

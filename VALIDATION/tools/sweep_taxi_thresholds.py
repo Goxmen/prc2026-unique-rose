@@ -1,8 +1,8 @@
 """Train seven full-year models and upload them directly to the leaderboard.
 
-Run: .venv/bin/python VALIDATION/sweep_taxi_thresholds.py
-Preview IDs: add --dry-run. Resume: --resume VALIDATION/sweeps/<id>.json.
-Refresh scores: --status VALIDATION/sweeps/<id>.json.
+Run: .venv/bin/python VALIDATION/tools/sweep_taxi_thresholds.py
+Preview IDs: add --dry-run. Resume: --resume VALIDATION/reports/sweeps/<id>.json.
+Refresh scores: --status VALIDATION/reports/sweeps/<id>.json.
 No holdout evaluation or early stopping is run. Defaults match submission v3.
 """
 
@@ -19,7 +19,8 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "VALIDATION"))
 sys.path.insert(0, str(ROOT / "pipeline"))
 from common import DATA, SUBMISSIONS, TEAM
 from dashboard_data import BUCKET, mc_environment
@@ -27,11 +28,11 @@ from records import MODEL_FILES, data_identity, sha256, write_json
 from submit import DEFAULTS
 
 THRESHOLDS = (10_000, 16_000, 22_000, 32_000, 50_000, 70_000, 90_000)
-SWEEPS = ROOT / "VALIDATION" / "sweeps"
+SWEEPS = ROOT / "VALIDATION" / "reports" / "sweeps"
 VERSION_RE = re.compile(rf"^{re.escape(TEAM)}_v(\d+)\.")
 SOURCE_FILES = MODEL_FILES + ["VALIDATION/submit.py", "VALIDATION/harness.py",
                               "VALIDATION/protocol.py", "VALIDATION/records.py",
-                              "VALIDATION/sweep_taxi_thresholds.py", "requirements.txt"]
+                              "VALIDATION/tools/sweep_taxi_thresholds.py", "requirements.txt"]
 
 
 def now():
@@ -219,7 +220,7 @@ def execute(sweep, manifest):
         except (Exception, KeyboardInterrupt) as error:
             item["error"] = str(error) or type(error).__name__
             write_json(manifest, sweep)
-            print(f"\nResume with: {sys.executable} VALIDATION/sweep_taxi_thresholds.py "
+            print(f"\nResume with: {sys.executable} VALIDATION/tools/sweep_taxi_thresholds.py "
                   f"--resume {manifest}", flush=True)
             raise
     sweep["uploads_completed_at"] = now()
@@ -275,7 +276,7 @@ def main(argv=None):
         print(f"Sweep manifest: {manifest}", flush=True)
         show(sweep)
         execute(sweep, manifest)
-        print(f"\nRefresh pending scores: {sys.executable} VALIDATION/sweep_taxi_thresholds.py "
+        print(f"\nRefresh pending scores: {sys.executable} VALIDATION/tools/sweep_taxi_thresholds.py "
               f"--status {manifest}")
 
 

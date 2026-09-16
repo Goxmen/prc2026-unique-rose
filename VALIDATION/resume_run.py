@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 
 from harness import load, plan, execute, connect, TRAIN_GLOB, RANKING
 from modeling import PARAMS
-from records import (MODEL_FILES, ROOT, read_run, sha256, data_identity,
+from records import (MODEL_FILES, ROOT, RUNS, ARCHIVE_RUNS, read_run, sha256, data_identity,
                      source_snapshot, write_json, append_log)
 from reporting import report, print_report
 
@@ -78,7 +78,8 @@ def main():
     finally:
         record["minutes"] = round(prior_minutes + (time.monotonic() - start) / 60, 3)
         write_json(directory / "result.json", record)
-        append_log(record, directory.parent, replace_existing=True)
+        log_directory = RUNS if directory.resolve().parent == ARCHIVE_RUNS else directory.parent
+        append_log(record, log_directory, replace_existing=True)
     print(f"Completed resumed run: {directory}")
 
 

@@ -1,13 +1,13 @@
 # PRC Taxi-Out — Validation Protocol v3
 
 **Status: implemented.** Written 2026-09-07; implemented the same day in
-[protocol.py](protocol.py) (fold roster), [modeling.py](modeling.py) (availability
-rules, fitting, round selection), [reporting.py](reporting.py) (scores, slices,
-paired bootstrap), [harness.py](harness.py) (runner), [compare.py](compare.py),
-[submit.py](submit.py) and [log_official.py](log_official.py), with regression
-tests in [tests/test_v3.py](tests/test_v3.py). [README.md](README.md) is the
-operating manual. This revises [v2](VALIDATION_PROTOCOL_V2.md) using the evidence
-in [FINDINGS.md](FINDINGS.md). The changes from v2 are highlighted below.
+[protocol.py](../protocol.py) (fold roster), [modeling.py](../modeling.py) (availability
+rules, fitting, round selection), [reporting.py](../reporting.py) (scores, slices,
+paired bootstrap), [harness.py](../harness.py) (runner), [compare.py](../compare.py),
+[submit.py](../submit.py) and [log_official.py](../tools/log_official.py), with regression
+tests in [tests/test_v3.py](../tests/test_v3.py). [README.md](../README.md) is the
+operating manual. This revises [v2](https://github.com/Goxmen/PRC/blob/ea3bce8/VALIDATION/VALIDATION_PROTOCOL_V2.md) using the evidence
+in [FINDINGS.md](../archive/FINDINGS_20260907.md). The changes from v2 are highlighted below.
 
 We have all of 2025 for training. The competition scores one pooled RMSE over
 departures in January and July 2026. These are the first and seventh months
@@ -337,10 +337,10 @@ because sampling changes traffic features and the rare-label distribution.
 
 ## References
 
-- [Validation protocol v2](VALIDATION_PROTOCOL_V2.md): original proposal and fold IDs.
-- [Recorded findings](FINDINGS.md): sections 2–5 cover extreme labels, paired
+- [Validation protocol v2](https://github.com/Goxmen/PRC/blob/ea3bce8/VALIDATION/VALIDATION_PROTOCOL_V2.md): original proposal and fold IDs.
+- [Recorded findings](../archive/FINDINGS_20260907.md): sections 2–5 cover extreme labels, paired
   uncertainty, feature staleness and the existing official comparison.
-- [Current feature implementation](features_time.py): starting point for the
+- [Current feature implementation](../features_time.py): starting point for the
   availability rules; this document specifies changes rather than certifying
   that the current implementation already satisfies them.
 - Selecting models and reporting their performance on the same validation data

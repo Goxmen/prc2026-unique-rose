@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 RUNS = ROOT / "VALIDATION" / "runs"
+ARCHIVE_RUNS = ROOT / "VALIDATION" / "archive" / "runs"
 LOG = RUNS / "experiments.jsonl"
 MODEL_FILES = ["pipeline/common.py", "VALIDATION/features_time.py", "VALIDATION/modeling.py",
                "VALIDATION/movement_data.py"]
@@ -66,8 +67,11 @@ def source_snapshot(outdir):
     paths = sorted(set([ROOT / "requirements.txt", ROOT / ".gitignore"] +
                        list((ROOT / "pipeline").glob("*.py")) +
                        list((ROOT / "VALIDATION").glob("*.py")) +
+                       list((ROOT / "VALIDATION" / "tools").glob("*.py")) +
                        list((ROOT / "VALIDATION" / "tests").glob("*.py")) +
-                       list((ROOT / "VALIDATION").glob("*.md"))))
+                       list((ROOT / "VALIDATION").glob("*.md")) +
+                       list((ROOT / "VALIDATION" / "docs").glob("*.md")) +
+                       list((ROOT / "VALIDATION" / "reports").glob("*.md"))))
     hashes = {}
     for path in paths:
         relative = path.relative_to(ROOT)
@@ -85,6 +89,16 @@ def source_snapshot(outdir):
 
 def read_run(run, runs=RUNS):
     path = Path(run)
+    if not path.is_file() and path.name != "result.json":
+        path = path / "result.json" if path.is_dir() or len(path.parts) > 1 else Path(runs) / run / "result.json"
     if not path.is_file():
-        path = path / "result.json" if path.is_dir() else Path(runs) / run / "result.json"
+        # Old IDs and explicit pre-cleanup paths still resolve to their archived run.
+        try:
+            relative = path.resolve().relative_to(Path(runs).resolve())
+        except ValueError:
+            pass
+        else:
+            archived = Path(runs).resolve().parent / "archive" / "runs" / relative
+            if archived.is_file():
+                path = archived
     return json.loads(path.read_text()), path.parent

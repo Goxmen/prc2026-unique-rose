@@ -22,7 +22,7 @@ import protocol
 import reporting as r
 import submit
 from features_time import day_index
-from log_official import calibration_key
+from tools.log_official import calibration_key
 from records import MODEL_FILES, ROOT, sha256
 
 
@@ -265,4 +265,3 @@ class EndToEndTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -6,12 +6,14 @@ Uses an already completed run; never fits or uploads a model.
 import argparse
 import copy
 import json
+import sys
 from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from records import read_run, write_json
 from reporting import report, print_report
 

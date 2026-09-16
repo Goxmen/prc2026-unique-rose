@@ -2,11 +2,13 @@
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
 
-from records import LOG, write_json
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from records import LOG, read_run, write_json
 from protocol import VERSION
 
 
@@ -72,11 +74,13 @@ def main(argv=None):
             raise ValueError(f"expected exactly one run {args.run} in {args.log}")
         hit = hits[0]
         hit.update(official_rmse=args.official, submission=args.submission)
-        result = args.log.parent / args.run / "result.json"
-        if result.exists():
-            detail = json.loads(result.read_text())
+        try:
+            detail, directory = read_run(args.run, runs=args.log.parent)
+        except FileNotFoundError:
+            pass
+        else:
             detail.update(official_rmse=args.official, submission=args.submission)
-            write_json(result, detail)
+            write_json(directory / "result.json", detail)
         temp = args.log.with_suffix(".tmp")
         temp.write_text("".join(json.dumps(row) + "\n" for row in rows))
         temp.replace(args.log)
@@ -87,4 +91,3 @@ def main(argv=None):
 
 if __name__ == "__main__":
     main()
-

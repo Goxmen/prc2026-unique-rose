@@ -54,7 +54,7 @@ but identify the result as stale and report its timestamp.
 When asked to **continue the improvement plan**, read
 [`VALIDATION/IMPROVEMENT_PLAN.md`](VALIDATION/IMPROVEMENT_PLAN.md), starting with
 its "Resume here" section, and
-[`VALIDATION/STAGE0_RESULTS.md`](VALIDATION/STAGE0_RESULTS.md).
+[`VALIDATION/reports/STAGE0.md`](VALIDATION/reports/STAGE0.md).
 
 - **Stage 0 is complete. Stage 1 / R1 (exact-twin flight-plan recovery) is next.**
   Do not repeat Stage 0 or jump to the Rome rule before the recovery experiment.
