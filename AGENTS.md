@@ -56,7 +56,12 @@ When asked to **continue the improvement plan**, read
 its "Resume here" section, and
 [`VALIDATION/reports/STAGE0.md`](VALIDATION/reports/STAGE0.md).
 
-- **Stage 2 is complete. Stage 3 is next.** Read the plan's ledger and
+- **Stage 3 is authorized and in progress.** Work is on
+  `stage3-clock-features-residual`, based on Stage 2. The frozen design is in
+  `VALIDATION/docs/CLOCK_MODELS.md`: T1 adds 18 features, T2 uses the same
+  features with residual regression. Both retain recovery off, 800 rounds,
+  three seeds and the fixed six-hour rule. All 51 tests pass before training.
+  Read the plan's ledger and
   `VALIDATION/reports/STAGE2.md`. Select Q0 as the conservative parent:
   `v3_20260916T123230629423Z`, R_A 300.5904, R_B_long 256.1971. Q1
   (`v3_20260916T123433565511Z`) scores 296.9037/258.5505; versus Q0, it has
@@ -115,8 +120,8 @@ its "Resume here" section, and
 - Existing `data/derived/` notebook caches are useful audit references, but are
   not fold-valid inputs. Their sections, counts, guards and reuse limits are in
   `VALIDATION/reports/STAGE1_DERIVED_DATA.md`. Do not rebuild them unnecessarily.
-- Work is on `stage2-rome-six-hour-rule`, based on the open Stage 1 PR branch
-  `stage1-flight-plan-recovery`. Track source, plans, concise results
+- Work is on `stage3-clock-features-residual`, based on the open Stage 2 PR
+  branch `stage2-rome-six-hour-rule`. Track source, plans, concise results
   and charts; models, predictions, source snapshots and row-level audit parquets
   remain gitignored and local. A fresh clone must copy or regenerate them.
 

@@ -3,9 +3,13 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — Stage 2 complete; Stage 3 next
+## Resume here — Stage 3 authorized and in progress
 
-Work is on branch `stage2-rome-six-hour-rule`, based on Stage 1's open PR branch.
+Work is on branch `stage3-clock-features-residual`, based on Stage 2's open PR branch.
+The user authorized Stage 3. Its [feature and residual design](docs/CLOCK_MODELS.md)
+is frozen before the benchmark runs: T1 adds 18 clock features; T2 changes only
+the target to a residual around a deterministic clock baseline. Both retain
+Q0's recovery-off, 800-round, fixed-six-hour recipe and all training populations.
 **Stage 2 is complete. Select Q0 (B0-800 + the fixed rule) as the conservative
 parent for Stage 3; retain Q1 (R3 + rule) as an alternative.** Both rule
 candidates improve against their parents. Q1 improves next-month RMSE over Q0

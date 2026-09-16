@@ -14,6 +14,7 @@ from common import CATEGORICAL, RAW_COLS, build_features  # noqa: E402
 from features_time import TimeFeatures, STALE_ABLE, day_index, fpl_flags, _naive  # noqa: E402
 from protocol import TAIL_SEC  # noqa: E402
 from recovery import recover_frame  # noqa: E402
+from clock_features import clock_features as build_clock_features, target_offset  # noqa: E402
 
 PARAMS = {
     "objective": "regression", "metric": "rmse", "learning_rate": 0.05,
@@ -52,7 +53,8 @@ def context(history_dep, history_arr, eval_dep=None, eval_arr=None, departure_hi
                         dep_events=events, arr_events=arr)
 
 
-def matrix(df, tf, *, freeze_day, lag_days=0, fpl_flag=False, departure_history=True):
+def matrix(df, tf, *, freeze_day, lag_days=0, fpl_flag=False, departure_history=True,
+           clock_features=False):
     raw = observable(df)
     time = tf.transform(raw, freeze_day=freeze_day, lag_days=lag_days)
     if not departure_history:
@@ -60,6 +62,8 @@ def matrix(df, tf, *, freeze_day, lag_days=0, fpl_flag=False, departure_history=
     parts = [build_features(raw), time]
     if fpl_flag:
         parts.append(fpl_flags(raw))
+    if clock_features:
+        parts.append(build_clock_features(df))
     return pd.concat(parts, axis=1)
 
 
@@ -96,7 +100,8 @@ def training_matrix(dep, arr, config, departure_history=True, audit_out=None, pr
         raise ValueError("no training rows survive the training-label filter")
     tf = context(dep, arr, departure_history=departure_history)
     X = matrix(dep.loc[keep], tf, freeze_day=None, lag_days=config["lag_train_days"],
-               fpl_flag=config["fpl_flag"], departure_history=departure_history)
+               fpl_flag=config["fpl_flag"], departure_history=departure_history,
+               clock_features=config.get('clock_features', False))
     X, cats = fit_categories(X)
     return X, dep.loc[keep, "taxi_sec"].to_numpy(float), cats
 
@@ -118,14 +123,15 @@ def validation_matrix(dep, arr, val_dep, val_arr, freeze, cats, config, departur
     tf = context(dep, arr, val_dep, val_arr, departure_history)
     freeze_day = int((pd.Timestamp(freeze) - pd.Timestamp("2025-01-01")).days)
     X = matrix(val_dep, tf, freeze_day=freeze_day, fpl_flag=config["fpl_flag"],
-               departure_history=departure_history)
+               departure_history=departure_history, clock_features=config.get('clock_features', False))
     return apply_categories(X, cats)
 
 
 def fit_booster(X, y, seed, rounds, config, desc, validation=None, training_history=None):
     params = dict(PARAMS, seed=seed, bagging_seed=seed + 1,
                   feature_fraction_seed=seed + 2, num_threads=config.get("threads", 0))
-    train = lgb.Dataset(X, y, categorical_feature=CATEGORICAL)
+    mode = config.get('target_mode', 'direct')
+    train = lgb.Dataset(X, np.asarray(y)-target_offset(X, mode), categorical_feature=CATEGORICAL)
     with tqdm(total=rounds, desc=desc, unit="rnd", leave=False) as bar:
         def progress(env):
             for name, metric, value, *_ in env.evaluation_result_list or []:
@@ -141,7 +147,8 @@ def fit_booster(X, y, seed, rounds, config, desc, validation=None, training_hist
             callbacks.append(lgb.record_evaluation(training_history))
         if validation is not None:
             vx, vy = validation
-            kwargs.setdefault("valid_sets", []).append(lgb.Dataset(vx, vy, reference=train))
+            kwargs.setdefault("valid_sets", []).append(
+                lgb.Dataset(vx, np.asarray(vy)-target_offset(vx, mode), reference=train))
             if training_history is not None:
                 kwargs["valid_names"].append("validation")
             callbacks.append(lgb.early_stopping(config["early_stopping_rounds"], verbose=False))
@@ -167,11 +174,13 @@ def choose_rounds(dep, arr, seed, config, train_end, departure_history=True):
                     "rounds": rounds, "train_rows": len(y), "validation_rows": len(va)}
 
 
-def predict(booster, X, num_iteration=None, threads=None):
+def predict(booster, X, num_iteration=None, threads=None, target_mode='direct'):
     threads = booster.params.get('num_threads', 0) if threads is None else threads
-    return np.clip(np.concatenate([booster.predict(X.iloc[i:i + 20_000], num_iteration=num_iteration,
+    values = np.concatenate([booster.predict(X.iloc[i:i + 20_000], num_iteration=num_iteration,
                                                    num_threads=threads)
-                                  for i in range(0, len(X), 20_000)]), 0, None)
+                             for i in range(0, len(X), 20_000)])
+    # Negative residuals are valid; clip only the reconstructed taxi prediction.
+    return np.clip(values + target_offset(X, target_mode), 0, None)
 
 
 def prediction_frame(val, X, train_start, train_end, month):
