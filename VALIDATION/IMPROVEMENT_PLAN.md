@@ -10,6 +10,8 @@ on Stage 3. Candidate M1 uses the [frozen mixture design](docs/TIMESTAMP_MIXTURE
 a probability model for ordinary/other, schedule and positive one-day patterns,
 plus an ordinary/other regressor. T1 is the direct feature-matched parent;
 Q0 remains the conservative control and Q1 is an additional comparison.
+Run `v3_20260916T144408082362Z` is in progress; its completed bundles and
+folds are saved for resume. All 55 tests passed before launch.
 Reuse saved controls and the established laptop settings. No repeat recovery
 audits, CPU probes, notebook-cache rebuilds or threshold sweeps are needed.
 The user also expanded the later leaderboard checks to explicitly measure
@@ -74,7 +76,8 @@ comparison parent and retain the separate four-hour sensitivity candidate.
 Do not repeat recovery audits, CPU tuning or notebook caches without relevant
 changes. Full-year refits and uploads remain deferred pending selection.
 Historical Q0/Q1/recovery recipes retain their frozen-source requirements;
-current code and linked recipe checks match T1/T2, not those older wrappers.
+current code now includes M1; older T1/T2 and Q0/Q1 wrappers require their
+frozen source for refits.
 
 **Round count:** Stage 1 explicitly uses **800 rounds** for control and all
 three candidates, following the Stage 0 checkpoint verdict. The historical

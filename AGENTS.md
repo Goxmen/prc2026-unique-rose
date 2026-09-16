@@ -56,7 +56,18 @@ When asked to **continue the improvement plan**, read
 its "Resume here" section, and
 [`VALIDATION/reports/STAGE0.md`](VALIDATION/reports/STAGE0.md).
 
-- **Stage 3 is complete. Keep Q0 as the conservative control.** Work is on
+- **Stage 4 is authorized and running.** Branch `stage4-timestamp-mixture`,
+  based on Stage 3. Frozen recipe: `VALIDATION/docs/TIMESTAMP_MIXTURE.md`.
+  M1 `v3_20260916T144408082362Z` fits a three-class probability model and
+  ordinary/other regressor per window/seed (36 boosters in 18 bundles), using
+  T1's 45 features, recovery off, 800 rounds and the fixed six-hour rule.
+  Compare with T1, Q0 and Q1. All 55 tests pass. Run log:
+  `/tmp/prc-stage4-m1.log`. Reuse progress if interrupted; do not restart fits.
+  The user expanded the later leaderboard work: record official and CV scores,
+  candidate-minus-control changes, direction agreement, LB-minus-CV gaps and
+  delta-LB-minus-delta-CV, with seed-42 CV alongside the standard seed average.
+  Details are in the plan; submissions/refits are still deferred.
+- **Stage 3 is complete. Keep Q0 as the conservative control.** Its work is on
   `stage3-clock-features-residual`, based on Stage 2. The frozen design is in
   `VALIDATION/docs/CLOCK_MODELS.md`: T1 adds 18 features, T2 uses the same
   features with residual regression. Both retain recovery off, 800 rounds,
@@ -104,12 +115,12 @@ its "Resume here" section, and
   **not promoted**. R2/R3 were compared with both their immediate parents and
   B0-800. Coverage is not the promotion criterion.
 - Q0 = B0-800 + fixed Rome six-hour rule; Q1 = R3 + the same rule. Both are
-  complete and reuse saved predictions. Stage 4 is the next planned modelling
-  stage and has not run. The user's future leaderboard check and routing
+  complete and reuse saved predictions. Stage 4 is now running as described
+  above. The user's future leaderboard check and routing
   discussion remain pending. Do not repeat recovery audits or CPU tuning
   unless their relevant code/data changes.
-- All 51 tests pass. Stage 1's recovery-off equivalence evidence is retained.
-  T1/T2 linked model/rule source checks match current code. Historical Q0/Q1
+- All 55 tests pass. Stage 1's recovery-off equivalence evidence is retained.
+  Current source includes the Stage 4 mixture. Historical T1/T2, Q0/Q1
   and recovery models require their frozen implementation for a full-year
   refit; preserve source guards rather than bypassing them.
 - The shared pipeline implements `--recovery off|exact|relaxed|history`, with
@@ -127,8 +138,8 @@ its "Resume here" section, and
 - Existing `data/derived/` notebook caches are useful audit references, but are
   not fold-valid inputs. Their sections, counts, guards and reuse limits are in
   `VALIDATION/reports/STAGE1_DERIVED_DATA.md`. Do not rebuild them unnecessarily.
-- Work is on `stage3-clock-features-residual`, based on the open Stage 2 PR
-  branch `stage2-rome-six-hour-rule`. Track source, plans, concise results
+- Work is on `stage4-timestamp-mixture`, based on the open Stage 3 PR
+  branch `stage3-clock-features-residual`. Track source, plans, concise results
   and charts; models, predictions, source snapshots and row-level audit parquets
   remain gitignored and local. A fresh clone must copy or regenerate them.
 

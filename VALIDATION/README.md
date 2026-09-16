@@ -1,6 +1,9 @@
 # Validation
 
-Start with the [improvement plan](IMPROVEMENT_PLAN.md) and
+Start with the [improvement plan](IMPROVEMENT_PLAN.md). Stage 4 is running with
+the [frozen timestamp-mixture recipe](docs/TIMESTAMP_MIXTURE.md), comparing M1
+with T1, Q0 and Q1. The [exact feature list and examples](docs/STAGE2_STAGE3_EXAMPLES.md)
+explain the preceding stages in plain language. See
 [Stage 3 results](reports/STAGE3.md). **Stage 3 is complete: T1 is inconclusive,
 T2 regresses substantially, and Q0 remains the conservative control.** The
 [frozen clock-model design](docs/CLOCK_MODELS.md) and report explain the
@@ -24,6 +27,8 @@ comparison explicit when continuing.
 | [docs/RECOVERY.md](docs/RECOVERY.md) | Recovery modes, availability boundaries, audits and notebook reuse |
 | [docs/PREDICTION_RULES.md](docs/PREDICTION_RULES.md) | Fixed rule, saved-prediction comparisons and linked submission recipes |
 | [docs/CLOCK_MODELS.md](docs/CLOCK_MODELS.md) | Stage 3 clock features, baseline fallback and residual reconstruction |
+| [docs/TIMESTAMP_MIXTURE.md](docs/TIMESTAMP_MIXTURE.md) | Stage 4 outcome definitions, component training and probability mixture |
+| [docs/STAGE2_STAGE3_EXAMPLES.md](docs/STAGE2_STAGE3_EXAMPLES.md) | Exact feature names and numerical examples for Stages 2–3 |
 | [tools/](tools/README.md) | Occasional audits, charts and submission utilities |
 | [archive/](archive/README.md) | Historical findings and five earlier experiments |
 | `tests/` | Regression checks for the model and workflow |
