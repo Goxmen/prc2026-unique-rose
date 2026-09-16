@@ -7,6 +7,15 @@ and takeoff minus scheduled movement time at least 21,600 seconds. The new
 prediction is that gap. Neither recovered plan availability nor the target
 participates in the trigger; six hours is fixed, not a tunable command option.
 
+The separate diagnostic `VALIDATION/tools/sweep_rule_thresholds.py` evaluates
+the user-requested 4, 5, 6, 7 and 8 hour grid on saved B0-800 and R3 predictions.
+It reads each parent once, preserves per-flight/seed/origin loss weighting,
+and checks the six-hour scores against Q0/Q1. Its report includes both main
+scores, the provisional combined score, monthly results, helped/harmed counts,
+changed IDs and paired day-bootstrap intervals. The sweep does not change the
+fixed implementation or linked submission recipes. Its development-fold
+comparisons are sensitivity evidence, not independent threshold confirmation.
+
 ## Register and compare without fitting
 
 ```bash

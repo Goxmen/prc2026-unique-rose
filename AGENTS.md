@@ -62,6 +62,12 @@ its "Resume here" section, and
   (`v3_20260916T123433565511Z`) scores 296.9037/258.5505; versus Q0, it has
   a supported next-month gain and a supported longer-gap regression. Retain
   Q1 as an alternative, not a universal improvement.
+- The user-authorized 4/5/6/7/8-hour sensitivity sweep is complete on both
+  parents; see `VALIDATION/reports/STAGE2_THRESHOLD_SWEEP.md`. Four hours is
+  best in this grid: B0-800 296.2785/255.6200, R3 292.8785/257.4787. Next-month
+  gains versus six hours have pointwise support; longer-gap intervals touch
+  zero. Keep it as a candidate; Q0/Q1 remain six-hour controls. Saved-prediction
+  scoring took 1.621 minutes, zero fits. Do not rerun it without a reason.
 - Stage 1's provisionally selected recovery model was R3:
   `v3_20260916T113256202842Z`, R_A 360.5041, R_B_long 333.3043. Its next-month
   gain versus control is supported; its longer-gap change is inconclusive and
@@ -78,7 +84,7 @@ its "Resume here" section, and
   complete and reuse saved predictions. Next: T1 then T2 from Q0, keeping
   recovery off and the rule fixed. No Stage 3 models have run. Do not repeat
   recovery audits or CPU tuning unless their relevant code/data changes.
-- All 45 tests pass. Stage 1 recovery-off matrices exactly match frozen control
+- All 47 tests pass. Stage 1 recovery-off matrices exactly match frozen control
   source across six training windows and 16 validation folds. R3's model-source
   hashes match current code. B0-800's older wrapper hashes differ; preserve its
   frozen source and submission source guard for any later full-year refit.

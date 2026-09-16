@@ -13,6 +13,14 @@ but has a supported longer-gap regression; its combined difference is uncertain.
 Read [Stage 2](reports/STAGE2.md), [Stage 1](reports/STAGE1.md), and
 [Stage 0](reports/STAGE0.md) for the round-count experiment.
 
+The user-authorized [4–8 hour follow-up sweep](reports/STAGE2_THRESHOLD_SWEEP.md)
+is also complete on B0-800 and R3, using saved predictions in 1.621 minutes.
+Four hours gives the best point estimates: 296.2785/255.6200 for B0-800 and
+292.8785/257.4787 for R3 (R_A/R_B_long). Its next-month gains over six hours
+are supported by pointwise intervals; longer-gap intervals touch zero.
+Retain four hours as a promising sensitivity candidate. Q0/Q1 remain six-hour
+controls; no new threshold was promoted or installed in a submission recipe.
+
 | Experiment | Artifact / state |
 |---|---|
 | Original B0, 1,500 rounds | `runs/v3_20260915T225301657023Z/result.json`, frozen; its model/prediction files were absent on this laptop |
@@ -22,7 +30,8 @@ Read [Stage 2](reports/STAGE2.md), [Stage 1](reports/STAGE1.md), and
 | R3, Stage 1 recovery candidate | `runs/v3_20260916T113256202842Z/result.json`, complete; R_A 360.5041, R_B_long 333.3043 |
 | Q0, selected conservative parent | `runs/v3_20260916T123230629423Z/result.json`, complete; R_A 300.5904, R_B_long 256.1971 |
 | Q1, retained tradeoff | `runs/v3_20260916T123433565511Z/result.json`, complete; R_A 296.9037, R_B_long 258.5505 |
-| Verification | 45 tests; Stage 1 equivalence/audits retained; rule comparisons, changed-row CSVs and chart complete |
+| Rome threshold sensitivity | 4, 5, 6, 7 and 8 hours on both parents; complete, no new fits; [scores and interpretation](reports/STAGE2_THRESHOLD_SWEEP.md) |
+| Verification | 47 tests; Stage 1 equivalence/audits retained; rule comparisons, threshold sweep, changed-row CSVs and charts complete |
 
 **Next task: Stage 3, T1 then T2, with Q0 explicitly named as parent.** Keep
 recovery off and the fixed Rome rule when testing clock features and residual
@@ -331,6 +340,11 @@ definition and eligible rows do not change silently.
 Complete: [Stage 2 report](reports/STAGE2.md). The shared rule implementation
 is used by saved-prediction validation and linked submission, with separate
 model/rule hashes. No new full benchmark fit or full-year refit was needed.
+
+Subsequently, the user explicitly authorized a separate 4/5/6/7/8-hour rule
+threshold sweep on both baseline and R3. This is complete; see the linked
+[follow-up report](reports/STAGE2_THRESHOLD_SWEEP.md). The original fixed
+six-hour experiment and its submission recipes retain their identities.
 
 The rule is an empirical candidate: the schedule does not reproduce every
 extreme label, and some day-offset cases follow a different pattern.

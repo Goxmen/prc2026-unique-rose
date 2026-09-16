@@ -1,5 +1,9 @@
 # Stage 2 — fixed Rome six-hour rule
 
+Subsequent user-authorized experiment: [4–8 hour threshold sensitivity on
+both parents](STAGE2_THRESHOLD_SWEEP.md). Four hours has the best point estimates;
+the historical fixed-six-hour results and Q0/Q1 definitions below are unchanged.
+
 **Complete. Carry Q0 forward as the conservative default; retain Q1 as a
 next-month/longer-gap tradeoff.** The rule improves both main readouts for both
 parents. Adding recovery to the rule improves next-month performance but
