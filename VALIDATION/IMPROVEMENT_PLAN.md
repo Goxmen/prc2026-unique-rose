@@ -21,6 +21,13 @@ are supported by pointwise intervals; longer-gap intervals touch zero.
 Retain four hours as a promising sensitivity candidate. Q0/Q1 remain six-hour
 controls; no new threshold was promoted or installed in a submission recipe.
 
+The [1–3 hour extension](reports/STAGE2_THRESHOLD_SWEEP_LOW.md) is complete
+(1.631 minutes, no fits). Four hours remains best on next-month and combined
+point estimates for both parents. One and two hours regress on those scores;
+three versus four is inconclusive. R3's two-hour longer-gap advantage is only
+0.0744 s and inconclusive. This adaptive extension preserves the original
+sweep artifacts and six-hour controls; no threshold was promoted.
+
 | Experiment | Artifact / state |
 |---|---|
 | Original B0, 1,500 rounds | `runs/v3_20260915T225301657023Z/result.json`, frozen; its model/prediction files were absent on this laptop |
@@ -31,6 +38,7 @@ controls; no new threshold was promoted or installed in a submission recipe.
 | Q0, selected conservative parent | `runs/v3_20260916T123230629423Z/result.json`, complete; R_A 300.5904, R_B_long 256.1971 |
 | Q1, retained tradeoff | `runs/v3_20260916T123433565511Z/result.json`, complete; R_A 296.9037, R_B_long 258.5505 |
 | Rome threshold sensitivity | 4, 5, 6, 7 and 8 hours on both parents; complete, no new fits; [scores and interpretation](reports/STAGE2_THRESHOLD_SWEEP.md) |
+| Lower-threshold extension | 1, 2 and 3 hours on both parents, with 4/6-hour controls; complete, no new fits; [scores and interpretation](reports/STAGE2_THRESHOLD_SWEEP_LOW.md) |
 | Verification | 47 tests; Stage 1 equivalence/audits retained; rule comparisons, threshold sweep, changed-row CSVs and charts complete |
 
 **Next task: Stage 3, T1 then T2, with Q0 explicitly named as parent.** Keep

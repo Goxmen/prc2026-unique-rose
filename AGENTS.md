@@ -68,6 +68,12 @@ its "Resume here" section, and
   gains versus six hours have pointwise support; longer-gap intervals touch
   zero. Keep it as a candidate; Q0/Q1 remain six-hour controls. Saved-prediction
   scoring took 1.621 minutes, zero fits. Do not rerun it without a reason.
+- The requested 1/2/3-hour extension is also complete; see
+  `VALIDATION/reports/STAGE2_THRESHOLD_SWEEP_LOW.md`. Four hours remains the
+  best next-month/combined point estimate for both parents. One and two hours
+  regress on those scores; three versus four is inconclusive. R3's two-hour
+  longer-gap advantage is only 0.0744 s and inconclusive. Scoring took 1.631
+  minutes, zero fits. Q0/Q1 remain six-hour controls; no threshold is promoted.
 - Stage 1's provisionally selected recovery model was R3:
   `v3_20260916T113256202842Z`, R_A 360.5041, R_B_long 333.3043. Its next-month
   gain versus control is supported; its longer-gap change is inconclusive and

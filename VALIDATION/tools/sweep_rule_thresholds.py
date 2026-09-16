@@ -1,4 +1,4 @@
-"""Diagnostic 4–8 hour Rome-rule sweep on saved baseline and R3 predictions."""
+"""Diagnostic Rome-rule threshold sweep on saved baseline and R3 predictions."""
 
 import argparse
 from datetime import datetime, timezone
@@ -12,7 +12,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from records import ROOT, data_identity, read_run, sha256, write_json
 from reporting import (Loss, boot_scores, bootstrap_calendar, group_loss, interval,
-                       load_losses, rmse, same_flights, slice_stats, validate_comparison)
+                       load_losses, rmse, slice_stats, validate_comparison)
 sys.path.insert(0, str(ROOT / 'pipeline'))
 from common import DATA, TRAIN_GLOB, connect
 from prediction_rules import RULE_INPUTS, apply_rule
@@ -73,7 +73,7 @@ def metrics(loss, changes):
             'at_most_12_seconds': slice_stats(loss, loss.meta.y.le(12))}
 
 
-def draw_plot(candidates, output):
+def draw_plot(candidates, output, hours):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -85,10 +85,10 @@ def draw_plot(candidates, output):
     for ax, key, title in zip(axes, ['R_A', 'R_B_long', 'R_combined'],
                              ['Next month', 'Longer gap', 'Provisional combined']):
         for label, color in [('B0-800', '#087f8c'), ('R3', '#b34b36')]:
-            values = [candidates[label]['thresholds'][str(h)]['scores'][key] for h in HOURS]
-            ax.plot(HOURS, values, 'o-', color=color, label=label)
+            values = [candidates[label]['thresholds'][str(h)]['scores'][key] for h in hours]
+            ax.plot(hours, values, 'o-', color=color, label=label)
         ax.axvline(6, color='#999999', ls='--', lw=.8)
-        ax.set(title=title, xlabel='Threshold (hours)', ylabel='RMSE (seconds)', xticks=HOURS)
+        ax.set(title=title, xlabel='Threshold (hours)', ylabel='RMSE (seconds)', xticks=hours)
         ax.grid(alpha=.15)
         ax.spines[['top', 'right']].set_visible(False)
     axes[0].legend(frameon=False)
@@ -105,8 +105,13 @@ def main():
     parser.add_argument('--r3', default='v3_20260916T113256202842Z')
     parser.add_argument('--q0', default='v3_20260916T123230629423Z')
     parser.add_argument('--q1', default='v3_20260916T123433565511Z')
+    parser.add_argument('--hours', nargs='+', type=int, default=HOURS,
+                        help='Predeclared positive integer hours; six-hour control is always included')
     parser.add_argument('--output', type=Path, default=ROOT / 'VALIDATION/reports/stage2_threshold_sweep')
     args = parser.parse_args()
+    if any(h <= 0 for h in args.hours):
+        parser.error('--hours must be positive')
+    hours_grid = tuple(sorted(set(args.hours) | {6}))
     start = time.monotonic()
     parents = [read_run(args.baseline), read_run(args.r3)]
     references = [read_run(args.q0), read_run(args.q1)]
@@ -120,7 +125,7 @@ def main():
         if parents[0][0]['config'][key] != parents[1][0]['config'][key]:
             raise ValueError(f'parent configuration differs in {key}')
     out = {'kind': 'threshold_sensitivity', 'at': datetime.now(timezone.utc).isoformat(),
-           'threshold_hours': HOURS, 'new_model_fits': 0, 'data_identity': identity,
+           'threshold_hours': hours_grid, 'new_model_fits': 0, 'data_identity': identity,
            'protocol': parents[0][0]['protocol'], 'score_version': parents[0][0]['score_version'],
            'ranking_weights': parents[0][0]['ranking_weights'],
            'source_sha256': {str(p.relative_to(ROOT)): sha256(p) for p in
@@ -174,7 +179,7 @@ def main():
                   'six_hour_reference': reference['run_id'], 'parent_prediction_sha256': hashes,
                   'model_source': parent['source'], 'config': parent['config'], 'thresholds': {}}
         candidate_boots = {}
-        for hours in [None, *HOURS]:
+        for hours in [None, *hours_grid]:
             key = 'off' if hours is None else str(hours)
             item, draws = {'scores': {}, 'groups': {}}, {}
             for name, original in groups.items():
@@ -205,7 +210,7 @@ def main():
                                   for group in GROUPS for count in ['triggered', 'helped', 'harmed']}})
             print(f'{label} {key}h: {item["scores"]}', flush=True)
         for key, item in result['thresholds'].items():
-            for target in ['off', '6']:
+            for target in ['off', *map(str, hours_grid)]:
                 item[f'vs_{target}'] = {name: interval(
                     score-result['thresholds'][target]['scores'][name],
                     candidate_boots[key][name]-candidate_boots[target][name])
@@ -216,13 +221,13 @@ def main():
         out['candidates']['R3']['thresholds'][key]['scores'][name]
         - out['candidates']['B0-800']['thresholds'][key]['scores'][name],
         all_boots['R3'][key][name]-all_boots['B0-800'][key][name])
-        for name in ['R_A', 'R_B_long', 'R_combined']} for key in ['off', *map(str, HOURS)]}
+        for name in ['R_A', 'R_B_long', 'R_combined']} for key in ['off', *map(str, hours_grid)]}
     output = args.output
     output.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(score_rows).to_csv(output.with_suffix('.csv'), index=False)
     pd.DataFrame(monthly_rows).to_csv(output.with_name(output.name+'_monthly.csv'), index=False)
     pd.concat(all_changes, ignore_index=True).to_csv(output.with_name(output.name+'_changed_rows.csv'), index=False)
-    draw_plot(out['candidates'], output)
+    draw_plot(out['candidates'], output, hours_grid)
     out['minutes'] = round((time.monotonic()-start)/60, 3)
     write_json(output.with_suffix('.json'), out)
     print(f'Completed in {out["minutes"]} minutes: {output.with_suffix(".json")}', flush=True)

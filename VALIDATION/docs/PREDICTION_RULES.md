@@ -8,7 +8,16 @@ prediction is that gap. Neither recovered plan availability nor the target
 participates in the trigger; six hours is fixed, not a tunable command option.
 
 The separate diagnostic `VALIDATION/tools/sweep_rule_thresholds.py` evaluates
-the user-requested 4, 5, 6, 7 and 8 hour grid on saved B0-800 and R3 predictions.
+the user-requested threshold grids on saved B0-800 and R3 predictions. The
+default remains 4, 5, 6, 7 and 8 hours; `--hours` specifies an extension and
+always retains the six-hour control. Use a separate output prefix to preserve
+earlier experiment artifacts, for example:
+
+```bash
+OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 .venv/bin/python VALIDATION/tools/sweep_rule_thresholds.py \
+  --hours 1 2 3 4 6 --output VALIDATION/reports/stage2_threshold_sweep_low
+```
+
 It reads each parent once, preserves per-flight/seed/origin loss weighting,
 and checks the six-hour scores against Q0/Q1. Its report includes both main
 scores, the provisional combined score, monthly results, helped/harmed counts,

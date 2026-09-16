@@ -1,5 +1,10 @@
 # Stage 2 follow-up — Rome threshold sensitivity
 
+The subsequent [1–3 hour extension](STAGE2_THRESHOLD_SWEEP_LOW.md) is complete.
+Four hours remains best on next-month and combined point estimates for both
+parents; R3 has a tiny, inconclusive longer-gap advantage at two hours. This
+report preserves the original 4–8 hour experiment.
+
 **Four hours has the best point estimates in the requested 4, 5, 6, 7 and 8
 hour grid, for both B0-800 and R3.** Against six hours, next-month RMSE improves
 by 4.31 s and 4.03 s respectively. Both improve in five of six months, with
