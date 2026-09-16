@@ -1,0 +1,159 @@
+{
+  "run_id": "v3_20260916T094934373803Z",
+  "protocol": "v3",
+  "score_version": "v3-flight-loss-day-bootstrap-1",
+  "label": "B0-800-regenerated",
+  "at": "2026-09-16T09:49:34+00:00",
+  "config": {
+    "label": "B0-800-regenerated",
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "rounds": 800,
+    "sample": 1.0,
+    "folds": "A,B",
+    "train_months": 6,
+    "lag_train_days": 0,
+    "max_taxi_sec": 200000,
+    "fpl_flag": false,
+    "smoke": false,
+    "bootstrap_reps": 2000,
+    "bootstrap_seed": 0,
+    "block_days": 1,
+    "early_stopping_rounds": 0,
+    "threads": 8,
+    "fit_workers": 1,
+    "recovery": "off",
+    "checkpoints": [],
+    "params": {
+      "objective": "regression",
+      "metric": "rmse",
+      "learning_rate": 0.05,
+      "num_leaves": 255,
+      "min_data_in_leaf": 200,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1
+    }
+  },
+  "baseline_id": null,
+  "full_benchmark": true,
+  "official_rmse": null,
+  "status": "interrupted",
+  "source": {
+    "commit": "6cd8a6c304ff36ce5b82abd902063bad0ab09566",
+    "files": {
+      ".gitignore": "cb2ebbb2719796b2e020f46cedcbd8935665c31c9942987857a8b6444965b09c",
+      "VALIDATION/IMPROVEMENT_PLAN.md": "331e7499dee786dd97222d27ececd5059992c612fce0018c5e68a9a4930424d1",
+      "VALIDATION/README.md": "3a4d62a32d06b42e519ef07d0dc055a85abc023fe8dff7d4b9ddbfc696958124",
+      "VALIDATION/compare.py": "3e6506600af03d182821ec2f5338e4f504aac93885415fc642cc0a931ddf5467",
+      "VALIDATION/docs/OPERATIONS.md": "2118f2608bf61e388a2e3b3e45ff5e57e2be9f306c2d34c7ed61f45834aa60bd",
+      "VALIDATION/docs/PROTOCOL.md": "045555c22021d877776126866579d17904c1200739c36af0072de8b0c08bd9bf",
+      "VALIDATION/features_time.py": "94f1273ae3edc32e2799e6bb1ebcc819c0a18bf8a61dcda444514d643f944c2c",
+      "VALIDATION/harness.py": "907ddacc498b5de9f488f09003648e2ce0f659d31d826820e084e20776efab48",
+      "VALIDATION/modeling.py": "98c87dc5bfff4cbb03d5baf5ef9cf4235742afe9e090aa74e3adf132b8b8e685",
+      "VALIDATION/movement_data.py": "2a0a97392e4ba6fd1a3ff64a8165700ae6b4ea466cffe80c3cfa9e92290c79cf",
+      "VALIDATION/protocol.py": "d459495795bb04451e887b3cdfe9714faa2d72f657331842886321b10a8b68ae",
+      "VALIDATION/records.py": "0ba9bbbf8f62df57495ffe02e69ca575bb6d7ee27159f07ce5392846dd7e784d",
+      "VALIDATION/reporting.py": "a6d48e384da0355e149bc09648f46d82bd4865ace91a57b4a22d64da3b12a197",
+      "VALIDATION/reports/README.md": "739fad5576bccf110a3b3c237ce992cba6ada50b047ecd6c51fee167e8284cdd",
+      "VALIDATION/reports/STAGE0.md": "bca02e52909cf2f51b4a1cba30cb0e79f0fe4a6667addfa0d7f600b6185de918",
+      "VALIDATION/resume_run.py": "f7890676e149f9c08cb0a9ac57902062b456bc6c9ffdb05c445193a2112d7b69",
+      "VALIDATION/submit.py": "2de5cf95c5cf0115c4b51321c00188316e71e317a639aaa0e280e21ff22666bf",
+      "VALIDATION/tests/test_archive.py": "b0200c67c6f5f171dc9b0630697b23efd55b76380cc5f1ca884bc02e48cf8528",
+      "VALIDATION/tests/test_stage0.py": "8d137e6efed09ea6bdf89891f26dca55f8dfcc52abc305a3828c376b575c5321",
+      "VALIDATION/tests/test_threshold_sweep.py": "9b53199cece962ae83f6eee2d14dfd5febf9d30de0200f11199499b3bac4b2ac",
+      "VALIDATION/tests/test_v3.py": "c72d81c262bf2ecd86baf9dcd19b7b59c76fc55aea1854170abeb27bae2cc285",
+      "VALIDATION/tools/__init__.py": "6f95fde7878b2b9f9656d33a5cafcd2c71359d93695b8b77a8f18f96dc2376ee",
+      "VALIDATION/tools/audit.py": "0a080ee384cfb44375f62bb063a5357f92bbecc63047525bb6d294e5244779a4",
+      "VALIDATION/tools/log_official.py": "4e9be2876f2924b507c6179d1b7fc76c42dbf7ceff32a08bbeda54e0c11ff2b5",
+      "VALIDATION/tools/summarize_baseline.py": "ecf6ce470b1d9a4eecb4ca6ba85c81972cf86d94d9663a5b3d69b6e5187056f6",
+      "VALIDATION/tools/sweep_taxi_thresholds.py": "80f2869b24af07107b316168164e6fd30324d9623e76166d69ee5d17743d438e",
+      "pipeline/common.py": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4",
+      "pipeline/dashboard_data.py": "9282169cd22769d4d4cb6d2cc692dc4a3b513b5965a58cad8f5ce9e243720eaa",
+      "pipeline/leaderboard_status.py": "5ef360d52bda61b1f1c96edb87f6fe7d3cb85b90e4f841d77f06e1f9b733903c",
+      "pipeline/predict.py": "c65fbc380764584d1ee3dd5aeec74163241019a271c3dd70d8ec133f8f40a1c5",
+      "pipeline/train.py": "674420cfd2848183cdf06b3023c4428252cdd768f0da2e94779245818c289c83",
+      "requirements.txt": "3578eab8d139fdd3c0a5e554f5d3ce49d8402c6cf36ac71d9f702da59112f9ba"
+    },
+    "patch": "source.patch",
+    "untracked_sources_included": true
+  },
+  "data_identity": [
+    {
+      "file": "ranking.parquet",
+      "bytes": 43564605,
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "file": "training_2025-01-01_2025-02-01.parquet",
+      "bytes": 21218481,
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "file": "training_2025-02-01_2025-03-01.parquet",
+      "bytes": 19824510,
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "file": "training_2025-03-01_2025-04-01.parquet",
+      "bytes": 22606072,
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "file": "training_2025-04-01_2025-05-01.parquet",
+      "bytes": 23840340,
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "file": "training_2025-05-01_2025-06-01.parquet",
+      "bytes": 25187756,
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "file": "training_2025-06-01_2025-07-01.parquet",
+      "bytes": 24991697,
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "file": "training_2025-07-01_2025-08-01.parquet",
+      "bytes": 26014977,
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "file": "training_2025-08-01_2025-09-01.parquet",
+      "bytes": 25969246,
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "file": "training_2025-09-01_2025-10-01.parquet",
+      "bytes": 25102673,
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "file": "training_2025-10-01_2025-11-01.parquet",
+      "bytes": 25392098,
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "file": "training_2025-11-01_2025-12-01.parquet",
+      "bytes": 22173840,
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "file": "training_2025-12-01_2026-01-01.parquet",
+      "bytes": 22653598,
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "ranking_weights": {
+    "jan_rows": 152719,
+    "jul_rows": 192122,
+    "jan_fraction": 0.4428678724397621
+  },
+  "minutes": 0.315,
+  "interruption": "Stopped before fitting to benchmark the current i7-13650HX laptop; desktop thread choice is not transferable."
+}

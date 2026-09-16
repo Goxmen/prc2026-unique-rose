@@ -1,0 +1,92 @@
+{
+  "recovered_flt_blocks": {
+    "n_rows": 1118,
+    "missing_departures": 0,
+    "missing_donors": 0,
+    "donor_id_mismatches": 0,
+    "payload_mismatches": 0,
+    "origin_guard_rejections": 2,
+    "destination_guard_rejections": 0,
+    "cross_month_donors": 0,
+    "sha256": "6994a680f361b42d9f318ab6367b9b530688773ac3d20dbbb331f82fb7c27dba",
+    "dataset_counts": {
+      "ranking": 226,
+      "training": 892
+    },
+    "claimed_by_other_departures": 65
+  },
+  "recovered_flt_relaxed": {
+    "n_rows": 1260,
+    "missing_departures": 0,
+    "missing_donors": 0,
+    "donor_id_mismatches": 0,
+    "payload_mismatches": 0,
+    "origin_guard_rejections": 1,
+    "destination_guard_rejections": 1,
+    "cross_month_donors": 0,
+    "sha256": "00ca22f3878f39c46b9df867d3b55bd6ad1ac8d0b495d3d566cdec9295068007",
+    "dataset_counts": {
+      "ranking": 253,
+      "training": 1007
+    },
+    "claimed_by_other_departures": 0,
+    "stages": [
+      {
+        "dataset": "ranking",
+        "matcher_variant": "A",
+        "n": 102
+      },
+      {
+        "dataset": "ranking",
+        "matcher_variant": "B",
+        "n": 50
+      },
+      {
+        "dataset": "ranking",
+        "matcher_variant": "C",
+        "n": 101
+      },
+      {
+        "dataset": "training",
+        "matcher_variant": "A",
+        "n": 527
+      },
+      {
+        "dataset": "training",
+        "matcher_variant": "B",
+        "n": 217
+      },
+      {
+        "dataset": "training",
+        "matcher_variant": "C",
+        "n": 263
+      }
+    ]
+  },
+  "imputed_flt_static": {
+    "rows": 25329,
+    "sha256": "566ac587d0daeb8f6319e0bf5657f55d7ab1aa3826352d56aea2c514913fbb76",
+    "dataset_counts": {
+      "ranking": 4804,
+      "training": 20525
+    },
+    "low_confidence_flight_type": 3087,
+    "low_confidence_aircraft_type": 829
+  },
+  "rule_recovered": {
+    "rows": 773,
+    "sha256": "a161f8c4f54a52c2159eaa55076faa48a94a506aa73120845639c930062724ba",
+    "dataset_counts": {
+      "ranking": 84,
+      "training": 689
+    }
+  },
+  "dest_recovered": {
+    "rows": 243,
+    "sha256": "de4a0f4ba1b7247109eaf344a00f2c3ce9a21a079d483a4d636c5add2e0b5e32",
+    "dataset_counts": {
+      "ranking": 29,
+      "training": 214
+    }
+  }
+}

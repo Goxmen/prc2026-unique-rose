@@ -52,14 +52,16 @@ performed better on next-month validation. See [the plan](../IMPROVEMENT_PLAN.md
 for the explicit round-count/reference choice when continuing. The CLI default
 remains 800; pass `--rounds 1500` only when that is the intended experiment.
 
-Use `--fit-workers 1 --threads 8` on this machine. Stage 0's short CPU probe
-favoured two four-thread fits, but the sustained run showed a large parallel
-slowdown. The optional `--fit-workers 2 --threads 8` mode shares an eight-thread
+On the current i7-13650HX laptop use `--fit-workers 1 --threads 6
+--prediction-threads 20`; see [the measurements](../reports/STAGE1_CPU.md).
+Run full-data audits sequentially with experiments to stay within WSL's memory
+allocation. Stage 0's eight-thread recommendation applies to its 7800X3D desktop.
+The optional `--fit-workers 2 --threads 8` mode shares an eight-thread
 budget across two fits (four each), with eight for an unpaired final seed.
 Models are fitted once per window and seed and reused across their assigned
 folds. Every fit records its actual thread count and per-round training loss.
 
-`resume_run.py --run <id> --threads 8 --fit-workers 1` continues an interrupted
+`resume_run.py --run <id> --threads 6 --fit-workers 1` continues an interrupted
 run using completed models and folds. It requires unchanged model source and
 data, records execution-setting changes and continuation source snapshots, and
 keeps one final entry per run in the experiment log.
@@ -151,7 +153,9 @@ seeds and the tail slices before blaming the horizon.
 Other flags: `--seeds`, `--rounds`, `--train-months` (a different length is a
 variant, not the v3 benchmark), `--lag-train-days`, `--max-taxi-sec`,
 `--early-stopping-rounds`, `--bootstrap-reps`, `--bootstrap-seed`,
-`--block-days`, `--threads`, `--output-dir`. All of them are recorded.
+`--block-days`, `--threads`, `--prediction-threads`, `--output-dir`.
+`--recovery off|exact|relaxed|history` selects the shared fold-scoped recovery
+path; see [the design and audit commands](RECOVERY.md). All flags are recorded.
 
 Each run writes `runs/v3_<timestamp>/`:
 

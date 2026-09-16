@@ -26,9 +26,10 @@ from modeling import (PARAMS, training_matrix, validation_matrix, choose_rounds,
                       predict, prediction_frame, period_rows, month_rows)
 from protocol import (VERSION, SCORE_VERSION, MAX_TAXI_SEC, MAIN_NAMES, DEFAULT_FOLDS,
                       select_folds, window_key)
-from records import RUNS, write_json, append_log, read_run, source_snapshot, data_identity
+from records import RUNS, write_json, append_log, read_run, source_snapshot, data_identity, runtime_identity
 from reporting import report, print_report
 from movement_data import load_phase
+from recovery import summarize_audit
 
 
 def parser():
@@ -54,8 +55,9 @@ def parser():
     ap.add_argument("--threads", type=int, default=8,
                     help="training thread budget shared across concurrent fits (default 8; 0 automatic for one fit)")
     ap.add_argument("--fit-workers", type=int, default=1, help="concurrent seed fits per window (default 1)")
-    ap.add_argument("--recovery", choices=["off"], default="off",
-                    help="record the recovery-off baseline; matching is not implemented yet")
+    ap.add_argument('--prediction-threads', type=int, help='inference threads; default to the training budget')
+    ap.add_argument("--recovery", choices=["off", "exact", "relaxed", "history"], default="off",
+                    help="fold-scoped flight-plan recovery (default off)")
     ap.add_argument("--checkpoints", default="", help="comma-separated earlier rounds to score diagnostically")
     ap.add_argument("--dry-run", action="store_true", help="show schedule without loading data")
     ap.add_argument("--output-dir", type=Path, default=RUNS, help="parent directory for run artifacts")
@@ -86,6 +88,10 @@ def parse_args(argv=None):
         ap.error("checkpoints require fixed rounds")
     if args.fit_workers < 1 or (args.fit_workers > 1 and args.threads < args.fit_workers):
         ap.error("--fit-workers must be positive and concurrent fits need at least one budgeted thread each")
+    if args.prediction_threads is None:
+        args.prediction_threads = args.threads
+    if args.prediction_threads < 0:
+        ap.error('--prediction-threads must be nonnegative')
     return args
 
 
@@ -144,13 +150,21 @@ def execute(dep, arr, windows, config, outdir, resume_progress=None):
             print(f"Reused completed {model_id} and its {len(evals)} folds.")
             continue
         td, ta = period_rows(dep, start, end), period_rows(arr, start, end)
-        X, y, cats = training_matrix(td, ta, config, history)
+        train_audits, prepared = [], []
+        feature_start = time.monotonic()
+        X, y, cats = training_matrix(td, ta, config, history, audit_out=train_audits, prepared_out=prepared)
+        feature_seconds = time.monotonic() - feature_start
         boosters = {}
         info = {"train_start": start, "train_end": end, "train_rows": len(y),
                 "departure_history": history, "features": X.columns.tolist()}
         if existing and any(existing[key] != value for key, value in info.items()):
             raise ValueError(f"Training representation changed for resumed {model_id}")
         models.setdefault(model_id, dict(info, seeds={}))
+        models[model_id]['training_features_seconds'] = round(feature_seconds, 3)
+        if train_audits:
+            audit_path = f'recovery_{model_id}_training.parquet'
+            train_audits[0].to_parquet(Path(outdir) / audit_path, index=False)
+            models[model_id]['recovery'] = dict(summarize_audit(train_audits[0]), audit=audit_path)
         for seed in config["seeds"]:
             if str(seed) in models[model_id]["seeds"]:
                 import lightgbm as lgb
@@ -205,17 +219,34 @@ def execute(dep, arr, windows, config, outdir, resume_progress=None):
             vd, va = month_rows(dep, fold.val), month_rows(arr, fold.val)
             if vd.empty:
                 raise ValueError(f"no validation rows for {fold.name}/{fold.val}")
-            V = validation_matrix(td, ta, vd, va, fold.freeze, cats, config, history)
+            val_audits = []
+            feature_start = time.monotonic()
+            V = validation_matrix(td, ta, vd, va, fold.freeze, cats, config, history,
+                                  audit_out=val_audits, prepared_training=prepared[0] if prepared else None)
             frame = prediction_frame(vd, V, start, end, fold.val)
             fold_record = {**asdict(fold), "train_start": start, "model_id": model_id,
                            "context_months": [str(p) for p in pd.period_range(start, end, freq="M")] + [fold.val],
                            "predictions": {}}
+            fold_record['validation_features_seconds'] = round(time.monotonic()-feature_start, 3)
+            if val_audits:
+                audit_path = f'recovery_{fold.name}.parquet'
+                audit = val_audits[0]
+                audit.to_parquet(Path(outdir) / audit_path, index=False)
+                fold_record['recovery'] = dict(summarize_audit(audit), audit=audit_path)
+                mapped = audit.set_index('mvt_id')
+                frame['recovery_stage'] = frame.mvt_id.map(mapped.stage).fillna('unchanged')
+                frame['anchor_recovered'] = frame.mvt_id.map(mapped.anchor_recovered).fillna(False).astype(bool)
+                frame['static_imputed'] = frame.mvt_id.map(mapped.static_imputed).fillna(False).astype(bool)
+            for name in ['raw_flight_id_missing', 'raw_plan_block_missing', 'raw_aobt3_missing']:
+                if name in vd:
+                    frame[name] = vd[name].to_numpy()
             for seed, booster in boosters.items():
-                pred = predict(booster, V)
+                pred = predict(booster, V, threads=config.get('prediction_threads', config.get('threads', 0)))
                 if not np.isfinite(pred).all():
                     raise ValueError(f"nonfinite predictions in {fold.name}/{seed}")
                 file = f"oof_{fold.name}_seed{seed}.parquet"
-                checkpoint_preds = {f"pred_round_{n}": predict(booster, V, num_iteration=n)
+                checkpoint_preds = {f"pred_round_{n}": predict(booster, V, num_iteration=n,
+                    threads=config.get('prediction_threads', config.get('threads', 0)))
                                     for n in config.get("checkpoints", [])}
                 frame.assign(fold=fold.name, seed=seed, pred=pred, **checkpoint_preds).to_parquet(
                     Path(outdir) / file, index=False)
@@ -246,6 +277,7 @@ def main(argv=None):
               "full_benchmark": args.sample == 1 and args.train_months == 6 and
                                 set(MAIN_NAMES) <= {f.name for f, _ in selected},
               "official_rmse": None, "status": "running"}
+    record['runtime'] = runtime_identity()
     t0 = time.monotonic()
     try:
         record["source"] = source_snapshot(outdir)
@@ -259,8 +291,9 @@ def main(argv=None):
         record["report"] = report(record, outdir, baseline)
         print_report(record["report"])
         record["status"] = "complete"
-    except Exception as exc:
-        record["status"], record["error"] = "failed", f"{type(exc).__name__}: {exc}"
+    except (Exception, KeyboardInterrupt) as exc:
+        record["status"] = 'interrupted' if isinstance(exc, KeyboardInterrupt) else 'failed'
+        record["error"] = f"{type(exc).__name__}: {exc}"
         raise
     finally:
         record["minutes"] = round((time.monotonic() - t0) / 60, 3)

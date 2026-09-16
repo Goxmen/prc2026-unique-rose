@@ -56,23 +56,41 @@ When asked to **continue the improvement plan**, read
 its "Resume here" section, and
 [`VALIDATION/reports/STAGE0.md`](VALIDATION/reports/STAGE0.md).
 
-- **Stage 0 is complete. Stage 1 / R1 (exact-twin flight-plan recovery) is next.**
-  Do not repeat Stage 0 or jump to the Rome rule before the recovery experiment.
-- Baseline run: `v3_20260915T225301657023Z`. Its results, checkpoint comparison,
-  loss charts, source snapshots and predictions are saved under `VALIDATION/runs/`.
-- Latest verdict: **800 rounds performed better than 1,500**. The saved B0
-  record is the completed 1,500-round experiment; the plan explains how its
-  saved 800-round predictions can supply a reference. Keep the chosen round
-  count and baseline explicit; never attribute a simultaneous round-count
-  change to recovery.
-- The shared loader/provenance fields are implemented and feature equivalence
-  was verified. Recovery matching itself is **not implemented**. The Rome
-  six-hour rule has exploratory results only; it has not been submitted.
+- **Stage 1 is complete. Stage 2 is next.** Read the plan's ledger and
+  `VALIDATION/reports/STAGE1.md`. R3 is provisionally selected:
+  `v3_20260916T113256202842Z`, R_A 360.5041, R_B_long 333.3043. Its next-month
+  gain versus control is supported; its longer-gap change is inconclusive and
+  longer-gap ordinary flights regress. Preserve that tradeoff.
+- Matched local control: `v3_20260916T095948645262Z`, **800 rounds**. The old
+  1,500-round B0 (`v3_20260915T225301657023Z`) remains a separate historical run;
+  its model/prediction artifacts were absent on this laptop, so the control was
+  regenerated with the same data hashes. Keep round counts and identities clear.
+- R1 exact recovery (`v3_20260916T102029635587Z`) and R2 relaxed recovery
+  (`v3_20260916T104452470012Z`) have supported longer-gap regressions and are
+  **not promoted**. R2/R3 were compared with both their immediate parents and
+  B0-800. Coverage is not the promotion criterion.
+- Next: register Q0 (B0-800 + the fixed Rome six-hour rule) and Q1 (R3 + rule)
+  from saved predictions. No new model fits are needed. Do not rerun Stage 1.
+- All 40 tests pass. Final recovery-off matrices exactly match frozen control
+  source across six training windows and 16 validation folds. R3's model-source
+  hashes match current code. B0-800's older wrapper hashes differ; preserve its
+  frozen source and submission source guard for any later full-year refit.
+- The shared pipeline implements `--recovery off|exact|relaxed|history`, with
+  raw precedence, fold-scoped donors, ownership guards and causal/frozen static
+  history. The Rome six-hour rule remains a separate, unsubmitted experiment.
 - The user authorizes local training/validation. Defer twelve-month refits and
   uploads until experiments finish and submission configurations are selected.
-- The implementation, plans, concise results, and charts are maintained on
-  `main`. Models, prediction parquets, and source snapshots remain gitignored
-  and available on this machine; a fresh clone needs those copied or regenerated.
+- **Hardware is machine-specific.** The current i7-13650HX/WSL laptop exposes
+  20 logical CPUs and about 11.5 GiB RAM. Local measurements select one worker,
+  six fit threads and 20 prediction threads. See `VALIDATION/reports/STAGE1_CPU.md`.
+  Run full-data audits sequentially with experiments; overlapping them caused
+  swapping. Do not copy the Stage 0 desktop's 7800X3D settings to another host.
+- Existing `data/derived/` notebook caches are useful audit references, but are
+  not fold-valid inputs. Their sections, counts, guards and reuse limits are in
+  `VALIDATION/reports/STAGE1_DERIVED_DATA.md`. Do not rebuild them unnecessarily.
+- Work is on `stage1-flight-plan-recovery`. Track source, plans, concise results
+  and charts; models, predictions, source snapshots and row-level audit parquets
+  remain gitignored and local. A fresh clone must copy or regenerate them.
 
 ## Working cheaply — read this before touching the feature sweep
 
