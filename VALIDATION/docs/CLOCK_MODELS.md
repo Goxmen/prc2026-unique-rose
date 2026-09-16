@@ -1,5 +1,8 @@
 # Clock features and residual models — frozen Stage 3 design
 
+Stage 3 is complete: [T1 is inconclusive and T2 regresses](../reports/STAGE3.md).
+The schedule fallback below remains part of the recorded failed T2 recipe.
+
 Stage 3 uses Q0 (`v3_20260916T123230629423Z`) as the control. Keep recovery off,
 800 rounds, seeds 42/142/242, all six training windows and 16 validation folds,
 training labels 1–200,000 seconds, all validation labels and the fixed six-hour

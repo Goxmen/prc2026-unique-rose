@@ -3,18 +3,20 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — Stage 3 authorized and in progress
+## Resume here — Stage 3 complete; Q0 retained
 
 Work is on branch `stage3-clock-features-residual`, based on Stage 2's open PR branch.
-The user authorized Stage 3. Its [feature and residual design](docs/CLOCK_MODELS.md)
-is frozen before the benchmark runs: T1 adds 18 clock features; T2 changes only
-the target to a residual around a deterministic clock baseline. Both retain
-Q0's recovery-off, 800-round, fixed-six-hour recipe and all training populations.
-**Stage 2 is complete. Select Q0 (B0-800 + the fixed rule) as the conservative
-parent for Stage 3; retain Q1 (R3 + rule) as an alternative.** Both rule
-candidates improve against their parents. Q1 improves next-month RMSE over Q0
-but has a supported longer-gap regression; its combined difference is uncertain.
-Read [Stage 2](reports/STAGE2.md), [Stage 1](reports/STAGE1.md), and
+**Stage 3 is complete. Keep Q0 (B0-800 + fixed six-hour rule) as the conservative
+control. T1's changes are inconclusive; do not promote T2.** T1 scores
+298.9328/256.2445 (R_A/R_B_long), versus Q0's 300.5904/256.1971. T2 scores
+419.6226/439.4680, a supported regression on both readouts. Its schedule
+fallback produces extremely large errors on some ordinary flights.
+The [Stage 3 report](reports/STAGE3.md) records comparisons, source-specific
+errors and the [frozen design](docs/CLOCK_MODELS.md). T1/T2 used 18 additional
+clock features, identical training rows, recovery off, 800 rounds and the fixed
+six-hour rule. They took 19.470/19.292 minutes, with no full-year fits or uploads.
+Q1 remains an alternative with better next-month but worse longer-gap results
+than Q0. Read [Stage 2](reports/STAGE2.md), [Stage 1](reports/STAGE1.md), and
 [Stage 0](reports/STAGE0.md) for the round-count experiment.
 
 The user-authorized [4–8 hour follow-up sweep](reports/STAGE2_THRESHOLD_SWEEP.md)
@@ -50,15 +52,19 @@ changes have started.
 | Q1, retained tradeoff | `runs/v3_20260916T123433565511Z/result.json`, complete; R_A 296.9037, R_B_long 258.5505 |
 | Rome threshold sensitivity | 4, 5, 6, 7 and 8 hours on both parents; complete, no new fits; [scores and interpretation](reports/STAGE2_THRESHOLD_SWEEP.md) |
 | Lower-threshold extension | 1, 2 and 3 hours on both parents, with 4/6-hour controls; complete, no new fits; [scores and interpretation](reports/STAGE2_THRESHOLD_SWEEP_LOW.md) |
-| Verification | 47 tests; Stage 1 equivalence/audits retained; rule comparisons, threshold sweep, changed-row CSVs and charts complete |
+| T1, clock features | `runs/v3_20260916T132038893775Z/result.json`, complete; R_A 298.9328, R_B_long 256.2445; both changes versus Q0 inconclusive |
+| T2, residual target | `runs/v3_20260916T134231489815Z/result.json`, complete; R_A 419.6226, R_B_long 439.4680; do not promote |
+| Verification | 51 tests; T1/T2 linked source checks pass; Stage 3 comparisons, training curves and saved-error diagnosis complete; prior audits retained |
 
-**Next task: Stage 3, T1 then T2, with Q0 explicitly named as parent.** Keep
-recovery off and the fixed Rome rule when testing clock features and residual
-prediction, so those changes are separable from recovery. No Stage 3 models
-were run during Stage 2. Do not rerun Stage 1 audits, CPU tuning or notebook
-caches unless relevant code/data changes. Full-year refits and uploads remain
-deferred. Q0 retains B0-800's frozen model-source requirement for any later
-full-year refit; the rule does not bypass that guard.
+**Next modelling stage: Stage 4, which remains planned and has not run.** The
+user's future leaderboard-transfer check and subsequent training-routing/rule-
+correction discussion are also recorded below. Do not automatically start
+another threshold or residual-baseline sweep. Keep Q0 as the conservative
+comparison parent and retain the separate four-hour sensitivity candidate.
+Do not repeat recovery audits, CPU tuning or notebook caches without relevant
+changes. Full-year refits and uploads remain deferred pending selection.
+Historical Q0/Q1/recovery recipes retain their frozen-source requirements;
+current code and linked recipe checks match T1/T2, not those older wrappers.
 
 **Round count:** Stage 1 explicitly uses **800 rounds** for control and all
 three candidates, following the Stage 0 checkpoint verdict. The historical
@@ -370,6 +376,10 @@ extreme label, and some day-offset cases follow a different pattern.
 
 ## Stage 3 — clock features, then residual prediction
 
+Complete: [results and verdict](reports/STAGE3.md). T1 is inconclusive;
+T2 has supported regressions. Q0 remains the control. The design below was
+fixed before the experiments; the failed T2 fallback was not changed afterward.
+
 Start each comparison from an explicitly named parent selected above.
 
 - **T1: explicit clock disagreement.** Add `AOBT_3 - schedule`,
@@ -380,9 +390,9 @@ Start each comparison from an explicitly named parent selected above.
   available flight-plan clocks with a documented missing-clock fallback. Fit a
   correction to that baseline and add it back for prediction. Derive any clock
   calibration/reliability parameters inside the training window.
-- [ ] Compare T1 with its parent, and T2 with the same features under direct
+- [x] Compare T1 with its parent, and T2 with the same features under direct
   target regression, so feature gains and residual formulation are separable.
-- [ ] Score reconstructed taxi times, not residuals; include all extreme labels
+- [x] Score reconstructed taxi times, not residuals; include all extreme labels
   and retain the same final nonnegative-prediction convention.
 
 ## Stage 4 — model the different timestamp patterns
@@ -423,8 +433,9 @@ User proposal recorded after the threshold sweeps, 2026-09-16:
    separate design decision for discussion.
 
 This records future intent rather than starting those experiments. The existing
-training filters, six-hour Q0/Q1 definitions and Stage 3/4 experiment statuses
-are unchanged. No automatic upload or refit is scheduled by this note.
+training filters and six-hour Q0/Q1 definitions are unchanged. Stage 3 subsequently
+ran as a separate authorized experiment; Stage 4 remains planned. No automatic
+upload or refit is scheduled by this note.
 
 ## How we decide locally
 
@@ -489,8 +500,8 @@ Fill rows immediately after each experiment, including failed/inconclusive ones.
 | R3 | R2 + static history | **Complete** | `v3_20260916T113256202842Z` | 360.5041 / −4.8656 vs R2 | 333.3043 / −2.0435 vs R2 | Not submitted | Select provisionally for Stage 2; supported R_A gain versus control, R_B_long inconclusive |
 | Q0 | B0-800 + six-hour rule | **Complete** | `v3_20260916T123230629423Z` | 300.5904 / −66.1561 | 256.1971 / −77.9814 | Not submitted | Supported gains on both readouts; conservative Stage 3 parent |
 | Q1 | R3 + six-hour rule | **Complete** | `v3_20260916T123433565511Z` | 296.9037 / −63.6005 vs R3 | 258.5505 / −74.7538 vs R3 | Not submitted | Retain alternative: versus Q0, better next-month but worse longer-gap |
-| T1 | Q0 + explicit clock disagreement | Planned | — | — | — | — | — |
-| T2 | Q0 + residual prediction with the same added features | Planned | — | — | — | — | — |
+| T1 | Q0 + explicit clock disagreement | Complete | `v3_20260916T132038893775Z` | 298.9328 / −1.6576 | 256.2445 / +0.0474 | Not submitted | Inconclusive; retain alternative, no promotion over Q0 |
+| T2 | Q0 + residual prediction with the same added features | Complete | `v3_20260916T134231489815Z` | 419.6226 / +120.6899 vs T1 | 439.4680 / +183.2235 vs T1 | Not submitted | Do not promote; supported regression versus T1 and Q0, schedule fallback dominates |
 | M1 | Probabilistic timestamp-pattern model | Planned | — | — | — | — | — |
 
 Scope changes, newly discovered recording patterns, and postponed work belong
