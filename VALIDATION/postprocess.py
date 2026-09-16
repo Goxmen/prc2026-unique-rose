@@ -15,7 +15,7 @@ from records import (ROOT, RUNS, read_run, write_json, append_log, source_snapsh
                      data_identity, sha256, runtime_identity)
 from modeling import PARAMS  # Also establishes the shared pipeline import path.
 from common import connect, TRAIN_GLOB, RANKING
-from prediction_rules import apply_rule
+from registered_rules import RULE_FILES, apply_rule
 from protocol import VERSION, SCORE_VERSION
 from reporting import report, print_report
 
@@ -56,7 +56,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--parent', required=True)
     ap.add_argument('--label', required=True)
-    ap.add_argument('--rule', choices=['rome_6h'], default='rome_6h')
+    ap.add_argument('--rule', choices=['rome_6h', 'rome_4h'], default='rome_6h')
     ap.add_argument('--output-dir', type=Path, default=RUNS)
     args = ap.parse_args(argv)
     parent, parent_dir = read_run(args.parent)
@@ -81,7 +81,7 @@ def main(argv=None):
                   baseline_id=parent['run_id'], model_parent_id=parent['run_id'],
                   parent_record_sha256=sha256(parent_dir/'result.json'),
                   model_source=copy.deepcopy(parent['source']),
-                  rule_source={RULE_FILE: sha256(ROOT/RULE_FILE)},
+                  rule_source={name: sha256(ROOT/name) for name in RULE_FILES[args.rule]},
                   runtime=runtime_identity(), status='running', official_rmse=None,
                   new_model_fits=0, prediction_provenance={})
     relative = lambda path: os.path.relpath(parent_dir/path, outdir)

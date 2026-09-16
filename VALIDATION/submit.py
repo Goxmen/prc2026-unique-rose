@@ -23,7 +23,7 @@ from modeling import (PARAMS, training_matrix, validation_matrix, choose_rounds,
 from protocol import VERSION, SCORE_VERSION, MAX_TAXI_SEC
 from records import read_run, write_json, sha256, MODEL_FILES
 from movement_data import load_phase
-from prediction_rules import apply_rule
+from registered_rules import RULE_FILES, apply_rule
 from timestamp_mixture import validate_recipe
 
 FREEZE = "2025-12-31"
@@ -56,8 +56,7 @@ def resolve_config(args):
                 raise ValueError(f"{name} changed since validation; validate the current model code first")
         if run["config"]["params"] != PARAMS:
             raise ValueError("LightGBM parameters changed since validation")
-        if config['prediction_rule'] != 'off':
-            name = 'pipeline/prediction_rules.py'
+        for name in RULE_FILES[config['prediction_rule']]:
             if run.get('rule_source', {}).get(name) != sha256(ROOT/name):
                 raise ValueError('Prediction rule source changed since validation')
     if config["rounds"] < 1 or config["max_taxi_sec"] < 1:
@@ -107,7 +106,7 @@ def main(argv=None):
     ap.add_argument("--threads", type=int)
     ap.add_argument('--prediction-threads', type=int)
     ap.add_argument("--recovery", choices=['off', 'exact', 'relaxed', 'history'])
-    ap.add_argument('--prediction-rule', choices=['off', 'rome_6h'])
+    ap.add_argument('--prediction-rule', choices=list(RULE_FILES))
     ap.add_argument('--clock-features', action='store_true', default=None)
     ap.add_argument('--target-mode', choices=['direct', 'clock_residual'])
     ap.add_argument('--model-mode', choices=['single', 'timestamp_mixture'])
@@ -168,8 +167,7 @@ def main(argv=None):
         "selected_rounds": rounds, "inner_selection": inner, "train_rows": len(y),
         "freeze": FREEZE, "features": X.columns.tolist(), "params": PARAMS,
         "model_source": {name: sha256(ROOT / name) for name in MODEL_FILES},
-        "rule_source": ({'pipeline/prediction_rules.py': sha256(ROOT/'pipeline/prediction_rules.py')}
-                        if config['prediction_rule'] != 'off' else {}),
+        "rule_source": {name: sha256(ROOT/name) for name in RULE_FILES[config['prediction_rule']]},
         "full_benchmark_validated": bool(run and run.get("full_benchmark")),
     })
     print(f"Wrote {dest}: {out.num_rows:,} rows; protocol {VERSION}, seed {seed}, {rounds} rounds.")
