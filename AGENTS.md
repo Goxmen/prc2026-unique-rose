@@ -68,7 +68,14 @@ its "Resume here" section, and
   `VALIDATION/reports/STAGE4.md` for comparisons, false-high diagnostics and
   concrete failures. All 55 tests and actual M1 linked-recipe checks pass.
   All 18 bundles/48 prediction files are saved; do not repeat completed fits.
-  Stages 1–4 are complete. Candidate selection and leaderboard checks are next.
+  Stages 1–4 are complete. The first leaderboard queue is now selected:
+  **B0-800, Q0, Q1, Q0-4h, Q1-4h**, in that order. See
+  `VALIDATION/docs/LEADERBOARD_CANDIDATES.md` for exact recipes, CV scores,
+  controlled comparisons and preparation tasks. Four-hour linked recipes are
+  pending; use saved predictions to register them, not new CV fits. Only two
+  underlying full-year models are needed; reuse their predictions for the
+  rule variants. No full-year refit or upload ran during selection. This queue
+  takes priority over the separate v10/v11 series; inspect live quota at execution.
   The user expanded the later leaderboard work: record official and CV scores,
   candidate-minus-control changes, direction agreement, LB-minus-CV gaps and
   delta-LB-minus-delta-CV, with seed-42 CV alongside the standard seed average.

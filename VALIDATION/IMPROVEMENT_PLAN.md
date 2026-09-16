@@ -15,8 +15,10 @@ The benchmark took **51.768 minutes**, with 36 boosters in 18 bundles and
 48 prediction files; controls were reused. All 55 tests and the completed M1
 linked-recipe checks pass. No recovery audit, CPU probe, notebook-cache
 rebuild, full-year refit or upload ran.
-Candidate selection and controlled leaderboard checks are next; do not start
-another modelling sweep automatically.
+**The first leaderboard queue is selected:** B0-800, Q0, Q1, Q0-4h and Q1-4h.
+See the [frozen candidate list and plain-language recipes](docs/LEADERBOARD_CANDIDATES.md).
+Preparation and controlled leaderboard checks are next; no refit or upload
+was performed during selection. Do not start another modelling sweep automatically.
 The user also expanded the later leaderboard checks to explicitly measure
 direction agreement and the absolute LB–CV gap, as specified below.
 
@@ -443,8 +445,9 @@ User proposal recorded after the threshold sweeps, 2026-09-16:
    a matching baseline and record local and official changes together, using
    the controlled submission procedure below. Explicitly check direction
    agreement and LB-minus-CV gaps; the user added these to scope on 2026-09-16.
-   Candidate selection and this
-   submission session are still pending.
+   The first five candidates are now selected in
+   [the frozen queue](docs/LEADERBOARD_CANDIDATES.md); the submission session
+   has not started.
 2. **If the improvement transfers**, discuss a separate experiment that removes
    rule-handled rows from the model's training population. At prediction time,
    route those cases to the rule and let the model handle the other cases.
@@ -484,10 +487,14 @@ Follow [protocol v3](docs/PROTOCOL.md):
 
 ## Tomorrow: controlled leaderboard checks
 
-Select the queue after local experiments finish. Only then fit selected
-configurations on all twelve months with the exact validated feature logic,
-filters, rule, rounds, and seed.
-Freeze the queue before inspecting its new official scores.
+The user-authorized selection is complete: **B0-800, Q0, Q1, Q0-4h, Q1-4h**,
+in that order. The [frozen queue](docs/LEADERBOARD_CANDIDATES.md) records exact
+recipes, source runs, CV results and controlled pairs. It was selected before
+viewing new official scores. Four-hour results still need linked recipe
+registration; this requires saved-prediction processing, not CV retraining.
+Final preparation uses two underlying twelve-month models (baseline and R3),
+800 rounds, seed 42 and the exact validated logic, reusing predictions for rule
+variants. No full-year refit or upload has started in this selection step.
 
 For every successfully scored candidate, produce a linked comparison table:
 
@@ -512,17 +519,18 @@ Use only confirmed official scores and exact recipe/artifact links. A rejected
 or pending upload has no LB score and cannot establish alignment. The combined
 CV score remains a provisional diagnostic, not a calibrated LB forecast.
 
-Suggested priority: a reproducible B0 reference if needed, selected recovery
-alone, Q0, Q1, then a supported timestamp candidate if ready. Reuse v3's official
-reference only if the final reference predictions match the saved v3 artifact;
-otherwise allocate a new baseline submission for the changed pipeline.
+The selected queue replaces the earlier provisional priorities. Standalone R3
+and T1 are outside this batch; T2/M1 are excluded. Reuse v3's official reference
+only if the final reference predictions match the saved v3 artifact; otherwise
+allocate a new baseline submission for the changed pipeline. Preserve historical
+model-source guards rather than silently using current Stage 3/4 wrappers.
 
 - Respect the observed **five-submission daily limit**, with **00:00 UTC** reset.
   Check live usage before uploads; local calendar dates are not the quota clock.
 - Saved 70,000/90,000 threshold outputs (v10/v11) were rejected for the daily
   limit and remain a separate unfinished series. Completing them would consume
-  two slots, leaving three for this plan; explicitly choose which queue has
-  priority rather than submitting more than five candidates.
+  two slots. They remain outside the selected queue, which now has priority;
+  check the actual remaining live quota before choosing upload timing.
 - Allocate fresh unused versions at execution time. Link **submission filename
   ↔ candidate ID ↔ validation run ↔ source/data hashes ↔ configuration**.
 - Distinguish uploaded, pending, rejected, and successfully scored. A rejection
@@ -552,7 +560,9 @@ Fill rows immediately after each experiment, including failed/inconclusive ones.
 | Q1 | R3 + six-hour rule | **Complete** | `v3_20260916T123433565511Z` | 296.9037 / −63.6005 vs R3 | 258.5505 / −74.7538 vs R3 | Not submitted | Retain alternative: versus Q0, better next-month but worse longer-gap |
 | T1 | Q0 + explicit clock disagreement | Complete | `v3_20260916T132038893775Z` | 298.9328 / −1.6576 | 256.2445 / +0.0474 | Not submitted | Inconclusive; retain alternative, no promotion over Q0 |
 | T2 | Q0 + residual prediction with the same added features | Complete | `v3_20260916T134231489815Z` | 419.6226 / +120.6899 vs T1 | 439.4680 / +183.2235 vs T1 | Not submitted | Do not promote; supported regression versus T1 and Q0, schedule fallback dominates |
-| M1 | Probabilistic timestamp-pattern model | Planned | — | — | — | — | — |
+| M1 | Probabilistic timestamp-pattern model | Complete | `v3_20260916T144408082362Z` | 544.8410 / +245.9083 vs T1 | 519.0849 / +262.8404 vs T1 | Not submitted | Do not promote; supported regressions versus T1, Q0 and Q1 |
+| Q0-4h | B0-800 + four-hour Rome rule | Sweep complete; selected for LB; linked recipe pending | Saved B0-800 predictions; threshold sweep | 296.2785 / −4.3119 vs Q0 | 255.6200 / −0.5771 vs Q0 | Not submitted | Leading threshold candidate; six-hour Q0 remains control |
+| Q1-4h | R3 + four-hour Rome rule | Sweep complete; selected for LB; linked recipe pending | Saved R3 predictions; threshold sweep | 292.8785 / −4.0252 vs Q1 | 257.4787 / −1.0718 vs Q1 | Not submitted | Leading threshold candidate with recovery; not a universal promotion |
 
 Scope changes, newly discovered recording patterns, and postponed work belong
 here before changing the experiment order. No HPO or another target-threshold

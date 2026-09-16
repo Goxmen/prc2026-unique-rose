@@ -31,6 +31,7 @@ comparison explicit when continuing.
 | [docs/CLOCK_MODELS.md](docs/CLOCK_MODELS.md) | Stage 3 clock features, baseline fallback and residual reconstruction |
 | [docs/TIMESTAMP_MIXTURE.md](docs/TIMESTAMP_MIXTURE.md) | Stage 4 outcome definitions, component training and probability mixture |
 | [docs/STAGE2_STAGE3_EXAMPLES.md](docs/STAGE2_STAGE3_EXAMPLES.md) | Exact feature names and numerical examples for Stages 2–3 |
+| [docs/LEADERBOARD_CANDIDATES.md](docs/LEADERBOARD_CANDIDATES.md) | Frozen five-candidate leaderboard queue, recipes, comparisons and preparation |
 | [tools/](tools/README.md) | Occasional audits, charts and submission utilities |
 | [archive/](archive/README.md) | Historical findings and five earlier experiments |
 | `tests/` | Regression checks for the model and workflow |
