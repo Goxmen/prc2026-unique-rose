@@ -2,6 +2,7 @@
 
 - [Stage 0: baseline and round-count verdict](STAGE0.md).
 - [Stage 1: recovery experiments](STAGE1.md).
+- [Stage 2: fixed Rome six-hour rule, gains and damaging overrides](STAGE2.md).
 - [Stage 1 laptop CPU and memory settings](STAGE1_CPU.md).
 - [Notebook-derived data: section mapping and reuse limits](STAGE1_DERIVED_DATA.md).
 - `benchmarks/`: measurements supporting the CPU execution settings.

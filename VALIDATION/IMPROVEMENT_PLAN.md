@@ -3,13 +3,14 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — Stage 1 complete; Stage 2 next
+## Resume here — Stage 2 complete; Stage 3 next
 
-Work is on branch `stage1-flight-plan-recovery`. **Stage 1 is complete. Select
-R3 provisionally for Stage 2; retain B0-800 as the matched control.** R3 has a
-supported next-month gain; its longer-gap change is inconclusive and its
-longer-gap ordinary-flight regression remains a tradeoff.
-Read [the Stage 1 report](reports/STAGE1.md) for results and
+Work is on branch `stage2-rome-six-hour-rule`, based on Stage 1's open PR branch.
+**Stage 2 is complete. Select Q0 (B0-800 + the fixed rule) as the conservative
+parent for Stage 3; retain Q1 (R3 + rule) as an alternative.** Both rule
+candidates improve against their parents. Q1 improves next-month RMSE over Q0
+but has a supported longer-gap regression; its combined difference is uncertain.
+Read [Stage 2](reports/STAGE2.md), [Stage 1](reports/STAGE1.md), and
 [Stage 0](reports/STAGE0.md) for the round-count experiment.
 
 | Experiment | Artifact / state |
@@ -18,13 +19,18 @@ Read [the Stage 1 report](reports/STAGE1.md) for results and
 | B0-800, matched control | `runs/v3_20260916T095948645262Z/result.json`, complete; R_A 366.7465, R_B_long 334.1785 |
 | R1, exact twins | `runs/v3_20260916T102029635587Z/result.json`, complete; **do not promote**, longer-gap regression |
 | R2, plus relaxed twins | `runs/v3_20260916T104452470012Z/result.json`, complete; **do not promote**, longer-gap regression |
-| R3, selected recovery candidate | `runs/v3_20260916T113256202842Z/result.json`, complete; R_A 360.5041, R_B_long 333.3043 |
-| Verification | 40 tests; exact recovery-off equivalence across six training windows and 16 validation folds; all audits and charts complete |
+| R3, Stage 1 recovery candidate | `runs/v3_20260916T113256202842Z/result.json`, complete; R_A 360.5041, R_B_long 333.3043 |
+| Q0, selected conservative parent | `runs/v3_20260916T123230629423Z/result.json`, complete; R_A 300.5904, R_B_long 256.1971 |
+| Q1, retained tradeoff | `runs/v3_20260916T123433565511Z/result.json`, complete; R_A 296.9037, R_B_long 258.5505 |
+| Verification | 45 tests; Stage 1 equivalence/audits retained; rule comparisons, changed-row CSVs and chart complete |
 
-**Next task: Stage 2, Q0 and Q1.** Reuse B0-800 and R3's saved predictions to
-register the fixed Rome six-hour rule, paired intervals and changed-row audits.
-No extra model fits are needed for the rule. Do not rerun Stage 1 or regenerate
-the notebook caches. Full-year refits and uploads remain deferred.
+**Next task: Stage 3, T1 then T2, with Q0 explicitly named as parent.** Keep
+recovery off and the fixed Rome rule when testing clock features and residual
+prediction, so those changes are separable from recovery. No Stage 3 models
+were run during Stage 2. Do not rerun Stage 1 audits, CPU tuning or notebook
+caches unless relevant code/data changes. Full-year refits and uploads remain
+deferred. Q0 retains B0-800's frozen model-source requirement for any later
+full-year refit; the rule does not bypass that guard.
 
 **Round count:** Stage 1 explicitly uses **800 rounds** for control and all
 three candidates, following the Stage 0 checkpoint verdict. The historical
@@ -314,13 +320,17 @@ definition and eligible rows do not change silently.
 | Q0 | B0 + six-hour rule | Q0 − B0 |
 | Q1 | Selected recovery variant + six-hour rule | Q1 − recovery; Q1 − Q0 |
 
-- [ ] Reuse each parent's saved predictions; no extra fits are needed for the
+- [x] Reuse each parent's saved predictions; no extra fits are needed for the
   rule itself. Produce a separate candidate record and paired day-bootstrap CIs.
-- [ ] List changed IDs, original/rule predictions, per-row error changes, and
+- [x] List changed IDs, original/rule predictions, per-row error changes, and
   counts by month. Identify damaging overrides as well as successful ones.
-- [ ] Keep six hours fixed for this test. A different trigger, including using
+- [x] Keep six hours fixed for this test. A different trigger, including using
   raw plan-block missingness instead of raw ID missingness, is a new experiment.
-- [ ] Carry the exact same override into the linked submission recipe and hashes.
+- [x] Carry the exact same override into the linked submission recipe and hashes.
+
+Complete: [Stage 2 report](reports/STAGE2.md). The shared rule implementation
+is used by saved-prediction validation and linked submission, with separate
+model/rule hashes. No new full benchmark fit or full-year refit was needed.
 
 The rule is an empirical candidate: the schedule does not reproduce every
 extreme label, and some day-offset cases follow a different pattern.
@@ -417,10 +427,10 @@ Fill rows immediately after each experiment, including failed/inconclusive ones.
 | R1 | B0-800 + exact twins | **Complete** | `v3_20260916T102029635587Z` | 365.6176 / −1.1289 | 335.7478 / +1.5693 | Not submitted | Do not promote: longer-gap regression; see tradeoff below |
 | R2 | R1 + relaxed twins | **Complete** | `v3_20260916T104452470012Z` | 365.3698 / −0.2478 vs R1 | 335.3479 / −0.3999 vs R1 | Not submitted | Parent deltas inconclusive; still regresses against B0-800 on longer gaps |
 | R3 | R2 + static history | **Complete** | `v3_20260916T113256202842Z` | 360.5041 / −4.8656 vs R2 | 333.3043 / −2.0435 vs R2 | Not submitted | Select provisionally for Stage 2; supported R_A gain versus control, R_B_long inconclusive |
-| Q0 | B0 + six-hour rule | Exploratory numbers above; formal record pending | — | — | — | — | — |
-| Q1 | Recovery + six-hour rule | Planned | — | — | — | — | — |
-| T1 | Explicit clock disagreement | Planned | — | — | — | — | — |
-| T2 | Residual prediction | Planned | — | — | — | — | — |
+| Q0 | B0-800 + six-hour rule | **Complete** | `v3_20260916T123230629423Z` | 300.5904 / −66.1561 | 256.1971 / −77.9814 | Not submitted | Supported gains on both readouts; conservative Stage 3 parent |
+| Q1 | R3 + six-hour rule | **Complete** | `v3_20260916T123433565511Z` | 296.9037 / −63.6005 vs R3 | 258.5505 / −74.7538 vs R3 | Not submitted | Retain alternative: versus Q0, better next-month but worse longer-gap |
+| T1 | Q0 + explicit clock disagreement | Planned | — | — | — | — | — |
+| T2 | Q0 + residual prediction with the same added features | Planned | — | — | — | — | — |
 | M1 | Probabilistic timestamp-pattern model | Planned | — | — | — | — | — |
 
 Scope changes, newly discovered recording patterns, and postponed work belong
@@ -479,3 +489,26 @@ Proceed to the fixed-rule comparisons **Q0 = B0-800 + rule** and
 **Q1 = R3 + rule**, using saved predictions. Keep these local development
 results distinct from official leaderboard evidence. No Stage 2 rule, full-year
 refit or upload was executed during Stage 1.
+
+### Stage 2 selection: Q0 default, Q1 retained as a tradeoff
+
+Q0 − B0-800: R_A **−66.1561 s [−98.3525, −35.9451]**, R_B_long
+**−77.9814 s [−143.3944, −10.0573]**. Q1 − R3: R_A **−63.6005 s
+[−94.3112, −34.1482]**, R_B_long **−74.7538 s [−138.6469, −8.5358]**.
+All four gains are supported under the registered paired bootstrap.
+
+Q1 − Q0: R_A **−3.6867 s [−6.8853, −0.7738]**, improvement; R_B_long
+**+2.3534 s [+0.6283, +4.1240]**, regression. All three seeds agree with
+these opposing directions. Combined change −0.5437 [−2.3785, +1.2817] is
+inconclusive. Q0 is the conservative default; Q1 does not dominate it.
+
+Both rules affect the same 44 unique next-month flights: 43 improve and one
+August flight worsens. All eight affected longer-gap flights improve. The bad
+override is movement 195015201: recorded taxi time 1,078 s versus rule 23,039 s.
+Keep it in evaluation; do not add a target-informed exception. Every changed
+ID and error difference is saved. Their predictions are identical on triggered
+rows; Q0/Q1 differences therefore come from other flights.
+
+Stage 2 reused all fitted models, with zero new full benchmark fits. Its two
+candidate runs took 1.567/1.599 minutes to register and score; recovery audits
+and CPU measurements were not repeated. Continue with Stage 3 only when asked.

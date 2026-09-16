@@ -57,7 +57,8 @@ def write_json(path, value):
 def append_log(record, directory=RUNS, replace_existing=False):
     log = Path(directory) / "experiments.jsonl"
     log.parent.mkdir(parents=True, exist_ok=True)
-    summary = {k: v for k, v in record.items() if k not in {"folds", "models", "source", "report"}}
+    summary = {k: v for k, v in record.items() if k not in {
+        "folds", "models", "source", "model_source", "prediction_provenance", "report"}}
     summary["report"] = {"scores": record.get("report", {}).get("scores", {})}
     if replace_existing:
         rows = [json.loads(line) for line in log.read_text().splitlines() if line.strip()] if log.exists() else []

@@ -23,11 +23,12 @@ from modeling import (PARAMS, training_matrix, validation_matrix, choose_rounds,
 from protocol import VERSION, SCORE_VERSION, MAX_TAXI_SEC
 from records import read_run, write_json, sha256, MODEL_FILES
 from movement_data import load_phase
+from prediction_rules import apply_rule
 
 FREEZE = "2025-12-31"
 DEFAULTS = {"max_taxi_sec": MAX_TAXI_SEC, "rounds": 800, "fpl_flag": False,
             "lag_train_days": 0, "early_stopping_rounds": 0, "threads": 8,
-            "prediction_threads": None, "recovery": "off"}
+            "prediction_threads": None, "recovery": "off", "prediction_rule": "off"}
 
 
 def resolve_config(args):
@@ -47,11 +48,16 @@ def resolve_config(args):
     if run:
         if seed not in run["config"]["seeds"]:
             raise ValueError("submission seed was not evaluated in the linked run")
+        model_source = run.get('model_source', run['source'])
         for name in MODEL_FILES:
-            if run["source"]["files"].get(name) != sha256(ROOT / name):
+            if model_source["files"].get(name) != sha256(ROOT / name):
                 raise ValueError(f"{name} changed since validation; validate the current model code first")
         if run["config"]["params"] != PARAMS:
             raise ValueError("LightGBM parameters changed since validation")
+        if config['prediction_rule'] != 'off':
+            name = 'pipeline/prediction_rules.py'
+            if run.get('rule_source', {}).get(name) != sha256(ROOT/name):
+                raise ValueError('Prediction rule source changed since validation')
     if config["rounds"] < 1 or config["max_taxi_sec"] < 1:
         raise ValueError("rounds and training-label ceiling must be positive")
     if any(config[k] < 0 for k in ["lag_train_days", "early_stopping_rounds", "threads"]):
@@ -96,6 +102,7 @@ def main(argv=None):
     ap.add_argument("--threads", type=int)
     ap.add_argument('--prediction-threads', type=int)
     ap.add_argument("--recovery", choices=['off', 'exact', 'relaxed', 'history'])
+    ap.add_argument('--prediction-rule', choices=['off', 'rome_6h'])
     ap.add_argument("--track-training-loss", action="store_true",
                     help="record training RMSE at each round and show it in the progress bar")
     args = ap.parse_args(argv)
@@ -134,7 +141,8 @@ def main(argv=None):
         part = month_rows(rank, month)
         V = validation_matrix(dep, arr, part, month_rows(rank_arr, month), FREEZE, cats, config,
                               prepared_training=prepared[0] if prepared else None)
-        prediction.loc[part.index] = predict(booster, V, threads=config['prediction_threads'])
+        model_prediction = predict(booster, V, threads=config['prediction_threads'])
+        prediction.loc[part.index] = apply_rule(model_prediction, part, config['prediction_rule'])[0]
     out = fill_template(pq.read_table(TEMPLATE), rank.mvt_id, prediction.to_numpy())
     SUBMISSIONS.mkdir(exist_ok=True)
     pq.write_table(out, dest)
@@ -146,6 +154,8 @@ def main(argv=None):
         "selected_rounds": rounds, "inner_selection": inner, "train_rows": len(y),
         "freeze": FREEZE, "features": X.columns.tolist(), "params": PARAMS,
         "model_source": {name: sha256(ROOT / name) for name in MODEL_FILES},
+        "rule_source": ({'pipeline/prediction_rules.py': sha256(ROOT/'pipeline/prediction_rules.py')}
+                        if config['prediction_rule'] != 'off' else {}),
         "full_benchmark_validated": bool(run and run.get("full_benchmark")),
     })
     print(f"Wrote {dest}: {out.num_rows:,} rows; protocol {VERSION}, seed {seed}, {rounds} rounds.")

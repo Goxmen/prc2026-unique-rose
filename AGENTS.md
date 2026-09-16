@@ -56,8 +56,13 @@ When asked to **continue the improvement plan**, read
 its "Resume here" section, and
 [`VALIDATION/reports/STAGE0.md`](VALIDATION/reports/STAGE0.md).
 
-- **Stage 1 is complete. Stage 2 is next.** Read the plan's ledger and
-  `VALIDATION/reports/STAGE1.md`. R3 is provisionally selected:
+- **Stage 2 is complete. Stage 3 is next.** Read the plan's ledger and
+  `VALIDATION/reports/STAGE2.md`. Select Q0 as the conservative parent:
+  `v3_20260916T123230629423Z`, R_A 300.5904, R_B_long 256.1971. Q1
+  (`v3_20260916T123433565511Z`) scores 296.9037/258.5505; versus Q0, it has
+  a supported next-month gain and a supported longer-gap regression. Retain
+  Q1 as an alternative, not a universal improvement.
+- Stage 1's provisionally selected recovery model was R3:
   `v3_20260916T113256202842Z`, R_A 360.5041, R_B_long 333.3043. Its next-month
   gain versus control is supported; its longer-gap change is inconclusive and
   longer-gap ordinary flights regress. Preserve that tradeoff.
@@ -69,15 +74,19 @@ its "Resume here" section, and
   (`v3_20260916T104452470012Z`) have supported longer-gap regressions and are
   **not promoted**. R2/R3 were compared with both their immediate parents and
   B0-800. Coverage is not the promotion criterion.
-- Next: register Q0 (B0-800 + the fixed Rome six-hour rule) and Q1 (R3 + rule)
-  from saved predictions. No new model fits are needed. Do not rerun Stage 1.
-- All 40 tests pass. Final recovery-off matrices exactly match frozen control
+- Q0 = B0-800 + fixed Rome six-hour rule; Q1 = R3 + the same rule. Both are
+  complete and reuse saved predictions. Next: T1 then T2 from Q0, keeping
+  recovery off and the rule fixed. No Stage 3 models have run. Do not repeat
+  recovery audits or CPU tuning unless their relevant code/data changes.
+- All 45 tests pass. Stage 1 recovery-off matrices exactly match frozen control
   source across six training windows and 16 validation folds. R3's model-source
   hashes match current code. B0-800's older wrapper hashes differ; preserve its
   frozen source and submission source guard for any later full-year refit.
 - The shared pipeline implements `--recovery off|exact|relaxed|history`, with
   raw precedence, fold-scoped donors, ownership guards and causal/frozen static
-  history. The Rome six-hour rule remains a separate, unsubmitted experiment.
+  history. `pipeline/prediction_rules.py` supplies the fixed rule to both
+  `VALIDATION/postprocess.py` and linked submission recipes. Rule and parent
+  model hashes are separate. Every overridden ID/error is in candidate CSVs.
 - The user authorizes local training/validation. Defer twelve-month refits and
   uploads until experiments finish and submission configurations are selected.
 - **Hardware is machine-specific.** The current i7-13650HX/WSL laptop exposes
@@ -88,7 +97,8 @@ its "Resume here" section, and
 - Existing `data/derived/` notebook caches are useful audit references, but are
   not fold-valid inputs. Their sections, counts, guards and reuse limits are in
   `VALIDATION/reports/STAGE1_DERIVED_DATA.md`. Do not rebuild them unnecessarily.
-- Work is on `stage1-flight-plan-recovery`. Track source, plans, concise results
+- Work is on `stage2-rome-six-hour-rule`, based on the open Stage 1 PR branch
+  `stage1-flight-plan-recovery`. Track source, plans, concise results
   and charts; models, predictions, source snapshots and row-level audit parquets
   remain gitignored and local. A fresh clone must copy or regenerate them.
 
