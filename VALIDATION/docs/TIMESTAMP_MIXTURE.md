@@ -1,5 +1,8 @@
 # Stage 4 — frozen timestamp-mixture design
 
+Stage 4 is complete: [M1 regresses; retain Q0](../reports/STAGE4.md).
+The definitions below are the frozen failed recipe, with no post-result tuning.
+
 Candidate **M1** changes the target formulation of T1. T1 is its direct parent
 (identical 45 input features); Q0 remains the conservative control, with Q1
 also compared. Recovery stays off and the fixed six-hour Rome rule runs last.
@@ -52,6 +55,10 @@ new cap, or removal of evaluation rows is permitted.
 Use the same model bundle, feature logic and prediction order for validation,
 resume and linked submission. Fixed-round checkpoints apply the requested
 round to both boosters. Inner early stopping is unsupported for this recipe.
+The saved `.txt` model path contains an atomic JSON bundle with both LightGBM
+model strings; load it through `modeling.load_booster(path, config)`, not as a
+standalone LightGBM booster. Component loss files identify their populations
+and units (classifier log loss versus ordinary/other RMSE in seconds).
 The existing training-history features keep their 1–7,200-second population.
 This component training split is distinct from the future proposal to exclude
 rows by the observable Rome-rule trigger; rule eligibility never removes rows

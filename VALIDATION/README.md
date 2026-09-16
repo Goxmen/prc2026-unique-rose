@@ -1,8 +1,10 @@
 # Validation
 
-Start with the [improvement plan](IMPROVEMENT_PLAN.md). Stage 4 is running with
-the [frozen timestamp-mixture recipe](docs/TIMESTAMP_MIXTURE.md), comparing M1
-with T1, Q0 and Q1. The [exact feature list and examples](docs/STAGE2_STAGE3_EXAMPLES.md)
+Start with the [improvement plan](IMPROVEMENT_PLAN.md) and
+[Stage 4 results](reports/STAGE4.md). **Stages 1–4 are complete. M1 regresses;
+keep Q0 as the conservative control.** The [frozen mixture recipe](docs/TIMESTAMP_MIXTURE.md)
+and report record the failed classifier and false high predictions.
+The [exact feature list and examples](docs/STAGE2_STAGE3_EXAMPLES.md)
 explain the preceding stages in plain language. See
 [Stage 3 results](reports/STAGE3.md). **Stage 3 is complete: T1 is inconclusive,
 T2 regresses substantially, and Q0 remains the conservative control.** The

@@ -243,6 +243,16 @@ printed manifest rather than assuming IDs from an earlier preview are reserved.
 
 ## Closing the loop with the leaderboard
 
+The improvement plan's controlled checks additionally require a per-candidate
+table of `R_A`, `R_B_long`, provisional `R_combined`, official LB RMSE and
+LB-minus-CV gaps; paired changes versus an explicit matched control; direction
+agreement and delta-LB-minus-delta-CV. Include seed-42 CV beside the usual
+three-seed loss average. Preserve CV uncertainty and distinguish six-month CV
+training from the twelve-month refit and shifted evaluation periods. See the
+[full scope](../IMPROVEMENT_PLAN.md#tomorrow-controlled-leaderboard-checks).
+The legacy console report below is useful bookkeeping but does not by itself
+fulfil that expanded comparison scope.
+
 ```bash
 .venv/bin/python VALIDATION/tools/log_official.py --run <v3 run id> --official 401.2 \
     --submission unique-rose_v4.parquet

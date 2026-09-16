@@ -63,6 +63,19 @@ def slice_stats(x):
     return result
 
 
+def case_predictions(run, directory):
+    """Bounded post-result examples: a damaging Rome case and Stage 3's known failure."""
+    rows = []
+    cols = ['mvt_id', 'y', 'pred', 'mixture_p_ordinary', 'mixture_p_schedule', 'mixture_p_day',
+            'mixture_ordinary_sec', 'mixture_schedule_sec', 'mixture_day_sec', 'rule_triggered']
+    for fold in ['A1', 'A6', 'B4', 'B7']:
+        for seed in run['config']['seeds']:
+            x = pd.read_parquet(directory/run['folds'][fold]['predictions'][str(seed)], columns=cols,
+                                filters=[('mvt_id', 'in', [192616462., 200741002.])])
+            rows.extend(x.assign(fold=fold, seed=seed).to_dict('records'))
+    return rows
+
+
 def make_plots(out, run, directory, dest):
     pairs = out['comparisons']
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.8), sharey=True)
@@ -157,12 +170,17 @@ def main():
         x['delta_sq_vs_q0'] = x.final_sq-x.q0_sq
         worst = x.loc[masks['ordinary_rome'] & x.final_high_rate.gt(0)].sort_values(
             ['delta_sq_vs_q0', 'mvt_id'], ascending=[False, True]).head(10)
+        worst_all = x.loc[masks['ordinary_all_airports']].sort_values(
+            ['delta_sq_vs_q0', 'mvt_id'], ascending=[False, True]).head(10)
         out['false_high_diagnostics'][group] = {'slices': slices,
-            'worst_ordinary_rome_false_high_changes_vs_q0': worst.reset_index().to_dict('records')}
+            'worst_ordinary_rome_false_high_changes_vs_q0': worst.reset_index().to_dict('records'),
+            'worst_ordinary_changes_vs_q0': worst_all.reset_index().to_dict('records'),
+            'known_stage3_failure_200741002': x.loc[x.index == 200741002].reset_index().to_dict('records')}
     out['diagnostic_weighting'] = (
         'Squared errors and false-high indicators averaged per flight over seeds and repeated origins; '
         'unique_any counts a flight once if any prediction exceeds 7200 s while y<=7200 s. '
         'Flight-equivalent count sums the averaged indicators. Mean predictions are descriptive only.')
+    out['case_predictions'] = case_predictions(run, directory)
     dest = ROOT/'VALIDATION/reports'
     write_json(dest/'stage4_comparison.json', out)
     make_plots(out, run, directory, dest)

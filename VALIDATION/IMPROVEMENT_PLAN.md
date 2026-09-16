@@ -3,21 +3,24 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — Stage 4 authorized; Q0 retained
+## Resume here — Stage 4 complete; Q0 retained
 
-Stage 4 is now authorized and underway on `stage4-timestamp-mixture`, based
-on Stage 3. Candidate M1 uses the [frozen mixture design](docs/TIMESTAMP_MIXTURE.md):
-a probability model for ordinary/other, schedule and positive one-day patterns,
-plus an ordinary/other regressor. T1 is the direct feature-matched parent;
-Q0 remains the conservative control and Q1 is an additional comparison.
-Run `v3_20260916T144408082362Z` is in progress; its completed bundles and
-folds are saved for resume. All 55 tests passed before launch.
-Reuse saved controls and the established laptop settings. No repeat recovery
-audits, CPU probes, notebook-cache rebuilds or threshold sweeps are needed.
+**Stages 1–4 are complete. Do not promote M1; keep Q0 as the conservative
+control.** Work is on `stage4-timestamp-mixture`, based on Stage 3. M1
+`v3_20260916T144408082362Z` scores **544.8410/519.0849** (R_A/R_B_long), a
+supported regression against T1, Q0 and Q1. Every seed regresses. The
+[Stage 4 report](reports/STAGE4.md) records overconfident classification errors,
+false high predictions, training curves and the [frozen recipe](docs/TIMESTAMP_MIXTURE.md).
+The benchmark took **51.768 minutes**, with 36 boosters in 18 bundles and
+48 prediction files; controls were reused. All 55 tests and the completed M1
+linked-recipe checks pass. No recovery audit, CPU probe, notebook-cache
+rebuild, full-year refit or upload ran.
+Candidate selection and controlled leaderboard checks are next; do not start
+another modelling sweep automatically.
 The user also expanded the later leaderboard checks to explicitly measure
 direction agreement and the absolute LB–CV gap, as specified below.
 
-Work is on branch `stage3-clock-features-residual`, based on Stage 2's open PR branch.
+Stage 3 work is on branch `stage3-clock-features-residual`, based on Stage 2's open PR branch.
 **Stage 3 is complete. Keep Q0 (B0-800 + fixed six-hour rule) as the conservative
 control. T1's changes are inconclusive; do not promote T2.** T1 scores
 298.9328/256.2445 (R_A/R_B_long), versus Q0's 300.5904/256.1971. T2 scores
@@ -50,8 +53,8 @@ The complete [1–8 hour score table and verdict](reports/STAGE2_THRESHOLD_RESUL
 are recorded together. The user's future sequence is also recorded below:
 check selected candidates on the leaderboard, then, if gains transfer, discuss
 excluding rule-handled rows from model training and later correcting the rule
-with a model. These are future proposals; no submissions or training-filter
-changes have started.
+with a model. These are future proposals; no submissions or exclusions based
+on the observable rule trigger have started.
 
 | Experiment | Artifact / state |
 |---|---|
@@ -66,9 +69,10 @@ changes have started.
 | Lower-threshold extension | 1, 2 and 3 hours on both parents, with 4/6-hour controls; complete, no new fits; [scores and interpretation](reports/STAGE2_THRESHOLD_SWEEP_LOW.md) |
 | T1, clock features | `runs/v3_20260916T132038893775Z/result.json`, complete; R_A 298.9328, R_B_long 256.2445; both changes versus Q0 inconclusive |
 | T2, residual target | `runs/v3_20260916T134231489815Z/result.json`, complete; R_A 419.6226, R_B_long 439.4680; do not promote |
-| Verification | 51 tests; T1/T2 linked source checks pass; Stage 3 comparisons, training curves and saved-error diagnosis complete; prior audits retained |
+| M1, timestamp mixture | `runs/v3_20260916T144408082362Z/result.json`, complete; R_A 544.8410, R_B_long 519.0849; do not promote; 51.768 minutes |
+| Verification | 55 tests; M1 linked source checks pass; Stage 4 paired comparisons, component curves and false-high diagnostics complete; prior audits retained |
 
-**Current modelling stage: Stage 4, authorized and underway.** The
+**The planned modelling stages are complete.** The
 user's future leaderboard-transfer check and subsequent training-routing/rule-
 correction discussion are also recorded below. Do not automatically start
 another threshold or residual-baseline sweep. Keep Q0 as the conservative
@@ -410,8 +414,13 @@ Start each comparison from an explicitly named parent selected above.
 
 ## Stage 4 — model the different timestamp patterns
 
-Authorized 2026-09-16. See the [frozen M1 recipe](docs/TIMESTAMP_MIXTURE.md).
-T1 is the direct parent (same clock features); compare with Q0 and Q1 as well.
+Complete 2026-09-16: [results and verdict](reports/STAGE4.md). **Do not promote
+M1.** Against Q0, R_A worsens +244.2506 s [+199.5467, +287.7271] and R_B_long
+worsens +262.8877 s [+183.5490, +340.7331]. Both T1 and Q1 comparisons also
+show supported regressions. The classifier makes near-certain wrong choices
+on some ordinary flights; the day class has only 5–9 examples per training
+window. See the [frozen M1 recipe](docs/TIMESTAMP_MIXTURE.md); no retuning was
+performed under this run ID. T1 is the direct feature-matched parent.
 
 Test a probabilistic combination of ordinary taxi-out, schedule-substituted
 timestamps, and roughly one-day-offset cases. Use training labels/block stamps
@@ -452,7 +461,7 @@ User proposal recorded after the threshold sweeps, 2026-09-16:
 
 This records future intent rather than starting those experiments. The existing
 training filters and six-hour Q0/Q1 definitions are unchanged. Stage 3 subsequently
-ran as a separate authorized experiment; Stage 4 is now authorized. No automatic
+ran as a separate authorized experiment; Stage 4 is also complete. No automatic
 upload or refit is scheduled by this note.
 
 ## How we decide locally

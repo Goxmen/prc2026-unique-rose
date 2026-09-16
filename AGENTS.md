@@ -56,13 +56,19 @@ When asked to **continue the improvement plan**, read
 its "Resume here" section, and
 [`VALIDATION/reports/STAGE0.md`](VALIDATION/reports/STAGE0.md).
 
-- **Stage 4 is authorized and running.** Branch `stage4-timestamp-mixture`,
+- **Stage 4 is complete. Do not promote M1; retain Q0.** Branch `stage4-timestamp-mixture`,
   based on Stage 3. Frozen recipe: `VALIDATION/docs/TIMESTAMP_MIXTURE.md`.
   M1 `v3_20260916T144408082362Z` fits a three-class probability model and
   ordinary/other regressor per window/seed (36 boosters in 18 bundles), using
   T1's 45 features, recovery off, 800 rounds and the fixed six-hour rule.
-  Compare with T1, Q0 and Q1. All 55 tests pass. Run log:
-  `/tmp/prc-stage4-m1.log`. Reuse progress if interrupted; do not restart fits.
+  It completed in 51.768 minutes, scoring 544.8410/519.0849 (R_A/R_B_long).
+  All three seeds regress against T1, Q0 and Q1, with supported overall
+  regressions. The classifier makes overconfident schedule/day mistakes on
+  ordinary flights; only 5–9 day cases exist per training window. See
+  `VALIDATION/reports/STAGE4.md` for comparisons, false-high diagnostics and
+  concrete failures. All 55 tests and actual M1 linked-recipe checks pass.
+  All 18 bundles/48 prediction files are saved; do not repeat completed fits.
+  Stages 1–4 are complete. Candidate selection and leaderboard checks are next.
   The user expanded the later leaderboard work: record official and CV scores,
   candidate-minus-control changes, direction agreement, LB-minus-CV gaps and
   delta-LB-minus-delta-CV, with seed-42 CV alongside the standard seed average.
@@ -101,7 +107,7 @@ its "Resume here" section, and
   test validation-to-leaderboard transfer; if gains transfer, discuss excluding
   rule-handled rows from model training while retaining all evaluation rows;
   later consider learning corrections to the rule. These are future proposals,
-  not started submissions or changes to the current training population.
+  not started submissions or training exclusions based on rule eligibility.
 - Stage 1's provisionally selected recovery model was R3:
   `v3_20260916T113256202842Z`, R_A 360.5041, R_B_long 333.3043. Its next-month
   gain versus control is supported; its longer-gap change is inconclusive and
@@ -115,7 +121,7 @@ its "Resume here" section, and
   **not promoted**. R2/R3 were compared with both their immediate parents and
   B0-800. Coverage is not the promotion criterion.
 - Q0 = B0-800 + fixed Rome six-hour rule; Q1 = R3 + the same rule. Both are
-  complete and reuse saved predictions. Stage 4 is now running as described
+  complete and reuse saved predictions. Stage 4 is now complete as described
   above. The user's future leaderboard check and routing
   discussion remain pending. Do not repeat recovery audits or CPU tuning
   unless their relevant code/data changes.
@@ -123,6 +129,9 @@ its "Resume here" section, and
   Current source includes the Stage 4 mixture. Historical T1/T2, Q0/Q1
   and recovery models require their frozen implementation for a full-year
   refit; preserve source guards rather than bypassing them.
+- The user requested exact Stage 2/3 feature names and numerical examples.
+  `VALIDATION/docs/STAGE2_STAGE3_EXAMPLES.md` records the four rule fields,
+  all 27 original plus 18 new model inputs, T1/T2 arithmetic and real failures.
 - The shared pipeline implements `--recovery off|exact|relaxed|history`, with
   raw precedence, fold-scoped donors, ownership guards and causal/frozen static
   history. `pipeline/prediction_rules.py` supplies the fixed rule to both
