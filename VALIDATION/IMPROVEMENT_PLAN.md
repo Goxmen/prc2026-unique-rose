@@ -28,6 +28,13 @@ three versus four is inconclusive. R3's two-hour longer-gap advantage is only
 0.0744 s and inconclusive. This adaptive extension preserves the original
 sweep artifacts and six-hour controls; no threshold was promoted.
 
+The complete [1–8 hour score table and verdict](reports/STAGE2_THRESHOLD_RESULTS.md)
+are recorded together. The user's future sequence is also recorded below:
+check selected candidates on the leaderboard, then, if gains transfer, discuss
+excluding rule-handled rows from model training and later correcting the rule
+with a model. These are future proposals; no submissions or training-filter
+changes have started.
+
 | Experiment | Artifact / state |
 |---|---|
 | Original B0, 1,500 rounds | `runs/v3_20260915T225301657023Z/result.json`, frozen; its model/prediction files were absent on this laptop |
@@ -387,6 +394,33 @@ Keep all recorded labels in the scoring population. Inspect false high
 predictions on ordinary Rome flights, not only recovery of extreme targets.
 Proceed after the recovery and rule results are recorded; avoid combining
 untested components into one unexplained change.
+
+## Future follow-up — leaderboard transfer, training routing and rule corrections
+
+User proposal recorded after the threshold sweeps, 2026-09-16:
+
+1. Submit a selected set of candidates to check whether improvements on the
+   validation folds translate into better leaderboard scores. Compare against
+   a matching baseline and record local and official changes together, using
+   the controlled submission procedure below. Candidate selection and this
+   submission session are still pending.
+2. **If the improvement transfers**, discuss a separate experiment that removes
+   rule-handled rows from the model's training population. At prediction time,
+   route those cases to the rule and let the model handle the other cases.
+   Define the routing condition explicitly from fields available at prediction
+   time. Rule eligibility alone does not establish that a label is incorrect.
+   Keep every validation row in the score so exclusion cannot manufacture an
+   apparent gain by removing difficult evaluation cases. Compare with the same
+   model/rule recipe trained on the original population to isolate this change.
+3. Later, consider a model that learns corrections to the rule's predictions
+   (`recorded taxi time − rule prediction`), then adds the predicted correction
+   back. Compare it with the uncorrected rule. This overlaps the residual idea
+   in Stage 3 T2, but the proposed specialization to rule-handled rows is a
+   separate design decision for discussion.
+
+This records future intent rather than starting those experiments. The existing
+training filters, six-hour Q0/Q1 definitions and Stage 3/4 experiment statuses
+are unchanged. No automatic upload or refit is scheduled by this note.
 
 ## How we decide locally
 

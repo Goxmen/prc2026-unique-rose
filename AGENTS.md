@@ -74,6 +74,12 @@ its "Resume here" section, and
   regress on those scores; three versus four is inconclusive. R3's two-hour
   longer-gap advantage is only 0.0744 s and inconclusive. Scoring took 1.631
   minutes, zero fits. Q0/Q1 remain six-hour controls; no threshold is promoted.
+- Consolidated results: `VALIDATION/reports/STAGE2_THRESHOLD_RESULTS.md`.
+  The plan records the user's future sequence: submit selected candidates to
+  test validation-to-leaderboard transfer; if gains transfer, discuss excluding
+  rule-handled rows from model training while retaining all evaluation rows;
+  later consider learning corrections to the rule. These are future proposals,
+  not started submissions or changes to the current training population.
 - Stage 1's provisionally selected recovery model was R3:
   `v3_20260916T113256202842Z`, R_A 360.5041, R_B_long 333.3043. Its next-month
   gain versus control is supported; its longer-gap change is inconclusive and
