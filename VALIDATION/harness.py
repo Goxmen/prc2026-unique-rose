@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "pipeline"))
 from common import TRAIN_GLOB, RANKING, connect
 from modeling import (PARAMS, training_matrix, validation_matrix, choose_rounds, fit_booster,
-                      predict, prediction_frame, period_rows, month_rows)
+                      predict, prediction_frame, period_rows, month_rows, load_booster)
 from protocol import (VERSION, SCORE_VERSION, MAX_TAXI_SEC, MAIN_NAMES, DEFAULT_FOLDS,
                       select_folds, window_key)
 from records import RUNS, write_json, append_log, read_run, source_snapshot, data_identity, runtime_identity, sha256
@@ -31,6 +31,7 @@ from reporting import report, print_report
 from movement_data import load_phase
 from recovery import summarize_audit
 from prediction_rules import apply_rule
+from timestamp_mixture import validate_recipe
 
 
 def parser():
@@ -61,6 +62,7 @@ def parser():
                     help="fold-scoped flight-plan recovery (default off)")
     ap.add_argument('--clock-features', action='store_true', help='explicit clock disagreement and provenance features')
     ap.add_argument('--target-mode', choices=['direct', 'clock_residual'], default='direct')
+    ap.add_argument('--model-mode', choices=['single', 'timestamp_mixture'], default='single')
     ap.add_argument('--prediction-rule', choices=['off', 'rome_6h'], default='off')
     ap.add_argument("--checkpoints", default="", help="comma-separated earlier rounds to score diagnostically")
     ap.add_argument("--dry-run", action="store_true", help="show schedule without loading data")
@@ -98,6 +100,10 @@ def parse_args(argv=None):
         ap.error('--prediction-threads must be nonnegative')
     if args.target_mode == 'clock_residual' and not args.clock_features:
         ap.error('--target-mode clock_residual requires --clock-features')
+    try:
+        validate_recipe(vars(args))
+    except ValueError as exc:
+        ap.error(str(exc))
     return args
 
 
@@ -113,6 +119,8 @@ def plan(args):
         print("Skipped (window starts before 2025): " + ", ".join(skipped))
     fits = len(windows) * args.seeds
     print(f"{len(selected)} evaluations x {args.seeds} seeds; {len(windows)} reused models per seed; {fits} outer fits")
+    if getattr(args, 'model_mode', 'single') == 'timestamp_mixture':
+        print(f'Mixture: {fits} bundles, {2*fits} boosters (probabilities + ordinary/other).')
     if args.early_stopping_rounds:
         print(f"Inner round selection adds {fits} fits inside the training windows.")
     if args.sample < 1:
@@ -173,9 +181,8 @@ def execute(dep, arr, windows, config, outdir, resume_progress=None):
             models[model_id]['recovery'] = dict(summarize_audit(train_audits[0]), audit=audit_path)
         for seed in config["seeds"]:
             if str(seed) in models[model_id]["seeds"]:
-                import lightgbm as lgb
                 path = Path(outdir) / models[model_id]["seeds"][str(seed)]["model"]
-                boosters[seed] = lgb.Booster(model_file=str(path))
+                boosters[seed] = load_booster(path, config)
                 boosters[seed].params["num_threads"] = config.get("threads", 0)
         def fit_seed(seed, fit_threads):
             fit_config = dict(config, threads=fit_threads)
@@ -188,17 +195,28 @@ def execute(dep, arr, windows, config, outdir, resume_progress=None):
             model_path = model_dir / f"{model_id}_seed{seed}.txt"
             booster.save_model(str(model_path))
             loss_path = model_path.with_suffix(".training_loss.json")
-            write_json(loss_path, {"model_id": model_id, "seed": seed,
+            loss = {"model_id": model_id, "seed": seed,
                                   "rounds": rounds, "train_rows": len(y),
                                   "target_mode": config.get('target_mode', 'direct'),
-                                  "metric": "training_objective_rmse_seconds_before_clipping_and_rule",
-                                  "rmse": training_history["training"]["rmse"]})
+                                  "model_mode": config.get('model_mode', 'single')}
+            if config.get('model_mode', 'single') == 'timestamp_mixture':
+                loss.update(metric='component_training_losses_before_mixture_and_rule',
+                            components=training_history, **booster.training_summary)
+                final_losses = {'ordinary_rmse': training_history['ordinary']['training']['rmse'][-1],
+                                'gate_logloss': training_history['gate']['training']['multi_logloss'][-1]}
+            else:
+                loss.update(metric='training_objective_rmse_seconds_before_clipping_and_rule',
+                            rmse=training_history['training']['rmse'])
+                final_losses = {'training_rmse_final': training_history['training']['rmse'][-1]}
+            write_json(loss_path, loss)
             details = {
                 "rounds": rounds, "inner_selection": inner, "model": str(model_path.relative_to(outdir)),
                 "training_loss": str(loss_path.relative_to(outdir)),
-                "training_rmse_final": training_history["training"]["rmse"][-1],
+                **final_losses,
                 "fit_threads": fit_threads,
                 "inner_seconds": round(t1 - t0, 1), "fit_seconds": round(time.monotonic() - t1, 1)}
+            if hasattr(booster, 'training_summary'):
+                details['components'] = booster.training_summary
             return seed, booster, details
 
         def keep_fit(result):
@@ -251,7 +269,8 @@ def execute(dep, arr, windows, config, outdir, resume_progress=None):
             for seed, booster in boosters.items():
                 prediction_args = dict(threads=config.get('prediction_threads', config.get('threads', 0)),
                                        target_mode=config.get('target_mode', 'direct'))
-                model_pred = predict(booster, V, **prediction_args)
+                mixture_audit = []
+                model_pred = predict(booster, V, **prediction_args, audit_out=mixture_audit)
                 pred, rule_audit = apply_rule(model_pred, vd, config.get('prediction_rule', 'off'))
                 if not np.isfinite(pred).all():
                     raise ValueError(f"nonfinite predictions in {fold.name}/{seed}")
@@ -260,6 +279,8 @@ def execute(dep, arr, windows, config, outdir, resume_progress=None):
                     predict(booster, V, num_iteration=n, **prediction_args), vd,
                     config.get('prediction_rule', 'off'))[0] for n in config.get("checkpoints", [])}
                 extra = {}
+                if mixture_audit:
+                    extra.update({c: mixture_audit[0][c].to_numpy() for c in mixture_audit[0]})
                 if config.get('prediction_rule', 'off') != 'off':
                     extra.update(model_pred=model_pred, **{c: rule_audit[c].to_numpy() for c in rule_audit})
                 if config.get('clock_features', False):

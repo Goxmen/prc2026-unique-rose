@@ -3,7 +3,17 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — Stage 3 complete; Q0 retained
+## Resume here — Stage 4 authorized; Q0 retained
+
+Stage 4 is now authorized and underway on `stage4-timestamp-mixture`, based
+on Stage 3. Candidate M1 uses the [frozen mixture design](docs/TIMESTAMP_MIXTURE.md):
+a probability model for ordinary/other, schedule and positive one-day patterns,
+plus an ordinary/other regressor. T1 is the direct feature-matched parent;
+Q0 remains the conservative control and Q1 is an additional comparison.
+Reuse saved controls and the established laptop settings. No repeat recovery
+audits, CPU probes, notebook-cache rebuilds or threshold sweeps are needed.
+The user also expanded the later leaderboard checks to explicitly measure
+direction agreement and the absolute LB–CV gap, as specified below.
 
 Work is on branch `stage3-clock-features-residual`, based on Stage 2's open PR branch.
 **Stage 3 is complete. Keep Q0 (B0-800 + fixed six-hour rule) as the conservative
@@ -56,7 +66,7 @@ changes have started.
 | T2, residual target | `runs/v3_20260916T134231489815Z/result.json`, complete; R_A 419.6226, R_B_long 439.4680; do not promote |
 | Verification | 51 tests; T1/T2 linked source checks pass; Stage 3 comparisons, training curves and saved-error diagnosis complete; prior audits retained |
 
-**Next modelling stage: Stage 4, which remains planned and has not run.** The
+**Current modelling stage: Stage 4, authorized and underway.** The
 user's future leaderboard-transfer check and subsequent training-routing/rule-
 correction discussion are also recorded below. Do not automatically start
 another threshold or residual-baseline sweep. Keep Q0 as the conservative
@@ -397,6 +407,9 @@ Start each comparison from an explicitly named parent selected above.
 
 ## Stage 4 — model the different timestamp patterns
 
+Authorized 2026-09-16. See the [frozen M1 recipe](docs/TIMESTAMP_MIXTURE.md).
+T1 is the direct parent (same clock features); compare with Q0 and Q1 as well.
+
 Test a probabilistic combination of ordinary taxi-out, schedule-substituted
 timestamps, and roughly one-day-offset cases. Use training labels/block stamps
 only to define training outcomes for these components. Predict their
@@ -416,7 +429,9 @@ User proposal recorded after the threshold sweeps, 2026-09-16:
 1. Submit a selected set of candidates to check whether improvements on the
    validation folds translate into better leaderboard scores. Compare against
    a matching baseline and record local and official changes together, using
-   the controlled submission procedure below. Candidate selection and this
+   the controlled submission procedure below. Explicitly check direction
+   agreement and LB-minus-CV gaps; the user added these to scope on 2026-09-16.
+   Candidate selection and this
    submission session are still pending.
 2. **If the improvement transfers**, discuss a separate experiment that removes
    rule-handled rows from the model's training population. At prediction time,
@@ -434,7 +449,7 @@ User proposal recorded after the threshold sweeps, 2026-09-16:
 
 This records future intent rather than starting those experiments. The existing
 training filters and six-hour Q0/Q1 definitions are unchanged. Stage 3 subsequently
-ran as a separate authorized experiment; Stage 4 remains planned. No automatic
+ran as a separate authorized experiment; Stage 4 is now authorized. No automatic
 upload or refit is scheduled by this note.
 
 ## How we decide locally
@@ -461,6 +476,29 @@ Select the queue after local experiments finish. Only then fit selected
 configurations on all twelve months with the exact validated feature logic,
 filters, rule, rounds, and seed.
 Freeze the queue before inspecting its new official scores.
+
+For every successfully scored candidate, produce a linked comparison table:
+
+- CV `R_A`, `R_B_long` and provisional `R_combined`, official LB RMSE, and
+  **LB minus each CV score**, all in seconds. Positive means LB is worse.
+- Against the matching reference, report **candidate-minus-reference changes**
+  on LB and on each CV readout, in seconds and percent. Negative is better.
+- Mark whether LB and CV move in the **same direction**, disagree, or show no
+  change. Preserve CV confidence intervals: an inconclusive CV difference is
+  still inconclusive even if its point estimate agrees with LB.
+- Report **delta-LB minus delta-CV** to show how much the improvement magnitude
+  transfers, and changes in the LB–CV gap. Use a paired-delta scatter plot if
+  enough comparable submissions exist; correlation is descriptive only and
+  should not be inferred from one pair or treated as reliable with few trials.
+- Keep the standard three-seed CV loss average and also give seed-42 CV as
+  the secondary match for the planned single-seed full-year refit. Record
+  six-month CV versus twelve-month final training, evaluation-period shifts,
+  and integer submission rounding so raw LB–CV gaps are not misrepresented
+  as directly comparable holdout errors or pure overfitting estimates.
+
+Use only confirmed official scores and exact recipe/artifact links. A rejected
+or pending upload has no LB score and cannot establish alignment. The combined
+CV score remains a provisional diagnostic, not a calibrated LB forecast.
 
 Suggested priority: a reproducible B0 reference if needed, selected recovery
 alone, Q0, Q1, then a supported timestamp candidate if ready. Reuse v3's official
