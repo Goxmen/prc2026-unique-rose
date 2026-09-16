@@ -123,9 +123,12 @@ def main():
               '[submission/model/source/data manifest](leaderboard_selected_20260916.json), '
               '[complete comparison data](leaderboard_cv_comparison.json), '
               '[original threshold intervals](stage2_threshold_sweep.json).', '']
-    (REPORTS/'LEADERBOARD_RESULTS.md').write_text('\n'.join(lines))
     if all(r['delta_lb'] is not None for r in result['comparisons']):
         plot(result)
+        lines += ['## Paired changes', '',
+                  '![Leaderboard versus CV changes](leaderboard_cv_changes.png)', '',
+                  '[PDF chart](leaderboard_cv_changes.pdf).', '']
+    (REPORTS/'LEADERBOARD_RESULTS.md').write_text('\n'.join(lines))
     print(json.dumps({k:{'LB':v['official_rmse'], 'CV':v['standard']['R_combined'],
                           'gap':v['lb_minus_cv']['standard']['R_combined']} for k,v in result['levels'].items()}, indent=2))
 
