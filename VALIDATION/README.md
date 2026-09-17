@@ -1,8 +1,8 @@
 # Validation
 
 Start with the [improvement plan](IMPROVEMENT_PLAN.md) and
-[Stage 1 results](reports/STAGE1.md). **Stage 1 is complete; R3 is provisionally
-selected and Stage 2's fixed-rule comparisons are next.** The shared pipeline supports exact twins,
+[Stage 2 results](reports/STAGE2.md). **Stage 2 is complete; Q0 is the
+conservative parent for Stage 3, with Q1 retained as a tradeoff.** The shared pipeline supports exact twins,
 relaxed twins and static history; the report records their paired comparisons.
 
 The [Stage 0 report](reports/STAGE0.md) records the baseline, loss charts, and
@@ -20,6 +20,7 @@ comparison explicit when continuing.
 | [reports/](reports/README.md) | Stage summaries, CPU measurements and submission-sweep records |
 | `runs/` | Control/candidate artifacts and the central `experiments.jsonl` ledger |
 | [docs/RECOVERY.md](docs/RECOVERY.md) | Recovery modes, availability boundaries, audits and notebook reuse |
+| [docs/PREDICTION_RULES.md](docs/PREDICTION_RULES.md) | Fixed rule, saved-prediction comparisons and linked submission recipes |
 | [tools/](tools/README.md) | Occasional audits, charts and submission utilities |
 | [archive/](archive/README.md) | Historical findings and five earlier experiments |
 | `tests/` | Regression checks for the model and workflow |
@@ -38,6 +39,9 @@ Run these from the repository root with `.venv/bin/python`:
 
 # Compare existing results without training.
 .venv/bin/python VALIDATION/compare.py --run <candidate> --baseline <reference>
+
+# Register the fixed Rome rule on saved predictions, without fitting.
+.venv/bin/python VALIDATION/postprocess.py --parent <run> --label <rule-experiment>
 
 # Continue an interrupted run, preserving completed fits and folds.
 .venv/bin/python VALIDATION/resume_run.py --run <id> --threads 6 --fit-workers 1

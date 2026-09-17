@@ -1,6 +1,6 @@
 # Validation operating manual
 
-See the [current plan](../IMPROVEMENT_PLAN.md), [Stage 0 results](../reports/STAGE0.md),
+See the [current plan](../IMPROVEMENT_PLAN.md), [fixed prediction rules](PREDICTION_RULES.md), [Stage 0 results](../reports/STAGE0.md),
 and [protocol v3](PROTOCOL.md). The top-level [README](../README.md) is the entry point.
 
 ## What a run does
