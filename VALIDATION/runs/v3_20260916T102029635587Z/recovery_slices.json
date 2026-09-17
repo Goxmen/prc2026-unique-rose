@@ -1,0 +1,582 @@
+{
+  "candidate": "v3_20260916T102029635587Z",
+  "baseline": "v3_20260916T095948645262Z",
+  "groups": {
+    "R_A": {
+      "recovered": {
+        "candidate": {
+          "n": 557,
+          "rmse": 1663.361591318829,
+          "sse": 1541091883.3954115
+        },
+        "baseline": {
+          "n": 557,
+          "rmse": 1825.7030360383467,
+          "sse": 1856587707.7203975
+        },
+        "comparison": {
+          "difference": -162.34144471951777,
+          "ci95": [
+            -963.5296230332727,
+            688.9483590479259
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "unrecovered": {
+        "candidate": {
+          "n": 1078971,
+          "rmse": 363.7539687020162,
+          "sse": 142766151584.8957
+        },
+        "baseline": {
+          "n": 1078971,
+          "rmse": 364.48830273261495,
+          "sse": 143343156232.4236
+        },
+        "comparison": {
+          "difference": -0.7343340305987454,
+          "ci95": [
+            -1.9844501330018118,
+            0.33045810398431974
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "anchor_recovered": {
+        "candidate": {
+          "n": 557,
+          "rmse": 1663.361591318829,
+          "sse": 1541091883.3954115
+        },
+        "baseline": {
+          "n": 557,
+          "rmse": 1825.7030360383467,
+          "sse": 1856587707.7203975
+        },
+        "comparison": {
+          "difference": -162.34144471951777,
+          "ci95": [
+            -963.5296230332727,
+            688.9483590479259
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "static_imputed": {
+        "candidate": {
+          "n": 0,
+          "rmse": null,
+          "sse": 0.0
+        },
+        "baseline": {
+          "n": 0,
+          "rmse": null,
+          "sse": 0.0
+        }
+      },
+      "delayed_ge_3h": {
+        "candidate": {
+          "n": 8438,
+          "rmse": 2930.343633709574,
+          "sse": 72456378742.46838
+        },
+        "baseline": {
+          "n": 8438,
+          "rmse": 2936.063370719943,
+          "sse": 72739509970.26175
+        },
+        "comparison": {
+          "difference": -5.719737010369045,
+          "ci95": [
+            -31.49053465082078,
+            17.68866216147165
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "matched_ordinary_not_delayed": {
+        "candidate": {
+          "n": 1058279,
+          "rmse": 237.09343832477663,
+          "sse": 59489353319.751785
+        },
+        "baseline": {
+          "n": 1058279,
+          "rmse": 236.77525009141343,
+          "sse": 59329786603.90733
+        },
+        "comparison": {
+          "difference": 0.3181882333632018,
+          "ci95": [
+            0.09381169533190388,
+            0.5393504949976942
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        }
+      },
+      "raw_id_missing": {
+        "candidate": {
+          "n": 13617,
+          "rmse": 2335.7721314305713,
+          "sse": 74292056854.21036
+        },
+        "baseline": {
+          "n": 13617,
+          "rmse": 2359.191811459542,
+          "sse": 75789308006.36084
+        },
+        "comparison": {
+          "difference": -23.41968002897056,
+          "ci95": [
+            -55.09893668292201,
+            2.0765888377047266
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "raw_plan_block_missing": {
+        "candidate": {
+          "n": 13651,
+          "rmse": 2333.0199241830674,
+          "sse": 74302146826.53665
+        },
+        "baseline": {
+          "n": 13651,
+          "rmse": 2356.490315447347,
+          "sse": 75804639229.3877
+        },
+        "comparison": {
+          "difference": -23.470391264279442,
+          "ci95": [
+            -55.10633027915137,
+            1.895329885582731
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "id_present_empty_plan": {
+        "candidate": {
+          "n": 34,
+          "rmse": 544.7603986616898,
+          "sse": 10089972.326301467
+        },
+        "baseline": {
+          "n": 34,
+          "rmse": 671.5045229329504,
+          "sse": 15331223.026859915
+        },
+        "comparison": {
+          "difference": -126.7441242712606,
+          "ci95": [
+            -237.3491990338698,
+            -26.952368027901482
+          ],
+          "valid_replicates": 1998,
+          "decision": "improvement"
+        }
+      },
+      "raw_rome_no_id": {
+        "candidate": {
+          "n": 957,
+          "rmse": 8466.460796140344,
+          "sse": 68598677200.84037
+        },
+        "baseline": {
+          "n": 957,
+          "rmse": 8546.916454963708,
+          "sse": 69908640309.93982
+        },
+        "comparison": {
+          "difference": -80.4556588233645,
+          "ci95": [
+            -203.72117763999069,
+            18.000882491742537
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "raw_rome_no_plan": {
+        "candidate": {
+          "n": 957,
+          "rmse": 8466.460796140344,
+          "sse": 68598677200.84037
+        },
+        "baseline": {
+          "n": 957,
+          "rmse": 8546.916454963708,
+          "sse": 69908640309.93982
+        },
+        "comparison": {
+          "difference": -80.4556588233645,
+          "ci95": [
+            -203.72117763999069,
+            18.000882491742537
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "at_most_12_seconds": {
+        "candidate": {
+          "n": 321,
+          "rmse": 609.7389373277972,
+          "sse": 119341884.51365568
+        },
+        "baseline": {
+          "n": 321,
+          "rmse": 615.4146392379686,
+          "sse": 121573992.1984761
+        },
+        "comparison": {
+          "difference": -5.6757019101713695,
+          "ci95": [
+            -16.01898657930322,
+            2.967865655822072
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "ordinary": {
+        "candidate": {
+          "n": 1079180,
+          "rmse": 271.44166415712914,
+          "sse": 79514605130.44989
+        },
+        "baseline": {
+          "n": 1079180,
+          "rmse": 273.13525728296776,
+          "sse": 80509923920.3234
+        },
+        "comparison": {
+          "difference": -1.6935931258386177,
+          "ci95": [
+            -4.453064155781073,
+            0.27273480982227905
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "tail": {
+        "candidate": {
+          "n": 348,
+          "rmse": 13644.989642726681,
+          "sse": 64792638337.8412
+        },
+        "baseline": {
+          "n": 348,
+          "rmse": 13634.158845094827,
+          "sse": 64689820019.82059
+        },
+        "comparison": {
+          "difference": 10.830797631853784,
+          "ci95": [
+            -90.47889386555407,
+            111.90631861985541
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      }
+    },
+    "R_B_long": {
+      "recovered": {
+        "candidate": {
+          "n": 112,
+          "rmse": 1589.107398668523,
+          "sse": 282829380.3443405
+        },
+        "baseline": {
+          "n": 112,
+          "rmse": 1211.4469951489134,
+          "sse": 164371628.0701971
+        },
+        "comparison": {
+          "difference": 377.66040351960964,
+          "ci95": [
+            -87.7839301303918,
+            866.0966142916625
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "unrecovered": {
+        "candidate": {
+          "n": 327897,
+          "rmse": 334.518343537931,
+          "sse": 36692501309.79965
+        },
+        "baseline": {
+          "n": 327897,
+          "rmse": 333.4848067340824,
+          "sse": 36466119305.78838
+        },
+        "comparison": {
+          "difference": 1.0335368038486195,
+          "ci95": [
+            0.37475808585423637,
+            1.7580720355376982
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        }
+      },
+      "anchor_recovered": {
+        "candidate": {
+          "n": 112,
+          "rmse": 1589.107398668523,
+          "sse": 282829380.3443405
+        },
+        "baseline": {
+          "n": 112,
+          "rmse": 1211.4469951489134,
+          "sse": 164371628.0701971
+        },
+        "comparison": {
+          "difference": 377.66040351960964,
+          "ci95": [
+            -87.7839301303918,
+            866.0966142916625
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "static_imputed": {
+        "candidate": {
+          "n": 0,
+          "rmse": null,
+          "sse": 0.0
+        },
+        "baseline": {
+          "n": 0,
+          "rmse": null,
+          "sse": 0.0
+        }
+      },
+      "delayed_ge_3h": {
+        "candidate": {
+          "n": 2403,
+          "rmse": 2742.690658860928,
+          "sse": 18076211976.63779
+        },
+        "baseline": {
+          "n": 2403,
+          "rmse": 2734.5050276051984,
+          "sse": 17968475143.63345
+        },
+        "comparison": {
+          "difference": 8.185631255729731,
+          "ci95": [
+            -0.8266546074480173,
+            24.620567773406545
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "matched_ordinary_not_delayed": {
+        "candidate": {
+          "n": 322773,
+          "rmse": 226.30472710654655,
+          "sse": 16530441392.679283
+        },
+        "baseline": {
+          "n": 322773,
+          "rmse": 226.03931876094245,
+          "sse": 16491690594.556152
+        },
+        "comparison": {
+          "difference": 0.26540834560410076,
+          "ci95": [
+            -0.08783804534486209,
+            0.6286220940054154
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "raw_id_missing": {
+        "candidate": {
+          "n": 2992,
+          "rmse": 2560.6683264864073,
+          "sse": 19618610656.585926
+        },
+        "baseline": {
+          "n": 2992,
+          "rmse": 2546.752089224205,
+          "sse": 19405951042.271816
+        },
+        "comparison": {
+          "difference": 13.91623726220223,
+          "ci95": [
+            1.5611693945801222,
+            35.977470601166466
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        }
+      },
+      "raw_plan_block_missing": {
+        "candidate": {
+          "n": 3005,
+          "rmse": 2555.49108293443,
+          "sse": 19624256698.24694
+        },
+        "baseline": {
+          "n": 3005,
+          "rmse": 2541.6332148060073,
+          "sse": 19411997692.808388
+        },
+        "comparison": {
+          "difference": 13.857868128422524,
+          "ci95": [
+            1.5075427449834478,
+            35.73740228128953
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        }
+      },
+      "id_present_empty_plan": {
+        "candidate": {
+          "n": 13,
+          "rmse": 659.0226832219649,
+          "sse": 5646041.661014019
+        },
+        "baseline": {
+          "n": 13,
+          "rmse": 682.0021732746827,
+          "sse": 6046650.5365680745
+        },
+        "comparison": {
+          "difference": -22.97949005271778,
+          "ci95": [
+            -105.71917453564902,
+            136.25956709450395
+          ],
+          "valid_replicates": 1887,
+          "decision": "inconclusive"
+        }
+      },
+      "raw_rome_no_id": {
+        "candidate": {
+          "n": 140,
+          "rmse": 11423.123536044168,
+          "sse": 18268285184.76167
+        },
+        "baseline": {
+          "n": 140,
+          "rmse": 11361.446246507521,
+          "sse": 18071544513.719177
+        },
+        "comparison": {
+          "difference": 61.67728953664664,
+          "ci95": [
+            4.86448465690628,
+            181.50303998962988
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        }
+      },
+      "raw_rome_no_plan": {
+        "candidate": {
+          "n": 140,
+          "rmse": 11423.123536044168,
+          "sse": 18268285184.76167
+        },
+        "baseline": {
+          "n": 140,
+          "rmse": 11361.446246507521,
+          "sse": 18071544513.719177
+        },
+        "comparison": {
+          "difference": 61.67728953664664,
+          "ci95": [
+            4.86448465690628,
+            181.50303998962988
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        }
+      },
+      "at_most_12_seconds": {
+        "candidate": {
+          "n": 78,
+          "rmse": 566.0038335193044,
+          "sse": 24988106.485566776
+        },
+        "baseline": {
+          "n": 78,
+          "rmse": 556.9626135096821,
+          "sse": 24196173.52210777
+        },
+        "comparison": {
+          "difference": 9.041220009622293,
+          "ci95": [
+            -3.679883047180314,
+            21.455986193600335
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      },
+      "ordinary": {
+        "candidate": {
+          "n": 327948,
+          "rmse": 242.16093207799722,
+          "sse": 19231499404.476784
+        },
+        "baseline": {
+          "n": 327948,
+          "rmse": 240.94460074040012,
+          "sse": 19038791781.67932
+        },
+        "comparison": {
+          "difference": 1.2163313375970972,
+          "ci95": [
+            0.5719078866971856,
+            1.8989326447274324
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        }
+      },
+      "tail": {
+        "candidate": {
+          "n": 61,
+          "rmse": 17055.277191910576,
+          "sse": 17743831285.667213
+        },
+        "baseline": {
+          "n": 61,
+          "rmse": 16982.005496744583,
+          "sse": 17591699152.17926
+        },
+        "comparison": {
+          "difference": 73.27169516599315,
+          "ci95": [
+            -5.121361175813172,
+            245.68101931384692
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        }
+      }
+    }
+  },
+  "delayed_definition": "Visible takeoff minus scheduled movement time >= 10800 seconds; diagnostic only.",
+  "recovered_slice_definition": "Flights recovered in any constituent fold; losses retain protocol weighting."
+}

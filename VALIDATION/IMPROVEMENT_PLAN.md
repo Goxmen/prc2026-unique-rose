@@ -3,47 +3,56 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — handoff after Stage 0
+## Resume here — Stage 1 complete; Stage 2 next
 
-**Next task: Stage 1 / R1, exact-twin flight-plan recovery.** Stage 0 is complete;
-read [its results](reports/STAGE0.md) before changing or rerunning the baseline.
-No recovery candidate has been fitted yet. The user's previous instruction to
-stop at Stage 0 was fulfilled; a new request to continue resumes at R1.
+Work is on branch `stage1-flight-plan-recovery`. **Stage 1 is complete. Select
+R3 provisionally for Stage 2; retain B0-800 as the matched control.** R3 has a
+supported next-month gain; its longer-gap change is inconclusive and its
+longer-gap ordinary-flight regression remains a tradeoff.
+Read [the Stage 1 report](reports/STAGE1.md) for results and
+[Stage 0](reports/STAGE0.md) for the round-count experiment.
 
-| What to recover from disk | Location / state |
+| Experiment | Artifact / state |
 |---|---|
-| Full measured 1,500-round B0 | `runs/v3_20260915T225301657023Z/result.json` |
-| 800-versus-1,500 paired results | `runs/v3_20260915T225301657023Z/comparison_round800.json` |
-| Predictions for both round counts | That run's `oof_<fold>_seed<seed>.parquet`: `pred` = 1,500 rounds, `pred_round_800` = 800 |
-| Per-model training loss and models | That run's `models/`; combined `training_loss.png` and `.pdf` |
-| Implemented Stage 0 code | `movement_data.py`, expanded `harness.py` / `submit.py`, checkpoint reporting, `resume_run.py` |
-| Regression checks | `tests/test_stage0.py`, `tests/test_v3.py`, `tests/test_threshold_sweep.py`: 23 passed |
-| Recovery design and new origin guard | Notebook §2b–§2c and §17; read `../eda/NOTEBOOK_MAP.md` before individual cells |
+| Original B0, 1,500 rounds | `runs/v3_20260915T225301657023Z/result.json`, frozen; its model/prediction files were absent on this laptop |
+| B0-800, matched control | `runs/v3_20260916T095948645262Z/result.json`, complete; R_A 366.7465, R_B_long 334.1785 |
+| R1, exact twins | `runs/v3_20260916T102029635587Z/result.json`, complete; **do not promote**, longer-gap regression |
+| R2, plus relaxed twins | `runs/v3_20260916T104452470012Z/result.json`, complete; **do not promote**, longer-gap regression |
+| R3, selected recovery candidate | `runs/v3_20260916T113256202842Z/result.json`, complete; R_A 360.5041, R_B_long 333.3043 |
+| Verification | 40 tests; exact recovery-off equivalence across six training windows and 16 validation folds; all audits and charts complete |
 
-**Latest round-count verdict:** the assistant recommended returning to **800**:
-1,500 worsened `R_A` by 4.3035 s (95% interval +1.3487 to +7.4475), and the
-long-gap change was inconclusive. The stored B0 and fixed recipe below still
-describe the completed 1,500-round experiment; no subsequent fit or round-count
-policy change has been made. Record the round count adopted for R1 explicitly.
-If adopting the 800-round recommendation, register a reference from the existing
-800-round checkpoint predictions instead of needlessly repeating training:
-`reporting.load_losses` supports a record's `prediction_column="pred_round_800"`.
-Give that derived reference an explicit identity/configuration and compare an
-800-round recovery candidate against it. Do not relabel the original B0 result
-or its 1,500-tree model files as independently trained 800-round artifacts.
+**Next task: Stage 2, Q0 and Q1.** Reuse B0-800 and R3's saved predictions to
+register the fixed Rome six-hour rule, paired intervals and changed-row audits.
+No extra model fits are needed for the rule. Do not rerun Stage 1 or regenerate
+the notebook caches. Full-year refits and uploads remain deferred.
 
-The user authorizes agents to run local training and validation directly. Use
-six-month validation training windows, sequential eight-thread fits, and keep
-full-year refits/uploads deferred. Do not interpret this document's earlier
-"tomorrow" wording as an automatic upload schedule: select configurations and
-check the UTC daily quota when submissions are actually resumed.
+**Round count:** Stage 1 explicitly uses **800 rounds** for control and all
+three candidates, following the Stage 0 checkpoint verdict. The historical
+800-round predictions were unavailable here, so B0-800 was regenerated with a
+new identity. Data hashes match Stage 0; its scores differ from the historical
+checkpoint by less than 0.03 s. Do not relabel the original 1,500-round B0.
 
-The implementation, plan, concise results, and charts are maintained on `main`.
-A new clone/worktree can read the handoff and results, but does not automatically
-inherit gitignored datasets, fitted models, prediction files, or source
-snapshots. Those artifacts remain available in this workspace. Verify artifact
-availability before planning expensive reruns; copy or regenerate them when
-continuing on another machine.
+**Current machine:** i7-13650HX laptop under WSL, 20 exposed logical CPUs and
+about 11.5 GiB RAM. Use **one fit worker, six training threads, 20 prediction
+threads**, based on [local measurements](reports/STAGE1_CPU.md). Do not transfer
+the old 7800X3D desktop setting automatically. Overlapping a full-data audit
+with fitting caused swapping, so full-data audits and experiments also run
+sequentially. Thread comparisons preserved predictions to numerical precision;
+explicit prediction thread counts gave bit-for-bit equality.
+
+The user authorizes local six-month training and validation. Full-year refits
+and uploads remain deferred until configurations are selected. No automatic
+submission schedule or quota retry is authorized by this plan.
+
+Existing notebook caches were preserved and checked against their raw donors.
+[The section/cell mapping and reuse limits](reports/STAGE1_DERIVED_DATA.md)
+explain why their pooled learned history and omitted guards prevent direct use
+in chronological validation. The pipeline reuses the notebook rules through a
+shared fold-scoped interface; it does not rebuild the notebook caches.
+
+Models, predictions, source snapshots and row-level audits remain gitignored.
+New local control/candidate artifacts exist on this laptop; another clone must
+copy or regenerate them. Track concise results, reports, charts and source.
 
 ## Objective and current decision
 
@@ -71,8 +80,10 @@ for whether a large gain needs a new model at all.
 - Score **every validation departure**, including zero, negative, and extreme
   targets. The training filter does not apply to validation.
 - Main benchmark: protocol v3 **A1–A6 and B1–B10**, six-month training windows,
-  **1,500 fixed rounds**, seeds **42, 142, 242**, all rows in each six-month
-  training window, no early stopping. Updated from 800 at the user's request.
+  **800 fixed rounds for Stage 1**, seeds **42, 142, 242**, all rows in each
+  six-month training window, no early stopping. Stage 0 tested the requested
+  1,500 rounds; its held-out regression motivated this explicit return to 800
+  with a separately registered matched control.
 - Keep the current LightGBM parameters and the v3 feature set as the reference;
   `fpl_flag=False`. Any added model inputs must be explicit experimental changes.
 - Full twelve-month refits are deferred until the experiments finish and
@@ -85,8 +96,11 @@ for whether a large gain needs a new model at all.
 
 ### CPU efficiency
 
-The local Ryzen 7 7800X3D exposes eight physical cores and sixteen logical CPUs
-to WSL; process affinity permits all sixteen. Selected sustained-run setting:
+**Current laptop:** use one fit worker, six training threads and 20 inference
+threads; run full-data audits separately. See [the Stage 1 measurements](reports/STAGE1_CPU.md).
+
+**Historical Stage 0 desktop:** the Ryzen 7 7800X3D exposed eight physical cores
+and sixteen logical CPUs to WSL. Its selected sustained-run setting was
 **`--fit-workers 1 --threads 8`**: sequential fits with eight threads each.
 The first six fits also tested two simultaneous four-thread fits, with the
 final unpaired seed using eight; their actual thread counts remain recorded.
@@ -159,7 +173,7 @@ Keep round-count changes explicit in subsequent comparisons.
   motivates this round-count experiment; validation determines whether it helps.
 - [x] Record `R_A`, `R_B_long`, per-fold/per-seed metrics, and the mandatory slices.
 
-Existing command for a fresh baseline (when implementation is ready):
+Command to reproduce the historical Stage 0 1,500-round baseline:
 
 ```bash
 .venv/bin/python VALIDATION/harness.py \
@@ -168,8 +182,18 @@ Existing command for a fresh baseline (when implementation is ready):
   --recovery off --checkpoints 800
 ```
 
-The new recovery and rule switches below are planned interfaces, not existing
-CLI options. Add their runnable commands here when implemented.
+Recovery modes are implemented as `--recovery exact` (R1), `relaxed` (R2), and
+`history` (R3); each later mode includes its parent layers. The rule switches
+remain planned. Full experiment commands on the current laptop:
+
+```bash
+.venv/bin/python VALIDATION/harness.py --label R1-exact --folds A,B --seeds 3 \
+  --rounds 800 --max-taxi-sec 200000 --threads 6 --prediction-threads 20 --fit-workers 1 \
+  --recovery exact --baseline v3_20260916T095948645262Z
+# After recording R1, run R2 with --recovery relaxed --baseline <R1-run>.
+# After recording R2, run R3 with --recovery history --baseline <R2-run>.
+# Also compare each completed candidate against the B0-800 control.
+```
 
 ## Stage 1 — flight-plan recovery first
 
@@ -253,19 +277,21 @@ variant with B0 as well as with its immediate parent.
 
 ### Recovery acceptance checks
 
-- [ ] On held-out known matches, hide the departure's plan, recover it, and
+- [x] On held-out known matches, hide the departure's plan, recover it, and
   compare with its true plan ID; exclude probes from learned reference tables.
-- [ ] Hide the true arrival twin and measure false recovery; test ambiguous
+- [x] Hide the true arrival twin and measure false recovery; test ambiguous
   routes, duplicate claims, incompatible origins, and month/gap boundaries.
-- [ ] Confirm hidden departure labels cannot affect recovery output and that
+- [x] Confirm hidden departure labels cannot affect recovery output and that
   evaluation months cannot alter the fitted training representation.
-- [ ] Report coverage and match errors by stage, airport, and raw missingness.
+- [x] Report coverage and match errors by stage, airport, and raw missingness.
   Count actual recovered anchors separately from filled static categories.
-- [ ] Run the full paired benchmark for completed recovery variants. Record
+- [x] Run the full paired benchmark for completed recovery variants. Record
   results on recovered rows, unrecovered rows, and the original Rome/no-plan
   slice. Increased coverage is not the promotion criterion.
 
-**Next implementation task: R1 and the shared fold-scoped recovery interface.**
+All three variants are implemented and benchmarked. R1 and R2 are not promoted:
+both regress against B0-800 on R_B_long. R3 is provisionally selected after
+comparison with both R2 and B0-800; see the decision below.
 
 ## Stage 2 — register and test the Rome six-hour rule
 
@@ -387,9 +413,10 @@ Fill rows immediately after each experiment, including failed/inconclusive ones.
 | Candidate | Parent / scope | Status | Validation run | R_A / Δ | R_B_long / Δ | Submission / official RMSE | Decision |
 |---|---|---|---|---|---|---|---|
 | B0 | Recovery off, 1,500 rounds | **Complete** | `v3_20260915T225301657023Z` | 371.0708 | 335.2416 | Not submitted | Frozen reference; see Stage 0 results for the 800-round comparison |
-| R1 | B0 + exact twins | **Next** | — | — | — | — | — |
-| R2 | R1 + relaxed twins | Planned | — | — | — | — | — |
-| R3 | R2 + static history | Planned | — | — | — | — | — |
+| B0-800 | Recovery off, 800 rounds, laptop control | **Complete** | `v3_20260916T095948645262Z` | 366.7465 | 334.1785 | Not submitted | Matched local reference; same data identities as Stage 0 |
+| R1 | B0-800 + exact twins | **Complete** | `v3_20260916T102029635587Z` | 365.6176 / −1.1289 | 335.7478 / +1.5693 | Not submitted | Do not promote: longer-gap regression; see tradeoff below |
+| R2 | R1 + relaxed twins | **Complete** | `v3_20260916T104452470012Z` | 365.3698 / −0.2478 vs R1 | 335.3479 / −0.3999 vs R1 | Not submitted | Parent deltas inconclusive; still regresses against B0-800 on longer gaps |
+| R3 | R2 + static history | **Complete** | `v3_20260916T113256202842Z` | 360.5041 / −4.8656 vs R2 | 333.3043 / −2.0435 vs R2 | Not submitted | Select provisionally for Stage 2; supported R_A gain versus control, R_B_long inconclusive |
 | Q0 | B0 + six-hour rule | Exploratory numbers above; formal record pending | — | — | — | — | — |
 | Q1 | Recovery + six-hour rule | Planned | — | — | — | — | — |
 | T1 | Explicit clock disagreement | Planned | — | — | — | — | — |
@@ -399,3 +426,56 @@ Fill rows immediately after each experiment, including failed/inconclusive ones.
 Scope changes, newly discovered recording patterns, and postponed work belong
 here before changing the experiment order. No HPO or another target-threshold
 sweep is included in this plan.
+
+### R1 decision before advancing to R2
+
+R1's next-month difference is inconclusive: **−1.1289 s**, 95% interval
+**[−3.6378, +0.9182]**. Longer-gap RMSE regresses by **+1.5693 s**,
+**[+0.6539, +2.6897]**. All three seeds worsen on the long-gap readout.
+The provisional combined change is +0.3145 s and inconclusive.
+
+The next-month gain is concentrated in July (−3.9098 s), August (−1.3021) and
+November (−2.6355); September, October and December worsen. Longer-gap ordinary
+RMSE rises from 240.9446 to 242.1609 s, and tail RMSE from 16,982.0055 to
+17,055.2772 s. The unrecovered-row change is **+1.0335 s [+.3748, +1.7581]**;
+the raw Rome/no-plan slice worsens by **+61.6773 s [+4.8645, +181.5030]**.
+This is broader than a handful of newly filled rows. Among airports, Rome's
+long-gap RMSE rises 6.5545 s and Paris 1.8723 s.
+
+**Keep B0-800 selected; do not promote exact recovery alone.** Continue R2 as
+a separately measured extension with both R1 and B0-800 comparisons. Higher
+matching coverage is not presumed to resolve the regression. Saved R1 audit,
+predictions, paired results, slices and training-loss plots remain available.
+
+### R2 decision before advancing to R3
+
+R2 versus B0-800: R_A **−1.3767 s [−3.8862, +0.6296]**, inconclusive;
+R_B_long **+1.1694 s [+0.0258, +2.5910]**, regression. All three long-gap seed
+differences are positive. Against R1, R_A −0.2478 [−0.6966, +0.2143] and
+R_B_long −0.3999 [−0.9668, +0.1692] are both inconclusive. The combined score
+is effectively unchanged versus control (−0.0146 s).
+
+Longer-gap ordinary flights regress +1.2481 s [+0.5235, +2.0449], including
+matched non-delayed ordinary flights (+0.4082 [+0.0650, +0.7721]). Recovered
+rows, the raw Rome/no-plan slice and delayed flights have inconclusive changes.
+**Keep B0-800 selected; do not promote R2.** R3 proceeds as the separately
+registered static-history extension, with both R2 and B0-800 comparisons.
+
+### Stage 1 selection: R3, with B0-800 retained as control
+
+R3 versus B0-800: R_A **−6.2423 s [−10.6670, −1.7190]**, improvement;
+R_B_long **−0.8742 s [−8.4406, +6.8701]**, inconclusive. Against R2, the
+next-month gain is also supported (−4.8656 [−8.3539, −0.9907]); the longer-gap
+change remains inconclusive (−2.0435 [−8.8474, +5.1197]).
+
+This meets the plan's main-readout criterion, but is not a uniform improvement.
+Longer-gap ordinary flights regress +1.6140 s [+0.3200, +2.9784]; matched
+non-delayed ordinary flights regress on both readouts. Next-month ordinary,
+delayed and raw Rome/no-plan slices improve. Tail error remains large and its
+change is uncertain. The [full Stage 1 report](reports/STAGE1.md) retains the
+airport, seed and recovery-slice evidence rather than treating coverage as a gain.
+
+Proceed to the fixed-rule comparisons **Q0 = B0-800 + rule** and
+**Q1 = R3 + rule**, using saved predictions. Keep these local development
+results distinct from official leaderboard evidence. No Stage 2 rule, full-year
+refit or upload was executed during Stage 1.

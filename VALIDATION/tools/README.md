@@ -7,6 +7,13 @@ helpers from the repository root:
 |---|---|---|
 | `audit.py` | Check dataset availability, duplicates and target shape | Neither |
 | `summarize_baseline.py --run <id>` | Plot training loss and compare saved round checkpoints | Neither |
+| `benchmark_cpu.py --output <json>` | Measure local thread throughput and prediction equivalence | Local probe fits only |
+| `inventory_derived.py` | Match existing notebook caches to raw donors without rebuilding them | Neither |
+| `verify_recovery_off.py --baseline <id> --output <json>` | Compare full matrices with frozen control source | Neither |
+| `audit_recovery.py --mode exact\|relaxed --output <json>` | Mask known plans/true twins and measure matching errors | Neither |
+| `audit_static_history.py --output <json>` | Measure static-field accuracy with causal/frozen history | Neither |
+| `summarize_recovery.py --run <id> --baseline <id>` | Paired recovery slices and training-loss plots | Neither |
+| `summarize_stage1.py --control <id> --r1 <id> --r2 <id> --r3 <id>` | Compare Stage 1 results with paired confidence intervals | Neither |
 | `log_official.py --run <id> --official <score> --submission <file>` | Attach an already-observed official score to a run | Neither |
 | `sweep_taxi_thresholds.py --dry-run` | Preview threshold-to-submission IDs against local files and the bucket | Neither |
 | `sweep_taxi_thresholds.py --status <manifest>` | Refresh a saved sweep's statuses and scores | Neither |

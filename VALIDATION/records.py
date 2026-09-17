@@ -3,6 +3,8 @@
 import hashlib
 import json
 import math
+import os
+import platform
 import subprocess
 from pathlib import Path
 
@@ -10,8 +12,26 @@ ROOT = Path(__file__).resolve().parent.parent
 RUNS = ROOT / "VALIDATION" / "runs"
 ARCHIVE_RUNS = ROOT / "VALIDATION" / "archive" / "runs"
 LOG = RUNS / "experiments.jsonl"
-MODEL_FILES = ["pipeline/common.py", "VALIDATION/features_time.py", "VALIDATION/modeling.py",
+MODEL_FILES = ["pipeline/common.py", "pipeline/recovery.py", "pipeline/recovery_relaxed.py",
+               "pipeline/recovery_history.py",
+               "VALIDATION/features_time.py", "VALIDATION/modeling.py",
                "VALIDATION/movement_data.py"]
+
+
+def runtime_identity():
+    import duckdb
+    import lightgbm
+    import numpy
+    import pandas
+    cpuinfo = Path('/proc/cpuinfo')
+    cpu = platform.processor()
+    if cpuinfo.exists():
+        cpu = next((line.split(':', 1)[1].strip() for line in cpuinfo.read_text().splitlines()
+                    if line.startswith('model name')), cpu)
+    return {'cpu': cpu, 'platform': platform.platform(), 'python': platform.python_version(),
+            'logical_cpus': os.cpu_count(),
+            'affinity': sorted(os.sched_getaffinity(0)) if hasattr(os, 'sched_getaffinity') else None,
+            'versions': {m.__name__: m.__version__ for m in [duckdb, lightgbm, numpy, pandas]}}
 
 
 def clean(value):

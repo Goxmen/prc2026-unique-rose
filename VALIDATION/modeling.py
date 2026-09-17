@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "pipeline"))
 from common import CATEGORICAL, RAW_COLS, build_features  # noqa: E402
 from features_time import TimeFeatures, STALE_ABLE, day_index, fpl_flags, _naive  # noqa: E402
 from protocol import TAIL_SEC  # noqa: E402
+from recovery import recover_frame  # noqa: E402
 
 PARAMS = {
     "objective": "regression", "metric": "rmse", "learning_rate": 0.05,
@@ -83,7 +84,13 @@ def as_categorical(X_tr, X_va):
     return X_tr, apply_categories(X_va, cats)
 
 
-def training_matrix(dep, arr, config, departure_history=True):
+def training_matrix(dep, arr, config, departure_history=True, audit_out=None, prepared_out=None):
+    if config.get('recovery', 'off') != 'off':
+        dep, audit = recover_frame(dep, arr, mode=config['recovery'])
+        if audit_out is not None:
+            audit_out.append(audit)
+        if prepared_out is not None:
+            prepared_out.append((dep, audit))
     keep = dep.taxi_sec.between(1, config["max_taxi_sec"])
     if not keep.any():
         raise ValueError("no training rows survive the training-label filter")
@@ -94,7 +101,20 @@ def training_matrix(dep, arr, config, departure_history=True):
     return X, dep.loc[keep, "taxi_sec"].to_numpy(float), cats
 
 
-def validation_matrix(dep, arr, val_dep, val_arr, freeze, cats, config, departure_history=True):
+def validation_matrix(dep, arr, val_dep, val_arr, freeze, cats, config, departure_history=True,
+                      audit_out=None, prepared_training=None):
+    if config.get('recovery', 'off') != 'off':
+        # Rebuild training independently: evaluation arrivals cannot repair it.
+        reference_dep = dep
+        dep, train_audit = (prepared_training if prepared_training is not None else
+                            recover_frame(dep, arr, mode=config['recovery']))
+        claims = pd.concat([dep, val_dep], ignore_index=True)
+        recovered_ids = train_audit.loc[train_audit.stage.ne('unrecovered')].set_index('mvt_id').donor_flight_id
+        claims['FLIGHT_ID_mvt'] = claims.FLIGHT_ID_mvt.fillna(claims.mvt_id.map(recovered_ids))
+        val_dep, audit = recover_frame(val_dep, pd.concat([arr, val_arr], ignore_index=True),
+                                       claims, mode=config['recovery'], reference_dep=reference_dep, reference_arr=arr)
+        if audit_out is not None:
+            audit_out.append(audit)
     tf = context(dep, arr, val_dep, val_arr, departure_history)
     freeze_day = int((pd.Timestamp(freeze) - pd.Timestamp("2025-01-01")).days)
     X = matrix(val_dep, tf, freeze_day=freeze_day, fpl_flag=config["fpl_flag"],
@@ -147,8 +167,10 @@ def choose_rounds(dep, arr, seed, config, train_end, departure_history=True):
                     "rounds": rounds, "train_rows": len(y), "validation_rows": len(va)}
 
 
-def predict(booster, X, num_iteration=None):
-    return np.clip(np.concatenate([booster.predict(X.iloc[i:i + 20_000], num_iteration=num_iteration)
+def predict(booster, X, num_iteration=None, threads=None):
+    threads = booster.params.get('num_threads', 0) if threads is None else threads
+    return np.clip(np.concatenate([booster.predict(X.iloc[i:i + 20_000], num_iteration=num_iteration,
+                                                   num_threads=threads)
                                   for i in range(0, len(X), 20_000)]), 0, None)
 
 

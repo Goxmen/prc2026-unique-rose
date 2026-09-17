@@ -1,7 +1,9 @@
 # Validation
 
-Start with the [improvement plan](IMPROVEMENT_PLAN.md). **Stage 0 is complete;
-exact-twin flight-plan recovery (R1) is next.**
+Start with the [improvement plan](IMPROVEMENT_PLAN.md) and
+[Stage 1 results](reports/STAGE1.md). **Stage 1 is complete; R3 is provisionally
+selected and Stage 2's fixed-rule comparisons are next.** The shared pipeline supports exact twins,
+relaxed twins and static history; the report records their paired comparisons.
 
 The [Stage 0 report](reports/STAGE0.md) records the baseline, loss charts, and
 800-versus-1,500-round comparison. The evidence favors 800 rounds; the saved
@@ -16,7 +18,8 @@ comparison explicit when continuing.
 | [docs/PROTOCOL.md](docs/PROTOCOL.md) | Current v3 folds, availability rules and scoring |
 | [docs/OPERATIONS.md](docs/OPERATIONS.md) | Detailed commands, configuration and result formats |
 | [reports/](reports/README.md) | Stage summaries, CPU measurements and submission-sweep records |
-| `runs/` | Current B0 artifacts and the central `experiments.jsonl` ledger |
+| `runs/` | Control/candidate artifacts and the central `experiments.jsonl` ledger |
+| [docs/RECOVERY.md](docs/RECOVERY.md) | Recovery modes, availability boundaries, audits and notebook reuse |
 | [tools/](tools/README.md) | Occasional audits, charts and submission utilities |
 | [archive/](archive/README.md) | Historical findings and five earlier experiments |
 | `tests/` | Regression checks for the model and workflow |
@@ -30,13 +33,14 @@ Run these from the repository root with `.venv/bin/python`:
 .venv/bin/python VALIDATION/harness.py --dry-run
 
 # Train/evaluate a configuration; use the round count agreed in the plan.
-.venv/bin/python VALIDATION/harness.py --label <experiment> --rounds <rounds> --threads 8
+.venv/bin/python VALIDATION/harness.py --label <experiment> --rounds <rounds> \
+  --threads 6 --prediction-threads 20 --fit-workers 1
 
 # Compare existing results without training.
 .venv/bin/python VALIDATION/compare.py --run <candidate> --baseline <reference>
 
 # Continue an interrupted run, preserving completed fits and folds.
-.venv/bin/python VALIDATION/resume_run.py --run <id> --threads 8 --fit-workers 1
+.venv/bin/python VALIDATION/resume_run.py --run <id> --threads 6 --fit-workers 1
 
 # Full-year refit for a selected, validated recipe, when submissions resume.
 .venv/bin/python VALIDATION/submit.py --version <N> --run-id <id>
@@ -45,10 +49,14 @@ Run these from the repository root with `.venv/bin/python`:
 `submit.py` writes a submission locally; upload is a separate step. The optional
 [threshold-sweep tool](tools/README.md) trains and uploads automatically.
 Full-year refits and uploads remain deferred during the improvement experiments.
+The thread settings above are measured for the current i7-13650HX laptop;
+benchmark another machine before carrying them over. See [the CPU report](reports/STAGE1_CPU.md).
 
 ## Saved results
 
-The current baseline is
+The Stage 1 recovery-off control is
+[`v3_20260916T095948645262Z`](runs/v3_20260916T095948645262Z/result.json),
+at 800 rounds. The original Stage 0 1,500-round run remains a distinct record:
 [`v3_20260915T225301657023Z`](runs/v3_20260915T225301657023Z/result.json).
 Older run IDs still work in the readers and comparison tools; they resolve
 through `archive/runs/`. The experiment ledger retains the complete history,
@@ -58,10 +66,10 @@ Concise results and charts are tracked. Models, prediction parquets and source
 snapshots stay local and gitignored. Archiving a run moves its entire directory
 without changing its contents.
 
-The six shared implementation modules (`modeling.py`, `features_time.py`,
+The shared implementation modules (`modeling.py`, `features_time.py`,
 `movement_data.py`, `protocol.py`, `records.py`, `reporting.py`) remain beside the
-commands. Core model paths and contents are stable so saved baseline source
-checks continue to work.
+commands. Recovery modules live in `pipeline/recovery*.py` and participate in
+the model source hashes checked by linked submission recipes.
 
 ## Checks
 

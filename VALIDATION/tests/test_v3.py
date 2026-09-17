@@ -245,13 +245,20 @@ class EndToEndTests(unittest.TestCase):
                 submit.fill_template(template, ids, preds)
         args = argparse.Namespace(run_id="x", seed=None, **dict.fromkeys(submit.DEFAULTS))
         ref = {"run_id": "x", "protocol": "v3", "status": "complete",
-               "config": config(), "source": {"files": {name: sha256(ROOT / name) for name in MODEL_FILES}}}
+               "config": config(recovery='history', prediction_threads=20),
+               "source": {"files": {name: sha256(ROOT / name) for name in MODEL_FILES}}}
         with patch.object(submit, "read_run", return_value=(ref, Path("."))):
             cfg, seed, _ = submit.resolve_config(args)
             self.assertEqual(cfg["rounds"], 2)
             self.assertEqual(seed, 42)
+            self.assertEqual(cfg['recovery'], 'history')
+            self.assertEqual(cfg['prediction_threads'], 20)
             args.rounds = 100
             with self.assertRaisesRegex(ValueError, "differs"):
+                submit.resolve_config(args)
+            args.rounds = None
+            args.recovery = 'off'
+            with self.assertRaisesRegex(ValueError, 'recovery.*differs'):
                 submit.resolve_config(args)
 
     def test_official_results_do_not_mix_protocols(self):

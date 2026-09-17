@@ -26,7 +26,8 @@ from movement_data import load_phase
 
 FREEZE = "2025-12-31"
 DEFAULTS = {"max_taxi_sec": MAX_TAXI_SEC, "rounds": 800, "fpl_flag": False,
-            "lag_train_days": 0, "early_stopping_rounds": 0, "threads": 8}
+            "lag_train_days": 0, "early_stopping_rounds": 0, "threads": 8,
+            "prediction_threads": None, "recovery": "off"}
 
 
 def resolve_config(args):
@@ -38,7 +39,7 @@ def resolve_config(args):
     config = {}
     for name, default in DEFAULTS.items():
         reference = run["config"].get(name, default) if run else default
-        explicit = getattr(args, name)
+        explicit = getattr(args, name, None)
         if run and explicit is not None and explicit != reference:
             raise ValueError(f"--{name.replace('_', '-')} differs from the linked validation run")
         config[name] = reference if explicit is None else explicit
@@ -55,6 +56,8 @@ def resolve_config(args):
         raise ValueError("rounds and training-label ceiling must be positive")
     if any(config[k] < 0 for k in ["lag_train_days", "early_stopping_rounds", "threads"]):
         raise ValueError("lag, early-stopping patience and threads must be nonnegative")
+    if config['prediction_threads'] is not None and config['prediction_threads'] < 0:
+        raise ValueError('prediction threads must be nonnegative')
     return config, seed, run
 
 
@@ -91,6 +94,8 @@ def main(argv=None):
     ap.add_argument("--lag-train-days", type=int)
     ap.add_argument("--early-stopping-rounds", type=int, help="inner Jan-Nov fit / December selection")
     ap.add_argument("--threads", type=int)
+    ap.add_argument('--prediction-threads', type=int)
+    ap.add_argument("--recovery", choices=['off', 'exact', 'relaxed', 'history'])
     ap.add_argument("--track-training-loss", action="store_true",
                     help="record training RMSE at each round and show it in the progress bar")
     args = ap.parse_args(argv)
@@ -112,7 +117,8 @@ def main(argv=None):
             if not path.is_file() or sha256(path) != source["sha256"]:
                 raise ValueError(f"dataset changed since validation: {source['file']}")
     rounds, inner = choose_rounds(dep, arr, seed, config, FREEZE)
-    X, y, cats = training_matrix(dep, arr, config)
+    prepared = []
+    X, y, cats = training_matrix(dep, arr, config, prepared_out=prepared)
     history = {} if args.track_training_loss else None
     booster = fit_booster(X, y, seed, rounds, config, "refit all 2025", training_history=history)
     if history is not None:
@@ -126,8 +132,9 @@ def main(argv=None):
     # unavailable intermediate history to another.
     for month in sorted(pd.to_datetime(rank.MVT_TIME_UTC_mvt).dt.strftime("%Y-%m").unique()):
         part = month_rows(rank, month)
-        V = validation_matrix(dep, arr, part, month_rows(rank_arr, month), FREEZE, cats, config)
-        prediction.loc[part.index] = predict(booster, V)
+        V = validation_matrix(dep, arr, part, month_rows(rank_arr, month), FREEZE, cats, config,
+                              prepared_training=prepared[0] if prepared else None)
+        prediction.loc[part.index] = predict(booster, V, threads=config['prediction_threads'])
     out = fill_template(pq.read_table(TEMPLATE), rank.mvt_id, prediction.to_numpy())
     SUBMISSIONS.mkdir(exist_ok=True)
     pq.write_table(out, dest)

@@ -93,6 +93,7 @@ def summarize(loss):
     result = slice_stats(loss)
     tail = meta.y.to_numpy() > TAIL_SEC
     result["ordinary"] = slice_stats(loss, ~tail)
+    result['at_most_12_seconds'] = slice_stats(loss, meta.y.to_numpy() <= 12)
     result["tail"] = slice_stats(loss, tail)
     result["tail"]["pct_sse"] = (100 * result["tail"]["sse"] / result["sse"]
                                     if result["sse"] else 0.0)
