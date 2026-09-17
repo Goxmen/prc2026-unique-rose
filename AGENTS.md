@@ -51,6 +51,26 @@ but identify the result as stale and report its timestamp.
 
 ## Current improvement work — handoff
 
+- **The five selected leaderboard checks are complete.** The user authorized
+  refits/uploads on 2026-09-16; work is on `leaderboard-five-candidates`, based
+  on Stage 4. All five succeeded: B0-800/v12 **406.4281**, Q0/v13 **354.4303**,
+  Q1/v14 **354.0004**, Q0-4h/v15 **344.3114**, Q1-4h/v16 **344.4821**.
+  Live snapshot 2026-09-16 16:46:48 UTC: best v15, latest v16, rank 96/152
+  scoring teams (416 registered). Q0-4h is the best observed submission;
+  retain Q0 as the six-hour experimental control. Rule gains transferred;
+  recovery helped by 0.4299 s at six hours but regressed by 0.1707 s at four.
+  See `VALIDATION/reports/LEADERBOARD_RESULTS.md` for all CV/LB levels, gaps,
+  paired changes, seed-42 readouts and uncertainty. Execution details are in
+  `VALIDATION/docs/LEADERBOARD_EXECUTION.md`; the submission manifest links
+  source/data/config hashes and verified remote artifacts. Two full-year fits
+  took 2.067/4.461 minutes, with no CV refits or repeated recovery/CPU audits.
+  Four-hour linked runs are `v3_20260916T164054429797Z` (Q0-4h) and
+  `v3_20260916T164247756836Z` (Q1-4h), matching the original sweep exactly.
+  All 56 tests passed. All five daily slots were used; no automatic reset
+  retry, additional submission, training-row exclusion or rule-correction
+  model was started. The next proposed work is discussion of training routing,
+  now that rule gains transferred. Do not rerun completed fits or uploads.
+
 When asked to **continue the improvement plan**, read
 [`VALIDATION/IMPROVEMENT_PLAN.md`](VALIDATION/IMPROVEMENT_PLAN.md), starting with
 its "Resume here" section, and
@@ -71,15 +91,15 @@ its "Resume here" section, and
   Stages 1–4 are complete. The first leaderboard queue is now selected:
   **B0-800, Q0, Q1, Q0-4h, Q1-4h**, in that order. See
   `VALIDATION/docs/LEADERBOARD_CANDIDATES.md` for exact recipes, CV scores,
-  controlled comparisons and preparation tasks. Four-hour linked recipes are
-  pending; use saved predictions to register them, not new CV fits. Only two
+  controlled comparisons and preparation tasks. Four-hour linked recipes were
+  pending at selection and have since been registered as recorded above. Only two
   underlying full-year models are needed; reuse their predictions for the
   rule variants. No full-year refit or upload ran during selection. This queue
   takes priority over the separate v10/v11 series; inspect live quota at execution.
   The user expanded the later leaderboard work: record official and CV scores,
   candidate-minus-control changes, direction agreement, LB-minus-CV gaps and
   delta-LB-minus-delta-CV, with seed-42 CV alongside the standard seed average.
-  Details are in the plan; submissions/refits are still deferred.
+  Details are in the plan; the authorized execution is complete as recorded above.
 - **Stage 3 is complete. Keep Q0 as the conservative control.** Its work is on
   `stage3-clock-features-residual`, based on Stage 2. The frozen design is in
   `VALIDATION/docs/CLOCK_MODELS.md`: T1 adds 18 features, T2 uses the same
@@ -114,7 +134,7 @@ its "Resume here" section, and
   test validation-to-leaderboard transfer; if gains transfer, discuss excluding
   rule-handled rows from model training while retaining all evaluation rows;
   later consider learning corrections to the rule. These are future proposals,
-  not started submissions or training exclusions based on rule eligibility.
+  completed submissions are recorded above; training exclusions remain unstarted.
 - Stage 1's provisionally selected recovery model was R3:
   `v3_20260916T113256202842Z`, R_A 360.5041, R_B_long 333.3043. Its next-month
   gain versus control is supported; its longer-gap change is inconclusive and
@@ -129,10 +149,10 @@ its "Resume here" section, and
   B0-800. Coverage is not the promotion criterion.
 - Q0 = B0-800 + fixed Rome six-hour rule; Q1 = R3 + the same rule. Both are
   complete and reuse saved predictions. Stage 4 is now complete as described
-  above. The user's future leaderboard check and routing
-  discussion remain pending. Do not repeat recovery audits or CPU tuning
+  above. The leaderboard check is complete; the proposed training-routing
+  discussion remains pending. Do not repeat recovery audits or CPU tuning
   unless their relevant code/data changes.
-- All 55 tests pass. Stage 1's recovery-off equivalence evidence is retained.
+- All 56 tests pass. Stage 1's recovery-off equivalence evidence is retained.
   Current source includes the Stage 4 mixture. Historical T1/T2, Q0/Q1
   and recovery models require their frozen implementation for a full-year
   refit; preserve source guards rather than bypassing them.
@@ -146,6 +166,8 @@ its "Resume here" section, and
   model hashes are separate. Every overridden ID/error is in candidate CSVs.
 - The user authorizes local training/validation. Defer twelve-month refits and
   uploads until experiments finish and submission configurations are selected.
+  Those conditions were met for the five-candidate queue, which was explicitly
+  authorized and completed above; this does not authorize additional submissions.
 - **Hardware is machine-specific.** The current i7-13650HX/WSL laptop exposes
   20 logical CPUs and about 11.5 GiB RAM. Local measurements select one worker,
   six fit threads and 20 prediction threads. See `VALIDATION/reports/STAGE1_CPU.md`.
@@ -154,7 +176,7 @@ its "Resume here" section, and
 - Existing `data/derived/` notebook caches are useful audit references, but are
   not fold-valid inputs. Their sections, counts, guards and reuse limits are in
   `VALIDATION/reports/STAGE1_DERIVED_DATA.md`. Do not rebuild them unnecessarily.
-- Work is on `stage4-timestamp-mixture`, based on the open Stage 3 PR
+- Stage 4 work is on `stage4-timestamp-mixture`, based on the open Stage 3 PR
   branch `stage3-clock-features-residual`. Track source, plans, concise results
   and charts; models, predictions, source snapshots and row-level audit parquets
   remain gitignored and local. A fresh clone must copy or regenerate them.
