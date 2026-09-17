@@ -30,6 +30,10 @@ def main():
     for name in MODEL_FILES:
         if record["source"]["files"].get(name) != sha256(ROOT / name):
             raise ValueError(f"Model source changed: {name}")
+    if record['config'].get('prediction_rule', 'off') != 'off':
+        name = 'pipeline/prediction_rules.py'
+        if record.get('rule_source', {}).get(name) != sha256(ROOT/name):
+            raise ValueError('Prediction rule source changed')
     if record["config"]["params"] != PARAMS:
         raise ValueError("Model parameters changed")
     if record["data_identity"] != data_identity([*glob.glob(TRAIN_GLOB), RANKING]):
@@ -68,7 +72,8 @@ def main():
         record["folds"], record["models"] = execute(
             dep, arr, windows, record["config"], directory, resume_progress=progress)
         del dep, arr
-        record["report"] = report(record, directory)
+        baseline = read_run(record['baseline_id']) if record.get('baseline_id') else None
+        record["report"] = report(record, directory, baseline)
         print_report(record["report"])
         record["status"] = "complete"
     except BaseException as exc:

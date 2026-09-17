@@ -15,6 +15,8 @@ helpers from the repository root:
 | `summarize_recovery.py --run <id> --baseline <id>` | Paired recovery slices and training-loss plots | Neither |
 | `summarize_stage1.py --control <id> --r1 <id> --r2 <id> --r3 <id>` | Compare Stage 1 results with paired confidence intervals | Neither |
 | `summarize_rule.py --q0 <id> --q1 <id>` | Summarize rule comparisons, changed IDs and damaging overrides | Neither |
+| `summarize_clock_models.py --t1 <id> --t2 <id>` | Summarize Stage 3 comparisons and training curves from completed reports | Neither |
+| `inspect_clock_residual_errors.py --t1 <id> --t2 <id>` | Diagnose residual errors by saved clock source and list damaging predictions | Neither |
 | `sweep_rule_thresholds.py [--hours 1 2 3 4 6 --output <prefix>]` | Score Rome thresholds on saved B0-800/R3 predictions; default 4–8 h, six-hour control always included | Neither |
 | `log_official.py --run <id> --official <score> --submission <file>` | Attach an already-observed official score to a run | Neither |
 | `sweep_taxi_thresholds.py --dry-run` | Preview threshold-to-submission IDs against local files and the bucket | Neither |

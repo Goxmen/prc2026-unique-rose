@@ -13,7 +13,7 @@ RUNS = ROOT / "VALIDATION" / "runs"
 ARCHIVE_RUNS = ROOT / "VALIDATION" / "archive" / "runs"
 LOG = RUNS / "experiments.jsonl"
 MODEL_FILES = ["pipeline/common.py", "pipeline/recovery.py", "pipeline/recovery_relaxed.py",
-               "pipeline/recovery_history.py",
+               "pipeline/recovery_history.py", "pipeline/clock_features.py",
                "VALIDATION/features_time.py", "VALIDATION/modeling.py",
                "VALIDATION/movement_data.py"]
 

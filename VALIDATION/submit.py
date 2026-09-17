@@ -28,7 +28,8 @@ from prediction_rules import apply_rule
 FREEZE = "2025-12-31"
 DEFAULTS = {"max_taxi_sec": MAX_TAXI_SEC, "rounds": 800, "fpl_flag": False,
             "lag_train_days": 0, "early_stopping_rounds": 0, "threads": 8,
-            "prediction_threads": None, "recovery": "off", "prediction_rule": "off"}
+            "prediction_threads": None, "recovery": "off", "prediction_rule": "off",
+            "clock_features": False, "target_mode": "direct"}
 
 
 def resolve_config(args):
@@ -64,6 +65,8 @@ def resolve_config(args):
         raise ValueError("lag, early-stopping patience and threads must be nonnegative")
     if config['prediction_threads'] is not None and config['prediction_threads'] < 0:
         raise ValueError('prediction threads must be nonnegative')
+    if config['target_mode'] == 'clock_residual' and not config['clock_features']:
+        raise ValueError('clock residual mode requires clock features')
     return config, seed, run
 
 
@@ -103,6 +106,8 @@ def main(argv=None):
     ap.add_argument('--prediction-threads', type=int)
     ap.add_argument("--recovery", choices=['off', 'exact', 'relaxed', 'history'])
     ap.add_argument('--prediction-rule', choices=['off', 'rome_6h'])
+    ap.add_argument('--clock-features', action='store_true', default=None)
+    ap.add_argument('--target-mode', choices=['direct', 'clock_residual'])
     ap.add_argument("--track-training-loss", action="store_true",
                     help="record training RMSE at each round and show it in the progress bar")
     args = ap.parse_args(argv)
@@ -141,7 +146,7 @@ def main(argv=None):
         part = month_rows(rank, month)
         V = validation_matrix(dep, arr, part, month_rows(rank_arr, month), FREEZE, cats, config,
                               prepared_training=prepared[0] if prepared else None)
-        model_prediction = predict(booster, V, threads=config['prediction_threads'])
+        model_prediction = predict(booster, V, threads=config['prediction_threads'], target_mode=config['target_mode'])
         prediction.loc[part.index] = apply_rule(model_prediction, part, config['prediction_rule'])[0]
     out = fill_template(pq.read_table(TEMPLATE), rank.mvt_id, prediction.to_numpy())
     SUBMISSIONS.mkdir(exist_ok=True)

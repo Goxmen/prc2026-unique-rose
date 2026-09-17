@@ -56,7 +56,18 @@ When asked to **continue the improvement plan**, read
 its "Resume here" section, and
 [`VALIDATION/reports/STAGE0.md`](VALIDATION/reports/STAGE0.md).
 
-- **Stage 2 is complete. Stage 3 is next.** Read the plan's ledger and
+- **Stage 3 is complete. Keep Q0 as the conservative control.** Work is on
+  `stage3-clock-features-residual`, based on Stage 2. The frozen design is in
+  `VALIDATION/docs/CLOCK_MODELS.md`: T1 adds 18 features, T2 uses the same
+  features with residual regression. Both retain recovery off, 800 rounds,
+  three seeds and the fixed six-hour rule. All 51 tests pass.
+  T1 `v3_20260916T132038893775Z` is complete (19.470 minutes), scoring
+  298.9328/256.2445; both changes versus Q0 are inconclusive. T2
+  `v3_20260916T134231489815Z` is complete (19.292 minutes), scoring
+  419.6226/439.4680; **do not promote**, supported regression versus T1 and Q0.
+  Its schedule fallback fails on very large gaps. Comparisons, training curves,
+  saved-error diagnosis and verdict are in `VALIDATION/reports/STAGE3.md`.
+  Read the plan's ledger and
   `VALIDATION/reports/STAGE2.md`. Select Q0 as the conservative parent:
   `v3_20260916T123230629423Z`, R_A 300.5904, R_B_long 256.1971. Q1
   (`v3_20260916T123433565511Z`) scores 296.9037/258.5505; versus Q0, it has
@@ -93,13 +104,14 @@ its "Resume here" section, and
   **not promoted**. R2/R3 were compared with both their immediate parents and
   B0-800. Coverage is not the promotion criterion.
 - Q0 = B0-800 + fixed Rome six-hour rule; Q1 = R3 + the same rule. Both are
-  complete and reuse saved predictions. Next: T1 then T2 from Q0, keeping
-  recovery off and the rule fixed. No Stage 3 models have run. Do not repeat
-  recovery audits or CPU tuning unless their relevant code/data changes.
-- All 47 tests pass. Stage 1 recovery-off matrices exactly match frozen control
-  source across six training windows and 16 validation folds. R3's model-source
-  hashes match current code. B0-800's older wrapper hashes differ; preserve its
-  frozen source and submission source guard for any later full-year refit.
+  complete and reuse saved predictions. Stage 4 is the next planned modelling
+  stage and has not run. The user's future leaderboard check and routing
+  discussion remain pending. Do not repeat recovery audits or CPU tuning
+  unless their relevant code/data changes.
+- All 51 tests pass. Stage 1's recovery-off equivalence evidence is retained.
+  T1/T2 linked model/rule source checks match current code. Historical Q0/Q1
+  and recovery models require their frozen implementation for a full-year
+  refit; preserve source guards rather than bypassing them.
 - The shared pipeline implements `--recovery off|exact|relaxed|history`, with
   raw precedence, fold-scoped donors, ownership guards and causal/frozen static
   history. `pipeline/prediction_rules.py` supplies the fixed rule to both
@@ -115,8 +127,8 @@ its "Resume here" section, and
 - Existing `data/derived/` notebook caches are useful audit references, but are
   not fold-valid inputs. Their sections, counts, guards and reuse limits are in
   `VALIDATION/reports/STAGE1_DERIVED_DATA.md`. Do not rebuild them unnecessarily.
-- Work is on `stage2-rome-six-hour-rule`, based on the open Stage 1 PR branch
-  `stage1-flight-plan-recovery`. Track source, plans, concise results
+- Work is on `stage3-clock-features-residual`, based on the open Stage 2 PR
+  branch `stage2-rome-six-hour-rule`. Track source, plans, concise results
   and charts; models, predictions, source snapshots and row-level audit parquets
   remain gitignored and local. A fresh clone must copy or regenerate them.
 

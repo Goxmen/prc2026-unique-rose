@@ -1,8 +1,10 @@
 # Validation
 
 Start with the [improvement plan](IMPROVEMENT_PLAN.md) and
-[Stage 2 results](reports/STAGE2.md). **Stage 2 is complete; Q0 is the
-conservative parent for Stage 3, with Q1 retained as a tradeoff.** The shared pipeline supports exact twins,
+[Stage 3 results](reports/STAGE3.md). **Stage 3 is complete: T1 is inconclusive,
+T2 regresses substantially, and Q0 remains the conservative control.** The
+[frozen clock-model design](docs/CLOCK_MODELS.md) and report explain the
+schedule-fallback failure. Q1 remains a tradeoff. The shared pipeline supports exact twins,
 relaxed twins and static history; the report records their paired comparisons.
 
 The [Stage 0 report](reports/STAGE0.md) records the baseline, loss charts, and
@@ -21,6 +23,7 @@ comparison explicit when continuing.
 | `runs/` | Control/candidate artifacts and the central `experiments.jsonl` ledger |
 | [docs/RECOVERY.md](docs/RECOVERY.md) | Recovery modes, availability boundaries, audits and notebook reuse |
 | [docs/PREDICTION_RULES.md](docs/PREDICTION_RULES.md) | Fixed rule, saved-prediction comparisons and linked submission recipes |
+| [docs/CLOCK_MODELS.md](docs/CLOCK_MODELS.md) | Stage 3 clock features, baseline fallback and residual reconstruction |
 | [tools/](tools/README.md) | Occasional audits, charts and submission utilities |
 | [archive/](archive/README.md) | Historical findings and five earlier experiments |
 | `tests/` | Regression checks for the model and workflow |

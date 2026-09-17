@@ -157,6 +157,13 @@ variant, not the v3 benchmark), `--lag-train-days`, `--max-taxi-sec`,
 `--recovery off|exact|relaxed|history` selects the shared fold-scoped recovery
 path; see [the design and audit commands](RECOVERY.md). All flags are recorded.
 
+Stage 3 adds `--clock-features`, `--target-mode direct|clock_residual` and
+`--prediction-rule off|rome_6h` to the training harness. Residual mode requires
+clock features; it restores the clock baseline before clipping and applying
+the raw-movement rule. Linked submission inherits all three options. See
+[the fixed design and commands](CLOCK_MODELS.md). Training RMSE is measured
+before clipping and the rule; final validation RMSE includes both operations.
+
 Each run writes `runs/v3_<timestamp>/`:
 
 - `result.json` — configuration, dataset hashes, git commit, per-model rounds

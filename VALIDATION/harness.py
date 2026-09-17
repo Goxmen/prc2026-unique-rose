@@ -26,10 +26,11 @@ from modeling import (PARAMS, training_matrix, validation_matrix, choose_rounds,
                       predict, prediction_frame, period_rows, month_rows)
 from protocol import (VERSION, SCORE_VERSION, MAX_TAXI_SEC, MAIN_NAMES, DEFAULT_FOLDS,
                       select_folds, window_key)
-from records import RUNS, write_json, append_log, read_run, source_snapshot, data_identity, runtime_identity
+from records import RUNS, write_json, append_log, read_run, source_snapshot, data_identity, runtime_identity, sha256
 from reporting import report, print_report
 from movement_data import load_phase
 from recovery import summarize_audit
+from prediction_rules import apply_rule
 
 
 def parser():
@@ -58,6 +59,9 @@ def parser():
     ap.add_argument('--prediction-threads', type=int, help='inference threads; default to the training budget')
     ap.add_argument("--recovery", choices=["off", "exact", "relaxed", "history"], default="off",
                     help="fold-scoped flight-plan recovery (default off)")
+    ap.add_argument('--clock-features', action='store_true', help='explicit clock disagreement and provenance features')
+    ap.add_argument('--target-mode', choices=['direct', 'clock_residual'], default='direct')
+    ap.add_argument('--prediction-rule', choices=['off', 'rome_6h'], default='off')
     ap.add_argument("--checkpoints", default="", help="comma-separated earlier rounds to score diagnostically")
     ap.add_argument("--dry-run", action="store_true", help="show schedule without loading data")
     ap.add_argument("--output-dir", type=Path, default=RUNS, help="parent directory for run artifacts")
@@ -92,6 +96,8 @@ def parse_args(argv=None):
         args.prediction_threads = args.threads
     if args.prediction_threads < 0:
         ap.error('--prediction-threads must be nonnegative')
+    if args.target_mode == 'clock_residual' and not args.clock_features:
+        ap.error('--target-mode clock_residual requires --clock-features')
     return args
 
 
@@ -184,6 +190,8 @@ def execute(dep, arr, windows, config, outdir, resume_progress=None):
             loss_path = model_path.with_suffix(".training_loss.json")
             write_json(loss_path, {"model_id": model_id, "seed": seed,
                                   "rounds": rounds, "train_rows": len(y),
+                                  "target_mode": config.get('target_mode', 'direct'),
+                                  "metric": "training_objective_rmse_seconds_before_clipping_and_rule",
                                   "rmse": training_history["training"]["rmse"]})
             details = {
                 "rounds": rounds, "inner_selection": inner, "model": str(model_path.relative_to(outdir)),
@@ -241,14 +249,23 @@ def execute(dep, arr, windows, config, outdir, resume_progress=None):
                 if name in vd:
                     frame[name] = vd[name].to_numpy()
             for seed, booster in boosters.items():
-                pred = predict(booster, V, threads=config.get('prediction_threads', config.get('threads', 0)))
+                prediction_args = dict(threads=config.get('prediction_threads', config.get('threads', 0)),
+                                       target_mode=config.get('target_mode', 'direct'))
+                model_pred = predict(booster, V, **prediction_args)
+                pred, rule_audit = apply_rule(model_pred, vd, config.get('prediction_rule', 'off'))
                 if not np.isfinite(pred).all():
                     raise ValueError(f"nonfinite predictions in {fold.name}/{seed}")
                 file = f"oof_{fold.name}_seed{seed}.parquet"
-                checkpoint_preds = {f"pred_round_{n}": predict(booster, V, num_iteration=n,
-                    threads=config.get('prediction_threads', config.get('threads', 0)))
-                                    for n in config.get("checkpoints", [])}
-                frame.assign(fold=fold.name, seed=seed, pred=pred, **checkpoint_preds).to_parquet(
+                checkpoint_preds = {f"pred_round_{n}": apply_rule(
+                    predict(booster, V, num_iteration=n, **prediction_args), vd,
+                    config.get('prediction_rule', 'off'))[0] for n in config.get("checkpoints", [])}
+                extra = {}
+                if config.get('prediction_rule', 'off') != 'off':
+                    extra.update(model_pred=model_pred, **{c: rule_audit[c].to_numpy() for c in rule_audit})
+                if config.get('clock_features', False):
+                    extra.update(clock_baseline_sec=V.clock_baseline_sec.to_numpy(),
+                                 clock_baseline_source=V.clock_baseline_source.to_numpy())
+                frame.assign(fold=fold.name, seed=seed, pred=pred, **checkpoint_preds, **extra).to_parquet(
                     Path(outdir) / file, index=False)
                 fold_record["predictions"][str(seed)] = file
             folds[fold.name] = fold_record
@@ -281,9 +298,12 @@ def main(argv=None):
     t0 = time.monotonic()
     try:
         record["source"] = source_snapshot(outdir)
+        if config['prediction_rule'] != 'off':
+            record['rule_source'] = {'pipeline/prediction_rules.py': sha256(ROOT/'pipeline/prediction_rules.py')}
         record["data_identity"] = data_identity([*glob.glob(TRAIN_GLOB), RANKING])
         con = connect()
         record["ranking_weights"] = ranking_weights(con)
+        write_json(outdir / 'result.json', record)
         dep, arr = load(con, args.sample)
         con.close()
         record["folds"], record["models"] = execute(dep, arr, windows, config, outdir)
