@@ -3,9 +3,26 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — Stage 3 complete; Q0 retained
+## Resume here — Stage 4 complete; Q0 retained
 
-Work is on branch `stage3-clock-features-residual`, based on Stage 2's open PR branch.
+**Stages 1–4 are complete. Do not promote M1; keep Q0 as the conservative
+control.** Work is on `stage4-timestamp-mixture`, based on Stage 3. M1
+`v3_20260916T144408082362Z` scores **544.8410/519.0849** (R_A/R_B_long), a
+supported regression against T1, Q0 and Q1. Every seed regresses. The
+[Stage 4 report](reports/STAGE4.md) records overconfident classification errors,
+false high predictions, training curves and the [frozen recipe](docs/TIMESTAMP_MIXTURE.md).
+The benchmark took **51.768 minutes**, with 36 boosters in 18 bundles and
+48 prediction files; controls were reused. All 55 tests and the completed M1
+linked-recipe checks pass. No recovery audit, CPU probe, notebook-cache
+rebuild, full-year refit or upload ran.
+**The first leaderboard queue is selected:** B0-800, Q0, Q1, Q0-4h and Q1-4h.
+See the [frozen candidate list and plain-language recipes](docs/LEADERBOARD_CANDIDATES.md).
+Preparation and controlled leaderboard checks are next; no refit or upload
+was performed during selection. Do not start another modelling sweep automatically.
+The user also expanded the later leaderboard checks to explicitly measure
+direction agreement and the absolute LB–CV gap, as specified below.
+
+Stage 3 work is on branch `stage3-clock-features-residual`, based on Stage 2's open PR branch.
 **Stage 3 is complete. Keep Q0 (B0-800 + fixed six-hour rule) as the conservative
 control. T1's changes are inconclusive; do not promote T2.** T1 scores
 298.9328/256.2445 (R_A/R_B_long), versus Q0's 300.5904/256.1971. T2 scores
@@ -38,8 +55,8 @@ The complete [1–8 hour score table and verdict](reports/STAGE2_THRESHOLD_RESUL
 are recorded together. The user's future sequence is also recorded below:
 check selected candidates on the leaderboard, then, if gains transfer, discuss
 excluding rule-handled rows from model training and later correcting the rule
-with a model. These are future proposals; no submissions or training-filter
-changes have started.
+with a model. These are future proposals; no submissions or exclusions based
+on the observable rule trigger have started.
 
 | Experiment | Artifact / state |
 |---|---|
@@ -54,9 +71,10 @@ changes have started.
 | Lower-threshold extension | 1, 2 and 3 hours on both parents, with 4/6-hour controls; complete, no new fits; [scores and interpretation](reports/STAGE2_THRESHOLD_SWEEP_LOW.md) |
 | T1, clock features | `runs/v3_20260916T132038893775Z/result.json`, complete; R_A 298.9328, R_B_long 256.2445; both changes versus Q0 inconclusive |
 | T2, residual target | `runs/v3_20260916T134231489815Z/result.json`, complete; R_A 419.6226, R_B_long 439.4680; do not promote |
-| Verification | 51 tests; T1/T2 linked source checks pass; Stage 3 comparisons, training curves and saved-error diagnosis complete; prior audits retained |
+| M1, timestamp mixture | `runs/v3_20260916T144408082362Z/result.json`, complete; R_A 544.8410, R_B_long 519.0849; do not promote; 51.768 minutes |
+| Verification | 55 tests; M1 linked source checks pass; Stage 4 paired comparisons, component curves and false-high diagnostics complete; prior audits retained |
 
-**Next modelling stage: Stage 4, which remains planned and has not run.** The
+**The planned modelling stages are complete.** The
 user's future leaderboard-transfer check and subsequent training-routing/rule-
 correction discussion are also recorded below. Do not automatically start
 another threshold or residual-baseline sweep. Keep Q0 as the conservative
@@ -64,7 +82,8 @@ comparison parent and retain the separate four-hour sensitivity candidate.
 Do not repeat recovery audits, CPU tuning or notebook caches without relevant
 changes. Full-year refits and uploads remain deferred pending selection.
 Historical Q0/Q1/recovery recipes retain their frozen-source requirements;
-current code and linked recipe checks match T1/T2, not those older wrappers.
+current code now includes M1; older T1/T2 and Q0/Q1 wrappers require their
+frozen source for refits.
 
 **Round count:** Stage 1 explicitly uses **800 rounds** for control and all
 three candidates, following the Stage 0 checkpoint verdict. The historical
@@ -397,6 +416,14 @@ Start each comparison from an explicitly named parent selected above.
 
 ## Stage 4 — model the different timestamp patterns
 
+Complete 2026-09-16: [results and verdict](reports/STAGE4.md). **Do not promote
+M1.** Against Q0, R_A worsens +244.2506 s [+199.5467, +287.7271] and R_B_long
+worsens +262.8877 s [+183.5490, +340.7331]. Both T1 and Q1 comparisons also
+show supported regressions. The classifier makes near-certain wrong choices
+on some ordinary flights; the day class has only 5–9 examples per training
+window. See the [frozen M1 recipe](docs/TIMESTAMP_MIXTURE.md); no retuning was
+performed under this run ID. T1 is the direct feature-matched parent.
+
 Test a probabilistic combination of ordinary taxi-out, schedule-substituted
 timestamps, and roughly one-day-offset cases. Use training labels/block stamps
 only to define training outcomes for these components. Predict their
@@ -416,8 +443,11 @@ User proposal recorded after the threshold sweeps, 2026-09-16:
 1. Submit a selected set of candidates to check whether improvements on the
    validation folds translate into better leaderboard scores. Compare against
    a matching baseline and record local and official changes together, using
-   the controlled submission procedure below. Candidate selection and this
-   submission session are still pending.
+   the controlled submission procedure below. Explicitly check direction
+   agreement and LB-minus-CV gaps; the user added these to scope on 2026-09-16.
+   The first five candidates are now selected in
+   [the frozen queue](docs/LEADERBOARD_CANDIDATES.md); the submission session
+   has not started.
 2. **If the improvement transfers**, discuss a separate experiment that removes
    rule-handled rows from the model's training population. At prediction time,
    route those cases to the rule and let the model handle the other cases.
@@ -434,7 +464,7 @@ User proposal recorded after the threshold sweeps, 2026-09-16:
 
 This records future intent rather than starting those experiments. The existing
 training filters and six-hour Q0/Q1 definitions are unchanged. Stage 3 subsequently
-ran as a separate authorized experiment; Stage 4 remains planned. No automatic
+ran as a separate authorized experiment; Stage 4 is also complete. No automatic
 upload or refit is scheduled by this note.
 
 ## How we decide locally
@@ -457,22 +487,50 @@ Follow [protocol v3](docs/PROTOCOL.md):
 
 ## Tomorrow: controlled leaderboard checks
 
-Select the queue after local experiments finish. Only then fit selected
-configurations on all twelve months with the exact validated feature logic,
-filters, rule, rounds, and seed.
-Freeze the queue before inspecting its new official scores.
+The user-authorized selection is complete: **B0-800, Q0, Q1, Q0-4h, Q1-4h**,
+in that order. The [frozen queue](docs/LEADERBOARD_CANDIDATES.md) records exact
+recipes, source runs, CV results and controlled pairs. It was selected before
+viewing new official scores. Four-hour results still need linked recipe
+registration; this requires saved-prediction processing, not CV retraining.
+Final preparation uses two underlying twelve-month models (baseline and R3),
+800 rounds, seed 42 and the exact validated logic, reusing predictions for rule
+variants. No full-year refit or upload has started in this selection step.
 
-Suggested priority: a reproducible B0 reference if needed, selected recovery
-alone, Q0, Q1, then a supported timestamp candidate if ready. Reuse v3's official
-reference only if the final reference predictions match the saved v3 artifact;
-otherwise allocate a new baseline submission for the changed pipeline.
+For every successfully scored candidate, produce a linked comparison table:
+
+- CV `R_A`, `R_B_long` and provisional `R_combined`, official LB RMSE, and
+  **LB minus each CV score**, all in seconds. Positive means LB is worse.
+- Against the matching reference, report **candidate-minus-reference changes**
+  on LB and on each CV readout, in seconds and percent. Negative is better.
+- Mark whether LB and CV move in the **same direction**, disagree, or show no
+  change. Preserve CV confidence intervals: an inconclusive CV difference is
+  still inconclusive even if its point estimate agrees with LB.
+- Report **delta-LB minus delta-CV** to show how much the improvement magnitude
+  transfers, and changes in the LB–CV gap. Use a paired-delta scatter plot if
+  enough comparable submissions exist; correlation is descriptive only and
+  should not be inferred from one pair or treated as reliable with few trials.
+- Keep the standard three-seed CV loss average and also give seed-42 CV as
+  the secondary match for the planned single-seed full-year refit. Record
+  six-month CV versus twelve-month final training, evaluation-period shifts,
+  and integer submission rounding so raw LB–CV gaps are not misrepresented
+  as directly comparable holdout errors or pure overfitting estimates.
+
+Use only confirmed official scores and exact recipe/artifact links. A rejected
+or pending upload has no LB score and cannot establish alignment. The combined
+CV score remains a provisional diagnostic, not a calibrated LB forecast.
+
+The selected queue replaces the earlier provisional priorities. Standalone R3
+and T1 are outside this batch; T2/M1 are excluded. Reuse v3's official reference
+only if the final reference predictions match the saved v3 artifact; otherwise
+allocate a new baseline submission for the changed pipeline. Preserve historical
+model-source guards rather than silently using current Stage 3/4 wrappers.
 
 - Respect the observed **five-submission daily limit**, with **00:00 UTC** reset.
   Check live usage before uploads; local calendar dates are not the quota clock.
 - Saved 70,000/90,000 threshold outputs (v10/v11) were rejected for the daily
   limit and remain a separate unfinished series. Completing them would consume
-  two slots, leaving three for this plan; explicitly choose which queue has
-  priority rather than submitting more than five candidates.
+  two slots. They remain outside the selected queue, which now has priority;
+  check the actual remaining live quota before choosing upload timing.
 - Allocate fresh unused versions at execution time. Link **submission filename
   ↔ candidate ID ↔ validation run ↔ source/data hashes ↔ configuration**.
 - Distinguish uploaded, pending, rejected, and successfully scored. A rejection
@@ -502,7 +560,9 @@ Fill rows immediately after each experiment, including failed/inconclusive ones.
 | Q1 | R3 + six-hour rule | **Complete** | `v3_20260916T123433565511Z` | 296.9037 / −63.6005 vs R3 | 258.5505 / −74.7538 vs R3 | Not submitted | Retain alternative: versus Q0, better next-month but worse longer-gap |
 | T1 | Q0 + explicit clock disagreement | Complete | `v3_20260916T132038893775Z` | 298.9328 / −1.6576 | 256.2445 / +0.0474 | Not submitted | Inconclusive; retain alternative, no promotion over Q0 |
 | T2 | Q0 + residual prediction with the same added features | Complete | `v3_20260916T134231489815Z` | 419.6226 / +120.6899 vs T1 | 439.4680 / +183.2235 vs T1 | Not submitted | Do not promote; supported regression versus T1 and Q0, schedule fallback dominates |
-| M1 | Probabilistic timestamp-pattern model | Planned | — | — | — | — | — |
+| M1 | Probabilistic timestamp-pattern model | Complete | `v3_20260916T144408082362Z` | 544.8410 / +245.9083 vs T1 | 519.0849 / +262.8404 vs T1 | Not submitted | Do not promote; supported regressions versus T1, Q0 and Q1 |
+| Q0-4h | B0-800 + four-hour Rome rule | Sweep complete; selected for LB; linked recipe pending | Saved B0-800 predictions; threshold sweep | 296.2785 / −4.3119 vs Q0 | 255.6200 / −0.5771 vs Q0 | Not submitted | Leading threshold candidate; six-hour Q0 remains control |
+| Q1-4h | R3 + four-hour Rome rule | Sweep complete; selected for LB; linked recipe pending | Saved R3 predictions; threshold sweep | 292.8785 / −4.0252 vs Q1 | 257.4787 / −1.0718 vs Q1 | Not submitted | Leading threshold candidate with recovery; not a universal promotion |
 
 Scope changes, newly discovered recording patterns, and postponed work belong
 here before changing the experiment order. No HPO or another target-threshold

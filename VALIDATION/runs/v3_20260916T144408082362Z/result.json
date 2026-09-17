@@ -1,0 +1,4016 @@
+{
+  "run_id": "v3_20260916T144408082362Z",
+  "protocol": "v3",
+  "score_version": "v3-flight-loss-day-bootstrap-1",
+  "label": "M1-timestamp-mixture-i7",
+  "at": "2026-09-16T14:44:08+00:00",
+  "config": {
+    "label": "M1-timestamp-mixture-i7",
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "rounds": 800,
+    "sample": 1.0,
+    "folds": "A1,A2,A3,A4,A5,A6,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10",
+    "train_months": 6,
+    "lag_train_days": 0,
+    "max_taxi_sec": 200000,
+    "fpl_flag": false,
+    "smoke": false,
+    "bootstrap_reps": 2000,
+    "bootstrap_seed": 0,
+    "block_days": 1,
+    "early_stopping_rounds": 0,
+    "threads": 6,
+    "fit_workers": 1,
+    "prediction_threads": 20,
+    "recovery": "off",
+    "clock_features": true,
+    "target_mode": "direct",
+    "model_mode": "timestamp_mixture",
+    "prediction_rule": "rome_6h",
+    "checkpoints": [],
+    "params": {
+      "objective": "regression",
+      "metric": "rmse",
+      "learning_rate": 0.05,
+      "num_leaves": 255,
+      "min_data_in_leaf": 200,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1
+    }
+  },
+  "baseline_id": "v3_20260916T132038893775Z",
+  "full_benchmark": true,
+  "official_rmse": null,
+  "status": "complete",
+  "runtime": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 20,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "source": {
+    "commit": "0563e196c0a974da1287c01e1c765a82f919fb23",
+    "files": {
+      ".gitignore": "cb2ebbb2719796b2e020f46cedcbd8935665c31c9942987857a8b6444965b09c",
+      "VALIDATION/IMPROVEMENT_PLAN.md": "712628e4cef70b735d1b7f39938b06c1e358758f85c1443fbc8fcfeb80a138f8",
+      "VALIDATION/README.md": "988b02a1100631065cbe1ef66386fa838aeb49e4533684919c15fa588bd9932e",
+      "VALIDATION/compare.py": "3e6506600af03d182821ec2f5338e4f504aac93885415fc642cc0a931ddf5467",
+      "VALIDATION/docs/CLOCK_MODELS.md": "be1e0f5b539fd389f0f0363d955a20b875f032bf60651f2d42d16e114c0060af",
+      "VALIDATION/docs/OPERATIONS.md": "877a17a683091259042e849327f882fb673f3f1e9ed57bf2406a9ce57259489e",
+      "VALIDATION/docs/PREDICTION_RULES.md": "90428f8681ad4779138a797ee1d5237e1f86d2d601824de8b237f54fd38415d0",
+      "VALIDATION/docs/PROTOCOL.md": "045555c22021d877776126866579d17904c1200739c36af0072de8b0c08bd9bf",
+      "VALIDATION/docs/RECOVERY.md": "06a771396282dda7eb01b1b2ee1373a382d952119a89c6c8b353ee6f212efc89",
+      "VALIDATION/docs/TIMESTAMP_MIXTURE.md": "efda65707f10c27677aa83d3a9b6e5b1f23edec53a0163432493bab91ed341dc",
+      "VALIDATION/features_time.py": "94f1273ae3edc32e2799e6bb1ebcc819c0a18bf8a61dcda444514d643f944c2c",
+      "VALIDATION/harness.py": "adf8a3161a279aca1faa0f78ed4f22349d63b1ec0d1826dcc954b75fb59bd214",
+      "VALIDATION/modeling.py": "777b2d45fd97565dc83ecabce248734bfb811fbadce5616d8959cad03016c43b",
+      "VALIDATION/movement_data.py": "2a0a97392e4ba6fd1a3ff64a8165700ae6b4ea466cffe80c3cfa9e92290c79cf",
+      "VALIDATION/postprocess.py": "0ee34140549298579c0af3f5398346eaae2b8c4413e48b30ab26caf5949ba118",
+      "VALIDATION/protocol.py": "d459495795bb04451e887b3cdfe9714faa2d72f657331842886321b10a8b68ae",
+      "VALIDATION/records.py": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056",
+      "VALIDATION/reporting.py": "7ecd3a5c3b0c6b0498e81593732d4cdaa9e63ba2780989f715dbddb2ced8f75a",
+      "VALIDATION/reports/README.md": "179c239c938a986230887eede6348720078d98b8ddc795449796dd138bf2029e",
+      "VALIDATION/reports/STAGE0.md": "bca02e52909cf2f51b4a1cba30cb0e79f0fe4a6667addfa0d7f600b6185de918",
+      "VALIDATION/reports/STAGE1.md": "ace9722e48447dcefb78f61fa843853bc65ccc8714a1928eb04e12b598e4de6c",
+      "VALIDATION/reports/STAGE1_CPU.md": "601780c590465c08437c892ca2ff68e54ca63ab812814c02850b2a5c6a07c05e",
+      "VALIDATION/reports/STAGE1_DERIVED_DATA.md": "fe53fd90f29bd127ecd963587e2528673d22c2b0d08ad93df71f354d5a095c38",
+      "VALIDATION/reports/STAGE2.md": "dbe7490594690e5394b2c5a7c781248409b49c4951ae0dcbc0a144a6dd83cf15",
+      "VALIDATION/reports/STAGE2_THRESHOLD_RESULTS.md": "682186533b1fc1be87ad937e15409c8b6e817fcdd2c22ed854d0000700941f56",
+      "VALIDATION/reports/STAGE2_THRESHOLD_SWEEP.md": "faa4c6f3a671c2577e7f5ca8f755ac202a307cb9819e99c70e5f0a94691a9d75",
+      "VALIDATION/reports/STAGE2_THRESHOLD_SWEEP_LOW.md": "a22d43fb58075bbe1e9da0fe805a0c0223ecb4aa536fd2591cad2d22694c6ca2",
+      "VALIDATION/reports/STAGE3.md": "59071cee8fe3f8b77da327a5a4d5dfaa706e3f976cb89ed8feb8757153f33672",
+      "VALIDATION/resume_run.py": "4d74a451466ab57885f3edcccef23dd773c817d553791e4527c44a7015630815",
+      "VALIDATION/submit.py": "7d365e07a52a3166e9edd229769873e6bb8edeaecac320342c85bf0bea5a8222",
+      "VALIDATION/tests/test_archive.py": "b0200c67c6f5f171dc9b0630697b23efd55b76380cc5f1ca884bc02e48cf8528",
+      "VALIDATION/tests/test_clock_models.py": "bbafccdb3279f88c2c8fa157f07a680c8db87a0e6220eee64e7f94487f41b391",
+      "VALIDATION/tests/test_prediction_rules.py": "e5d7359fec988af2a44d29b8e12ce3037000d8b65a050924084c37721749a7fc",
+      "VALIDATION/tests/test_recovery.py": "f2e26eb6b369dc4069bade29b65bad37e0eacbc21b621771f217fe93001c3f18",
+      "VALIDATION/tests/test_rule_threshold_sweep.py": "e8f537ba4e0f726c23bae32c5cbb44e39105a35e85d5809737a9c930b8ced146",
+      "VALIDATION/tests/test_stage0.py": "8d137e6efed09ea6bdf89891f26dca55f8dfcc52abc305a3828c376b575c5321",
+      "VALIDATION/tests/test_threshold_sweep.py": "9b53199cece962ae83f6eee2d14dfd5febf9d30de0200f11199499b3bac4b2ac",
+      "VALIDATION/tests/test_timestamp_mixture.py": "bcd7451ae708321a407675a6eedfd07d6f22c638adfe39a279af51f1240d4795",
+      "VALIDATION/tests/test_v3.py": "e27532c184791a7cc9e058803c95deb2ad9a9c067205e47c283f4d9c918eb228",
+      "VALIDATION/tools/__init__.py": "6f95fde7878b2b9f9656d33a5cafcd2c71359d93695b8b77a8f18f96dc2376ee",
+      "VALIDATION/tools/audit.py": "0a080ee384cfb44375f62bb063a5357f92bbecc63047525bb6d294e5244779a4",
+      "VALIDATION/tools/audit_recovery.py": "9f456ab4d5ff835683742a9ab00ae78f8aeaf47c85e24a89461e4382244c04e8",
+      "VALIDATION/tools/audit_static_history.py": "5050ea0b5ff4f15455c961d3eb1a23859efa70a2c3d8812ecf18d2fad90e365b",
+      "VALIDATION/tools/benchmark_cpu.py": "ae6b9643f605571b4b758646b6c71a859d12197e3c9c3b22da0de3302cda77ee",
+      "VALIDATION/tools/inspect_clock_residual_errors.py": "7c36d0a6558ce7d50df1a3f795184d679c2a64ab35d2da80f1a608efe8f89f7b",
+      "VALIDATION/tools/inventory_derived.py": "50726765761d2ba8a1452183323dd1b0382be4147f4a3966cdc80ef28ed2942c",
+      "VALIDATION/tools/log_official.py": "4e9be2876f2924b507c6179d1b7fc76c42dbf7ceff32a08bbeda54e0c11ff2b5",
+      "VALIDATION/tools/summarize_baseline.py": "ecf6ce470b1d9a4eecb4ca6ba85c81972cf86d94d9663a5b3d69b6e5187056f6",
+      "VALIDATION/tools/summarize_clock_models.py": "97113d78f6a708249503a7be7a626a88bcc0b77b75f68d9c744000ce073d42e8",
+      "VALIDATION/tools/summarize_recovery.py": "c7705a260f629d4becb2dd21b052bed70bb1b35c9739b4020579004f2056b7b9",
+      "VALIDATION/tools/summarize_rule.py": "b44a7e91f313897d79b2059b33e20539e4c54dfde145d797de11c7fd3f34b38a",
+      "VALIDATION/tools/summarize_stage1.py": "dbb9bdfbe4bf50219847d189b6667b51793058162206a4ac28524a719f8c64a3",
+      "VALIDATION/tools/sweep_rule_thresholds.py": "f1c9988b3ae0b8a863d6b8d274d00bb3683c64a61a7a243f2840095e155a8fd4",
+      "VALIDATION/tools/sweep_taxi_thresholds.py": "80f2869b24af07107b316168164e6fd30324d9623e76166d69ee5d17743d438e",
+      "VALIDATION/tools/verify_recovery_off.py": "ea9f4421d8dae9e730ccc84f4295adb817f267edb1ad68540b2107688ba4d94b",
+      "pipeline/clock_features.py": "81a4b328f2d879540c9e538297f538461f27678e593441f8b37fe83d383de9ae",
+      "pipeline/common.py": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4",
+      "pipeline/dashboard_data.py": "9282169cd22769d4d4cb6d2cc692dc4a3b513b5965a58cad8f5ce9e243720eaa",
+      "pipeline/leaderboard_status.py": "5ef360d52bda61b1f1c96edb87f6fe7d3cb85b90e4f841d77f06e1f9b733903c",
+      "pipeline/predict.py": "c65fbc380764584d1ee3dd5aeec74163241019a271c3dd70d8ec133f8f40a1c5",
+      "pipeline/prediction_rules.py": "62613801875506dcc7f4078e0e136398b6694ee8b1eb0398e9a05612c7b4e560",
+      "pipeline/recovery.py": "0b553a792daccf3af732b1071e5c4e2ac06b12e29ae806c84ff5754e8b13cf0f",
+      "pipeline/recovery_history.py": "8130aaa782963055cd1d654e629a0a9e90e5885a9c635ae6aceb8e059946b358",
+      "pipeline/recovery_relaxed.py": "5bc898670077de5045bc5fd41e35cd81a6dd34609c4af509c725506eb2e59836",
+      "pipeline/timestamp_mixture.py": "e3750eaf7cac3a4f314b976dde598f82f5b52eab80e80409cc81b7e3767daa9b",
+      "pipeline/train.py": "674420cfd2848183cdf06b3023c4428252cdd768f0da2e94779245818c289c83",
+      "requirements.txt": "3578eab8d139fdd3c0a5e554f5d3ce49d8402c6cf36ac71d9f702da59112f9ba"
+    },
+    "patch": "source.patch",
+    "untracked_sources_included": true
+  },
+  "rule_source": {
+    "pipeline/prediction_rules.py": "62613801875506dcc7f4078e0e136398b6694ee8b1eb0398e9a05612c7b4e560"
+  },
+  "data_identity": [
+    {
+      "file": "ranking.parquet",
+      "bytes": 43564605,
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "file": "training_2025-01-01_2025-02-01.parquet",
+      "bytes": 21218481,
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "file": "training_2025-02-01_2025-03-01.parquet",
+      "bytes": 19824510,
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "file": "training_2025-03-01_2025-04-01.parquet",
+      "bytes": 22606072,
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "file": "training_2025-04-01_2025-05-01.parquet",
+      "bytes": 23840340,
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "file": "training_2025-05-01_2025-06-01.parquet",
+      "bytes": 25187756,
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "file": "training_2025-06-01_2025-07-01.parquet",
+      "bytes": 24991697,
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "file": "training_2025-07-01_2025-08-01.parquet",
+      "bytes": 26014977,
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "file": "training_2025-08-01_2025-09-01.parquet",
+      "bytes": 25969246,
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "file": "training_2025-09-01_2025-10-01.parquet",
+      "bytes": 25102673,
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "file": "training_2025-10-01_2025-11-01.parquet",
+      "bytes": 25392098,
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "file": "training_2025-11-01_2025-12-01.parquet",
+      "bytes": 22173840,
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "file": "training_2025-12-01_2026-01-01.parquet",
+      "bytes": 22653598,
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "ranking_weights": {
+    "jan_rows": 152719,
+    "jul_rows": 192122,
+    "jan_fraction": 0.4428678724397621
+  },
+  "folds": {
+    "A1": {
+      "name": "A1",
+      "role": "A",
+      "train_end": "2025-06-30",
+      "val": "2025-07",
+      "freeze": "2025-06-30",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-01-01",
+      "model_id": "M1",
+      "context_months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "predictions": {
+        "42": "oof_A1_seed42.parquet",
+        "142": "oof_A1_seed142.parquet",
+        "242": "oof_A1_seed242.parquet"
+      },
+      "validation_features_seconds": 3.444
+    },
+    "B1": {
+      "name": "B1",
+      "role": "B",
+      "train_end": "2025-06-30",
+      "val": "2025-09",
+      "freeze": "2025-06-30",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-01-01",
+      "model_id": "M1",
+      "context_months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-09"
+      ],
+      "predictions": {
+        "42": "oof_B1_seed42.parquet",
+        "142": "oof_B1_seed142.parquet",
+        "242": "oof_B1_seed242.parquet"
+      },
+      "validation_features_seconds": 3.446
+    },
+    "B2": {
+      "name": "B2",
+      "role": "B",
+      "train_end": "2025-06-30",
+      "val": "2025-10",
+      "freeze": "2025-06-30",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-01-01",
+      "model_id": "M1",
+      "context_months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-10"
+      ],
+      "predictions": {
+        "42": "oof_B2_seed42.parquet",
+        "142": "oof_B2_seed142.parquet",
+        "242": "oof_B2_seed242.parquet"
+      },
+      "validation_features_seconds": 3.423
+    },
+    "B3": {
+      "name": "B3",
+      "role": "B",
+      "train_end": "2025-06-30",
+      "val": "2025-11",
+      "freeze": "2025-06-30",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-01-01",
+      "model_id": "M1",
+      "context_months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-11"
+      ],
+      "predictions": {
+        "42": "oof_B3_seed42.parquet",
+        "142": "oof_B3_seed142.parquet",
+        "242": "oof_B3_seed242.parquet"
+      },
+      "validation_features_seconds": 3.343
+    },
+    "B4": {
+      "name": "B4",
+      "role": "B",
+      "train_end": "2025-06-30",
+      "val": "2025-12",
+      "freeze": "2025-06-30",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-01-01",
+      "model_id": "M1",
+      "context_months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-12"
+      ],
+      "predictions": {
+        "42": "oof_B4_seed42.parquet",
+        "142": "oof_B4_seed142.parquet",
+        "242": "oof_B4_seed242.parquet"
+      },
+      "validation_features_seconds": 3.287
+    },
+    "A2": {
+      "name": "A2",
+      "role": "A",
+      "train_end": "2025-07-31",
+      "val": "2025-08",
+      "freeze": "2025-07-31",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-02-01",
+      "model_id": "M2",
+      "context_months": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "predictions": {
+        "42": "oof_A2_seed42.parquet",
+        "142": "oof_A2_seed142.parquet",
+        "242": "oof_A2_seed242.parquet"
+      },
+      "validation_features_seconds": 3.379
+    },
+    "B5": {
+      "name": "B5",
+      "role": "B",
+      "train_end": "2025-07-31",
+      "val": "2025-10",
+      "freeze": "2025-07-31",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-02-01",
+      "model_id": "M2",
+      "context_months": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-10"
+      ],
+      "predictions": {
+        "42": "oof_B5_seed42.parquet",
+        "142": "oof_B5_seed142.parquet",
+        "242": "oof_B5_seed242.parquet"
+      },
+      "validation_features_seconds": 3.344
+    },
+    "B6": {
+      "name": "B6",
+      "role": "B",
+      "train_end": "2025-07-31",
+      "val": "2025-11",
+      "freeze": "2025-07-31",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-02-01",
+      "model_id": "M2",
+      "context_months": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-11"
+      ],
+      "predictions": {
+        "42": "oof_B6_seed42.parquet",
+        "142": "oof_B6_seed142.parquet",
+        "242": "oof_B6_seed242.parquet"
+      },
+      "validation_features_seconds": 3.338
+    },
+    "B7": {
+      "name": "B7",
+      "role": "B",
+      "train_end": "2025-07-31",
+      "val": "2025-12",
+      "freeze": "2025-07-31",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-02-01",
+      "model_id": "M2",
+      "context_months": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-12"
+      ],
+      "predictions": {
+        "42": "oof_B7_seed42.parquet",
+        "142": "oof_B7_seed142.parquet",
+        "242": "oof_B7_seed242.parquet"
+      },
+      "validation_features_seconds": 3.291
+    },
+    "A3": {
+      "name": "A3",
+      "role": "A",
+      "train_end": "2025-08-31",
+      "val": "2025-09",
+      "freeze": "2025-08-31",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-03-01",
+      "model_id": "M3",
+      "context_months": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "predictions": {
+        "42": "oof_A3_seed42.parquet",
+        "142": "oof_A3_seed142.parquet",
+        "242": "oof_A3_seed242.parquet"
+      },
+      "validation_features_seconds": 3.441
+    },
+    "B8": {
+      "name": "B8",
+      "role": "B",
+      "train_end": "2025-08-31",
+      "val": "2025-11",
+      "freeze": "2025-08-31",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-03-01",
+      "model_id": "M3",
+      "context_months": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-11"
+      ],
+      "predictions": {
+        "42": "oof_B8_seed42.parquet",
+        "142": "oof_B8_seed142.parquet",
+        "242": "oof_B8_seed242.parquet"
+      },
+      "validation_features_seconds": 3.523
+    },
+    "B9": {
+      "name": "B9",
+      "role": "B",
+      "train_end": "2025-08-31",
+      "val": "2025-12",
+      "freeze": "2025-08-31",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-03-01",
+      "model_id": "M3",
+      "context_months": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-12"
+      ],
+      "predictions": {
+        "42": "oof_B9_seed42.parquet",
+        "142": "oof_B9_seed142.parquet",
+        "242": "oof_B9_seed242.parquet"
+      },
+      "validation_features_seconds": 3.378
+    },
+    "A4": {
+      "name": "A4",
+      "role": "A",
+      "train_end": "2025-09-30",
+      "val": "2025-10",
+      "freeze": "2025-09-30",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-04-01",
+      "model_id": "M4",
+      "context_months": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "predictions": {
+        "42": "oof_A4_seed42.parquet",
+        "142": "oof_A4_seed142.parquet",
+        "242": "oof_A4_seed242.parquet"
+      },
+      "validation_features_seconds": 3.587
+    },
+    "B10": {
+      "name": "B10",
+      "role": "B",
+      "train_end": "2025-09-30",
+      "val": "2025-12",
+      "freeze": "2025-09-30",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-04-01",
+      "model_id": "M4",
+      "context_months": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-12"
+      ],
+      "predictions": {
+        "42": "oof_B10_seed42.parquet",
+        "142": "oof_B10_seed142.parquet",
+        "242": "oof_B10_seed242.parquet"
+      },
+      "validation_features_seconds": 3.566
+    },
+    "A5": {
+      "name": "A5",
+      "role": "A",
+      "train_end": "2025-10-31",
+      "val": "2025-11",
+      "freeze": "2025-10-31",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-05-01",
+      "model_id": "M5",
+      "context_months": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "predictions": {
+        "42": "oof_A5_seed42.parquet",
+        "142": "oof_A5_seed142.parquet",
+        "242": "oof_A5_seed242.parquet"
+      },
+      "validation_features_seconds": 3.437
+    },
+    "A6": {
+      "name": "A6",
+      "role": "A",
+      "train_end": "2025-11-30",
+      "val": "2025-12",
+      "freeze": "2025-11-30",
+      "fixed_months": null,
+      "departure_history": true,
+      "train_start": "2025-06-01",
+      "model_id": "M6",
+      "context_months": [
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "predictions": {
+        "42": "oof_A6_seed42.parquet",
+        "142": "oof_A6_seed142.parquet",
+        "242": "oof_A6_seed242.parquet"
+      },
+      "validation_features_seconds": 3.507
+    }
+  },
+  "models": {
+    "M1": {
+      "train_start": "2025-01-01",
+      "train_end": "2025-06-30",
+      "train_rows": 1005290,
+      "departure_history": true,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around",
+        "clock_aobt3_minus_schedule_sec",
+        "clock_aobt3_minus_eobt1_sec",
+        "clock_eobt1_minus_iobt_sec",
+        "clock_iobt_minus_lobt_sec",
+        "clock_schedule_available",
+        "clock_lobt_available",
+        "clock_iobt_available",
+        "clock_eobt1_available",
+        "clock_aobt3_available",
+        "clock_raw_flight_id_missing",
+        "clock_raw_plan_block_missing",
+        "clock_raw_aobt3_missing",
+        "clock_available_count",
+        "clock_span_sec",
+        "clock_std_sec",
+        "clock_median_sec",
+        "clock_baseline_sec",
+        "clock_baseline_source"
+      ],
+      "seeds": {
+        "42": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M1_seed42.txt",
+          "training_loss": "models/M1_seed42.training_loss.json",
+          "ordinary_rmse": 186.09263461381755,
+          "gate_logloss": 0.005101046832154694,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 106.0,
+          "components": {
+            "class_counts": {
+              "ordinary": 1005123,
+              "schedule": 162,
+              "day": 5
+            },
+            "classifier_rows": 1005290,
+            "ordinary_regressor_rows": 1005123
+          }
+        },
+        "142": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M1_seed142.txt",
+          "training_loss": "models/M1_seed142.training_loss.json",
+          "ordinary_rmse": 185.31448478341807,
+          "gate_logloss": 0.0047543238269334405,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 120.8,
+          "components": {
+            "class_counts": {
+              "ordinary": 1005123,
+              "schedule": 162,
+              "day": 5
+            },
+            "classifier_rows": 1005290,
+            "ordinary_regressor_rows": 1005123
+          }
+        },
+        "242": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M1_seed242.txt",
+          "training_loss": "models/M1_seed242.training_loss.json",
+          "ordinary_rmse": 185.94859663105711,
+          "gate_logloss": 0.001426856129068816,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 140.4,
+          "components": {
+            "class_counts": {
+              "ordinary": 1005123,
+              "schedule": 162,
+              "day": 5
+            },
+            "classifier_rows": 1005290,
+            "ordinary_regressor_rows": 1005123
+          }
+        }
+      },
+      "training_features_seconds": 5.833
+    },
+    "M2": {
+      "train_start": "2025-02-01",
+      "train_end": "2025-07-31",
+      "train_rows": 1042310,
+      "departure_history": true,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around",
+        "clock_aobt3_minus_schedule_sec",
+        "clock_aobt3_minus_eobt1_sec",
+        "clock_eobt1_minus_iobt_sec",
+        "clock_iobt_minus_lobt_sec",
+        "clock_schedule_available",
+        "clock_lobt_available",
+        "clock_iobt_available",
+        "clock_eobt1_available",
+        "clock_aobt3_available",
+        "clock_raw_flight_id_missing",
+        "clock_raw_plan_block_missing",
+        "clock_raw_aobt3_missing",
+        "clock_available_count",
+        "clock_span_sec",
+        "clock_std_sec",
+        "clock_median_sec",
+        "clock_baseline_sec",
+        "clock_baseline_source"
+      ],
+      "seeds": {
+        "42": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M2_seed42.txt",
+          "training_loss": "models/M2_seed42.training_loss.json",
+          "ordinary_rmse": 171.94789950153228,
+          "gate_logloss": 0.007299419281920796,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 94.8,
+          "components": {
+            "class_counts": {
+              "ordinary": 1042067,
+              "schedule": 235,
+              "day": 8
+            },
+            "classifier_rows": 1042310,
+            "ordinary_regressor_rows": 1042067
+          }
+        },
+        "142": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M2_seed142.txt",
+          "training_loss": "models/M2_seed142.training_loss.json",
+          "ordinary_rmse": 171.7716961814374,
+          "gate_logloss": 0.00548328858136989,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 89.8,
+          "components": {
+            "class_counts": {
+              "ordinary": 1042067,
+              "schedule": 235,
+              "day": 8
+            },
+            "classifier_rows": 1042310,
+            "ordinary_regressor_rows": 1042067
+          }
+        },
+        "242": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M2_seed242.txt",
+          "training_loss": "models/M2_seed242.training_loss.json",
+          "ordinary_rmse": 171.6153162748418,
+          "gate_logloss": 0.006707301174583736,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 107.7,
+          "components": {
+            "class_counts": {
+              "ordinary": 1042067,
+              "schedule": 235,
+              "day": 8
+            },
+            "classifier_rows": 1042310,
+            "ordinary_regressor_rows": 1042067
+          }
+        }
+      },
+      "training_features_seconds": 5.97
+    },
+    "M3": {
+      "train_start": "2025-03-01",
+      "train_end": "2025-08-31",
+      "train_rows": 1089753,
+      "departure_history": true,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around",
+        "clock_aobt3_minus_schedule_sec",
+        "clock_aobt3_minus_eobt1_sec",
+        "clock_eobt1_minus_iobt_sec",
+        "clock_iobt_minus_lobt_sec",
+        "clock_schedule_available",
+        "clock_lobt_available",
+        "clock_iobt_available",
+        "clock_eobt1_available",
+        "clock_aobt3_available",
+        "clock_raw_flight_id_missing",
+        "clock_raw_plan_block_missing",
+        "clock_raw_aobt3_missing",
+        "clock_available_count",
+        "clock_span_sec",
+        "clock_std_sec",
+        "clock_median_sec",
+        "clock_baseline_sec",
+        "clock_baseline_source"
+      ],
+      "seeds": {
+        "42": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M3_seed42.txt",
+          "training_loss": "models/M3_seed42.training_loss.json",
+          "ordinary_rmse": 175.17784644877295,
+          "gate_logloss": 0.0007765287223424444,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 136.8,
+          "components": {
+            "class_counts": {
+              "ordinary": 1089469,
+              "schedule": 276,
+              "day": 8
+            },
+            "classifier_rows": 1089753,
+            "ordinary_regressor_rows": 1089469
+          }
+        },
+        "142": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M3_seed142.txt",
+          "training_loss": "models/M3_seed142.training_loss.json",
+          "ordinary_rmse": 175.0472794913617,
+          "gate_logloss": 0.008342009363226132,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 131.3,
+          "components": {
+            "class_counts": {
+              "ordinary": 1089469,
+              "schedule": 276,
+              "day": 8
+            },
+            "classifier_rows": 1089753,
+            "ordinary_regressor_rows": 1089469
+          }
+        },
+        "242": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M3_seed242.txt",
+          "training_loss": "models/M3_seed242.training_loss.json",
+          "ordinary_rmse": 174.82371441063114,
+          "gate_logloss": 0.01057305073699192,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 122.8,
+          "components": {
+            "class_counts": {
+              "ordinary": 1089469,
+              "schedule": 276,
+              "day": 8
+            },
+            "classifier_rows": 1089753,
+            "ordinary_regressor_rows": 1089469
+          }
+        }
+      },
+      "training_features_seconds": 6.146
+    },
+    "M4": {
+      "train_start": "2025-04-01",
+      "train_end": "2025-09-30",
+      "train_rows": 1109264,
+      "departure_history": true,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around",
+        "clock_aobt3_minus_schedule_sec",
+        "clock_aobt3_minus_eobt1_sec",
+        "clock_eobt1_minus_iobt_sec",
+        "clock_iobt_minus_lobt_sec",
+        "clock_schedule_available",
+        "clock_lobt_available",
+        "clock_iobt_available",
+        "clock_eobt1_available",
+        "clock_aobt3_available",
+        "clock_raw_flight_id_missing",
+        "clock_raw_plan_block_missing",
+        "clock_raw_aobt3_missing",
+        "clock_available_count",
+        "clock_span_sec",
+        "clock_std_sec",
+        "clock_median_sec",
+        "clock_baseline_sec",
+        "clock_baseline_source"
+      ],
+      "seeds": {
+        "42": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M4_seed42.txt",
+          "training_loss": "models/M4_seed42.training_loss.json",
+          "ordinary_rmse": 178.3947345444415,
+          "gate_logloss": 0.0018615434206831205,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 150.6,
+          "components": {
+            "class_counts": {
+              "ordinary": 1108964,
+              "schedule": 292,
+              "day": 8
+            },
+            "classifier_rows": 1109264,
+            "ordinary_regressor_rows": 1108964
+          }
+        },
+        "142": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M4_seed142.txt",
+          "training_loss": "models/M4_seed142.training_loss.json",
+          "ordinary_rmse": 178.2634008789565,
+          "gate_logloss": 0.008119660545388678,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 124.3,
+          "components": {
+            "class_counts": {
+              "ordinary": 1108964,
+              "schedule": 292,
+              "day": 8
+            },
+            "classifier_rows": 1109264,
+            "ordinary_regressor_rows": 1108964
+          }
+        },
+        "242": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M4_seed242.txt",
+          "training_loss": "models/M4_seed242.training_loss.json",
+          "ordinary_rmse": 178.33729226180543,
+          "gate_logloss": 0.004318370827883813,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 152.9,
+          "components": {
+            "class_counts": {
+              "ordinary": 1108964,
+              "schedule": 292,
+              "day": 8
+            },
+            "classifier_rows": 1109264,
+            "ordinary_regressor_rows": 1108964
+          }
+        }
+      },
+      "training_features_seconds": 6.127
+    },
+    "M5": {
+      "train_start": "2025-05-01",
+      "train_end": "2025-10-31",
+      "train_rows": 1119662,
+      "departure_history": true,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around",
+        "clock_aobt3_minus_schedule_sec",
+        "clock_aobt3_minus_eobt1_sec",
+        "clock_eobt1_minus_iobt_sec",
+        "clock_iobt_minus_lobt_sec",
+        "clock_schedule_available",
+        "clock_lobt_available",
+        "clock_iobt_available",
+        "clock_eobt1_available",
+        "clock_aobt3_available",
+        "clock_raw_flight_id_missing",
+        "clock_raw_plan_block_missing",
+        "clock_raw_aobt3_missing",
+        "clock_available_count",
+        "clock_span_sec",
+        "clock_std_sec",
+        "clock_median_sec",
+        "clock_baseline_sec",
+        "clock_baseline_source"
+      ],
+      "seeds": {
+        "42": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M5_seed42.txt",
+          "training_loss": "models/M5_seed42.training_loss.json",
+          "ordinary_rmse": 180.61974611010663,
+          "gate_logloss": 0.003623373613281801,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 136.3,
+          "components": {
+            "class_counts": {
+              "ordinary": 1119353,
+              "schedule": 301,
+              "day": 8
+            },
+            "classifier_rows": 1119662,
+            "ordinary_regressor_rows": 1119353
+          }
+        },
+        "142": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M5_seed142.txt",
+          "training_loss": "models/M5_seed142.training_loss.json",
+          "ordinary_rmse": 180.67552664363538,
+          "gate_logloss": 0.009686120149696472,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 134.9,
+          "components": {
+            "class_counts": {
+              "ordinary": 1119353,
+              "schedule": 301,
+              "day": 8
+            },
+            "classifier_rows": 1119662,
+            "ordinary_regressor_rows": 1119353
+          }
+        },
+        "242": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M5_seed242.txt",
+          "training_loss": "models/M5_seed242.training_loss.json",
+          "ordinary_rmse": 180.68255966907495,
+          "gate_logloss": 0.004234138028969711,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 147.6,
+          "components": {
+            "class_counts": {
+              "ordinary": 1119353,
+              "schedule": 301,
+              "day": 8
+            },
+            "classifier_rows": 1119662,
+            "ordinary_regressor_rows": 1119353
+          }
+        }
+      },
+      "training_features_seconds": 6.073
+    },
+    "M6": {
+      "train_start": "2025-06-01",
+      "train_end": "2025-11-30",
+      "train_rows": 1096795,
+      "departure_history": true,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around",
+        "clock_aobt3_minus_schedule_sec",
+        "clock_aobt3_minus_eobt1_sec",
+        "clock_eobt1_minus_iobt_sec",
+        "clock_iobt_minus_lobt_sec",
+        "clock_schedule_available",
+        "clock_lobt_available",
+        "clock_iobt_available",
+        "clock_eobt1_available",
+        "clock_aobt3_available",
+        "clock_raw_flight_id_missing",
+        "clock_raw_plan_block_missing",
+        "clock_raw_aobt3_missing",
+        "clock_available_count",
+        "clock_span_sec",
+        "clock_std_sec",
+        "clock_median_sec",
+        "clock_baseline_sec",
+        "clock_baseline_source"
+      ],
+      "seeds": {
+        "42": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M6_seed42.txt",
+          "training_loss": "models/M6_seed42.training_loss.json",
+          "ordinary_rmse": 179.79474066260522,
+          "gate_logloss": 0.009919551570965494,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 143.4,
+          "components": {
+            "class_counts": {
+              "ordinary": 1096496,
+              "schedule": 290,
+              "day": 9
+            },
+            "classifier_rows": 1096795,
+            "ordinary_regressor_rows": 1096496
+          }
+        },
+        "142": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M6_seed142.txt",
+          "training_loss": "models/M6_seed142.training_loss.json",
+          "ordinary_rmse": 179.65325195832145,
+          "gate_logloss": 0.0013542090200479662,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 143.5,
+          "components": {
+            "class_counts": {
+              "ordinary": 1096496,
+              "schedule": 290,
+              "day": 9
+            },
+            "classifier_rows": 1096795,
+            "ordinary_regressor_rows": 1096496
+          }
+        },
+        "242": {
+          "rounds": 800,
+          "inner_selection": null,
+          "model": "models/M6_seed242.txt",
+          "training_loss": "models/M6_seed242.training_loss.json",
+          "ordinary_rmse": 179.53783902739974,
+          "gate_logloss": 0.007155989124756363,
+          "fit_threads": 6,
+          "inner_seconds": 0.0,
+          "fit_seconds": 143.6,
+          "components": {
+            "class_counts": {
+              "ordinary": 1096496,
+              "schedule": 290,
+              "day": 9
+            },
+            "classifier_rows": 1096795,
+            "ordinary_regressor_rows": 1096496
+          }
+        }
+      },
+      "training_features_seconds": 5.926
+    }
+  },
+  "report": {
+    "folds": {
+      "A1": {
+        "n": 190713,
+        "rmse": 752.5200319422511,
+        "sse": 107998177912.24185,
+        "ordinary": {
+          "n": 190593,
+          "rmse": 642.5056494737979,
+          "sse": 78679365236.28812
+        },
+        "at_most_12_seconds": {
+          "n": 80,
+          "rmse": 618.8738861035073,
+          "sse": 30640390.952068552
+        },
+        "tail": {
+          "n": 120,
+          "rmse": 15630.848952193257,
+          "sse": 29318812675.953728,
+          "pct_sse": 27.147506784584714
+        },
+        "airports": {
+          "EDDF": {
+            "n": 21334,
+            "rmse": 399.3751577630665,
+            "sse": 3402784021.960943
+          },
+          "EDDM": {
+            "n": 15825,
+            "rmse": 712.8842286645552,
+            "sse": 8042327089.04976
+          },
+          "EGLL": {
+            "n": 20790,
+            "rmse": 325.8018788078094,
+            "sse": 2206793307.439382
+          },
+          "EHAM": {
+            "n": 22489,
+            "rmse": 183.61770897080322,
+            "sse": 758227048.4794238
+          },
+          "LEBL": {
+            "n": 16752,
+            "rmse": 291.2405119386691,
+            "sse": 1420921991.626081
+          },
+          "LEMD": {
+            "n": 18818,
+            "rmse": 207.86494283019547,
+            "sse": 813085028.8268886
+          },
+          "LFPG": {
+            "n": 21712,
+            "rmse": 754.6009500764908,
+            "sse": 12363303357.80891
+          },
+          "LIRF": {
+            "n": 15211,
+            "rmse": 2084.1704247580365,
+            "sse": 66073030093.38244
+          },
+          "LSZH": {
+            "n": 12611,
+            "rmse": 908.276927182206,
+            "sse": 10403658540.030502
+          },
+          "LTFM": {
+            "n": 25171,
+            "rmse": 316.03595816587205,
+            "sse": 2514047433.6375237
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 14874,
+            "rmse": 843.7775343232647,
+            "sse": 10589700884.973713
+          },
+          "missing": {
+            "n": 337,
+            "rmse": 12831.171383603169,
+            "sse": 55483329208.40873
+          }
+        },
+        "rmse_by_seed": {
+          "42": 398.3140935336702,
+          "142": 396.8564054333883,
+          "242": 1175.88692984574
+        },
+        "seed_sd": 449.35327575512684,
+        "first_seven_days": {
+          "n": 42445,
+          "arrival_mean_available_pct": 100.0,
+          "mean_arrival_history_days": 7.0
+        }
+      },
+      "A2": {
+        "n": 191182,
+        "rmse": 413.1329851774198,
+        "sse": 32630726470.49315,
+        "ordinary": {
+          "n": 191108,
+          "rmse": 367.69541532633815,
+          "sse": 25837786015.5264
+        },
+        "at_most_12_seconds": {
+          "n": 81,
+          "rmse": 613.1076805404879,
+          "sse": 30447983.262956697
+        },
+        "tail": {
+          "n": 74,
+          "rmse": 9581.048618741364,
+          "sse": 6792940454.966749,
+          "pct_sse": 20.81761943335639
+        },
+        "airports": {
+          "EDDF": {
+            "n": 21468,
+            "rmse": 512.4298407933746,
+            "sse": 5637160648.378215
+          },
+          "EDDM": {
+            "n": 15562,
+            "rmse": 170.77067217438386,
+            "sse": 453828730.9542519
+          },
+          "EGLL": {
+            "n": 20828,
+            "rmse": 242.56730374158326,
+            "sse": 1225496543.4764442
+          },
+          "EHAM": {
+            "n": 22621,
+            "rmse": 168.6104530991544,
+            "sse": 643103377.794009
+          },
+          "LEBL": {
+            "n": 16596,
+            "rmse": 279.4415919728749,
+            "sse": 1295941864.7706585
+          },
+          "LEMD": {
+            "n": 18491,
+            "rmse": 415.77499783889067,
+            "sse": 3196517883.6772447
+          },
+          "LFPG": {
+            "n": 22081,
+            "rmse": 562.5279401663864,
+            "sse": 6987260488.653324
+          },
+          "LIRF": {
+            "n": 15459,
+            "rmse": 827.3280072279658,
+            "sse": 10581246952.035559
+          },
+          "LSZH": {
+            "n": 12636,
+            "rmse": 181.3043548913367,
+            "sse": 415361356.3799957
+          },
+          "LTFM": {
+            "n": 25440,
+            "rmse": 293.72423106385116,
+            "sse": 2194808624.3734484
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 15262,
+            "rmse": 410.5283798593467,
+            "sse": 2572159050.324626
+          },
+          "missing": {
+            "n": 197,
+            "rmse": 6376.148409236073,
+            "sse": 8009087901.710932
+          }
+        },
+        "rmse_by_seed": {
+          "42": 342.50192218021226,
+          "142": 287.68731455921835,
+          "242": 558.5383000917517
+        },
+        "seed_sd": 143.19951940895007,
+        "first_seven_days": {
+          "n": 43208,
+          "arrival_mean_available_pct": 100.0,
+          "mean_arrival_history_days": 7.0
+        }
+      },
+      "A3": {
+        "n": 183950,
+        "rmse": 426.12063731489866,
+        "sse": 33401419808.523308,
+        "ordinary": {
+          "n": 183900,
+          "rmse": 397.3635251275367,
+          "sse": 29037400105.617805
+        },
+        "at_most_12_seconds": {
+          "n": 45,
+          "rmse": 710.2848416128528,
+          "sse": 22702705.03012479
+        },
+        "tail": {
+          "n": 50,
+          "rmse": 9342.397661099103,
+          "sse": 4364019702.905499,
+          "pct_sse": 13.065371855216458
+        },
+        "airports": {
+          "EDDF": {
+            "n": 21004,
+            "rmse": 177.4216357344983,
+            "sse": 661173087.1081119
+          },
+          "EDDM": {
+            "n": 15936,
+            "rmse": 192.31425068295314,
+            "sse": 589389310.9069242
+          },
+          "EGLL": {
+            "n": 20138,
+            "rmse": 294.67887407691757,
+            "sse": 1748696094.7029557
+          },
+          "EHAM": {
+            "n": 21466,
+            "rmse": 170.29983102743435,
+            "sse": 622557628.5281818
+          },
+          "LEBL": {
+            "n": 16144,
+            "rmse": 255.6136433065075,
+            "sse": 1054822074.4996204
+          },
+          "LEMD": {
+            "n": 17671,
+            "rmse": 201.21619816976866,
+            "sse": 715462712.9905813
+          },
+          "LFPG": {
+            "n": 20682,
+            "rmse": 430.60888832326907,
+            "sse": 3834939472.087479
+          },
+          "LIRF": {
+            "n": 14667,
+            "rmse": 1164.8222780720432,
+            "sse": 19900346049.54301
+          },
+          "LSZH": {
+            "n": 12178,
+            "rmse": 167.59303246125629,
+            "sse": 342048655.920978
+          },
+          "LTFM": {
+            "n": 24064,
+            "rmse": 404.22391258122155,
+            "sse": 3931984722.235463
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 14499,
+            "rmse": 807.7497525171896,
+            "sse": 9460012649.365232
+          },
+          "missing": {
+            "n": 168,
+            "rmse": 7883.199963702866,
+            "sse": 10440333400.177778
+          }
+        },
+        "rmse_by_seed": {
+          "42": 448.7904320367081,
+          "142": 275.1748080648356,
+          "242": 517.3029728850898
+        },
+        "seed_sd": 124.80812028861745,
+        "first_seven_days": {
+          "n": 42908,
+          "arrival_mean_available_pct": 100.0,
+          "mean_arrival_history_days": 7.0
+        }
+      },
+      "A4": {
+        "n": 185674,
+        "rmse": 534.8557029146341,
+        "sse": 53115876843.818634,
+        "ordinary": {
+          "n": 185631,
+          "rmse": 527.9733175101438,
+          "sse": 51745722365.4391
+        },
+        "at_most_12_seconds": {
+          "n": 37,
+          "rmse": 543.9652535837904,
+          "sse": 10948233.292939661
+        },
+        "tail": {
+          "n": 43,
+          "rmse": 5644.825740156494,
+          "sse": 1370154478.3795323,
+          "pct_sse": 2.579557299615556
+        },
+        "airports": {
+          "EDDF": {
+            "n": 21239,
+            "rmse": 174.2451270630398,
+            "sse": 644845016.4784589
+          },
+          "EDDM": {
+            "n": 15469,
+            "rmse": 177.19803768138985,
+            "sse": 485713367.1697943
+          },
+          "EGLL": {
+            "n": 20657,
+            "rmse": 239.24911989733963,
+            "sse": 1182409600.314207
+          },
+          "EHAM": {
+            "n": 21784,
+            "rmse": 508.33379001579,
+            "sse": 5629056225.292467
+          },
+          "LEBL": {
+            "n": 16300,
+            "rmse": 221.1820610666389,
+            "sse": 797420517.444288
+          },
+          "LEMD": {
+            "n": 18892,
+            "rmse": 773.3484992526904,
+            "sse": 11298698791.291374
+          },
+          "LFPG": {
+            "n": 20809,
+            "rmse": 759.8732596793795,
+            "sse": 12015269978.472912
+          },
+          "LIRF": {
+            "n": 14142,
+            "rmse": 1079.6299486732978,
+            "sse": 16483926882.314575
+          },
+          "LSZH": {
+            "n": 12302,
+            "rmse": 167.03887537074596,
+            "sse": 343250230.3587905
+          },
+          "LTFM": {
+            "n": 24080,
+            "rmse": 419.385240376421,
+            "sse": 4235286234.6817694
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 14027,
+            "rmse": 1028.5593529278035,
+            "sse": 14839645022.181036
+          },
+          "missing": {
+            "n": 115,
+            "rmse": 3781.2832651886874,
+            "sse": 1644281860.1335425
+          }
+        },
+        "rmse_by_seed": {
+          "42": 749.2651165047258,
+          "142": 256.4886546157665,
+          "242": 480.6529143399382
+        },
+        "seed_sd": 246.7221013884865,
+        "first_seven_days": {
+          "n": 42555,
+          "arrival_mean_available_pct": 100.0,
+          "mean_arrival_history_days": 7.0
+        }
+      },
+      "A5": {
+        "n": 162332,
+        "rmse": 613.2841886145426,
+        "sse": 61055905361.41837,
+        "ordinary": {
+          "n": 162309,
+          "rmse": 602.0533005475158,
+          "sse": 58831847292.025856
+        },
+        "at_most_12_seconds": {
+          "n": 32,
+          "rmse": 653.035156628597,
+          "sse": 13646557.305373956
+        },
+        "tail": {
+          "n": 23,
+          "rmse": 9833.523118908579,
+          "sse": 2224058069.3925185,
+          "pct_sse": 3.642658406631237
+        },
+        "airports": {
+          "EDDF": {
+            "n": 18122,
+            "rmse": 435.4909038728075,
+            "sse": 3436879476.3446145
+          },
+          "EDDM": {
+            "n": 12562,
+            "rmse": 752.1657892472869,
+            "sse": 7106993890.644793
+          },
+          "EGLL": {
+            "n": 19423,
+            "rmse": 309.81440322128674,
+            "sse": 1864315964.383421
+          },
+          "EHAM": {
+            "n": 19232,
+            "rmse": 222.47086403379913,
+            "sse": 951854863.734753
+          },
+          "LEBL": {
+            "n": 13332,
+            "rmse": 903.278875527129,
+            "sse": 10877748476.01143
+          },
+          "LEMD": {
+            "n": 17419,
+            "rmse": 680.5044864764988,
+            "sse": 8066501237.160973
+          },
+          "LFPG": {
+            "n": 18646,
+            "rmse": 947.9192976756923,
+            "sse": 16754381851.016861
+          },
+          "LIRF": {
+            "n": 11328,
+            "rmse": 877.8658080515559,
+            "sse": 8729904814.044415
+          },
+          "LSZH": {
+            "n": 10078,
+            "rmse": 456.24513105749156,
+            "sse": 2097832646.4665422
+          },
+          "LTFM": {
+            "n": 22190,
+            "rmse": 229.572573588319,
+            "sse": 1169492141.6105642
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11276,
+            "rmse": 567.4887066713785,
+            "sse": 3631361741.48217
+          },
+          "missing": {
+            "n": 52,
+            "rmse": 9901.964716235949,
+            "sse": 5098543072.562247
+          }
+        },
+        "rmse_by_seed": {
+          "42": 368.0748804702638,
+          "142": 505.92023452106844,
+          "242": 858.4393319756159
+        },
+        "seed_sd": 252.89271473746373,
+        "first_seven_days": {
+          "n": 38700,
+          "arrival_mean_available_pct": 100.0,
+          "mean_arrival_history_days": 7.0
+        }
+      },
+      "A6": {
+        "n": 165677,
+        "rmse": 441.2508209246148,
+        "sse": 32257690797.773094,
+        "ordinary": {
+          "n": 165639,
+          "rmse": 415.3919072436419,
+          "sse": 28581081768.568863
+        },
+        "at_most_12_seconds": {
+          "n": 46,
+          "rmse": 595.2951343667058,
+          "sse": 16301309.662031017
+        },
+        "tail": {
+          "n": 38,
+          "rmse": 9836.303634474938,
+          "sse": 3676609029.204225,
+          "pct_sse": 11.39762003502755
+        },
+        "airports": {
+          "EDDF": {
+            "n": 17324,
+            "rmse": 181.75155953882012,
+            "sse": 572274595.6353986
+          },
+          "EDDM": {
+            "n": 12035,
+            "rmse": 239.0824129967824,
+            "sse": 687925416.459521
+          },
+          "EGLL": {
+            "n": 20000,
+            "rmse": 658.4566291910336,
+            "sse": 8671302650.512367
+          },
+          "EHAM": {
+            "n": 19458,
+            "rmse": 394.23286235100335,
+            "sse": 3024153599.180757
+          },
+          "LEBL": {
+            "n": 13835,
+            "rmse": 196.40495644251763,
+            "sse": 533683837.1716156
+          },
+          "LEMD": {
+            "n": 17985,
+            "rmse": 176.39708600780108,
+            "sse": 559620036.1575036
+          },
+          "LFPG": {
+            "n": 19778,
+            "rmse": 759.4547851912944,
+            "sse": 11407388126.29261
+          },
+          "LIRF": {
+            "n": 12068,
+            "rmse": 651.7874032972937,
+            "sse": 5126810052.862946
+          },
+          "LSZH": {
+            "n": 10585,
+            "rmse": 169.65321676448454,
+            "sse": 304659734.75111604
+          },
+          "LTFM": {
+            "n": 22609,
+            "rmse": 246.14977106375494,
+            "sse": 1369872748.7492533
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11980,
+            "rmse": 320.8931719995388,
+            "sse": 1233609685.4743886
+          },
+          "missing": {
+            "n": 88,
+            "rmse": 6651.384311989427,
+            "sse": 3893200367.3885584
+          }
+        },
+        "rmse_by_seed": {
+          "42": 440.3241450669974,
+          "142": 437.80273286139624,
+          "242": 445.5898060661288
+        },
+        "seed_sd": 3.973311263169799,
+        "first_seven_days": {
+          "n": 37476,
+          "arrival_mean_available_pct": 100.0,
+          "mean_arrival_history_days": 7.0
+        }
+      },
+      "B1": {
+        "n": 183950,
+        "rmse": 668.8625808037788,
+        "sse": 82295027110.30646,
+        "ordinary": {
+          "n": 183900,
+          "rmse": 622.299301209327,
+          "sse": 71216455690.52492
+        },
+        "at_most_12_seconds": {
+          "n": 45,
+          "rmse": 696.831300223731,
+          "sse": 21850823.743717298
+        },
+        "tail": {
+          "n": 50,
+          "rmse": 14885.275556590512,
+          "sse": 11078571419.78155,
+          "pct_sse": 13.462018069368973
+        },
+        "airports": {
+          "EDDF": {
+            "n": 21004,
+            "rmse": 519.4875788132564,
+            "sse": 5668293704.744609
+          },
+          "EDDM": {
+            "n": 15936,
+            "rmse": 196.28182352717207,
+            "sse": 613959168.482613
+          },
+          "EGLL": {
+            "n": 20138,
+            "rmse": 267.81970971417604,
+            "sse": 1444446319.0014818
+          },
+          "EHAM": {
+            "n": 21466,
+            "rmse": 968.7414062676061,
+            "sse": 20144980475.6574
+          },
+          "LEBL": {
+            "n": 16144,
+            "rmse": 261.28461865835243,
+            "sse": 1102145261.0394816
+          },
+          "LEMD": {
+            "n": 17671,
+            "rmse": 198.5388118333121,
+            "sse": 696549466.3997233
+          },
+          "LFPG": {
+            "n": 20682,
+            "rmse": 746.8251861143981,
+            "sse": 11535341211.871403
+          },
+          "LIRF": {
+            "n": 14667,
+            "rmse": 1472.1835398661765,
+            "sse": 31788146608.90097
+          },
+          "LSZH": {
+            "n": 12178,
+            "rmse": 803.571209887144,
+            "sse": 7863659623.019852
+          },
+          "LTFM": {
+            "n": 24064,
+            "rmse": 244.41103688867577,
+            "sse": 1437505271.188935
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 14499,
+            "rmse": 384.8163312554986,
+            "sse": 2147064244.0048523
+          },
+          "missing": {
+            "n": 168,
+            "rmse": 13282.88425293101,
+            "sse": 29641082364.896114
+          }
+        },
+        "rmse_by_seed": {
+          "42": 277.3888488063648,
+          "142": 281.772963597559,
+          "242": 1088.9402552673873
+        },
+        "seed_sd": 467.2889795642114,
+        "first_seven_days": {
+          "n": 42908,
+          "arrival_mean_available_pct": 85.28013424070103,
+          "mean_arrival_history_days": 2.9871585718280973
+        }
+      },
+      "B2": {
+        "n": 185674,
+        "rmse": 328.46413717682225,
+        "sse": 20032124517.756374,
+        "ordinary": {
+          "n": 185631,
+          "rmse": 314.4948709755822,
+          "sse": 18360209748.002335
+        },
+        "at_most_12_seconds": {
+          "n": 37,
+          "rmse": 604.122123455217,
+          "sse": 13503650.981777495
+        },
+        "tail": {
+          "n": 43,
+          "rmse": 6235.522338304093,
+          "sse": 1671914769.7540417,
+          "pct_sse": 8.346168017636197
+        },
+        "airports": {
+          "EDDF": {
+            "n": 21239,
+            "rmse": 380.8757045444051,
+            "sse": 3081063194.808751
+          },
+          "EDDM": {
+            "n": 15469,
+            "rmse": 172.2331873069859,
+            "sse": 458876605.15870345
+          },
+          "EGLL": {
+            "n": 20657,
+            "rmse": 249.13906843885607,
+            "sse": 1282185679.4042559
+          },
+          "EHAM": {
+            "n": 21784,
+            "rmse": 379.70816504911323,
+            "sse": 3140779882.5385494
+          },
+          "LEBL": {
+            "n": 16300,
+            "rmse": 227.17320029270127,
+            "sse": 841204905.7790127
+          },
+          "LEMD": {
+            "n": 18892,
+            "rmse": 200.93186719961113,
+            "sse": 762738339.4224383
+          },
+          "LFPG": {
+            "n": 20809,
+            "rmse": 437.61533504785876,
+            "sse": 3985072939.189455
+          },
+          "LIRF": {
+            "n": 14142,
+            "rmse": 553.4985986695492,
+            "sse": 4332553001.427706
+          },
+          "LSZH": {
+            "n": 12302,
+            "rmse": 165.58122729822455,
+            "sse": 337285691.13877875
+          },
+          "LTFM": {
+            "n": 24080,
+            "rmse": 274.19197803298016,
+            "sse": 1810364278.8887296
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 14027,
+            "rmse": 423.3724203595467,
+            "sse": 2514258482.06608
+          },
+          "missing": {
+            "n": 115,
+            "rmse": 3976.3370946262953,
+            "sse": 1818294519.361625
+          }
+        },
+        "rmse_by_seed": {
+          "42": 257.2106737996287,
+          "142": 262.4262969722471,
+          "242": 434.3284197182104
+        },
+        "seed_sd": 100.78710106699026,
+        "first_seven_days": {
+          "n": 42555,
+          "arrival_mean_available_pct": 85.52931500411233,
+          "mean_arrival_history_days": 2.991117377511456
+        }
+      },
+      "B3": {
+        "n": 162332,
+        "rmse": 446.39454356202486,
+        "sse": 32347587345.944946,
+        "ordinary": {
+          "n": 162309,
+          "rmse": 431.7251322483229,
+          "sse": 30252221006.255547
+        },
+        "at_most_12_seconds": {
+          "n": 32,
+          "rmse": 635.4387571806233,
+          "sse": 12921037.252072165
+        },
+        "tail": {
+          "n": 23,
+          "rmse": 9544.783095195082,
+          "sse": 2095366339.6894016,
+          "pct_sse": 6.477658804288148
+        },
+        "airports": {
+          "EDDF": {
+            "n": 18122,
+            "rmse": 198.23556239974798,
+            "sse": 712146362.8593919
+          },
+          "EDDM": {
+            "n": 12562,
+            "rmse": 183.62321232300985,
+            "sse": 423559035.3122014
+          },
+          "EGLL": {
+            "n": 19423,
+            "rmse": 222.7955396132734,
+            "sse": 964116008.5552979
+          },
+          "EHAM": {
+            "n": 19232,
+            "rmse": 654.9635929377296,
+            "sse": 8250091588.877244
+          },
+          "LEBL": {
+            "n": 13332,
+            "rmse": 382.2748190106554,
+            "sse": 1948258984.6120582
+          },
+          "LEMD": {
+            "n": 17419,
+            "rmse": 184.72525256967842,
+            "sse": 594395834.4624095
+          },
+          "LFPG": {
+            "n": 18646,
+            "rmse": 712.4756636562123,
+            "sse": 9465111818.503807
+          },
+          "LIRF": {
+            "n": 11328,
+            "rmse": 859.9104689588947,
+            "sse": 8376444453.673203
+          },
+          "LSZH": {
+            "n": 10078,
+            "rmse": 168.8775698597709,
+            "sse": 287420867.43835384
+          },
+          "LTFM": {
+            "n": 22190,
+            "rmse": 244.45563510117023,
+            "sse": 1326042391.6509788
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11276,
+            "rmse": 320.9580403592321,
+            "sse": 1161586581.9568846
+          },
+          "missing": {
+            "n": 52,
+            "rmse": 11779.102969402016,
+            "sse": 7214857871.716319
+          }
+        },
+        "rmse_by_seed": {
+          "42": 263.709585213417,
+          "142": 308.26111730328756,
+          "242": 658.2071131424682
+        },
+        "seed_sd": 216.0537504717916,
+        "first_seven_days": {
+          "n": 38700,
+          "arrival_mean_available_pct": 86.2764857881137,
+          "mean_arrival_history_days": 3.025142118863049
+        }
+      },
+      "B4": {
+        "n": 165677,
+        "rmse": 728.9719404458615,
+        "sse": 88040772703.87292,
+        "ordinary": {
+          "n": 165639,
+          "rmse": 704.2173141181478,
+          "sse": 82144028382.42029
+        },
+        "at_most_12_seconds": {
+          "n": 46,
+          "rmse": 526.6573859631628,
+          "sse": 12758928.100719387
+        },
+        "tail": {
+          "n": 38,
+          "rmse": 12457.02541313495,
+          "sse": 5896744321.452619,
+          "pct_sse": 6.69774258034564
+        },
+        "airports": {
+          "EDDF": {
+            "n": 17324,
+            "rmse": 606.2240966991227,
+            "sse": 6366702622.472992
+          },
+          "EDDM": {
+            "n": 12035,
+            "rmse": 691.2302506318043,
+            "sse": 5750314086.740682
+          },
+          "EGLL": {
+            "n": 20000,
+            "rmse": 253.01414460954769,
+            "sse": 1280323147.4500222
+          },
+          "EHAM": {
+            "n": 19458,
+            "rmse": 1351.1784875524772,
+            "sse": 35524145753.060265
+          },
+          "LEBL": {
+            "n": 13835,
+            "rmse": 198.78666360190059,
+            "sse": 546705764.0553666
+          },
+          "LEMD": {
+            "n": 17985,
+            "rmse": 401.69477465679245,
+            "sse": 2902036075.378484
+          },
+          "LFPG": {
+            "n": 19778,
+            "rmse": 914.4358634761643,
+            "sse": 16538224133.680634
+          },
+          "LIRF": {
+            "n": 12068,
+            "rmse": 1003.3859966018733,
+            "sse": 12149862773.276833
+          },
+          "LSZH": {
+            "n": 10585,
+            "rmse": 710.2968246790807,
+            "sse": 5340360915.294121
+          },
+          "LTFM": {
+            "n": 22609,
+            "rmse": 269.500009044087,
+            "sse": 1642097432.4635158
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11980,
+            "rmse": 564.4261469520294,
+            "sse": 3816550966.8501053
+          },
+          "missing": {
+            "n": 88,
+            "rmse": 9731.22423300537,
+            "sse": 8333311806.426726
+          }
+        },
+        "rmse_by_seed": {
+          "42": 451.6042158184523,
+          "142": 255.8466377127336,
+          "242": 1150.9980017785886
+        },
+        "seed_sd": 470.5969014302351,
+        "first_seven_days": {
+          "n": 37476,
+          "arrival_mean_available_pct": 85.33461415305796,
+          "mean_arrival_history_days": 3.015316469206959
+        }
+      },
+      "B5": {
+        "n": 185674,
+        "rmse": 437.0051562384031,
+        "sse": 35458814860.54018,
+        "ordinary": {
+          "n": 185631,
+          "rmse": 426.0474043885496,
+          "sse": 33695069138.036858
+        },
+        "at_most_12_seconds": {
+          "n": 37,
+          "rmse": 552.0304917763109,
+          "sse": 11275293.56247944
+        },
+        "tail": {
+          "n": 43,
+          "rmse": 6404.4783069191735,
+          "sse": 1763745722.503326,
+          "pct_sse": 4.974068449383187
+        },
+        "airports": {
+          "EDDF": {
+            "n": 21239,
+            "rmse": 715.8593768916134,
+            "sse": 10884024257.90522
+          },
+          "EDDM": {
+            "n": 15469,
+            "rmse": 170.02735315771397,
+            "sse": 447197974.41270256
+          },
+          "EGLL": {
+            "n": 20657,
+            "rmse": 247.86209574482038,
+            "sse": 1269075571.4993987
+          },
+          "EHAM": {
+            "n": 21784,
+            "rmse": 514.9404123837718,
+            "sse": 5776324479.017228
+          },
+          "LEBL": {
+            "n": 16300,
+            "rmse": 462.3835577612952,
+            "sse": 3484916438.154286
+          },
+          "LEMD": {
+            "n": 18892,
+            "rmse": 414.70922360132573,
+            "sse": 3249116818.725152
+          },
+          "LFPG": {
+            "n": 20809,
+            "rmse": 250.94768370548533,
+            "sse": 1310441363.768299
+          },
+          "LIRF": {
+            "n": 14142,
+            "rmse": 553.7272051944018,
+            "sse": 4336132610.9373255
+          },
+          "LSZH": {
+            "n": 12302,
+            "rmse": 164.37593827502448,
+            "sse": 332393262.6288418
+          },
+          "LTFM": {
+            "n": 24080,
+            "rmse": 425.9634420529575,
+            "sse": 4369192083.491727
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 14027,
+            "rmse": 412.28510254840506,
+            "sse": 2384295514.1230345
+          },
+          "missing": {
+            "n": 115,
+            "rmse": 4119.768985518159,
+            "sse": 1951837096.8142915
+          }
+        },
+        "rmse_by_seed": {
+          "42": 265.62912103710966,
+          "142": 254.89819288435055,
+          "242": 661.3536127203045
+        },
+        "seed_sd": 231.6315445022418,
+        "first_seven_days": {
+          "n": 42555,
+          "arrival_mean_available_pct": 85.52931500411233,
+          "mean_arrival_history_days": 2.991117377511456
+        }
+      },
+      "B6": {
+        "n": 162332,
+        "rmse": 320.6769855888921,
+        "sse": 16693204910.049992,
+        "ordinary": {
+          "n": 162309,
+          "rmse": 299.8023504874725,
+          "sse": 14588568163.817318
+        },
+        "at_most_12_seconds": {
+          "n": 32,
+          "rmse": 636.2249981157744,
+          "sse": 12953031.943277346
+        },
+        "tail": {
+          "n": 23,
+          "rmse": 9565.874005462187,
+          "sse": 2104636746.2326753,
+          "pct_sse": 12.607745232706021
+        },
+        "airports": {
+          "EDDF": {
+            "n": 18122,
+            "rmse": 214.64415799504,
+            "sse": 834918860.0816851
+          },
+          "EDDM": {
+            "n": 12562,
+            "rmse": 190.87156485153412,
+            "sse": 457658209.52558756
+          },
+          "EGLL": {
+            "n": 19423,
+            "rmse": 222.2041133349266,
+            "sse": 959004176.2330496
+          },
+          "EHAM": {
+            "n": 19232,
+            "rmse": 256.43808273081964,
+            "sse": 1264705748.962236
+          },
+          "LEBL": {
+            "n": 13332,
+            "rmse": 195.78095403566064,
+            "sse": 511017985.9322287
+          },
+          "LEMD": {
+            "n": 17419,
+            "rmse": 419.9813153063827,
+            "sse": 3072438212.3916626
+          },
+          "LFPG": {
+            "n": 18646,
+            "rmse": 492.24476448122385,
+            "sse": 4518017317.535987
+          },
+          "LIRF": {
+            "n": 11328,
+            "rmse": 559.1452948619943,
+            "sse": 3541625123.5607214
+          },
+          "LSZH": {
+            "n": 10078,
+            "rmse": 173.27434849036922,
+            "sse": 302581870.4355106
+          },
+          "LTFM": {
+            "n": 22190,
+            "rmse": 235.55495779736165,
+            "sse": 1231237405.3913245
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11276,
+            "rmse": 321.78028641888983,
+            "sse": 1167545824.5589294
+          },
+          "missing": {
+            "n": 52,
+            "rmse": 6756.875841293062,
+            "sse": 2374079299.001791
+          }
+        },
+        "rmse_by_seed": {
+          "42": 265.04305745540177,
+          "142": 261.118950664815,
+          "242": 412.39575477632405
+        },
+        "seed_sd": 86.22923661578591,
+        "first_seven_days": {
+          "n": 38700,
+          "arrival_mean_available_pct": 86.2764857881137,
+          "mean_arrival_history_days": 3.025142118863049
+        }
+      },
+      "B7": {
+        "n": 165677,
+        "rmse": 380.8230623073152,
+        "sse": 24027506530.184532,
+        "ordinary": {
+          "n": 165639,
+          "rmse": 374.03875998299964,
+          "sse": 23173723296.13389
+        },
+        "at_most_12_seconds": {
+          "n": 46,
+          "rmse": 503.6268926648709,
+          "sse": 11667442.162702577
+        },
+        "tail": {
+          "n": 38,
+          "rmse": 4740.040067703858,
+          "sse": 853783234.0506438,
+          "pct_sse": 3.5533576194353724
+        },
+        "airports": {
+          "EDDF": {
+            "n": 17324,
+            "rmse": 434.3361425907292,
+            "sse": 3268135955.592535
+          },
+          "EDDM": {
+            "n": 12035,
+            "rmse": 254.64543174240686,
+            "sse": 780401101.2440761
+          },
+          "EGLL": {
+            "n": 20000,
+            "rmse": 254.26694985384538,
+            "sse": 1293033635.7595584
+          },
+          "EHAM": {
+            "n": 19458,
+            "rmse": 679.6602605239666,
+            "sse": 8988390960.913477
+          },
+          "LEBL": {
+            "n": 13835,
+            "rmse": 212.3159711737762,
+            "sse": 623655120.7999413
+          },
+          "LEMD": {
+            "n": 17985,
+            "rmse": 195.56802652271733,
+            "sse": 687869651.168855
+          },
+          "LFPG": {
+            "n": 19778,
+            "rmse": 452.78099719143546,
+            "sse": 4054700268.178691
+          },
+          "LIRF": {
+            "n": 12068,
+            "rmse": 451.8699146155361,
+            "sse": 2464121713.357779
+          },
+          "LSZH": {
+            "n": 10585,
+            "rmse": 175.49873021412154,
+            "sse": 326015928.58715004
+          },
+          "LTFM": {
+            "n": 22609,
+            "rmse": 261.0876411508881,
+            "sse": 1541182194.5824645
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11980,
+            "rmse": 330.2603801406685,
+            "sse": 1306681585.914093
+          },
+          "missing": {
+            "n": 88,
+            "rmse": 3626.6690944930406,
+            "sse": 1157440127.4436855
+          }
+        },
+        "rmse_by_seed": {
+          "42": 253.84224175484346,
+          "142": 255.1679503986384,
+          "242": 552.7495343694079
+        },
+        "seed_sd": 172.1927825627085,
+        "first_seven_days": {
+          "n": 37476,
+          "arrival_mean_available_pct": 85.33461415305796,
+          "mean_arrival_history_days": 3.015316469206959
+        }
+      },
+      "B8": {
+        "n": 162332,
+        "rmse": 382.0247021433367,
+        "sse": 23691198467.58007,
+        "ordinary": {
+          "n": 162309,
+          "rmse": 347.3163743862635,
+          "sse": 19579117811.674995
+        },
+        "at_most_12_seconds": {
+          "n": 32,
+          "rmse": 661.3071695743707,
+          "sse": 13994469.520974895
+        },
+        "tail": {
+          "n": 23,
+          "rmse": 13371.092531058697,
+          "sse": 4112080655.905074,
+          "pct_sse": 17.35699720523721
+        },
+        "airports": {
+          "EDDF": {
+            "n": 18122,
+            "rmse": 216.49765610810027,
+            "sse": 849400522.4876593
+          },
+          "EDDM": {
+            "n": 12562,
+            "rmse": 203.03091023050263,
+            "sse": 517825117.4943898
+          },
+          "EGLL": {
+            "n": 19423,
+            "rmse": 239.16094326907748,
+            "sse": 1110955914.6419482
+          },
+          "EHAM": {
+            "n": 19232,
+            "rmse": 216.2231384433828,
+            "sse": 899143033.7466264
+          },
+          "LEBL": {
+            "n": 13332,
+            "rmse": 470.80098662474364,
+            "sse": 2955085381.9990845
+          },
+          "LEMD": {
+            "n": 17419,
+            "rmse": 417.0028591870224,
+            "sse": 3029014027.8274713
+          },
+          "LFPG": {
+            "n": 18646,
+            "rmse": 503.99081609386,
+            "sse": 4736209724.513884
+          },
+          "LIRF": {
+            "n": 11328,
+            "rmse": 839.3887624929631,
+            "sse": 7981408546.822773
+          },
+          "LSZH": {
+            "n": 10078,
+            "rmse": 180.54021058810662,
+            "sse": 328490068.26783633
+          },
+          "LTFM": {
+            "n": 22190,
+            "rmse": 240.51789264463713,
+            "sse": 1283666129.7783995
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11276,
+            "rmse": 319.8954061909693,
+            "sse": 1153907707.4919133
+          },
+          "missing": {
+            "n": 52,
+            "rmse": 11458.53799854305,
+            "sse": 6827500839.330859
+          }
+        },
+        "rmse_by_seed": {
+          "42": 496.63896291114736,
+          "142": 340.7612697590032,
+          "242": 273.97101433160276
+        },
+        "seed_sd": 114.26563260455447,
+        "first_seven_days": {
+          "n": 38700,
+          "arrival_mean_available_pct": 86.2764857881137,
+          "mean_arrival_history_days": 3.025142118863049
+        }
+      },
+      "B9": {
+        "n": 165677,
+        "rmse": 397.00579452187696,
+        "sse": 26112948553.64965,
+        "ordinary": {
+          "n": 165639,
+          "rmse": 390.20062780563876,
+          "sse": 25219619362.717518
+        },
+        "at_most_12_seconds": {
+          "n": 46,
+          "rmse": 507.4756632812706,
+          "sse": 11846451.245847216
+        },
+        "tail": {
+          "n": 38,
+          "rmse": 4848.573286985227,
+          "sse": 893329190.9321356,
+          "pct_sse": 3.4210199935743386
+        },
+        "airports": {
+          "EDDF": {
+            "n": 17324,
+            "rmse": 208.2535427957785,
+            "sse": 751333877.8190691
+          },
+          "EDDM": {
+            "n": 12035,
+            "rmse": 282.1415232139414,
+            "sse": 958032203.8270483
+          },
+          "EGLL": {
+            "n": 20000,
+            "rmse": 263.3405624003372,
+            "sse": 1386965036.1065178
+          },
+          "EHAM": {
+            "n": 19458,
+            "rmse": 185.87791391266455,
+            "sse": 672285553.0172348
+          },
+          "LEBL": {
+            "n": 13835,
+            "rmse": 473.31952249057434,
+            "sse": 3099474009.078708
+          },
+          "LEMD": {
+            "n": 17985,
+            "rmse": 414.81101370664715,
+            "sse": 3094646165.0056667
+          },
+          "LFPG": {
+            "n": 19778,
+            "rmse": 685.018845985418,
+            "sse": 9280842705.207024
+          },
+          "LIRF": {
+            "n": 12068,
+            "rmse": 639.03602745008,
+            "sse": 4928173491.567938
+          },
+          "LSZH": {
+            "n": 10585,
+            "rmse": 196.69397815996248,
+            "sse": 409517995.2548872
+          },
+          "LTFM": {
+            "n": 22609,
+            "rmse": 260.2813147533773,
+            "sse": 1531677516.7655623
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11980,
+            "rmse": 328.621390121034,
+            "sse": 1293744376.180068
+          },
+          "missing": {
+            "n": 88,
+            "rmse": 6426.533346733707,
+            "sse": 3634429115.38787
+          }
+        },
+        "rmse_by_seed": {
+          "42": 580.4449487806779,
+          "142": 259.4110850479965,
+          "242": 261.97395489066804
+        },
+        "seed_sd": 184.61359823256748,
+        "first_seven_days": {
+          "n": 37476,
+          "arrival_mean_available_pct": 85.33461415305796,
+          "mean_arrival_history_days": 3.015316469206959
+        }
+      },
+      "B10": {
+        "n": 165677,
+        "rmse": 660.5153182693975,
+        "sse": 72281642024.10397,
+        "ordinary": {
+          "n": 165639,
+          "rmse": 637.2622898132444,
+          "sse": 67266532254.39873
+        },
+        "at_most_12_seconds": {
+          "n": 46,
+          "rmse": 486.12918862795345,
+          "sse": 10870793.049659327
+        },
+        "tail": {
+          "n": 38,
+          "rmse": 11488.105713605722,
+          "sse": 5015109769.705256,
+          "pct_sse": 6.938289763855742
+        },
+        "airports": {
+          "EDDF": {
+            "n": 17324,
+            "rmse": 433.3584720349511,
+            "sse": 3253439668.9881153
+          },
+          "EDDM": {
+            "n": 12035,
+            "rmse": 301.7067395687693,
+            "sse": 1095509423.8991487
+          },
+          "EGLL": {
+            "n": 20000,
+            "rmse": 252.60853571725795,
+            "sse": 1276221446.3443437
+          },
+          "EHAM": {
+            "n": 19458,
+            "rmse": 752.2541589458066,
+            "sse": 11011016007.774273
+          },
+          "LEBL": {
+            "n": 13835,
+            "rmse": 199.05680397225998,
+            "sse": 548192661.057848
+          },
+          "LEMD": {
+            "n": 17985,
+            "rmse": 972.3098921564526,
+            "sse": 17002776677.039486
+          },
+          "LFPG": {
+            "n": 19778,
+            "rmse": 673.0542565882405,
+            "sse": 8959474195.057817
+          },
+          "LIRF": {
+            "n": 12068,
+            "rmse": 1501.885662721371,
+            "sse": 27221311443.640526
+          },
+          "LSZH": {
+            "n": 10585,
+            "rmse": 194.2713117033123,
+            "sse": 399492110.9015467
+          },
+          "LTFM": {
+            "n": 22609,
+            "rmse": 258.7927747635986,
+            "sse": 1514208389.4008727
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11980,
+            "rmse": 1350.823937926725,
+            "sse": 21860209229.084854
+          },
+          "missing": {
+            "n": 88,
+            "rmse": 7805.230046225172,
+            "sse": 5361102214.555666
+          }
+        },
+        "rmse_by_seed": {
+          "42": 781.7544429509795,
+          "142": 337.89163786247497,
+          "242": 763.8918045080657
+        },
+        "seed_sd": 251.26659334103326,
+        "first_seven_days": {
+          "n": 37476,
+          "arrival_mean_available_pct": 85.33461415305796,
+          "mean_arrival_history_days": 3.015316469206959
+        }
+      }
+    },
+    "groups": {
+      "R_A": {
+        "n": 1079528,
+        "rmse": 544.841049900783,
+        "sse": 320459797194.26843,
+        "ordinary": {
+          "n": 1079180,
+          "rmse": 502.69681988426925,
+          "sse": 272713202783.4662
+        },
+        "at_most_12_seconds": {
+          "n": 321,
+          "rmse": 623.2443991035958,
+          "sse": 124687179.50549468
+        },
+        "tail": {
+          "n": 348,
+          "rmse": 11713.362348288612,
+          "sse": 47746594410.802246,
+          "pct_sse": 14.899402305324873
+        },
+        "airports": {
+          "EDDF": {
+            "n": 120491,
+            "rmse": 345.16445166335734,
+            "sse": 14355116845.905743
+          },
+          "EDDM": {
+            "n": 87389,
+            "rmse": 445.7832404027655,
+            "sse": 17366177805.185043
+          },
+          "EGLL": {
+            "n": 121836,
+            "rmse": 372.4284665246926,
+            "sse": 16899014160.82878
+          },
+          "EHAM": {
+            "n": 127050,
+            "rmse": 302.54011534543275,
+            "sse": 11628952743.009588
+          },
+          "LEBL": {
+            "n": 92959,
+            "rmse": 414.61975133836944,
+            "sse": 15980538761.523697
+          },
+          "LEMD": {
+            "n": 109276,
+            "rmse": 474.946902984654,
+            "sse": 24649885690.104565
+          },
+          "LFPG": {
+            "n": 123708,
+            "rmse": 715.677572222746,
+            "sse": 63362543274.33209
+          },
+          "LIRF": {
+            "n": 82875,
+            "rmse": 1237.402353051972,
+            "sse": 126895264844.18294
+          },
+          "LSZH": {
+            "n": 70390,
+            "rmse": 444.48621456818586,
+            "sse": 13906811163.907927
+          },
+          "LTFM": {
+            "n": 143554,
+            "rmse": 327.6959278889836,
+            "sse": 15415491905.288021
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 81918,
+            "rmse": 718.8138764124436,
+            "sse": 42326489033.80117
+          },
+          "missing": {
+            "n": 957,
+            "rmse": 9400.458859072227,
+            "sse": 84568775810.38179
+          }
+        },
+        "rmse_by_seed": {
+          "42": 479.3850750016935,
+          "142": 366.88358619393927,
+          "242": 725.3562524842931
+        },
+        "seed_sd": 183.3307837459625,
+        "first_seven_days": {
+          "n": 247292,
+          "arrival_mean_available_pct": 100.0,
+          "mean_arrival_history_days": 7.0
+        }
+      },
+      "R_B_all": {
+        "n": 697633,
+        "rmse": 517.5965681508699,
+        "sse": 186900211160.26587,
+        "ordinary": {
+          "n": 697479,
+          "rmse": 491.0283796643578,
+          "sse": 168168373284.71143
+        },
+        "at_most_12_seconds": {
+          "n": 160,
+          "rmse": 608.8704324455007,
+          "sse": 59315712.56101936
+        },
+        "tail": {
+          "n": 154,
+          "rmse": 11028.839960767573,
+          "sse": 18731837875.554447,
+          "pct_sse": 10.022373842848152
+        },
+        "airports": {
+          "EDDF": {
+            "n": 77689,
+            "rmse": 465.8470858701348,
+            "sse": 16859562377.462685
+          },
+          "EDDM": {
+            "n": 56002,
+            "rmse": 256.3227845610397,
+            "sse": 3679408116.3067803
+          },
+          "EGLL": {
+            "n": 80218,
+            "rmse": 250.67093048266747,
+            "sse": 5040571460.678517
+          },
+          "EHAM": {
+            "n": 81940,
+            "rmse": 716.9944938777,
+            "sse": 42123805682.32197
+          },
+          "LEBL": {
+            "n": 59611,
+            "rmse": 324.4340048542391,
+            "sse": 6274500272.601887
+          },
+          "LEMD": {
+            "n": 71967,
+            "rmse": 388.3947843480196,
+            "sse": 10856258545.848824
+          },
+          "LFPG": {
+            "n": 79915,
+            "rmse": 614.036203616191,
+            "sse": 30131188309.065884
+          },
+          "LIRF": {
+            "n": 52205,
+            "rmse": 1021.2427770129804,
+            "sse": 54446516145.22981
+          },
+          "LSZH": {
+            "n": 45143,
+            "rmse": 473.5549187158356,
+            "sse": 10123510106.126987
+          },
+          "LTFM": {
+            "n": 92943,
+            "rmse": 281.4976628156042,
+            "sse": 7364890144.622501
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 51782,
+            "rmse": 497.6995310037778,
+            "sse": 12826651152.9426
+          },
+          "missing": {
+            "n": 423,
+            "rmse": 9919.280005172248,
+            "sse": 41619864992.28722
+          }
+        },
+        "rmse_by_seed": {
+          "42": 375.06913617907117,
+          "142": 280.9570590605964,
+          "242": 764.2675553329345
+        },
+        "seed_sd": 256.22956124617167,
+        "first_seven_days": {
+          "n": 161639,
+          "arrival_mean_available_pct": 85.59691658572498,
+          "mean_arrival_history_days": 3.003823334715013
+        }
+      },
+      "R_B_long": {
+        "n": 328009,
+        "rmse": 519.0848593660062,
+        "sse": 88381726962.97366,
+        "ordinary": {
+          "n": 327948,
+          "rmse": 502.809919510639,
+          "sse": 82911096845.53262
+        },
+        "at_most_12_seconds": {
+          "n": 78,
+          "rmse": 567.6562518856919,
+          "sse": 25134222.383783143
+        },
+        "tail": {
+          "n": 61,
+          "rmse": 9470.082414723554,
+          "sse": 5470630117.441033,
+          "pct_sse": 6.189775087482597
+        },
+        "airports": {
+          "EDDF": {
+            "n": 35446,
+            "rmse": 394.9679835884506,
+            "sse": 5529565651.892157
+          },
+          "EDDM": {
+            "n": 24597,
+            "rmse": 387.26509019472655,
+            "sse": 3688916629.3045797
+          },
+          "EGLL": {
+            "n": 39423,
+            "rmse": 238.94232101437052,
+            "sse": 2250794400.1600885
+          },
+          "EHAM": {
+            "n": 38690,
+            "rmse": 887.9649637446564,
+            "sse": 30506359945.864117
+          },
+          "LEBL": {
+            "n": 27167,
+            "rmse": 305.3756617801433,
+            "sse": 2533439427.039712
+          },
+          "LEMD": {
+            "n": 35404,
+            "rmse": 259.78471885528535,
+            "sse": 2389348697.7360783
+          },
+          "LFPG": {
+            "n": 38424,
+            "rmse": 717.1491365958489,
+            "sse": 19761574019.43347
+          },
+          "LIRF": {
+            "n": 23396,
+            "rmse": 818.7471689700463,
+            "sse": 15683436696.99051
+          },
+          "LSZH": {
+            "n": 20663,
+            "rmse": 388.61808792632644,
+            "sse": 3120609289.378989
+          },
+          "LTFM": {
+            "n": 44799,
+            "rmse": 255.20244648780894,
+            "sse": 2917682205.173969
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 23256,
+            "rmse": 400.12053451058875,
+            "sse": 3723202858.338985
+          },
+          "missing": {
+            "n": 140,
+            "rmse": 9242.848138136522,
+            "sse": 11960233838.651525
+          }
+        },
+        "rmse_by_seed": {
+          "42": 319.68198900337234,
+          "142": 282.8477640289643,
+          "242": 791.2950410306779
+        },
+        "seed_sd": 283.5178608313865,
+        "first_seven_days": {
+          "n": 76176,
+          "arrival_mean_available_pct": 85.81311699222852,
+          "mean_arrival_history_days": 3.020308233564377
+        }
+      },
+      "R_B_k3": {
+        "n": 697633,
+        "rmse": 553.4977558711396,
+        "sse": 213726682462.5307,
+        "ordinary": {
+          "n": 697479,
+          "rmse": 524.3366840909819,
+          "sse": 191757174894.6355
+        },
+        "at_most_12_seconds": {
+          "n": 160,
+          "rmse": 602.0349858855326,
+          "sse": 57991379.87683095
+        },
+        "tail": {
+          "n": 154,
+          "rmse": 11944.000169594254,
+          "sse": 21969507567.895206,
+          "pct_sse": 10.27925353763294
+        },
+        "airports": {
+          "EDDF": {
+            "n": 77689,
+            "rmse": 515.6256301810724,
+            "sse": 20655158154.125607
+          },
+          "EDDM": {
+            "n": 56002,
+            "rmse": 218.53392063197944,
+            "sse": 2674491684.288854
+          },
+          "EGLL": {
+            "n": 80218,
+            "rmse": 252.16159548431102,
+            "sse": 5100699251.487173
+          },
+          "EHAM": {
+            "n": 81940,
+            "rmse": 679.4829977309672,
+            "sse": 37831463996.195526
+          },
+          "LEBL": {
+            "n": 59611,
+            "rmse": 368.40047043319794,
+            "sse": 8090339742.2507
+          },
+          "LEMD": {
+            "n": 71967,
+            "rmse": 577.2113479795628,
+            "sse": 23977456989.991837
+          },
+          "LFPG": {
+            "n": 79915,
+            "rmse": 576.2995835290372,
+            "sse": 26541466495.211407
+          },
+          "LIRF": {
+            "n": 52205,
+            "rmse": 1168.8826883034287,
+            "sse": 71326999210.30159
+          },
+          "LSZH": {
+            "n": 45143,
+            "rmse": 444.6163463872891,
+            "sse": 8924035064.818077
+          },
+          "LTFM": {
+            "n": 92943,
+            "rmse": 304.26800718062094,
+            "sse": 8604571873.859934
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 51782,
+            "rmse": 729.3495781366089,
+            "sse": 27545476694.704655
+          },
+          "missing": {
+            "n": 423,
+            "rmse": 10173.61377754018,
+            "sse": 43781522515.59693
+          }
+        },
+        "rmse_by_seed": {
+          "42": 491.5250720750961,
+          "142": 303.9090589855587,
+          "242": 764.9324706477341
+        },
+        "seed_sd": 231.83829136652645,
+        "first_seven_days": {
+          "n": 161639,
+          "arrival_mean_available_pct": 85.59691658572498,
+          "mean_arrival_history_days": 3.003823334715013
+        }
+      },
+      "R_B_k4": {
+        "n": 513683,
+        "rmse": 349.755490590206,
+        "sse": 62838277981.45602,
+        "ordinary": {
+          "n": 513579,
+          "rmse": 336.5425028372512,
+          "sse": 58168397274.53717
+        },
+        "at_most_12_seconds": {
+          "n": 115,
+          "rmse": 577.1228048872159,
+          "sse": 38303134.17090206
+        },
+        "tail": {
+          "n": 104,
+          "rmse": 6700.947627387411,
+          "sse": 4669880706.918853,
+          "pct_sse": 7.431586060166965
+        },
+        "airports": {
+          "EDDF": {
+            "n": 56685,
+            "rmse": 286.94556997002286,
+            "sse": 4667315932.709505
+          },
+          "EDDM": {
+            "n": 40066,
+            "rmse": 216.3029749005192,
+            "sse": 1874567018.5113392
+          },
+          "EGLL": {
+            "n": 60080,
+            "rmse": 245.741184763994,
+            "sse": 3628154891.743823
+          },
+          "EHAM": {
+            "n": 60474,
+            "rmse": 289.769195853748,
+            "sse": 5077771184.51802
+          },
+          "LEBL": {
+            "n": 43467,
+            "rmse": 320.0243027439395,
+            "sse": 4451696900.789949
+          },
+          "LEMD": {
+            "n": 54296,
+            "rmse": 357.2540362027484,
+            "sse": 6929822716.819767
+          },
+          "LFPG": {
+            "n": 59233,
+            "rmse": 547.9387841847773,
+            "sse": 17783932961.932465
+          },
+          "LIRF": {
+            "n": 37538,
+            "rmse": 583.995244264519,
+            "sse": 12802351616.556364
+          },
+          "LSZH": {
+            "n": 32965,
+            "rmse": 178.41895904169863,
+            "sse": 1049385556.8291765
+          },
+          "LTFM": {
+            "n": 68879,
+            "rmse": 257.6739063214378,
+            "sse": 4573279201.045616
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 37283,
+            "rmse": 365.3129472302867,
+            "sse": 4975548682.805078
+          },
+          "missing": {
+            "n": 255,
+            "rmse": 5540.157474137385,
+            "sse": 7826802933.751285
+          }
+        },
+        "rmse_by_seed": {
+          "42": 393.4174284689773,
+          "142": 261.04363883236965,
+          "242": 379.5598176783201
+        },
+        "seed_sd": 72.7563722384822,
+        "first_seven_days": {
+          "n": 118731,
+          "arrival_mean_available_pct": 85.7113980342118,
+          "mean_arrival_history_days": 3.009845785852052
+        }
+      },
+      "R_B_k5": {
+        "n": 328009,
+        "rmse": 414.5727562767998,
+        "sse": 56375093876.12947,
+        "ordinary": {
+          "n": 327948,
+          "rmse": 403.62086627883303,
+          "sse": 53425944302.389435
+        },
+        "at_most_12_seconds": {
+          "n": 78,
+          "rmse": 561.4596295140329,
+          "sse": 24588479.41477474
+        },
+        "tail": {
+          "n": 61,
+          "rmse": 6953.180159006906,
+          "sse": 2949149573.7400455,
+          "pct_sse": 5.231298736672764
+        },
+        "airports": {
+          "EDDF": {
+            "n": 35446,
+            "rmse": 335.0991468213781,
+            "sse": 3980282318.4519286
+          },
+          "EDDM": {
+            "n": 24597,
+            "rmse": 221.24067927367838,
+            "sse": 1203960136.5562775
+          },
+          "EGLL": {
+            "n": 39423,
+            "rmse": 239.27941674844888,
+            "sse": 2257149644.314856
+          },
+          "EHAM": {
+            "n": 38690,
+            "rmse": 667.4982814937607,
+            "sse": 17238482549.79072
+          },
+          "LEBL": {
+            "n": 27167,
+            "rmse": 307.68575407431365,
+            "sse": 2571914105.4119997
+          },
+          "LEMD": {
+            "n": 35404,
+            "rmse": 190.3105262968049,
+            "sse": 1282265485.6312647
+          },
+          "LFPG": {
+            "n": 38424,
+            "rmse": 593.1766416315177,
+            "sse": 13519812086.682497
+          },
+          "LIRF": {
+            "n": 23396,
+            "rmse": 680.6990992827599,
+            "sse": 10840566167.030983
+          },
+          "LSZH": {
+            "n": 20663,
+            "rmse": 172.30116884524585,
+            "sse": 613436796.0255039
+          },
+          "LTFM": {
+            "n": 44799,
+            "rmse": 252.9861209936643,
+            "sse": 2867224586.2334433
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 23256,
+            "rmse": 325.7831827166573,
+            "sse": 2468268167.8709774
+          },
+          "missing": {
+            "n": 140,
+            "rmse": 7733.183598326669,
+            "sse": 8372297999.160006
+          }
+        },
+        "rmse_by_seed": {
+          "42": 258.7726316814723,
+          "142": 282.69288747814994,
+          "242": 607.2340300104563
+        },
+        "seed_sd": 194.64689309916395,
+        "first_seven_days": {
+          "n": 76176,
+          "arrival_mean_available_pct": 85.81311699222852,
+          "mean_arrival_history_days": 3.020308233564377
+        }
+      },
+      "R_B_k6": {
+        "n": 165677,
+        "rmse": 728.9719404458615,
+        "sse": 88040772703.87292,
+        "ordinary": {
+          "n": 165639,
+          "rmse": 704.2173141181478,
+          "sse": 82144028382.42029
+        },
+        "at_most_12_seconds": {
+          "n": 46,
+          "rmse": 526.6573859631628,
+          "sse": 12758928.100719387
+        },
+        "tail": {
+          "n": 38,
+          "rmse": 12457.02541313495,
+          "sse": 5896744321.452619,
+          "pct_sse": 6.69774258034564
+        },
+        "airports": {
+          "EDDF": {
+            "n": 17324,
+            "rmse": 606.2240966991227,
+            "sse": 6366702622.472992
+          },
+          "EDDM": {
+            "n": 12035,
+            "rmse": 691.2302506318043,
+            "sse": 5750314086.740682
+          },
+          "EGLL": {
+            "n": 20000,
+            "rmse": 253.01414460954769,
+            "sse": 1280323147.4500222
+          },
+          "EHAM": {
+            "n": 19458,
+            "rmse": 1351.1784875524772,
+            "sse": 35524145753.060265
+          },
+          "LEBL": {
+            "n": 13835,
+            "rmse": 198.78666360190059,
+            "sse": 546705764.0553666
+          },
+          "LEMD": {
+            "n": 17985,
+            "rmse": 401.69477465679245,
+            "sse": 2902036075.378484
+          },
+          "LFPG": {
+            "n": 19778,
+            "rmse": 914.4358634761643,
+            "sse": 16538224133.680634
+          },
+          "LIRF": {
+            "n": 12068,
+            "rmse": 1003.3859966018733,
+            "sse": 12149862773.276833
+          },
+          "LSZH": {
+            "n": 10585,
+            "rmse": 710.2968246790807,
+            "sse": 5340360915.294121
+          },
+          "LTFM": {
+            "n": 22609,
+            "rmse": 269.500009044087,
+            "sse": 1642097432.4635158
+          }
+        },
+        "lirf_flight_plan": {
+          "present": {
+            "n": 11980,
+            "rmse": 564.4261469520294,
+            "sse": 3816550966.8501053
+          },
+          "missing": {
+            "n": 88,
+            "rmse": 9731.22423300537,
+            "sse": 8333311806.426726
+          }
+        },
+        "rmse_by_seed": {
+          "42": 451.6042158184523,
+          "142": 255.8466377127336,
+          "242": 1150.9980017785886
+        },
+        "seed_sd": 470.5969014302351,
+        "first_seven_days": {
+          "n": 37476,
+          "arrival_mean_available_pct": 85.33461415305796,
+          "mean_arrival_history_days": 3.015316469206959
+        }
+      }
+    },
+    "scores": {
+      "R_A": 544.841049900783,
+      "R_B_all": 517.5965681508699,
+      "R_B_long": 519.0848593660062,
+      "R_B_k3": 553.4977558711396,
+      "R_B_k4": 349.755490590206,
+      "R_B_k5": 414.5727562767998,
+      "R_B_k6": 728.9719404458615,
+      "R_combined": 530.6456982961661
+    },
+    "monthly_A_descriptive": {
+      "mean": 530.1940611480602,
+      "sd": 133.2666578804631
+    },
+    "aging": {
+      "B1_vs_A3": {
+        "difference": 242.7419434888801,
+        "ci95": [
+          114.82485097991167,
+          374.7777735038687
+        ],
+        "valid_replicates": 2000,
+        "decision": "regression",
+        "difference_by_seed": {
+          "42": -171.4015832303433,
+          "142": 6.5981555327234105,
+          "242": 571.6372823822975
+        }
+      },
+      "B2_vs_A4": {
+        "difference": -206.39156573781185,
+        "ci95": [
+          -332.8677242273967,
+          -77.19139550957425
+        ],
+        "valid_replicates": 2000,
+        "decision": "improvement",
+        "difference_by_seed": {
+          "42": -492.05444270509713,
+          "142": 5.9376423564805805,
+          "242": -46.32449462172781
+        }
+      },
+      "B3_vs_A5": {
+        "difference": -166.88964505251772,
+        "ci95": [
+          -323.0086939491122,
+          0.8661178057372115
+        ],
+        "valid_replicates": 2000,
+        "decision": "inconclusive",
+        "difference_by_seed": {
+          "42": -104.36529525684682,
+          "142": -197.65911721778087,
+          "242": -200.23221883314773
+        }
+      },
+      "B4_vs_A6": {
+        "difference": 287.7211195212467,
+        "ci95": [
+          121.73886637750596,
+          451.84322741892083
+        ],
+        "valid_replicates": 2000,
+        "decision": "regression",
+        "difference_by_seed": {
+          "42": 11.2800707514549,
+          "142": -181.95609514866263,
+          "242": 705.4081957124597
+        }
+      },
+      "B5_vs_A4": {
+        "difference": -97.85054667623098,
+        "ci95": [
+          -231.95211859583227,
+          38.708483951294276
+        ],
+        "valid_replicates": 2000,
+        "decision": "inconclusive",
+        "difference_by_seed": {
+          "42": -483.63599546761617,
+          "142": -1.5904617314159566,
+          "242": 180.70069838036625
+        }
+      },
+      "B6_vs_A5": {
+        "difference": -292.6072030256505,
+        "ci95": [
+          -428.4869193232819,
+          -148.00069976832114
+        ],
+        "valid_replicates": 2000,
+        "decision": "improvement",
+        "difference_by_seed": {
+          "42": -103.03182301486203,
+          "142": -244.80128385625346,
+          "242": -446.04357719929186
+        }
+      },
+      "B7_vs_A6": {
+        "difference": -60.42775861729962,
+        "ci95": [
+          -187.36892799515078,
+          63.407322500151096
+        ],
+        "valid_replicates": 2000,
+        "decision": "inconclusive",
+        "difference_by_seed": {
+          "42": -186.48190331215395,
+          "142": -182.63478246275784,
+          "242": 107.15972830327911
+        }
+      },
+      "B8_vs_A5": {
+        "difference": -231.2594864712059,
+        "ci95": [
+          -374.6211338472237,
+          -79.79198351326062
+        ],
+        "valid_replicates": 2000,
+        "decision": "improvement",
+        "difference_by_seed": {
+          "42": 128.56408244088357,
+          "142": -165.15896476206524,
+          "242": -584.4683176440132
+        }
+      },
+      "B9_vs_A6": {
+        "difference": -44.245026402737835,
+        "ci95": [
+          -177.1126848170583,
+          94.30427075878562
+        ],
+        "valid_replicates": 2000,
+        "decision": "inconclusive",
+        "difference_by_seed": {
+          "42": 140.12080371368052,
+          "142": -178.39164781339974,
+          "242": -183.61585117546076
+        }
+      },
+      "B10_vs_A6": {
+        "difference": 219.26449734478274,
+        "ci95": [
+          77.57958562748843,
+          358.3685029444252
+        ],
+        "valid_replicates": 2000,
+        "decision": "regression",
+        "difference_by_seed": {
+          "42": 341.4302978839821,
+          "142": -99.91109499892127,
+          "242": 318.30199844193686
+        }
+      }
+    },
+    "comparison": {
+      "baseline_id": "v3_20260916T132038893775Z",
+      "scores": {
+        "R_A": {
+          "difference": 245.90827806514557,
+          "ci95": [
+            201.2976275281202,
+            288.7508919190771
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression",
+          "difference_by_seed": {
+            "42": 180.70501763346437,
+            "142": 67.65789512802479,
+            "242": 426.4639384836669
+          }
+        },
+        "R_B_all": {
+          "difference": 247.39523991572065,
+          "ci95": [
+            199.35960418185752,
+            296.27420494805443
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression",
+          "difference_by_seed": {
+            "42": 105.04216182221796,
+            "142": 10.760974592750529,
+            "242": 493.88674536661216
+          }
+        },
+        "R_B_long": {
+          "difference": 262.8403733248818,
+          "ci95": [
+            183.87921363104536,
+            339.6929021270512
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression",
+          "difference_by_seed": {
+            "42": 63.47023937776828,
+            "142": 26.89129999391119,
+            "242": 534.7301608309529
+          }
+        },
+        "R_B_k3": {
+          "difference": 281.35708747222634,
+          "ci95": [
+            224.79136381808962,
+            337.16676117463976
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression",
+          "difference_by_seed": {
+            "42": 219.96106403484322,
+            "142": 31.424497991866133,
+            "242": 492.55996148609
+          }
+        },
+        "R_B_k4": {
+          "difference": 88.85056077333621,
+          "ci95": [
+            39.773117327646354,
+            137.30455501216133
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression",
+          "difference_by_seed": {
+            "42": 132.56023740291687,
+            "142": 0.5719900537367835,
+            "242": 118.17467414506064
+          }
+        },
+        "R_B_k5": {
+          "difference": 159.19022844727542,
+          "ci95": [
+            83.08848624826356,
+            238.05593309928025
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression",
+          "difference_by_seed": {
+            "42": 3.279514905007744,
+            "142": 27.395601972172813,
+            "242": 351.87688823658533
+          }
+        },
+        "R_B_k6": {
+          "difference": 472.20179664300133,
+          "ci95": [
+            330.3613100128649,
+            606.7866664668537
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression",
+          "difference_by_seed": {
+            "42": 195.16632506351777,
+            "142": -0.5110200285710391,
+            "242": 893.4847404731232
+          }
+        },
+        "R_combined": {
+          "difference": 254.6800976220095,
+          "ci95": [
+            208.51606478526037,
+            304.1084340007118
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression",
+          "difference_by_seed": {
+            "42": 122.55990289726117,
+            "142": 46.8178125621414,
+            "242": 486.68438545318037
+          }
+        }
+      },
+      "aging_changes": {
+        "B1_vs_A3": {
+          "difference": 238.7538488906597,
+          "ci95": [
+            112.62726812325107,
+            364.8908291404133
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        },
+        "B2_vs_A4": {
+          "difference": -215.6813013605308,
+          "ci95": [
+            -342.76692627488524,
+            -78.67989968878406
+          ],
+          "valid_replicates": 2000,
+          "decision": "improvement"
+        },
+        "B3_vs_A5": {
+          "difference": -159.82144686169,
+          "ci95": [
+            -316.70559067523834,
+            6.817710637658677
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        },
+        "B4_vs_A6": {
+          "difference": 274.9486108125111,
+          "ci95": [
+            109.94034372328129,
+            436.1256070474587
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        },
+        "B5_vs_A4": {
+          "difference": -107.0111587492913,
+          "ci95": [
+            -243.03483662435423,
+            33.34437465048427
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        },
+        "B6_vs_A5": {
+          "difference": -288.45030294385214,
+          "ci95": [
+            -424.15989983547445,
+            -144.77100814403198
+          ],
+          "valid_replicates": 2000,
+          "decision": "improvement"
+        },
+        "B7_vs_A6": {
+          "difference": -69.77713820953204,
+          "ci95": [
+            -197.62963812477338,
+            54.34801603005313
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        },
+        "B8_vs_A5": {
+          "difference": -229.16167199442862,
+          "ci95": [
+            -372.5207741606161,
+            -78.13411893811059
+          ],
+          "valid_replicates": 2000,
+          "decision": "improvement"
+        },
+        "B9_vs_A6": {
+          "difference": -58.88416934629586,
+          "ci95": [
+            -191.34586566448715,
+            78.8957451811528
+          ],
+          "valid_replicates": 2000,
+          "decision": "inconclusive"
+        },
+        "B10_vs_A6": {
+          "difference": 198.6274287936603,
+          "ci95": [
+            54.59026716556022,
+            342.4419554715988
+          ],
+          "valid_replicates": 2000,
+          "decision": "regression"
+        }
+      },
+      "airports": {
+        "R_A": {
+          "EDDF": {
+            "difference": 154.2073280033244,
+            "opposes_group": false
+          },
+          "EDDM": {
+            "difference": 249.3662075065742,
+            "opposes_group": false
+          },
+          "EGLL": {
+            "difference": 113.12162222946381,
+            "opposes_group": false
+          },
+          "EHAM": {
+            "difference": 123.08933021518212,
+            "opposes_group": false
+          },
+          "LEBL": {
+            "difference": 173.51282461452496,
+            "opposes_group": false
+          },
+          "LEMD": {
+            "difference": 280.859919314045,
+            "opposes_group": false
+          },
+          "LFPG": {
+            "difference": 432.45286779289745,
+            "opposes_group": false
+          },
+          "LIRF": {
+            "difference": 508.6699210304306,
+            "opposes_group": false
+          },
+          "LSZH": {
+            "difference": 231.54985680055773,
+            "opposes_group": false
+          },
+          "LTFM": {
+            "difference": 66.78193215100185,
+            "opposes_group": false
+          }
+        },
+        "R_B_long": {
+          "EDDF": {
+            "difference": 198.02743010019728,
+            "opposes_group": false
+          },
+          "EDDM": {
+            "difference": 164.65670021492647,
+            "opposes_group": false
+          },
+          "EGLL": {
+            "difference": 1.601345292593777,
+            "opposes_group": false
+          },
+          "EHAM": {
+            "difference": 694.5533581261228,
+            "opposes_group": false
+          },
+          "LEBL": {
+            "difference": 114.42115250670503,
+            "opposes_group": false
+          },
+          "LEMD": {
+            "difference": 80.62853135319224,
+            "opposes_group": false
+          },
+          "LFPG": {
+            "difference": 409.7117669850878,
+            "opposes_group": false
+          },
+          "LIRF": {
+            "difference": 303.5773231431066,
+            "opposes_group": false
+          },
+          "LSZH": {
+            "difference": 211.4497751588002,
+            "opposes_group": false
+          },
+          "LTFM": {
+            "difference": 11.568832536548143,
+            "opposes_group": false
+          }
+        }
+      }
+    }
+  },
+  "minutes": 51.768
+}

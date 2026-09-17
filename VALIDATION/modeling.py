@@ -15,6 +15,7 @@ from features_time import TimeFeatures, STALE_ABLE, day_index, fpl_flags, _naive
 from protocol import TAIL_SEC  # noqa: E402
 from recovery import recover_frame  # noqa: E402
 from clock_features import clock_features as build_clock_features, target_offset  # noqa: E402
+from timestamp_mixture import MixtureBooster, fit_mixture, validate_recipe  # noqa: E402
 
 PARAMS = {
     "objective": "regression", "metric": "rmse", "learning_rate": 0.05,
@@ -128,6 +129,11 @@ def validation_matrix(dep, arr, val_dep, val_arr, freeze, cats, config, departur
 
 
 def fit_booster(X, y, seed, rounds, config, desc, validation=None, training_history=None):
+    validate_recipe(config)
+    if config.get('model_mode', 'single') == 'timestamp_mixture':
+        if validation is not None:
+            raise ValueError('timestamp mixture uses fixed rounds without inner validation')
+        return fit_mixture(X, y, seed, rounds, config, PARAMS, desc, training_history)
     params = dict(PARAMS, seed=seed, bagging_seed=seed + 1,
                   feature_fraction_seed=seed + 2, num_threads=config.get("threads", 0))
     mode = config.get('target_mode', 'direct')
@@ -156,6 +162,7 @@ def fit_booster(X, y, seed, rounds, config, desc, validation=None, training_hist
 
 
 def choose_rounds(dep, arr, seed, config, train_end, departure_history=True):
+    validate_recipe(config)
     if not config["early_stopping_rounds"]:
         return config["rounds"], None
     month = pd.Timestamp(train_end).strftime("%Y-%m")
@@ -174,8 +181,22 @@ def choose_rounds(dep, arr, seed, config, train_end, departure_history=True):
                     "rounds": rounds, "train_rows": len(y), "validation_rows": len(va)}
 
 
-def predict(booster, X, num_iteration=None, threads=None, target_mode='direct'):
+def load_booster(path, config):
+    if config.get('model_mode', 'single') == 'timestamp_mixture':
+        return MixtureBooster.load(path)
+    return lgb.Booster(model_file=str(path))
+
+
+def predict(booster, X, num_iteration=None, threads=None, target_mode='direct', audit_out=None):
     threads = booster.params.get('num_threads', 0) if threads is None else threads
+    if isinstance(booster, MixtureBooster):
+        if target_mode != 'direct':
+            raise ValueError('mixture prediction cannot add a residual baseline')
+        parts = pd.concat([booster.components(X.iloc[i:i+20_000], num_iteration, threads)
+                           for i in range(0, len(X), 20_000)])
+        if audit_out is not None:
+            audit_out.append(parts)
+        return np.maximum(parts.mixture_pred.to_numpy(), 0)
     values = np.concatenate([booster.predict(X.iloc[i:i + 20_000], num_iteration=num_iteration,
                                                    num_threads=threads)
                              for i in range(0, len(X), 20_000)])

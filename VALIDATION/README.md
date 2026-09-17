@@ -1,6 +1,11 @@
 # Validation
 
 Start with the [improvement plan](IMPROVEMENT_PLAN.md) and
+[Stage 4 results](reports/STAGE4.md). **Stages 1–4 are complete. M1 regresses;
+keep Q0 as the conservative control.** The [frozen mixture recipe](docs/TIMESTAMP_MIXTURE.md)
+and report record the failed classifier and false high predictions.
+The [exact feature list and examples](docs/STAGE2_STAGE3_EXAMPLES.md)
+explain the preceding stages in plain language. See
 [Stage 3 results](reports/STAGE3.md). **Stage 3 is complete: T1 is inconclusive,
 T2 regresses substantially, and Q0 remains the conservative control.** The
 [frozen clock-model design](docs/CLOCK_MODELS.md) and report explain the
@@ -24,6 +29,9 @@ comparison explicit when continuing.
 | [docs/RECOVERY.md](docs/RECOVERY.md) | Recovery modes, availability boundaries, audits and notebook reuse |
 | [docs/PREDICTION_RULES.md](docs/PREDICTION_RULES.md) | Fixed rule, saved-prediction comparisons and linked submission recipes |
 | [docs/CLOCK_MODELS.md](docs/CLOCK_MODELS.md) | Stage 3 clock features, baseline fallback and residual reconstruction |
+| [docs/TIMESTAMP_MIXTURE.md](docs/TIMESTAMP_MIXTURE.md) | Stage 4 outcome definitions, component training and probability mixture |
+| [docs/STAGE2_STAGE3_EXAMPLES.md](docs/STAGE2_STAGE3_EXAMPLES.md) | Exact feature names and numerical examples for Stages 2–3 |
+| [docs/LEADERBOARD_CANDIDATES.md](docs/LEADERBOARD_CANDIDATES.md) | Frozen five-candidate leaderboard queue, recipes, comparisons and preparation |
 | [tools/](tools/README.md) | Occasional audits, charts and submission utilities |
 | [archive/](archive/README.md) | Historical findings and five earlier experiments |
 | `tests/` | Regression checks for the model and workflow |
