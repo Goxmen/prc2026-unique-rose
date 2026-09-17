@@ -49,10 +49,11 @@ SETTINGS = dict(airport=AIRPORT, match_sec=MATCH_SEC, rule=RULE, flags=FLAGS,
                 classifier_params=CLASSIFIER_PARAMS, classifier_rounds=CLASSIFIER_ROUNDS)
 
 
-def regressor_features(kind):
+def regressor_features(kind, extra=()):
     if kind not in KINDS:
         raise ValueError(f'Unknown feature kind: {kind}')
-    return list(models.ORIGINAL_FEATURES) + (list(models.CLOCK_FEATURES) if kind == 'clock' else [])
+    return (list(models.ORIGINAL_FEATURES) + (list(models.CLOCK_FEATURES) if kind == 'clock' else [])
+            + list(extra))
 
 
 def classifier_matrix(X45, raw, kind):
@@ -81,8 +82,11 @@ def _train(params, X, y, rounds, desc, history=None):
         return lgb.train(params, dataset, num_boost_round=rounds, callbacks=callbacks, **kwargs)
 
 
-def fit_components(X45, y, raw, kind, seed, rounds=800, threads=8):
-    """Return (ordinary regressor, classifier, details) for one window and seed."""
+def fit_components(X45, y, raw, kind, seed, rounds=800, threads=8, extra=()):
+    """Return (ordinary regressor, classifier, details) for one window and seed.
+
+    `extra` inputs go to the ordinary regressor only; the classifier is unchanged.
+    """
     y = np.asarray(y, float)
     if len(y) != len(X45) or not X45.index.equals(raw.index):
         raise ValueError('Training matrix, targets and raw rows must align')
@@ -92,21 +96,21 @@ def fit_components(X45, y, raw, kind, seed, rounds=800, threads=8):
         raise ValueError('Need both schedule-recorded and ordinary LIRF training rows')
     history = {}
     ordinary = _train(models.model_params('control', seed, threads),
-                      X45.loc[~s, regressor_features(kind)], y[~s], rounds,
+                      X45.loc[~s, regressor_features(kind, extra)], y[~s], rounds,
                       f'ordinary-{kind}/{seed}', history)
     params = dict(CLASSIFIER_PARAMS, seed=int(seed), bagging_seed=int(seed) + 1,
                   feature_fraction_seed=int(seed) + 2, num_threads=int(threads))
     classifier = _train(params, classifier_matrix(X45.loc[lirf], raw.loc[lirf], kind),
                         s[lirf].astype(float), CLASSIFIER_ROUNDS, f'classifier-{kind}/{seed}')
-    details = dict(kind=kind, ordinary_rows=int((~s).sum()), schedule_recorded_rows=int(s.sum()),
+    details = dict(kind=kind, extra_features=list(extra), ordinary_rows=int((~s).sum()), schedule_recorded_rows=int(s.sum()),
                    classifier_rows=int(lirf.sum()),
                    ordinary_training_rmse_final=history['training']['rmse'][-1])
     return ordinary, classifier, details
 
 
-def predict(ordinary, classifier, V45, raw, kind, threads=8):
+def predict(ordinary, classifier, V45, raw, kind, threads=8, extra=()):
     """Final hybrid predictions and audit columns for every evaluation row."""
-    base = modeling.predict(ordinary, V45.loc[:, regressor_features(kind)], threads=threads)
+    base = modeling.predict(ordinary, V45.loc[:, regressor_features(kind, extra)], threads=threads)
     gap = V45[GAP].to_numpy(float)
     lirf = (raw['ADEP_mvt'].to_numpy() == AIRPORT) & np.isfinite(gap)
     p = np.zeros(len(V45))

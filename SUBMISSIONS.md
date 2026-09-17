@@ -5,7 +5,7 @@ at 2026-09-17 12:12 UTC (`pipeline/leaderboard_status.py --json`).
 There are 21 uploads: 19 scored and 2 rejected by the five-per-day limit.
 **Best: v19, 338.1113 s. Latest: v21, 342.4009 s.** Rank 96 of 152 scoring teams.
 
-Rows 22–26 are our Rome substitution mixture and hybrids. They have validation
+Rows 22–28 are our Rome substitution mixture and hybrids. They have validation
 scores only and have not been submitted.
 
 ## Codenames and recipes
@@ -43,6 +43,8 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 24 | **Rome-hybrid** | Rome-mix-ordinary, but the **six-hour Rome rule** overrides the blend on its flights; other airports also use the model trained without those rows | 280.6325 | 250.5677 | 264.3047 | — | Not submitted |
 | 25 | **Rome-hybrid-4h** | Rome-hybrid with the **four-hour Rome rule** instead of six hours | 280.8670 | 250.4076 | 264.3304 | — | Not submitted |
 | 26 | **Rome-hybrid-4h-clock** | Rome-hybrid-4h plus the **18 clock inputs** in both the model trained without schedule-recorded rows and the classifier | 271.9287 | 246.7919 | 258.2262 | — | Not submitted |
+| 27 | **Rome-hybrid-4h-clock-weather** | Rome-hybrid-4h-clock plus **21 weather inputs** from airport METAR reports, in the model trained without schedule-recorded rows only; the classifier is unchanged | 270.3396 | 239.4157 | 253.5766 | — | Not submitted |
+| 28 | **Rome-hybrid-4h-clock-weather-queue** | Row 27 plus **11 runway queue inputs** describing the traffic around each takeoff, in the model trained without schedule-recorded rows only; the classifier is unchanged | **265.3809** | **234.4385** | **248.6174** | — | Not submitted |
 
 All values are **RMSE in seconds; lower is better**. CV is validation protocol v3:
 three-seed loss average, next-month = `R_A`, longer-gap = `R_B_long`, and a
@@ -78,6 +80,27 @@ provisional combined summary. CV and official scores are not on the same level.
   the run's `comparison_*.json` files. The rule override was chosen after
   inspecting six-hour results on these folds, and CV gains have not always
   transferred to LB.
+- **Row 27:** CV from run `v3_20260917T155106873031Z` on macOS (82.8 minutes),
+  which refitted Rome-hybrid-4h-clock on the same folds and seeds as its control.
+  That control reproduced row 26 exactly: all 8,353,590 saved predictions match.
+  Paired day-bootstrap differences, weather minus control (95% interval):
+  next-month −1.59 [−1.96, −1.23], longer-gap −7.38 [−11.06, −4.35], combined
+  −4.65 [−6.69, −3.02]; all three seeds agree. Every one of the 16 folds improves,
+  most in November and December. The weather inputs were fixed before this run.
+  None of the folds contains January.
+- **Row 28:** CV from run `v3_20260917T172934966809Z` on macOS (70.4 minutes).
+  Row 27 is the control and was not refitted: its boosters were reloaded from the
+  run above and reproduced its saved predictions exactly on every fold and seed,
+  which also proves this run builds the same inputs. Paired day-bootstrap
+  differences, queue minus row 27 (95% interval): next-month −4.96 [−5.59, −4.44],
+  longer-gap −4.98 [−6.05, −4.04], combined −4.96 [−5.77, −4.29]. All three seeds
+  agree, all 16 folds improve, and no airport opposes the headline in either score.
+  The ageing differences (`B*_vs_A*`) all include zero, so the gain does not fade
+  as the model gets older. A past-only variant, without the four inputs that use
+  movements after takeoff, scored 267.4362 / 236.3997 / 250.6194; adding those four
+  is worth a further −2.06 [−2.35, −1.78] next-month and −1.96 [−2.39, −1.58]
+  longer-gap. The inputs and the rule for choosing between the two variants were
+  fixed before this run. None of the folds contains January.
 - **v17–v21:** CV from `VALIDATION/runs/overnight_20260917/`, whose regenerated
   Q0-4h control scored 296.2717 / 255.6100 / 274.3622 (a small replay
   difference from v15's row). See the
@@ -105,3 +128,25 @@ labels or invent off-block timestamps.
 flags for each clock and for missing flight ID/plan/AOBT3, the count, span, spread
 and median of the takeoff-minus-clock estimates, and a fixed clock baseline with
 its source. See [CLOCK_MODELS.md](VALIDATION/docs/CLOCK_MODELS.md).
+
+**Weather inputs (row 27):** from the airport's latest METAR report at or before
+takeoff, if at most 90 minutes old: temperature, dew-point spread, wind speed,
+gust and direction, visibility, cloud ceiling, flags for thunder, snow,
+freezing, fog, rain, heavy precipitation and de-icing conditions, and the
+report's age; plus, over the two hours before that report, lowest visibility
+and ceiling, highest gust, and whether thunder, snow or freezing, or fog occurred.
+Reports come from the Iowa Environmental Mesonet archive (public domain;
+`VALIDATION/tools/fetch_metar.py`); code in `VALIDATION/weather.py`.
+
+**Runway queue inputs (row 28):** the traffic around each flight's own takeoff,
+from movement timestamps that `ranking.parquet` still carries. Before takeoff:
+seconds since the previous takeoff on the same runway, takeoffs on that runway
+and at the airport in the previous 30 minutes, the mean takeoff-minus-AOBT3 of
+departures that left that runway and that airport in the previous 60 minutes,
+airport takeoffs between this flight's own AOBT3 and its takeoff, and landings on
+that runway in the previous 30 minutes. After takeoff: seconds until the next
+takeoff on the same runway, takeoffs on it in the next 30 minutes, and the same
+takeoff-minus-AOBT3 means over 30 minutes either side. Every window excludes the
+takeoff instant, so a flight never counts itself; runways are scoped by airport;
+departure block times and taxi-out labels are never read. Code in
+`VALIDATION/runway_queue.py`; run by `VALIDATION/runway_queue_run.py`.
