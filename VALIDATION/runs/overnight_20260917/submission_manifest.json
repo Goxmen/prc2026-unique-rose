@@ -1,0 +1,577 @@
+{
+  "prepared_at": "2026-09-17T04:09:46+00:00",
+  "signature_sha256": "95172bd4891619703b1a9e3fb15e6d3eb347165e8524601a4551920d082e70fc",
+  "template_sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+  "run_records": {
+    "result.json": "4c7892bf59941594b99448b6e667dd3341a3c5cb52bf2edf5122b9e3d97be49e",
+    "progress.json": "ed37ada2873d01cc1b841d0f85b0263ab768c95841bf92f79b6d2d855b4cfd08"
+  },
+  "preparation_source": {
+    "VALIDATION/overnight_submit.py": "98929a74863871de580710ead8f9f4bb3837254e6fd1a4769b7e7f004d19d5a9",
+    "VALIDATION/submit.py": "09fe62fe3840d457bdbf25d961b7b20f909b78f2521d05ea61a2369bb0f6aee4",
+    "VALIDATION/tools/sweep_taxi_thresholds.py": "80f2869b24af07107b316168164e6fd30324d9623e76166d69ee5d17743d438e"
+  },
+  "policy": "Five frozen recipes only; no automatic quota reset retry; confirmation sealed",
+  "submissions": [
+    {
+      "recipe": "no_month",
+      "role": "discovery",
+      "version": 17,
+      "file": "unique-rose_v17.parquet",
+      "state": "uploaded",
+      "score": 345.8984,
+      "sha256": "195a1eac2f49ad933084c763f606582609eb73173f2030c7871d47cd116d5588",
+      "rows": 344841,
+      "triggered_rows": 43,
+      "refit": {
+        "path": "refits/no_month.parquet",
+        "metadata": "refits/no_month.meta.json",
+        "recipe": "no_month",
+        "rows": 344841,
+        "artifacts": {
+          "refits/no_month.parquet": "5e71ebc1dcde9695f3a7c5c78cb543299bbf1af9c946b3e402fdb098a320cc7a",
+          "refits/no_month.meta.json": "d51b74344a4b2ff840ee6e0882a66aaba2817b972866d719502e69e6bb7608a2"
+        }
+      },
+      "model": {
+        "path": "models/refit_2025__no_month__42.txt",
+        "recipe": "no_month",
+        "seed": 42,
+        "job": "refit_2025",
+        "rows": 2084659,
+        "available_train_rows": 2084659,
+        "minutes": 0.7647257362666399,
+        "features": [
+          "airport",
+          "dest",
+          "aircraft_type",
+          "runway",
+          "stand",
+          "flight_rule",
+          "market_segment",
+          "flight_type",
+          "wake_cat",
+          "operator",
+          "hour",
+          "dow",
+          "mvt_minus_sched_sec",
+          "mvt_minus_lobt_sec",
+          "mvt_minus_iobt_sec",
+          "mvt_minus_eobt1_sec",
+          "mvt_minus_aobt3_sec",
+          "op_taxi_30d",
+          "op_taxi_30d_n",
+          "rwy_taxi_30d",
+          "stand_taxi_90d",
+          "aphour_taxi_30d",
+          "arr_taxiin_7d",
+          "dep_actual_30m_before",
+          "arr_actual_30m_before",
+          "dep_sched_60m_around"
+        ],
+        "params": {
+          "objective": "regression",
+          "metric": "rmse",
+          "learning_rate": 0.05,
+          "num_leaves": 255,
+          "min_data_in_leaf": 200,
+          "feature_fraction": 0.9,
+          "bagging_fraction": 0.8,
+          "bagging_freq": 1,
+          "verbosity": -1,
+          "seed": 42,
+          "bagging_seed": 43,
+          "feature_fraction_seed": 44,
+          "num_threads": 8
+        },
+        "categories": "models/refit_2025.categories.json",
+        "train_ids": "models/refit_2025__no_month.train_ids.parquet",
+        "completed_at": "2026-09-17T04:04:49+00:00",
+        "artifacts": {
+          "models/refit_2025__no_month__42.txt": "d9d75b35067475195d97d37bf5a8b12a122400996d655ff77571d3273290fdf1",
+          "models/refit_2025__no_month__42.loss.json": "93582f2a6959721306fd76dd5e76a09e036dbd69a19bf934f1d825aa6cc7a819",
+          "models/refit_2025__no_month.train_ids.parquet": "e5b0b1245596a7b6367de0306dc4686e17016aaa10c4bfd047108ee1f84a5e19",
+          "models/refit_2025.categories.json": "441c1487df1747c8f4a20b3e0c18c951aa3e534e2e3dff384f2aff91073eb85d"
+        }
+      },
+      "upload_intents": [
+        "2026-09-17T04:11:50+00:00"
+      ],
+      "uploaded_at": "2026-09-17T04:11:53+00:00",
+      "remote_sha256": "195a1eac2f49ad933084c763f606582609eb73173f2030c7871d47cd116d5588",
+      "verified_at": "2026-09-17T04:11:53+00:00",
+      "official_result": {
+        "status": "Succeeded",
+        "file": "unique-rose_v17.parquet",
+        "bucket": "prc-2026-unique-rose",
+        "used_pairs": 344841,
+        "inputs": {
+          "test_set_bucket": "prc-2026-testsets",
+          "test_set_file": "truthing.parquet"
+        },
+        "score": 345.8984
+      },
+      "official_status": "Succeeded",
+      "score_checked_at": "2026-09-17T04:13:37+00:00"
+    },
+    {
+      "recipe": "no_history",
+      "role": "discovery",
+      "version": 18,
+      "file": "unique-rose_v18.parquet",
+      "state": "uploaded",
+      "score": 342.5049,
+      "sha256": "0915233af837212dcf2fcf54caac45992cd2b3d8c55bbdfd141ea62b8af6b5ab",
+      "rows": 344841,
+      "triggered_rows": 43,
+      "refit": {
+        "path": "refits/no_history.parquet",
+        "metadata": "refits/no_history.meta.json",
+        "recipe": "no_history",
+        "rows": 344841,
+        "artifacts": {
+          "refits/no_history.parquet": "2c42335dfd67c0d6793a69428d2b04c659b3ff2839e9a526f167103e353a34cd",
+          "refits/no_history.meta.json": "ca90ca692658bfd4fc8e45011db6febba821369b19572366a46b1e2df78590a4"
+        }
+      },
+      "model": {
+        "path": "models/refit_2025__no_history__42.txt",
+        "recipe": "no_history",
+        "seed": 42,
+        "job": "refit_2025",
+        "rows": 2084659,
+        "available_train_rows": 2084659,
+        "minutes": 0.7241538765500082,
+        "features": [
+          "airport",
+          "dest",
+          "aircraft_type",
+          "runway",
+          "stand",
+          "flight_rule",
+          "market_segment",
+          "flight_type",
+          "wake_cat",
+          "operator",
+          "hour",
+          "dow",
+          "month",
+          "mvt_minus_sched_sec",
+          "mvt_minus_lobt_sec",
+          "mvt_minus_iobt_sec",
+          "mvt_minus_eobt1_sec",
+          "mvt_minus_aobt3_sec",
+          "arr_taxiin_7d",
+          "dep_actual_30m_before",
+          "arr_actual_30m_before",
+          "dep_sched_60m_around"
+        ],
+        "params": {
+          "objective": "regression",
+          "metric": "rmse",
+          "learning_rate": 0.05,
+          "num_leaves": 255,
+          "min_data_in_leaf": 200,
+          "feature_fraction": 0.9,
+          "bagging_fraction": 0.8,
+          "bagging_freq": 1,
+          "verbosity": -1,
+          "seed": 42,
+          "bagging_seed": 43,
+          "feature_fraction_seed": 44,
+          "num_threads": 8
+        },
+        "categories": "models/refit_2025.categories.json",
+        "train_ids": "models/refit_2025__no_history.train_ids.parquet",
+        "completed_at": "2026-09-17T04:05:33+00:00",
+        "artifacts": {
+          "models/refit_2025__no_history__42.txt": "5ce2c779c19c33e05b1eb9682fa72454fe9704a2348d284c894daf6f4ed44215",
+          "models/refit_2025__no_history__42.loss.json": "17b6b0c68ecab42204e746fee6a23f08f82bbd2709c0cdb74a0855819caeac2a",
+          "models/refit_2025__no_history.train_ids.parquet": "e5b0b1245596a7b6367de0306dc4686e17016aaa10c4bfd047108ee1f84a5e19",
+          "models/refit_2025.categories.json": "441c1487df1747c8f4a20b3e0c18c951aa3e534e2e3dff384f2aff91073eb85d"
+        }
+      },
+      "upload_intents": [
+        "2026-09-17T04:11:53+00:00"
+      ],
+      "uploaded_at": "2026-09-17T04:11:55+00:00",
+      "remote_sha256": "0915233af837212dcf2fcf54caac45992cd2b3d8c55bbdfd141ea62b8af6b5ab",
+      "verified_at": "2026-09-17T04:11:55+00:00",
+      "official_result": {
+        "status": "Succeeded",
+        "file": "unique-rose_v18.parquet",
+        "bucket": "prc-2026-unique-rose",
+        "used_pairs": 344841,
+        "inputs": {
+          "test_set_bucket": "prc-2026-testsets",
+          "test_set_file": "truthing.parquet"
+        },
+        "score": 342.5049
+      },
+      "official_status": "Succeeded",
+      "score_checked_at": "2026-09-17T04:13:39+00:00"
+    },
+    {
+      "recipe": "clock_features",
+      "role": "discovery",
+      "version": 19,
+      "file": "unique-rose_v19.parquet",
+      "state": "uploaded",
+      "score": 338.1113,
+      "sha256": "5678c8e7c811da9760f404d26b15ac177b2d878672e48ac009812b1d54c0bfe3",
+      "rows": 344841,
+      "triggered_rows": 43,
+      "refit": {
+        "path": "refits/clock_features.parquet",
+        "metadata": "refits/clock_features.meta.json",
+        "recipe": "clock_features",
+        "rows": 344841,
+        "artifacts": {
+          "refits/clock_features.parquet": "f1d28b410e08f8eb845ae3b4b41889d3cd2b3e1fef3232e0989f1613a883aa16",
+          "refits/clock_features.meta.json": "cedd23b1abeb118e8f52d28db3ec1ce1faf7eca11cf0a63e6499f09b7de432d6"
+        }
+      },
+      "model": {
+        "path": "models/refit_2025__clock_features__42.txt",
+        "recipe": "clock_features",
+        "seed": 42,
+        "job": "refit_2025",
+        "rows": 2084659,
+        "available_train_rows": 2084659,
+        "minutes": 0.895222261666701,
+        "features": [
+          "airport",
+          "dest",
+          "aircraft_type",
+          "runway",
+          "stand",
+          "flight_rule",
+          "market_segment",
+          "flight_type",
+          "wake_cat",
+          "operator",
+          "hour",
+          "dow",
+          "month",
+          "mvt_minus_sched_sec",
+          "mvt_minus_lobt_sec",
+          "mvt_minus_iobt_sec",
+          "mvt_minus_eobt1_sec",
+          "mvt_minus_aobt3_sec",
+          "op_taxi_30d",
+          "op_taxi_30d_n",
+          "rwy_taxi_30d",
+          "stand_taxi_90d",
+          "aphour_taxi_30d",
+          "arr_taxiin_7d",
+          "dep_actual_30m_before",
+          "arr_actual_30m_before",
+          "dep_sched_60m_around",
+          "clock_aobt3_minus_schedule_sec",
+          "clock_aobt3_minus_eobt1_sec",
+          "clock_eobt1_minus_iobt_sec",
+          "clock_iobt_minus_lobt_sec",
+          "clock_schedule_available",
+          "clock_lobt_available",
+          "clock_iobt_available",
+          "clock_eobt1_available",
+          "clock_aobt3_available",
+          "clock_raw_flight_id_missing",
+          "clock_raw_plan_block_missing",
+          "clock_raw_aobt3_missing",
+          "clock_available_count",
+          "clock_span_sec",
+          "clock_std_sec",
+          "clock_median_sec",
+          "clock_baseline_sec",
+          "clock_baseline_source"
+        ],
+        "params": {
+          "objective": "regression",
+          "metric": "rmse",
+          "learning_rate": 0.05,
+          "num_leaves": 255,
+          "min_data_in_leaf": 200,
+          "feature_fraction": 0.9,
+          "bagging_fraction": 0.8,
+          "bagging_freq": 1,
+          "verbosity": -1,
+          "seed": 42,
+          "bagging_seed": 43,
+          "feature_fraction_seed": 44,
+          "num_threads": 8
+        },
+        "categories": "models/refit_2025.categories.json",
+        "train_ids": "models/refit_2025__clock_features.train_ids.parquet",
+        "completed_at": "2026-09-17T04:06:26+00:00",
+        "artifacts": {
+          "models/refit_2025__clock_features__42.txt": "2e79a5e19c2eabfa473415c8e2d1948d4dc5313dcb593ba8d12fad6bfed34fb0",
+          "models/refit_2025__clock_features__42.loss.json": "404500b6a691648535165dd23700254546ada04e8b2cd1cc65c3470ab8239bf9",
+          "models/refit_2025__clock_features.train_ids.parquet": "e5b0b1245596a7b6367de0306dc4686e17016aaa10c4bfd047108ee1f84a5e19",
+          "models/refit_2025.categories.json": "441c1487df1747c8f4a20b3e0c18c951aa3e534e2e3dff384f2aff91073eb85d"
+        }
+      },
+      "upload_intents": [
+        "2026-09-17T04:11:56+00:00"
+      ],
+      "uploaded_at": "2026-09-17T04:11:59+00:00",
+      "remote_sha256": "5678c8e7c811da9760f404d26b15ac177b2d878672e48ac009812b1d54c0bfe3",
+      "verified_at": "2026-09-17T04:11:59+00:00",
+      "official_result": {
+        "status": "Succeeded",
+        "file": "unique-rose_v19.parquet",
+        "bucket": "prc-2026-unique-rose",
+        "used_pairs": 344841,
+        "inputs": {
+          "test_set_bucket": "prc-2026-testsets",
+          "test_set_file": "truthing.parquet"
+        },
+        "score": 338.1113
+      },
+      "official_status": "Succeeded",
+      "score_checked_at": "2026-09-17T04:13:41+00:00"
+    },
+    {
+      "recipe": "small_trees",
+      "role": "confirmation",
+      "version": 20,
+      "file": "unique-rose_v20.parquet",
+      "state": "uploaded",
+      "score": 345.3113,
+      "sha256": "8b80b2859ec6cb9a712f95c114818de04cc5328466a777862810f25f2881a195",
+      "rows": 344841,
+      "triggered_rows": 43,
+      "refit": {
+        "path": "refits/small_trees.parquet",
+        "metadata": "refits/small_trees.meta.json",
+        "recipe": "small_trees",
+        "rows": 344841,
+        "artifacts": {
+          "refits/small_trees.parquet": "1e524f2a508bc112e04a8cf43c60941d9912eee92f89e5c8e96eb8ee9d9ccaff",
+          "refits/small_trees.meta.json": "f7fcd22de9a0cf4357a296e23cc88ad37d33ca3dc932c49ad454e29d04de0c89"
+        }
+      },
+      "model": {
+        "path": "models/refit_2025__small_trees__42.txt",
+        "recipe": "small_trees",
+        "seed": 42,
+        "job": "refit_2025",
+        "rows": 2084659,
+        "available_train_rows": 2084659,
+        "minutes": 0.4480418616000558,
+        "features": [
+          "airport",
+          "dest",
+          "aircraft_type",
+          "runway",
+          "stand",
+          "flight_rule",
+          "market_segment",
+          "flight_type",
+          "wake_cat",
+          "operator",
+          "hour",
+          "dow",
+          "month",
+          "mvt_minus_sched_sec",
+          "mvt_minus_lobt_sec",
+          "mvt_minus_iobt_sec",
+          "mvt_minus_eobt1_sec",
+          "mvt_minus_aobt3_sec",
+          "op_taxi_30d",
+          "op_taxi_30d_n",
+          "rwy_taxi_30d",
+          "stand_taxi_90d",
+          "aphour_taxi_30d",
+          "arr_taxiin_7d",
+          "dep_actual_30m_before",
+          "arr_actual_30m_before",
+          "dep_sched_60m_around"
+        ],
+        "params": {
+          "objective": "regression",
+          "metric": "rmse",
+          "learning_rate": 0.05,
+          "num_leaves": 63,
+          "min_data_in_leaf": 200,
+          "feature_fraction": 0.9,
+          "bagging_fraction": 0.8,
+          "bagging_freq": 1,
+          "verbosity": -1,
+          "seed": 42,
+          "bagging_seed": 43,
+          "feature_fraction_seed": 44,
+          "num_threads": 8
+        },
+        "categories": "models/refit_2025.categories.json",
+        "train_ids": "models/refit_2025__small_trees.train_ids.parquet",
+        "completed_at": "2026-09-17T04:06:53+00:00",
+        "artifacts": {
+          "models/refit_2025__small_trees__42.txt": "52a92f20c56b13bd63d1c5e8696164891261a158ee453f21e827f3b97568bc05",
+          "models/refit_2025__small_trees__42.loss.json": "fddf0821b1ae0917e3716dad6d5aa89a83aeca451d5010a53365c31b5de69a09",
+          "models/refit_2025__small_trees.train_ids.parquet": "e5b0b1245596a7b6367de0306dc4686e17016aaa10c4bfd047108ee1f84a5e19",
+          "models/refit_2025.categories.json": "441c1487df1747c8f4a20b3e0c18c951aa3e534e2e3dff384f2aff91073eb85d"
+        }
+      },
+      "upload_intents": [
+        "2026-09-17T04:11:59+00:00"
+      ],
+      "uploaded_at": "2026-09-17T04:12:02+00:00",
+      "remote_sha256": "8b80b2859ec6cb9a712f95c114818de04cc5328466a777862810f25f2881a195",
+      "verified_at": "2026-09-17T04:12:02+00:00",
+      "official_result": {
+        "status": "Succeeded",
+        "file": "unique-rose_v20.parquet",
+        "bucket": "prc-2026-unique-rose",
+        "used_pairs": 344841,
+        "inputs": {
+          "test_set_bucket": "prc-2026-testsets",
+          "test_set_file": "truthing.parquet"
+        },
+        "score": 345.3113
+      },
+      "official_status": "Succeeded",
+      "score_checked_at": "2026-09-17T04:18:12+00:00"
+    },
+    {
+      "recipe": "rule_routing",
+      "role": "confirmation",
+      "version": 21,
+      "file": "unique-rose_v21.parquet",
+      "state": "uploaded",
+      "score": 342.4009,
+      "sha256": "484df1c9aefb7800d323e84b1773c8c6a124d057cd277986cfc27be36348a27b",
+      "rows": 344841,
+      "triggered_rows": 43,
+      "refit": {
+        "path": "refits/rule_routing.parquet",
+        "metadata": "refits/rule_routing.meta.json",
+        "recipe": "rule_routing",
+        "rows": 344841,
+        "artifacts": {
+          "refits/rule_routing.parquet": "8bc722c499d8656c8ece3b36f454a47343b5ea8b66d2ac829bf38bc7cfa779ce",
+          "refits/rule_routing.meta.json": "da4eeb93a6563296b1b2bea1c3a95140df2078d4154564f4ecd97c59b1b57f0c"
+        }
+      },
+      "model": {
+        "path": "models/refit_2025__rule_routing__42.txt",
+        "recipe": "rule_routing",
+        "seed": 42,
+        "job": "refit_2025",
+        "rows": 2084532,
+        "available_train_rows": 2084659,
+        "minutes": 0.8132775242333689,
+        "features": [
+          "airport",
+          "dest",
+          "aircraft_type",
+          "runway",
+          "stand",
+          "flight_rule",
+          "market_segment",
+          "flight_type",
+          "wake_cat",
+          "operator",
+          "hour",
+          "dow",
+          "month",
+          "mvt_minus_sched_sec",
+          "mvt_minus_lobt_sec",
+          "mvt_minus_iobt_sec",
+          "mvt_minus_eobt1_sec",
+          "mvt_minus_aobt3_sec",
+          "op_taxi_30d",
+          "op_taxi_30d_n",
+          "rwy_taxi_30d",
+          "stand_taxi_90d",
+          "aphour_taxi_30d",
+          "arr_taxiin_7d",
+          "dep_actual_30m_before",
+          "arr_actual_30m_before",
+          "dep_sched_60m_around"
+        ],
+        "params": {
+          "objective": "regression",
+          "metric": "rmse",
+          "learning_rate": 0.05,
+          "num_leaves": 255,
+          "min_data_in_leaf": 200,
+          "feature_fraction": 0.9,
+          "bagging_fraction": 0.8,
+          "bagging_freq": 1,
+          "verbosity": -1,
+          "seed": 42,
+          "bagging_seed": 43,
+          "feature_fraction_seed": 44,
+          "num_threads": 8
+        },
+        "categories": "models/refit_2025.categories.json",
+        "train_ids": "models/refit_2025__rule_routing.train_ids.parquet",
+        "completed_at": "2026-09-17T04:07:42+00:00",
+        "artifacts": {
+          "models/refit_2025__rule_routing__42.txt": "794cfcc8b2d717f42b07d47fcfab87349c5279aed0a31cf507f010c725c10a14",
+          "models/refit_2025__rule_routing__42.loss.json": "d7fda0cdedee304cf3f5d34b22a8d35ef3ffd9ed1496a06851d3d0c70fcbdd18",
+          "models/refit_2025__rule_routing.train_ids.parquet": "45900abc147bea585a7301a1877eb0257529b06e3d00388b2fa767f1837f1e86",
+          "models/refit_2025.categories.json": "441c1487df1747c8f4a20b3e0c18c951aa3e534e2e3dff384f2aff91073eb85d"
+        }
+      },
+      "upload_intents": [
+        "2026-09-17T04:12:03+00:00"
+      ],
+      "uploaded_at": "2026-09-17T04:12:05+00:00",
+      "remote_sha256": "484df1c9aefb7800d323e84b1773c8c6a124d057cd277986cfc27be36348a27b",
+      "verified_at": "2026-09-17T04:12:05+00:00",
+      "official_result": {
+        "status": "Succeeded",
+        "file": "unique-rose_v21.parquet",
+        "bucket": "prc-2026-unique-rose",
+        "used_pairs": 344841,
+        "inputs": {
+          "test_set_bucket": "prc-2026-testsets",
+          "test_set_file": "truthing.parquet"
+        },
+        "score": 342.4009
+      },
+      "official_status": "Succeeded",
+      "score_checked_at": "2026-09-17T04:18:13+00:00"
+    }
+  ],
+  "quota_checks": [
+    {
+      "at": "2026-09-17T04:11:50+00:00",
+      "existing_uploads_today": []
+    },
+    {
+      "at": "2026-09-17T04:11:53+00:00",
+      "existing_uploads_today": [
+        "unique-rose_v17.parquet"
+      ]
+    },
+    {
+      "at": "2026-09-17T04:11:56+00:00",
+      "existing_uploads_today": [
+        "unique-rose_v17.parquet",
+        "unique-rose_v18.parquet"
+      ]
+    },
+    {
+      "at": "2026-09-17T04:11:59+00:00",
+      "existing_uploads_today": [
+        "unique-rose_v17.parquet",
+        "unique-rose_v18.parquet",
+        "unique-rose_v19.parquet"
+      ]
+    },
+    {
+      "at": "2026-09-17T04:12:03+00:00",
+      "existing_uploads_today": [
+        "unique-rose_v17.parquet",
+        "unique-rose_v18.parquet",
+        "unique-rose_v19.parquet",
+        "unique-rose_v20.parquet"
+      ]
+    }
+  ],
+  "confirmation_seal_sha256": "837a815122e268a212f5efb2952c1902889c129cd492112bdec3f8e594fcaed2",
+  "confirmation_reveal_authorized_at": "2026-09-17T04:18:11+00:00"
+}

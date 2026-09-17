@@ -1,5 +1,13 @@
 # Reports
 
+- [September 17 overnight study: five successful submissions and held-out CV verdict](OVERNIGHT_SUMMARY_20260917.md).
+- [Held-out confirmation details](../runs/overnight_20260917/confirmation_report.md): selected R_A__mse change MAE 3.5178 s versus current 2.8367 s; retain the default and all folds.
+- [September 17 live status snapshot](overnight_20260917/status_after.json): 04:23:02 UTC, best v19 338.1113 s, latest v21 342.4009 s, rank 94/152 scoring teams. All five authorized slots were used; no extra uploads are authorized.
+- [Month-balanced aggregation proposal, unchanged default](AGGREGATION_COMPARISON.md).
+- [Validation optimism: population weights and extreme-error influence](VALIDATION_OPTIMISM.md).
+- [Original-fold alignment and removal checks; no folds dropped](FOLD_ALIGNMENT.md).
+- [January/July seasonal validation comparison](../runs/seasonal_jan_jul/comparison.md).
+- [September 16 five-candidate leaderboard results](LEADERBOARD_RESULTS.md).
 - [Stage 0: baseline and round-count verdict](STAGE0.md).
 - [Stage 1: recovery experiments](STAGE1.md).
 - [Stage 2: fixed Rome six-hour rule, gains and damaging overrides](STAGE2.md).

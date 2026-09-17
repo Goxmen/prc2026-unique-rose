@@ -1,0 +1,782 @@
+{
+  "protocol": "overnight-cv-study-v1",
+  "signature": {
+    "protocol": "overnight-cv-study-v1",
+    "jobs": [
+      {
+        "id": "v3_2025-06",
+        "scheme": "v3",
+        "train": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06"
+        ],
+        "start": "2025-01-01",
+        "end": "2025-06-30",
+        "freeze": "2025-06-30",
+        "evals": [
+          {
+            "fold": "A1",
+            "month": "2025-07",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B1",
+            "month": "2025-09",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B2",
+            "month": "2025-10",
+            "role": "B",
+            "gap": 4
+          },
+          {
+            "fold": "B3",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 5
+          },
+          {
+            "fold": "B4",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 6
+          }
+        ]
+      },
+      {
+        "id": "v3_2025-07",
+        "scheme": "v3",
+        "train": [
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07"
+        ],
+        "start": "2025-02-01",
+        "end": "2025-07-31",
+        "freeze": "2025-07-31",
+        "evals": [
+          {
+            "fold": "A2",
+            "month": "2025-08",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B5",
+            "month": "2025-10",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B6",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 4
+          },
+          {
+            "fold": "B7",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 5
+          }
+        ]
+      },
+      {
+        "id": "v3_2025-08",
+        "scheme": "v3",
+        "train": [
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08"
+        ],
+        "start": "2025-03-01",
+        "end": "2025-08-31",
+        "freeze": "2025-08-31",
+        "evals": [
+          {
+            "fold": "A3",
+            "month": "2025-09",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B8",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B9",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 4
+          }
+        ]
+      },
+      {
+        "id": "v3_2025-09",
+        "scheme": "v3",
+        "train": [
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09"
+        ],
+        "start": "2025-04-01",
+        "end": "2025-09-30",
+        "freeze": "2025-09-30",
+        "evals": [
+          {
+            "fold": "A4",
+            "month": "2025-10",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B10",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 3
+          }
+        ]
+      },
+      {
+        "id": "v3_2025-10",
+        "scheme": "v3",
+        "train": [
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10"
+        ],
+        "start": "2025-05-01",
+        "end": "2025-10-31",
+        "freeze": "2025-10-31",
+        "evals": [
+          {
+            "fold": "A5",
+            "month": "2025-11",
+            "role": "A",
+            "gap": 1
+          }
+        ]
+      },
+      {
+        "id": "v3_2025-11",
+        "scheme": "v3",
+        "train": [
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11"
+        ],
+        "start": "2025-06-01",
+        "end": "2025-11-30",
+        "freeze": "2025-11-30",
+        "evals": [
+          {
+            "fold": "A6",
+            "month": "2025-12",
+            "role": "A",
+            "gap": 1
+          }
+        ]
+      },
+      {
+        "id": "10m",
+        "scheme": "10m",
+        "train": [
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ],
+        "start": "2025-02-01",
+        "end": "2025-12-31",
+        "freeze": "2025-12-31",
+        "evals": [
+          {
+            "fold": "10m_2025-01",
+            "month": "2025-01",
+            "role": "retrospective",
+            "gap": null
+          },
+          {
+            "fold": "10m_2025-07",
+            "month": "2025-07",
+            "role": "retrospective",
+            "gap": null
+          }
+        ]
+      },
+      {
+        "id": "11m_2025-01",
+        "scheme": "11m",
+        "train": [
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ],
+        "start": "2025-02-01",
+        "end": "2025-12-31",
+        "freeze": "2025-12-31",
+        "evals": [
+          {
+            "fold": "11m_2025-01_2025-01",
+            "month": "2025-01",
+            "role": "retrospective",
+            "gap": null
+          }
+        ]
+      },
+      {
+        "id": "11m_2025-07",
+        "scheme": "11m",
+        "train": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ],
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "freeze": "2025-12-31",
+        "evals": [
+          {
+            "fold": "11m_2025-07_2025-07",
+            "month": "2025-07",
+            "role": "retrospective",
+            "gap": null
+          }
+        ]
+      }
+    ],
+    "config": {
+      "recovery": "off",
+      "target_mode": "direct",
+      "model_mode": "single",
+      "clock_features": true,
+      "fpl_flag": false,
+      "max_taxi_sec": 200000,
+      "lag_train_days": 0,
+      "rounds": 5,
+      "early_stopping_rounds": 0,
+      "threads": 8,
+      "prediction_threads": 8,
+      "fit_workers": 1,
+      "prediction_rule": "rome_4h",
+      "seeds": [
+        42
+      ],
+      "params": {
+        "objective": "regression",
+        "metric": "rmse",
+        "learning_rate": 0.05,
+        "num_leaves": 255,
+        "min_data_in_leaf": 200,
+        "feature_fraction": 0.9,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "verbosity": -1
+      },
+      "recipes": [
+        "control",
+        "no_month",
+        "no_history",
+        "clock_features",
+        "small_trees",
+        "rule_routing"
+      ],
+      "sample": 0.01,
+      "smoke": true
+    },
+    "source": {
+      "VALIDATION/features_time.py": "94f1273ae3edc32e2799e6bb1ebcc819c0a18bf8a61dcda444514d643f944c2c",
+      "VALIDATION/modeling.py": "777b2d45fd97565dc83ecabce248734bfb811fbadce5616d8959cad03016c43b",
+      "VALIDATION/movement_data.py": "2a0a97392e4ba6fd1a3ff64a8165700ae6b4ea466cffe80c3cfa9e92290c79cf",
+      "VALIDATION/overnight_models.py": "79633c2479438729f145bfa5e3e5d99d70e50a7fca12780b71790a92d4f183a3",
+      "VALIDATION/overnight_run.py": "7ab27f85dac47ba54bfc85e4f326673f4f789a9093350d092e638c12c308916b",
+      "VALIDATION/protocol.py": "d459495795bb04451e887b3cdfe9714faa2d72f657331842886321b10a8b68ae",
+      "VALIDATION/records.py": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056",
+      "VALIDATION/seasonal.py": "22924a7b25edaa7db07bd0340d8af1a6421bfd0a49ab04c43e8250e05be4fec4",
+      "pipeline/clock_features.py": "81a4b328f2d879540c9e538297f538461f27678e593441f8b37fe83d383de9ae",
+      "pipeline/common.py": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4",
+      "pipeline/prediction_rules.py": "62613801875506dcc7f4078e0e136398b6694ee8b1eb0398e9a05612c7b4e560",
+      "pipeline/recovery.py": "0b553a792daccf3af732b1071e5c4e2ac06b12e29ae806c84ff5754e8b13cf0f",
+      "pipeline/recovery_history.py": "8130aaa782963055cd1d654e629a0a9e90e5885a9c635ae6aceb8e059946b358",
+      "pipeline/recovery_relaxed.py": "5bc898670077de5045bc5fd41e35cd81a6dd34609c4af509c725506eb2e59836",
+      "pipeline/registered_rules.py": "5bc8da8c9ce29fa83dddeb76093d82ebfeab8e48b62ef9dc1c31d5f5d288d163",
+      "pipeline/timestamp_mixture.py": "e3750eaf7cac3a4f314b976dde598f82f5b52eab80e80409cc81b7e3767daa9b"
+    },
+    "data_identity": [
+      {
+        "file": "ranking.parquet",
+        "bytes": 43564605,
+        "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+      },
+      {
+        "file": "training_2025-01-01_2025-02-01.parquet",
+        "bytes": 21218481,
+        "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+      },
+      {
+        "file": "training_2025-02-01_2025-03-01.parquet",
+        "bytes": 19824510,
+        "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+      },
+      {
+        "file": "training_2025-03-01_2025-04-01.parquet",
+        "bytes": 22606072,
+        "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+      },
+      {
+        "file": "training_2025-04-01_2025-05-01.parquet",
+        "bytes": 23840340,
+        "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+      },
+      {
+        "file": "training_2025-05-01_2025-06-01.parquet",
+        "bytes": 25187756,
+        "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+      },
+      {
+        "file": "training_2025-06-01_2025-07-01.parquet",
+        "bytes": 24991697,
+        "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+      },
+      {
+        "file": "training_2025-07-01_2025-08-01.parquet",
+        "bytes": 26014977,
+        "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+      },
+      {
+        "file": "training_2025-08-01_2025-09-01.parquet",
+        "bytes": 25969246,
+        "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+      },
+      {
+        "file": "training_2025-09-01_2025-10-01.parquet",
+        "bytes": 25102673,
+        "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+      },
+      {
+        "file": "training_2025-10-01_2025-11-01.parquet",
+        "bytes": 25392098,
+        "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+      },
+      {
+        "file": "training_2025-11-01_2025-12-01.parquet",
+        "bytes": 22173840,
+        "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+      },
+      {
+        "file": "training_2025-12-01_2026-01-01.parquet",
+        "bytes": 22653598,
+        "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+      }
+    ],
+    "runtime": {
+      "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+      "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.3",
+      "logical_cpus": 16,
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "versions": {
+        "duckdb": "1.5.5",
+        "lightgbm": "4.7.0",
+        "numpy": "2.5.2",
+        "pandas": "3.0.5"
+      }
+    },
+    "imported_control": null
+  },
+  "config": {
+    "recovery": "off",
+    "target_mode": "direct",
+    "model_mode": "single",
+    "clock_features": true,
+    "fpl_flag": false,
+    "max_taxi_sec": 200000,
+    "lag_train_days": 0,
+    "rounds": 5,
+    "early_stopping_rounds": 0,
+    "threads": 8,
+    "prediction_threads": 8,
+    "fit_workers": 1,
+    "prediction_rule": "rome_4h",
+    "seeds": [
+      42
+    ],
+    "params": {
+      "objective": "regression",
+      "metric": "rmse",
+      "learning_rate": 0.05,
+      "num_leaves": 255,
+      "min_data_in_leaf": 200,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1
+    },
+    "recipes": [
+      "control",
+      "no_month",
+      "no_history",
+      "clock_features",
+      "small_trees",
+      "rule_routing"
+    ],
+    "sample": 0.01,
+    "smoke": true
+  },
+  "jobs": [
+    {
+      "id": "v3_2025-06",
+      "scheme": "v3",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "start": "2025-01-01",
+      "end": "2025-06-30",
+      "freeze": "2025-06-30",
+      "evals": [
+        {
+          "fold": "A1",
+          "month": "2025-07",
+          "role": "A",
+          "gap": 1
+        },
+        {
+          "fold": "B1",
+          "month": "2025-09",
+          "role": "B",
+          "gap": 3
+        },
+        {
+          "fold": "B2",
+          "month": "2025-10",
+          "role": "B",
+          "gap": 4
+        },
+        {
+          "fold": "B3",
+          "month": "2025-11",
+          "role": "B",
+          "gap": 5
+        },
+        {
+          "fold": "B4",
+          "month": "2025-12",
+          "role": "B",
+          "gap": 6
+        }
+      ]
+    },
+    {
+      "id": "v3_2025-07",
+      "scheme": "v3",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "start": "2025-02-01",
+      "end": "2025-07-31",
+      "freeze": "2025-07-31",
+      "evals": [
+        {
+          "fold": "A2",
+          "month": "2025-08",
+          "role": "A",
+          "gap": 1
+        },
+        {
+          "fold": "B5",
+          "month": "2025-10",
+          "role": "B",
+          "gap": 3
+        },
+        {
+          "fold": "B6",
+          "month": "2025-11",
+          "role": "B",
+          "gap": 4
+        },
+        {
+          "fold": "B7",
+          "month": "2025-12",
+          "role": "B",
+          "gap": 5
+        }
+      ]
+    },
+    {
+      "id": "v3_2025-08",
+      "scheme": "v3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "start": "2025-03-01",
+      "end": "2025-08-31",
+      "freeze": "2025-08-31",
+      "evals": [
+        {
+          "fold": "A3",
+          "month": "2025-09",
+          "role": "A",
+          "gap": 1
+        },
+        {
+          "fold": "B8",
+          "month": "2025-11",
+          "role": "B",
+          "gap": 3
+        },
+        {
+          "fold": "B9",
+          "month": "2025-12",
+          "role": "B",
+          "gap": 4
+        }
+      ]
+    },
+    {
+      "id": "v3_2025-09",
+      "scheme": "v3",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "start": "2025-04-01",
+      "end": "2025-09-30",
+      "freeze": "2025-09-30",
+      "evals": [
+        {
+          "fold": "A4",
+          "month": "2025-10",
+          "role": "A",
+          "gap": 1
+        },
+        {
+          "fold": "B10",
+          "month": "2025-12",
+          "role": "B",
+          "gap": 3
+        }
+      ]
+    },
+    {
+      "id": "v3_2025-10",
+      "scheme": "v3",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "start": "2025-05-01",
+      "end": "2025-10-31",
+      "freeze": "2025-10-31",
+      "evals": [
+        {
+          "fold": "A5",
+          "month": "2025-11",
+          "role": "A",
+          "gap": 1
+        }
+      ]
+    },
+    {
+      "id": "v3_2025-11",
+      "scheme": "v3",
+      "train": [
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "start": "2025-06-01",
+      "end": "2025-11-30",
+      "freeze": "2025-11-30",
+      "evals": [
+        {
+          "fold": "A6",
+          "month": "2025-12",
+          "role": "A",
+          "gap": 1
+        }
+      ]
+    },
+    {
+      "id": "10m",
+      "scheme": "10m",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "start": "2025-02-01",
+      "end": "2025-12-31",
+      "freeze": "2025-12-31",
+      "evals": [
+        {
+          "fold": "10m_2025-01",
+          "month": "2025-01",
+          "role": "retrospective",
+          "gap": null
+        },
+        {
+          "fold": "10m_2025-07",
+          "month": "2025-07",
+          "role": "retrospective",
+          "gap": null
+        }
+      ]
+    },
+    {
+      "id": "11m_2025-01",
+      "scheme": "11m",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "start": "2025-02-01",
+      "end": "2025-12-31",
+      "freeze": "2025-12-31",
+      "evals": [
+        {
+          "fold": "11m_2025-01_2025-01",
+          "month": "2025-01",
+          "role": "retrospective",
+          "gap": null
+        }
+      ]
+    },
+    {
+      "id": "11m_2025-07",
+      "scheme": "11m",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "freeze": "2025-12-31",
+      "evals": [
+        {
+          "fold": "11m_2025-07_2025-07",
+          "month": "2025-07",
+          "role": "retrospective",
+          "gap": null
+        }
+      ]
+    }
+  ],
+  "status": "execution_check_only",
+  "refit_status": {},
+  "started_at": "2026-09-17T01:54:07+00:00",
+  "updated_at": "2026-09-17T01:54:23+00:00"
+}
