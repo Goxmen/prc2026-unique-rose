@@ -27,3 +27,22 @@ VALIDATION/**/runs/v3_*/progress.json
 VALIDATION/**/runs/v3_*/models/
 VALIDATION/**/runs/v3_*/continuations/*/source/
 VALIDATION/**/runs/v3_*/continuations/*/source.patch
+
+# Seasonal validation keeps models, predictions and implementation copies local.
+VALIDATION/runs/seasonal_*/source/
+VALIDATION/runs/seasonal_*/models/
+VALIDATION/runs/seasonal_*/progress.json
+VALIDATION/runs/seasonal_*/.lock
+VALIDATION/runs/seasonal_*/*.parquet.tmp
+VALIDATION/runs/seasonal_*/progress.json.tmp
+
+# Overnight study retains large artifacts locally and tracks concise evidence.
+VALIDATION/runs/overnight_*/source/
+VALIDATION/runs/overnight_*/models/
+VALIDATION/runs/overnight_*/predictions/
+VALIDATION/runs/overnight_*/refits/
+VALIDATION/runs/overnight_*/logs/
+VALIDATION/runs/overnight_*/progress.json
+VALIDATION/runs/overnight_*/progress.json.tmp
+VALIDATION/runs/overnight_*/.lock
+VALIDATION/runs/overnight_*/*.parquet.tmp

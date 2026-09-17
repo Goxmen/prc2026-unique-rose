@@ -3,8 +3,25 @@
 The everyday commands remain at the top level of `VALIDATION/`. Run these
 helpers from the repository root:
 
+The [September 17 overnight study](../reports/OVERNIGHT_SUMMARY_20260917.md)
+is complete: v17–v21 all succeeded, v19 is best at 338.1113 s, and the proposed
+CV alternative failed held-out confirmation. Keep the current default/folds;
+further varied confirmation is needed. All five authorized slots are consumed.
+Its top-level modules are listed here for discovery; do not rerun completed fits
+or uploads, and do not treat this index as authorization for another batch.
+
+| Study module (under `VALIDATION/`) | Use | Trains / uploads? |
+|---|---|---|
+| `overnight_run.py` | Resumable original/seasonal validation and full-year refits; preserves completed artifacts | Local fits only |
+| `overnight_models.py` | Fixed control and five feature/capacity/routing interventions | Imported fitting adapter |
+| `overnight_analysis.py` | Saved CV scorecards, immutable selection and held-out comparison | Neither |
+| `overnight_submit.py` | Prepare artifacts, explicitly upload the fixed queue, reveal discovery/confirmation scores separately | Only explicit `upload` writes remotely |
+
 | Tool | Use | Trains / uploads? |
 |---|---|---|
+| `compare_aggregations.py` | Compare fixed month/flight-balanced overview scores using all original folds and saved results | Neither |
+| `analyze_validation_optimism.py` | Diagnose population weights, January error concentration and observable 2026 shifts using saved predictions | Neither |
+| `analyze_fold_alignment.py` | Compare original folds, seed stability and exploratory reductions against the five recorded LB scores; export tables and charts | Neither |
 | `audit.py` | Check dataset availability, duplicates and target shape | Neither |
 | `summarize_baseline.py --run <id>` | Plot training loss and compare saved round checkpoints | Neither |
 | `benchmark_cpu.py --output <json>` | Measure local thread throughput and prediction equivalence | Local probe fits only |

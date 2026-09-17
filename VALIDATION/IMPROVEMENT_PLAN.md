@@ -3,7 +3,103 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — leaderboard checks complete; Q0-4h best observed
+## Resume here — overnight submissions and held-out CV confirmation complete
+
+The user-authorized 2026-09-17 overnight investigation is complete. Start with
+the [final summary](reports/OVERNIGHT_SUMMARY_20260917.md) and
+[held-out confirmation](runs/overnight_20260917/confirmation_report.md).
+
+| Candidate | Submission | Official RMSE | Study role |
+|---|---|---:|---|
+| Remove calendar month | v17 | 345.8984 | Discovery |
+| Remove departure-target history | v18 | 342.5049 | Discovery |
+| Explicit clock features, direct target | v19 | **338.1113** | Discovery |
+| Smaller trees, 63 leaves | v20 | 345.3113 | Confirmation |
+| Exclude rule-handled rows from booster training | v21 | 342.4009 | Confirmation |
+
+All five retain recovery off, 800 rounds and the same four-hour Rome rule.
+Every validation row remains scored; routing changes only booster fitting.
+**v19 is the best observed submission**, improving the unchanged Q0-4h/v15
+study anchor by **6.2001 s**. Latest is v21. The live snapshot at
+**2026-09-17 04:23:02 UTC** records rank **94/152** scoring teams, 416 registered;
+see [saved status](reports/overnight_20260917/status_after.json).
+
+CV selection compared 20 frozen forecast policies over 10 readouts, using the
+earlier five submissions and three new discovery scores. The last two official
+scores remained unread until the selection and forecasts were frozen.
+**R_A__mse**, next-month MSE-difference transport, won discovery selection but
+**failed confirmation**: held-out change MAE **3.5178 s**, versus **2.8367 s**
+for existing R_combined. **Keep the default CV and all folds.** Modelling
+improved, but these results do not establish a reliably better validation.
+Further progress needs more varied future candidates with another untouched
+confirmation batch; do not select a replacement from the now-revealed results.
+
+Execution completed **153 new CV fits + 9 reused fits**, **360 prediction files**,
+**6 full-year refits** (control plus five candidates), all five uploads and
+**101 passing tests**. Preserve `runs/overnight_20260917/`, its source/data
+signatures, submission manifest and immutable `cv_selection_frozen.json`.
+The [original design](docs/OVERNIGHT_STUDY_20260917.md) and its amendment remain
+frozen. Current machine: **7800X3D desktop; eight training/prediction threads,
+one fit at a time**. Do not rerun completed work. All five authorized daily slots
+were used; **additional submissions and automatic reset retries are not authorized**.
+No notebook files were changed.
+
+### Earlier validation investigations — historical context
+
+An earlier user request concerned **aggregation**, independently of removing
+folds. A proposed [month-balanced overview](reports/AGGREGATION_COMPARISON.md)
+keeps all 16 folds and assigns each validation month 1/6 of the final MSE after
+averaging its training origins. Its saved-run level/change errors are 49.41/7.13 s
+versus 70.73/7.19 for the old combined number, with 3/3 material directions in
+both. Recovery alignment worsens, and long-gap influence decreases, so R_A,
+R_B_long and matched-month aging must remain separate checks. The default harness
+and historical readouts are unchanged; this is a concrete proposed summary,
+with fixed structural sensitivities, not a fitted LB calibration or selected
+fold subset. See the report for all weights, seed checks and recipe scores.
+
+The user clarified the decision criterion: identify demonstrably harmful folds,
+not the subset that happens to match the five LB scores best. The session
+conclusion is to **retain the current validation**: seasonal validation is not
+clearly better overall, and no fold has a compelling removal case.
+
+The subsequent [optimism diagnosis](reports/VALIDATION_OPTIMISM.md) is complete.
+It finds a concrete evaluated-population mismatch (69.17% autumn weight, limited
+July/no January coverage, and fewer raw missing-AOBT3 rows than ranking). Same-
+July seasonal fitting improves scores, while two expensive January LFPG outcomes
+make seasonal absolute levels highly unstable. No scoring bug or complete causal
+explanation of the hidden 2026 errors was established. All folds/rows remain,
+no refits/uploads ran, and no offset/reweighting is selected. A saved-model
+context ablation is a possible separately scoped follow-up, not started work.
+
+On 2026-09-17 the user requested two new validation splits for the five existing
+submission recipes, comparing absolute scores and meaningful change directions
+with their recorded LB scores: ten-month training excluding January/July, and
+two eleven-month fits holding out each month separately. The runner, explicit
+history/source policy, reports and commands are in
+[SEASONAL_VALIDATION.md](docs/SEASONAL_VALIDATION.md). The user's full run completed
+18 fits at three seeds; [results](runs/seasonal_jan_jul/comparison.md) show closer
+absolute scores but worse change-size alignment than v3. No new strategy was
+selected. Work is on `seasonal-validation`,
+based on the completed leaderboard branch, with no notebook changes or uploads.
+At that point, the seasonal comparison preceded the proposed training-routing
+work. Routing has since been tested in the overnight study above.
+
+The user then requested original-fold alignment and possible pruning. The
+[fold analysis](reports/FOLD_ALIGNMENT.md) is complete, with all 16 fold scores,
+seed readouts, leave-one-fold/month checks and explicit exploratory subsets.
+Only nine folds contribute to the combined headline; November/December receive
+69.17% of its effective squared-error weight. A-only improves mean score/change
+errors to 50.05/6.46 s (combined: 70.73/7.19), but loses some of the combined
+score's accurate cancellation of recovery effects. August+September tracks
+changes at 2.65 s mean error; July–September matches levels at 17.52 s mean error
+but overstates improvements. None is an independently confirmed replacement.
+The original prediction parquets are missing on this machine; saved aggregates
+reconstruct scores exactly, but cannot supply new paired day-bootstrap intervals.
+No training, uploads, fold-definition changes or automatic pruning occurred.
+The subsequent user clarification and final no-pruning decision are recorded
+at the top of this resume section; the exploratory subsets were not selected.
+
+### September 16 leaderboard checks — Q0-4h best in that batch
 
 **All five selected submissions succeeded on 2026-09-16.** On branch
 `leaderboard-five-candidates`, based on Stage 4: B0-800/v12 **406.4281**,
@@ -18,10 +114,10 @@ The [execution note](docs/LEADERBOARD_EXECUTION.md) and
 [manifest](reports/leaderboard_selected_20260916.json) preserve exact recipes
 and artifacts. Two full-year fits took 2.067/4.461 minutes; four-hour recipes
 were registered from saved predictions with no CV refits. All 56 tests passed.
-The daily five-slot allowance is consumed. Keep Q0 as the six-hour control
-and Q0-4h as the best observed submission. Next: discuss the user's proposed
-training-routing experiment; no new exclusion/correction model or extra
-submission is authorized automatically.
+That day's five-slot allowance was consumed. Q0 remains the six-hour control,
+and Q0-4h remains the frozen reference for the subsequent overnight study.
+Training routing was proposed here and has now been tested as v21; learned
+rule corrections remain untested. No extra submission is authorized automatically.
 
 ### Completed modelling stages and selection history
 
@@ -76,7 +172,8 @@ are recorded together. The user's future sequence is also recorded below:
 check selected candidates on the leaderboard, then, if gains transfer, discuss
 excluding rule-handled rows from model training and later correcting the rule
 with a model. The selected submissions are complete above; training exclusions
-and rule correction remain proposals for discussion.
+were proposals at this stage. Training routing was subsequently completed in
+the overnight study; learned rule correction remains a proposal.
 
 | Experiment | Artifact / state |
 |---|---|
@@ -114,7 +211,7 @@ three candidates, following the Stage 0 checkpoint verdict. The historical
 new identity. Data hashes match Stage 0; its scores differ from the historical
 checkpoint by less than 0.03 s. Do not relabel the original 1,500-round B0.
 
-**Current machine:** i7-13650HX laptop under WSL, 20 exposed logical CPUs and
+**Historical Stage 1–4 machine:** i7-13650HX laptop under WSL, 20 exposed logical CPUs and
 about 11.5 GiB RAM. Use **one fit worker, six training threads, 20 prediction
 threads**, based on [local measurements](reports/STAGE1_CPU.md). Do not transfer
 the old 7800X3D desktop setting automatically. Overlapping a full-data audit

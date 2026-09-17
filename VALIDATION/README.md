@@ -1,5 +1,39 @@
 # Validation
 
+The [overnight study is complete](reports/OVERNIGHT_SUMMARY_20260917.md): all five
+new submissions succeeded. **Explicit clock features/v19 is best at 338.1113 s**;
+latest is routing/v21 at 342.4009 s. The September 17 04:23:02 UTC snapshot
+records rank 94/152 scoring teams. The selected CV alternative, **R_A__mse**,
+failed its two-candidate confirmation (change MAE 3.5178 s versus the current
+score's 2.8367 s). **Keep the default validation and all folds.** More varied
+future confirmation is needed. All five authorized slots are used; completed
+fits/uploads must not be repeated and no additional uploads are authorized.
+
+The study completed 153 new CV fits, reused nine, saved 360 prediction files,
+and ran six full-year refits. All 101 tests passed. Its run directory is
+[`runs/overnight_20260917/`](runs/overnight_20260917/), including the sealed
+[confirmation report](runs/overnight_20260917/confirmation_report.md).
+The investigations below are earlier context; their historical recipes and
+results remain unchanged.
+
+The [month-balanced aggregation proposal](reports/AGGREGATION_COMPARISON.md)
+keeps all 16 folds while giving July–December equal total weight. It has been
+computed from saved runs; the default harness is unchanged.
+
+The [optimism diagnosis](reports/VALIDATION_OPTIMISM.md) explains the original
+versus seasonal score gap through population weights and rare-error influence.
+Current decision: retain the existing validation; no fold removal or seasonal
+replacement has enough evidence. No row exclusions or score correction were made.
+
+The requested [original-fold alignment analysis](reports/FOLD_ALIGNMENT.md) is
+complete: it compares all folds and possible reductions against the five recorded
+LB references. No folds have been removed. Reproduce it without fitting using
+`tools/analyze_fold_alignment.py`.
+
+The [January/July seasonal comparison](docs/SEASONAL_VALIDATION.md) is also complete:
+[results](runs/seasonal_jan_jul/comparison.md) show closer absolute scores, but
+worse alignment in change sizes than v3. No replacement protocol is selected.
+
 Start with the [improvement plan](IMPROVEMENT_PLAN.md) and
 [Stage 4 results](reports/STAGE4.md). **Stages 1–4 are complete. M1 regresses;
 keep Q0 as the conservative control.** The [frozen mixture recipe](docs/TIMESTAMP_MIXTURE.md)
@@ -22,6 +56,10 @@ comparison explicit when continuing.
 | Location | Purpose |
 |---|---|
 | [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) | Current decisions, next step, experiment ledger and handoff |
+| [reports/OVERNIGHT_SUMMARY_20260917.md](reports/OVERNIGHT_SUMMARY_20260917.md) | Five new submissions, held-out CV verdict, current best and remaining evidence gap |
+| [docs/OVERNIGHT_STUDY_20260917.md](docs/OVERNIGHT_STUDY_20260917.md) | Frozen overnight candidate design and discovery/confirmation split |
+| `overnight_run.py`, `overnight_models.py` | Resumable study fits/refits and fixed model interventions; completed run is retained |
+| `overnight_analysis.py`, `overnight_submit.py` | CV scorecards, immutable selection, conditional uploads and separately revealed official scores |
 | [docs/PROTOCOL.md](docs/PROTOCOL.md) | Current v3 folds, availability rules and scoring |
 | [docs/OPERATIONS.md](docs/OPERATIONS.md) | Detailed commands, configuration and result formats |
 | [reports/](reports/README.md) | Stage summaries, CPU measurements and submission-sweep records |
@@ -46,7 +84,7 @@ Run these from the repository root with `.venv/bin/python`:
 
 # Train/evaluate a configuration; use the round count agreed in the plan.
 .venv/bin/python VALIDATION/harness.py --label <experiment> --rounds <rounds> \
-  --threads 6 --prediction-threads 20 --fit-workers 1
+  --threads 8 --prediction-threads 8 --fit-workers 1
 
 # Compare existing results without training.
 .venv/bin/python VALIDATION/compare.py --run <candidate> --baseline <reference>
@@ -55,7 +93,7 @@ Run these from the repository root with `.venv/bin/python`:
 .venv/bin/python VALIDATION/postprocess.py --parent <run> --label <rule-experiment>
 
 # Continue an interrupted run, preserving completed fits and folds.
-.venv/bin/python VALIDATION/resume_run.py --run <id> --threads 6 --fit-workers 1
+.venv/bin/python VALIDATION/resume_run.py --run <id> --threads 8 --fit-workers 1
 
 # Full-year refit for a selected, validated recipe, when submissions resume.
 .venv/bin/python VALIDATION/submit.py --version <N> --run-id <id>
@@ -63,9 +101,10 @@ Run these from the repository root with `.venv/bin/python`:
 
 `submit.py` writes a submission locally; upload is a separate step. The optional
 [threshold-sweep tool](tools/README.md) trains and uploads automatically.
-Full-year refits and uploads remain deferred during the improvement experiments.
-The thread settings above are measured for the current i7-13650HX laptop;
-benchmark another machine before carrying them over. See [the CPU report](reports/STAGE1_CPU.md).
+The September 16 and September 17 authorized refits/uploads are complete;
+additional uploads require a new user instruction. The settings above apply
+to the current 7800X3D desktop. The [Stage 1 CPU report](reports/STAGE1_CPU.md)
+records the separate historical laptop settings; do not mix the two machines.
 
 ## Saved results
 

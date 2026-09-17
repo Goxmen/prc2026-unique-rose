@@ -51,6 +51,90 @@ but identify the result as stale and report its timestamp.
 
 ## Current improvement work — handoff
 
+- **The overnight five-submission study is complete.** Read the final
+  [summary](VALIDATION/reports/OVERNIGHT_SUMMARY_20260917.md), then
+  `VALIDATION/runs/overnight_20260917/confirmation_report.md`. All five succeeded:
+  no_month/v17 **345.8984**, no_history/v18 **342.5049**, clock_features/v19
+  **338.1113**, small_trees/v20 **345.3113**, rule_routing/v21 **342.4009**.
+  All retain recovery off, 800 rounds and the fixed four-hour rule. Best observed
+  is now **v19**, 6.2001 s better than the frozen Q0-4h/v15 study anchor; latest
+  is v21. Live snapshot **2026-09-17 04:23:02 UTC**: rank **94/152** scoring teams,
+  416 registered; saved in `VALIDATION/reports/overnight_20260917/status_after.json`.
+  The first three candidates informed CV selection; the last two official scores
+  stayed unread until `cv_selection_frozen.json` was written and sealed.
+  Selected **R_A__mse** (next-month MSE-difference transport) **failed confirmation**:
+  held-out change MAE **3.5178 s**, versus current R_combined's **2.8367 s**.
+  There is meaningful modelling progress, but no reliably better CV established;
+  **keep the current default and every fold**. More varied future confirmation
+  is needed. Other readouts after reveal are descriptive, not new winners.
+  Completed work: **153 new CV fits + 9 reused**, **360 prediction files**,
+  **6 full-year refits** (five candidates plus control), **101 tests passed**.
+  Run root `VALIDATION/runs/overnight_20260917/` retains signatures, models,
+  predictions, upload manifest and sealed analysis. Designs are frozen in
+  `VALIDATION/docs/OVERNIGHT_STUDY_20260917.md` and its `AMENDMENT1` sibling;
+  do not rewrite them or repeat completed fits/uploads. Current hardware is the
+  7800X3D desktop, using eight training/prediction threads and one fit at a time.
+  All five authorized 2026-09-17 slots were used. **No further submission or
+  automatic quota-reset retry is authorized.** Notebook files were untouched.
+
+### Earlier work — historical context
+
+The notes below describe earlier decisions and machine-specific runs. Their
+then-current best submission, pending routing proposal and upload deferrals are
+superseded by the completed overnight handoff above; historical recipes stay fixed.
+
+- **A month-balanced overview is proposed, not installed as the default.** See
+  `VALIDATION/reports/AGGREGATION_COMPARISON.md`, reproducible with
+  `VALIDATION/tools/compare_aggregations.py`. All 16 folds remain: average seed
+  and training-origin squared errors within month, then give July–December 1/6
+  each. Saved-run LB level/change errors are 49.41/7.13 s versus old combined
+  70.73/7.19; material direction agreement stays 3/3. Recovery-change error
+  worsens from 0.47 to 3.47 s. The proposal keeps R_A, R_B_long and matched-month
+  aging diagnostics separate: balanced months reduce k>=5 weight to 10.83%.
+  Weights follow the roster and were not fitted to LB. No refits, fold removals,
+  historical-score changes or default-harness changes were made.
+
+- **Validation optimism diagnosis is complete.** Read
+  `VALIDATION/reports/VALIDATION_OPTIMISM.md`; reproduce with
+  `VALIDATION/tools/analyze_validation_optimism.py` (saved errors and observable
+  counts only). v3's month mix emphasizes easier autumn populations; its weighted
+  missing-AOBT3 fraction is 1.070% versus ranking's 1.534%. Seasonal Q0-4h July
+  improves on the same original July flights, so worse fitting is not the reason
+  seasonal scores rise. Two January LFPG errors supply 51.2% of January and
+  20.6% of combined seasonal MSE; influence-only removal flips the bias sign.
+  All rows/folds remain scored. Hidden 2026 labels prevent complete attribution;
+  missing-clock reweighting alone worsens seasonal level alignment. No new model
+  or validation change was selected. The user clarified that the earlier fold
+  task sought defensible removal of harmful folds, not favorable-subset selection:
+  **neither seasonal replacement nor fold removal is justified so far**.
+
+- **Original-fold alignment analysis is complete; no folds were dropped.** See
+  `VALIDATION/reports/FOLD_ALIGNMENT.md` and the reproducible
+  `VALIDATION/tools/analyze_fold_alignment.py`. The combined headline uses only
+  A1–A6/B3/B4/B7; November/December contribute 69.17% of its squared-error weight.
+  A-only has level/change errors 50.05/6.46 s versus combined 70.73/7.19 s.
+  Exploratory A2+A3 tracks changes at 2.65 s error, but recovery-change error is
+  2.76 s versus the current combined score's 0.47 s. A1–A3 is closest in score
+  levels (17.52 s), with worse change error (9.79 s). Threshold evidence is sparse;
+  retain winter coverage and confirm any proposed reduction on later candidates.
+  Original prediction parquets are absent here: aggregate reconstruction and
+  seed checks are exact, but no new day-bootstrap intervals were computed.
+
+- **Seasonal validation comparison is complete on `seasonal-validation`.** The
+  user requested two retrospective splits for the five scored submissions:
+  ten months excluding January/July, and two separate eleven-month fits.
+  Read `VALIDATION/docs/SEASONAL_VALIDATION.md` for the explicit December-history
+  policy, original recipe/source checks, commands and LB alignment outputs.
+  `VALIDATION/seasonal.py` completed 18 fits at three seeds, reusing model
+  predictions for rules. Full results are in `VALIDATION/runs/seasonal_jan_jul/`.
+  Ten/eleven-month mean absolute LB gaps are 36.21/35.73 s (pessimistic), versus
+  v3's 70.73 s (optimistic), but change errors worsen to 12.45/10.50 from 7.19 s.
+  All three match 3/3 material directions; no validation replacement is selected.
+  No uploads are part of it; do not rerun these completed fits.
+  This machine is the 7800X3D desktop: use its recorded eight-thread setting,
+  not the laptop hardware assumptions below. Completed earlier stages remain
+  complete; the seasonal comparison precedes the proposed training-routing work.
+
 - **The five selected leaderboard checks are complete.** The user authorized
   refits/uploads on 2026-09-16; work is on `leaderboard-five-candidates`, based
   on Stage 4. All five succeeded: B0-800/v12 **406.4281**, Q0/v13 **354.4303**,
