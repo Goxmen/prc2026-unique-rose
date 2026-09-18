@@ -1,0 +1,193 @@
+{
+  "version": 33,
+  "file": "unique-rose_v33.parquet",
+  "recipe": "Plan-window",
+  "validation_run": "v3_20260918T181924599658Z",
+  "column": "pred_window",
+  "built_on": {
+    "version": 30,
+    "file": "unique-rose_v30.parquet",
+    "sha256": "7e4e91a2014e5492ed58b7c87f3ee18258502518fd511059779ffd7123b96b1d",
+    "score": 309.9872
+  },
+  "margin_sec": 3660,
+  "rows": 344841,
+  "bounded_rows": 339551,
+  "against_previous": {
+    "version": 30,
+    "moved": 58,
+    "raised": 52,
+    "lowered": 6,
+    "rule_rows_moved": 0,
+    "moved_by_airport": {
+      "EGLL": 2,
+      "EHAM": 25,
+      "LEBL": 4,
+      "LEMD": 2,
+      "LFPG": 12,
+      "LIRF": 6,
+      "LSZH": 3,
+      "LTFM": 4
+    },
+    "median_abs_change_moved": 195.4,
+    "largest": [
+      {
+        "mvt_id": 213147416,
+        "airport": "LIRF",
+        "flight": "ITY340",
+        "previous": 12929.9,
+        "new": 83160.0
+      },
+      {
+        "mvt_id": 212756714,
+        "airport": "LFPG",
+        "flight": "AFR19DE",
+        "previous": 3852.8,
+        "new": 9960.0
+      },
+      {
+        "mvt_id": 212754054,
+        "airport": "LFPG",
+        "flight": "ACI501",
+        "previous": 2440.2,
+        "new": 6537.0
+      },
+      {
+        "mvt_id": 202307775,
+        "airport": "EHAM",
+        "flight": "5Y5579",
+        "previous": 6379.8,
+        "new": 9754.0
+      },
+      {
+        "mvt_id": 202319332,
+        "airport": "EHAM",
+        "flight": "MP9411",
+        "previous": 6525.5,
+        "new": 8969.0
+      },
+      {
+        "mvt_id": 202304368,
+        "airport": "EHAM",
+        "flight": "KL0597",
+        "previous": 5199.6,
+        "new": 7432.0
+      },
+      {
+        "mvt_id": 213141145,
+        "airport": "LIRF",
+        "flight": "DLH8PJ",
+        "previous": 3699.6,
+        "new": 1864.0
+      },
+      {
+        "mvt_id": 212741189,
+        "airport": "LFPG",
+        "flight": "DAH1543",
+        "previous": 2808.2,
+        "new": 4478.0
+      },
+      {
+        "mvt_id": 202309535,
+        "airport": "EHAM",
+        "flight": "KL1363",
+        "previous": 4527.7,
+        "new": 5844.0
+      },
+      {
+        "mvt_id": 202320766,
+        "airport": "EHAM",
+        "flight": "MP9461",
+        "previous": 4249.6,
+        "new": 5463.0
+      }
+    ]
+  },
+  "predictions": "refit/v33.parquet",
+  "predictions_sha256": "765c17a0f606f450b23bfd8b2c3c7ccc4f716e87a742ff71a20aa98ffe4c18f6",
+  "sha256": "f04d48131cfbd3ca9d64f3a6a72dac78eed40feac9d6e816ab8706929cdbc718",
+  "template_sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+  "validation_signature": {
+    "VALIDATION/plan_window.py": "547e49b8785feba396c488f7c91c8e5a246b7da38c9607e6b81af6bd1db0e12c",
+    "VALIDATION/plan_window_run.py": "cdf8366ffad3831ad4d803320ba37566b73df43ed478364d1f8b4f733160591d"
+  },
+  "data_identity": [
+    {
+      "file": "metar.parquet",
+      "bytes": 8790277,
+      "sha256": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5"
+    },
+    {
+      "file": "ranking.parquet",
+      "bytes": 43564605,
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "file": "training_2025-01-01_2025-02-01.parquet",
+      "bytes": 21218481,
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "file": "training_2025-02-01_2025-03-01.parquet",
+      "bytes": 19824510,
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "file": "training_2025-03-01_2025-04-01.parquet",
+      "bytes": 22606072,
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "file": "training_2025-04-01_2025-05-01.parquet",
+      "bytes": 23840340,
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "file": "training_2025-05-01_2025-06-01.parquet",
+      "bytes": 25187756,
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "file": "training_2025-06-01_2025-07-01.parquet",
+      "bytes": 24991697,
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "file": "training_2025-07-01_2025-08-01.parquet",
+      "bytes": 26014977,
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "file": "training_2025-08-01_2025-09-01.parquet",
+      "bytes": 25969246,
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "file": "training_2025-09-01_2025-10-01.parquet",
+      "bytes": 25102673,
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "file": "training_2025-10-01_2025-11-01.parquet",
+      "bytes": 25392098,
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "file": "training_2025-11-01_2025-12-01.parquet",
+      "bytes": 22173840,
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "file": "training_2025-12-01_2026-01-01.parquet",
+      "bytes": 22653598,
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "preparation_source": {
+    "VALIDATION/plan_window_submit.py": "df80d09de8b1235ee49e79eadbb019496346b447b36e61190168bbfa1b9bd5f9",
+    "VALIDATION/overnight_submit.py": "98929a74863871de580710ead8f9f4bb3837254e6fd1a4769b7e7f004d19d5a9",
+    "VALIDATION/submit.py": "09fe62fe3840d457bdbf25d961b7b20f909b78f2521d05ea61a2369bb0f6aee4"
+  },
+  "state": "prepared",
+  "prepared_at": "2026-09-18T18:23:04+00:00"
+}

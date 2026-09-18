@@ -1,0 +1,255 @@
+{
+  "version": 30,
+  "file": "unique-rose_v30.parquet",
+  "recipe": "Stand-clock",
+  "validation_run": "v3_20260918T151436598224Z",
+  "candidate": "stand",
+  "column": "pred_stand",
+  "late": true,
+  "dayshift": false,
+  "ordinary_extra": [
+    "wx_temp_c",
+    "wx_dewpoint_spread_c",
+    "wx_wind_kt",
+    "wx_gust_kt",
+    "wx_wind_dir",
+    "wx_visibility_m",
+    "wx_ceiling_ft",
+    "wx_thunder",
+    "wx_snow",
+    "wx_freezing",
+    "wx_fog",
+    "wx_rain",
+    "wx_heavy",
+    "wx_deicing",
+    "wx_age_min",
+    "wx_2h_min_visibility_m",
+    "wx_2h_min_ceiling_ft",
+    "wx_2h_max_gust_kt",
+    "wx_2h_thunder",
+    "wx_2h_snow_or_freezing",
+    "wx_2h_fog",
+    "q_rwy_prev_takeoff_gap_sec",
+    "q_rwy_takeoffs_prev30",
+    "q_apt_takeoffs_prev30",
+    "q_rwy_others_gap_prev60",
+    "q_apt_others_gap_prev60",
+    "q_queue_ahead_since_aobt3",
+    "q_rwy_landings_prev30",
+    "q_rwy_next_takeoff_gap_sec",
+    "q_rwy_takeoffs_next30",
+    "q_rwy_others_gap_pm30",
+    "q_apt_others_gap_pm30",
+    "airline",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec"
+  ],
+  "classifier_extra": [
+    "airline",
+    "handler_arr_sched_share",
+    "handler_arr_n",
+    "flight_number_format",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec"
+  ],
+  "seed": 42,
+  "rounds": 800,
+  "freeze": "2025-12-31",
+  "ranking_months": [
+    "2026-01",
+    "2026-07"
+  ],
+  "rows": 344841,
+  "rule_triggered_rows": 43,
+  "late_rows": 305,
+  "stand_clock_coverage": 0.99993,
+  "prediction_summary": {
+    "count": 344841.0,
+    "mean": 1039.186,
+    "std": 613.418,
+    "min": 0.0,
+    "25%": 771.593,
+    "50%": 959.351,
+    "75%": 1205.338,
+    "max": 111654.0
+  },
+  "against_previous": {
+    "version": 29,
+    "predictions": "VALIDATION/runs/v3_20260918T120331999764Z/refit/v29.parquet",
+    "rule_rows_identical": 43,
+    "mean_change": 0.207,
+    "median_abs_change": 21.054,
+    "p99_abs_change": 253.823,
+    "max_abs_change": 4347.345
+  },
+  "model": {
+    "minutes": 1.39,
+    "paths": {
+      "ordinary": "models/refit_2025__v30__42.ordinary.txt",
+      "classifier": "models/refit_2025__v30__42.classifier.txt"
+    },
+    "artifacts": {
+      "models/refit_2025__v30__42.ordinary.txt": "1171023fa19f5dc756a83df583aede203ab2f234c773362ccef59484249b35fe",
+      "models/refit_2025__v30__42.classifier.txt": "c6d6b1d8dfcdf53af6033a486698818baf1c19bc7d0bfd58b7083b4ebde9355d"
+    },
+    "parameters": {
+      "late_mean": 1079.532110091743,
+      "late_rows": 654,
+      "dayshift_weight": 0.5789473684210527,
+      "dayshift_rows": 19,
+      "dayshift_shifted": 11
+    },
+    "coverage": {
+      "rows": 2084659,
+      "no_id_rows": 22173,
+      "st_last_arr_sec": 0.99914,
+      "st_prev_arr_sec": 0.99775,
+      "st_same_type": 0.99837,
+      "st_same_airline": 0.99896,
+      "st_inblock_minus_sched_sec": 0.99914,
+      "dd_noid_share": 1.0,
+      "dd_notype_share": 1.0,
+      "dd_arr_sched_share": 1.0,
+      "dd_delay_mean_sec": 1.0,
+      "dd_late_share": 1.0,
+      "dh_noid_share_pm90": 0.99987,
+      "no_id_stand_clock": 0.99621
+    }
+  },
+  "predictions": "refit/v30.parquet",
+  "predictions_sha256": "cf412eb8389fcb59a1e2909fed0804415518d9bca515fd8a5305e92d514208dc",
+  "sha256": "7e4e91a2014e5492ed58b7c87f3ee18258502518fd511059779ffd7123b96b1d",
+  "template_sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+  "validation_signature": {
+    "VALIDATION/stand_day.py": "ee596bcaf16e0b53d8249fefe1978696d8136495d1b63e057f99e8115c4e28ad",
+    "VALIDATION/stand_day_run.py": "90c57bb9fc420439e84fc33916bf57183fe25c99c7a405b04834466cb8d7a1f7",
+    "VALIDATION/rome_signals.py": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7",
+    "VALIDATION/rome_signals_run.py": "b386cd08e56877959f49fb043639bd47af0b0d772e66e20eb7d28d52f50998e9",
+    "VALIDATION/runway_queue.py": "8c3627ffa3f41bc8634a86ebcf174954a343c1eb1470879113bad15bdc7a70c6",
+    "VALIDATION/runway_queue_run.py": "b5d216b803b9a9561e47e9e60379c14c3641f22cfd6a6f80f506ec45d3d63fa9",
+    "VALIDATION/weather.py": "01241a62d8f70d1f32087522e070693850f812dbe487eb7772147b621bb80d5a",
+    "VALIDATION/weather_run.py": "da2b66ae1d9ad118de4eeda95a1d7e9a2bd0abfe1aae951c2a61bbb38094679b",
+    "VALIDATION/rome_hybrid.py": "27bfe7e0b16cd1b64e4571f063fd6fa0b4fb74ea99c335012c4723947db2fb23",
+    "VALIDATION/rome_hybrid_run.py": "dba56ecaf91f62685e36498ad283fd22bfb5f97aeef7feb829d605e19f5ee90a",
+    "VALIDATION/overnight_models.py": "79633c2479438729f145bfa5e3e5d99d70e50a7fca12780b71790a92d4f183a3",
+    "VALIDATION/overnight_run.py": "7ab27f85dac47ba54bfc85e4f326673f4f789a9093350d092e638c12c308916b",
+    "VALIDATION/modeling.py": "777b2d45fd97565dc83ecabce248734bfb811fbadce5616d8959cad03016c43b",
+    "VALIDATION/features_time.py": "94f1273ae3edc32e2799e6bb1ebcc819c0a18bf8a61dcda444514d643f944c2c",
+    "VALIDATION/movement_data.py": "2a0a97392e4ba6fd1a3ff64a8165700ae6b4ea466cffe80c3cfa9e92290c79cf",
+    "pipeline/common.py": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4",
+    "pipeline/clock_features.py": "81a4b328f2d879540c9e538297f538461f27678e593441f8b37fe83d383de9ae",
+    "pipeline/registered_rules.py": "5bc8da8c9ce29fa83dddeb76093d82ebfeab8e48b62ef9dc1c31d5f5d288d163",
+    "pipeline/prediction_rules.py": "62613801875506dcc7f4078e0e136398b6694ee8b1eb0398e9a05612c7b4e560"
+  },
+  "data_identity": [
+    {
+      "file": "metar.parquet",
+      "bytes": 8790277,
+      "sha256": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5"
+    },
+    {
+      "file": "ranking.parquet",
+      "bytes": 43564605,
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "file": "training_2025-01-01_2025-02-01.parquet",
+      "bytes": 21218481,
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "file": "training_2025-02-01_2025-03-01.parquet",
+      "bytes": 19824510,
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "file": "training_2025-03-01_2025-04-01.parquet",
+      "bytes": 22606072,
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "file": "training_2025-04-01_2025-05-01.parquet",
+      "bytes": 23840340,
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "file": "training_2025-05-01_2025-06-01.parquet",
+      "bytes": 25187756,
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "file": "training_2025-06-01_2025-07-01.parquet",
+      "bytes": 24991697,
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "file": "training_2025-07-01_2025-08-01.parquet",
+      "bytes": 26014977,
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "file": "training_2025-08-01_2025-09-01.parquet",
+      "bytes": 25969246,
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "file": "training_2025-09-01_2025-10-01.parquet",
+      "bytes": 25102673,
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "file": "training_2025-10-01_2025-11-01.parquet",
+      "bytes": 25392098,
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "file": "training_2025-11-01_2025-12-01.parquet",
+      "bytes": 22173840,
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "file": "training_2025-12-01_2026-01-01.parquet",
+      "bytes": 22653598,
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "preparation_source": {
+    "VALIDATION/stand_day_submit.py": "6b449dbba4279a4374af7acdf49c2b5b908544b17771f02fa3ebc4b454b59e6a",
+    "VALIDATION/rome_signals_submit.py": "5024f3d4ff579ae8b6519608b2d45aea9894199a96345fd729d4b27947c76612",
+    "VALIDATION/rome_hybrid_submit.py": "f11fdb2e2a49be839e1d0c664fc327124de87c36668c3aadaf5d911d50596db0",
+    "VALIDATION/overnight_submit.py": "98929a74863871de580710ead8f9f4bb3837254e6fd1a4769b7e7f004d19d5a9",
+    "VALIDATION/submit.py": "09fe62fe3840d457bdbf25d961b7b20f909b78f2521d05ea61a2369bb0f6aee4"
+  },
+  "state": "scored",
+  "prepared_at": "2026-09-18T17:22:06+00:00",
+  "quota_check": {
+    "at": "2026-09-18T17:22:20+00:00",
+    "existing_uploads_today": [
+      "unique-rose_v26.parquet",
+      "unique-rose_v27.parquet",
+      "unique-rose_v28.parquet",
+      "unique-rose_v29.parquet"
+    ]
+  },
+  "uploaded_at": "2026-09-18T17:22:22+00:00",
+  "remote_sha256": "7e4e91a2014e5492ed58b7c87f3ee18258502518fd511059779ffd7123b96b1d",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v30.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 309.9872
+  },
+  "score_checked_at": "2026-09-18T17:22:47+00:00",
+  "score": 309.9872
+}
