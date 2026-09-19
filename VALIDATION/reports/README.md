@@ -1,5 +1,6 @@
 # Reports
 
+- [September 19 recording-artifact experiments](RECORDING_ARTIFACT_EXPERIMENTS.md): error patterns, nine local corrections, matched-control scores and test-set hypotheses; no submissions.
 - [September 17 overnight study: five successful submissions and held-out CV verdict](OVERNIGHT_SUMMARY_20260917.md).
 - [Held-out confirmation details](../runs/overnight_20260917/confirmation_report.md): selected R_A__mse change MAE 3.5178 s versus current 2.8367 s; retain the default and all folds.
 - [September 17 live status snapshot](overnight_20260917/status_after.json): 04:23:02 UTC, best v19 338.1113 s, latest v21 342.4009 s, rank 94/152 scoring teams. All five authorized slots were used; no extra uploads are authorized.

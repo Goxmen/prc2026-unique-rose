@@ -3,7 +3,31 @@
 Written 2026-09-16. This is the working order for the next experiments.
 Update the status and results here as each stage finishes.
 
-## Resume here — overnight submissions and held-out CV confirmation complete
+## Resume here — recording-artifact validation complete, no submissions
+
+The September 19 user-requested investigation is complete. Read
+[the recording-artifact report](reports/RECORDING_ARTIFACT_EXPERIMENTS.md) and
+[SUBMISSIONS.md](../SUBMISSIONS.md), rows 37–46. All 16 v3 folds and three seeds
+remain; correction weights use only their training window. The missing row-34
+artifacts were reconstructed once in `v3_20260919_artifact_control`, then reused
+by `v3_20260919_artifact_experiments` for nine corrections and 14 comparisons.
+Do not repeat the completed fits or change historical scores.
+
+The conservative candidate is **row 44 (`combined`)**, with
+**249.9460 / 224.8911 / 236.3151** RMSE (next-month / longer-gap / combined),
+versus the matched control's **253.0698 / 228.9793 / 239.9468**. Both horizons
+improve, including with three-day bootstrap blocks. Row 46 has the smallest
+combined point estimate (236.1883), but its additional mid-gap rule calibration
+worsens longer-gap CV; that addition is not established. The report explains
+rare-day influence, remaining recording failures and explicitly hypothetical
+ranking transfer. These are development results, not untouched confirmation.
+
+**No full-year refit or leaderboard submission was made or is authorized by this
+investigation.** Keep all evaluation rows and the current validation protocol.
+The work ran on the WSL i7-13650HX laptop, one fit at a time, six training threads
+and 20 prediction threads. Earlier desktop settings below are historical.
+
+## Previous handoff — overnight submissions and held-out CV confirmation complete
 
 The user-authorized 2026-09-17 overnight investigation is complete. Start with
 the [final summary](reports/OVERNIGHT_SUMMARY_20260917.md) and

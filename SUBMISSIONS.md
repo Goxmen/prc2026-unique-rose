@@ -15,6 +15,8 @@ flight-plan window to row 30's predictions after the model (no refit). Rows 34�
 each make one change to row 33's predictions; row 34 was uploaded as v34, and rows
 35–36 have validation scores only.
 
+Rows 37–46 are **local validation experiments only**, completed on 2026-09-19. Their correction weights use each CV training window. No full-year fit or leaderboard upload was made for these rows.
+
 ## Codenames and recipes
 
 Unless a row says otherwise, the models from v3 onwards are LightGBM fits on all
@@ -60,6 +62,16 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 34 | **No-ID-cap** | Row 33's predictions; for flights **without a flight ID** outside Rome, at most **delay − 1 h** when more than 75 min late (not LTFM) and at most the **delay** when more than 30 min late (post-processing, no refit) | **253.0535** | **228.9805** | **239.9398** | **280.4658** | v34 |
 | 35 | **Twin-records** | Row 33's predictions; where one takeoff is **logged twice** (same airport and flight number, takeoffs ≤ 3 min apart, one record with a flight ID), that record set to **takeoff − LOBT − 5.5 min** (post-processing, no refit) | 253.6312 | 228.9143 | 240.1746 | — | Not submitted |
 | 36 | **Seed-average** | Row 33's predictions **averaged over seeds 42, 142 and 242** (a submission needs two more full-year refits) | 252.6779 | 227.9686 | 239.2266 | — | Not submitted |
+| 37 | **Local-no-ID-cap** | Matched local **row-34 replay**, CV only; six windows × three seeds, same source recipe and movement/METAR hashes | 253.0698 | 228.9793 | 239.9468 | — | Not submitted |
+| 38 | **Cap+twins** | Row 37 + existing twin-record correction (row 35); no booster refit | 252.7511 | 228.5943 | 239.5932 | — | Not submitted |
+| 39 | **Clock-anchor-12h** | Row 37; ID-linked LOBT/AOBT3 gaps ≥12 h and agreeing within 30 min → takeoff − AOBT3 + training-window offset, inside the LOBT window | 253.0453 | 228.9793 | 239.9353 | — | Not submitted |
+| 40 | **Clock-anchor-2h** | Same as row 39, from **2 h** instead of 12 h | 252.9959 | 228.9793 | 239.9122 | — | Not submitted |
+| 41 | **Day-blend** | Row 37; no-ID Rome gap ≥14 h crossing one local date → training-window blend of schedule gap and **one day + ordinary taxi** | 250.2931 | 225.2825 | 236.6851 | — | Not submitted |
+| 42 | **Handler-day-blend** | Row 41 with supported arrival-handler groups; all windows fall back to the same pooled blend | 250.2931 | 225.2825 | 236.6851 | — | Not submitted |
+| 43 | **Rule-confidence** | Row 37; Rome no-ID gap 4–12 h and classifier p<0.05 → mixture; **no validation row passes the gate** | 253.0698 | 228.9793 | 239.9468 | — | Not submitted |
+| 44 | **Artifact-combined** | Row 37 + twins + handler day blend + confidence exception + 12 h clock anchor | 249.9460 | 224.8911 | 236.3151 | — | Not submitted |
+| 45 | **Rule-shrink** | Row 37; Rome no-ID gap 4–12 h → training-window blend toward ordinary taxi, shrunk toward the existing hard rule | 252.6808 | 229.0860 | 239.8219 | — | Not submitted |
+| 46 | **Artifact-combined-midgap** | Row 44 with row 45 replacing its confidence exception | 249.5521 | 224.9998 | 236.1883 | — | Not submitted |
 
 All values are **RMSE in seconds; lower is better**. CV is validation protocol v3:
 three-seed loss average, next-month = `R_A`, longer-gap = `R_B_long`, and a
@@ -397,3 +409,55 @@ Validation already holds all three seeds; a ranking file needs two more full-yea
 refits of row 30's recipe (seeds 142 and 242), then v33's window.
 
 Rows 34–36 are validated by `VALIDATION/record_fixes_run.py`.
+
+## Recording-artifact experiments (rows 37–46)
+
+All nine candidates use row 37 as the matched control. Its combined score is 0.0070 s
+above historical row 34; historical scores are unchanged. All 16 folds, three seeds and
+every evaluation row remain. These are development results, with pointwise 95% paired
+UTC-day bootstrap intervals (2,000 replicates), not an untouched confirmation set. The
+inherited twin offset and earlier row-33/34 rules also carry selection optimism.
+
+| Row | Candidate | Δ next-month | Δ longer-gap | Δ combined [95% interval] |
+|---:|---|---:|---:|---|
+| 38 | Cap+twins | -0.3187 | -0.3850 | -0.3536 [-0.6301, -0.1103] |
+| 39 | Clock-anchor-12h | -0.0245 | +0.0000 | -0.0115 [-0.0354, +0.0000] |
+| 40 | Clock-anchor-2h | -0.0740 | +0.0000 | -0.0345 [-0.0935, +0.0122] |
+| 41 | Day-blend | -2.7767 | -3.6968 | -3.2616 [-7.4913, -0.0558] |
+| 42 | Handler-day-blend | -2.7767 | -3.6968 | -3.2616 [-7.4913, -0.0558] |
+| 43 | Rule-confidence | +0.0000 | +0.0000 | +0.0000 [+0.0000, +0.0000] |
+| 44 | Artifact-combined | -3.1239 | -4.0881 | -3.6317 [-7.8338, -0.4389] |
+| 45 | Rule-shrink | -0.3890 | +0.1067 | -0.1248 [-0.3649, +0.0991] |
+| 46 | Artifact-combined-midgap | -3.5178 | -3.9794 | -3.7585 [-7.9243, -0.5616] |
+
+**Conservative candidate: row 44.** It improves both horizons and all three seeds. Row
+46 has the lowest combined point estimate, but its extra rule calibration worsens
+longer-gap CV. That calibration alone (row 45) has an inconclusive combined change and a
+supported longer-gap regression. These remain local candidates; no submission is
+selected or uploaded.
+
+**Leaderboard-gain hypothesis, row 39:** the eligible day-long plan-clock pattern
+appears once in ranking (344,841 flights), versus once in unique CV (1,079,528), so it
+is 3.13× as frequent per flight. Its leaderboard improvement **may exceed its CV
+improvement**, but row 33 already corrected most of the suspected error and the
+remaining headroom is small. The ranking label is hidden; this is not a measured error
+or score forecast. Day-blend transfer is uncertain because visible ranking clocks do not
+tell us which labels contain an extra day. No validation fold covers January.
+
+**Rows 41–42, conditional larger-LB-gain scenario:** five ranking flights pass
+the day-blend gate. If their hidden labels all equal one day plus ordinary taxi,
+the isolated correction would improve v34 by 5.015–9.079 s across the six saved
+coefficient sets, exceeding its 3.2616 s CV gain. If they instead equal the
+schedule gap, it would worsen v34 by 0.490–1.930 s. This is a hypothetical
+sensitivity calculation, not a forecast of that sparse label mixture. The
+ranking clock-anchor hypothesis above also has limited headroom: at most
+0.1927 s under the empirical plan-window assumption. No new full-year recipe
+was fitted for these calculations.
+
+See the [results and error
+charts](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md), [frozen
+recipes](VALIDATION/docs/RECORDING_ARTIFACT_EXPERIMENTS.md), [exact
+run](VALIDATION/runs/v3_20260919_artifact_experiments/result.json), and [ranking
+sensitivity](VALIDATION/reports/recording_artifacts_20260919/ranking_sensitivity.md).
+The ranking analysis applies saved CV-window coefficients to the existing scored v34
+file for diagnosis only; it creates no submission file.

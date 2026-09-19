@@ -1,5 +1,13 @@
 # Validation
 
+The [September 19 recording-artifact study](reports/RECORDING_ARTIFACT_EXPERIMENTS.md)
+starts from row 34 in [SUBMISSIONS.md](../SUBMISSIONS.md). It tests nine corrections
+for timestamp and duplicate-record errors using the unchanged v3 protocol.
+The [design](docs/RECORDING_ARTIFACT_EXPERIMENTS.md) records the recipes and
+training-window calibration. No additional submission is authorized.
+
+The paragraphs below describe earlier studies and their dated score snapshots.
+
 The [overnight study is complete](reports/OVERNIGHT_SUMMARY_20260917.md): all five
 new submissions succeeded. **Explicit clock features/v19 is best at 338.1113 s**;
 latest is routing/v21 at 342.4009 s. The September 17 04:23:02 UTC snapshot
