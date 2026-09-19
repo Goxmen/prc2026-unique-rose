@@ -1,17 +1,17 @@
 # Submitted models
 
 Every file uploaded to `prc-2026-unique-rose`, from the live leaderboard check
-at 2026-09-18 17:23 UTC (`pipeline/leaderboard_status.py`).
-There are 26 uploads: 24 scored and 2 rejected by the five-per-day limit.
-**Best and latest: v30, 309.9872 s.** Rank 79 of 161 scoring teams.
+at 2026-09-19 00:13 UTC (`pipeline/leaderboard_status.py`).
+There are 27 uploads: 25 scored and 2 rejected by the five-per-day limit.
+**Best and latest: v33, 282.4525 s.** Rank 40 of 163 scoring teams.
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
-v26–v30, so each file number matches its row; v22–v25 were never used. Row 29
+v26–v30 and row 33 as v33, so each file number matches its row; v22–v25 and
+v31–v32 were never used. Row 29
 adds Rome recording signals to row 28. Rows 30–32 add stand clock and dirty-day
 inputs to row 29; rows 31–32 have validation scores only. Row 33 applies the
-flight-plan window to row 30's predictions after the model (no refit); its file
-v33 is prepared but not yet submitted.
+flight-plan window to row 30's predictions after the model (no refit).
 
 ## Codenames and recipes
 
@@ -51,10 +51,10 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 27 | **Rome-hybrid-4h-clock-weather** | Row 26 + **21 METAR weather inputs** (regressor only) | 270.3396 | 239.4157 | 253.5766 | 329.1609 | v27 |
 | 28 | **Rome-hybrid-4h-clock-weather-queue** | Row 27 + **11 runway queue inputs** (regressor only) | 265.3809 | 234.4385 | 248.6174 | 322.6253 | v28 |
 | 29 | **Rome-signals** | Row 28 + **airline** (regressor and classifier); classifier + **handler share**, **flight-number format**; **late-row estimate** for no-ID Rome rows at 1–4 h | 260.3360 | 233.2610 | 245.6201 | 314.4667 | v29 |
-| 30 | **Stand-clock** | Row 29 + **5 stand clock inputs** (regressor and classifier) | 256.1836 | 229.7016 | 241.7877 | **309.9872** | v30 |
+| 30 | **Stand-clock** | Row 29 + **5 stand clock inputs** (regressor and classifier) | 256.1836 | 229.7016 | 241.7877 | 309.9872 | v30 |
 | 31 | **Dirty-day** | Row 29 + **6 dirty-day inputs** (regressor and classifier) | 261.3248 | 232.7730 | 245.8271 | — | Not submitted |
 | 32 | **Stand-clock-dirty-day** | Row 29 + **both input sets** (regressor and classifier) | 257.6550 | 229.3705 | 242.3045 | — | Not submitted |
-| 33 | **Plan-window** | Row 30's predictions, each one for a flight with a flight ID kept within **takeoff − LOBT ± 61 min** (post-processing, no refit) | **253.9467** | **229.2985** | **240.5262** | — | Prepared as v33, not submitted |
+| 33 | **Plan-window** | Row 30's predictions, each one for a flight with a flight ID kept within **takeoff − LOBT ± 61 min** (post-processing, no refit) | **253.9467** | **229.2985** | **240.5262** | **282.4525** | v33 |
 
 All values are **RMSE in seconds; lower is better**. CV is validation protocol v3:
 three-seed loss average, next-month = `R_A`, longer-gap = `R_B_long`, and a
@@ -132,6 +132,7 @@ provisional combined summary. CV and official scores are not on the same level.
   | v28 minus v27 (runway queue inputs) | −6.54 | −4.96 |
   | v29 minus v28 (Rome recording signals) | −8.16 | −3.00 |
   | v30 minus v29 (stand clock inputs) | −4.48 | −3.83 |
+  | v33 minus v30 (flight-plan window) | −27.53 | −1.26 |
 
   The weather and queue gains carried over to the leaderboard in full. Only about
   a third of the Rome hybrid's CV gain did. Provenance, including file and model
@@ -221,14 +222,19 @@ provisional combined summary. CV and official scores are not on the same level.
   every one of them. None of the folds contains January.
 - **v33 (row 33):** prepared 2026-09-18 by `VALIDATION/plan_window_submit.py
   prepare` from v30's saved ranking predictions, which the script checks still
-  reproduce the scored v30 file byte for byte. Not uploaded: all five uploads for
-  2026-09-18 were used. Against v30's file, 58 ranking rows move (52 raised, 6
+  reproduce the scored v30 file byte for byte, and uploaded 2026-09-19 at 00:12 UTC,
+  the first upload that day. Against v30's file, 58 ranking rows move (52 raised, 6
   lowered; EHAM 25, LFPG 12, LIRF 6, five other airports 15) and the 43 Rome rule
   rows do not. One row carries most of the expected change: ITY340 (LIRF → LFMN,
   scheduled 2026-07-16 19:35 UTC, LOBT 21:44 UTC, takeoff recorded 2026-07-17
   21:51 UTC) moves from 12,930 s to 83,160 s, the lowest label its window allows.
-  If its label is inside the window, as every 2025 label was, this row alone would
-  lower the official score from 309.99 to roughly 281–286.
+  Before upload, that row alone was expected to lower the official score from
+  309.99 to roughly 281–286 if its label lay inside the window, as every 2025
+  label did. Official score 282.4525 on all 344,841 rows: **−27.53 against v30**,
+  against a CV change of −2.24 next-month and −1.26 combined, and rank 40 of 163
+  (from 79). Almost all of the leaderboard gain is ITY340. The CV folds hold one
+  similar row (AEZ146R, July 2025, label 24.2 h), but there row 30 already
+  predicted 18.1 h, so the window added far less.
 - **v17–v21:** CV from `VALIDATION/runs/overnight_20260917/`, whose regenerated
   Q0-4h control scored 296.2717 / 255.6100 / 274.3622 (a small replay
   difference from v15's row). See the
