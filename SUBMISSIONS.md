@@ -1,9 +1,9 @@
 # Submitted models
 
 Every file uploaded to `prc-2026-unique-rose`, from the live leaderboard check
-at 2026-09-19 00:13 UTC (`pipeline/leaderboard_status.py`).
-There are 27 uploads: 25 scored and 2 rejected by the five-per-day limit.
-**Best and latest: v33, 282.4525 s.** Rank 40 of 163 scoring teams.
+at 2026-09-19 10:54 UTC (`pipeline/leaderboard_status.py`).
+There are 28 uploads: 26 scored and 2 rejected by the five-per-day limit.
+**Best and latest: v34, 280.4658 s.** Rank 39 of 166 scoring teams.
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -11,7 +11,9 @@ v26–v30 and row 33 as v33, so each file number matches its row; v22–v25 and
 v31–v32 were never used. Row 29
 adds Rome recording signals to row 28. Rows 30–32 add stand clock and dirty-day
 inputs to row 29; rows 31–32 have validation scores only. Row 33 applies the
-flight-plan window to row 30's predictions after the model (no refit).
+flight-plan window to row 30's predictions after the model (no refit). Rows 34–36
+each make one change to row 33's predictions; row 34 was uploaded as v34, and rows
+35–36 have validation scores only.
 
 ## Codenames and recipes
 
@@ -54,7 +56,10 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 30 | **Stand-clock** | Row 29 + **5 stand clock inputs** (regressor and classifier) | 256.1836 | 229.7016 | 241.7877 | 309.9872 | v30 |
 | 31 | **Dirty-day** | Row 29 + **6 dirty-day inputs** (regressor and classifier) | 261.3248 | 232.7730 | 245.8271 | — | Not submitted |
 | 32 | **Stand-clock-dirty-day** | Row 29 + **both input sets** (regressor and classifier) | 257.6550 | 229.3705 | 242.3045 | — | Not submitted |
-| 33 | **Plan-window** | Row 30's predictions, each one for a flight with a flight ID kept within **takeoff − LOBT ± 61 min** (post-processing, no refit) | **253.9467** | **229.2985** | **240.5262** | **282.4525** | v33 |
+| 33 | **Plan-window** | Row 30's predictions, each one for a flight with a flight ID kept within **takeoff − LOBT ± 61 min** (post-processing, no refit) | 253.9467 | 229.2985 | 240.5262 | 282.4525 | v33 |
+| 34 | **No-ID-cap** | Row 33's predictions; for flights **without a flight ID** outside Rome, at most **delay − 1 h** when more than 75 min late (not LTFM) and at most the **delay** when more than 30 min late (post-processing, no refit) | **253.0535** | **228.9805** | **239.9398** | **280.4658** | v34 |
+| 35 | **Twin-records** | Row 33's predictions; where one takeoff is **logged twice** (same airport and flight number, takeoffs ≤ 3 min apart, one record with a flight ID), that record set to **takeoff − LOBT − 5.5 min** (post-processing, no refit) | 253.6312 | 228.9143 | 240.1746 | — | Not submitted |
+| 36 | **Seed-average** | Row 33's predictions **averaged over seeds 42, 142 and 242** (a submission needs two more full-year refits) | 252.6779 | 227.9686 | 239.2266 | — | Not submitted |
 
 All values are **RMSE in seconds; lower is better**. CV is validation protocol v3:
 three-seed loss average, next-month = `R_A`, longer-gap = `R_B_long`, and a
@@ -133,10 +138,44 @@ provisional combined summary. CV and official scores are not on the same level.
   | v29 minus v28 (Rome recording signals) | −8.16 | −3.00 |
   | v30 minus v29 (stand clock inputs) | −4.48 | −3.83 |
   | v33 minus v30 (flight-plan window) | −27.53 | −1.26 |
+  | v34 minus v33 (no-ID cap) | −1.99 | −0.59 |
 
   The weather and queue gains carried over to the leaderboard in full. Only about
   a third of the Rome hybrid's CV gain did. Provenance, including file and model
   hashes, is in `submission_v<N>.json` in each run directory.
+- **Rows 34–36:** CV from run `v3_20260919T104157403241Z`, derived from row 33's
+  saved predictions without any refit by `VALIDATION/record_fixes_run.py`; its
+  `pred_window` column reproduces row 33 exactly, and each candidate makes one change
+  to it. Paired day-bootstrap differences against row 33 (95% interval), next-month /
+  longer-gap / combined:
+
+  | Row | Next-month | Longer-gap | Combined | Fold/seed rows moved |
+  |---|---:|---:|---:|---|
+  | 34 No-ID-cap | −0.89 [−1.59, −0.34] | −0.32 [−0.79, +0.01] | −0.59 [−0.98, −0.24] | 1,648 (1,569 closer, 79 farther) |
+  | 35 Twin-records | −0.32 [−0.48, −0.17] | −0.38 [−0.81, −0.02] | −0.35 [−0.63, −0.11] | 414 (336 closer, 78 farther) |
+  | 36 Seed-average | −1.27 [−1.32, −1.21] | −1.33 [−1.44, −1.21] | −1.30 [−1.37, −1.22] | all |
+
+  All three seeds agree on every headline and no airport gets worse under any row.
+  Row 34's longer-gap change is inconclusive; its gain is mostly LSZH and LFPG, where
+  single day-long 2025 labels had inflated predictions at stands 103 and D06/C03.
+  Rows 34 and 35 read their thresholds and offset off the 2025 labels, so their CV
+  is somewhat optimistic. In the ranking set row 34 lowers 100 no-ID predictions
+  (largest: NJE278K at LSZH stand 103, 13,089 s → at most 2,415 s) and row 35 moves
+  the flight-ID record of 16 twin pairs, all at LFPG (e.g. UAL914, 2,166 s → 5,391 s).
+  None of the folds contains January.
+- **v34 (row 34):** prepared 2026-09-19 by `VALIDATION/record_fixes_submit.py 34
+  prepare` from v33's saved ranking predictions, which the script checks still
+  reproduce the scored v33 file byte for byte, and uploaded 2026-09-19 at 10:52 UTC,
+  the second upload that day. Against v33's file, 100 ranking rows are lowered and
+  none raised (EHAM 22, LFPG 18, EGLL 17, EDDF 14, LSZH 11, EDDM 7, LEBL 4, LTFM 4,
+  LEMD 3); the 43 Rome rule rows do not move. The largest changes are four no-ID
+  business jets at LSZH stand 103: NJE278K 13,089 → 2,415 s, DWW017 9,741 → 2,448 s,
+  QGA01A 9,722 → 4,369 s and ECA2JP 10,226 → 5,011 s. Before upload, applying the
+  validation ratio of error saved per squared move to the ranking moves predicted
+  about −1.8. Official score 280.4658 on all 344,841 rows: **−1.99 against v33**,
+  against a CV change of −0.89 next-month and −0.59 combined, and rank 39 of 166
+  (from 40). The ranking set has more no-ID departures than validation (1.53% vs
+  1.08%) and more poisoned-stand rows, so the gain was larger than in CV.
 - **Row 29:** CV from run `v3_20260918T120331999764Z` on macOS (45.2 minutes).
   Row 28 is the control and was not refitted: its boosters were reloaded from
   row 28's run and reproduced its saved predictions exactly on every fold and seed.
@@ -330,3 +369,31 @@ its nearest edge. Rows without a flight ID or an LOBT keep their prediction, so
 every Rome rule row does. No label is read. Code in `VALIDATION/plan_window.py`;
 validated by `VALIDATION/plan_window_run.py`; file prepared by
 `VALIDATION/plan_window_submit.py`.
+
+**No-ID cap (row 34):** a departure without a flight ID was recorded leaving its
+stand more than an hour away from its flight plan (see row 33), and it carries no
+plan, so the schedule stands in for it. Outside Rome, 99.0% of 2025 no-ID
+departures that took off more than 75 minutes after schedule have a label of at
+most (takeoff − schedule) − 1 hour; LTFM is the exception at 92.4%. So, outside
+LIRF, a no-ID prediction is lowered to at most (takeoff − schedule) − 1 hour when
+the flight took off more than 75 minutes after schedule (not at LTFM), and to at
+most takeoff − schedule when more than 30 minutes after. Predictions are never
+raised; Rome keeps its own no-ID model. Code in `VALIDATION/record_fixes.py`.
+
+**Twin records (row 35):** LFPG sometimes logs one takeoff twice: two departures
+with the same airport and flight number whose takeoffs are at most 3 minutes
+apart, usually from different stands (a tow). The first stand's off-block is near
+the plan, so that record keeps the flight ID and a long label; the real pushback
+came more than an hour after LOBT, so the other record loses its ID and has an
+ordinary label. In 2025 there are 110 such clusters (107 at LFPG). In the 102
+two-record clusters with exactly one flight ID, that record's label is close to
+takeoff − LOBT (median 5.5 minutes below it) and is the longer of the two in 97% of
+pairs. That record's prediction becomes takeoff − LOBT − 330 seconds; the other
+record keeps its prediction. Code in `VALIDATION/record_fixes.py`.
+
+**Seed average (row 36):** each flight's prediction is the mean of row 33's
+predictions from seeds 42, 142 and 242 in the same fold. Nothing else changes.
+Validation already holds all three seeds; a ranking file needs two more full-year
+refits of row 30's recipe (seeds 142 and 242), then v33's window.
+
+Rows 34–36 are validated by `VALIDATION/record_fixes_run.py`.
