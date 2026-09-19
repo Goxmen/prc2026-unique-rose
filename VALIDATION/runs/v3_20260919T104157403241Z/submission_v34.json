@@ -1,0 +1,228 @@
+{
+  "version": 34,
+  "file": "unique-rose_v34.parquet",
+  "recipe": "No-ID-cap",
+  "validation_run": "v3_20260919T104157403241Z",
+  "column": "pred_noid_cap",
+  "built_on": {
+    "version": 33,
+    "file": "unique-rose_v33.parquet",
+    "sha256": "f04d48131cfbd3ca9d64f3a6a72dac78eed40feac9d6e816ab8706929cdbc718",
+    "score": 282.4525
+  },
+  "constants": {
+    "LATE_GAP_SEC": 4500,
+    "LATE_CAP_SEC": 3600,
+    "GAP_CAP_MIN_SEC": 1800,
+    "CAP_EXCLUDED": [
+      "LIRF"
+    ],
+    "LATE_CAP_EXCLUDED": [
+      "LIRF",
+      "LTFM"
+    ],
+    "TWIN_WINDOW_SEC": 180,
+    "TWIN_OFFSET_SEC": 330
+  },
+  "rows": 344841,
+  "against_previous": {
+    "version": 33,
+    "moved": 100,
+    "raised": 0,
+    "lowered": 100,
+    "rule_rows_moved": 0,
+    "moved_by_airport": {
+      "EDDF": 14,
+      "EDDM": 7,
+      "EGLL": 17,
+      "EHAM": 22,
+      "LEBL": 4,
+      "LEMD": 3,
+      "LFPG": 18,
+      "LSZH": 11,
+      "LTFM": 4
+    },
+    "median_abs_change_moved": 185.7,
+    "largest": [
+      {
+        "mvt_id": 213320121,
+        "airport": "LSZH",
+        "flight": "NJE278K",
+        "previous": 13088.9,
+        "new": 2415.0
+      },
+      {
+        "mvt_id": 213323455,
+        "airport": "LSZH",
+        "flight": "DWW017",
+        "previous": 9741.3,
+        "new": 2448.0
+      },
+      {
+        "mvt_id": 213323662,
+        "airport": "LSZH",
+        "flight": "QGA01A",
+        "previous": 9721.7,
+        "new": 4369.0
+      },
+      {
+        "mvt_id": 213321196,
+        "airport": "LSZH",
+        "flight": "ECA2JP",
+        "previous": 10226.2,
+        "new": 5011.0
+      },
+      {
+        "mvt_id": 202658355,
+        "airport": "LFPG",
+        "flight": "AEE61PG",
+        "previous": 4226.1,
+        "new": 1495.0
+      },
+      {
+        "mvt_id": 212759437,
+        "airport": "LFPG",
+        "flight": "TVS1DZ",
+        "previous": 4047.5,
+        "new": 2099.0
+      },
+      {
+        "mvt_id": 212762740,
+        "airport": "LFPG",
+        "flight": "AEE615",
+        "previous": 3018.4,
+        "new": 1074.0
+      },
+      {
+        "mvt_id": 202181292,
+        "airport": "EGLL",
+        "flight": "SHT2P",
+        "previous": 2105.4,
+        "new": 904.0
+      },
+      {
+        "mvt_id": 202653033,
+        "airport": "LFPG",
+        "flight": "AAL45",
+        "previous": 2133.1,
+        "new": 1084.0
+      },
+      {
+        "mvt_id": 202316764,
+        "airport": "EHAM",
+        "flight": "HV5335",
+        "previous": 2068.9,
+        "new": 1218.0
+      }
+    ]
+  },
+  "predictions": "refit/v34.parquet",
+  "predictions_sha256": "7241fbd005914f484691be5155bfb779a5075f57cc077aad529c5cf221dab889",
+  "sha256": "f06f85b7a8212c13080d1a1d633d5d1ef5f783f20be2634efdaea76186f6879f",
+  "template_sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+  "validation_signature": {
+    "VALIDATION/record_fixes.py": "92f6fcc9a7586f0d086b0410a633ee83f434deea4733301b0726fad16e0c338c",
+    "VALIDATION/record_fixes_run.py": "1e1a9e4c4845701d38121ac86abb3215cd8e4d594cbf0317e6731f4ee7a7c9fe"
+  },
+  "data_identity": [
+    {
+      "file": "metar.parquet",
+      "bytes": 8790277,
+      "sha256": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5"
+    },
+    {
+      "file": "ranking.parquet",
+      "bytes": 43564605,
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "file": "training_2025-01-01_2025-02-01.parquet",
+      "bytes": 21218481,
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "file": "training_2025-02-01_2025-03-01.parquet",
+      "bytes": 19824510,
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "file": "training_2025-03-01_2025-04-01.parquet",
+      "bytes": 22606072,
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "file": "training_2025-04-01_2025-05-01.parquet",
+      "bytes": 23840340,
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "file": "training_2025-05-01_2025-06-01.parquet",
+      "bytes": 25187756,
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "file": "training_2025-06-01_2025-07-01.parquet",
+      "bytes": 24991697,
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "file": "training_2025-07-01_2025-08-01.parquet",
+      "bytes": 26014977,
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "file": "training_2025-08-01_2025-09-01.parquet",
+      "bytes": 25969246,
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "file": "training_2025-09-01_2025-10-01.parquet",
+      "bytes": 25102673,
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "file": "training_2025-10-01_2025-11-01.parquet",
+      "bytes": 25392098,
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "file": "training_2025-11-01_2025-12-01.parquet",
+      "bytes": 22173840,
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "file": "training_2025-12-01_2026-01-01.parquet",
+      "bytes": 22653598,
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "preparation_source": {
+    "VALIDATION/record_fixes_submit.py": "ccad02e911e3634e7435902886fef5844d06ba6527d511d7e6dcc435dbd9be15",
+    "VALIDATION/plan_window_submit.py": "df80d09de8b1235ee49e79eadbb019496346b447b36e61190168bbfa1b9bd5f9",
+    "VALIDATION/overnight_submit.py": "98929a74863871de580710ead8f9f4bb3837254e6fd1a4769b7e7f004d19d5a9",
+    "VALIDATION/submit.py": "09fe62fe3840d457bdbf25d961b7b20f909b78f2521d05ea61a2369bb0f6aee4"
+  },
+  "state": "scored",
+  "prepared_at": "2026-09-19T10:52:36+00:00",
+  "quota_check": {
+    "at": "2026-09-19T10:52:43+00:00",
+    "existing_uploads_today": [
+      "unique-rose_v33.parquet"
+    ]
+  },
+  "uploaded_at": "2026-09-19T10:52:45+00:00",
+  "remote_sha256": "f06f85b7a8212c13080d1a1d633d5d1ef5f783f20be2634efdaea76186f6879f",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v34.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 280.4658
+  },
+  "score_checked_at": "2026-09-19T10:53:54+00:00",
+  "score": 280.4658
+}
