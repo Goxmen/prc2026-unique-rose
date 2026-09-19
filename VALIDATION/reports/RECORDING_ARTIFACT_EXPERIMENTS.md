@@ -1,5 +1,10 @@
 # Recording-artifact experiments — 19 September 2026
 
+**Archived exploratory results; no experiment is promoted or independently
+confirmed.** The study's entries were removed from `SUBMISSIONS.md`; former row
+numbers 37–46 are historical study identifiers only. The measurements below
+are retained for reproducibility, not as a submission recommendation.
+
 Rome's largest errors come from several different recording patterns. Some
 labels use the scheduled departure as off-block. Others include an extra day.
 Some flights have ordinary taxi times despite triggering the four-hour rule.
@@ -89,7 +94,11 @@ the frozen design records the actual sequence.
 
 ## Validation results
 
-**Prefer `combined` as the conservative candidate for a later leaderboard check.** It improves both horizons and all three seeds. `combined_midgap` has the lowest combined point estimate, but its extra calibration worsens the longer-gap score. Neither has been submitted.
+`combined` has lower development errors in both horizons and all three seeds.
+`combined_midgap` has the lowest combined point estimate, but its extra calibration
+worsens the longer-gap score. The earlier recommendation of `combined` is withdrawn:
+these reused development data informed the hypotheses, and neither seed agreement
+nor bootstrap intervals remove adaptive selection bias. Neither has been submitted.
 
 | Candidate | Next month | Longer gap | Combined | Combined change [95% interval] |
 |---|---:|---:|---:|---|
@@ -104,11 +113,11 @@ the frozen design records the actual sequence.
 | rule_shrunk | 252.6808 | 229.0860 | 239.8219 | -0.1248 [-0.3649, +0.0991] |
 | combined_midgap | 249.5521 | 224.9998 | 236.1883 | -3.7585 [-7.9243, -0.5616] |
 
-All values are RMSE in seconds. Intervals use 2,000 paired UTC-day bootstrap draws. These are pointwise development comparisons, not untouched confirmation. No row or fold was removed. See [SUBMISSIONS.md](../../SUBMISSIONS.md) for rows 37–46 and the [complete run](../runs/v3_20260919_artifact_experiments/result.json) for exact metrics.
+All values are RMSE in seconds. Intervals use 2,000 paired UTC-day bootstrap draws. These are pointwise development comparisons, not untouched confirmation. No row or fold was removed. The [complete run](../runs/v3_20260919_artifact_experiments/result.json) retains exact metrics; these experiments have no active submission-list entries.
 
-The combined correction changes 67 unique flights on 55 dates. The day blend changes 13 flights on 12 dates; the clock anchor changes one flight. The twin correction changes 53 flights. Repeated fold/seed appearances are not independent examples. Handler weights fall back in all six training windows, so its result exactly matches the pooled day blend. The confidence exception changes zero rows.
+The combined correction changes 67 unique flights on 55 dates. The day blend changes 13 flights on 12 dates; the clock anchor changes one flight. The twin correction changes 53 flights. Repeated fold/seed appearances are not independent examples. Handler weights fall back in all six training windows, so its result exactly matches the pooled day blend. The confidence exception changes zero rows. These last two findings do not represent additional useful models. The 0.0115-second clock difference on one flight is inconclusive and does not demonstrate practical value.
 
-The combined gain remains supported with three-day blocks: −3.6317 s [−7.3249, −0.3560]. Both individual horizons remain supported too. The day blend alone is less certain: its one-day combined interval barely excludes zero, while the two individual horizons include zero. The clock experiments are inconclusive.
+The combined change has a three-day interval of −3.6317 s [−7.3249, −0.3560]. Both individual horizons also exclude zero in this pointwise calculation; this is not independent confirmation. The day blend alone is less certain: its one-day combined interval barely excludes zero, while the two individual horizons include zero. The clock experiments are inconclusive.
 
 `rule_shrunk` alone worsens longer-gap RMSE by +0.1067 s [+0.0224, +0.2166]. It helps some ordinary taxi labels caught by the rule, but also lowers correctly recorded schedule-gap labels. The resulting combined improvement is inconclusive. Adding it to `combined` buys only 0.1268 s in the provisional combined score and worsens longer-gap RMSE by 0.1087 s.
 
@@ -128,7 +137,7 @@ comes from the large other-ID population: 76.32%/81.19%.
 |---|---:|---:|---|
 | ITYTY630, Rome, 28 Sep | 87,543 | 50,581 → 60,935 | A day-sized label. The correction reduces error from 36,962 to 26,608 s. |
 | QFAQFA6, Rome, 7 Sep | 53,410 | 53,405 → 62,968 | A correct schedule-gap label. The day blend creates a 9,558 s error. |
-| NOS430, Rome, 28 Aug | 1,078 | 23,039 → 23,039 | Ordinary taxi caught by the hard rule. The conservative combination leaves this unresolved. |
+| NOS430, Rome, 28 Aug | 1,078 | 23,039 → 23,039 | Ordinary taxi caught by the hard rule. The combined correction leaves this unresolved. |
 | WMT8PV, Rome, 2 Aug | 25,018 | 3,573 → 3,573 | Schedule gap is only 1,679 s. Visible clocks do not supply a reliable correction. |
 
 Predictions above are rounded descriptive means. Scores average squared errors

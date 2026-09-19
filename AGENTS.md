@@ -23,6 +23,13 @@ local environment so a fresh agent session can work without rediscovery.
 
 ## Submissions
 
+**User rule: keep experimental bookkeeping out of `SUBMISSIONS.md`.** List actual
+submissions and distinct, selected candidates with meaningful validation evidence.
+Do not add control replays, duplicate predictions, inactive gates, failed experiments,
+or tiny/inconclusive changes as new model entries. Keep those results in experiment
+reports and run logs. Do not describe numerical noise as an improvement or treat
+bootstrap/seed agreement on reused development data as independent confirmation.
+
 Fill `TAXITIME_SEC_mvt` in a copy of `data/submitting.parquet` (don't touch
 `MVT_ID_mvt`), name it `unique-rose_v<N>.parquet`, upload with
 `mc cp unique-rose_vN.parquet opensky/prc-2026-unique-rose/`.
@@ -51,30 +58,16 @@ but identify the result as stale and report its timestamp.
 
 ## Current improvement work — handoff
 
-- **September 19 recording-artifact experiments are complete; no submissions.**
-  Start with [the report](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)
-  and `SUBMISSIONS.md` rows 37–46. Latest merged base was `38dd0c7` (record fixes).
-  Row-30/34 boosters and OOF files were missing on this laptop, so only the
-  selected components were replayed: `v3_20260919_artifact_control`, 36 boosters,
-  all 16 folds and three seeds, 31.412 minutes. Movement/METAR hashes match
-  history; local row-34 control scores **253.0698 / 228.9793 / 239.9468**
-  (R_A / R_B_long / combined), a +0.0070 s combined replay difference.
-  `v3_20260919_artifact_experiments` then calibrated nine corrections inside
-  each training window, with zero new boosters, 18.856 minutes, all rows kept,
-  2,000 paired day-bootstrap draws and five three-day sensitivity checks.
-  **Conservative candidate: row 44, `combined`, 249.9460 / 224.8911 / 236.3151.**
-  It combines twins, a shrunk Rome day-offset blend and a 12 h plan-clock anchor;
-  handler stratification falls back and the confidence exception is inactive.
-  Combined gain is -3.6317 s and remains supported with three-day blocks.
-  Row 46 has a lower combined point estimate (236.1883), but its extra 4–12 h
-  rule calibration has a supported longer-gap regression when tested alone;
-  do not call that addition an established improvement. These are reused
-  development folds; day/clock gains involve only 13/1 unique flights. Ranking
-  labels are hidden; the report marks sparse leaderboard-transfer hypotheses.
-  No full-year fit, submission file or leaderboard upload was made. Preserve
-  the saved boosters, OOF files and frozen design; do not repeat completed fits.
-  Current host is the i7-13650HX WSL laptop: one fit, six training threads,
-  20 prediction threads. The older desktop settings below are historical.
+- **September 19 recording-artifact study is exploratory; no model promoted.**
+  The user rejected listing these experiments as model progress. All added
+  entries 37–46 were removed from `SUBMISSIONS.md`, restoring its original 36
+  entries. Results remain in [the report](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)
+  and runs `v3_20260919_artifact_control` / `v3_20260919_artifact_experiments`.
+  There is no independent confirmation of improvement; reused development
+  folds, sparse cases, identical variants and inactive gates must stay explicit.
+  No full-year fit or leaderboard upload was made. Preserve saved artifacts;
+  do not repeat completed fits or re-add these entries. Current host is the
+  i7-13650HX WSL laptop: one fit, six training threads, 20 prediction threads.
 
 - **The overnight five-submission study is complete.** Read the final
   [summary](VALIDATION/reports/OVERNIGHT_SUMMARY_20260917.md), then
