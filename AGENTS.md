@@ -60,13 +60,15 @@ but identify the result as stale and report its timestamp.
 
 - **September 19 recording-artifact study is exploratory; no model promoted.**
   The user rejected listing these experiments as model progress. All added
-  entries 37–46 were removed from `SUBMISSIONS.md`, restoring its original 36
-  entries. Results remain in [the report](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)
+  entries 37–46 were removed from `SUBMISSIONS.md`. The user then explicitly
+  requested restoring only `combined` (former row 44) as **row 37**. Keep that
+  entry; the other experiments stay out. Results remain in
+  [the report](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)
   and runs `v3_20260919_artifact_control` / `v3_20260919_artifact_experiments`.
   There is no independent confirmation of improvement; reused development
   folds, sparse cases, identical variants and inactive gates must stay explicit.
   No full-year fit or leaderboard upload was made. Preserve saved artifacts;
-  do not repeat completed fits or re-add these entries. Current host is the
+  do not repeat completed fits or re-add the removed variants. Current host is the
   i7-13650HX WSL laptop: one fit, six training threads, 20 prediction threads.
 
 - **The overnight five-submission study is complete.** Read the final

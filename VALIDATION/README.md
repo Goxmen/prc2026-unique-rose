@@ -2,8 +2,8 @@
 
 The [September 19 recording-artifact study](reports/RECORDING_ARTIFACT_EXPERIMENTS.md)
 is an archived exploratory study based on row 34 in [SUBMISSIONS.md](../SUBMISSIONS.md).
-Its entries were removed from the submission list at the user's request. No
-experiment was promoted or independently confirmed; duplicate predictions,
+At the user's request, only `combined` (former row 44) is now listed as row 37.
+It remains exploratory and independently unconfirmed; duplicate predictions,
 inactive changes and inconclusive differences remain in the study report only.
 The [design](docs/RECORDING_ARTIFACT_EXPERIMENTS.md) records the recipes and
 training-window calibration. No additional submission is authorized.

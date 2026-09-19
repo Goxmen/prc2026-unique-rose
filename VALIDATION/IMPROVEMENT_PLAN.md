@@ -6,7 +6,8 @@ Update the status and results here as each stage finishes.
 ## Resume here — recording-artifact study archived, no promotion
 
 The September 19 investigation is complete and its experimental submission-list
-entries were removed at the user's request. Results remain in
+entries were removed at the user's request; the user subsequently restored only
+`combined` (former row 44) as row 37. Results remain in
 [the recording-artifact report](reports/RECORDING_ARTIFACT_EXPERIMENTS.md).
 All 16 v3 folds and three seeds
 remain; correction weights use only their training window. The missing row-34
@@ -24,7 +25,8 @@ clock corrections affect only 13 unique flights and one unique flight, respectiv
 `combined_midgap` has
 the smallest combined point estimate (236.1883), but its additional mid-gap rule
 calibration worsens longer-gap CV. These results do not establish a useful new
-submission. Former rows 37–46 are historical study identifiers only. Keep
+submission. Former rows 37–46 are historical study identifiers; only former
+row 44 is now listed as row 37 by the user's request. Keep
 unsuccessful, duplicate and inconclusive experiments in reports, not the
 submission list.
 

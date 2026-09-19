@@ -1,8 +1,8 @@
 # Recording-artifact experiments — 19 September 2026
 
 **Archived exploratory results; no experiment is promoted or independently
-confirmed.** The study's entries were removed from `SUBMISSIONS.md`; former row
-numbers 37–46 are historical study identifiers only. The measurements below
+confirmed.** Only `combined` (former row 44) has been restored to `SUBMISSIONS.md`
+as row 37 at the user's request; all other study entries remain removed. The measurements below
 are retained for reproducibility, not as a submission recommendation.
 
 Rome's largest errors come from several different recording patterns. Some
@@ -113,7 +113,7 @@ nor bootstrap intervals remove adaptive selection bias. Neither has been submitt
 | rule_shrunk | 252.6808 | 229.0860 | 239.8219 | -0.1248 [-0.3649, +0.0991] |
 | combined_midgap | 249.5521 | 224.9998 | 236.1883 | -3.7585 [-7.9243, -0.5616] |
 
-All values are RMSE in seconds. Intervals use 2,000 paired UTC-day bootstrap draws. These are pointwise development comparisons, not untouched confirmation. No row or fold was removed. The [complete run](../runs/v3_20260919_artifact_experiments/result.json) retains exact metrics; these experiments have no active submission-list entries.
+All values are RMSE in seconds. Intervals use 2,000 paired UTC-day bootstrap draws. These are pointwise development comparisons, not untouched confirmation. No row or fold was removed. The [complete run](../runs/v3_20260919_artifact_experiments/result.json) retains exact metrics; only `combined` is listed as row 37 in the submission list.
 
 The combined correction changes 67 unique flights on 55 dates. The day blend changes 13 flights on 12 dates; the clock anchor changes one flight. The twin correction changes 53 flights. Repeated fold/seed appearances are not independent examples. Handler weights fall back in all six training windows, so its result exactly matches the pooled day blend. The confidence exception changes zero rows. These last two findings do not represent additional useful models. The 0.0115-second clock difference on one flight is inconclusive and does not demonstrate practical value.
 

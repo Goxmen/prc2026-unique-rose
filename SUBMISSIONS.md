@@ -60,6 +60,7 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 34 | **No-ID-cap** | Row 33's predictions; for flights **without a flight ID** outside Rome, at most **delay − 1 h** when more than 75 min late (not LTFM) and at most the **delay** when more than 30 min late (post-processing, no refit) | **253.0535** | **228.9805** | **239.9398** | **280.4658** | v34 |
 | 35 | **Twin-records** | Row 33's predictions; where one takeoff is **logged twice** (same airport and flight number, takeoffs ≤ 3 min apart, one record with a flight ID), that record set to **takeoff − LOBT − 5.5 min** (post-processing, no refit) | 253.6312 | 228.9143 | 240.1746 | — | Not submitted |
 | 36 | **Seed-average** | Row 33's predictions **averaged over seeds 42, 142 and 242** (a submission needs two more full-year refits) | 252.6779 | 227.9686 | 239.2266 | — | Not submitted |
+| 37 | **Artifact-combined** | CV only: row 34's local replay + twin-record fix + handler day blend + confidence exception + 12 h plan-clock anchor ([recipe and results](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)) | 249.9460 | 224.8911 | 236.3151 | — | Not submitted |
 
 All values are **RMSE in seconds; lower is better**. CV is validation protocol v3:
 three-seed loss average, next-month = `R_A`, longer-gap = `R_B_long`, and a
