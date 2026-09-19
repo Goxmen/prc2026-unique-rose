@@ -1,5 +1,6 @@
 # Reports
 
+- [Residual atlas for officially scored recipes](SCORED_RESIDUALS.md): matched-flight error patterns, airport/clock/queue slices, coverage gaps, interactive exploration and an eight-page PDF; saved predictions only.
 - [September 19 recording-artifact experiments](RECORDING_ARTIFACT_EXPERIMENTS.md): error patterns, nine local corrections, matched-control scores and test-set hypotheses; no submissions.
 - [September 17 overnight study: five successful submissions and held-out CV verdict](OVERNIGHT_SUMMARY_20260917.md).
 - [Held-out confirmation details](../runs/overnight_20260917/confirmation_report.md): selected R_A__mse change MAE 3.5178 s versus current 2.8367 s; retain the default and all folds.

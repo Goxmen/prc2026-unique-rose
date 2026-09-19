@@ -12,6 +12,7 @@ or uploads, and do not treat this index as authorization for another batch.
 
 | Study module (under `VALIDATION/`) | Use | Trains / uploads? |
 |---|---|---|
+| `rome_calibration_run.py --output-dir VALIDATION/runs/v3_20260919_rome_calibration` | Two Rome calibration experiments; inner chronological calibration, resumable classifiers, full original validation and automatic validation-only `SUBMISSIONS.md` rows; [design and command](../docs/ROME_CALIBRATION.md) | Local classifiers only; no uploads |
 | `overnight_run.py` | Resumable original/seasonal validation and full-year refits; preserves completed artifacts | Local fits only |
 | `overnight_models.py` | Fixed control and five feature/capacity/routing interventions | Imported fitting adapter |
 | `overnight_analysis.py` | Saved CV scorecards, immutable selection and held-out comparison | Neither |
@@ -19,6 +20,7 @@ or uploads, and do not treat this index as authorization for another batch.
 
 | Tool | Use | Trains / uploads? |
 |---|---|---|
+| `plot_scored_residuals.py --leaderboard <status.json>` | Compare scored recipes using saved OOF; export residual plots, interactive HTML, PDF and slice/worst-flight tables, with replay and missing-artifact labels | Neither |
 | `compare_aggregations.py` | Compare fixed month/flight-balanced overview scores using all original folds and saved results | Neither |
 | `analyze_validation_optimism.py` | Diagnose population weights, January error concentration and observable 2026 shifts using saved predictions | Neither |
 | `analyze_fold_alignment.py` | Compare original folds, seed stability and exploratory reductions against the five recorded LB scores; export tables and charts | Neither |

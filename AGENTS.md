@@ -51,12 +51,29 @@ but identify the result as stale and report its timestamp.
 - `data/` and `*.parquet` are gitignored; keep it that way. `data/FEATURES.md`
   is the one tracked exception (column docs).
 - Team: gunes (GitHub `Goxmen`, WSL) and Ioana (GitHub `ioana2303`, macOS).
-  `git pull` before working; branches + PRs for larger changes.
+  `git pull` before working. The user wants work consolidated directly on
+  `main`; do not create extra worktrees or feature branches unless explicitly
+  requested. Keep the shared checkout on `main`.
 - `eda/feature_sweep.ipynb` follows the section rules in `eda/SECTION_STYLE.md` (skeleton,
   honest-holdout numbers, tables-over-prose, process: explain and get approval before
   restructuring a section). Read it before touching the notebook.
 
 ## Current improvement work — handoff
+
+- **September 19 Rome calibration experiments are complete; neither is promoted.**
+  Run `v3_20260919_rome_calibration` completed 126 classifiers, all 16 folds and
+  three seeds in 31.614 minutes, reusing all ordinary models. Binary calibration
+  scored **296.7058 / 296.4860 / 296.5834** (R_A / R_B_long / combined);
+  calibrated three-class scored **294.2137 / 282.8235 / 287.9234**, versus matched
+  control **253.0698 / 228.9793 / 239.9468**. Both regress across all seeds and
+  one-/three-day bootstrap comparisons. Removing the hard Rome rule explains
+  most of the damage; calibration further worsens both soft mixtures. Keeping
+  the original rule with binary calibration is inconclusive (+0.3419 combined).
+  The user explicitly requested these two validation results in `SUBMISSIONS.md`:
+  preserve rows 38–39 as validation-only records despite the general ledger rule
+  above. No full-year refit or upload belongs to these experiments. Read the
+  [completed report](VALIDATION/runs/v3_20260919_rome_calibration/report.md);
+  preserve the saved models, probabilities and frozen design. Do not repeat fits.
 
 - **September 19 recording-artifact study is exploratory; no model promoted.**
   The user rejected listing these experiments as model progress. All added
@@ -65,9 +82,12 @@ but identify the result as stale and report its timestamp.
   entry; the other experiments stay out. Results remain in
   [the report](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)
   and runs `v3_20260919_artifact_control` / `v3_20260919_artifact_experiments`.
-  There is no independent confirmation of improvement; reused development
-  folds, sparse cases, identical variants and inactive gates must stay explicit.
-  No full-year fit or leaderboard upload was made. Preserve saved artifacts;
+  Reused development folds, sparse cases, identical variants and inactive gates
+  must stay explicit. The user then authorized only this candidate for refit and
+  upload: **v38 scored 279.3805 s on all 344,841 ranking flights**. Its manifest
+  is `VALIDATION/runs/v3_20260919_artifact_experiments/submission_v38.json`;
+  reproduce with `VALIDATION/artifact_submit.py`. Filename v37 belongs to a
+  separate dayshift-hedge model. Preserve the completed full-year artifacts;
   do not repeat completed fits or re-add the removed variants. Current host is the
   i7-13650HX WSL laptop: one fit, six training threads, 20 prediction threads.
 

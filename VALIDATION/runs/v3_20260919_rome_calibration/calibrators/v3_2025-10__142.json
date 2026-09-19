@@ -1,0 +1,140 @@
+{
+  "outer": {
+    "id": "v3_2025-10",
+    "scheme": "v3",
+    "train": [
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10"
+    ],
+    "start": "2025-05-01",
+    "end": "2025-10-31",
+    "freeze": "2025-10-31",
+    "evals": [
+      {
+        "fold": "A5",
+        "month": "2025-11",
+        "role": "A",
+        "gap": 1
+      }
+    ]
+  },
+  "seed": 142,
+  "fitted": {
+    "2": {
+      "classes": 2,
+      "settings": {
+        "calibration_prior": 20.0,
+        "minimum_calibration_rows": 20,
+        "probability_floor": 1e-08,
+        "inverse_temperature_bounds": [
+          0.25,
+          4.0
+        ],
+        "bias_bounds": [
+          -8.0,
+          8.0
+        ],
+        "day_prior_rows": 20,
+        "day_gap_sec": 50400,
+        "day_min_taxi_sec": 60,
+        "day_max_taxi_sec": 7200,
+        "day_seconds": 86400
+      },
+      "groups": {
+        "id_present": {
+          "theta": [
+            0.9028684913324397,
+            -0.06817433651782759
+          ],
+          "rows": 43788,
+          "class_counts": [
+            35384,
+            8404
+          ],
+          "objective_before": 14829.688758607886,
+          "objective_after": 14788.001857992233,
+          "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+        },
+        "id_missing": {
+          "theta": [
+            1.1510930532553616,
+            0.13744740835071256
+          ],
+          "rows": 480,
+          "class_counts": [
+            262,
+            218
+          ],
+          "objective_before": 191.83137298207168,
+          "objective_after": 190.0162556994055,
+          "status": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL"
+        }
+      }
+    },
+    "3": {
+      "classes": 3,
+      "settings": {
+        "calibration_prior": 20.0,
+        "minimum_calibration_rows": 20,
+        "probability_floor": 1e-08,
+        "inverse_temperature_bounds": [
+          0.25,
+          4.0
+        ],
+        "bias_bounds": [
+          -8.0,
+          8.0
+        ],
+        "day_prior_rows": 20,
+        "day_gap_sec": 50400,
+        "day_min_taxi_sec": 60,
+        "day_max_taxi_sec": 7200,
+        "day_seconds": 86400
+      },
+      "groups": {
+        "id_present": {
+          "theta": [
+            0.6816836871877276,
+            -0.31701155982187273,
+            -1.258044494933248
+          ],
+          "rows": 43788,
+          "class_counts": [
+            35384,
+            8404,
+            0
+          ],
+          "objective_before": 16798.759018059805,
+          "objective_after": 16204.052846308035,
+          "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+        },
+        "id_missing": {
+          "theta": [
+            0.9521928889747652,
+            0.06328142779401173,
+            -0.08210111961174892
+          ],
+          "rows": 480,
+          "class_counts": [
+            261,
+            218,
+            1
+          ],
+          "objective_before": 209.3239021499017,
+          "objective_after": 208.8234873133805,
+          "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+        }
+      }
+    }
+  },
+  "inner_rows": 44268,
+  "inner_files": [
+    "inner/v3_2025-10__inner3__142.parquet",
+    "inner/v3_2025-10__inner4__142.parquet",
+    "inner/v3_2025-10__inner5__142.parquet"
+  ]
+}

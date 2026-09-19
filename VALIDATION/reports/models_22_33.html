@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rows 22–33 · How the taxi models work</title>
+<style>
+:root{--ink:#172f36;--muted:#536b70;--paper:#f4f5ef;--line:#d9e1dc;--teal:#087c73;--teal-light:#e4f2ed;--orange:#bd5b29;--orange-light:#fcebdc;--purple:#7561a8}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1190px;margin:auto;padding:36px 30px 22px}h1,h2,h3,p{margin:0}h1{font-size:clamp(29px,4vw,45px);font-weight:720;letter-spacing:-1.7px;line-height:1.14;margin:9px 0 12px}h2{font-size:22px;letter-spacing:-.6px}h3{font-size:17px}.eyebrow{font-size:11px;letter-spacing:1.9px;text-transform:uppercase;font-weight:750;color:var(--teal)}.lead{color:var(--muted);max-width:820px;font-size:16px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px}.core{margin:24px 0;display:grid;grid-template-columns:1.12fr 1fr;gap:30px;padding:23px 26px}.core p{margin-top:7px}.small{font-size:12px;color:var(--muted)}code{font:11.5px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;background:#edf1ed;padding:2px 4px;border-radius:4px;overflow-wrap:anywhere}strong{font-weight:700}.formula{display:flex;align-items:center;justify-content:center;gap:10px;margin:5px 0 13px}.formula>div{border-radius:12px;padding:12px;text-align:center;flex:1}.gapbox{background:var(--orange-light);color:#97451b}.taxibox{background:var(--teal-light);color:#08695f}.formula b{display:block;font-size:19px}.formula span{font-size:12px}.sliderline{display:flex;gap:14px;align-items:center;font-size:12px}.sliderline input{accent-color:var(--teal);flex:1;min-width:50px}.answer{margin-top:7px;font-size:13px;text-align:center}.answer output{font-weight:750;font-size:19px;color:var(--teal)}.explore{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:start}.chart{padding:21px 19px 16px}.sectiontop{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:7px}.toggle{display:flex;background:#edf1ed;padding:3px;border-radius:9px;flex-shrink:0}.toggle button{border:0;border-radius:6px;padding:6px 9px;background:none;color:var(--muted);font:600 12px system-ui;cursor:pointer}.toggle button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 4px #16332a15}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d79a28;outline-offset:3px}.chartnote{margin-bottom:11px}.model{display:grid;grid-template-columns:28px 1fr 109px;gap:10px;align-items:center;width:100%;border:1px solid transparent;border-radius:9px;background:none;text-align:left;font:inherit;color:inherit;padding:8px 7px;cursor:pointer;margin:2px 0}.model:hover{background:#f2f6f2}.model[aria-pressed=true]{background:var(--teal-light);border-color:#9dc8bc}.rownum{font-size:12px;font-weight:700;color:var(--muted)}.modelname{font-weight:650;font-size:13px;line-height:1.25}.modelchange{font-size:11px;color:var(--muted);line-height:1.4;margin-top:3px}.bartrack{height:6px;background:#e9ede8;border-radius:4px;overflow:hidden;margin-top:5px}.bar{height:100%;background:var(--teal);border-radius:4px}.sidebranch .bar{background:var(--purple)}.score{text-align:right;font-size:12px;font-variant-numeric:tabular-nums}.empty{font-size:10px;color:var(--muted)}.detail{padding:24px;position:sticky;top:18px;min-height:565px}.detail .eyebrow{margin-bottom:9px}.detail h2{font-size:26px;line-height:1.12;margin-bottom:13px}.detail .purpose{font-size:16px;line-height:1.55}.figure{background:#f5f7f2;border-radius:12px;margin:18px 0 15px;padding:13px 12px}.figure svg{width:100%;height:auto;display:block}.figure svg text{font-family:system-ui,sans-serif;fill:var(--ink);font-size:12px}.figure .caption{font-size:11px;color:var(--muted);text-align:center;margin-top:6px}.features{width:100%;border-collapse:collapse;font-size:12px}.features td{vertical-align:top;padding:8px 0;border-bottom:1px solid #e8ece7}.features td:first-child{width:53%;padding-right:10px}.features td:last-child{color:var(--muted)}.detailnote{font-size:12px;color:var(--muted);margin-top:14px}.source{font-size:11px;margin-top:13px}a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}footer{padding-top:20px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:24px}.legend{display:flex;gap:15px;font-size:10px;color:var(--muted);margin-top:12px}.dot{display:inline-block;width:7px;height:7px;background:var(--teal);border-radius:50%;margin-right:4px}.dot.purple{background:var(--purple)}
+@media(max-width:850px){main{padding:24px 17px}.core{gap:20px;padding:19px;grid-template-columns:1fr}.explore{grid-template-columns:1fr 1fr;gap:12px}.chart{padding:16px 10px}.detail{padding:19px}.model{grid-template-columns:23px 1fr 70px;gap:5px}.features td{display:block;width:100%!important;padding:5px 0}.features td:first-child{border:0;padding-bottom:0}.modelname{font-size:12px}}
+@media(max-width:620px){.explore{grid-template-columns:1fr}.detail{position:static;min-height:0}.model{grid-template-columns:27px 1fr 109px}.modelname{font-size:13px}.sectiontop{flex-wrap:wrap}footer{display:block}footer p+p{margin-top:9px}.features td{display:table-cell;width:auto!important;padding:8px 0}.features td:first-child{border-bottom:1px solid #e8ece7;padding-right:8px;width:53%!important}.core{margin-top:20px}}
+@media print{body{background:white}main{padding:0}.detail{position:static}.panel{break-inside:avoid}.toggle,input{display:none}footer{margin-top:8px}.core{margin:15px 0}.model{padding:5px}.chart{padding:14px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="eyebrow">Unique-rose / Model field guide / Rows 22–33</div>
+<h1>Better taxi estimates, one clue at a time.</h1>
+<p class="lead">First, handle Rome’s unusual time records. Then add weather, traffic and stand clues. Finally, keep predictions inside a flight-plan window.</p>
+</header>
+
+<section class="panel core" aria-labelledby="core-title">
+<div>
+<div class="eyebrow">The idea behind the family</div>
+<h2 id="core-title">Rome has two kinds of recorded taxi time.</h2>
+<p>Some Rome records use the scheduled time as the time the plane left its stand. Their target includes the delay. A <strong>classifier</strong> estimates the chance <strong>p</strong> of this. A <strong>regressor</strong> estimates taxi seconds.</p>
+<p class="small"><code>mvt_minus_sched_sec</code> = takeoff − schedule.<br><code>ADEP_mvt = LIRF</code> means Rome Fiumicino.</p>
+</div>
+<div>
+<div class="formula" aria-label="Rome prediction equals p times the schedule gap plus one minus p times the taxi estimate">
+<div class="gapbox"><b>p × gap</b><span>Schedule-based time</span></div><strong>+</strong><div class="taxibox"><b>(1 − p) × taxi</b><span>Model estimate</span></div>
+</div>
+<label class="sliderline" for="prob">Chance p <input id="prob" type="range" min="0" max="100" value="25"><output id="prob-value" for="prob">25%</output></label>
+<div class="answer">Gap 180 min · taxi 20 min → <output id="blend" for="prob">60 min</output></div>
+<p class="small" style="text-align:center">Illustrative Rome flight. Move p to see the blend, before overrides.</p>
+</div>
+</section>
+
+<section class="explore" aria-label="Interactive model guide">
+<div class="panel chart">
+<div class="sectiontop"><h2>What each row changes</h2><div class="toggle" role="group" aria-label="Score shown"><button id="cv" aria-pressed="true">CV</button><button id="lb" aria-pressed="false">Official</button></div></div>
+<p class="small chartnote">Click a row for its features. RMSE in seconds ↓ lower is better.</p>
+<div id="models" aria-label="Models in submission table order"></div>
+<div class="legend"><span><i class="dot"></i>Main sequence</span><span><i class="dot purple"></i>Separate trials from row 29</span></div>
+<p class="small" id="metric-note" style="margin-top:10px">CV = combined validation score. Bars start at zero.</p>
+</div>
+<article class="panel detail" id="detail" aria-live="polite" aria-atomic="true"></article>
+</section>
+
+<footer>
+<p>Source: <a href="../../SUBMISSIONS.md">SUBMISSIONS.md</a>, rows 22–33, snapshot at commit <strong>100fe02</strong>.<br>Recorded scores, not a live leaderboard. CV and official scores use different data. These CV folds contain no January.</p>
+<p>Feature names link the ideas to the actual code.<br>Some choices followed CV inspection, so CV gains can be optimistic.</p>
+</footer>
+</main>
+<script>
+const models = [
+{id:22,name:'Rome-mix-base',change:'Blend schedule gap + baseline',cv:296.2310,lb:null,parent:'B0-800 → 22',title:'Blend two possible meanings.',purpose:'At Rome, blend the schedule gap with B0-800’s taxi estimate. The classifier learns which records used schedule as off-block time. Other airports keep B0-800.',fig:'mix',features:[['mvt_minus_sched_sec','Takeoff minus scheduled time, in seconds.'],['raw_flight_id_missing','1 when the original flight-plan ID is absent.'],['raw_plan_block_missing','1 when the flight-plan block is missing.']],note:'B0-800 is the baseline LightGBM regressor. It learns from all eligible training rows. Row 22 has no hard Rome rule.',source:'../mixture.py'},
+{id:23,name:'Rome-mix-ordinary',change:'22 → use the ordinary regressor',cv:305.0225,lb:null,parent:'22 → 23',title:'Train the taxi part separately.',purpose:'Replace the taxi part of Rome’s blend with a regressor trained without Rome’s schedule-recorded rows. The classifier still supplies p. Other airports still keep B0-800.',fig:'ordinary',features:[['mvt_minus_aobt3_sec','Takeoff minus AOBT_3_flt, the flight plan’s actual off-block time.'],['runway','Airport + runway: which departure route is used.'],['stand','Airport + parking stand: where the plane starts.']],note:'The training filter marks a Rome row as schedule-recorded when its label is within 60 seconds of takeoff − schedule. These are existing inputs; row 23 changes the training rows.',source:'../mixture.py'},
+{id:24,name:'Rome-hybrid',change:'23 → 6 h rule + ordinary at all airports',cv:264.3047,lb:null,parent:'23 → 24',title:'Use a firm rule for long gaps.',purpose:'At Rome, a missing flight ID and a gap of at least 6 hours force the prediction to equal that gap. Elsewhere in Rome, keep the blend. Use the ordinary regressor at every other airport.',fig:'rule6',features:[['ADEP_mvt','Departure airport; the rule requires LIRF.'],['FLIGHT_ID_mvt','Original link to a flight plan; the rule requires it to be missing.'],['mvt_minus_sched_sec','The gap checked against 21,600 seconds.']],note:'The rule overrides the blend. This hybrid was chosen after inspecting validation results.',source:'M1_MIXTURE.md'},
+{id:25,name:'Rome-hybrid-4h',change:'24 → lower rule threshold to 4 h',cv:264.3304,lb:null,parent:'24 → 25',title:'Start the Rome rule earlier.',purpose:'Use the same hybrid, but trigger the rule at 4 hours instead of 6. The airport and missing-ID conditions stay the same.',fig:'rule4',features:[['ADEP_mvt','Must be LIRF: Rome Fiumicino.'],['FLIGHT_ID_mvt','Must be missing for the rule to fire.'],['mvt_minus_sched_sec','Must be at least 14,400 seconds, including exactly 4 hours.']],note:'Rows 25–33 retain this four-hour rule. It takes priority over the model blend.',source:'../rome_hybrid.py'},
+{id:26,name:'… + clock',change:'25 → 18 clock inputs to both models',cv:258.2262,lb:333.8712,parent:'25 → 26 · Rome-hybrid-4h-clock',title:'Let the clocks disagree.',purpose:'Give both the regressor and classifier 18 clues about missing clocks and disagreement between off-block times. The regressor still predicts taxi seconds.',fig:'clock',features:[['clock_aobt3_minus_schedule_sec','Actual off-block time from AOBT_3_flt minus schedule.'],['clock_span_sec','Largest difference among the available off-block clocks.'],['clock_available_count','How many of the five clocks are present.']],note:'The five clocks are schedule, last known (LOBT), initial (IOBT), estimated (EOBT_1) and actual (AOBT_3) off-block time.',source:'../../pipeline/clock_features.py'},
+{id:27,name:'… + weather',change:'26 → 21 weather inputs to regressor',cv:253.5766,lb:329.1609,parent:'26 → 27 · Rome-hybrid-4h-clock-weather',title:'Describe the weather at takeoff.',purpose:'Add 21 weather inputs to the regressor. Use the airport’s latest METAR weather report before takeoff, at most 90 minutes old, plus two-hour summaries.',fig:'weather',features:[['wx_visibility_m','Visibility in metres.'],['wx_gust_kt','Wind gust speed in knots.'],['wx_deicing','Cold and moist conditions that may require de-icing.'],['wx_2h_min_visibility_m','Lowest visibility in the report’s two-hour window.']],note:'The classifier gets no weather inputs. For example, poor visibility can help the regressor recognise slower airport operations.',source:'../weather.py'},
+{id:28,name:'… + queue',change:'27 → 11 traffic inputs to regressor',cv:248.6174,lb:322.6253,parent:'27 → 28 · Rome-hybrid-4h-clock-weather-queue',title:'Look at nearby runway traffic.',purpose:'Add 11 inputs describing other flights around this takeoff. These give the regressor clues about congestion and recent taxi times.',fig:'queue',features:[['q_rwy_takeoffs_prev30','Other takeoffs on this runway in the previous 30 minutes.'],['q_rwy_prev_takeoff_gap_sec','Seconds since the previous takeoff on this runway.'],['q_queue_ahead_since_aobt3','Airport takeoffs between this flight’s AOBT_3_flt and takeoff.']],note:'Four inputs also use movements after takeoff, which the competition supplies. The flight never counts itself. The classifier is unchanged.',source:'../runway_queue.py'},
+{id:29,name:'Rome-signals',change:'28 → airline + recording clues + late estimate',cv:245.6201,lb:314.4667,parent:'28 → 29',title:'Recognise how Rome logs flights.',purpose:'Add airline to both models. Give the classifier arrival-recording patterns and flight-number format. For no-ID Rome flights with a gap strictly between 1 and 4 hours, use a learned late-flight mean for the taxi part.',fig:'signals',features:[['airline','Airline prefix from FLIGHT_mvt; ITY630 → ITY.'],['handler_arr_sched_share','Smoothed share of this airline’s arrivals logged at schedule, at this airport and month.'],['flight_number_format','Flags malformed numbers such as ITYTY630.']],note:'The late mean is 1,079.5 s in the submitted fit. Its exact replacement is min(mean, max(gap − 3,600 s, 60 s)). The classifier also gets handler_arr_n, the arrival count behind the share.',source:'../rome_signals.py'},
+{id:30,name:'Stand-clock',change:'29 → 5 stand inputs to both models',cv:241.7877,lb:309.9872,parent:'29 → 30',title:'Use the stand as a clock.',purpose:'Find the last two arrivals at the same airport and parking stand before takeoff. Their parking times help estimate when this departure could have left.',fig:'stand',features:[['st_last_arr_sec / st_prev_arr_sec','Seconds from the last / previous arrival’s parking time to takeoff.'],['st_same_type / st_same_airline','Whether the last arrival matches the departure’s aircraft type / airline.'],['st_inblock_minus_sched_sec','Last arrival’s parking time minus this departure’s schedule.']],note:'All five inputs go to both models. Matching type and airline are clues; they do not prove it is the same aircraft.',source:'../stand_day.py'},
+{id:31,name:'Dirty-day',change:'29 → 6 day inputs; no stand inputs',cv:245.8271,lb:null,parent:'29 → 31 · separate trial',title:'Check for a day of messy records.',purpose:'Add six airport-day inputs to both models. They describe missing IDs, missing aircraft types, schedule-recorded arrivals and delays. This branches directly from row 29.',fig:'day',features:[['dd_noid_share','Share of the day’s other departures without a flight ID.'],['dd_arr_sched_share','Share of the day’s arrivals whose parking time matches schedule.'],['dh_noid_share_pm90','Missing-ID share within 90 minutes either side of takeoff.']],note:'Combined CV did not improve on row 29. The next-month score worsened. This row was not submitted.',source:'../stand_day.py'},
+{id:32,name:'Stand-clock-dirty-day',change:'29 → both sets: 5 stand + 6 day inputs',cv:242.3045,lb:null,parent:'29 → 32 · separate trial',title:'Try both sets together.',purpose:'Give both models the five stand inputs and six dirty-day inputs. It improves on row 29, but its combined CV is slightly worse than stand clocks alone in row 30.',fig:'both',features:[['st_last_arr_sec','Time from the last arrival parking at this stand to takeoff.'],['dd_notype_share','Share of the day’s other departures without an aircraft type.'],['dd_late_share','Share of other departures with an ID taking off over 45 minutes after schedule.']],note:'Row 32 was not submitted. Row 33 uses row 30, so it does not inherit these dirty-day inputs.',source:'../stand_day.py'},
+{id:33,name:'Plan-window',change:'30 → clip to flight-plan window; no refit',cv:240.5262,lb:282.4525,parent:'30 → 33 · skips dirty-day trials',title:'Keep the answer near the plan.',purpose:'Take row 30’s predictions. With a flight ID and LOBT present, clip each prediction to takeoff − LOBT ± 61 minutes. No model is retrained.',fig:'window',features:[['FLIGHT_ID_mvt','Must be present: the movement is linked to a flight plan.'],['LOBT_flt','Last known off-block time in that plan; centres the window.'],['MVT_TIME_UTC_mvt','Recorded takeoff time for a departure.']],note:'The window held for all eligible 2025 labels. In v33, 58 ranking predictions moved. Almost all of the large official gain came from one flight, ITY340.',source:'../plan_window.py'}
+];
+const svg = (body,label) => `<svg viewBox="0 0 390 125" role="img" aria-label="${label}"><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#536b70"/></marker></defs>${body}</svg>`;
+const box=(x,y,w,label,fill='#e4f2ed')=>`<rect x="${x}" y="${y}" width="${w}" height="36" rx="8" fill="${fill}"/><text x="${x+w/2}" y="${y+23}" text-anchor="middle">${label}</text>`;
+const arrow=(x,y,x2,y2)=>`<path d="M${x} ${y} L${x2} ${y2}" stroke="#536b70" fill="none" marker-end="url(#arrow)"/>`;
+const text=(x,y,s,extra='')=>`<text x="${x}" y="${y}" ${extra}>${s}</text>`;
+function figure(kind){
+let body='',caption='';
+if(kind==='mix'||kind==='ordinary'){
+body=box(6,10,153,'Schedule gap','#fcebdc')+box(6,76,153,kind==='ordinary'?'Ordinary regressor':'B0-800 taxi estimate')+arrow(166,28,241,56)+arrow(166,94,241,69)+box(248,45,133,'Rome prediction')+text(184,26,'× p')+text(171,112,'× (1 − p)');
+caption=kind==='ordinary'?'Only the taxi component changes.':'The classifier sets the weight p.';
+}else if(kind.startsWith('rule')){
+const h=kind==='rule6'?6:4;
+body=text(195,20,'Rome + missing flight ID', 'text-anchor="middle"')+box(102,35,185,`Gap ≥ ${h} hours?`,'#fcebdc')+arrow(120,76,93,96)+arrow(269,76,296,96)+text(51,118,'No: keep blend')+text(244,118,'Yes: use gap');
+caption='The gap is takeoff minus schedule.';
+}else if(kind==='clock'){
+body=text(20,19,'Illustrative off-block clocks')+'<path d="M30 65 H360" stroke="#adbdb5" stroke-width="3"/>' + [50,172,241,314].map((x,i)=>`<circle cx="${x}" cy="65" r="6" fill="${i?'#087c73':'#bd5b29'}"/>`+text(x,95,['Schedule','LOBT','EOBT₁','AOBT₃'][i],'text-anchor="middle"')).join('')+'<path d="M50 48 V36 H314 V48" stroke="#536b70" fill="none"/>'+text(182,29,'clock_span_sec','text-anchor="middle"');
+caption='Large disagreements and missing clocks become model inputs.';
+}else if(kind==='weather'){
+body=box(10,10,112,'Visibility')+box(138,10,112,'Gusts')+box(266,10,112,'Cold + wet')+arrow(66,51,180,80)+arrow(194,51,194,80)+arrow(322,51,208,80)+box(97,85,196,'Taxi regressor');
+caption='Weather can change taxi speed, queues and de-icing needs.';
+}else if(kind==='queue'){
+body='<rect x="20" y="48" width="350" height="18" rx="9" fill="#e1e7df"/><path d="M30 57 H360" stroke="white" stroke-dasharray="9 7" stroke-width="2"/>'+[52,105,148,205,261,337].map(x=>`<circle cx="${x}" cy="57" r="${x===205?9:5}" fill="${x===205?'#bd5b29':'#087c73'}"/>`).join('')+text(20,25,'Previous takeoffs')+text(235,25,'Later takeoffs')+text(205,96,'This flight','text-anchor="middle"')+text(21,119,'−30 min')+text(314,119,'+30 min');
+caption='Counts and spacing describe runway traffic. Diagram is illustrative.';
+}else if(kind==='signals'){
+body=box(5,8,120,'Airline')+box(135,8,120,'Arrival patterns')+box(265,8,120,'Number format')+arrow(66,52,175,80)+arrow(195,52,195,80)+arrow(325,52,215,80)+box(94,84,201,'Better estimate of p');
+caption='Airline also helps the taxi regressor. The late estimate changes its blend term.';
+}else if(kind==='stand'){
+body=box(10,9,161,'Arrival parks at 11:40')+arrow(180,27,211,27)+box(220,9,159,'Takeoff at 12:00')+text(195,70,'st_last_arr_sec = 1,200 s','text-anchor="middle"')+text(195,99,'Who parked here: this aircraft or another?','text-anchor="middle"');
+caption='Illustrative times. Parking time = landing time + taxi-in time.';
+}else if(kind==='day'){
+body=text(17,20,'Illustration: 3 of 10 other flights have no ID')+Array.from({length:10},(_,i)=>`<rect x="${17+i*36}" y="41" width="26" height="31" rx="5" fill="${i<3?'#bd5b29':'#c1d3c8'}"/>`).join('')+text(195,106,'dd_noid_share = 30%','text-anchor="middle"');
+caption='A clue about record quality across the airport’s UTC day.';
+}else if(kind==='both'){
+body=box(8,12,163,'5 stand inputs')+box(219,12,163,'6 dirty-day inputs','#eeebf6')+text(195,36,'+','text-anchor="middle"')+arrow(89,57,170,85)+arrow(303,57,220,85)+box(100,88,191,'Both models');
+caption='A separate combination trial. The final plan-window model skips it.';
+}else if(kind==='window'){
+body=text(15,18,'ITY340 · actual change in the submitted file')+'<path d="M20 74 H375" stroke="#c8d3c9" stroke-width="2"/><rect x="293" y="57" width="44" height="34" rx="5" fill="#b9ddd0"/><circle cx="62" cy="74" r="6" fill="#bd5b29"/>'+arrow(74,74,290,74)+'<circle cx="293" cy="74" r="6" fill="#087c73"/>'+text(62,48,'3.6 h','text-anchor="middle"')+text(315,46,'23.1–25.1 h','text-anchor="middle"')+text(62,112,'Row 30','text-anchor="middle"')+text(299,112,'Row 33: 23.1 h','text-anchor="middle"');
+caption='Recorded takeoff is a day later. The prediction moves to the nearest window edge.';
+}
+return `<div class="figure">${svg(body,caption)}<p class="caption">${caption}</p></div>`;
+}
+let metric='cv', selected=22;
+function renderRows(){
+document.getElementById('models').innerHTML=models.map(m=>{
+ const value=m[metric];
+ return `<button class="model ${[31,32].includes(m.id)?'sidebranch':''}" data-id="${m.id}" aria-controls="detail" aria-pressed="${selected===m.id}" aria-label="Row ${m.id}, ${m.name}, ${m.change}"><span class="rownum">${m.id}</span><span><span class="modelname">${m.name}</span><span class="modelchange" style="display:block">${m.change}</span></span><span class="score">${value===null?'<span class="empty">Not submitted</span>':value.toFixed(2)+`<span class="bartrack" style="display:block"><span class="bar" style="display:block;width:${value/350*100}%"></span></span>`}</span></button>`;
+}).join('');
+document.querySelectorAll('.model').forEach(button=>button.addEventListener('click',()=>{selected=Number(button.dataset.id);renderRows();renderDetail();if(innerWidth<=620)document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'start'});}));
+}
+function renderDetail(){
+ const m=models.find(m=>m.id===selected);
+ document.getElementById('detail').innerHTML=`<div class="eyebrow">${m.parent}</div><h2>${m.title}</h2><p class="purpose">${m.purpose}</p>${figure(m.fig)}<table class="features" aria-label="Example features and their meanings"><tbody>${m.features.map(([name,meaning])=>`<tr><td><code>${name}</code></td><td>${meaning}</td></tr>`).join('')}</tbody></table><p class="detailnote">${m.note}</p><p class="source"><a href="${m.source}">Read the implementation${m.id===24?' report':''} ↗</a></p>`;
+}
+document.getElementById('prob').addEventListener('input',e=>{const p=Number(e.target.value);document.getElementById('prob-value').value=p+'%';document.getElementById('blend').value=(20+1.6*p).toFixed(p%5===0?0:1)+' min';});
+for(const name of ['cv','lb'])document.getElementById(name).addEventListener('click',()=>{metric=name;for(const n of ['cv','lb'])document.getElementById(n).setAttribute('aria-pressed',String(n===name));document.getElementById('metric-note').textContent=name==='cv'?'CV = combined validation score. Bars start at zero.':'Official = recorded competition score. Unsubmitted rows have no score. Bars start at zero.';renderRows();});
+renderRows();renderDetail();
+</script>
+</body>
+</html>
