@@ -1,9 +1,9 @@
 # Submitted models
 
-Every file uploaded to `prc-2026-unique-rose`, from the live leaderboard check
-at 2026-09-19 10:54 UTC (`pipeline/leaderboard_status.py`).
-There are 28 uploads: 26 scored and 2 rejected by the five-per-day limit.
-**Best and latest: v34, 280.4658 s.** Rank 39 of 166 scoring teams.
+Model recipes and uploads, checked live at **2026-09-19 14:52 UTC**
+(`pipeline/leaderboard_status.py`). There are 30 uploads: 28 scored and 2 rejected
+by the five-per-day limit. **Best and latest: v38, 279.3805 s.** Rank 37 of 166
+scoring teams.
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -13,7 +13,9 @@ adds Rome recording signals to row 28. Rows 30–32 add stand clock and dirty-da
 inputs to row 29; rows 31–32 have validation scores only. Row 33 applies the
 flight-plan window to row 30's predictions after the model (no refit). Rows 34–36
 each make one change to row 33's predictions; row 34 was uploaded as v34, and rows
-35–36 have validation scores only.
+35–36 have validation scores only. The selected Artifact-combined (former row 44)
+is row 37 below and was submitted as **v38**; filename v37 was already used by a
+separate model.
 
 ## Codenames and recipes
 
@@ -57,10 +59,10 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 31 | **Dirty-day** | Row 29 + **6 dirty-day inputs** (regressor and classifier) | 261.3248 | 232.7730 | 245.8271 | — | Not submitted |
 | 32 | **Stand-clock-dirty-day** | Row 29 + **both input sets** (regressor and classifier) | 257.6550 | 229.3705 | 242.3045 | — | Not submitted |
 | 33 | **Plan-window** | Row 30's predictions, each one for a flight with a flight ID kept within **takeoff − LOBT ± 61 min** (post-processing, no refit) | 253.9467 | 229.2985 | 240.5262 | 282.4525 | v33 |
-| 34 | **No-ID-cap** | Row 33's predictions; for flights **without a flight ID** outside Rome, at most **delay − 1 h** when more than 75 min late (not LTFM) and at most the **delay** when more than 30 min late (post-processing, no refit) | **253.0535** | **228.9805** | **239.9398** | **280.4658** | v34 |
+| 34 | **No-ID-cap** | Row 33's predictions; for flights **without a flight ID** outside Rome, at most **delay − 1 h** when more than 75 min late (not LTFM) and at most the **delay** when more than 30 min late (post-processing, no refit) | **253.0535** | **228.9805** | **239.9398** | 280.4658 | v34 |
 | 35 | **Twin-records** | Row 33's predictions; where one takeoff is **logged twice** (same airport and flight number, takeoffs ≤ 3 min apart, one record with a flight ID), that record set to **takeoff − LOBT − 5.5 min** (post-processing, no refit) | 253.6312 | 228.9143 | 240.1746 | — | Not submitted |
 | 36 | **Seed-average** | Row 33's predictions **averaged over seeds 42, 142 and 242** (a submission needs two more full-year refits) | 252.6779 | 227.9686 | 239.2266 | — | Not submitted |
-| 37 | **Artifact-combined** | CV only: row 34's local replay + twin-record fix + handler day blend + confidence exception + 12 h plan-clock anchor ([recipe and results](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)) | 249.9460 | 224.8911 | 236.3151 | — | Not submitted |
+| 37 | **Artifact-combined** | Former row 44: row 34 replay + twins, day-shift blend, confidence exception and 12 h clock correction ([recipe](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)) | 249.9460 | 224.8911 | 236.3151 | **279.3805** | v38 |
 
 All values are **RMSE in seconds; lower is better**. CV is validation protocol v3:
 three-seed loss average, next-month = `R_A`, longer-gap = `R_B_long`, and a

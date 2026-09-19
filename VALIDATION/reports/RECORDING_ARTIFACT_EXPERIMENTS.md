@@ -10,8 +10,8 @@ labels use the scheduled departure as off-block. Others include an extra day.
 Some flights have ordinary taxi times despite triggering the four-hour rule.
 
 Ranking targets are hidden. We can identify suspicious ranking features, but
-cannot measure their errors. No submission or full-year fit is part of this
-study. The [frozen design](../docs/RECORDING_ARTIFACT_EXPERIMENTS.md) records all
+cannot measure their errors. The original study performed no full-year fits or
+uploads; the later user-selected submission is recorded below. The [frozen design](../docs/RECORDING_ARTIFACT_EXPERIMENTS.md) records all
 nine candidates and the amendments made before candidate scoring.
 
 The control is row 34: stand model, flight-plan window and no-ID cap. Its model
@@ -98,7 +98,8 @@ the frozen design records the actual sequence.
 `combined_midgap` has the lowest combined point estimate, but its extra calibration
 worsens the longer-gap score. The earlier recommendation of `combined` is withdrawn:
 these reused development data informed the hypotheses, and neither seed agreement
-nor bootstrap intervals remove adaptive selection bias. Neither has been submitted.
+nor bootstrap intervals remove adaptive selection bias. Only `combined` was later
+submitted at the user's request, as recorded below.
 
 | Candidate | Next month | Longer gap | Combined | Combined change [95% interval] |
 |---|---:|---:|---:|---|
@@ -210,3 +211,28 @@ It covers the seven recipes independent of classifier probabilities. Full-year
 classifier probabilities were unavailable, so `rule_confidence` and the original
 `combined` were not projected onto ranking. Their inactive CV gate could still
 activate there; the report does not assume otherwise.
+
+## Selected submission — 19 September 2026
+
+The user selected only `combined` (former row 44, now row 37). Its full-year
+seed-42 refit was uploaded as **v38** and scored **279.3805 s** on all **344,841**
+flights. Filename v37 was already occupied by a separate `dayshift-hedge` model;
+its 280.1743 score does not belong to this candidate.
+
+The refit and preparation took 3.443 minutes. The selected corrections changed
+22 ranking predictions: 16 twins, five day blends and one 12-hour clock anchor.
+The confidence exception remained inactive; handler weights used the pooled
+0.324989 blend because the high-share group lacked training support.
+
+The official score is 1.0853 s below historical v34 and 0.7938 s below the
+previous best v37. This is smaller than the 3.6317 s development-CV difference.
+The refitted control also differs from the historical uploaded v34: after
+rounding, 304,637 predictions differ, by 3.9469 s on average and at most 159 s.
+Therefore the leaderboard change is not an isolated measurement of the
+post-processing corrections. Historical validation scores remain unchanged.
+
+[Submission manifest](../runs/v3_20260919_artifact_experiments/submission_v38.json)
+records calibration, source/data/model hashes and the official result.
+`VALIDATION/artifact_submit.py` reproduces preparation and refuses duplicate
+uploads. Five submission checks and 25 correction tests passed; the submission
+adapter exactly reproduced all 190,713 saved A1/seed-42 selected predictions.

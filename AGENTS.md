@@ -65,9 +65,12 @@ but identify the result as stale and report its timestamp.
   entry; the other experiments stay out. Results remain in
   [the report](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)
   and runs `v3_20260919_artifact_control` / `v3_20260919_artifact_experiments`.
-  There is no independent confirmation of improvement; reused development
-  folds, sparse cases, identical variants and inactive gates must stay explicit.
-  No full-year fit or leaderboard upload was made. Preserve saved artifacts;
+  Reused development folds, sparse cases, identical variants and inactive gates
+  must stay explicit. The user then authorized only this candidate for refit and
+  upload: **v38 scored 279.3805 s on all 344,841 ranking flights**. Its manifest
+  is `VALIDATION/runs/v3_20260919_artifact_experiments/submission_v38.json`;
+  reproduce with `VALIDATION/artifact_submit.py`. Filename v37 belongs to a
+  separate dayshift-hedge model. Preserve the completed full-year artifacts;
   do not repeat completed fits or re-add the removed variants. Current host is the
   i7-13650HX WSL laptop: one fit, six training threads, 20 prediction threads.
 
