@@ -1,5 +1,14 @@
 # Validation
 
+**Weighted CV is the current validation headline**, adopted on 20 September 2026.
+The [method](docs/WEIGHTED_CV.md) keeps the existing folds and scores saved errors
+with fixed weights. Across [eleven scored submissions](reports/WEIGHTED_CV_LEADERBOARD_EXTENDED.md),
+the average absolute CV–LB gap fell from 68.05 to 23.42 s; direction accuracy
+stayed at 7/10. Verified values are in [SUBMISSIONS.md](../SUBMISSIONS.md).
+The harness's original v3 outputs remain diagnostics; compute Weighted CV from
+saved predictions for new comparisons. Earlier validation decisions below are
+historical and are superseded by this choice of headline score.
+
 The [September 19 recording-artifact study](reports/RECORDING_ARTIFACT_EXPERIMENTS.md)
 is an archived exploratory study based on row 34 in [SUBMISSIONS.md](../SUBMISSIONS.md).
 At the user's request, only `combined` (former row 44) is now listed as row 37.

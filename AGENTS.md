@@ -60,6 +60,24 @@ but identify the result as stale and report its timestamp.
 
 ## Current improvement work — handoff
 
+- **September 20: Weighted CV is the user-selected validation headline.**
+  Use the unclipped, per-source raw-feature weights in the
+  [method](VALIDATION/docs/WEIGHTED_CV.md) for future model comparisons; retain
+  original folds and unweighted diagnostics. The standard harness still emits
+  the original scores, so compute Weighted CV from saved predictions before
+  reporting a new comparison. Across eleven scored submissions, the average
+  absolute CV–LB gap fell from 68.05 to 23.42 s; direction accuracy stayed 7/10.
+  `SUBMISSIONS.md` now has verified weighted scores for v12–v21 and v38; leave
+  other weighted entries `-` until verified. The
+  [expanded report](VALIDATION/reports/WEIGHTED_CV_LEADERBOARD_EXTENDED.md) links
+  the evidence and scoring tools. Original v17–v21 prediction files were recovered
+  from the desktop and hash-verified. Reuse the weights in
+  `tmp/weighted_cv_leaderboard_20260920/`; do not replace them with rich-feature
+  or clipped weights. This decision supersedes earlier recommendations to keep
+  the old validation headline, without changing historical results or authorizing
+  any further refits/uploads. Training-versus-ranking identification remains a
+  separate unfinished investigation.
+
 - **September 19 Rome calibration experiments are complete; neither is promoted.**
   Run `v3_20260919_rome_calibration` completed 126 classifiers, all 16 folds and
   three seeds in 31.614 minutes, reusing all ordinary models. Binary calibration

@@ -1,0 +1,67 @@
+{
+  "class": "no_flight_id",
+  "prevalence": {
+    "ranking_pct": 1.5320104047952536,
+    "ranking_rows": 5283.0,
+    "validation_R_A_pct": 1.2613846051237207,
+    "validation_R_B_long_pct": 0.9121700928937926,
+    "jan_2025_pct": 0.9316487319948472,
+    "jan_2026_pct": 1.6035987663617493,
+    "jul_2025_pct": 2.0627854419992344,
+    "jul_2026_pct": 1.4751043607707603
+  },
+  "groups": {
+    "R_A": {
+      "n": 1079528,
+      "rmse": 249.94598334814702,
+      "class_n": 13617,
+      "class_share_pct": 1.2613846051237207,
+      "class_mse": 1072745.7134874286,
+      "rest_n": 1065911,
+      "rest_mse": 49566.77295310424,
+      "mse_at_ranking_mix": 65241.98078176393,
+      "rmse_at_ranking_mix": 255.4250981829388,
+      "rest_rmse": 222.63596509347775,
+      "class_rmse": 1035.7343836560744
+    },
+    "R_B_long": {
+      "n": 328009,
+      "rmse": 224.89114403990294,
+      "class_n": 2992,
+      "class_share_pct": 0.9121700928937926,
+      "class_mse": 865576.430752296,
+      "rest_n": 325017,
+      "rest_mse": 43073.4000079817,
+      "mse_at_ranking_mix": 55674.23201874089,
+      "rmse_at_ranking_mix": 235.95387688855823,
+      "rest_rmse": 207.54132120611956,
+      "class_rmse": 930.3636013690002
+    }
+  },
+  "accounting": {
+    "cv_combined": 236.31506837417996,
+    "cv_at_ranking_mix": 244.76821802974968,
+    "official": 279.3805,
+    "gap_total": 43.065431625820025,
+    "gap_explained_by_mix": 8.453149655569717,
+    "gap_explained_pct": 19.628619373924035,
+    "gap_residual": 34.61228197025031,
+    "residual_excess_sse": 6256099636.530444,
+    "residual_one_row_sec": 79095.509585124,
+    "residual_rows_at_4h": 30.17023358666302
+  },
+  "perfect_artifact_rows": {
+    "cv_combined_if_perfect": 213.77650310449917,
+    "remaining_share_of_cv_pct": 81.83462710100954
+  },
+  "leaderboard_concentration": {
+    "v30_official": 309.9872,
+    "v33_official": 282.4525,
+    "rows_moved": 58,
+    "gain_sse": 5625270334.362742,
+    "moved_rows_share_of_v30_sse_pct": 16.97606305945975,
+    "validation_top_1_share_pct": 1.049771388644867,
+    "validation_top_50_share_pct": 11.268369183187827,
+    "validation_top_100_share_pct": 13.686516102803294
+  }
+}

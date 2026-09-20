@@ -1,0 +1,834 @@
+{
+  "discriminators": [
+    {
+      "name": "D0 null",
+      "question": "Jan+Jul 2025 split at random",
+      "auc": 0.499181256162021,
+      "n_negative": 172491,
+      "n_positive": 171928,
+      "permutation": {
+        "holdout_auc": 0.499181256162021,
+        "n_rows": 103516,
+        "top_features": [
+          {
+            "feature": "operator",
+            "auc_drop": 0.0018564302410382094
+          },
+          {
+            "feature": "ac_type",
+            "auc_drop": 0.00038746648247700577
+          },
+          {
+            "feature": "mvt_minus_aobt3",
+            "auc_drop": 0.00018399898483323351
+          },
+          {
+            "feature": "mvt_minus_eobt1",
+            "auc_drop": 0.00016052209508971016
+          },
+          {
+            "feature": "mvt_minus_lobt",
+            "auc_drop": 0.00011574253719393024
+          },
+          {
+            "feature": "eobt1_minus_lobt",
+            "auc_drop": 3.45422946068652e-05
+          },
+          {
+            "feature": "diverted",
+            "auc_drop": 7.931457336796122e-06
+          },
+          {
+            "feature": "airport",
+            "auc_drop": 6.84276006318596e-06
+          },
+          {
+            "feature": "market",
+            "auc_drop": 0.0
+          },
+          {
+            "feature": "wake",
+            "auc_drop": 0.0
+          },
+          {
+            "feature": "rule_mvt",
+            "auc_drop": 0.0
+          },
+          {
+            "feature": "rule_flt",
+            "auc_drop": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "D1 naive",
+      "question": "all 2025 vs the ranking set",
+      "auc": 0.7018594487599983,
+      "n_negative": 2085047,
+      "n_positive": 344841,
+      "permutation": {
+        "holdout_auc": 0.7003092598135947,
+        "n_rows": 200000,
+        "top_features": [
+          {
+            "feature": "stand",
+            "auc_drop": 0.060462062483538026
+          },
+          {
+            "feature": "runway",
+            "auc_drop": 0.051757601067344394
+          },
+          {
+            "feature": "ac_type",
+            "auc_drop": 0.048286962149790225
+          },
+          {
+            "feature": "ades",
+            "auc_drop": 0.04003726183755496
+          },
+          {
+            "feature": "operator",
+            "auc_drop": 0.03847182226204782
+          },
+          {
+            "feature": "mvt_minus_aobt3",
+            "auc_drop": 0.027696010463030718
+          },
+          {
+            "feature": "airport",
+            "auc_drop": 0.015580449422274434
+          },
+          {
+            "feature": "mvt_minus_eobt1",
+            "auc_drop": 0.012261021289374119
+          },
+          {
+            "feature": "mvt_minus_sched",
+            "auc_drop": 0.011070437782484621
+          },
+          {
+            "feature": "dow",
+            "auc_drop": 0.008723160092608317
+          },
+          {
+            "feature": "eobt1_minus_lobt",
+            "auc_drop": 0.008294462536959535
+          },
+          {
+            "feature": "aobt3_minus_sched",
+            "auc_drop": 0.005289972073898919
+          }
+        ]
+      }
+    },
+    {
+      "name": "D2 season-matched",
+      "question": "Jan+Jul 2025 vs Jan+Jul 2026",
+      "auc": 0.7257810617744775,
+      "n_negative": 344419,
+      "n_positive": 344841,
+      "permutation": {
+        "holdout_auc": 0.7258769553346611,
+        "n_rows": 200000,
+        "top_features": [
+          {
+            "feature": "runway",
+            "auc_drop": 0.08220482545698471
+          },
+          {
+            "feature": "stand",
+            "auc_drop": 0.06041101027401019
+          },
+          {
+            "feature": "ac_type",
+            "auc_drop": 0.05464821552633592
+          },
+          {
+            "feature": "ades",
+            "auc_drop": 0.04233543241750248
+          },
+          {
+            "feature": "operator",
+            "auc_drop": 0.04118783445687568
+          },
+          {
+            "feature": "mvt_minus_aobt3",
+            "auc_drop": 0.019356127605862916
+          },
+          {
+            "feature": "dow",
+            "auc_drop": 0.014833277684633495
+          },
+          {
+            "feature": "airport",
+            "auc_drop": 0.014330264731423514
+          },
+          {
+            "feature": "mvt_minus_eobt1",
+            "auc_drop": 0.013589369701072385
+          },
+          {
+            "feature": "eobt1_minus_lobt",
+            "auc_drop": 0.005671385983540889
+          },
+          {
+            "feature": "aobt3_minus_sched",
+            "auc_drop": 0.005520655312888811
+          },
+          {
+            "feature": "hour",
+            "auc_drop": 0.0025870279452675504
+          }
+        ]
+      }
+    },
+    {
+      "name": "D3 within-year",
+      "question": "Jan+Jul 2025 vs Nov+Dec 2025",
+      "auc": 0.7519981469730915,
+      "n_negative": 344419,
+      "n_positive": 328009,
+      "permutation": {
+        "holdout_auc": 0.7520061906812376,
+        "n_rows": 200000,
+        "top_features": [
+          {
+            "feature": "ades",
+            "auc_drop": 0.06918658503479591
+          },
+          {
+            "feature": "runway",
+            "auc_drop": 0.06529222610737873
+          },
+          {
+            "feature": "hour",
+            "auc_drop": 0.05943129845809747
+          },
+          {
+            "feature": "operator",
+            "auc_drop": 0.04812912244417733
+          },
+          {
+            "feature": "stand",
+            "auc_drop": 0.04220986310031094
+          },
+          {
+            "feature": "ac_type",
+            "auc_drop": 0.03543673400358305
+          },
+          {
+            "feature": "dow",
+            "auc_drop": 0.025531874422045187
+          },
+          {
+            "feature": "eobt1_minus_lobt",
+            "auc_drop": 0.010392379178537081
+          },
+          {
+            "feature": "aobt3_minus_sched",
+            "auc_drop": 0.008265223981328562
+          },
+          {
+            "feature": "airport",
+            "auc_drop": 0.007366764954120142
+          },
+          {
+            "feature": "mvt_minus_eobt1",
+            "auc_drop": 0.002611379829707383
+          },
+          {
+            "feature": "mvt_minus_iobt",
+            "auc_drop": 0.001955912613228583
+          }
+        ]
+      }
+    }
+  ],
+  "groups": {
+    "R_A": {
+      "source_months": [
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "n": 1079528,
+      "rmse": 249.94598334814702,
+      "rmse_weighted": 272.00127032490934,
+      "rmse_weighted_clipped_p99": 269.8529236488028,
+      "rmse_weighted_uncorrected_odds": 272.0029605057973,
+      "cross_fit_counts": [
+        {
+          "half": 0,
+          "source_train": 539428,
+          "target_train": 172627,
+          "source_holdout": 540100,
+          "target_holdout": 172214,
+          "class_count_correction": 3.1248182497523564
+        },
+        {
+          "half": 1,
+          "source_train": 540100,
+          "target_train": 172214,
+          "source_holdout": 539428,
+          "target_holdout": 172627,
+          "class_count_correction": 3.1362142450671837
+        }
+      ],
+      "probability_calibration_heldout": {
+        "expected_calibration_error": 0.006506234663832771,
+        "brier": 0.16378610318374537,
+        "bins": [
+          {
+            "n": 142437,
+            "mean_predicted": 0.06394712163493937,
+            "observed": 0.04898305917703968
+          },
+          {
+            "n": 142437,
+            "mean_predicted": 0.13103887714989682,
+            "observed": 0.1274879420375324
+          },
+          {
+            "n": 142437,
+            "mean_predicted": 0.16228066955863998,
+            "observed": 0.16107472075373674
+          },
+          {
+            "n": 142437,
+            "mean_predicted": 0.18692522041380566,
+            "observed": 0.1869879315065608
+          },
+          {
+            "n": 142437,
+            "mean_predicted": 0.20954609164199953,
+            "observed": 0.21120916615766971
+          },
+          {
+            "n": 142437,
+            "mean_predicted": 0.23287681778787167,
+            "observed": 0.23521978137702984
+          },
+          {
+            "n": 142437,
+            "mean_predicted": 0.25960244160591694,
+            "observed": 0.257854349642298
+          },
+          {
+            "n": 142437,
+            "mean_predicted": 0.29391317517160903,
+            "observed": 0.28998083363171084
+          },
+          {
+            "n": 142437,
+            "mean_predicted": 0.3472328983005395,
+            "observed": 0.34572477656788614
+          },
+          {
+            "n": 142436,
+            "mean_predicted": 0.522404238735864,
+            "observed": 0.5564885281810779
+          }
+        ]
+      },
+      "balance_vs_ranking": [
+        {
+          "feature": "no_flight_id",
+          "source_pct": 1.2613846063613892,
+          "weighted_pct": 1.5273164243196506,
+          "ranking_pct": 1.5320103168487549,
+          "residual_pct_points": -0.004693892529104238
+        },
+        {
+          "feature": "no_aobt3",
+          "source_pct": 1.2645341157913208,
+          "weighted_pct": 1.5305042696952071,
+          "ranking_pct": 1.5340403318405151,
+          "residual_pct_points": -0.0035360621453079943
+        },
+        {
+          "feature": "no_lobt",
+          "source_pct": 1.2645341157913208,
+          "weighted_pct": 1.5305042696952071,
+          "ranking_pct": 1.5340403318405151,
+          "residual_pct_points": -0.0035360621453079943
+        },
+        {
+          "feature": "no_stand",
+          "source_pct": 0.0010189638705924153,
+          "weighted_pct": 0.0019188412104764725,
+          "ranking_pct": 0.0011599549325183034,
+          "residual_pct_points": 0.0007588862779581691
+        },
+        {
+          "feature": "no_operator",
+          "source_pct": 1.2645341157913208,
+          "weighted_pct": 1.5305042696952071,
+          "ranking_pct": 1.5340403318405151,
+          "residual_pct_points": -0.0035360621453079943
+        },
+        {
+          "feature": "no_type",
+          "source_pct": 0.08976145088672638,
+          "weighted_pct": 0.12005565878650487,
+          "ranking_pct": 0.11251562088727951,
+          "residual_pct_points": 0.00754003789922536
+        },
+        {
+          "feature": "type_mismatch",
+          "source_pct": 1.4918557405471802,
+          "weighted_pct": 1.6433772538589642,
+          "ranking_pct": 1.5989978313446045,
+          "residual_pct_points": 0.04437942251435967
+        },
+        {
+          "feature": "diverted",
+          "source_pct": 0.10282271355390549,
+          "weighted_pct": 0.10410908188405536,
+          "ranking_pct": 0.11889537423849106,
+          "residual_pct_points": -0.014786292354435696
+        },
+        {
+          "feature": "airport=EDDF",
+          "source_pct": 11.161452042003543,
+          "weighted_pct": 9.865090952392531,
+          "ranking_pct": 10.531520323859402,
+          "residual_pct_points": -0.6664293714668705
+        },
+        {
+          "feature": "airport=EDDM",
+          "source_pct": 8.095111937809857,
+          "weighted_pct": 7.29259530882693,
+          "ranking_pct": 7.52984708894824,
+          "residual_pct_points": -0.23725178012131032
+        },
+        {
+          "feature": "airport=EGLL",
+          "source_pct": 11.286043530135393,
+          "weighted_pct": 12.0021049493709,
+          "ranking_pct": 11.553150582442342,
+          "residual_pct_points": 0.4489543669285574
+        },
+        {
+          "feature": "airport=EHAM",
+          "source_pct": 11.769032391934253,
+          "weighted_pct": 11.175855281953488,
+          "ranking_pct": 11.07234928561279,
+          "residual_pct_points": 0.10350599634069901
+        },
+        {
+          "feature": "airport=LEBL",
+          "source_pct": 8.61107817490607,
+          "weighted_pct": 9.005725057246156,
+          "ranking_pct": 8.72286068071952,
+          "residual_pct_points": 0.28286437652663565
+        },
+        {
+          "feature": "airport=LEMD",
+          "source_pct": 10.12257208706027,
+          "weighted_pct": 11.134733235625083,
+          "ranking_pct": 10.716243138141927,
+          "residual_pct_points": 0.418490097483156
+        },
+        {
+          "feature": "airport=LFPG",
+          "source_pct": 11.459452649676525,
+          "weighted_pct": 10.769227368822971,
+          "ranking_pct": 11.562430221464385,
+          "residual_pct_points": -0.7932028526414143
+        },
+        {
+          "feature": "airport=LIRF",
+          "source_pct": 7.676966229685567,
+          "weighted_pct": 7.870601894898593,
+          "ranking_pct": 7.800406564184653,
+          "residual_pct_points": 0.0701953307139398
+        },
+        {
+          "feature": "airport=LSZH",
+          "source_pct": 6.520442267361291,
+          "weighted_pct": 6.851451962004552,
+          "ranking_pct": 6.713238855008539,
+          "residual_pct_points": 0.1382131069960133
+        },
+        {
+          "feature": "airport=LTFM",
+          "source_pct": 13.29784868942723,
+          "weighted_pct": 14.032613988858806,
+          "ranking_pct": 13.7979532596182,
+          "residual_pct_points": 0.23466072924060555
+        }
+      ],
+      "weight_and_error_concentration": {
+        "ess_pct": 56.757934674267794,
+        "weight_p50": 0.8179214416699843,
+        "weight_p90": 1.6511970942916079,
+        "weight_p99": 3.897033647640643,
+        "weight_max": 105.63867006535983,
+        "weight_share_top_1pct": 6.430992731897792,
+        "top10_weighted_sse_pct": 8.429847100152106,
+        "top1pct_weighted_sse_pct": 56.347387167863936,
+        "mse_delta": 11511.696466492218,
+        "top10_mse_delta": 2951.487527449511,
+        "top10_share_of_positive_delta_pct": 12.074529382546041
+      },
+      "unseen_combinations": [
+        {
+          "keys": [
+            "airport",
+            "stand"
+          ],
+          "ranking_unseen_n": 1646,
+          "ranking_unseen_pct": 0.47732143219628753,
+          "note": "no source rows to upweight; reweighting cannot represent these"
+        },
+        {
+          "keys": [
+            "airport",
+            "stand",
+            "runway"
+          ],
+          "ranking_unseen_n": 2977,
+          "ranking_unseen_pct": 0.8632964177693488,
+          "note": "no source rows to upweight; reweighting cannot represent these"
+        },
+        {
+          "keys": [
+            "airport",
+            "ades"
+          ],
+          "ranking_unseen_n": 1187,
+          "ranking_unseen_pct": 0.34421660997387205,
+          "note": "no source rows to upweight; reweighting cannot represent these"
+        }
+      ]
+    },
+    "R_B_long": {
+      "source_months": [
+        "2025-11",
+        "2025-12"
+      ],
+      "n": 328009,
+      "rmse": 224.89114403990294,
+      "rmse_weighted": 264.015316426337,
+      "rmse_weighted_clipped_p99": 261.6954486717938,
+      "rmse_weighted_uncorrected_odds": 264.00977553791597,
+      "cross_fit_counts": [
+        {
+          "half": 0,
+          "source_train": 164031,
+          "target_train": 172159,
+          "source_holdout": 163978,
+          "target_holdout": 172682,
+          "class_count_correction": 0.9527878298549597
+        },
+        {
+          "half": 1,
+          "source_train": 163978,
+          "target_train": 172682,
+          "source_holdout": 164031,
+          "target_holdout": 172159,
+          "class_count_correction": 0.9495952096918034
+        }
+      ],
+      "probability_calibration_heldout": {
+        "expected_calibration_error": 0.016289743754056996,
+        "brier": 0.21346714844870304,
+        "bins": [
+          {
+            "n": 67285,
+            "mean_predicted": 0.21915362892018433,
+            "observed": 0.22516162591959574
+          },
+          {
+            "n": 67285,
+            "mean_predicted": 0.3310200546500947,
+            "observed": 0.33566173738574717
+          },
+          {
+            "n": 67285,
+            "mean_predicted": 0.38590663509145556,
+            "observed": 0.37959426320873896
+          },
+          {
+            "n": 67285,
+            "mean_predicted": 0.43253425398541295,
+            "observed": 0.41981125065021924
+          },
+          {
+            "n": 67285,
+            "mean_predicted": 0.4768617918159205,
+            "observed": 0.46047410269748085
+          },
+          {
+            "n": 67285,
+            "mean_predicted": 0.5221773386580494,
+            "observed": 0.5046741472839414
+          },
+          {
+            "n": 67285,
+            "mean_predicted": 0.5717856152046945,
+            "observed": 0.5537489782269451
+          },
+          {
+            "n": 67285,
+            "mean_predicted": 0.631049661794387,
+            "observed": 0.6173144088578435
+          },
+          {
+            "n": 67285,
+            "mean_predicted": 0.711129685844494,
+            "observed": 0.7242327413242179
+          },
+          {
+            "n": 67285,
+            "mean_predicted": 0.8499600718194412,
+            "observed": 0.9044066285204726
+          }
+        ]
+      },
+      "balance_vs_ranking": [
+        {
+          "feature": "no_flight_id",
+          "source_pct": 0.9121701121330261,
+          "weighted_pct": 1.484253340634298,
+          "ranking_pct": 1.5320103168487549,
+          "residual_pct_points": -0.04775697621445696
+        },
+        {
+          "feature": "no_aobt3",
+          "source_pct": 0.9161333441734314,
+          "weighted_pct": 1.4889595609889517,
+          "ranking_pct": 1.5340403318405151,
+          "residual_pct_points": -0.04508077085156348
+        },
+        {
+          "feature": "no_lobt",
+          "source_pct": 0.9161333441734314,
+          "weighted_pct": 1.4889595609889517,
+          "ranking_pct": 1.5340403318405151,
+          "residual_pct_points": -0.04508077085156348
+        },
+        {
+          "feature": "no_stand",
+          "source_pct": 0.0006097393343225121,
+          "weighted_pct": 0.0015397163498248084,
+          "ranking_pct": 0.0011599549325183034,
+          "residual_pct_points": 0.00037976141730650505
+        },
+        {
+          "feature": "no_operator",
+          "source_pct": 0.9161333441734314,
+          "weighted_pct": 1.4889595609889517,
+          "ranking_pct": 1.5340403318405151,
+          "residual_pct_points": -0.04508077085156348
+        },
+        {
+          "feature": "no_type",
+          "source_pct": 0.0439012348651886,
+          "weighted_pct": 0.12178462020067833,
+          "ranking_pct": 0.11251562088727951,
+          "residual_pct_points": 0.00926899931339882
+        },
+        {
+          "feature": "type_mismatch",
+          "source_pct": 1.1130791902542114,
+          "weighted_pct": 1.5738876232518413,
+          "ranking_pct": 1.5989978313446045,
+          "residual_pct_points": -0.02511020809276321
+        },
+        {
+          "feature": "diverted",
+          "source_pct": 0.14145952463150024,
+          "weighted_pct": 0.1631721633831858,
+          "ranking_pct": 0.11889537423849106,
+          "residual_pct_points": 0.04427678914469474
+        },
+        {
+          "feature": "airport=EDDF",
+          "source_pct": 10.806410799703666,
+          "weighted_pct": 10.164545354625728,
+          "ranking_pct": 10.531520323859402,
+          "residual_pct_points": -0.3669749692336737
+        },
+        {
+          "feature": "airport=EDDM",
+          "source_pct": 7.4988796039133065,
+          "weighted_pct": 7.264023079609315,
+          "ranking_pct": 7.52984708894824,
+          "residual_pct_points": -0.26582400933892547
+        },
+        {
+          "feature": "airport=EGLL",
+          "source_pct": 12.01887753079946,
+          "weighted_pct": 12.29106022076243,
+          "ranking_pct": 11.553150582442342,
+          "residual_pct_points": 0.7379096383200885
+        },
+        {
+          "feature": "airport=EHAM",
+          "source_pct": 11.795408052827819,
+          "weighted_pct": 10.648683194990257,
+          "ranking_pct": 11.07234928561279,
+          "residual_pct_points": -0.42366609062253247
+        },
+        {
+          "feature": "airport=LEBL",
+          "source_pct": 8.282394690389593,
+          "weighted_pct": 8.927430738953674,
+          "ranking_pct": 8.72286068071952,
+          "residual_pct_points": 0.20457005823415386
+        },
+        {
+          "feature": "airport=LEMD",
+          "source_pct": 10.793606272998607,
+          "weighted_pct": 11.138297358902372,
+          "ranking_pct": 10.716243138141927,
+          "residual_pct_points": 0.42205422076044563
+        },
+        {
+          "feature": "airport=LFPG",
+          "source_pct": 11.714312717029106,
+          "weighted_pct": 10.799029468612375,
+          "ranking_pct": 11.562430221464385,
+          "residual_pct_points": -0.7634007528520108
+        },
+        {
+          "feature": "airport=LIRF",
+          "source_pct": 7.132731114085285,
+          "weighted_pct": 7.697374594100811,
+          "ranking_pct": 7.800406564184653,
+          "residual_pct_points": -0.10303197008384224
+        },
+        {
+          "feature": "airport=LSZH",
+          "source_pct": 6.299522269206028,
+          "weighted_pct": 6.740660176295121,
+          "ranking_pct": 6.713238855008539,
+          "residual_pct_points": 0.0274213212865817
+        },
+        {
+          "feature": "airport=LTFM",
+          "source_pct": 13.657856949047128,
+          "weighted_pct": 14.328895813147923,
+          "ranking_pct": 13.7979532596182,
+          "residual_pct_points": 0.530942553529723
+        }
+      ],
+      "weight_and_error_concentration": {
+        "ess_pct": 55.13360711642114,
+        "weight_p50": 0.7443500989999081,
+        "weight_p90": 1.7055402633364294,
+        "weight_p99": 3.8335150781041665,
+        "weight_max": 67.79524421649236,
+        "weight_share_top_1pct": 6.152013745979892,
+        "top10_weighted_sse_pct": 16.946377814071305,
+        "top1pct_weighted_sse_pct": 54.50657611229292,
+        "mse_delta": 19128.060640122494,
+        "top10_mse_delta": 7541.081328150655,
+        "top10_share_of_positive_delta_pct": 26.161265629915878
+      },
+      "unseen_combinations": [
+        {
+          "keys": [
+            "airport",
+            "stand"
+          ],
+          "ranking_unseen_n": 3458,
+          "ranking_unseen_pct": 1.0027809918194182,
+          "note": "no source rows to upweight; reweighting cannot represent these"
+        },
+        {
+          "keys": [
+            "airport",
+            "stand",
+            "runway"
+          ],
+          "ranking_unseen_n": 6497,
+          "ranking_unseen_pct": 1.8840567101939734,
+          "note": "no source rows to upweight; reweighting cannot represent these"
+        },
+        {
+          "keys": [
+            "airport",
+            "ades"
+          ],
+          "ranking_unseen_n": 5860,
+          "ranking_unseen_pct": 1.699333895911449,
+          "note": "no source rows to upweight; reweighting cannot represent these"
+        }
+      ]
+    }
+  },
+  "accounting": {
+    "status": "EXPERIMENTAL DIAGNOSTIC \u2014 not validated as a leaderboard forecast",
+    "cv_combined": 236.31506837417996,
+    "cv_reweighted": 267.58144401941206,
+    "cv_reweighted_clipped_p99": 265.33907351952945,
+    "official": 279.3805,
+    "gap_total": 43.065431625820025,
+    "moved_by_reweighting": 31.266375645232102,
+    "remainder": 11.799055980587923,
+    "remainder_note": "unexplained; not attributed to labels, and not shown to be recoverable error. Better weights, omitted features (weather, traffic, history) or unseen combinations could all move it."
+  },
+  "features": {
+    "used": [
+      "airport",
+      "ades",
+      "ac_type",
+      "operator",
+      "market",
+      "wake",
+      "rule_mvt",
+      "rule_flt",
+      "ftype",
+      "stand",
+      "runway",
+      "hour",
+      "dow",
+      "no_flight_id",
+      "no_aobt3",
+      "no_lobt",
+      "no_iobt",
+      "no_eobt1",
+      "no_stand",
+      "no_runway",
+      "no_type",
+      "no_operator",
+      "mvt_minus_sched",
+      "mvt_minus_lobt",
+      "mvt_minus_iobt",
+      "mvt_minus_eobt1",
+      "mvt_minus_aobt3",
+      "aobt3_minus_sched",
+      "eobt1_minus_lobt",
+      "iobt_minus_lobt",
+      "type_mismatch",
+      "adep_mismatch",
+      "diverted"
+    ],
+    "excluded": [
+      "ym",
+      "month",
+      "date",
+      "year"
+    ]
+  },
+  "params": {
+    "objective": "binary",
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "verbose": -1,
+    "min_data_per_group": 100,
+    "cat_smooth": 10,
+    "num_threads": 6,
+    "feature_fraction": 0.9,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "rounds": 300,
+    "seed": 42
+  }
+}

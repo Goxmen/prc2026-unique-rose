@@ -1,5 +1,7 @@
 # Reports
 
+- [Weighted CV: eleven scored submissions](WEIGHTED_CV_LEADERBOARD_EXTENDED.md): current validation headline, adopted on 20 September; smaller CV–LB gaps with unchanged direction accuracy. [Method](../docs/WEIGHTED_CV.md).
+- [Initial six-submission comparison](WEIGHTED_CV_LEADERBOARD.md) and [adversarial follow-up review](ADVERSARIAL_FOLLOWUP_REVIEW.md): earlier evidence and remaining limits. Their pre-adoption recommendations are historical.
 - [Residual atlas for officially scored recipes](SCORED_RESIDUALS.md): matched-flight error patterns, airport/clock/queue slices, coverage gaps, interactive exploration and an eight-page PDF; saved predictions only.
 - [September 19 recording-artifact experiments](RECORDING_ARTIFACT_EXPERIMENTS.md): error patterns, nine local corrections, matched-control scores and test-set hypotheses; no submissions.
 - [September 17 overnight study: five successful submissions and held-out CV verdict](OVERNIGHT_SUMMARY_20260917.md).

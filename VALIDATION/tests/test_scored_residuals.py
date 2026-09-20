@@ -27,6 +27,18 @@ class ResidualReportTests(unittest.TestCase):
         self.assertEqual(rows[1]['lb'],406.4281)
         self.assertEqual(rows[1]['cv_combined'],348.9)
 
+    def test_weighted_column_does_not_replace_official_score(self):
+        with TemporaryDirectory() as tmp:
+            Path(tmp,'SUBMISSIONS.md').write_text(
+                '| 12 | **B0-800** | model | 366.7 | 334.2 | 348.9 | 442.0361 | 406.4281 | v12 |\n'
+                '| 26 | hybrid | model | 271.9 | 246.8 | 258.2 | - | 333.8712 | v26 |\n'
+                '| 38 | unsubmitted | model | 296.7 | 296.5 | 296.6 | - | — | Not submitted |\n')
+            with patch('plot_scored_residuals.ROOT',Path(tmp)):
+                rows=ledger()
+        self.assertEqual([r['version'] for r in rows],['v12','v26'])
+        self.assertEqual([r['lb'] for r in rows],[406.4281,333.8712])
+        self.assertEqual(rows[0]['cv_combined'],348.9)
+
     def test_group_contributions_reconstruct_total_mse(self):
         d = pd.DataFrame({'airport':['A','A','B'], 'y':[1.,2.,3.],
                           'date':['2025-07-01','2025-07-02','2025-07-01'],

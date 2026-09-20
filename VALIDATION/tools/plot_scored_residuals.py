@@ -76,10 +76,10 @@ def ledger():
     rows = []
     for line in (ROOT / 'SUBMISSIONS.md').read_text().splitlines():
         cells = [c.strip() for c in line.split('|')[1:-1]]
-        if len(cells) != 8 or not cells[0].isdigit() or not re.fullmatch(r'v\d+', cells[-1]):
+        if len(cells) not in (8, 9) or not cells[0].isdigit() or not re.fullmatch(r'v\d+', cells[-1]):
             continue
         try:
-            score = float(cells[6].replace('*', ''))
+            score = float(cells[-2].replace('*', ''))
         except ValueError:
             continue
         rows.append(dict(version=cells[-1], name=cells[1].replace('*', ''), lb=score,

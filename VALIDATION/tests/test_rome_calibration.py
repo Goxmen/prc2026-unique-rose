@@ -232,6 +232,25 @@ class ResultTests(unittest.TestCase):
             with self.assertRaises(ValueError):report.update_submissions(path,'test_run',result,'run/report.md')
             self.assertEqual(first,path.read_text())
 
+    def test_ledger_preserves_weighted_column_and_marks_unscored_additions(self):
+        original=('| Order | Name | Recipe | A | B | Combined | Weighted CV | LB | Status |\n'
+                  '|---|---|---|---|---|---|---|---|---|\n'
+                  '| 37 | Existing | original | 1.1 | 2.2 | 3.3 | 267.5814 | **279.3805** | v38 |\n')
+        results={name:{'scores':dict(zip(report.SCORES,[200.,190.,195.]))} for name in ('binary','three')}
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'SUBMISSIONS.md';path.write_text(original)
+            report.update_submissions(path,'test_run',results,'run/report.md')
+            first=path.read_text()
+            report.update_submissions(path,'test_run',results,'run/report.md')
+            self.assertEqual(first,path.read_text())
+        self.assertIn('| 267.5814 | **279.3805** | v38 |',first)
+        rows=[[c.strip() for c in line.split('|')[1:-1]] for line in first.splitlines()
+              if line.startswith('| 38 |') or line.startswith('| 39 |')]
+        self.assertEqual(len(rows),2)
+        for row in rows:
+            self.assertEqual(len(row),9)
+            self.assertEqual(row[-3:],['-','—','Not submitted'])
+
     def test_partial_report_cannot_touch_submission_ledger(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);path=root/'SUBMISSIONS.md';path.write_text('unchanged')

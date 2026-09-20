@@ -3,6 +3,13 @@
 The everyday commands remain at the top level of `VALIDATION/`. Run these
 helpers from the repository root:
 
+**Current validation headline: [Weighted CV](../docs/WEIGHTED_CV.md), adopted on
+20 September 2026.** `compare_weighted_cv_leaderboard.py` reproduces the initial
+six scored cases; `extend_weighted_cv_leaderboard.py` adds v17–v21. Both reuse
+saved taxi-out predictions and the same weights. The initial tool can regenerate
+the four discriminator fits if its weight cache is missing; neither uploads.
+Earlier recommendations below are historical.
+
 The [September 17 overnight study](../reports/OVERNIGHT_SUMMARY_20260917.md)
 is complete: v17–v21 all succeeded, v19 is best at 338.1113 s, and the proposed
 CV alternative failed held-out confirmation. Keep the current default/folds;

@@ -1,0 +1,153 @@
+{
+  "original_result_sha256": "389b577b423669a7dfe5b03d47c41d8b5b535372f569b8f14c9ca1189ccbd14e",
+  "submissions": [
+    {
+      "version": 17,
+      "name": "Remove month",
+      "recipe": "no_month",
+      "official": 345.8984,
+      "run": "overnight_20260917",
+      "column": "pred",
+      "expected_scores": {
+        "R_A": 296.46859998264995,
+        "R_B_long": 251.84084923524455,
+        "R_combined": 272.5081821316415
+      }
+    },
+    {
+      "version": 18,
+      "name": "Remove departure history",
+      "recipe": "no_history",
+      "official": 342.5049,
+      "run": "overnight_20260917",
+      "column": "pred",
+      "expected_scores": {
+        "R_A": 296.51079716864007,
+        "R_B_long": 255.9092753282815,
+        "R_combined": 274.63190467466205
+      }
+    },
+    {
+      "version": 19,
+      "name": "Add clock features",
+      "recipe": "clock_features",
+      "official": 338.1113,
+      "run": "overnight_20260917",
+      "column": "pred",
+      "expected_scores": {
+        "R_A": 293.6614480725777,
+        "R_B_long": 255.63259153123767,
+        "R_combined": 273.12835731858644
+      }
+    },
+    {
+      "version": 20,
+      "name": "Use smaller trees",
+      "recipe": "small_trees",
+      "official": 345.3113,
+      "run": "overnight_20260917",
+      "column": "pred",
+      "expected_scores": {
+        "R_A": 296.63772335279657,
+        "R_B_long": 255.66242064978564,
+        "R_combined": 274.5645061753866
+      }
+    },
+    {
+      "version": 21,
+      "name": "Exclude rule-handled rows from training",
+      "recipe": "rule_routing",
+      "official": 342.4009,
+      "run": "overnight_20260917",
+      "column": "pred",
+      "expected_scores": {
+        "R_A": 286.62908305767013,
+        "R_B_long": 251.40239352337272,
+        "R_combined": 267.57591123925727
+      }
+    }
+  ],
+  "selection": "All five actual overnight submissions: calendar ablation, history ablation, clock features, capacity, training routing.",
+  "new_pairs": [
+    [
+      17,
+      15
+    ],
+    [
+      18,
+      15
+    ],
+    [
+      19,
+      15
+    ],
+    [
+      20,
+      15
+    ],
+    [
+      21,
+      15
+    ]
+  ],
+  "all_pairs": [
+    [
+      13,
+      12
+    ],
+    [
+      14,
+      13
+    ],
+    [
+      15,
+      13
+    ],
+    [
+      16,
+      14
+    ],
+    [
+      16,
+      15
+    ],
+    [
+      17,
+      15
+    ],
+    [
+      18,
+      15
+    ],
+    [
+      19,
+      15
+    ],
+    [
+      20,
+      15
+    ],
+    [
+      21,
+      15
+    ]
+  ],
+  "primary": "Same fixed weights and user criteria as the initial six-case comparison; every new candidate compared to original scored v15.",
+  "scope": "Retrospective; official scores already known. No tuning or independent-confirmation claim.",
+  "sensitivity": [
+    "Each seed",
+    "Existing p99 clipping",
+    "Changes >= 1 s",
+    "Overnight control replay for CV differences only; same recorded v15 LB anchor",
+    "All pairs descriptive only"
+  ],
+  "manifests": {
+    "VALIDATION/runs/overnight_20260917/cv_scores.json": "cd71e25bacbaf5d75ca1b0f2a8867c65b3bc6c5ec362c7bdfd1127bd6b18a0ac",
+    "VALIDATION/runs/overnight_20260917/result.json": "4c7892bf59941594b99448b6e667dd3341a3c5cb52bf2edf5122b9e3d97be49e",
+    "VALIDATION/runs/overnight_20260917/submission_manifest.json": "89f17b9f09d4d520526d74bbecb30a3bde26d9b2b483c38e38926316028cdcf5"
+  },
+  "weight_files": {
+    "R_A": "6918e9410934fdf6fb93ddba92add1c83e358ac8c940e573c429e93e0035f62e",
+    "R_B_long": "4fe8a0c4e2553062a32b548f3c2b49156e2b335f8a1a8244275286c4bf0ae54b"
+  }
+}
