@@ -1,5 +1,8 @@
 # Submitted models
 
+**Current validation: Weighted CV.** The column is beside the model name below.
+Verified v38 score: **267.5814 s**.
+
 Model recipes and uploads, checked live at **2026-09-19 14:52 UTC**
 (`pipeline/leaderboard_status.py`). There are 30 uploads: 28 scored and 2 rejected
 by the five-per-day limit. **Best and latest: v38, 279.3805 s.** Rank 37 of 166
@@ -24,47 +27,47 @@ twelve months of 2025 with seed 42, the original 27 model inputs (raw movement
 and flight-plan columns, plus departure-taxi history, arrival taxi-in history and
 traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 
-| Order | Codename | Actual recipe | CV next-month | CV longer-gap | CV combined | Weighted CV | Official LB | Submission |
-|---|---|---|---:|---:|---:|---:|---:|---|
-| 1 | **Airport-mean** | No model: 2025 mean taxi-out per airport (labels 1–7,200 s); global mean fallback | — | — | — | - | 661.5737 | v1 |
-| 2 | **LGBM-raw** | LightGBM, raw columns only (`pipeline/train.py`); 3,000 rounds; labels **1–7,200 s** | — | — | — | - | 533.3759 | v2 |
-| 3 | **Keep-tail** | 27 inputs; 800 rounds; labels widened to **1–200,000 s** | — | — | — | - | 405.6987 | v3 |
-| 4 | **FPL-flag** | Keep-tail + `has_flight_plan` input | 366.5209† | 333.9163† | 348.7321† | - | 405.7838 | v4 |
-| 5 | **Ceiling-10k** | Keep-tail, labels capped at **10,000 s** | — | — | — | - | 518.3068 | v5 |
-| 6 | **Ceiling-16k** | Keep-tail, labels capped at **16,000 s** | — | — | — | - | 498.3336 | v6 |
-| 7 | **Ceiling-22k** | Keep-tail, labels capped at **22,000 s** | — | — | — | - | 486.0517 | v7 |
-| 8 | **Ceiling-32k** | Keep-tail, labels capped at **32,000 s** | — | — | — | - | 472.7133 | v8 |
-| 9 | **Ceiling-50k** | Keep-tail, labels capped at **50,000 s** | — | — | — | - | 433.6797 | v9 |
-| 10 | **Ceiling-70k** | Keep-tail, labels capped at **70,000 s** | — | — | — | - | Rejected (daily limit) | v10 |
-| 11 | **Ceiling-90k** | Keep-tail, labels capped at **90,000 s** | — | — | — | - | Rejected (daily limit) | v11 |
-| 12 | **B0-800** | Baseline; no recovery, no rule | 366.7465 | 334.1785 | 348.9770 | 442.0361 | 406.4281 | v12 |
-| 13 | **Q0** | B0-800 + **6 h Rome rule** | 300.5904 | 256.1971 | 276.7374 | 326.3408 | 354.4303 | v13 |
-| 14 | **Q1** | B0-800 + **R3 recovery** + 6 h Rome rule | 296.9037 | 258.5505 | 276.1937 | 327.3573 | 354.0004 | v14 |
-| 15 | **Q0-4h** | B0-800 + **4 h Rome rule** | 296.2785 | 255.6200 | 274.3707 | 322.8504 | 344.3114 | v15 |
-| 16 | **Q1-4h** | B0-800 + **R3 recovery** + 4 h Rome rule | 292.8785 | 257.4787 | 273.7215 | 323.1023 | 344.4821 | v16 |
-| 17 | **no_month** | Q0-4h − **`month`** input | 296.4686 | 251.8408 | 272.5082 | 320.3023 | 345.8984 | v17 |
-| 18 | **no_history** | Q0-4h − **5 departure-taxi history inputs** | 296.5108 | 255.9093 | 274.6319 | 323.4994 | 342.5049 | v18 |
-| 19 | **clock_features** | Q0-4h + **18 clock inputs** (still predicts taxi time) | 293.6614 | 255.6326 | 273.1284 | 321.2360 | 338.1113 | v19 |
-| 20 | **small_trees** | Q0-4h with **63 leaves** instead of 255 | 296.6377 | 255.6624 | 274.5645 | 323.6976 | 345.3113 | v20 |
-| 21 | **rule_routing** | Q0-4h; **rule-eligible flights dropped from training**, rule still predicts them | 286.6291 | 251.4024 | 267.5759 | 312.8226 | 342.4009 | v21 |
-| 22 | **Rome-mix-base** | B0-800; Rome prediction = **p × gap + (1 − p) × B0-800**; no rule | 311.4125 | 283.5840 | 296.2310 | - | — | Not submitted |
-| 23 | **Rome-mix-ordinary** | Row 22 with the (1 − p) part from the **regressor** | 317.6906 | 294.5641 | 305.0225 | - | — | Not submitted |
-| 24 | **Rome-hybrid** | Row 23 + **6 h Rome rule** override; regressor at all airports | 280.6325 | 250.5677 | 264.3047 | - | — | Not submitted |
-| 25 | **Rome-hybrid-4h** | Row 24 with the **4 h** rule | 280.8670 | 250.4076 | 264.3304 | - | — | Not submitted |
-| 26 | **Rome-hybrid-4h-clock** | Row 25 + **18 clock inputs** (regressor and classifier) | 271.9287 | 246.7919 | 258.2262 | - | 333.8712 | v26 |
-| 27 | **Rome-hybrid-4h-clock-weather** | Row 26 + **21 METAR weather inputs** (regressor only) | 270.3396 | 239.4157 | 253.5766 | - | 329.1609 | v27 |
-| 28 | **Rome-hybrid-4h-clock-weather-queue** | Row 27 + **11 runway queue inputs** (regressor only) | 265.3809 | 234.4385 | 248.6174 | - | 322.6253 | v28 |
-| 29 | **Rome-signals** | Row 28 + **airline** (regressor and classifier); classifier + **handler share**, **flight-number format**; **late-row estimate** for no-ID Rome rows at 1–4 h | 260.3360 | 233.2610 | 245.6201 | - | 314.4667 | v29 |
-| 30 | **Stand-clock** | Row 29 + **5 stand clock inputs** (regressor and classifier) | 256.1836 | 229.7016 | 241.7877 | - | 309.9872 | v30 |
-| 31 | **Dirty-day** | Row 29 + **6 dirty-day inputs** (regressor and classifier) | 261.3248 | 232.7730 | 245.8271 | - | — | Not submitted |
-| 32 | **Stand-clock-dirty-day** | Row 29 + **both input sets** (regressor and classifier) | 257.6550 | 229.3705 | 242.3045 | - | — | Not submitted |
-| 33 | **Plan-window** | Row 30's predictions, each one for a flight with a flight ID kept within **takeoff − LOBT ± 61 min** (post-processing, no refit) | 253.9467 | 229.2985 | 240.5262 | - | 282.4525 | v33 |
-| 34 | **No-ID-cap** | Row 33's predictions; for flights **without a flight ID** outside Rome, at most **delay − 1 h** when more than 75 min late (not LTFM) and at most the **delay** when more than 30 min late (post-processing, no refit) | **253.0535** | **228.9805** | **239.9398** | - | 280.4658 | v34 |
-| 35 | **Twin-records** | Row 33's predictions; where one takeoff is **logged twice** (same airport and flight number, takeoffs ≤ 3 min apart, one record with a flight ID), that record set to **takeoff − LOBT − 5.5 min** (post-processing, no refit) | 253.6312 | 228.9143 | 240.1746 | - | — | Not submitted |
-| 36 | **Seed-average** | Row 33's predictions **averaged over seeds 42, 142 and 242** (a submission needs two more full-year refits) | 252.6779 | 227.9686 | 239.2266 | - | — | Not submitted |
-| 37 | **Artifact-combined** | Former row 44: row 34 replay + twins, day-shift blend, confidence exception and 12 h clock correction ([recipe](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)) | 249.9460 | 224.8911 | 236.3151 | 267.5814 | **279.3805** | v38 |
-| 38 | **Rome-binary-cal** | Row 34 replay; Rome binary probabilities calibrated on inner chronological predictions; soft mixture replaces the 4 h override; ordinary model reused; [run details](VALIDATION/runs/v3_20260919_rome_calibration/report.md) | 296.7058 | 296.4860 | 296.5834 | - | — | Not submitted |
-| 39 | **Rome-three-cal** | Same soft Rome mixture with a three-class classifier (ordinary/schedule/day), inner probability calibration and a shrunk day component in the existing next-day scope; ordinary model reused; [run details](VALIDATION/runs/v3_20260919_rome_calibration/report.md) | 294.2137 | 282.8235 | 287.9234 | - | — | Not submitted |
+| Order | Codename | Weighted CV | Actual recipe | CV next-month | CV longer-gap | CV combined | Official LB | Submission |
+|---|---|---:|---|---:|---:|---:|---:|---|
+| 1 | **Airport-mean** | - | No model: 2025 mean taxi-out per airport (labels 1–7,200 s); global mean fallback | — | — | — | 661.5737 | v1 |
+| 2 | **LGBM-raw** | - | LightGBM, raw columns only (`pipeline/train.py`); 3,000 rounds; labels **1–7,200 s** | — | — | — | 533.3759 | v2 |
+| 3 | **Keep-tail** | - | 27 inputs; 800 rounds; labels widened to **1–200,000 s** | — | — | — | 405.6987 | v3 |
+| 4 | **FPL-flag** | - | Keep-tail + `has_flight_plan` input | 366.5209† | 333.9163† | 348.7321† | 405.7838 | v4 |
+| 5 | **Ceiling-10k** | - | Keep-tail, labels capped at **10,000 s** | — | — | — | 518.3068 | v5 |
+| 6 | **Ceiling-16k** | - | Keep-tail, labels capped at **16,000 s** | — | — | — | 498.3336 | v6 |
+| 7 | **Ceiling-22k** | - | Keep-tail, labels capped at **22,000 s** | — | — | — | 486.0517 | v7 |
+| 8 | **Ceiling-32k** | - | Keep-tail, labels capped at **32,000 s** | — | — | — | 472.7133 | v8 |
+| 9 | **Ceiling-50k** | - | Keep-tail, labels capped at **50,000 s** | — | — | — | 433.6797 | v9 |
+| 10 | **Ceiling-70k** | - | Keep-tail, labels capped at **70,000 s** | — | — | — | Rejected (daily limit) | v10 |
+| 11 | **Ceiling-90k** | - | Keep-tail, labels capped at **90,000 s** | — | — | — | Rejected (daily limit) | v11 |
+| 12 | **B0-800** | 442.0361 | Baseline; no recovery, no rule | 366.7465 | 334.1785 | 348.9770 | 406.4281 | v12 |
+| 13 | **Q0** | 326.3408 | B0-800 + **6 h Rome rule** | 300.5904 | 256.1971 | 276.7374 | 354.4303 | v13 |
+| 14 | **Q1** | 327.3573 | B0-800 + **R3 recovery** + 6 h Rome rule | 296.9037 | 258.5505 | 276.1937 | 354.0004 | v14 |
+| 15 | **Q0-4h** | 322.8504 | B0-800 + **4 h Rome rule** | 296.2785 | 255.6200 | 274.3707 | 344.3114 | v15 |
+| 16 | **Q1-4h** | 323.1023 | B0-800 + **R3 recovery** + 4 h Rome rule | 292.8785 | 257.4787 | 273.7215 | 344.4821 | v16 |
+| 17 | **no_month** | 320.3023 | Q0-4h − **`month`** input | 296.4686 | 251.8408 | 272.5082 | 345.8984 | v17 |
+| 18 | **no_history** | 323.4994 | Q0-4h − **5 departure-taxi history inputs** | 296.5108 | 255.9093 | 274.6319 | 342.5049 | v18 |
+| 19 | **clock_features** | 321.2360 | Q0-4h + **18 clock inputs** (still predicts taxi time) | 293.6614 | 255.6326 | 273.1284 | 338.1113 | v19 |
+| 20 | **small_trees** | 323.6976 | Q0-4h with **63 leaves** instead of 255 | 296.6377 | 255.6624 | 274.5645 | 345.3113 | v20 |
+| 21 | **rule_routing** | 312.8226 | Q0-4h; **rule-eligible flights dropped from training**, rule still predicts them | 286.6291 | 251.4024 | 267.5759 | 342.4009 | v21 |
+| 22 | **Rome-mix-base** | - | B0-800; Rome prediction = **p × gap + (1 − p) × B0-800**; no rule | 311.4125 | 283.5840 | 296.2310 | — | Not submitted |
+| 23 | **Rome-mix-ordinary** | - | Row 22 with the (1 − p) part from the **regressor** | 317.6906 | 294.5641 | 305.0225 | — | Not submitted |
+| 24 | **Rome-hybrid** | - | Row 23 + **6 h Rome rule** override; regressor at all airports | 280.6325 | 250.5677 | 264.3047 | — | Not submitted |
+| 25 | **Rome-hybrid-4h** | - | Row 24 with the **4 h** rule | 280.8670 | 250.4076 | 264.3304 | — | Not submitted |
+| 26 | **Rome-hybrid-4h-clock** | - | Row 25 + **18 clock inputs** (regressor and classifier) | 271.9287 | 246.7919 | 258.2262 | 333.8712 | v26 |
+| 27 | **Rome-hybrid-4h-clock-weather** | - | Row 26 + **21 METAR weather inputs** (regressor only) | 270.3396 | 239.4157 | 253.5766 | 329.1609 | v27 |
+| 28 | **Rome-hybrid-4h-clock-weather-queue** | - | Row 27 + **11 runway queue inputs** (regressor only) | 265.3809 | 234.4385 | 248.6174 | 322.6253 | v28 |
+| 29 | **Rome-signals** | - | Row 28 + **airline** (regressor and classifier); classifier + **handler share**, **flight-number format**; **late-row estimate** for no-ID Rome rows at 1–4 h | 260.3360 | 233.2610 | 245.6201 | 314.4667 | v29 |
+| 30 | **Stand-clock** | - | Row 29 + **5 stand clock inputs** (regressor and classifier) | 256.1836 | 229.7016 | 241.7877 | 309.9872 | v30 |
+| 31 | **Dirty-day** | - | Row 29 + **6 dirty-day inputs** (regressor and classifier) | 261.3248 | 232.7730 | 245.8271 | — | Not submitted |
+| 32 | **Stand-clock-dirty-day** | - | Row 29 + **both input sets** (regressor and classifier) | 257.6550 | 229.3705 | 242.3045 | — | Not submitted |
+| 33 | **Plan-window** | - | Row 30's predictions, each one for a flight with a flight ID kept within **takeoff − LOBT ± 61 min** (post-processing, no refit) | 253.9467 | 229.2985 | 240.5262 | 282.4525 | v33 |
+| 34 | **No-ID-cap** | - | Row 33's predictions; for flights **without a flight ID** outside Rome, at most **delay − 1 h** when more than 75 min late (not LTFM) and at most the **delay** when more than 30 min late (post-processing, no refit) | **253.0535** | **228.9805** | **239.9398** | 280.4658 | v34 |
+| 35 | **Twin-records** | - | Row 33's predictions; where one takeoff is **logged twice** (same airport and flight number, takeoffs ≤ 3 min apart, one record with a flight ID), that record set to **takeoff − LOBT − 5.5 min** (post-processing, no refit) | 253.6312 | 228.9143 | 240.1746 | — | Not submitted |
+| 36 | **Seed-average** | - | Row 33's predictions **averaged over seeds 42, 142 and 242** (a submission needs two more full-year refits) | 252.6779 | 227.9686 | 239.2266 | — | Not submitted |
+| 37 | **Artifact-combined** | 267.5814 | Former row 44: row 34 replay + twins, day-shift blend, confidence exception and 12 h clock correction ([recipe](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)) | 249.9460 | 224.8911 | 236.3151 | **279.3805** | v38 |
+| 38 | **Rome-binary-cal** | - | Row 34 replay; Rome binary probabilities calibrated on inner chronological predictions; soft mixture replaces the 4 h override; ordinary model reused; [run details](VALIDATION/runs/v3_20260919_rome_calibration/report.md) | 296.7058 | 296.4860 | 296.5834 | — | Not submitted |
+| 39 | **Rome-three-cal** | - | Same soft Rome mixture with a three-class classifier (ordinary/schedule/day), inner probability calibration and a shrunk day component in the existing next-day scope; ordinary model reused; [run details](VALIDATION/runs/v3_20260919_rome_calibration/report.md) | 294.2137 | 282.8235 | 287.9234 | — | Not submitted |
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV is the new
 validation headline**, adopted on 20 September 2026. It uses the existing v3

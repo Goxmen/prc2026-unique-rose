@@ -74,8 +74,12 @@ def digest(path):
 
 def ledger():
     rows = []
+    combined_index = 5
     for line in (ROOT / 'SUBMISSIONS.md').read_text().splitlines():
         cells = [c.strip() for c in line.split('|')[1:-1]]
+        if 'CV combined' in cells:
+            combined_index = cells.index('CV combined')
+            continue
         if len(cells) not in (8, 9) or not cells[0].isdigit() or not re.fullmatch(r'v\d+', cells[-1]):
             continue
         try:
@@ -84,7 +88,7 @@ def ledger():
             continue
         rows.append(dict(version=cells[-1], name=cells[1].replace('*', ''), lb=score,
                          coverage=MODELS[cells[-1]][3] if cells[-1] in MODELS else 'unavailable',
-                         cv_combined=None if cells[5] == '—' else float(cells[5].replace('*', '').replace('†', ''))))
+                         cv_combined=None if cells[combined_index] == '—' else float(cells[combined_index].replace('*', '').replace('†', ''))))
     return rows
 
 

@@ -251,6 +251,22 @@ class ResultTests(unittest.TestCase):
             self.assertEqual(len(row),9)
             self.assertEqual(row[-3:],['-','—','Not submitted'])
 
+    def test_ledger_inserts_weighted_placeholder_at_header_position(self):
+        original=('| Order | Codename | Weighted CV | Actual recipe | CV next-month | CV longer-gap | CV combined | Official LB | Submission |\n'
+                  '| 37 | Existing | 267.5814 | original | 1.1 | 2.2 | 3.3 | 279.3805 | v38 |\n')
+        results={name:{'scores':dict(zip(report.SCORES,[200.,190.,195.]))} for name in ('binary','three')}
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'SUBMISSIONS.md';path.write_text(original)
+            report.update_submissions(path,'test_run',results,'run/report.md')
+            updated=path.read_text()
+        self.assertIn('| 37 | Existing | 267.5814 | original |',updated)
+        rows=[[c.strip() for c in line.split('|')[1:-1]] for line in updated.splitlines()
+              if line.startswith('| 38 |') or line.startswith('| 39 |')]
+        for row in rows:
+            self.assertEqual(row[2],'-')
+            self.assertEqual(row[4:7],['200.0000','190.0000','195.0000'])
+            self.assertEqual(row[-2:],['—','Not submitted'])
+
     def test_partial_report_cannot_touch_submission_ledger(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);path=root/'SUBMISSIONS.md';path.write_text('unchanged')

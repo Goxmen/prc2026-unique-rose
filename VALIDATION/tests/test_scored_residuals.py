@@ -39,6 +39,16 @@ class ResidualReportTests(unittest.TestCase):
         self.assertEqual([r['lb'] for r in rows],[406.4281,333.8712])
         self.assertEqual(rows[0]['cv_combined'],348.9)
 
+    def test_weighted_column_beside_name_uses_header_for_combined_score(self):
+        with TemporaryDirectory() as tmp:
+            Path(tmp,'SUBMISSIONS.md').write_text(
+                '| Order | Codename | Weighted CV | Actual recipe | CV next-month | CV longer-gap | CV combined | Official LB | Submission |\n'
+                '| 12 | **B0-800** | 442.0361 | model | 366.7 | 334.2 | 348.9 | 406.4281 | v12 |\n')
+            with patch('plot_scored_residuals.ROOT',Path(tmp)):
+                rows=ledger()
+        self.assertEqual(rows[0]['lb'],406.4281)
+        self.assertEqual(rows[0]['cv_combined'],348.9)
+
     def test_group_contributions_reconstruct_total_mse(self):
         d = pd.DataFrame({'airport':['A','A','B'], 'y':[1.,2.,3.],
                           'date':['2025-07-01','2025-07-02','2025-07-01'],

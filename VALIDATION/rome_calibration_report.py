@@ -102,13 +102,13 @@ def update_submissions(path,run_id,results,report_link):
     path=Path(path)
     original=path.read_text()
     lines=original.splitlines()
-    table=[];widths=set()
+    table=[];widths=set();weighted_index=6
     for i,line in enumerate(lines):
         cells=[s.strip() for s in line.split('|')[1:-1]]
+        if 'Weighted CV' in cells:weighted_index=cells.index('Weighted CV')
         if len(cells) in (8,9) and cells[0].isdigit():
             table.append((i,int(cells[0])));widths.add(len(cells))
     if not table or len(widths)!=1:raise ValueError('Cannot find a consistent submission table')
-    weighted_placeholder=' | -' if widths=={9} else ''
     additions=[];next_number=max(n for _,n in table)+1
     for name in ('binary','three'):
         score=results[name]['scores']
@@ -117,8 +117,11 @@ def update_submissions(path,run_id,results,report_link):
         existing=[(i,n) for i,n in table if f'**{NAMES[name]}**' in lines[i] and f'({report_link})' in lines[i]]
         if len(existing)>1:raise ValueError('Duplicate experiment ledger rows')
         number=existing[0][1] if existing else next_number
-        row=(f'| {number} | **{NAMES[name]}** | {DESCRIPTIONS[name]}; '
-             f'[run details]({report_link}) | '+ ' | '.join(f'{score[k]:.4f}' for k in SCORES)+weighted_placeholder+' | — | Not submitted |')
+        cells=[str(number),f'**{NAMES[name]}**',
+               f'{DESCRIPTIONS[name]}; [run details]({report_link})',
+               *[f'{score[k]:.4f}' for k in SCORES],'—','Not submitted']
+        if widths=={9}:cells.insert(weighted_index,'-')
+        row='| '+' | '.join(cells)+' |'
         if existing:lines[existing[0][0]]=row
         else:additions.append(row);next_number+=1
     if additions:lines[table[-1][0]+1:table[-1][0]+1]=additions
