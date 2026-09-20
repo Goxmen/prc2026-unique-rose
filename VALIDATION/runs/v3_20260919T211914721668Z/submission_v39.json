@@ -1,0 +1,412 @@
+{
+  "version": 39,
+  "row": 42,
+  "file": "unique-rose_v39.parquet",
+  "recipe": "OPDI-combined",
+  "validation_run": "v3_20260919T211914721668Z",
+  "derived_validation_run": "v3_20260919T223006736822Z",
+  "correction_parameter_run": "v3_20260919_artifact_experiments",
+  "candidate": "opdi",
+  "cv": {
+    "R_A": 247.0477,
+    "R_B_long": 222.6081,
+    "R_combined": 233.747,
+    "change_vs_row37": {
+      "R_A": -2.88,
+      "R_B_long": -2.28,
+      "R_combined": -2.56
+    }
+  },
+  "late": true,
+  "dayshift": false,
+  "ordinary_extra": [
+    "wx_temp_c",
+    "wx_dewpoint_spread_c",
+    "wx_wind_kt",
+    "wx_gust_kt",
+    "wx_wind_dir",
+    "wx_visibility_m",
+    "wx_ceiling_ft",
+    "wx_thunder",
+    "wx_snow",
+    "wx_freezing",
+    "wx_fog",
+    "wx_rain",
+    "wx_heavy",
+    "wx_deicing",
+    "wx_age_min",
+    "wx_2h_min_visibility_m",
+    "wx_2h_min_ceiling_ft",
+    "wx_2h_max_gust_kt",
+    "wx_2h_thunder",
+    "wx_2h_snow_or_freezing",
+    "wx_2h_fog",
+    "q_rwy_prev_takeoff_gap_sec",
+    "q_rwy_takeoffs_prev30",
+    "q_apt_takeoffs_prev30",
+    "q_rwy_others_gap_prev60",
+    "q_apt_others_gap_prev60",
+    "q_queue_ahead_since_aobt3",
+    "q_rwy_landings_prev30",
+    "q_rwy_next_takeoff_gap_sec",
+    "q_rwy_takeoffs_next30",
+    "q_rwy_others_gap_pm30",
+    "q_apt_others_gap_pm30",
+    "airline",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60"
+  ],
+  "classifier_extra": [
+    "airline",
+    "handler_arr_sched_share",
+    "handler_arr_n",
+    "flight_number_format",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60"
+  ],
+  "seed": 42,
+  "rounds": 800,
+  "freeze": "2025-12-31",
+  "ranking_months": [
+    "2026-01",
+    "2026-07"
+  ],
+  "rows": 344841,
+  "rule_triggered_rows": 43,
+  "correction_masks": {
+    "2026-01": {
+      "clock12": 0,
+      "clock2": 0,
+      "day": 1,
+      "rule_band": 12,
+      "rule_confidence": 0,
+      "twins": 5
+    },
+    "2026-07": {
+      "clock12": 1,
+      "clock2": 2,
+      "day": 4,
+      "rule_band": 20,
+      "rule_confidence": 0,
+      "twins": 11
+    }
+  },
+  "opdi": {
+    "settings": {
+      "source": "EUROCONTROL OPDI v0.0.2 flight events and flight list (from OpenSky Network ADS-B)",
+      "box_deg": [
+        0.1,
+        0.15
+      ],
+      "match_slack_min": 5,
+      "event_slack_sec": 30,
+      "features": [
+        "op_matched",
+        "op_fs_ground",
+        "op_fs_sec",
+        "op_own_stand_sec",
+        "op_first_stand_sec",
+        "op_first_apron_sec",
+        "op_first_twy_sec",
+        "op_rwy_sec",
+        "op_deice_sec",
+        "op_ground_sec",
+        "nb_op_ground_mean_60",
+        "nb_op_ground_n_60",
+        "nb_op_ground_mean_pm30",
+        "nb_op_deice_share_60"
+      ]
+    },
+    "features_sha256": "c1b6e3372403b909e5a69ee7487d7bf04e7a408165097f4725e6d396db8fb5b6",
+    "features_sha256_at_validation": [
+      {
+        "file": "opdi_features.parquet",
+        "bytes": 37086938,
+        "sha256": "c071bbec57326489d90270ffddfb1b8423b7c22b1992d6f5f5cdfafa6d17ef12"
+      }
+    ],
+    "ranking_matched": 0.77504,
+    "ranking_ground_seen": 0.15
+  },
+  "prediction_summary": {
+    "count": 344841.0,
+    "mean": 1038.279,
+    "std": 634.306,
+    "min": 0.0,
+    "25%": 768.999,
+    "50%": 960.03,
+    "75%": 1205.771,
+    "max": 103797.561
+  },
+  "against_v34": {
+    "file": "unique-rose_v34.parquet",
+    "sha256": "f06f85b7a8212c13080d1a1d633d5d1ef5f783f20be2634efdaea76186f6879f",
+    "rows_changed": 339632,
+    "mean_abs_sec": 33.731,
+    "max_abs_sec": 10062.0
+  },
+  "model": {
+    "minutes": 1.63,
+    "paths": {
+      "ordinary": "models/refit_2025__v39__42.ordinary.txt",
+      "classifier": "models/refit_2025__v39__42.classifier.txt"
+    },
+    "parameters": {
+      "late_mean": 1079.532110091743,
+      "late_rows": 654,
+      "dayshift_weight": 0.5789473684210527,
+      "dayshift_rows": 19,
+      "dayshift_shifted": 11
+    },
+    "corrections": {
+      "settings": {
+        "clock_agreement_sec": 1800,
+        "clock_fit_min_sec": 7200,
+        "clock_prior_rows": 25,
+        "day_min_gap_sec": 50400,
+        "day_prior_rows": 5,
+        "handler_threshold": 0.5,
+        "handler_min_arrivals": 20,
+        "handler_min_training_dates": 5,
+        "rule_max_gap_sec": 43200,
+        "rule_max_probability": 0.05
+      },
+      "late_mean": 1079.532110091743,
+      "clock": {
+        "rows": 6,
+        "pooled_residual_sec": -79.3225806451613,
+        "airport_residual_sec": {
+          "EHAM": 45.882133995037215,
+          "LIRF": -253.93548387096774
+        }
+      },
+      "day": {
+        "rows": 19,
+        "dates": 17,
+        "pooled_weight": 0.32498911877812825,
+        "handler_weights": {
+          "low": 0.32498911877812825,
+          "high": 0.32498911877812825
+        },
+        "handler_support": {
+          "low": {
+            "rows": 16,
+            "dates": 14
+          },
+          "high": {
+            "rows": 0,
+            "dates": 0
+          }
+        },
+        "handler_stratified": false
+      },
+      "rule": {
+        "rows": 98,
+        "dates": 78,
+        "weight": 0.07208234513450805
+      }
+    },
+    "coverage": {
+      "rows": 2084659,
+      "op_matched": 1.0,
+      "op_fs_ground": 0.88878,
+      "op_fs_sec": 0.1249,
+      "op_own_stand_sec": 0.03496,
+      "op_first_stand_sec": 0.05285,
+      "op_first_apron_sec": 0.03301,
+      "op_first_twy_sec": 0.11598,
+      "op_rwy_sec": 0.23422,
+      "op_deice_sec": 0.88878,
+      "op_ground_sec": 0.14248,
+      "nb_op_ground_mean_60": 0.41414,
+      "nb_op_ground_n_60": 1.0,
+      "nb_op_ground_mean_pm30": 0.41661,
+      "nb_op_deice_share_60": 0.95844,
+      "op_ground_by_airport": {
+        "EDDF": 0.1985,
+        "EDDM": 0.0947,
+        "EGLL": 0.0062,
+        "EHAM": 0.1517,
+        "LEBL": 0.3078,
+        "LEMD": 0.1116,
+        "LFPG": 0.0094,
+        "LIRF": 0.0021,
+        "LSZH": 0.852,
+        "LTFM": 0.0005
+      }
+    }
+  },
+  "predictions": "refit/v39.parquet",
+  "predictions_sha256": "785fdc7370e4af08bf285ed10792b87f6de1d2544696ff6b95d773a0ba516dab",
+  "sha256": "7531789215a88d546574487aa335043db3645aa64833d66fc90d7c594d2a6b0a",
+  "template_sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+  "validation_signature": {
+    "VALIDATION/opdi.py": "10acfd0ed69fdf33200c73879207cdf814f3a2074d6e63375e230452fb7eb869",
+    "VALIDATION/opdi_run.py": "503326f2c1227f8d7ffe57b41e9334f1f0d08676115b7d637565422664060c6d",
+    "VALIDATION/plan_window.py": "547e49b8785feba396c488f7c91c8e5a246b7da38c9607e6b81af6bd1db0e12c",
+    "VALIDATION/record_fixes.py": "92f6fcc9a7586f0d086b0410a633ee83f434deea4733301b0726fad16e0c338c",
+    "VALIDATION/stand_day.py": "ee596bcaf16e0b53d8249fefe1978696d8136495d1b63e057f99e8115c4e28ad",
+    "VALIDATION/stand_day_run.py": "90c57bb9fc420439e84fc33916bf57183fe25c99c7a405b04834466cb8d7a1f7",
+    "VALIDATION/rome_signals.py": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7",
+    "VALIDATION/rome_signals_run.py": "b386cd08e56877959f49fb043639bd47af0b0d772e66e20eb7d28d52f50998e9",
+    "VALIDATION/runway_queue.py": "8c3627ffa3f41bc8634a86ebcf174954a343c1eb1470879113bad15bdc7a70c6",
+    "VALIDATION/runway_queue_run.py": "b5d216b803b9a9561e47e9e60379c14c3641f22cfd6a6f80f506ec45d3d63fa9",
+    "VALIDATION/weather.py": "01241a62d8f70d1f32087522e070693850f812dbe487eb7772147b621bb80d5a",
+    "VALIDATION/weather_run.py": "da2b66ae1d9ad118de4eeda95a1d7e9a2bd0abfe1aae951c2a61bbb38094679b",
+    "VALIDATION/rome_hybrid.py": "27bfe7e0b16cd1b64e4571f063fd6fa0b4fb74ea99c335012c4723947db2fb23",
+    "VALIDATION/rome_hybrid_run.py": "dba56ecaf91f62685e36498ad283fd22bfb5f97aeef7feb829d605e19f5ee90a",
+    "VALIDATION/overnight_models.py": "79633c2479438729f145bfa5e3e5d99d70e50a7fca12780b71790a92d4f183a3",
+    "VALIDATION/overnight_run.py": "7ab27f85dac47ba54bfc85e4f326673f4f789a9093350d092e638c12c308916b",
+    "VALIDATION/modeling.py": "777b2d45fd97565dc83ecabce248734bfb811fbadce5616d8959cad03016c43b",
+    "VALIDATION/features_time.py": "94f1273ae3edc32e2799e6bb1ebcc819c0a18bf8a61dcda444514d643f944c2c",
+    "VALIDATION/movement_data.py": "2a0a97392e4ba6fd1a3ff64a8165700ae6b4ea466cffe80c3cfa9e92290c79cf",
+    "pipeline/common.py": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4",
+    "pipeline/clock_features.py": "81a4b328f2d879540c9e538297f538461f27678e593441f8b37fe83d383de9ae",
+    "pipeline/registered_rules.py": "5bc8da8c9ce29fa83dddeb76093d82ebfeab8e48b62ef9dc1c31d5f5d288d163",
+    "pipeline/prediction_rules.py": "62613801875506dcc7f4078e0e136398b6694ee8b1eb0398e9a05612c7b4e560"
+  },
+  "data_identity": [
+    {
+      "file": "metar.parquet",
+      "bytes": 8790277,
+      "sha256": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5"
+    },
+    {
+      "file": "ranking.parquet",
+      "bytes": 43564605,
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "file": "training_2025-01-01_2025-02-01.parquet",
+      "bytes": 21218481,
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "file": "training_2025-02-01_2025-03-01.parquet",
+      "bytes": 19824510,
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "file": "training_2025-03-01_2025-04-01.parquet",
+      "bytes": 22606072,
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "file": "training_2025-04-01_2025-05-01.parquet",
+      "bytes": 23840340,
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "file": "training_2025-05-01_2025-06-01.parquet",
+      "bytes": 25187756,
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "file": "training_2025-06-01_2025-07-01.parquet",
+      "bytes": 24991697,
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "file": "training_2025-07-01_2025-08-01.parquet",
+      "bytes": 26014977,
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "file": "training_2025-08-01_2025-09-01.parquet",
+      "bytes": 25969246,
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "file": "training_2025-09-01_2025-10-01.parquet",
+      "bytes": 25102673,
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "file": "training_2025-10-01_2025-11-01.parquet",
+      "bytes": 25392098,
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "file": "training_2025-11-01_2025-12-01.parquet",
+      "bytes": 22173840,
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "file": "training_2025-12-01_2026-01-01.parquet",
+      "bytes": 22653598,
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "preparation_source": {
+    "VALIDATION/opdi_submit.py": "d9a334360c5313d8d2f73201217b728a59a8104f6e2f3695cf50683d26f8cf40",
+    "VALIDATION/opdi.py": "10acfd0ed69fdf33200c73879207cdf814f3a2074d6e63375e230452fb7eb869",
+    "VALIDATION/opdi_run.py": "503326f2c1227f8d7ffe57b41e9334f1f0d08676115b7d637565422664060c6d",
+    "VALIDATION/opdi_combined_run.py": "cf4544802577b9d0aebc9b4d8ef4f6f17eef05a610dad88a231a5f82bdc157b0",
+    "VALIDATION/recording_artifacts.py": "568fe3244139588a5b48e9adc47fd89c81ad7e6421bf9154ad4b4e2ff90ada97",
+    "VALIDATION/record_fixes.py": "92f6fcc9a7586f0d086b0410a633ee83f434deea4733301b0726fad16e0c338c",
+    "VALIDATION/plan_window.py": "547e49b8785feba396c488f7c91c8e5a246b7da38c9607e6b81af6bd1db0e12c",
+    "VALIDATION/stand_day_submit.py": "6b449dbba4279a4374af7acdf49c2b5b908544b17771f02fa3ebc4b454b59e6a",
+    "VALIDATION/rome_hybrid_submit.py": "f11fdb2e2a49be839e1d0c664fc327124de87c36668c3aadaf5d911d50596db0"
+  },
+  "external_data": "EUROCONTROL OPDI v0.0.2 (OpenSky Network ADS-B), declared in SUBMISSIONS.md",
+  "state": "scored",
+  "prepared_at": "2026-09-19T22:40:58+00:00",
+  "quota_check": {
+    "at": "2026-09-19T23:05:44+00:00",
+    "existing_uploads_today": [
+      "unique-rose_v33.parquet",
+      "unique-rose_v34.parquet",
+      "unique-rose_v37.parquet",
+      "unique-rose_v38.parquet"
+    ]
+  },
+  "uploaded_at": "2026-09-19T23:05:49+00:00",
+  "remote_sha256": "7531789215a88d546574487aa335043db3645aa64833d66fc90d7c594d2a6b0a",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v39.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 277.3629
+  },
+  "score_checked_at": "2026-09-19T23:06:11+00:00",
+  "score": 277.3629
+}

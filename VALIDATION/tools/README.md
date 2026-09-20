@@ -5,9 +5,12 @@ helpers from the repository root:
 
 **Current validation headline: [Weighted CV](../docs/WEIGHTED_CV.md), adopted on
 20 September 2026.** `compare_weighted_cv_leaderboard.py` reproduces the initial
-six scored cases; `extend_weighted_cv_leaderboard.py` adds v17–v21. Both reuse
-saved taxi-out predictions and the same weights. The initial tool can regenerate
-the four discriminator fits if its weight cache is missing; neither uploads.
+six scored cases; `extend_weighted_cv_leaderboard.py` adds v17–v21;
+`weighted_cv_recent_submissions.py` scores the five most recent uploads (v34,
+v37, v38, v39, v40). All reuse saved taxi-out predictions and the same weights.
+The initial tool can regenerate the four discriminator fits if its weight cache
+is missing, and the recent-submission tool then checks the rebuild against the
+recorded discriminators before scoring; none of them uploads.
 Earlier recommendations below are historical.
 
 The [September 17 overnight study](../reports/OVERNIGHT_SUMMARY_20260917.md)

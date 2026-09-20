@@ -1,0 +1,266 @@
+{
+  "version": 37,
+  "file": "unique-rose_v37.parquet",
+  "recipe": "Dayshift-hedge",
+  "validation_run": "v3_20260919T112057144323Z",
+  "column": "pred_dayshift",
+  "built_on": {
+    "version": 34,
+    "file": "unique-rose_v34.parquet",
+    "sha256": "f06f85b7a8212c13080d1a1d633d5d1ef5f783f20be2634efdaea76186f6879f",
+    "score": 280.4658
+  },
+  "history": {
+    "rows": 19,
+    "wrong_date": 11,
+    "format": {
+      "mangled": [
+        9,
+        14
+      ],
+      "clean": [
+        2,
+        5
+      ]
+    },
+    "airline": {
+      "EXS": [
+        1,
+        2
+      ],
+      "NOS": [
+        1,
+        2
+      ],
+      "SWU": [
+        1,
+        1
+      ],
+      "WMT": [
+        0,
+        2
+      ],
+      "AMX": [
+        1,
+        1
+      ],
+      "VOE": [
+        1,
+        1
+      ],
+      "RYR": [
+        1,
+        1
+      ],
+      "CHH": [
+        1,
+        1
+      ],
+      "ITY": [
+        3,
+        4
+      ],
+      "QFA": [
+        0,
+        2
+      ],
+      "BAW": [
+        1,
+        1
+      ]
+    },
+    "taxi_sec": 1080.0
+  },
+  "moved_rows": [
+    {
+      "flight": "WMTT3508",
+      "p": 0.317,
+      "previous": 56520.0,
+      "new": 66333.2
+    },
+    {
+      "flight": "NOSOS431",
+      "p": 0.567,
+      "previous": 111654.0,
+      "new": 97948.2
+    },
+    {
+      "flight": "ITYTY672",
+      "p": 0.711,
+      "previous": 61322.0,
+      "new": 79928.4
+    },
+    {
+      "flight": "SVII3006",
+      "p": 0.634,
+      "previous": 60656.0,
+      "new": 77660.5
+    },
+    {
+      "flight": "QFAA7006",
+      "p": 0.317,
+      "previous": 87484.0,
+      "new": 87482.7
+    }
+  ],
+  "rows": 344841,
+  "against_previous": {
+    "version": 34,
+    "moved": 5,
+    "raised": 3,
+    "lowered": 2,
+    "rule_rows_moved": 5,
+    "moved_by_airport": {
+      "LIRF": 5
+    },
+    "median_abs_change_moved": 13705.8,
+    "largest": [
+      {
+        "mvt_id": 213145102,
+        "airport": "LIRF",
+        "flight": "ITYTY672",
+        "previous": 61322.0,
+        "new": 79928.4
+      },
+      {
+        "mvt_id": 213154026,
+        "airport": "LIRF",
+        "flight": "SVII3006",
+        "previous": 60656.0,
+        "new": 77660.5
+      },
+      {
+        "mvt_id": 213145579,
+        "airport": "LIRF",
+        "flight": "NOSOS431",
+        "previous": 111654.0,
+        "new": 97948.2
+      },
+      {
+        "mvt_id": 202680942,
+        "airport": "LIRF",
+        "flight": "WMTT3508",
+        "previous": 56520.0,
+        "new": 66333.2
+      },
+      {
+        "mvt_id": 213152353,
+        "airport": "LIRF",
+        "flight": "QFAA7006",
+        "previous": 87484.0,
+        "new": 87482.7
+      }
+    ]
+  },
+  "predictions": "refit/v37.parquet",
+  "predictions_sha256": "7194c8b95436aa9c9b491c435dd3b7a151850459d387b18d44ca685d6effbb10",
+  "sha256": "6f3793ca766dabf90dcf612d81393062575535262dd9fbfe9796aa99a66b4232",
+  "template_sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+  "validation_signature": {
+    "VALIDATION/dayshift_hedge.py": "6fcad559a74b522a61ae5b1c1793c8d757fe82cc2839cd1c21b978f685c173f2",
+    "VALIDATION/dayshift_hedge_run.py": "d96e3a1485281771254cfd93c1aa7a133cc15cdaaffdde841cef36f1baba8636"
+  },
+  "data_identity": [
+    {
+      "file": "metar.parquet",
+      "bytes": 8790277,
+      "sha256": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5"
+    },
+    {
+      "file": "ranking.parquet",
+      "bytes": 43564605,
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "file": "training_2025-01-01_2025-02-01.parquet",
+      "bytes": 21218481,
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "file": "training_2025-02-01_2025-03-01.parquet",
+      "bytes": 19824510,
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "file": "training_2025-03-01_2025-04-01.parquet",
+      "bytes": 22606072,
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "file": "training_2025-04-01_2025-05-01.parquet",
+      "bytes": 23840340,
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "file": "training_2025-05-01_2025-06-01.parquet",
+      "bytes": 25187756,
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "file": "training_2025-06-01_2025-07-01.parquet",
+      "bytes": 24991697,
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "file": "training_2025-07-01_2025-08-01.parquet",
+      "bytes": 26014977,
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "file": "training_2025-08-01_2025-09-01.parquet",
+      "bytes": 25969246,
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "file": "training_2025-09-01_2025-10-01.parquet",
+      "bytes": 25102673,
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "file": "training_2025-10-01_2025-11-01.parquet",
+      "bytes": 25392098,
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "file": "training_2025-11-01_2025-12-01.parquet",
+      "bytes": 22173840,
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "file": "training_2025-12-01_2026-01-01.parquet",
+      "bytes": 22653598,
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "preparation_source": {
+    "VALIDATION/dayshift_hedge_submit.py": "ab67786386c95e7c9c96cc189ee248d412a26fecf9a1434e1949204a969a4cc6",
+    "VALIDATION/record_fixes_submit.py": "ccad02e911e3634e7435902886fef5844d06ba6527d511d7e6dcc435dbd9be15",
+    "VALIDATION/plan_window_submit.py": "df80d09de8b1235ee49e79eadbb019496346b447b36e61190168bbfa1b9bd5f9",
+    "VALIDATION/overnight_submit.py": "98929a74863871de580710ead8f9f4bb3837254e6fd1a4769b7e7f004d19d5a9",
+    "VALIDATION/submit.py": "09fe62fe3840d457bdbf25d961b7b20f909b78f2521d05ea61a2369bb0f6aee4"
+  },
+  "state": "scored",
+  "prepared_at": "2026-09-19T11:23:50+00:00",
+  "quota_check": {
+    "at": "2026-09-19T12:52:16+00:00",
+    "existing_uploads_today": [
+      "unique-rose_v33.parquet",
+      "unique-rose_v34.parquet"
+    ]
+  },
+  "uploaded_at": "2026-09-19T12:52:19+00:00",
+  "remote_sha256": "6f3793ca766dabf90dcf612d81393062575535262dd9fbfe9796aa99a66b4232",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v37.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 280.1743
+  },
+  "score_checked_at": "2026-09-19T12:53:27+00:00",
+  "score": 280.1743
+}
