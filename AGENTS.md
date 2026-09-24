@@ -30,6 +30,15 @@ or tiny/inconclusive changes as new model entries. Keep those results in experim
 reports and run logs. Do not describe numerical noise as an improvement or treat
 bootstrap/seed agreement on reused development data as independent confirmation.
 
+**User rule: score every new row on all validations, and keep table cells short.**
+A new candidate gets next-month, longer-gap, combined *and* Weighted CV before the
+work is called done, so no cell is left `-`. Rows that predate a validation are not
+backfilled — the user declined that on 2026-09-24, and their `-` is final. In both
+`SUBMISSIONS.md` and `NEXT_STEPS.md` a table cell names the parent row and the one
+thing that changed, in a sentence. Bootstrap intervals, seed agreement, ageing
+readouts, failure analysis and provenance go in the notes under the table or in a
+run report, never in the cell.
+
 Fill `TAXITIME_SEC_mvt` in a copy of `data/submitting.parquet` (don't touch
 `MVT_ID_mvt`), name it `unique-rose_v<N>.parquet`, upload with
 `mc cp unique-rose_vN.parquet opensky/prc-2026-unique-rose/`.

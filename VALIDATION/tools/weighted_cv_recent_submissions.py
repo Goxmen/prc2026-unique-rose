@@ -1,4 +1,4 @@
-"""Weighted CV for the five most recently uploaded submissions: v34, v37, v38, v39, v40.
+"""Weighted CV for the six most recently uploaded submissions: v34, v37, v38, v39, v40, v41.
 
 Scores each one from its own saved fold predictions with the validation adopted on
 20 September 2026 (`VALIDATION/docs/WEIGHTED_CV.md`), so the recent models can be
@@ -59,6 +59,12 @@ ROSTER = [
          # (TRAINING_LABEL_FILTER.md, SUBMISSIONS.md) are the reference instead.
          expected_scores={'R_A': 245.9817, 'R_B_long': 222.5802, 'R_combined': 233.2338},
          expected_tolerance=1e-4),
+    dict(version=41, row=44, name='Taxi-occupancy',
+         manifest='v3_20260924T202324352147Z/submission_v41.json',
+         run='v3_20260924T211259763470Z', column='pred37_occ',
+         expected_from='v3_20260924T211259763470Z/'
+                       'comparison_pred37_occ_vs_pred37_'
+                       'v3_20260924T211259763470Z_block1.json'),
 ]
 CARRIED = dict(version=38, row=37, name='Artifact-combined',
                source='weighted_cv_leaderboard.json',

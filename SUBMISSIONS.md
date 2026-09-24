@@ -1,14 +1,15 @@
 # Submitted models
 
 **Current validation: Weighted CV.** The column is between CV combined and Official LB below.
-Verified v38 score: **267.5814 s**. The five most recent uploads — v34, v37, v38, v39 and v40 —
-are now all scored on it; the best is **v40 at 264.3397 s**
+Verified v38 score: **267.5814 s**. The six most recent uploads — v34, v37, v38, v39, v40 and v41 —
+are all scored on it. The lowest weighted CV is **v41 at 263.8852 s**, but v41 is 0.55 s *worse*
+than v40 on the official score, so the best submission remains **v40** (weighted 264.3397 s)
 ([report](VALIDATION/reports/WEIGHTED_CV_RECENT.md)).
 
-Model recipes and uploads, checked live at **2026-09-20 18:22 UTC**
-(`pipeline/leaderboard_status.py`). There are 32 uploads: 30 scored and 2 rejected
-by the five-per-day limit. **Best and latest: v40, 275.4146 s.** Rank 31 of 167
-scoring teams, 444 registered.
+Model recipes and uploads, checked live at **2026-09-24 21:20 UTC**
+(`pipeline/leaderboard_status.py`). There are 33 uploads: 31 scored and 2 rejected
+by the five-per-day limit. **Best: v40, 275.4146 s; latest: v41, 275.9592 s.**
+Rank 36 of 189 scoring teams, 464 registered.
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -25,7 +26,9 @@ Day-shift hedge is row 40 below and was uploaded as v37. Rows 41 and 42 add inpu
 from open ADS-B ground tracks: row 41 on row 34's recipe, with a validation score
 only, and row 42 on row 37's, the recipe behind v38, uploaded as v39. Row 43 is
 row 42 refitted with the flights the four-hour Rome rule overwrites removed from
-the model fit, uploaded as v40.
+the model fit, uploaded as v40. Row 44 adds four taxi occupancy inputs to row 43 and
+was uploaded as v41; its supported CV gain did not transfer, and v40 remains best.
+**Row 43 / v40 is the parent for all new work**: build on it, not on row 44.
 
 ## Codenames and recipes
 
@@ -64,21 +67,22 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 26 | **Rome-hybrid-4h-clock** | Row 25 + **18 clock inputs** (regressor and classifier) | 271.9287 | 246.7919 | 258.2262 | - | 333.8712 | v26 |
 | 27 | **Rome-hybrid-4h-clock-weather** | Row 26 + **21 METAR weather inputs** (regressor only) | 270.3396 | 239.4157 | 253.5766 | - | 329.1609 | v27 |
 | 28 | **Rome-hybrid-4h-clock-weather-queue** | Row 27 + **11 runway queue inputs** (regressor only) | 265.3809 | 234.4385 | 248.6174 | - | 322.6253 | v28 |
-| 29 | **Rome-signals** | Row 28 + **airline** (regressor and classifier); classifier + **handler share**, **flight-number format**; **late-row estimate** for no-ID Rome rows at 1–4 h | 260.3360 | 233.2610 | 245.6201 | - | 314.4667 | v29 |
+| 29 | **Rome-signals** | Row 28 + **airline**, and for the classifier **handler share** and **flight-number format**; **late-row estimate** for no-ID Rome rows at 1-4 h | 260.3360 | 233.2610 | 245.6201 | - | 314.4667 | v29 |
 | 30 | **Stand-clock** | Row 29 + **5 stand clock inputs** (regressor and classifier) | 256.1836 | 229.7016 | 241.7877 | - | 309.9872 | v30 |
 | 31 | **Dirty-day** | Row 29 + **6 dirty-day inputs** (regressor and classifier) | 261.3248 | 232.7730 | 245.8271 | - | — | Not submitted |
 | 32 | **Stand-clock-dirty-day** | Row 29 + **both input sets** (regressor and classifier) | 257.6550 | 229.3705 | 242.3045 | - | — | Not submitted |
-| 33 | **Plan-window** | Row 30's predictions, each one for a flight with a flight ID kept within **takeoff − LOBT ± 61 min** (post-processing, no refit) | 253.9467 | 229.2985 | 240.5262 | - | 282.4525 | v33 |
-| 34 | **No-ID-cap** | Row 33's predictions; for flights **without a flight ID** outside Rome, at most **delay − 1 h** when more than 75 min late (not LTFM) and at most the **delay** when more than 30 min late (post-processing, no refit) | **253.0535** | **228.9805** | **239.9398** | 273.2162 | 280.4658 | v34 |
-| 35 | **Twin-records** | Row 33's predictions; where one takeoff is **logged twice** (same airport and flight number, takeoffs ≤ 3 min apart, one record with a flight ID), that record set to **takeoff − LOBT − 5.5 min** (post-processing, no refit) | 253.6312 | 228.9143 | 240.1746 | - | — | Not submitted |
+| 33 | **Plan-window** | Row 30's predictions clipped to **takeoff - LOBT +/- 61 min** for flights with a flight ID (post-processing) | 253.9467 | 229.2985 | 240.5262 | - | 282.4525 | v33 |
+| 34 | **No-ID-cap** | Row 33 + **cap on no-ID predictions** outside Rome when the flight took off late (post-processing) | **253.0535** | **228.9805** | **239.9398** | 273.2162 | 280.4658 | v34 |
+| 35 | **Twin-records** | Row 33; where LFPG **logs one takeoff twice**, the flight-ID record is set to takeoff - LOBT - 5.5 min (post-processing) | 253.6312 | 228.9143 | 240.1746 | - | — | Not submitted |
 | 36 | **Seed-average** | Row 33's predictions **averaged over seeds 42, 142 and 242** (a submission needs two more full-year refits) | 252.6779 | 227.9686 | 239.2266 | - | — | Not submitted |
-| 37 | **Artifact-combined** | Former row 44: row 34 replay + twins, day-shift blend, confidence exception and 12 h clock correction ([recipe](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)) | 249.9460 | 224.8911 | 236.3151 | 267.5814 | **279.3805** | v38 |
-| 38 | **Rome-binary-cal** | Row 34 replay; Rome binary probabilities calibrated on inner chronological predictions; soft mixture replaces the 4 h override; ordinary model reused; [run details](VALIDATION/runs/v3_20260919_rome_calibration/report.md) | 296.7058 | 296.4860 | 296.5834 | - | — | Not submitted |
-| 39 | **Rome-three-cal** | Same soft Rome mixture with a three-class classifier (ordinary/schedule/day), inner probability calibration and a shrunk day component in the existing next-day scope; ordinary model reused; [run details](VALIDATION/runs/v3_20260919_rome_calibration/report.md) | 294.2137 | 282.8235 | 287.9234 | - | — | Not submitted |
-| 40 | **Dayshift-hedge** | Row 34's predictions; Rome rule rows **14 h+ late on a later local day** get the **probability-weighted mean** of their two possible labels (planned time typed in, or the real clock time on the schedule's date), weights from airline and flight-number format history (post-processing, no refit) | 251.6273 | 221.3351 | 235.2323 | 265.9048 | 280.1743 | v37 |
-| 41 | **OPDI-tracks** | Row 30 + **14 OPDI inputs** (regressor and classifier) from open ADS-B ground tracks, then row 33's window and row 34's no-ID cap. Superseded by row 42, which adds row 37's corrections | 250.2107 | 226.7397 | 237.4207 | - | — | Not submitted |
-| 42 | **OPDI-combined** | Row 41 + row 37's three corrections (twin records, day-shift blend, 12 h clock anchor), i.e. **v38's recipe with the OPDI inputs** | **247.0477** | **222.6081** | **233.7470** | 264.4218 | **277.3629** | v39 |
-| 43 | **Rule-routed-training** | Row 42's recipe with the **127 rule-covered departures dropped from the model fit** (LIRF, no flight ID, schedule gap >= 4 h — the rows the 4 h rule overwrites anyway); every evaluation row still scored, context/categories/history/correction parameters unchanged. Versus row 42: R_A **-1.0660** [-1.5774, -0.6090], combined **-0.5132** [-0.9152, -0.1167], longer-gap inconclusive; all three seeds agree. Screened first on row 41's stack at -0.4482 combined ([report](VALIDATION/reports/TRAINING_LABEL_FILTER.md)) | **245.9817** | **222.5802** | **233.2338** | **264.3397** | **275.4146** | v40 |
+| 37 | **Artifact-combined** | Row 34 + **four recording-artifact corrections** ([recipe](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)) | 249.9460 | 224.8911 | 236.3151 | 267.5814 | **279.3805** | v38 |
+| 38 | **Rome-binary-cal** | Row 34; **calibrated Rome probabilities** replace the hard 4 h override ([run](VALIDATION/runs/v3_20260919_rome_calibration/report.md)) | 296.7058 | 296.4860 | 296.5834 | - | — | Not submitted |
+| 39 | **Rome-three-cal** | Row 38 with a **three-class classifier** (ordinary/schedule/day) ([run](VALIDATION/runs/v3_20260919_rome_calibration/report.md)) | 294.2137 | 282.8235 | 287.9234 | - | — | Not submitted |
+| 40 | **Dayshift-hedge** | Row 34; Rome rule rows **14 h+ late on a later local day** get the probability-weighted mean of their two possible labels (post-processing) | 251.6273 | 221.3351 | 235.2323 | 265.9048 | 280.1743 | v37 |
+| 41 | **OPDI-tracks** | Row 30 + **14 OPDI inputs** from open ADS-B ground tracks, then rows 33 and 34. Superseded by row 42 | 250.2107 | 226.7397 | 237.4207 | - | — | Not submitted |
+| 42 | **OPDI-combined** | Row 41 + row 37's corrections, i.e. **v38's recipe with the OPDI inputs** | **247.0477** | **222.6081** | **233.7470** | 264.4218 | **277.3629** | v39 |
+| 43 | **Rule-routed-training** | Row 42 with the **127 rule-covered departures dropped from the model fit**; every evaluation row still scored | **245.9817** | **222.5802** | **233.2338** | **264.3397** | **275.4146** | v40 |
+| 44 | **Taxi-occupancy** | Row 43 + **4 taxi occupancy inputs**: other aircraft between their own `AOBT_3` and takeoff, at this flight's off-block and takeoff. CV gain did not transfer | 245.7880 | 222.2004 | 232.9414 | 263.8852 | 275.9592 | v41 |
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV is the new
 validation headline**, adopted on 20 September 2026. It uses the existing v3
@@ -89,18 +93,23 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
 [11-submission comparison](VALIDATION/reports/WEIGHTED_CV_LEADERBOARD_EXTENDED.md) and the
 [five most recent uploads](VALIDATION/reports/WEIGHTED_CV_RECENT.md).
 
-- **Weighted CV for the five most recent uploads** (v34, v37, v38, v39 and v40) comes from
+- **Weighted CV for the six most recent uploads** (v34, v37, v38, v39, v40 and v41) comes from
   `VALIDATION/tools/weighted_cv_recent_submissions.py`, which scores the fold predictions behind
   each uploaded file with the adopted weights. The local weight cache was rebuilt from the frozen
   specification: its four discriminator models are byte-identical to the recorded ones, with the
   same cross-fitting split, held-out calibration and effective sample size, so the ratios are the
   same numbers. Every original v3 score reproduces from the same predictions before weighting.
-  Across these five, the average absolute gap to the official score is **11.47 s**, against
-  42.87 s for CV combined. Direction agreement on the four consecutive steps is 3/4 either way,
-  and the average error in the size of a step is 3.12 s weighted against 2.07 s, so the weighting
+  Across these six, the average absolute gap to the official score is **11.57 s**, against
+  42.89 s for CV combined. Direction agreement on the five consecutive steps is 3/5 either way,
+  and the average error in the size of a step is 2.70 s weighted against 1.82 s, so the weighting
   fixes the level of the score without predicting how far a change moves the leaderboard. v38's
   entry is the previously verified value, carried over because its fold predictions are not on
   this machine.
+  **v41 is a clean miss for both.** Its step from v40 is −0.29 unweighted and −0.45 weighted,
+  while the leaderboard moved **+0.54**: the weighting made the predicted gain *larger*, not
+  smaller, so it does not protect against a change whose CV gain fades with model age. The
+  ageing readouts did catch it (8 of 10 positive, see row 44), which is the signal to lean on
+  when weighted CV and combined CV agree on a small gain.
 - **v1–v3 and v5–v11 have no protocol-v3 CV.** v1–v3 predate the protocol; v3 was
   checked only with the older, non-comparable harness. Its configuration was
   later validated as `baseline-v3` (366.7673 / 334.2027 / 348.9996) and
@@ -178,9 +187,11 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   | v37 minus v34 (day-shift hedge) | −0.29 | −4.71 |
   | v39 minus v38 (OPDI ground-track inputs) | −2.02 | −2.56 |
   | v40 minus v39 (rule-covered rows out of training) | −1.95 | −0.51 |
+  | v41 minus v40 (taxi occupancy inputs) | **+0.54** | −0.29 |
 
   The weather and queue gains carried over to the leaderboard in full. Only about
-  a third of the Rome hybrid's CV gain did. Provenance, including file and model
+  a third of the Rome hybrid's CV gain did. v41 is the first step in this table whose
+  official score moved **against** a supported CV gain. Provenance, including file and model
   hashes, is in `submission_v<N>.json` in each run directory.
 - **Rows 34–36:** CV from run `v3_20260919T104157403241Z`, derived from row 33's
   saved predictions without any refit by `VALIDATION/record_fixes_run.py`; its
@@ -335,6 +346,38 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   CV's prediction, but v40's LB-minus-CV offset of +42.18 sits inside the established
   +42.8 ± 1.5 band, so the direction agreed while the magnitude is not separable from transfer
   noise on a single upload. The manifest is `submission_v40.json` in the run directory.
+- **Row 44:** CV from run `v3_20260924T202324352147Z` (three seeds, all 16 folds, 41.5 minutes
+  on macOS), built by `VALIDATION/occupancy_run.py`, then row 37's corrections applied without
+  refit by `VALIDATION/occupancy_combined_run.py --source-run` as run `v3_20260924T211259763470Z`.
+  Row 43 is the control and was not refitted: its boosters were reloaded from row 43's run and
+  reproduced it exactly on every fold and seed, and the corrected arm reproduces row 43's entry
+  to four decimals (245.9817 / 222.5802 / 233.2338). Paired day-bootstrap differences against
+  row 43 (95% interval): combined **−0.2924 [−0.4641, −0.1088]**, longer-gap **−0.3798
+  [−0.6022, −0.1665]**, next-month −0.1937 [−0.4439, +0.1039] (inconclusive). No airport opposes
+  the combined headline. **Two warnings were recorded before the upload and both proved right.**
+  The seeds disagree on next-month (+0.071 / −0.549 / −0.103), and 8 of the 10 ageing differences
+  are positive, one excluding zero (B8_vs_A5 +0.54 [+0.01, +1.08]) — the opposite of row 28's
+  queue inputs, whose ageing differences all included zero and whose gain transferred in full.
+  Before the upload the expected change was about −0.3, with the fading caveat stated. Screened
+  first by a cross-fitted, month-held-out residual stack on A folds at −0.2533 s, which is what
+  the run then measured; the univariate gate the inputs failed (they rank taxi length at +0.221
+  within airport against `q_apt_others_gap_prev60`'s +0.227) did not predict the CV outcome.
+  None of the folds contains January.
+- **v41 (row 44):** prepared and uploaded 2026-09-24 at 21:19 UTC by
+  `VALIDATION/occupancy_submit.py --exclude-rule-rows`, the first upload of that UTC day. One
+  seed-42, 800-round refit of both boosters on all of 2025 with the occupancy inputs, excluding
+  the same **127** rule-covered departures (fitting on 2,084,532 rows, 110 prepared inputs); the
+  late mean 1,079.5 s and day blend 0.324989 are unchanged from v39 and v40, and the four-hour
+  rule overrides the same 43 ranking rows. Each ranking month sees all of 2025 plus its own month
+  only. Against v40's file, 339,136 rows differ by 28.2 s on average (largest 1,257 s, an order of
+  magnitude tighter than v40-against-v39's 10,062 s), so no single row drives the result. Official
+  score **275.9592** on all 344,841 rows: **+0.5446 against v40**, against a CV change of −0.29
+  combined and −0.38 longer-gap. **The supported CV gain reversed on the leaderboard.** This is
+  the first such reversal in the ladder above, and it is consistent with the ageing readouts: the
+  ranking months sit up to seven months past the training cutoff, where the fade the B-folds
+  measured is largest, while CV's next-month score — the one closest to the test months — was
+  already inconclusive. **v40 remains the best submission**; rank unchanged at 36 of 189. The
+  manifest is `submission_v41.json` in the run directory.
 - **Row 29:** CV from run `v3_20260918T120331999764Z` on macOS (45.2 minutes).
   Row 28 is the control and was not refitted: its boosters were reloaded from
   row 28's run and reproduced its saved predictions exactly on every fold and seed.
@@ -485,6 +528,24 @@ takeoff-minus-AOBT3 means over 30 minutes either side. Every window excludes the
 takeoff instant, so a flight never counts itself; runways are scoped by airport;
 departure block times and taxi-out labels are never read. Code in
 `VALIDATION/runway_queue.py`; run by `VALIDATION/runway_queue_run.py`.
+
+**Taxi occupancy inputs (row 44):** how many *other* aircraft are on the tarmac at a
+given instant, from the same supplied movement timestamps the queue inputs use. A
+departure occupies the tarmac over [`AOBT_3`, takeoff), counted only when both
+timestamps are present and the duration is within 0–7,200 s — the same filter
+`runway_queue.py` applies to its takeoff-minus-AOBT3 means. Four inputs: the count at
+this flight's own off-block and again at its takeoff, each at airport and runway scope.
+A flight never counts itself, runways are scoped by airport, and departure block times
+and taxi-out labels are never read. The motivation is that the existing queue inputs
+measure *flow*, which turns around when an airport jams because fewer aircraft get off
+the ground: ordered by actual taxi length, `q_apt_takeoffs_prev30` rises to the 0.559
+within-airport percentile at 25–30 minutes and falls back to 0.466 beyond an hour.
+Occupancy measures *stock* instead, but it is capped by apron throughput (at most 43
+aircraft airport-wide) and so saturates too, peaking at 0.619 and falling to 0.556,
+while the duration input `q_apt_others_gap_prev60` keeps climbing (0.428 → 0.692 →
+0.663). Code in `VALIDATION/taxi_occupancy.py`; run by `VALIDATION/occupancy_run.py`,
+corrections by `VALIDATION/occupancy_combined_run.py`, file prepared by
+`VALIDATION/occupancy_submit.py`.
 
 **Rome signals (row 29):** the airline is read from `FLIGHT_mvt`: the first three
 characters if they are letters, otherwise the first two. Rows without a flight

@@ -1,5 +1,5 @@
 {
-  "implementation_sha256": "2f4770465b3f3e3877e77da02ce4b8ebbd80b334f30d98e0e51503bcc5c743da",
+  "implementation_sha256": "4f4c4ca9369476ed78be02309b2bf060819b1a582d1d37ec84132be4f82cbe55",
   "adopted_result_sha256": "389b577b423669a7dfe5b03d47c41d8b5b535372f569b8f14c9ca1189ccbd14e",
   "weights": {
     "adopted": {
@@ -980,29 +980,158 @@
         "oof_B7_seed242.parquet": "4669ea815650c28cbd1ed20d6f0e732681e5757ee18ca2e5640209d1fe31c9f4"
       },
       "record_sha256": "193ddac9258fc965faefd49c0eef7b203bedb2afb4b09c3b166d6542df93bccd"
+    },
+    {
+      "version": 41,
+      "row": 44,
+      "name": "Taxi-occupancy",
+      "manifest": "v3_20260924T202324352147Z/submission_v41.json",
+      "run": "v3_20260924T211259763470Z",
+      "column": "pred37_occ",
+      "expected_from": "v3_20260924T211259763470Z/comparison_pred37_occ_vs_pred37_v3_20260924T211259763470Z_block1.json",
+      "official": 275.9592,
+      "uploaded_at": "2026-09-24T21:19:34+00:00",
+      "expected": {
+        "R_A": 245.78801499936006,
+        "R_B_long": 222.20036260066038,
+        "R_combined": 232.94142529131096
+      },
+      "tolerance": 1e-08,
+      "modes": {
+        "standard": {
+          "unweighted": {
+            "R_A": 245.78801499936006,
+            "R_B_long": 222.20036260066038,
+            "R_combined": 232.94142529131096
+          },
+          "weighted": {
+            "R_A": 266.47308414728815,
+            "R_B_long": 261.809761866768,
+            "R_combined": 263.8851643387821
+          },
+          "weighted_clipped_p99": {
+            "R_A": 265.03142814619173,
+            "R_B_long": 259.50599108932283,
+            "R_combined": 261.9674077036423
+          }
+        },
+        "42": {
+          "unweighted": {
+            "R_A": 245.89002392788578,
+            "R_B_long": 222.20685316742603,
+            "R_combined": 232.99254692118996
+          },
+          "weighted": {
+            "R_A": 266.6070397616426,
+            "R_B_long": 261.8808850433512,
+            "R_combined": 263.9843858807401
+          },
+          "weighted_clipped_p99": {
+            "R_A": 265.17448510201336,
+            "R_B_long": 259.6419225771398,
+            "R_combined": 262.106524288968
+          }
+        },
+        "142": {
+          "unweighted": {
+            "R_A": 245.60929596971422,
+            "R_B_long": 222.2464775160421,
+            "R_combined": 232.88244421836526
+          },
+          "weighted": {
+            "R_A": 266.28054604468736,
+            "R_B_long": 262.0182870843815,
+            "R_combined": 263.9143969541537
+          },
+          "weighted_clipped_p99": {
+            "R_A": 264.83889688134946,
+            "R_B_long": 259.6470513315524,
+            "R_combined": 261.95904764147986
+          }
+        },
+        "242": {
+          "unweighted": {
+            "R_A": 245.8646270165393,
+            "R_B_long": 222.1477460086783,
+            "R_combined": 232.94927152558193
+          },
+          "weighted": {
+            "R_A": 266.53155699200073,
+            "R_B_long": 261.5298711590685,
+            "R_combined": 263.75665861890946
+          },
+          "weighted_clipped_p99": {
+            "R_A": 265.08078931748724,
+            "R_B_long": 259.22877735512276,
+            "R_combined": 261.83658144122
+          }
+        }
+      },
+      "groups": {
+        "R_A": {
+          "rows": 1079528,
+          "identity_sha256": "fa2ef72547f2439fbafa593303bd05b7b4d43568f01bd061e9b14072eee42755"
+        },
+        "R_B_long": {
+          "rows": 328009,
+          "identity_sha256": "d40854d872eab245f5b061936a061655ce707b933f404b4917ee91379f8b39f6"
+        }
+      },
+      "prediction_sha256": {
+        "oof_A1_seed42.parquet": "f82b9a10de023cc56684f1d0cc4f7c4ad3101d3263b3170bd0754fbac654e496",
+        "oof_A1_seed142.parquet": "47df797e567215f5e3e473d5ff3c635d542fec97904da868068d6084d38f3913",
+        "oof_A1_seed242.parquet": "6aa596e0929110df38674cd0fd3514b9badb6fce92925a816b564aef25771136",
+        "oof_A2_seed42.parquet": "0cde5ccb45d7dc59c0f265b04f6e6ac6e9207b27ac36462d5e9ae5c2e7da7f2d",
+        "oof_A2_seed142.parquet": "8a8b77803ca52f5116472c7f5c293cd3d63b025cf29e86a28b3f9d2081aa704b",
+        "oof_A2_seed242.parquet": "e017d574eada02f159d0c74abdb8aa249e98c9a8e6756573c16260115d0b14b2",
+        "oof_A3_seed42.parquet": "da1fefbc8d9f56ee82152e220b8009131200567340198967114f90b4900539ee",
+        "oof_A3_seed142.parquet": "1fa601041f2f1e186f8936fe2271246ef112266f13f91384d8b6f47142c39a7a",
+        "oof_A3_seed242.parquet": "e7c6663af0566d834a928698da7fac38991f2bf14970cbfadf952826a4e58b20",
+        "oof_A4_seed42.parquet": "fe7321cc08ac1a4982c7f641c5726ccfe76ee65d5580f423e9fde93b6d97c92e",
+        "oof_A4_seed142.parquet": "fbaeebdda24c652ab4cb8858d11e2b38d3d8d8f6b6a1130d21eee981554876dc",
+        "oof_A4_seed242.parquet": "ee8ceca4f12b45c6f554fe11cec8fd06a52357b305a3170bd0dc7b56b027fd9c",
+        "oof_A5_seed42.parquet": "dce569397ddada6cf4afcc66db67ffa8456e918ba5fa22c9a412ea033ba6de00",
+        "oof_A5_seed142.parquet": "552634bebc373a8529feccc055c44b2d9030682ba0a5fa51ccaaabaf1064dfa1",
+        "oof_A5_seed242.parquet": "ae1bb389bca96cda8cd6781edd631b32d6392fc8bfaef84c94c0949d67720f46",
+        "oof_A6_seed42.parquet": "98a8538c14d23c189e8444e9e582fe746205d5575a6d16cd0bd18cc3b71ae226",
+        "oof_A6_seed142.parquet": "0d29d8c347411de2de9fa0ff8a7a830f917ed6d4d1e4e2394b4096992c0ebb5d",
+        "oof_A6_seed242.parquet": "4785ad78b2271baa30c9d673dcd0e2f986818b747c5a4c30f4c66b228b6347b0",
+        "oof_B3_seed42.parquet": "ba1fe80c69e172af186c4c2d46aae1c40a314747c95d5dd2636c2c0d6f103a63",
+        "oof_B3_seed142.parquet": "69b58e6b71d99929558ce394752ded1bfbf6e23c3145bfdf01b5e6f9d7d239a9",
+        "oof_B3_seed242.parquet": "8855edecba08c4ad03e4753b704c06e635d44ca47a0498e48aa14ccfa2b692dd",
+        "oof_B4_seed42.parquet": "1bc76b8676bb1454aa0d97e82fb1c83a38ad29a15252cb1ced545d1f2c98d0c3",
+        "oof_B4_seed142.parquet": "5557917866aef5da9209a3eed6d43a34c52284df528d6eb37556704f16574b88",
+        "oof_B4_seed242.parquet": "10c77debc764b4f1a1dac53315d36d166cc33ce3dcef6a3c36894df4c6fff305",
+        "oof_B7_seed42.parquet": "1745c831fa6ac4f73519d2206bbbf4f4d022471cca443729f09badf35a7d1edc",
+        "oof_B7_seed142.parquet": "f80cd1fa25870d7257faa76e2357cef9fa5e545ff99a1f478ebc83b8b71635fc",
+        "oof_B7_seed242.parquet": "910c63a1f93dd38aacbc8c038f5c8bbe59a0aad13e118c3a5b29f13afd2eba83"
+      },
+      "record_sha256": "424047abf8e4b5f291c594806db3d5d1e87292cc6b73d22d296b11f1d6539203"
     }
   ],
   "gaps": {
     "unweighted": {
-      "level_mae": 42.86602458841834,
+      "level_mae": 42.89131627513012,
       "level_max_error": 44.94203093149173,
       "absolute_gaps": {
         "34": 40.525991355683345,
         "37": 44.94203093149173,
         "38": 43.065431625820025,
         "39": 43.61586289246651,
-        "40": 42.18080613663008
+        "40": 42.18080613663008,
+        "41": 43.017774708689046
       }
     },
     "weighted": {
-      "level_mae": 11.466834345998848,
+      "level_mae": 11.568034565202026,
       "level_max_error": 14.269527697002673,
       "absolute_gaps": {
         "34": 7.249635326116618,
         "37": 14.269527697002673,
         "38": 11.799055980587923,
         "39": 12.941086549508384,
-        "40": 11.074866176778642
+        "40": 11.074866176778642,
+        "41": 12.07403566121792
       }
     }
   },
@@ -1039,6 +1168,14 @@
         "delta_cv": -0.5132432441635899,
         "direction_correct": true,
         "absolute_change_error": 1.4350567558364276
+      },
+      {
+        "parent": 40,
+        "candidate": 41,
+        "delta_lb": 0.5446000000000026,
+        "delta_cv": -0.2923685720589617,
+        "direction_correct": false,
+        "absolute_change_error": 0.8369685720589644
       }
     ],
     "weighted": [
@@ -1073,6 +1210,14 @@
         "delta_cv": -0.08207962727027507,
         "direction_correct": true,
         "absolute_change_error": 1.8662203727297424
+      },
+      {
+        "parent": 40,
+        "candidate": 41,
+        "delta_lb": 0.5446000000000026,
+        "delta_cv": -0.4545694844392756,
+        "direction_correct": false,
+        "absolute_change_error": 0.9991694844392782
       }
     ]
   },

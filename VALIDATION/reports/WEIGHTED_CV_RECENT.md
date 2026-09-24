@@ -9,12 +9,13 @@ The five uploads after the weighted validation was adopted are scored on it here
 | v38 | 37 | Artifact-combined | 236.3151 | 267.5814 | 279.3805 | -11.80 |
 | v39 | 42 | OPDI-combined | 233.7470 | 264.4218 | 277.3629 | -12.94 |
 | v40 | 43 | Rule-routed-training | 233.2338 | 264.3397 | 275.4146 | -11.07 |
+| v41 | 44 | Taxi-occupancy | 232.9414 | 263.8852 | 275.9592 | -12.07 |
 
 All values are RMSE in seconds; lower is better. The weighted gap is Weighted CV minus the official score.
 
 | Check | Current CV | Weighted CV |
 |---|---:|---:|
-| Average absolute gap to the official score | 42.87 s | 11.47 s |
+| Average absolute gap to the official score | 42.89 s | 11.57 s |
 | Largest absolute gap | 44.94 s | 14.27 s |
 
 | Change | Actual LB change | Current CV change | Weighted CV change | Direction |
@@ -23,8 +24,9 @@ All values are RMSE in seconds; lower is better. The weighted gap is Weighted CV
 | v37 -> v38 | -0.7938 | +1.0828 | +1.6767 | **disagrees** |
 | v38 -> v39 | -2.0176 | -2.5680 | -3.1596 | agrees |
 | v39 -> v40 | -1.9483 | -0.5132 | -0.0821 | agrees |
+| v40 -> v41 | +0.5446 | -0.2924 | -0.4546 | **disagrees** |
 
-Direction agreement on consecutive uploads: 3/4 current CV, 3/4 weighted. Average error in the size of a step is 2.07 s current CV and 3.12 s weighted, so the weighting fixes the level of the score without predicting how far a change will move the leaderboard.
+Direction agreement on consecutive uploads: 3/5 current CV, 3/5 weighted. Average error in the size of a step is 1.82 s current CV and 2.70 s weighted, so the weighting fixes the level of the score without predicting how far a change will move the leaderboard.
 
 **Checks:** the weights are the adopted ones. The local cache was rebuilt from the frozen specification and its four discriminator model files are byte-identical to the ones recorded with the method, with the same cross-fitting split, held-out calibration and effective sample size, so the ratios are the same numbers; only the parquet container bytes differ, which a different pyarrow build explains and the identical calibration and effective sample size rule out as a difference in values. Every original v3 score reproduces from the same predictions before weighting. Flight identities and labels in both groups match the adopted comparison. Each submission manifest records an accepted upload scored on all 344,841 rows.
 
