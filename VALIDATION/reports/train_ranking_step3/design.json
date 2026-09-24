@@ -1,0 +1,15 @@
+{
+  "purpose": "Identify which differences from steps 1 and 2 coincide with expensive saved held-out predictions. This is exploratory diagnosis, not a new validation score or proof of 2026 error.",
+  "primary_model": "v38 / v3_20260919_artifact_experiments / pred_combined, three-seed mean squared loss; next-month A folds are kept separate from longer-gap B folds.",
+  "january_coverage": "v38 has no January OOF predictions. If recoverable, use the existing Q0-4h/v15 seasonal 11-month holdout as explicitly older, retrospective evidence; its 10-month holdout is a sensitivity check. Never substitute January training errors.",
+  "current_model_check": "If available, use saved v40 A-fold predictions as a sensitivity check, without refits.",
+  "groups": ["all", "missing_flight_id", "schedule_gap_over_4h", "snow", "missing_stand", "stand_unseen_in_fold_training", "raw_far5", "rich_far5", "raw_propensity_fixed_bins", "rich_propensity_fixed_bins"],
+  "propensity_bin_edges": [0, 0.25, 0.5, 0.75, 1],
+  "group_reports": "By airport and month: n, row share, RMSE, squared-error share, complement RMSE, top-1/top-10 error share and top-day share. Groups overlap and must not be added. Raw counts and losses; adopted Weighted CV remains unchanged.",
+  "stand_analogue": "2025 novelty is relative to the actual taxi model training window, with missing keys separate. Ranking novelty is relative to all 2025. These are different support definitions, not an exact estimate of the new 2026 stands' cost.",
+  "neighbour_error_proxy": "Use each saved source neighbour's held-out squared loss, k=5 primary and k=1/10 sensitivities. Never average predictions before squaring. Require complete donor coverage and verify source donor airport/month and exclusion of query dates.",
+  "proxy_check": "On 2025 held-out query dates, report actual error concentration in the highest 20% of neighbour-risk scores within airport/month and proxy-versus-actual RMSE by airport/date block. These reuse development data and do not establish 2026 transport.",
+  "target_proxy": "Report historical-neighbour risk for the same direct groups and new full-2025 stands, together with donor reuse/error concentration. Do not present it as measured ranking loss or a CV-to-leaderboard gap attribution.",
+  "integrity": "Check source hashes, prediction hashes against available prior manifests, unique movement IDs, dates, airports, labels across seeds/models and exact saved aggregate score reproduction. Keep row-level output in ignored tmp/.",
+  "limits": ["No ranking departure labels", "No new taxi-out model fits", "No new uploads", "No changes to adopted weights", "No group selection claimed to be independent confirmation"]
+}

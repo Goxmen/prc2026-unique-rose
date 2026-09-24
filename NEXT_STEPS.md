@@ -1,9 +1,9 @@
 # Next steps
 
 Every idea proposed in the repo and not yet carried out. Gains are combined CV
-seconds against **row 43 (233.2338, uploaded as v40)**, which is the parent for all
-new work — row 44 / v41 lost 0.54 s on the leaderboard and is not a base. Negative
-is better. Measured numbers come from
+seconds against **row 43 (233.2338, uploaded as v40)**. The best submission is now
+**v42 (row 45, 274.9076 LB)**, gunes's snow and completed-arrival inputs on row 43;
+build on that, not on row 44 / v41, which lost 0.54 s. Negative is better. Measured numbers come from
 `.venv/bin/python VALIDATION/tools/estimate_ceilings.py`; "est." is a judgement
 call from comparable past changes. Update **Status** as each one is done.
 

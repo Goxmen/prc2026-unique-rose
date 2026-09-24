@@ -1,0 +1,36 @@
+{
+  "total_rows": 689260,
+  "source_rows": 344419,
+  "ranking_rows": 344841,
+  "row_cache": "tmp/train_ranking_step2/similarity_rows.parquet",
+  "row_cache_sha256": "f7f5e81568d14d110bae0147875bac173b58f23ff7a2e626ec0350b2f4282b86",
+  "neighbour_columns": "raw_neighbour1..10 and rich_neighbour1..10, source-2025 donor movement IDs",
+  "distance_columns": "raw_d1/d5/d10 and corrected rich_d1/d5/d10; far flags use source-calibration q95 per airport/fold",
+  "propensity_columns": "raw_propensity and rich_propensity: balanced diagnostic priors, calibration varies by held-out week",
+  "source": "January and July 2025; each query excludes its entire date block from the donor bank",
+  "current_distance_summary": "knn_current.csv; rich rows use the documented weather-scale correction",
+  "original_distance_summary": "knn.csv is retained for provenance; its rich rows have the scale problem and are superseded",
+  "current_slice_summary": "slices_corrected.csv; old slices.csv retains initial rich distances",
+  "limitation": "Distances measure support under this chosen feature geometry and source-bank size; they do not prove an absence of similar rows in all 2025 training, or measure prediction cost.",
+  "source_cache_sha256": {
+    "2025-01": "cc245c5242c18dc7c113884440aec23381bf74418280aa0070e3650604eb0aab",
+    "2025-02": "a61a2152d84d8ecc0f70132df53e44e49b7244341f47e52d843e1976eb6f2da6",
+    "2025-03": "ac912adb7f6ee005375a91e834c7a14e7c6a95722939d86761efa2d42f4e42ee",
+    "2025-04": "9747973c38b69a78f8095e474046139d7e3197da721763c909b7f476fbb7b303",
+    "2025-05": "0728cc156efbe5bab34f3f28ea333f1463e1442c5e8a095840d1c46bf7211117",
+    "2025-06": "160732859fab399f0d313b84e3698d388efa7c1154ed39164e6ccc2a8f909c21",
+    "2025-07": "a97c7dd14cacabd96f2ba9a5d0915799d21365d4dafdd198ad2974110f46cd90",
+    "2025-08": "3be10d73a2d270116ff8328656938494b27db05b9135850b48fb6b7518d70e4d",
+    "2025-09": "103e4f1498a0bf2bb6211e5153a15e6accc92975ef9d1a30e86a7477eb775d3f",
+    "2025-10": "ba4e40e1b5d028e5f2b06d59ee2306346bf1df5eb91992ef8cc23e0b15c2de9b",
+    "2025-11": "777ac3ec1668d5ac0d084c09c3b3a1fa0d53949dee47d9c39daf1894e8b70d80",
+    "2025-12": "260838459b9cd3e44cd85cbbcdb981cfb66e54cba055edbcc89c0c7a9cd57af1",
+    "2026-01": "bf286f6853722eb3e7ec84a66176c5196dd276016acda6b2ad33e5b973b697c0",
+    "2026-07": "ea4e6cc50c21545dc87a6aefe2ffdf4e71a3e0652484c299aea2466c427215a9"
+  },
+  "script_sha256": "64c9bf3e55c885399cb02ceff8498f52c575cfea3c7494ef6a6e3cf6c7e171d1",
+  "outputs": {
+    "knn_current.csv": "c7307b118d371718e098a1e76f7b9b93665f521e6654ba320542238edb8a8b33",
+    "slices_corrected.csv": "676b65b679f9614666f273a055d13f5b21e242374477d7cc33c2d209f7c7e720"
+  }
+}

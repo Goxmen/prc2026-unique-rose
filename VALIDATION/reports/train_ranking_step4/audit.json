@@ -1,0 +1,138 @@
+{
+  "design_sha256": "8ed93bfdcfbe359fae9e8bd80e6c95887af45685ec526a8c5594833873d6ca92",
+  "source_sha256": "0e36a388ac53a10de210bee71d865f677393a53db3d6e384aefff10c5519fd3d",
+  "features": {
+    "signature": {
+      "inputs": {
+        "data/training_2025-01-01_2025-02-01.parquet": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94",
+        "data/training_2025-02-01_2025-03-01.parquet": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066",
+        "data/training_2025-03-01_2025-04-01.parquet": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3",
+        "data/training_2025-04-01_2025-05-01.parquet": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390",
+        "data/training_2025-05-01_2025-06-01.parquet": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9",
+        "data/training_2025-06-01_2025-07-01.parquet": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025",
+        "data/training_2025-07-01_2025-08-01.parquet": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d",
+        "data/training_2025-08-01_2025-09-01.parquet": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540",
+        "data/training_2025-09-01_2025-10-01.parquet": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a",
+        "data/training_2025-10-01_2025-11-01.parquet": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f",
+        "data/training_2025-11-01_2025-12-01.parquet": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0",
+        "data/training_2025-12-01_2026-01-01.parquet": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724",
+        "data/ranking.parquet": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86",
+        "data/external/metar/metar.parquet": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5"
+      },
+      "feature_builder": "6bc6c9ce2615af8051045502fdf4dfaaec45bbc98498fd8393762bc9c3f55432",
+      "weather_source": "01241a62d8f70d1f32087522e070693850f812dbe487eb7772147b621bb80d5a",
+      "timezone": "UTC"
+    },
+    "sha256": "c8a3f75279e5d61a83b241452f43eff0135769b31c37a2f99a4629edb6e0aca2",
+    "rows": 710038
+  },
+  "models_fitted": 0,
+  "uploads": 0,
+  "downloads": 0,
+  "max_label_arithmetic_difference": 0.0,
+  "label_arithmetic_mismatch_n": 0,
+  "bin_specs": {
+    "EHAM_2025-01_2026-01": {
+      "traffic_cutoffs": [
+        33.0,
+        40.0
+      ],
+      "top_origins": [
+        "EDDF",
+        "EDDM",
+        "EGLC",
+        "EGLL",
+        "EIDW",
+        "EKCH",
+        "LEBL",
+        "LEMD",
+        "LFPG",
+        "LSZH"
+      ]
+    },
+    "EHAM_2025-07_2026-07": {
+      "traffic_cutoffs": [
+        40.0,
+        46.0
+      ],
+      "top_origins": [
+        "EDDF",
+        "EDDM",
+        "EGCC",
+        "EGLL",
+        "EIDW",
+        "EKCH",
+        "LEBL",
+        "LEMD",
+        "LEMG",
+        "LFPG"
+      ]
+    },
+    "EDDF_2025-01_2026-01": {
+      "traffic_cutoffs": [
+        26.0,
+        33.0
+      ],
+      "top_origins": [
+        "EDDB",
+        "EDDH",
+        "EDDM",
+        "EGLL",
+        "EHAM",
+        "LEMD",
+        "LFPG",
+        "LIML",
+        "LOWW",
+        "LSZH"
+      ]
+    },
+    "LSZH_2025-01_2026-01": {
+      "traffic_cutoffs": [
+        17.0,
+        22.0
+      ],
+      "top_origins": [
+        "EDDB",
+        "EDDF",
+        "EDDH",
+        "EDDM",
+        "EGLL",
+        "EHAM",
+        "LEMD",
+        "LFPG",
+        "LOWW",
+        "LSGG"
+      ]
+    },
+    "EHAM_all_2025_2026-01": {
+      "traffic_cutoffs": [
+        38.0,
+        45.0
+      ],
+      "top_origins": [
+        "EDDF",
+        "EDDM",
+        "EGLC",
+        "EGLL",
+        "EIDW",
+        "EKCH",
+        "LEBL",
+        "LEMD",
+        "LFPG",
+        "LSZH"
+      ]
+    }
+  },
+  "outputs": {
+    "monthly_all_airports.csv": "fb00d496bf6310c5b4e7013a978f6120ecae38a47a99829bf9b88adad4205e91",
+    "profiles.csv": "20c402fe7a2da09736fdf9a36e953a789653afb6f583523dcb716e07ac2fee62",
+    "weather_and_id_groups.csv": "341c6236cfc51e1d1146eb0c3df9453076b2dca81f7f4ca83c66a1045957997b",
+    "daily.csv": "77fc47197501df5c416c44bbedcc2df95d46f897c4c22b41a9e7ee50ee7c34d8",
+    "recording_patterns.csv": "2c2dfeaca1b0a0863772c12c3b97cd60b52f21b12eacad78ee73a41bedc2cec5",
+    "categorical_groups.csv": "5f4cd2b73dcfbc83da7fef19f42bdfceb13d33e13ee739c47b8b0c7aceafa783",
+    "conditional_tail_rates.csv": "e461b99cb8e6a866d62a0f143625c312b76ce9f234b35fd5079b58c8e5f10ded",
+    "conditional_intervals.json": "9d11538c3a5bfffa53c0affa9ead773ddb0287e0d9a01e21e154f5c9b5d86a1a",
+    "supported_cells.csv": "89dcb89200c162f6570828409bac91a4f9b1ecd76705dedab5e5cbfddde99730",
+    "departure_arrival_days.csv": "afa4e336ad11e52676d3a2c485c235afe37934be3906f8d7f01acba667ef2a79"
+  }
+}

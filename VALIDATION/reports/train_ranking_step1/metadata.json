@@ -1,0 +1,367 @@
+{
+  "step": 1,
+  "purpose": "Describe observable data differences, not prediction cost or conditional label changes",
+  "input_sha256": {
+    "data/external/metar/metar.parquet": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5",
+    "data/ranking.parquet": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86",
+    "data/training_2025-01-01_2025-02-01.parquet": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94",
+    "data/training_2025-02-01_2025-03-01.parquet": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066",
+    "data/training_2025-03-01_2025-04-01.parquet": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3",
+    "data/training_2025-04-01_2025-05-01.parquet": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390",
+    "data/training_2025-05-01_2025-06-01.parquet": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9",
+    "data/training_2025-06-01_2025-07-01.parquet": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025",
+    "data/training_2025-07-01_2025-08-01.parquet": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d",
+    "data/training_2025-08-01_2025-09-01.parquet": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540",
+    "data/training_2025-09-01_2025-10-01.parquet": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a",
+    "data/training_2025-10-01_2025-11-01.parquet": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f",
+    "data/training_2025-11-01_2025-12-01.parquet": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0",
+    "data/training_2025-12-01_2026-01-01.parquet": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724",
+    "data/submitting.parquet": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+  },
+  "script_sha256": "31e1c716c63907bd3fc148c58b5cab835556f70f0c9fd5d4ae6b668d63191906",
+  "feature_cache_signature": "644655df987ab539dce705334cac83edd0603c41251b664e9fd0f824d120bf66",
+  "training_departures": 2085047,
+  "ranking_departures": 344841,
+  "matched_pairs": [
+    [
+      "2025-01",
+      "2026-01"
+    ],
+    [
+      "2025-07",
+      "2026-07"
+    ]
+  ],
+  "adjacent_pairs_2025": [
+    [
+      "2025-01",
+      "2025-02"
+    ],
+    [
+      "2025-02",
+      "2025-03"
+    ],
+    [
+      "2025-03",
+      "2025-04"
+    ],
+    [
+      "2025-04",
+      "2025-05"
+    ],
+    [
+      "2025-05",
+      "2025-06"
+    ],
+    [
+      "2025-06",
+      "2025-07"
+    ],
+    [
+      "2025-07",
+      "2025-08"
+    ],
+    [
+      "2025-08",
+      "2025-09"
+    ],
+    [
+      "2025-09",
+      "2025-10"
+    ],
+    [
+      "2025-10",
+      "2025-11"
+    ],
+    [
+      "2025-11",
+      "2025-12"
+    ]
+  ],
+  "all_pairs_2025": [
+    [
+      "2025-01",
+      "2025-02"
+    ],
+    [
+      "2025-01",
+      "2025-03"
+    ],
+    [
+      "2025-01",
+      "2025-04"
+    ],
+    [
+      "2025-01",
+      "2025-05"
+    ],
+    [
+      "2025-01",
+      "2025-06"
+    ],
+    [
+      "2025-01",
+      "2025-07"
+    ],
+    [
+      "2025-01",
+      "2025-08"
+    ],
+    [
+      "2025-01",
+      "2025-09"
+    ],
+    [
+      "2025-01",
+      "2025-10"
+    ],
+    [
+      "2025-01",
+      "2025-11"
+    ],
+    [
+      "2025-01",
+      "2025-12"
+    ],
+    [
+      "2025-02",
+      "2025-03"
+    ],
+    [
+      "2025-02",
+      "2025-04"
+    ],
+    [
+      "2025-02",
+      "2025-05"
+    ],
+    [
+      "2025-02",
+      "2025-06"
+    ],
+    [
+      "2025-02",
+      "2025-07"
+    ],
+    [
+      "2025-02",
+      "2025-08"
+    ],
+    [
+      "2025-02",
+      "2025-09"
+    ],
+    [
+      "2025-02",
+      "2025-10"
+    ],
+    [
+      "2025-02",
+      "2025-11"
+    ],
+    [
+      "2025-02",
+      "2025-12"
+    ],
+    [
+      "2025-03",
+      "2025-04"
+    ],
+    [
+      "2025-03",
+      "2025-05"
+    ],
+    [
+      "2025-03",
+      "2025-06"
+    ],
+    [
+      "2025-03",
+      "2025-07"
+    ],
+    [
+      "2025-03",
+      "2025-08"
+    ],
+    [
+      "2025-03",
+      "2025-09"
+    ],
+    [
+      "2025-03",
+      "2025-10"
+    ],
+    [
+      "2025-03",
+      "2025-11"
+    ],
+    [
+      "2025-03",
+      "2025-12"
+    ],
+    [
+      "2025-04",
+      "2025-05"
+    ],
+    [
+      "2025-04",
+      "2025-06"
+    ],
+    [
+      "2025-04",
+      "2025-07"
+    ],
+    [
+      "2025-04",
+      "2025-08"
+    ],
+    [
+      "2025-04",
+      "2025-09"
+    ],
+    [
+      "2025-04",
+      "2025-10"
+    ],
+    [
+      "2025-04",
+      "2025-11"
+    ],
+    [
+      "2025-04",
+      "2025-12"
+    ],
+    [
+      "2025-05",
+      "2025-06"
+    ],
+    [
+      "2025-05",
+      "2025-07"
+    ],
+    [
+      "2025-05",
+      "2025-08"
+    ],
+    [
+      "2025-05",
+      "2025-09"
+    ],
+    [
+      "2025-05",
+      "2025-10"
+    ],
+    [
+      "2025-05",
+      "2025-11"
+    ],
+    [
+      "2025-05",
+      "2025-12"
+    ],
+    [
+      "2025-06",
+      "2025-07"
+    ],
+    [
+      "2025-06",
+      "2025-08"
+    ],
+    [
+      "2025-06",
+      "2025-09"
+    ],
+    [
+      "2025-06",
+      "2025-10"
+    ],
+    [
+      "2025-06",
+      "2025-11"
+    ],
+    [
+      "2025-06",
+      "2025-12"
+    ],
+    [
+      "2025-07",
+      "2025-08"
+    ],
+    [
+      "2025-07",
+      "2025-09"
+    ],
+    [
+      "2025-07",
+      "2025-10"
+    ],
+    [
+      "2025-07",
+      "2025-11"
+    ],
+    [
+      "2025-07",
+      "2025-12"
+    ],
+    [
+      "2025-08",
+      "2025-09"
+    ],
+    [
+      "2025-08",
+      "2025-10"
+    ],
+    [
+      "2025-08",
+      "2025-11"
+    ],
+    [
+      "2025-08",
+      "2025-12"
+    ],
+    [
+      "2025-09",
+      "2025-10"
+    ],
+    [
+      "2025-09",
+      "2025-11"
+    ],
+    [
+      "2025-09",
+      "2025-12"
+    ],
+    [
+      "2025-10",
+      "2025-11"
+    ],
+    [
+      "2025-10",
+      "2025-12"
+    ],
+    [
+      "2025-11",
+      "2025-12"
+    ]
+  ],
+  "category_metric": "TV in percentage points = half the sum of absolute category-share changes; missing is an explicit category.",
+  "novelty": "Target share absent from the matched source month and full 2025 are separate. Missing keys are never novel. Use airport rows for stand/runway/destination support; ALL can hide airport-specific novelty.",
+  "numeric_metrics": "Flight-weighted mean, median, p90 and p99 on finite observations. Missing fraction and valid/total denominators retained.",
+  "rate_metrics": "Percentage among rows with observable inputs; counts and missing fractions retained. Rates and changes use percentage points.",
+  "weather": "Existing cached METAR, shared weather.py code. Weather-code flags follow the existing parser; absence of a code is treated as no phenomenon when a fresh report exists.",
+  "traffic": "Same-month events only in both years. First 30 minutes of each month masked for 30-minute windows. All departures retained. Daily volume divided by calendar days.",
+  "scope": "Within-airport and pooled summaries. Pooled changes also reflect airport mix. No fold/history-derived inputs, stand clocks, labels, propensity scores, kNN or model errors used.",
+  "reference_limits": "11 adjacent changes and 66 overlapping pairs from one year are descriptive ranges, not independent replicates, p-values, or an estimate of normal year-to-year variation.",
+  "output_sha256": {
+    "profiles.csv": "abd0b8c08b4307a387532965b9229f009d1f68865afa924301b9de1e29ce3fa7",
+    "coverage.csv": "4ad44a8cdd133c0bf76683995191c4dbc92238de02529b430790baeb4e88613f",
+    "scalar_changes.csv": "4ff3b700e909b709b13e50603d2d605d54ef8841228457f3980b115eeebce9c2",
+    "category_changes.csv": "9529943caf91dd026c615e99a43eb18b8b5968b6b1ed446d4675f90c42e594c9",
+    "category_details.csv": "ffcad9960f6fbe058448ffb9ec42134505cb1748217055bba3d3e9408946f1d0"
+  },
+  "daily_profile_cache": {
+    "path": "tmp/train_ranking_step1/daily_profiles.parquet",
+    "sha256": "ee4fb9ea430c3d5e67bb0f1b71be0c118222afe7a14292bdbf76c9bfa011b7a1"
+  },
+  "elapsed_seconds": 37.517613649368286
+}

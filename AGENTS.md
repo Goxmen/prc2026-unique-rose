@@ -54,6 +54,9 @@ but identify the result as stale and report its timestamp.
 
 ## Constraints
 
+- **Laptop network is slow.** When desktop artifacts are needed, transfer only
+  necessary files/columns, retain a verified local cache, and reuse it. Avoid
+  repeating remote downloads or making experiments depend on remote reads.
 - Repo is private during the challenge but MUST be public under GPLv3 before it
   ends (11 Oct 2026) for prize eligibility: `gh repo edit Goxmen/PRC --visibility public`.
   Write everything as if it were already public.
@@ -68,6 +71,162 @@ but identify the result as stale and report its timestamp.
   restructuring a section). Read it before touching the notebook.
 
 ## Current improvement work — handoff
+
+- **September 24: v42 refitted, uploaded and scored on the user's explicit request.**
+  V40 + the tested 12 disruption inputs scores **274.9076 s**, improving v40's
+  275.4146 by **0.5070 s**. All 344,841 flights scored. Weighted CV **263.5929**;
+  original combined **232.6647**. See [submission report](VALIDATION/reports/V42_SUBMISSION.md).
+  Two full-year seed-42 boosters (800/300 rounds) and all ranking predictions are
+  retained in `VALIDATION/runs/v3_20260924_opdi_disruption/submission_v42/`.
+  Runner: `VALIDATION/opdi_disruption_submit.py`. Keep v40's exclusions and rules;
+  new features enter only the ordinary model. Source/data hashes, 16 tests,
+  all-row correction audit, 3,840 independent sampled feature checks and remote
+  file hash pass. Do not repeat fits or upload again. V41 was an already-scored
+  separate occupancy experiment. The user asks for completion notifications only,
+  without routine progress messages while runs are underway.
+
+
+- **September 24: v39/v40 disruption-feature comparisons are complete; no promotion.**
+  Read the [validation report](VALIDATION/reports/OPDI_DISRUPTION_EXPERIMENT.md)
+  and [test-like cases](VALIDATION/reports/OPDI_DISRUPTION_STRESS_CHECK.md).
+  Weighted CV improves **264.4169 → 263.6462** for v39 (-0.7708 s) and
+  **264.3388 → 263.5929** for v40 (-0.7459 s). All three seeds improve;
+  both 1-/3-day intervals exclude zero. Original combined improves by
+  0.5946/0.5675 s. January's separate retrospective checks change by
+  +0.1174/+0.0733 s, both inconclusive. Local controls differ from historical
+  Weighted CV by only -0.0049/-0.0009 s, but original OPDI cache hashes differ:
+  gains are against matched rebuilt controls, not exact historical predictions.
+
+  **No meaningful snow-case gain.** Fixed input-only limits match 2,320 of
+  10,301 prolonged-snow test flights to 2,247 historical flights on 20 dates.
+  Their RMSE changes **393.71 → 395.69** (v39) and **395.24 → 395.17** (v40),
+  both inconclusive. No comparable examples exist under these limits for the
+  347 heavy-arrival-delay test flights, including 256 with prolonged snow.
+  This is an arrival-delay proxy, not a measured departure queue. Amsterdam's
+  2,095/2,937 prolonged-snow test flights exceed its entire 2025 snow-duration
+  maximum; 329 have scored matches, using 269 historical flights from just one
+  day. Do not present these as evidence for the more extreme test conditions.
+  [Examples](VALIDATION/reports/OPDI_DISRUPTION_STRESS_EXAMPLES.md) are selected
+  by inputs and include regressions. Snow and arrival inputs were tested together.
+
+  Completed 108 boosters (54 per recipe), all 16 folds and January at three
+  seeds; February adds 143,732 held-out predictions per seed/recipe using saved
+  June–November models, with no extra fits. Keep original folds, weights, rules
+  and v40 exclusions. Thirty targeted tests pass. Independent checks reproduce
+  correction stacks exactly, verify training membership and features, and
+  reproduce scores in SQL. Stress audits check 17,598 accepted edges in each
+  source view plus 320 independent arrival values. Reuse all models/predictions
+  in `VALIDATION/runs/v3_20260924_opdi_disruption/`, matching inputs in
+  `tmp/opdi_disruption_stress/`, and logs in `tmp/opdi_disruption_20260924/`.
+  Do not repeat fits. Designs and runners are linked from the reports.
+
+  The rebuilt OPDI cache covers 2,429,888 departures; see
+  `VALIDATION/reports/opdi_cache_build_20260924.json`. Do not redownload or
+  rebuild it. Weather starts 31 December 2024: all 4,788 January 1 departures
+  have complete 6-/24-hour snow coverage. There is no 90-day snow feature;
+  90 is the maximum report age in minutes. A future 90-day weather feature
+  would need older data. The user wants to discuss predicting rare heavy snow
+  next. No `SUBMISSIONS.md` changes, full-year fits, uploads or promotions ran.
+
+- **September 21: OPDI source downloads are complete.** The user wants v39/v40
+  tested with the same 12 new disruption features, with no `SUBMISSIONS.md`
+  changes. Original OPDI caches/models are on Ioana's machine; the user instead
+  authorized downloading the public data after moving to fast internet.
+  Local `data/external/opdi/` now retains 15 flight lists and 44 raw event files,
+  **14,844,121,265 bytes**. Only `flight_events_20251002_20251012.parquet` returns
+  the historically documented 404; there are no other failures or partial files.
+  The [download report](VALIDATION/reports/opdi_download_20260921.json) records
+  hashes; full manifest is in the data folder and logs in
+  `tmp/opdi_download_20260921/`. Downloader `tools/download_opdi_cache.py` handles
+  HTTP/2 failures by using HTTP/1.1 and rejected resume requests by restarting
+  only partial files; six targeted tests passed. **Do not redownload the cache.**
+  Filtering, feature-cache construction and the paired v39/v40 experiments
+  are now complete, as recorded above. v39/v40 recorded different cache hashes,
+  so exact historical cache reproduction remains unestablished.
+
+- **September 21: disruption-feature experiment is complete; no promotion.**
+  Read the short [report](VALIDATION/reports/DISRUPTION_EXPERIMENT.md). Adding
+  12 snow-duration/completed-arrival inputs to v38 improves Weighted CV from
+  **267.5814 to 266.8465** (-0.7349 s); all seeds improve and 1-/3-day paired
+  intervals exclude zero. Original combined improves 236.3151 to 235.6700.
+  However, January's retrospective check worsens 348.1483 to 348.6760; EHAM
+  worsens 2.03 s and its 293 missing-ID departures worsen 7.23 s. This passes
+  the frozen CV criterion but does not demonstrate a winter fix or LB transfer.
+  Completed 18 ordinary fits, all 16 folds, three seeds, plus January using
+  June–November models. All 48 v38 controls reproduce exactly. Nine tests and
+  4,080 feature-value checks on 340 sampled fold/flight rows passed. Preserve
+  `VALIDATION/runs/v3_20260921_disruption/`; do not repeat fits. The frozen
+  [design](VALIDATION/docs/DISRUPTION_EXPERIMENT.md), runner `disruption_run.py`,
+  scorer `tools/score_disruption_experiment.py` and independent auditor
+  `tools/audit_disruption_experiment.py` are under `VALIDATION/`. Full local
+  logs are in `tmp/disruption_experiment/`; concise runtime in the run directory.
+  v40 artifacts/OPDI inputs were unavailable locally, so this compares v38 only.
+  No full-year refit, upload, promotion or submission-ledger entry was made.
+
+- **September 21: training-versus-ranking step 4 is complete.** Read the short
+  [report](VALIDATION/reports/TRAIN_RANKING_STEP4.md). EHAM January arrival taxi-in
+  >30 minutes rises from 50/18,469 (0.27%) to 264/16,246 (1.63%). Prolonged snow
+  covers 32/18,469 2025 arrivals versus 2,890/16,246 in 2026, including 228/264
+  long arrivals. Here prolonged means SN/SG at >25% of the previous 48 half-hour
+  samples, not measured snowfall depth. Outside recent snow, tail rates are
+  0.28%/0.24%. Official Schiphol reporting corroborates winter operational
+  disruption. Common recording signatures do not account for the arrival tail;
+  arithmetic agreement alone does not verify timestamps independently.
+  Jan 2–5 also contain 409/805 missing-ID and 278/418 >4h-late departures. This
+  association does not prove departure-label drift or explain a measured LB gap.
+  Detailed matching excludes most extreme cases; retain coverage and withheld
+  intervals. Eight tests and independent checks of 710,038 raw labels, 60 weather
+  matches, 120 traffic counts, 40 snow-duration values and 40 standardizations
+  passed. A traffic-bin '0'/'0.0' mismatch was fixed and tested. Reuse the local
+  cache `tmp/train_ranking_step4/`; no new datasets or taxi-out fits/uploads.
+  Weighted CV stays unchanged. Steps 1–4 of this investigation are complete;
+  the subsequent model-feature experiment is recorded above, separately from
+  this descriptive investigation.
+
+- **September 21: training-versus-ranking step 3 is complete.** See the short
+  [cost report](VALIDATION/reports/TRAIN_RANKING_STEP3.md). EHAM missing-ID flights
+  are the strongest lead: January 2025's 1.59% of rows account for 29.51% of SSE
+  under the older v15 seasonal holdout. This is not a v38/v40 January result.
+  v38 finds this group costly in every July–December month. Raw kNN's July
+  highest-risk 20% capture 34–77% of actual SSE across airports, but neighbour
+  risk underestimates RMSE at all ten. Propensity is not a consistent cost rank.
+  EDDF/EDDM new-stand cost remains uncertain; same-month historical cases are
+  sparse. No departure-label drift or leaderboard-gap attribution is proven.
+  Reuse `tmp/train_ranking_step3_inputs/` (13 MB exported from the desktop with
+  original-file hashes and exact score checks) and `tmp/train_ranking_step3/`.
+  Five tests, 50 independent cost checks, 200 neighbour checks and two stand
+  checks passed. v40 OOF files were absent on both hosts; no fits or uploads ran,
+  and Weighted CV is unchanged. Step 4, the conditional EHAM arrival-label
+  investigation, is complete above. `wx_snow` includes ice pellets/small hail as
+  well as snow; retain that definition when interpreting weather groups.
+
+- **September 21: training-versus-ranking step 2 is complete.** See the concise
+  [report](VALIDATION/reports/TRAIN_RANKING_STEP2.md). Blocked raw AUC is .624/.664
+  for Jan/Jul year comparisons, versus .539/.531 for the selected within-2025
+  adjacent-month controls. EHAM January missing-ID/long-schedule-gap flights and
+  July EDDF/EDDM stand changes remain leads; prediction cost is untested.
+  Original rich kNN had a poor fallback scale for nearly constant weather fields;
+  the corrected run is complete. Use `train_ranking_step2/knn_current.csv` and
+  `slices_corrected.csv` under reports, not the original rich rows in `knn.csv`.
+  `tmp/train_ranking_step2/similarity_rows.parquet` contains all 344,841 ranking
+  and 344,419 Jan/Jul 2025 rows with both propensities and ten neighbour IDs per
+  distance view. Reuse the saved 33 classifiers, 80 original and 80 corrected
+  neighbour banks; ten tests and independent arithmetic/identity audits pass.
+  Diagnostic probability calibration is uneven; adopted Weighted CV is unchanged.
+  Step 3 (saved-error cost, respecting which months/models have OOF predictions)
+  is now complete above; step 4 (conditional EHAM arrival-label investigation)
+  is also complete above.
+  No taxi-out fits, submissions or validation-weight changes ran.
+
+- **September 21: training-versus-ranking step 1 is complete.** Read the short
+  [report](VALIDATION/reports/TRAIN_RANKING_STEP1.md); reproduce with
+  `VALIDATION/tools/describe_train_ranking_shift.py`. It compares Jan/Jul across
+  years at all ten airports against 11 adjacent and 66 total 2025 month pairs.
+  January EHAM has more missing plans, long schedule gaps and snow; July EDDM/EDDF
+  stand use changes substantially. These are observable differences, not measured
+  prediction cost or proof of changed departure labels. Step 2 is now complete
+  above; steps 3 and 4 are also complete above. Reuse the hashed feature
+  cache in `tmp/train_ranking_step1/`; no fits, uploads or weighting changes ran.
 
 - **September 20: Weighted CV is the user-selected validation headline.**
   Use the unclipped, per-source raw-feature weights in the

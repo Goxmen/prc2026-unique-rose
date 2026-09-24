@@ -1,0 +1,502 @@
+{
+  "status": "downloads_complete",
+  "completed": "2026-09-21T16:01:28.156252+00:00",
+  "totals": {
+    "available": 59,
+    "known_missing": 1,
+    "failed": 0,
+    "available_bytes": 14844121265
+  },
+  "local_cache": "data/external/opdi/",
+  "full_manifest": "data/external/opdi/download_manifest.json",
+  "full_manifest_sha256": "25a11f9e60fccd74a95647cf1e727f552e6eb896d885c7605808dd691104266d",
+  "downloader": "VALIDATION/tools/download_opdi_cache.py",
+  "downloader_sha256": "004e80a0982700de3c549088b382014275a5b2e5798240b27b41cba3de29e8ef",
+  "known_missing": [
+    "flight_events_20251002_20251012.parquet"
+  ],
+  "checks": "All available files passed Parquet-footer, required-column and nonempty-row checks; SHA-256 recorded. Six downloader tests passed.",
+  "next": "Filter the retained raw event files using the existing OPDI code, then build opdi_features.parquet; do not download these files again.",
+  "feature_cache_built": false,
+  "new_model_fits": 0,
+  "submission_table_changed": false,
+  "files": {
+    "flight_list_202501.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202501.parquet",
+      "state": "cached",
+      "bytes": 33922640,
+      "rows": 1036088,
+      "sha256": "ea1a74434f8da4a842404e39ae75431e2a046d6cc3fbc46aaf4f293ae435a5de"
+    },
+    "flight_list_202502.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202502.parquet",
+      "state": "cached",
+      "bytes": 34986635,
+      "rows": 1066341,
+      "sha256": "32443853de81cb7eb0874d97ee8d86c84bbb0a964a2622b06c701317d44588b2"
+    },
+    "flight_list_202503.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202503.parquet",
+      "state": "cached",
+      "bytes": 41047071,
+      "rows": 1236032,
+      "sha256": "e631049e8fb544133b145877c36674436efdb6c337893a1a36dd5e5c5e2f8597"
+    },
+    "flight_list_202504.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202504.parquet",
+      "state": "cached",
+      "bytes": 44902849,
+      "rows": 1351975,
+      "sha256": "d271a4d640da1b213f7a7b8aa5ab0205366b1d13504966d4757722f32b717f91"
+    },
+    "flight_list_202505.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202505.parquet",
+      "state": "cached",
+      "bytes": 50438523,
+      "rows": 1518167,
+      "sha256": "a9b744da426195038b8e9537003492759daa1dadeafc7022006a79d88be56cc6"
+    },
+    "flight_list_202506.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202506.parquet",
+      "state": "cached",
+      "bytes": 52433299,
+      "rows": 1574471,
+      "sha256": "49e5131d698190e7fdb69f1293adf055935583faae1f7e1c9da2ed049007d863"
+    },
+    "flight_list_202507.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202507.parquet",
+      "state": "cached",
+      "bytes": 55250945,
+      "rows": 1662355,
+      "sha256": "d41ca50bfdeb1d86b57c7a4e2bad72f54f1980be521d8a97bc8af8a958a6bdd1"
+    },
+    "flight_list_202508.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202508.parquet",
+      "state": "cached",
+      "bytes": 52244227,
+      "rows": 1573717,
+      "sha256": "523e7d53970f01362a6d18203b84bf999f3684acc8108338cc411bfa175d4e81"
+    },
+    "flight_list_202509.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202509.parquet",
+      "state": "cached",
+      "bytes": 43996580,
+      "rows": 1536783,
+      "sha256": "e6a2b680410fdc6f202e8d825c6382e8755ce12fc0df2b6e4ce78669e4f3a3b8"
+    },
+    "flight_list_202510.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202510.parquet",
+      "state": "cached",
+      "bytes": 40259705,
+      "rows": 1408966,
+      "sha256": "1b0c30ff62d285548d50afb51c9114f77ed45595bfdd13a675a3e4b397af3435"
+    },
+    "flight_list_202511.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202511.parquet",
+      "state": "cached",
+      "bytes": 31946123,
+      "rows": 1134715,
+      "sha256": "7d3d468302f492de62e82780195d084f175095d39eaf163de5fe83c1c6029fba"
+    },
+    "flight_list_202512.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202512.parquet",
+      "state": "cached",
+      "bytes": 34529216,
+      "rows": 1167483,
+      "sha256": "be9be06daa058aef5d8de1bb7f5753616b9bfc4f16fbbe10309526d5eab2e7fb"
+    },
+    "flight_list_202601.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202601.parquet",
+      "state": "cached",
+      "bytes": 20263227,
+      "rows": 709137,
+      "sha256": "536fc4c262a61d774ac764bc84d3cb12e1648e7d67c5a3aa2e3e15bb65f8f63a"
+    },
+    "flight_list_202602.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202602.parquet",
+      "state": "cached",
+      "bytes": 30221764,
+      "rows": 1049317,
+      "sha256": "4e8534f75b2584b49ea5757a1cc4c16c6ef46d4a3269527babf75d8c731f2e2b"
+    },
+    "flight_list_202607.parquet": {
+      "kind": "flight_list",
+      "path": "data/external/opdi/flight_list/flight_list_202607.parquet",
+      "state": "cached",
+      "bytes": 53159289,
+      "rows": 1746344,
+      "sha256": "5b38d9bcb6bf2a4535cda7233304ed186f42b839b54e687ccb75263edc013cd6"
+    },
+    "flight_events_20241226_20250105.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20241226_20250105.parquet",
+      "state": "cached",
+      "bytes": 221342692,
+      "rows": 7505186,
+      "sha256": "83d305c1a17bceab12f5dea6de901c5a4a8a4cc17f4bf123bd8d482d9ab4d7aa"
+    },
+    "flight_events_20250115_20250125.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250115_20250125.parquet",
+      "state": "cached",
+      "bytes": 224914876,
+      "rows": 7711138,
+      "sha256": "0fb845b190764741cae9ce313805c5ab7e3cd0182daaccb84547c2631c01e5e0"
+    },
+    "flight_events_20250125_20250204.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250125_20250204.parquet",
+      "state": "cached",
+      "bytes": 204051287,
+      "rows": 7209533,
+      "sha256": "db761958b2f2d3a6afb0e78d88c31ed8343302cb0e38eecfade42efc71ec1590"
+    },
+    "flight_events_20250105_20250115.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250105_20250115.parquet",
+      "state": "cached",
+      "bytes": 244604458,
+      "rows": 8428168,
+      "sha256": "6e5947b7eb16cad4778ef859a744185986b128479fa814ccdcce3fbc9d37c7cb"
+    },
+    "flight_events_20250224_20250306.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250224_20250306.parquet",
+      "state": "cached",
+      "bytes": 129312488,
+      "rows": 4851931,
+      "sha256": "56afbef383e7133c7d1f3401c02e6f7389dc4b9a9a7a7c67b745caf066e6b879"
+    },
+    "flight_events_20250204_20250214.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250204_20250214.parquet",
+      "state": "cached",
+      "bytes": 250875301,
+      "rows": 8609068,
+      "sha256": "b876d700966477be512361d867083fefd6b565932ca21e8f6a73c5120884f3b2"
+    },
+    "flight_events_20250214_20250224.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250214_20250224.parquet",
+      "state": "cached",
+      "bytes": 277675460,
+      "rows": 9528845,
+      "sha256": "6482a21f4bcdbb01e0d4c5f5abd74de357c6f0749d458d91912232918c1d8697"
+    },
+    "flight_events_20250306_20250316.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250306_20250316.parquet",
+      "state": "cached",
+      "bytes": 298709224,
+      "rows": 10345696,
+      "sha256": "4be7bbaece337dfb0deddd5778ddcd8abca9365b482e984f49f2a436a8689913"
+    },
+    "flight_events_20250316_20250326.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250316_20250326.parquet",
+      "state": "cached",
+      "bytes": 309379163,
+      "rows": 10718741,
+      "sha256": "55a1e19ec3d9caf53ede4eaec5890f82ab958af48b2f0b4f9662da63a31bdaea"
+    },
+    "flight_events_20250326_20250405.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250326_20250405.parquet",
+      "state": "cached",
+      "bytes": 298968776,
+      "rows": 10412079,
+      "sha256": "4c9eee5db78633a18a9c52abfe7405ead00833dfc263e8379e3a20eea8c15639"
+    },
+    "flight_events_20250405_20250415.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250405_20250415.parquet",
+      "state": "cached",
+      "bytes": 387398061,
+      "rows": 13361275,
+      "sha256": "3be3a9629064c958a5ddc797eddaa1814cb7a34f37f9c267e7e145d7a8a313d9"
+    },
+    "flight_events_20250415_20250425.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250415_20250425.parquet",
+      "state": "cached",
+      "bytes": 383522079,
+      "rows": 12960567,
+      "sha256": "08480f22744d9dc8eec88056cba04eaa44f7021f67513d97a1904ac2dbbe1cf1"
+    },
+    "flight_events_20250425_20250505.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250425_20250505.parquet",
+      "state": "cached",
+      "bytes": 248676967,
+      "rows": 8825329,
+      "sha256": "0ccb5ed37c53d4f221f3e355e67ba976fa4695d86aca60c1b8d24f5651967960"
+    },
+    "flight_events_20250505_20250515.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250505_20250515.parquet",
+      "state": "cached",
+      "bytes": 476710129,
+      "rows": 16156035,
+      "sha256": "2dcbb42d1525910f0c90ab3880b91fac34ad5ef2a9a9c65f621b0ebb726c9ec4"
+    },
+    "flight_events_20250515_20250525.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250515_20250525.parquet",
+      "state": "cached",
+      "bytes": 477721355,
+      "rows": 16224896,
+      "sha256": "1d10caa72413403f4d7527d58a9ac7578f2cd4c7edd7bec834b93aae202e0d20"
+    },
+    "flight_events_20250624_20250704.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250624_20250704.parquet",
+      "state": "cached",
+      "bytes": 416034094,
+      "rows": 14218532,
+      "sha256": "cd61f2e2f6a36d4d916415d3b9f18b72581513dac408bd8a290b3f21a947c45c"
+    },
+    "flight_events_20250704_20250714.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250704_20250714.parquet",
+      "state": "cached",
+      "bytes": 414768452,
+      "rows": 14174216,
+      "sha256": "82317ff3f28d5f069dc3e3f03e64ba44528e9cabcd011f3603c251b232b41814"
+    },
+    "flight_events_20250714_20250724.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250714_20250724.parquet",
+      "state": "cached",
+      "bytes": 389015681,
+      "rows": 13396330,
+      "sha256": "81056c3073918186087c80a97400d885ab6637f1e8bb293b2f26bcb6d27b3192"
+    },
+    "flight_events_20250525_20250604.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250525_20250604.parquet",
+      "state": "downloaded",
+      "bytes": 362252372,
+      "rows": 12425933,
+      "sha256": "d4b6893f505ff64776c5cb9b05328929616e24fbc23a9e5e0c458f398ce6d443"
+    },
+    "flight_events_20250604_20250614.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250604_20250614.parquet",
+      "state": "downloaded",
+      "bytes": 390583574,
+      "rows": 13327681,
+      "sha256": "c5c09aacce6ed1f739d031878a987b956cbef125b47f0f3c8370e97fc555e637"
+    },
+    "flight_events_20250813_20250823.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250813_20250823.parquet",
+      "state": "cached",
+      "bytes": 303872477,
+      "rows": 10782875,
+      "sha256": "ac5413d74cb32a434b8923ca25f1643b5b06d405f1e41adc50acfff3d6fe6d95"
+    },
+    "flight_events_20250823_20250902.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250823_20250902.parquet",
+      "state": "cached",
+      "bytes": 371580297,
+      "rows": 12966261,
+      "sha256": "6b5dd2c5f285e2f72a9eb3d724227f0b37b0649aac00d46485d023204afdd609"
+    },
+    "flight_events_20250803_20250813.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250803_20250813.parquet",
+      "state": "downloaded",
+      "bytes": 397444223,
+      "rows": 13776968,
+      "sha256": "9a4da6f73212a831d9e5e2058be33e94958997ae7e4db160554e76986feefe91"
+    },
+    "flight_events_20250912_20250922.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250912_20250922.parquet",
+      "state": "cached",
+      "bytes": 364841680,
+      "rows": 12656130,
+      "sha256": "45b710cf1303aa5177eada2103d936f2c41857f16beb8d2b39e786f275f5484c"
+    },
+    "flight_events_20250902_20250912.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250902_20250912.parquet",
+      "state": "cached",
+      "bytes": 373744640,
+      "rows": 13005696,
+      "sha256": "d701b70498127710ba8cb17a85b7ec635099e39471eced18ff010a6c5ac5d23d"
+    },
+    "flight_events_20250922_20251002.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250922_20251002.parquet",
+      "state": "cached",
+      "bytes": 355281091,
+      "rows": 12321913,
+      "sha256": "9fe2ba65d15c85d66475512e2c0fa3309b2da881578f8a1f4c3d71a6a823d2e2"
+    },
+    "flight_events_20251012_20251022.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251012_20251022.parquet",
+      "state": "cached",
+      "bytes": 284609435,
+      "rows": 9861281,
+      "sha256": "0d2b3cbbadf2cfe3f39f3a42b1b81ce0c5344b7a4cfcdd21b536589b7e56c5e3"
+    },
+    "flight_events_20251002_20251012.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251002_20251012.parquet",
+      "state": "known_missing_404"
+    },
+    "flight_events_20251022_20251101.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251022_20251101.parquet",
+      "state": "cached",
+      "bytes": 321463466,
+      "rows": 11129080,
+      "sha256": "d2cbab5f1684f39ebe17aa98508eb255c43b2130fa613e3cc994630c0d8a8098"
+    },
+    "flight_events_20251101_20251111.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251101_20251111.parquet",
+      "state": "cached",
+      "bytes": 254554040,
+      "rows": 8855673,
+      "sha256": "ca0f431c4df58bb8b4256636e6fac4ca5346cff26a1884854783fec23fbb454d"
+    },
+    "flight_events_20251111_20251121.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251111_20251121.parquet",
+      "state": "cached",
+      "bytes": 279136214,
+      "rows": 9754850,
+      "sha256": "931aaebd71ea302ce3a3fde0d7ae2292eea4566a21847614ab832ea54be608a2"
+    },
+    "flight_events_20251121_20251201.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251121_20251201.parquet",
+      "state": "cached",
+      "bytes": 242839292,
+      "rows": 8473119,
+      "sha256": "5b3aa56bdb39f8373369116f00a670e6f589835dad38a0bf1e17c44cd1abc6c4"
+    },
+    "flight_events_20251201_20251211.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251201_20251211.parquet",
+      "state": "cached",
+      "bytes": 251261371,
+      "rows": 8739132,
+      "sha256": "ce8fe8ec415f660bc666e9a9c31323f14c76b2f75631667458c2a0eb16b58b4a"
+    },
+    "flight_events_20251211_20251221.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251211_20251221.parquet",
+      "state": "cached",
+      "bytes": 330165533,
+      "rows": 8966565,
+      "sha256": "a93dd11267a6494538c039b4311b8f19ad2057db9e309c93b9d29a76cb3351e3"
+    },
+    "flight_events_20251221_20251231.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251221_20251231.parquet",
+      "state": "cached",
+      "bytes": 292406937,
+      "rows": 7832481,
+      "sha256": "536eb964a49e726e300d0800b4f3c0a9473e2a38fc1aa48266a5f282094b8102"
+    },
+    "flight_events_20251231_20260110.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20251231_20260110.parquet",
+      "state": "cached",
+      "bytes": 40715808,
+      "rows": 1357066,
+      "sha256": "a1b3b8496d3f0618eaad059da9df9816f2d06b342ecb9b0960332b303e85f98d"
+    },
+    "flight_events_20260120_20260130.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20260120_20260130.parquet",
+      "state": "cached",
+      "bytes": 238534505,
+      "rows": 6637207,
+      "sha256": "b2612f94d2b561510aadf23d049b4588bace4964683082bcf3c25b45643e2d95"
+    },
+    "flight_events_20260110_20260120.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20260110_20260120.parquet",
+      "state": "cached",
+      "bytes": 271813923,
+      "rows": 7479646,
+      "sha256": "f73e2de1d97a8f61b198043a216a790bdbc5352d5f5ba095831efc829eadf277"
+    },
+    "flight_events_20260130_20260209.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20260130_20260209.parquet",
+      "state": "cached",
+      "bytes": 289164026,
+      "rows": 8186193,
+      "sha256": "cdbcdccdff6818fa0a02af8763a12dbad7908441deaac8209047ec6708bfb0a4"
+    },
+    "flight_events_20260629_20260709.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20260629_20260709.parquet",
+      "state": "cached",
+      "bytes": 506140562,
+      "rows": 14899719,
+      "sha256": "96c700d04dae3a41a1b76954560c974e15b439217ed7fa93a6b030f1250f926e"
+    },
+    "flight_events_20260709_20260719.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20260709_20260719.parquet",
+      "state": "cached",
+      "bytes": 547733088,
+      "rows": 15543261,
+      "sha256": "bd06eb4e2bd9833f71867af4c141874836f77c99b8a04ddfce44f86ce324ce61"
+    },
+    "flight_events_20260729_20260808.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20260729_20260808.parquet",
+      "state": "cached",
+      "bytes": 158765097,
+      "rows": 4751204,
+      "sha256": "30235cede374efda03e42cc848b4b034bf57248bdde7b6bb0d8a9ac01c829257"
+    },
+    "flight_events_20250724_20250803.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250724_20250803.parquet",
+      "state": "downloaded",
+      "bytes": 380554978,
+      "rows": 13103368,
+      "sha256": "c37659a33bf722158d2465991ce79cf45d5964629d29e506d180ed9e82e81bef"
+    },
+    "flight_events_20250614_20250624.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20250614_20250624.parquet",
+      "state": "downloaded",
+      "bytes": 407857170,
+      "rows": 13936751,
+      "sha256": "cc91944b9b1bc666880a60ce351be16bcad5fe0b6777283787e2ea42fd5b95ae"
+    },
+    "flight_events_20260719_20260729.parquet": {
+      "kind": "flight_events",
+      "path": "data/external/opdi/raw/flight_events_20260719_20260729.parquet",
+      "state": "downloaded",
+      "bytes": 553522830,
+      "rows": 15640487,
+      "sha256": "c95e362f23fd71f8182f9690e9bca7b9f38b4e42b2e047c768c61c4792a84df8"
+    }
+  }
+}
