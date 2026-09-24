@@ -1,0 +1,63 @@
+{
+  "coverage": {
+    "prolonged_snow": {
+      "target_rows": 10301,
+      "matched_target_rows": 2320,
+      "matched_target_fraction": 0.2252208523444326,
+      "historical_rows": 2247,
+      "historical_dates": 20,
+      "reasons": {
+        "beyond_observed_severity": 4932,
+        "matched": 2320,
+        "no_historical_cohort": 1865,
+        "no_match_within_limits": 1179,
+        "missing_measurements": 5
+      },
+      "historical_months": {
+        "2025-02": 1588,
+        "2025-11": 260,
+        "2025-01": 208,
+        "2025-12": 191
+      },
+      "pairs_path": "tmp/opdi_disruption_stress/heldout_prolonged_snow_pairs.parquet",
+      "pairs_sha256": "22f862ceb0a8c6ca899d9f4429684238bc7bbb24b57662d571a2f12f7d18821c",
+      "status_path": "tmp/opdi_disruption_stress/heldout_prolonged_snow_status.parquet",
+      "status_sha256": "8c01b387648ddf7af6e2bcb648659f4150960ec4bf62a3fece189b78f1647998"
+    },
+    "heavy_arrival_congestion": {
+      "target_rows": 347,
+      "matched_target_rows": 0,
+      "matched_target_fraction": 0.0,
+      "historical_rows": 0,
+      "historical_dates": 0,
+      "reasons": {
+        "no_historical_cohort": 346,
+        "no_match_within_limits": 1
+      },
+      "historical_months": {},
+      "pairs_path": "tmp/opdi_disruption_stress/heldout_heavy_arrival_congestion_pairs.parquet",
+      "pairs_sha256": "072f5f8078764445e730c66011e8dd5688f959caf5374870d1b7e8949c09f7b3",
+      "status_path": "tmp/opdi_disruption_stress/heldout_heavy_arrival_congestion_status.parquet",
+      "status_sha256": "73338023b83032e7c75b41ade06dc670cbffe2019403eafff4c43d1c4b6ca184"
+    },
+    "snow_and_congestion": {
+      "target_rows": 256,
+      "matched_target_rows": 0,
+      "matched_target_fraction": 0.0,
+      "historical_rows": 0,
+      "historical_dates": 0,
+      "reasons": {
+        "no_historical_cohort": 256
+      },
+      "historical_months": {},
+      "pairs_path": "tmp/opdi_disruption_stress/heldout_snow_and_congestion_pairs.parquet",
+      "pairs_sha256": "072f5f8078764445e730c66011e8dd5688f959caf5374870d1b7e8949c09f7b3",
+      "status_path": "tmp/opdi_disruption_stress/heldout_snow_and_congestion_status.parquet",
+      "status_sha256": "6dd0695f6261ca3d188897c6c7cadc4f37c18d8de869c1debe1de4b2f373ca4a"
+    }
+  },
+  "selection_sha256": "ea655502d3ea15ef2a1fa032aae5d9a97e753089fab325516487c2dedea81c89",
+  "selection_uses_departure_outcomes": false,
+  "matcher_sha256": "605864f60b431f03357cb5abc6612d35cfcc7a3b0fbcaea5e87df00145f09576",
+  "heldout_observables_sha256": "1e4289873b8c943283fd4cf5c45531e1651cbba0bd6680a4d94a0d0917f11198"
+}

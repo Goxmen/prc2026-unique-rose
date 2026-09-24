@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "variant": "v40",
+  "training_rows_checked": 6463074,
+  "training_counts": {
+    "v3_2025-06": {
+      "rows": 1005290,
+      "excluded": 41
+    },
+    "v3_2025-07": {
+      "rows": 1042310,
+      "excluded": 74
+    },
+    "v3_2025-08": {
+      "rows": 1089753,
+      "excluded": 85
+    },
+    "v3_2025-09": {
+      "rows": 1109264,
+      "excluded": 96
+    },
+    "v3_2025-10": {
+      "rows": 1119662,
+      "excluded": 94
+    },
+    "v3_2025-11": {
+      "rows": 1096795,
+      "excluded": 92
+    }
+  },
+  "feature_rows_checked": 2938236,
+  "disruption_feature_values_checked": 35258832,
+  "opdi_feature_values_checked": 41135304,
+  "correction_stack_rows_checked": 2938236,
+  "maximum_stack_error": 0.0,
+  "independent_sql_scores": {
+    "R_A": {
+      "rows": 1079528,
+      "scores": [
+        245.97865108806704,
+        245.56610213518857,
+        266.7754579566377,
+        266.2905866698454
+      ],
+      "max_error": 3.353761712787673e-12
+    },
+    "R_B_long": {
+      "rows": 328009,
+      "scores": [
+        222.57983782669424,
+        221.87472272871145,
+        262.38581302231745,
+        261.4286944267763
+      ],
+      "max_error": 9.663381206337363e-13
+    }
+  },
+  "source_sha256": "0d1c7a06f84f2b25b9910c2e14903d0e42313cb7795b10e9f2c7d2d37f83052c",
+  "run_record_sha256": "27c9e1a1a1a4ce79bea45d57f1638ef05f48ac9b9189eec41993923512fca771",
+  "scored_result_sha256": "2d967ac4dcc3945e56cc1f0e9714d3962e82a35df3e686cba6442068d898581d",
+  "original_feature_audit_sha256": "7be22430ca05b1964a80ae9dd1685c74ae5d7b272b80bb6b6c97bee995dd900c"
+}

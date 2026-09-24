@@ -1,0 +1,72 @@
+{
+  "status": "prepared",
+  "design_sha256": "6b765b95cc472a754d051dc81abb5b033df4054a010e742d90e0ef0fa9af4110",
+  "source_sha256": "99ef98b0325ea6679ac825e2bc6f06337b319c115021dfc4b09e80b882f19541",
+  "matcher_sha256": "605864f60b431f03357cb5abc6612d35cfcc7a3b0fbcaea5e87df00145f09576",
+  "inputs_manifest_sha256": "cafd1b204baf9772f6a53df2c0010da6febe6d7fa7538e5fb1125e88844c9a64",
+  "all_2025": {
+    "prolonged_snow": {
+      "target_rows": 10301,
+      "matched_target_rows": 2320,
+      "matched_target_fraction": 0.2252208523444326,
+      "historical_rows": 2247,
+      "historical_dates": 20,
+      "reasons": {
+        "beyond_observed_severity": 4932,
+        "matched": 2320,
+        "no_historical_cohort": 1865,
+        "no_match_within_limits": 1179,
+        "missing_measurements": 5
+      },
+      "historical_months": {
+        "2025-02": 1588,
+        "2025-11": 260,
+        "2025-01": 208,
+        "2025-12": 191
+      },
+      "pairs_path": "tmp/opdi_disruption_stress/all_2025_prolonged_snow_pairs.parquet",
+      "pairs_sha256": "22f862ceb0a8c6ca899d9f4429684238bc7bbb24b57662d571a2f12f7d18821c",
+      "status_path": "tmp/opdi_disruption_stress/all_2025_prolonged_snow_status.parquet",
+      "status_sha256": "8c01b387648ddf7af6e2bcb648659f4150960ec4bf62a3fece189b78f1647998"
+    },
+    "heavy_arrival_congestion": {
+      "target_rows": 347,
+      "matched_target_rows": 0,
+      "matched_target_fraction": 0.0,
+      "historical_rows": 0,
+      "historical_dates": 0,
+      "reasons": {
+        "no_historical_cohort": 346,
+        "no_match_within_limits": 1
+      },
+      "historical_months": {},
+      "pairs_path": "tmp/opdi_disruption_stress/all_2025_heavy_arrival_congestion_pairs.parquet",
+      "pairs_sha256": "072f5f8078764445e730c66011e8dd5688f959caf5374870d1b7e8949c09f7b3",
+      "status_path": "tmp/opdi_disruption_stress/all_2025_heavy_arrival_congestion_status.parquet",
+      "status_sha256": "73338023b83032e7c75b41ade06dc670cbffe2019403eafff4c43d1c4b6ca184"
+    },
+    "snow_and_congestion": {
+      "target_rows": 256,
+      "matched_target_rows": 0,
+      "matched_target_fraction": 0.0,
+      "historical_rows": 0,
+      "historical_dates": 0,
+      "reasons": {
+        "no_historical_cohort": 256
+      },
+      "historical_months": {},
+      "pairs_path": "tmp/opdi_disruption_stress/all_2025_snow_and_congestion_pairs.parquet",
+      "pairs_sha256": "072f5f8078764445e730c66011e8dd5688f959caf5374870d1b7e8949c09f7b3",
+      "status_path": "tmp/opdi_disruption_stress/all_2025_snow_and_congestion_status.parquet",
+      "status_sha256": "6dd0695f6261ca3d188897c6c7cadc4f37c18d8de869c1debe1de4b2f373ca4a"
+    }
+  },
+  "supplemental_months": [
+    "2025-02"
+  ],
+  "selection_uses_departure_outcomes": false,
+  "selection_uses_predictions": false,
+  "unscored_month": "2025-06",
+  "ranking_departure_labels_available": false,
+  "training_file_rows_outside_2025": 0
+}

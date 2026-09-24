@@ -22,6 +22,9 @@ or uploads, and do not treat this index as authorization for another batch.
 
 | Study module (under `VALIDATION/`) | Use | Trains / uploads? |
 |---|---|---|
+| `stress_holdout_run.py` | Optional February–May retrospective predictions from the saved June–November v39/v40 models, selected by observable stress similarity | Neither; saved-model inference only |
+| `opdi_disruption_run.py --variant v39\|v40 [--resume]` | Matched reconstructed OPDI controls and the same 12 disruption inputs; [design](../docs/OPDI_DISRUPTION_EXPERIMENT.md) | 54 local boosters per recipe; no uploads |
+| `disruption_run.py [--resume]` | Fixed snow-duration/completed-arrival feature experiment versus local v38; [design](../docs/DISRUPTION_EXPERIMENT.md) | 18 local ordinary fits; no uploads |
 | `rome_calibration_run.py --output-dir VALIDATION/runs/v3_20260919_rome_calibration` | Two Rome calibration experiments; inner chronological calibration, resumable classifiers, full original validation and automatic validation-only `SUBMISSIONS.md` rows; [design and command](../docs/ROME_CALIBRATION.md) | Local classifiers only; no uploads |
 | `overnight_run.py` | Resumable original/seasonal validation and full-year refits; preserves completed artifacts | Local fits only |
 | `overnight_models.py` | Fixed control and five feature/capacity/routing interventions | Imported fitting adapter |
@@ -30,6 +33,26 @@ or uploads, and do not treat this index as authorization for another batch.
 
 | Tool | Use | Trains / uploads? |
 |---|---|---|
+| `audit_stress_analogues.py` | Check every accepted match against literal limits and verify uncapped arrival diagnostics in SQL | Neither |
+| `prepare_stress_analogues.py` | Strict same-airport snow/congestion matching; records unsupported test cases without reading departure outcomes | Neither |
+| `score_stress_analogues.py` | Paired errors and input-selected examples on honestly held-out historical analogues | Neither |
+| `build_opdi_cache.py` | Filter verified local raw OPDI files and build the historical departure inputs; no network | Neither |
+| `score_opdi_disruption.py --variant v39\|v40` | Adopted Weighted CV, paired intervals, historical-control comparison and January diagnostics | Neither |
+| `audit_opdi_disruption.py` | Check fit membership, feature alignment, correction stacking and independent SQL scores after both runs finish | Neither |
+| `download_opdi_cache.py [--workers 4]` | Download and retain the original OPDI source-file roster; validate Parquet files, record hashes, and handle rejected resume requests without trusting partial files | Neither |
+| `score_disruption_experiment.py` | Score the completed disruption experiment with adopted weights, paired day intervals and January diagnostics | Neither |
+| `audit_disruption_experiment.py` | Independently check saved arrival features in SQL and snow history directly against METAR reports | Neither |
+| `investigate_arrival_shift.py` | Step 4: local arrival weather/traffic matching, recording checks and same-day departure context | Neither |
+| `check_arrival_snow_severity.py` | Exploratory follow-up separating brief from prolonged reported snow; support coverage stays explicit | Neither |
+| `audit_arrival_shift.py` | Independently check raw labels, weather timestamps, traffic counts, snow duration and conditional arithmetic | Neither |
+| `analyze_train_ranking_cost.py` | Step 3: connect saved OOF losses to similarity and flagged groups; entirely local, keeps January's older model separate | Neither |
+| `audit_train_ranking_cost.py` | Independently check step-3 cost slices, neighbour estimates and stand support | Neither |
+| `export_shift_cost_inputs.py` | Export compact seasonal OOF losses on the desktop for a one-time 13 MB transfer; preserves original hashes and score checks | Neither |
+| `check_train_ranking_similarity.py` | Step 2: blocked propensity classifiers, calibration, held-out group importance and exact kNN; resumable | Diagnostic classifiers only; no uploads |
+| `check_similarity_weather_scale.py` | Correct the step-2 kNN fallback scale for nearly constant weather fields; retain original outputs | Neither |
+| `summarize_train_ranking_similarity.py` | Assemble current distances, propensities and neighbour IDs; run after the two tools above | Neither |
+| `audit_train_ranking_similarity.py` | Independently verify date separation, IDs and original/corrected nearest-neighbour arithmetic | Neither |
+| `describe_train_ranking_shift.py` | Month-matched, airport-specific training/ranking differences with all 2025 month-pair references; [step 1 findings](../reports/TRAIN_RANKING_STEP1.md) | Neither |
 | `plot_scored_residuals.py --leaderboard <status.json>` | Compare scored recipes using saved OOF; export residual plots, interactive HTML, PDF and slice/worst-flight tables, with replay and missing-artifact labels | Neither |
 | `compare_aggregations.py` | Compare fixed month/flight-balanced overview scores using all original folds and saved results | Neither |
 | `analyze_validation_optimism.py` | Diagnose population weights, January error concentration and observable 2026 shifts using saved predictions | Neither |
