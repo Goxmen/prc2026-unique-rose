@@ -63,6 +63,20 @@ but identify the result as stale and report its timestamp.
 
 ## Current improvement work — handoff
 
+- **September 24: v42 refitted, uploaded and scored on the user's explicit request.**
+  V40 + the tested 12 disruption inputs scores **274.9076 s**, improving v40's
+  275.4146 by **0.5070 s**. All 344,841 flights scored. Weighted CV **263.5929**;
+  original combined **232.6647**. See [submission report](VALIDATION/reports/V42_SUBMISSION.md).
+  Two full-year seed-42 boosters (800/300 rounds) and all ranking predictions are
+  retained in `VALIDATION/runs/v3_20260924_opdi_disruption/submission_v42/`.
+  Runner: `VALIDATION/opdi_disruption_submit.py`. Keep v40's exclusions and rules;
+  new features enter only the ordinary model. Source/data hashes, 16 tests,
+  all-row correction audit, 3,840 independent sampled feature checks and remote
+  file hash pass. Do not repeat fits or upload again. V41 was an already-scored
+  separate occupancy experiment. The user asks for completion notifications only,
+  without routine progress messages while runs are underway.
+
+
 - **September 24: v39/v40 disruption-feature comparisons are complete; no promotion.**
   Read the [validation report](VALIDATION/reports/OPDI_DISRUPTION_EXPERIMENT.md)
   and [test-like cases](VALIDATION/reports/OPDI_DISRUPTION_STRESS_CHECK.md).

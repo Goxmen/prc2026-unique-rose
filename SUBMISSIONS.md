@@ -1,14 +1,12 @@
 # Submitted models
 
 **Current validation: Weighted CV.** The column is between CV combined and Official LB below.
-Verified v38 score: **267.5814 s**. The five most recent uploads — v34, v37, v38, v39 and v40 —
-are now all scored on it; the best is **v40 at 264.3397 s**
-([report](VALIDATION/reports/WEIGHTED_CV_RECENT.md)).
+Best verified Weighted CV: **v42 at 263.5929 s**
+([validation report](VALIDATION/reports/OPDI_DISRUPTION_EXPERIMENT.md)).
 
-Model recipes and uploads, checked live at **2026-09-20 18:22 UTC**
-(`pipeline/leaderboard_status.py`). There are 32 uploads: 30 scored and 2 rejected
-by the five-per-day limit. **Best and latest: v40, 275.4146 s.** Rank 31 of 167
-scoring teams, 444 registered.
+**Best and latest submission: v42, 274.9076 s**, improving v40 by **0.5070 s**.
+Live check **2026-09-24 21:42 UTC**: rank **36/189** scoring teams; all **344,841** flights scored.
+[Submission record](VALIDATION/runs/v3_20260924_opdi_disruption/submission_v42/submission_v42.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -25,7 +23,9 @@ Day-shift hedge is row 40 below and was uploaded as v37. Rows 41 and 42 add inpu
 from open ADS-B ground tracks: row 41 on row 34's recipe, with a validation score
 only, and row 42 on row 37's, the recipe behind v38, uploaded as v39. Row 43 is
 row 42 refitted with the flights the four-hour Rome rule overwrites removed from
-the model fit, uploaded as v40.
+the model fit, uploaded as v40. Row 44 adds the 12 tested snow-duration and
+completed-arrival inputs to v40 and was uploaded as **v42**; v41 was already
+used for a separate occupancy experiment.
 
 ## Codenames and recipes
 
@@ -79,6 +79,7 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 41 | **OPDI-tracks** | Row 30 + **14 OPDI inputs** (regressor and classifier) from open ADS-B ground tracks, then row 33's window and row 34's no-ID cap. Superseded by row 42, which adds row 37's corrections | 250.2107 | 226.7397 | 237.4207 | - | — | Not submitted |
 | 42 | **OPDI-combined** | Row 41 + row 37's three corrections (twin records, day-shift blend, 12 h clock anchor), i.e. **v38's recipe with the OPDI inputs** | **247.0477** | **222.6081** | **233.7470** | 264.4218 | **277.3629** | v39 |
 | 43 | **Rule-routed-training** | Row 42's recipe with the **127 rule-covered departures dropped from the model fit** (LIRF, no flight ID, schedule gap >= 4 h — the rows the 4 h rule overwrites anyway); every evaluation row still scored, context/categories/history/correction parameters unchanged. Versus row 42: R_A **-1.0660** [-1.5774, -0.6090], combined **-0.5132** [-0.9152, -0.1167], longer-gap inconclusive; all three seeds agree. Screened first on row 41's stack at -0.4482 combined ([report](VALIDATION/reports/TRAINING_LABEL_FILTER.md)) | **245.9817** | **222.5802** | **233.2338** | **264.3397** | **275.4146** | v40 |
+| 44 | **Snow-arrivals** | V40 + **12 snow-duration and recently completed arrival taxi-time inputs**, added to the ordinary regressor; Rome classifier inputs, 127 training exclusions and prediction rules unchanged ([submission report](VALIDATION/reports/V42_SUBMISSION.md)) | 245.5661 | 221.8747 | 232.6647 | **263.5929** | **274.9076** | v42 |
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV is the new
 validation headline**, adopted on 20 September 2026. It uses the existing v3
@@ -87,9 +88,9 @@ better match ranking. The older CV columns remain for comparison. A `-` in
 Weighted CV means it has not been computed and verified for that recipe.
 See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
 [11-submission comparison](VALIDATION/reports/WEIGHTED_CV_LEADERBOARD_EXTENDED.md) and the
-[five most recent uploads](VALIDATION/reports/WEIGHTED_CV_RECENT.md).
+[five earlier uploads](VALIDATION/reports/WEIGHTED_CV_RECENT.md).
 
-- **Weighted CV for the five most recent uploads** (v34, v37, v38, v39 and v40) comes from
+- **Weighted CV for five earlier uploads** (v34, v37, v38, v39 and v40) comes from
   `VALIDATION/tools/weighted_cv_recent_submissions.py`, which scores the fold predictions behind
   each uploaded file with the adopted weights. The local weight cache was rebuilt from the frozen
   specification: its four discriminator models are byte-identical to the recorded ones, with the

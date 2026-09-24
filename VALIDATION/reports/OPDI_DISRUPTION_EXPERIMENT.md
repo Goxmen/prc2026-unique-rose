@@ -22,4 +22,5 @@ These reused historical conditions do not establish performance during January 2
 
 [Design](../docs/OPDI_DISRUPTION_EXPERIMENT.md) · [Detailed results](opdi_disruption_experiment/)
 
-No full-year fits, uploads, promotions or `SUBMISSIONS.md` changes.
+The comparison used no full-year fits or uploads. The user later selected the v40
+candidate for submission: **v42 scored 274.9076 s** ([submission report](V42_SUBMISSION.md)).
