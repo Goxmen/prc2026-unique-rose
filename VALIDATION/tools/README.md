@@ -22,6 +22,7 @@ or uploads, and do not treat this index as authorization for another batch.
 
 | Study module (under `VALIDATION/`) | Use | Trains / uploads? |
 |---|---|---|
+| `stand_coords_run.py --mode main\|hidden [--resume]` | Stand position inputs on v42: matched control/candidate (54 fits) and a hidden-stand test (12 fits); [report](../reports/STAND_COORDINATES_EXPERIMENT.md) | Local fits only; no uploads |
 | `stress_holdout_run.py` | Optional February–May retrospective predictions from the saved June–November v39/v40 models, selected by observable stress similarity | Neither; saved-model inference only |
 | `opdi_disruption_run.py --variant v39\|v40 [--resume]` | Matched reconstructed OPDI controls and the same 12 disruption inputs; [design](../docs/OPDI_DISRUPTION_EXPERIMENT.md) | 54 local boosters per recipe; no uploads |
 | `disruption_run.py [--resume]` | Fixed snow-duration/completed-arrival feature experiment versus local v38; [design](../docs/DISRUPTION_EXPERIMENT.md) | 18 local ordinary fits; no uploads |
@@ -39,6 +40,9 @@ or uploads, and do not treat this index as authorization for another batch.
 | `build_opdi_cache.py` | Filter verified local raw OPDI files and build the historical departure inputs; no network | Neither |
 | `score_opdi_disruption.py --variant v39\|v40` | Adopted Weighted CV, paired intervals, historical-control comparison and January diagnostics | Neither |
 | `audit_opdi_disruption.py` | Check fit membership, feature alignment, correction stacking and independent SQL scores after both runs finish | Neither |
+| `score_stand_coords.py --mode main\|hidden` | Weighted CV, paired intervals, ageing and hidden-stand scores for the stand-coordinates runs | Neither |
+| `fetch_stand_maps.py` | Download the X-Plane Gateway `apt.dat` and OpenStreetMap stand maps for the ten airports; skips files present, records hashes ([report](../reports/STAND_COORDINATES.md)) | Neither |
+| `build_stand_coords.py` | Match every departure stand to a map position, write `data/external/stand_maps/*.parquet`, and run the agreement/runway/neighbour checks; local only | Neither |
 | `download_opdi_cache.py [--workers 4]` | Download and retain the original OPDI source-file roster; validate Parquet files, record hashes, and handle rejected resume requests without trusting partial files | Neither |
 | `score_disruption_experiment.py` | Score the completed disruption experiment with adopted weights, paired day intervals and January diagnostics | Neither |
 | `audit_disruption_experiment.py` | Independently check saved arrival features in SQL and snow history directly against METAR reports | Neither |

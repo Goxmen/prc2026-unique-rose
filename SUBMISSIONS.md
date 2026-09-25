@@ -4,11 +4,12 @@
 Best verified Weighted CV: **v42 at 263.5929 s**
 ([validation report](VALIDATION/reports/OPDI_DISRUPTION_EXPERIMENT.md)). The six uploads before
 it — v34, v37, v38, v39, v40 and v41 — are scored on it too
-([report](VALIDATION/reports/WEIGHTED_CV_RECENT.md)).
+([report](VALIDATION/reports/WEIGHTED_CV_RECENT.md)). Row 46 (stand coordinates, v43)
+scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe.
 
-**Best and latest submission: v42, 274.9076 s**, improving v40 by **0.5070 s**.
-Live check **2026-09-24 21:42 UTC**: rank **36/189** scoring teams; all **344,841** flights scored.
-[Submission record](VALIDATION/runs/v3_20260924_opdi_disruption/submission_v42/submission_v42.json).
+**Best and latest submission: v43, 274.7660 s**, improving v42 by **0.1416 s**.
+Live check **2026-09-25 12:17 UTC**: rank **38/191** scoring teams; all **344,841** flights scored.
+[Submission record](VALIDATION/runs/v3_20260925_stand_coords/submission_v43/submission_v43.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -28,7 +29,8 @@ row 42 refitted with the flights the four-hour Rome rule overwrites removed from
 the model fit, uploaded as v40. Row 44 adds four taxi occupancy inputs to row 43 and
 was uploaded as v41; its supported CV gain reversed on the leaderboard. Row 45 adds
 12 snow-duration and completed-arrival inputs to row 43 and was uploaded as **v42**,
-which is the best submission.
+Row 46 adds three stand-position inputs to row 45 and was uploaded as **v43**, which is the
+best submission.
 
 ## Codenames and recipes
 
@@ -84,6 +86,7 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 43 | **Rule-routed-training** | Row 42 with the **127 rule-covered departures dropped from the model fit**; every evaluation row still scored | **245.9817** | **222.5802** | **233.2338** | **264.3397** | **275.4146** | v40 |
 | 44 | **Taxi-occupancy** | Row 43 + **4 taxi occupancy inputs**: other aircraft between their own `AOBT_3` and takeoff, at this flight's off-block and takeoff. CV gain did not transfer | 245.7880 | 222.2004 | 232.9414 | 263.8852 | 275.9592 | v41 |
 | 45 | **Snow-arrivals** | Row 43 + **12 snow-duration and completed-arrival inputs** (ordinary regressor only) ([report](VALIDATION/reports/V42_SUBMISSION.md)) | **245.5661** | **221.8747** | **232.6647** | **263.5929** | **274.9076** | v42 |
+| 46 | **Stand-coordinates** | Row 45 + **3 stand-position inputs** from public airport maps (ordinary regressor only) ([report](VALIDATION/reports/STAND_COORDINATES_EXPERIMENT.md)) | **245.1722** | **221.2893** | **232.1696** | **263.1476** | **274.7660** | v43 |
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV is the new
 validation headline**, adopted on 20 September 2026. It uses the existing v3
@@ -190,6 +193,7 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   | v40 minus v39 (rule-covered rows out of training) | −1.95 | −0.51 |
   | v41 minus v40 (taxi occupancy inputs) | **+0.54** | −0.29 |
   | v42 minus v40 (snow and completed-arrival inputs) | **−0.51** | −0.57 |
+  | v43 minus v42 (stand-position inputs) | **−0.14** | −0.51 |
 
   The weather and queue gains carried over to the leaderboard in full. Only about
   a third of the Rome hybrid's CV gain did. v41 is the first step in this table whose
@@ -380,6 +384,41 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   measured is largest, while CV's next-month score — the one closest to the test months — was
   already inconclusive. v40 stayed the best submission until v42; rank unchanged at 36 of 189. The
   manifest is `submission_v41.json` in the run directory.
+- **Row 46:** CV from run `v3_20260925_stand_coords/main` on macOS (Apple M3, three seeds,
+  all 16 folds, 75.0 minutes). The three inputs are the stand's east/north offset from the
+  airport's runway-end centre and its straight-line distance to the end of the take-off runway,
+  from the X-Plane Gateway and OpenStreetMap stand maps (99.2% of training departures located).
+  The v42 artifacts are on the WSL desktop, so the control was rebuilt here with v42's
+  byte-identical code and the original OPDI cache. It scores 245.5594 / 221.9008 / 232.6754 /
+  263.6158, within 0.03 s of row 45. Paired day-bootstrap differences against that control
+  (95% interval, 1-day blocks; 3-day blocks agree): Weighted CV **−0.4682 [−0.649, −0.268]**,
+  weighted next-month −0.282 [−0.487, −0.056], weighted longer-gap −0.619 [−0.881, −0.356],
+  original combined −0.506 [−0.607, −0.402]. All three seeds improve on every one of these
+  (Weighted CV −0.34 / −0.65 / −0.41). January retrospective +0.19 [−0.33, +0.53], inconclusive.
+  **Ageing does not repeat row 44's warning:** 7 of 10 ageing differences are negative, three
+  of them excluding zero. One is positive and excludes zero: B10_vs_A6 +0.77 [+0.33, +1.29].
+  The gain is concentrated at LFPG (−1.47), LEMD (−0.70), LTFM (−0.65) and EHAM (−0.58);
+  EDDF, EDDM and LSZH move +0.19 to +0.21 (untested per airport). A separate hidden-stand test
+  removes 10% of stands from each window's training and blanks their name and 90-day history
+  at prediction, as for a stand first used in 2026. There (seed 42), the inputs cut RMSE on
+  those flights by **2.01 s [−2.28, −1.74]**, at every airport. Weighted CV comes from
+  this Mac's copy of the adopted weights: its four discriminators are byte-identical to the
+  record, and its effective sample size matches to 1e-16. Design, frozen before the fits:
+  [STAND_COORDINATES_EXPERIMENT.md](VALIDATION/docs/STAND_COORDINATES_EXPERIMENT.md).
+- **v43 (row 46):** prepared and uploaded 2026-09-25 at 12:14 UTC on macOS by
+  `VALIDATION/stand_coords_submit.py`, the first upload of that UTC day. One seed-42, 800-round
+  refit of both boosters on all of 2025 with the stand inputs (ordinary 91.3 s; 3.3 minutes in
+  all), excluding the same **127** rule-covered departures (2,084,532 rows). Late mean
+  1,079.5 s and correction parameters are unchanged; the four-hour rule overrides the same 43
+  ranking rows, whose predictions are identical to v42's. 98.99% of ranking departures have a
+  stand position. Against v42's file, 338,708 rows differ by 27.7 s on average (median 18 s,
+  largest 690 s, mean signed −0.26 s). Official score **274.7660** on all 344,841 rows:
+  **−0.1416 against v42**, against a CV change of −0.47 weighted and −0.51 combined, so it
+  transferred at about 0.3×. The file was built with the original OPDI cache used by row 46's
+  CV, while v42 was built with the rebuilt cache on the WSL desktop. So the step also contains
+  that cache and platform difference; on CV the two controls differ by only 0.02 s. The
+  manifest is `submission_v43.json` in the run directory. External data still to declare: X-Plane
+  Scenery Gateway airport data (GPL v2 or later) and OpenStreetMap (ODbL).
 - **Row 29:** CV from run `v3_20260918T120331999764Z` on macOS (45.2 minutes).
   Row 28 is the control and was not refitted: its boosters were reloaded from
   row 28's run and reproduced its saved predictions exactly on every fold and seed.

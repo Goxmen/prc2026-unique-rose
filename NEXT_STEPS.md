@@ -2,8 +2,8 @@
 
 Every idea proposed in the repo and not yet carried out. Gains are combined CV
 seconds against **row 43 (233.2338, uploaded as v40)**. The best submission is now
-**v42 (row 45, 274.9076 LB)**, gunes's snow and completed-arrival inputs on row 43;
-build on that, not on row 44 / v41, which lost 0.54 s. Negative is better. Measured numbers come from
+**v43 (row 46, 274.7660 LB)**: stand-position inputs on v42 (row 45, gunes's snow and
+completed-arrival inputs on row 43). Build on that, not on row 44 / v41, which lost 0.54 s. Negative is better. Measured numbers come from
 `.venv/bin/python VALIDATION/tools/estimate_ceilings.py`; "est." is a judgement
 call from comparable past changes. Update **Status** as each one is done.
 
@@ -17,43 +17,43 @@ Rows 1-13 were ordered by expected gain when the table was written.
 nothing. The colour needs GitHub's maths rendering; the dot and the word carry
 the meaning anywhere else.
 
-| # | Idea | What it is | Expected gain | Status |
+| # | Idea | What it is | Expected gain | Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |---|---|---|---|---|
 | 1 | **ADS-B off-block witness at Rome** | Recover each departure's real pushback time from ADSB.lol ground traces at the airports OPDI cannot see, starting with LIRF. See [the section below](#ads-b-off-block-witness-at-rome) | ~~ceiling -15 (LIRF) to -18 (LIRF+EHAM)~~ **unreachable** | 🔴 $\color{red}{\textsf{DEAD}}$ **2026-09-24** — LIRF apron is an ADS-B blind spot; [details below](#ads-b-off-block-witness-at-rome) |
-| 2 | Seed averaging | Average the predictions of seeds 42/142/242 instead of shipping one seed; needs three full-year fits instead of one | **-1.36** measured | Not started |
+| 2 | Seed averaging | Average the predictions of seeds 42/142/242 instead of shipping one seed; needs two more full-year fits | **-1.30** measured on row 33 (row 36) | CV measured as row 36, never submitted; v42 still ships seed 42 only |
 | 3 | **Second model family** | Fit a CatBoost over the same inputs and blend it with the LightGBM stack. We have no second family, and our three seeds correlate 0.983 ([scan](#ideas-taken-from-public-competitor-repos)) | ceiling **-3** at &rho;=0.95, **-6** at &rho;=0.90 (from `estimate_ceilings.py`); zestful-fountain measured **-7.11 LB** for this exact step | Not started |
 | 4 | **Per-airport expert models** | One model per departure airport, averaged with the global model, instead of splitting by row type as we do now | est. **-0.5 to -2**; improved all four of zestful-fountain's held-out months | Not started |
 | 5 | Congestion component | A dedicated congestion/queue term, and queue inputs interacted with the airport instead of pooled | measured **~0** (was -1 to -3 est.) | 🟡 $\color{orange}{\textsf{DONE}}$ **2026-09-24** — congestion is already row 28's 11 queue inputs; a per-airport term gains in-month, +0.53 to +0.63 worse next month |
-| 6 | Taxi occupancy count | Count other aircraft between their own `AOBT_3` and their takeoff, at this flight's off-block and at its takeoff, airport and runway scope | CV **-0.29**, leaderboard **+0.54 (worse)** | 🔴 $\color{red}{\textsf{DEAD}}$ **2026-09-24** — submitted as v41; see row 44. CV -0.29, leaderboard +0.54. Ageing readouts warned; do not refit |
-| 7 | Neighbour-duration statistics at stand scope | Extend `runway_queue.py` to stand scope, and to standard deviation, own-minus-mean and the next neighbour's wait | est. **-0.5 to -1.5** | Not started |
-| 8 | Arrival taxi-in at stand/runway scope | Arrival taxi-in *durations* per airport x stand and airport x runway. We use arrivals' in-block *times* already, never their durations | bounded by the stand&times;runway oracle at 1.90% of SE; zestful-fountain measured **-2.62 LB** | Not started |
-| 9 | TimesFM-3 airport-hour forecast | A foundation-model hourly forecast of each airport's mean taxi, fed back in as a model input | attacks the **8.25%** airport&times;hour oracle, the largest family we have not reached; needs a GPU | Not started — licence bars commercial use, prize clearance unresolved |
-| 10 | `EOBT_1` pair inputs | Feed `AOBT_3 - EOBT_1` and `takeoff - EOBT_1` beside the existing delay; the notebook's own ladder moves 265.5 → 237.5 s on them | **-1 to -3** est. | Not started |
+| 6 | Taxi occupancy count | Count other aircraft between their own `AOBT_3` and their takeoff, at this flight's off-block and at its takeoff, airport and runway scope | CV **-0.29**, leaderboard **+0.54 (worse)** | 🔴 $\color{red}{\textsf{DEAD}}$ **2026-09-24** — submitted as v41; see row 44. CV -0.29, leaderboard +0.54. Ageing readouts warned; do not refit; **Not worth pursuing**: dead |
+| 7 | Neighbour-duration statistics at stand scope | Extend `runway_queue.py` to stand scope, and to standard deviation, own-minus-mean and the next neighbour's wait | est. **-0.5 to -1.5** | Not started — **Not worth pursuing**: the stand-scope ceiling is small |
+| 8 | Arrival taxi-in at stand/runway scope | Arrival taxi-in *durations* per airport x stand and airport x runway. v42 already uses them per airport over the last 60/180 min | bounded by the stand&times;runway oracle at 1.90% of SE; zestful-fountain measured **-2.62 LB** at airport and runway scope | Airport scope done in v42 (row 45), tested together with snow inputs; stand/runway scope not started; stand/runway part **not worth pursuing**: small, and v42 already has the airport part |
+| 9 | TimesFM-3 airport-hour forecast | A foundation-model hourly forecast of each airport's mean taxi, fed back in as a model input | attacks the **8.25%** airport&times;hour oracle, the largest family we have not reached; needs a GPU | Not started — elegant-alligator's own direct test gained under 0.1 s and was rejected; licence bars commercial use, prize clearance unresolved; **Not worth pursuing** |
+| 10 | `EOBT_1` pair inputs | Feed `AOBT_3 - EOBT_1` and `takeoff - EOBT_1` beside the existing delay; the notebook's own ladder moves 265.5 → 237.5 s on them | ~0: already in the model | 🟡 $\color{orange}{\textsf{DONE}}$ **2026-09-25** — row 26's clock inputs carry `AOBT_3 - EOBT_1`, and `takeoff - EOBT_1` is its sum with `takeoff - AOBT_3`; **Not worth pursuing**: already done |
 | 11 | "Nothing reaches this row" flag | A flag for no-plan rows that no layer (twins or high-confidence history) identifies; found four separate times in the notebook | **-1 to -2** est. | Not started |
 | 12 | Learned rule corrections | Fit a model on `recorded taxi - rule prediction` for rule-handled rows and add the correction back | ceiling **-9.20**, realistic **-0.5 to -2** | Not started |
 | 13 | Rule-row separator | Tell apart the 112 rows the four-hour Rome rule gets right from the ~30 it misses by more than an hour | same ceiling; **high variance**, four ranking rows decide it | Not started |
-| 14 | Hour × no-ID aggregates | Corruption aggregates at airport × hour × missing-flight-ID level, as model inputs | oracle **-2.42**, honest **-0.62** | Screened 2026-09-24 — no bias signal, duration variant impossible |
-| 15 | Live arrival taxi-in witness | Mean taxi-in of arrivals that in-blocked in the previous 60 min; arrivals keep their labels in `ranking.parquet` | est. **-1 to -3** before testing | Screened 2026-09-24 — model already unbiased, not pursued |
-| 16 | Airport-day corruption aggregates | Day-level dirty-day shares as model inputs | oracle **-0.53**, honest **-0.44** | Tested — rows 31/32, ~0, not shipped |
-| 17 | Recurring bias corrections | Shrunk per-airport / per-hour / per-stand residual offsets fitted inside each training window | oracle **-1.44**, honest **-0.44** | Not started |
-| 18 | Rome 4–6 h cell hedge | Probability-weighted mean instead of the hard rule on the one genuinely mixed cell | measured | Tested — inconclusive, not shipped |
-| 19 | Ensembling scored recipes | Blend two of our own prediction stacks | **+0.69 to +1.55 (worse)** | Tested — rejected |
-| 20 | Aircraft type coalesce | `coalesce(plan, twins' plan, movement)` for the aircraft type in `pipeline/common.py` | ~0 on scored labels | Not started |
-| 21 | Twin-join `ADEP` guard | Require the source arrival's `ADEP_flt` to equal the departure's `ADEP_mvt` in the twin join; moves every derived count | unknown, correctness | Not started |
-| 22 | `rule_final` in the pipeline | Use the cleaned flight rule instead of raw `FLIGHT_RULE_mvt` | ≤0.3 s | Not started |
-| 23 | `wake_lk` replacing `typ_wake` | Key the wake class on the plan's aircraft code, not the movement's | ~0 | Not started |
-| 24 | `ROTORCRAFT` replacing `HELI_ALL` | Finish the helicopter-flag replacement in the two sections still using the old one | ~0 | Not started |
-| 25 | Month-balanced aggregation | Give July–December 1/6 each in the validation overview instead of the current mix | 0 direct | Not started — proposed, never installed |
-| 26 | January weighted-CV coverage | Extend the weighted-CV transport test to January; it currently uses five H2-2025 months only | 0 direct | Not started |
-| 27 | Leakage-check verdict | Replace the hard-coded conclusion in `check_rich_feature_leakage.py:101-105`; use whole-day holdouts | 0 direct | Not started |
-| 28 | Training-vs-ranking identification | Finish the investigation into what separates training rows from ranking rows | unknown | Not started |
-| 29 | `FEATURES.md` corrections | Fix the `MARKET_SEGMENT_flt` levels and the claim that military movements were removed | 0 direct | Not started |
-| 30 | Notebook cross-references | Fix the section numbers §9/§14/§15/§16 point at, and move §16a's cells into §26 | 0 direct | Not started |
-| 31 | Reproducible tie-breakers | Add explicit `ORDER BY` tie-breakers to cells 94–96 and 102–103, whose row order changes between runs | 0 direct | Not started |
-| 32 | Public GPLv3 repo | `gh repo edit Goxmen/PRC --visibility public`; `LICENSE` is already GPLv3 | 0 direct | Not started |
-| 33 | OPDI confirmation | Confirm directly with the organisers that open ground-track data may be used | 0 direct | Not started |
-| 34 | **X-Plane Scenery Gateway stand coordinates** | Stands with lat/lon from one X-Plane Gateway `apt.dat` per airport, giving stand-to-runway distance and apron geometry. We have **no stand coordinates at all** today | unknown; the stand&times;runway oracle bounds this family at 1.90% of SE | Not started — **rank 3 states it uses exactly this** |
-| 35 | **ADSB.lol as surface traffic, not a pushback witness** | The idea-1 traces read as ground *traffic* instead of an off-block time: taxiway occupancy, threshold queue length, runway in use | unknown | Not started — rank 3 uses adsb.lol, 2.2 s off the lead |
+| 14 | Hour × no-ID aggregates | Corruption aggregates at airport × hour × missing-flight-ID level, as model inputs | oracle **-2.42**, honest **-0.62** | Screened 2026-09-24 — no bias signal, duration variant impossible; **Not worth pursuing**: measured small |
+| 15 | Live arrival taxi-in witness | Mean taxi-in of arrivals that in-blocked in the previous 60 min; arrivals keep their labels in `ranking.parquet` | est. **-1 to -3** before testing | Screened 2026-09-24 — model already unbiased, not pursued; **Not worth pursuing**: measured small |
+| 16 | Airport-day corruption aggregates | Day-level dirty-day shares as model inputs | oracle **-0.53**, honest **-0.44** | Tested — rows 31/32, ~0, not shipped; **Not worth pursuing**: measured small |
+| 17 | Recurring bias corrections | Shrunk per-airport / per-hour / per-stand residual offsets fitted inside each training window | oracle **-1.44**, honest **-0.44** | Not started — **Not worth pursuing**: honest estimate only -0.44 |
+| 18 | Rome 4–6 h cell hedge | Probability-weighted mean instead of the hard rule on the one genuinely mixed cell | measured | Tested — inconclusive, not shipped; **Not worth pursuing**: measured small |
+| 19 | Ensembling scored recipes | Blend two of our own prediction stacks | **+0.69 to +1.55 (worse)** | Tested — rejected; **Not worth pursuing**: measured small |
+| 20 | Aircraft type coalesce | `coalesce(plan, twins' plan, movement)` for the aircraft type in `pipeline/common.py` | ~0 on scored labels | Not started — cleanup and bookkeeping, about 0 s |
+| 21 | Twin-join `ADEP` guard | Require the source arrival's `ADEP_flt` to equal the departure's `ADEP_mvt` in the twin join; moves every derived count | unknown, correctness | Not started — cleanup and bookkeeping, about 0 s |
+| 22 | `rule_final` in the pipeline | Use the cleaned flight rule instead of raw `FLIGHT_RULE_mvt` | ≤0.3 s | Not started — cleanup and bookkeeping, about 0 s |
+| 23 | `wake_lk` replacing `typ_wake` | Key the wake class on the plan's aircraft code, not the movement's | ~0 | Not started — cleanup and bookkeeping, about 0 s |
+| 24 | `ROTORCRAFT` replacing `HELI_ALL` | Finish the helicopter-flag replacement in the two sections still using the old one | ~0 | Not started — cleanup and bookkeeping, about 0 s |
+| 25 | Month-balanced aggregation | Give July–December 1/6 each in the validation overview instead of the current mix | 0 direct | Not started — proposed, never installed; cleanup and bookkeeping, about 0 s |
+| 26 | January weighted-CV coverage | Extend the weighted-CV transport test to January; it currently uses five H2-2025 months only | 0 direct | Not started — cleanup and bookkeeping, about 0 s |
+| 27 | Leakage-check verdict | Replace the hard-coded conclusion in `check_rich_feature_leakage.py:101-105`; use whole-day holdouts | 0 direct | Not started — cleanup and bookkeeping, about 0 s |
+| 28 | Training-vs-ranking identification | Finish the investigation into what separates training rows from ranking rows | unknown | 🟡 $\color{orange}{\textsf{DONE}}$ **2026-09-21** — steps 1–4 complete; its January snow lead became v42's inputs, no departure-label drift proven; cleanup and bookkeeping, about 0 s |
+| 29 | `FEATURES.md` corrections | Fix the `MARKET_SEGMENT_flt` levels and the claim that military movements were removed | 0 direct | Not started — cleanup and bookkeeping, about 0 s |
+| 30 | Notebook cross-references | Fix the section numbers §9/§14/§15/§16 point at, and move §16a's cells into §26 | 0 direct | Not started — cleanup and bookkeeping, about 0 s |
+| 31 | Reproducible tie-breakers | Add explicit `ORDER BY` tie-breakers to cells 94–96 and 102–103, whose row order changes between runs | 0 direct | Not started — cleanup and bookkeeping, about 0 s |
+| 32 | Public GPLv3 repo | `gh repo edit Goxmen/PRC --visibility public`; `LICENSE` is already GPLv3 | 0 direct | Not started — about 0 s, but **required** for prize eligibility before 11 October |
+| 33 | OPDI confirmation | Confirm directly with the organisers that open ground-track data may be used | 0 direct | Not started — only second-hand: the organiser OK'd OPDI and ADSB.lol on Discord, quoted in kind-mango's repo; cleanup and bookkeeping, about 0 s |
+| 34 | **X-Plane Scenery Gateway stand coordinates** | Stands with lat/lon from one X-Plane Gateway `apt.dat` per airport, giving stand-to-runway distance and apron geometry. We have **no stand coordinates at all** today | unknown; the stand&times;runway oracle bounds this family at 1.90% of SE | Submitted **2026-09-25** as v43 (row 46): LB 274.7660, −0.14 on v42; Weighted CV −0.47 ([report](VALIDATION/reports/STAND_COORDINATES_EXPERIMENT.md)) |
+| 35 | **ADSB.lol as surface traffic, not a pushback witness** | The idea-1 traces read as ground *traffic* instead of an off-block time: taxiway occupancy, threshold queue length, runway in use | unknown | Not started — **Not worth pursuing**: a large ADS-B pipeline, and the Rome test found no reception; rank 3 uses adsb.lol, 2.2 s off the lead |
 
 ## ADS-B off-block witness at Rome
 
@@ -252,7 +252,7 @@ Stated by the teams themselves, so this is what to try where we have no equivale
 | Dataset | Who | Do we use it? |
 |---|---|---|
 | ADSB.lol ground traces | rank 3 (gentle-tractor, 236.31) | Probed only. Idea 1 fetched it and found no stand witness at Rome; **never tried as traffic** — idea 35 |
-| X-Plane Scenery Gateway `apt.dat`, ten airport packs, stands + coordinates | rank 3 | **No** — idea 34 |
+| X-Plane Scenery Gateway `apt.dat`, ten airport packs, stands + coordinates | rank 3 | Yes, with OpenStreetMap — idea 34, row 46, v43 |
 | METAR, Iowa Environmental Mesonet | us (row 27, 21 inputs); elegant-alligator (`docs/weather_notes.md`) | Yes, same archive |
 | OPDI ground tracks | us | Yes; no competitor uses it |
 

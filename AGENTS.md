@@ -72,6 +72,20 @@ but identify the result as stale and report its timestamp.
 
 ## Current improvement work — handoff
 
+- **September 25: idea 34 (stand coordinates) is submitted as v43: LB 274.7660 (−0.1416 vs v42).**
+  Read the [experiment report](VALIDATION/reports/STAND_COORDINATES_EXPERIMENT.md) and
+  [map report](VALIDATION/reports/STAND_COORDINATES.md). Three map inputs (stand offset,
+  distance to the take-off runway end) on v42 improve Weighted CV 263.6158 → 263.1476
+  (−0.47 [−0.65, −0.27]); all four validations and all seeds improve; January
+  inconclusive; ageing 7/10 negative. Hidden-stand test: −2.01 s on unseen stands.
+  The v42 control was rebuilt on the M3 (within 0.03 s of row 45). Models and
+  predictions in `VALIDATION/runs/v3_20260925_stand_coords/`; maps in
+  `data/external/stand_maps/`. Do not repeat fits or refetch maps. No full-year fit
+  The user then approved the upload: `VALIDATION/stand_coords_submit.py` refitted seed 42
+  on 2025 and uploaded v43 (manifest in `.../v3_20260925_stand_coords/submission_v43/`).
+  It transferred at about 0.3× the CV gain. Do not refit or upload it again. Still to do:
+  declare the X-Plane Gateway (GPL v2+) and OpenStreetMap (ODbL) as external data.
+
 - **September 24: v42 refitted, uploaded and scored on the user's explicit request.**
   V40 + the tested 12 disruption inputs scores **274.9076 s**, improving v40's
   275.4146 by **0.5070 s**. All 344,841 flights scored. Weighted CV **263.5929**;
