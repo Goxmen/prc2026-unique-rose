@@ -1,17 +1,18 @@
 # Submitted models
 
 **Current validation: Weighted CV.** The column is between CV combined and Official LB below.
-Jan/Jul CV, beside it, is scored for rows 42–47 only; see the notes under the table.
+Jan/Jul CV, beside it, is scored for rows 42–50 only; see the notes under the table.
 Best verified Weighted CV: **v42 at 263.5929 s**
 ([validation report](VALIDATION/reports/OPDI_DISRUPTION_EXPERIMENT.md)). The six uploads before
 it — v34, v37, v38, v39, v40 and v41 — are scored on it too
 ([report](VALIDATION/reports/WEIGHTED_CV_RECENT.md)). Row 46 (stand coordinates, v43)
-scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Row 47 (v44) was
-chosen and submitted on Jan/Jul CV alone, so its four 16-fold columns are `-`.
+scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 47–50 (v44–v47)
+were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are `-`.
+On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
-**Best and latest submission: v44, 269.5533 s**, improving v43 by **5.2127 s**.
-Live check **2026-10-01 19:53 UTC**: rank **43/216** scoring teams; all **344,841** flights scored.
-[Submission record](VALIDATION/runs/v3_20261001_jan_jul/submission_v44/submission_v44.json).
+**Best and latest submission: v47, 245.3758 s**, improving v46 by **3.3366 s**.
+Live check **2026-10-02 20:34 UTC**: rank **26/221** scoring teams; all **344,841** flights scored.
+[Submission record](VALIDATION/runs/v3_20261002_nn_submit/submission_v47/submission_v47.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -32,8 +33,11 @@ the model fit, uploaded as v40. Row 44 adds four taxi occupancy inputs to row 43
 was uploaded as v41; its supported CV gain reversed on the leaderboard. Row 45 adds
 12 snow-duration and completed-arrival inputs to row 43 and was uploaded as **v42**,
 Row 46 adds three stand-position inputs to row 45 and was uploaded as **v43**. Row 47 keeps
-row 46's inputs and retunes its main model's LightGBM settings; it was uploaded as **v44**,
-which is the best submission.
+row 46's inputs and retunes its main model's LightGBM settings; it was uploaded as **v44**.
+Row 48 adds 14 inputs from ADSB.lol's open ADS-B heatmaps to row 47 and was uploaded as
+**v45**. Row 49 adds 8 stand-exit inputs from the same positions and the public stand map to
+row 48 and was uploaded as **v46**. Row 50 blends row 49's ordinary regressor with a neural
+network on the same inputs and was uploaded as **v47**, which is the best submission.
 
 ## Codenames and recipes
 
@@ -91,6 +95,9 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 45 | **Snow-arrivals** | Row 43 + **12 snow-duration and completed-arrival inputs** (ordinary regressor only) ([report](VALIDATION/reports/V42_SUBMISSION.md)) | **245.5661** | **221.8747** | **232.6647** | **263.5929** | 318.5942 | **274.9076** | v42 |
 | 46 | **Stand-coordinates** | Row 45 + **3 stand-position inputs** from public airport maps (ordinary regressor only) ([report](VALIDATION/reports/STAND_COORDINATES_EXPERIMENT.md)) | **245.1722** | **221.2893** | **232.1696** | **263.1476** | 318.0408 | **274.7660** | v43 |
 | 47 | **Jan/Jul-tuned** | Row 46 with the main model's **LightGBM settings tuned on Jan/Jul CV** ([report](VALIDATION/reports/JAN_JUL_TUNING.md)) | - | - | - | - | **314.1959** | **269.5533** | v44 |
+| 48 | **ADSB.lol** | Row 47 + **14 inputs from ADSB.lol ADS-B heatmaps** (ordinary regressor only) ([result](VALIDATION/runs/v3_20261002_adsblol_jan_jul/result.json)) | - | - | - | - | **306.9405** | **254.9163** | v45 |
+| 49 | **ADSB.lol-stand** | Row 48 + **8 stand-exit inputs** from the ADS-B positions and the public stand map (ordinary regressor only) ([result](VALIDATION/runs/v3_20261002_adsblol_jan_jul/result_stand_3seed.json)) | - | - | - | - | **303.7536** | **248.7124** | v46 |
+| 50 | **NN-blend** | Row 49 with its ordinary regressor **blended 0.7/0.3 with a neural network** on the same inputs ([result](VALIDATION/runs/v3_20261002_nn_v46_jan_jul/score_3seed.json)) | - | - | - | - | **302.3701** | **245.3758** | v47 |
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV is the new
 validation headline**, adopted on 20 September 2026. It uses the existing v3
@@ -118,7 +125,7 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   smaller, so it does not protect against a change whose CV gain fades with model age. The
   ageing readouts did catch it (8 of 10 positive, see row 44), which is the signal to lean on
   when weighted CV and combined CV agree on a small gain.
-- **Jan/Jul CV (rows 42–47 only)** is the average RMSE of two fits: January 2025 held out
+- **Jan/Jul CV (rows 42–49 only)** is the average RMSE of two fits: January 2025 held out
   with March–November training, and July 2025 held out with January–March and
   September–December training. Each upload's recipe is refitted unchanged at seeds 42, 142
   and 242, and every held-out flight is scored. It sits **43 s above** the official score,
@@ -130,7 +137,13 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   four steps. See the [report](VALIDATION/reports/JAN_JUL_VALIDATION.md). Row 47 was then
   chosen on it: its step from v43 is −3.84 here and **−5.21** on the leaderboard, so it
   transferred at about 1.4×. This is the first step selected on this validation, out of 22
-  settings tried on the same January and July data.
+  settings tried on the same January and July data. Row 48's step from row 47 is −7.27 here
+  and **−14.64** on the leaderboard, about 2.0×; it was the only candidate tried. Row 49's step
+  from row 48 is −3.19 here and **−6.20** on the leaderboard, again about 2×; it was chosen over
+  one other variant (a daily coverage input, no gain) tried at seed 42. Row 50's step from row 49
+  is −1.38 here and **−3.34** on the leaderboard, about 2.4×; its network design was first
+  tried once on row 48's inputs on the same months, and the blend weight was fixed before row 50
+  was scored.
 - **v1–v3 and v5–v11 have no protocol-v3 CV.** v1–v3 predate the protocol; v3 was
   checked only with the older, non-comparable harness. Its configuration was
   later validated as `baseline-v3` (366.7673 / 334.2027 / 348.9996) and
@@ -212,6 +225,9 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   | v42 minus v40 (snow and completed-arrival inputs) | **−0.51** | −0.57 |
   | v43 minus v42 (stand-position inputs) | **−0.14** | −0.51 |
   | v44 minus v43 (main-model settings tuned on Jan/Jul CV) | **−5.21** | - |
+  | v45 minus v44 (ADSB.lol heatmap inputs) | **−14.64** | - |
+  | v46 minus v45 (ADS-B stand-exit inputs) | **−6.20** | - |
+  | v47 minus v46 (neural-network blend) | **−3.34** | - |
 
   The weather and queue gains carried over to the leaderboard in full. Only about
   a third of the Rome hybrid's CV gain did. v41 is the first step in this table whose
@@ -464,6 +480,75 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   37.1 s on average in January and 29.4 s in July (mean signed +1.9 / +0.7 s; correlation
   0.994 / 0.997). Official score **269.5533** on all 344,841 rows: **−5.2127 against v43**.
   The manifest is `submission_v44.json` in the run directory.
+- **Row 48:** Jan/Jul CV from `VALIDATION/adsblol_jan_jul.py` on the WSL desktop (7800X3D).
+  The Jan/Jul splits were rebuilt there with `tuning_seasonal.py prepare` from Ioana's
+  transferred inputs (METAR, stand maps and OPDI table byte-identical to v44's) and reproduce
+  the Mac's prepared controls (January 341.9611 / 209.0711, July 294.2289 / 250.7051). Both
+  arms were refitted on that machine at v44's settings and seeds 42/142/242: v44 scores
+  314.2766 / 314.1953 / 314.1669 there, within 0.09 s of the Mac's 314.1917 / 314.2032 /
+  314.1928. Three-seed change **−7.27 [−8.73, −6.36]** (95%, whole days resampled within each
+  fit); every seed improves (−7.29 / −7.14 / −7.39); January −2.96, July −11.58, flight-ID
+  departures −9.53. By airport, July: EHAM −45.4, EDDF −41.3, LEBL −26.9, EDDM −17.0, LSZH
+  −11.0, LIRF −11.0; January: EDDM −40.6, LEBL −14.5, EDDF −14.0, EHAM −10.3, LSZH −7.2,
+  and **LEMD +8.7** (the one regression). An earlier screen on a weaker parent (no OPDI,
+  weather or stand inputs, July only, Rome excluded) showed −18.1; on v44 the same view is
+  −13.2, so about 5 s of that signal was already in v44, mostly OPDI at LSZH.
+- **v45 (row 48):** prepared and uploaded 2026-10-02 at 15:14 UTC on the WSL desktop by
+  `VALIDATION/adsblol_submit.py`, the first upload of that UTC day. One seed-42 refit on all of
+  2025 (ADS-B regressor 5,000 rounds, 6.3 minutes; 9.4 minutes in all), excluding the same 127
+  rule-covered departures. v43/v44's model files are on the Mac and LightGBM refits differ
+  across machines, so instead of byte checks the script requires v44's data, OPDI and stand
+  hashes, training population, correction parameters, categories and per-month correction rows.
+  The four-hour rule overrides the same 43 rows. ADS-B coverage: 91–92% of ranking departures
+  matched to an aircraft, 62–69% seen on the ground (2025 training: 88% / 57%). Against v44's
+  official file, predictions move by 60.8 s on average in January and 57.1 s in July (mean
+  signed +12.1 / +7.2 s; correlation 0.988 / 0.991). Official score **254.9163** on all 344,841
+  rows: **−14.6370 against v44**. The manifest is `submission_v45.json` in the run directory.
+- **Row 49:** v45's inputs never used the stand map, although the OPDI work had shown that
+  leaving the flight's *own stand* carries the signal. With `stand_coords.parquet` the heatmap
+  sees the aircraft at its own stand for 25–60% of departures at EDDF, EDDM, EHAM, LEBL and
+  LSZH, and the last point there is within two minutes of the recorded off-block for 67–83% of
+  those at EDDF, EDDM, LEBL and LSZH (44% at EHAM), against 27–60% for v45's first-ground-point
+  input. Eight inputs (`adsblol.STAND_FEATURES`): closest approach to and points near the own
+  stand, takeoff minus the last point within 100 m of it, that point's gap to the departure
+  segment, the segment start's distance to the stand and to the take-off runway end, and the
+  same stand-exit time averaged over the hour's earlier departures. Jan/Jul CV, same splits
+  and machine as row 48: **303.7536**; against row 48 **−3.19 [−4.15, −2.63]**, every seed
+  −3.25 / −3.23 / −3.09; against v44 −10.46 [−12.70, −9.13]. January 333.74, July 273.77.
+  A variant adding the share of the airport's departures seen on the ground that day (LEMD has
+  no ground coverage in January–February 2025) scored 303.80 at seed 42 against 303.74 and
+  did not fix LEMD's January regression (173 against v44's 164); it is not used. Remaining
+  error with this model sits where the receivers see no ground movement (LTFM, LFPG, EGLL,
+  winter LEMD), in a few extreme January LFPG labels, and in Rome's recording problem.
+- **v46 (row 49):** prepared and uploaded 2026-10-02 at 16:19 UTC on the WSL desktop by
+  `VALIDATION/adsblol_submit.py --version 46`, the second upload of that UTC day, with the same
+  checks as v45 (9.9 minutes in all). The four-hour rule overrides the same 43 rows. Against
+  v45's file, predictions move by 36.5 s on average in January and 31.8 s in July (mean signed
+  −9.6 / −1.6 s; correlation 0.996 / 0.997). Official score **248.7124** on all 344,841 rows:
+  **−6.2039 against v45**, −20.8409 against v44. The manifest is `submission_v46.json` in the
+  run directory.
+- **Row 50:** Jan/Jul CV from `VALIDATION/nn_jan_jul.py` and `VALIDATION/tools/score_nn_jan_jul.py`
+  on the WSL desktop (RTX 3080, PyTorch 2.14.1). The network sits beside row 49's ordinary
+  regressor: same training rows and 134 inputs; categorical inputs as embeddings, numeric inputs
+  rank-transformed plus a clipped linear copy and missing flags; three layers (512/512/256),
+  labels clipped at 3 h, squared error, 8 epochs, about 3 s per epoch. Its prediction is blended
+  0.3 with LightGBM's 0.7 before the Rome classifier mix, corrections and four-hour rule. The
+  LightGBM side is row 49's saved Jan/Jul models, which reproduce its predictions to 0.003 s.
+  Three-seed change **−1.38 [−1.94, −0.95]**; every seed improves (−1.18 / −1.55 / −1.42);
+  January −0.86, July −1.91; 19 of 20 airport-months improve (EGLL January +0.89). The network
+  alone scores 309.79, 6.0 s worse than row 49. The design was first tried once on row 48's
+  inputs on the same months (blend −1.3 to −1.5 s); the weight 0.3 is the middle of that run's
+  cross-month choices and was fixed before row 50 was scored.
+- **v47 (row 50):** prepared and uploaded 2026-10-02 at 20:33 UTC on the WSL desktop by
+  `VALIDATION/nn_submit.py`, the third upload of that UTC day (4.0 minutes in all). It reuses
+  v46's full-year ordinary regressor and classifier unchanged; with weight 0 the rebuilt
+  pipeline reproduces v46's ranking predictions exactly. One network (seed 42) is fitted on
+  v46's 2,051,327 full-year ordinary-regressor rows. Same correction rows and 43 rule rows as
+  v46. Against v46's file, predictions move by 17.8 s on average in January and 13.6 s in July
+  (mean signed −0.8 / −2.5 s; correlation 0.998 / 0.999). GPU training is not bit-for-bit
+  repeatable, so the network's ranking predictions are kept in the run directory. Official
+  score **245.3758** on all 344,841 rows: **−3.3366 against v46**. The manifest is
+  `submission_v47.json` in the run directory.
 - **Row 29:** CV from run `v3_20260918T120331999764Z` on macOS (45.2 minutes).
   Row 28 is the control and was not refitted: its boosters were reloaded from
   row 28's run and reproduced its saved predictions exactly on every fold and seed.
@@ -763,3 +848,23 @@ Fetched by `VALIDATION/tools/fetch_opdi.py`, built into one table per departure 
 `VALIDATION/tests/test_opdi.py`. The organiser confirmed on Discord (2026-09-18) that
 off-block times extracted from open trajectory data are allowed; the team is checking
 this directly with the organisers before any upload.
+
+**ADSB.lol inputs (row 48):** [ADSB.lol](https://adsb.lol) publishes a daily archive of its
+community receiver network on GitHub (`adsblol/globe_history_2025`, `_2026`); each archive
+carries its licence file, CC0 1.0 or ODbL 1.0. Its *heatmap* holds every tracked aircraft
+worldwide every 10 s (transponder address, position, altitude or ground flag, ground speed,
+callsign). `VALIDATION/tools/download_adsblol_heatmap.py` streamed only that part of each
+day's archive for all of 2025 and January/July 2026 (427 days, about 322 GB read, nothing raw
+stored) and kept aircraft within 20 km of the ten airports on the ground or at most
+10,000 ft: 218 million positions, 2.0 GB. All 427 days have all 48 half-hours. Fifteen come
+from the replacement `prod-0tmp` archive and two (2025-10-15, 2026-01-23) from the `staging-0`
+archive, where the main archive lacked the heatmap or part of the day.
+`VALIDATION/adsblol.py` matches each departure to an aircraft by callsign and builds 14
+inputs for row 48: when the aircraft was first seen on the ground, first moving and last stationary
+before takeoff; how much traffic was moving on the ground or flying low in the 10–30 minutes
+before; and the first-seen timing of the airport's other departures in the hour before. No
+label and no block time is read. Row 49 adds eight more from the same positions and the
+public stand map (already declared for row 46), chiefly the last time the aircraft was seen at
+its own stand. Ground coverage follows the receivers: EHAM, LEBL, LSZH and
+EDDF are well covered, EDDM, LEMD and LIRF partly, EGLL and LFPG thinly, and LTFM not at all.
+The organiser has approved open trajectory data if declared; this is the declaration.

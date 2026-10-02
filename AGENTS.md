@@ -30,9 +30,11 @@ or tiny/inconclusive changes as new model entries. Keep those results in experim
 reports and run logs. Do not describe numerical noise as an improvement or treat
 bootstrap/seed agreement on reused development data as independent confirmation.
 
-**User rule: score every new row on all validations, and keep table cells short.**
-A new candidate gets next-month, longer-gap, combined *and* Weighted CV before the
-work is called done, so no cell is left `-`. Rows that predate a validation are not
+**User rule: score every new row on Jan/Jul CV, and keep table cells short.**
+On 2026-10-02 the user dropped the 16-fold validations for new candidates: next-month,
+longer-gap, combined and Weighted CV are no longer required and are not run by default,
+so their cells stay `-` (as for v44). Jan/Jul CV (`VALIDATION/tuning_seasonal.py`) is
+the validation a new candidate needs. Rows that predate a validation are not
 backfilled — the user declined that on 2026-09-24, and their `-` is final. In both
 `SUBMISSIONS.md` and `NEXT_STEPS.md` a table cell names the parent row and the one
 thing that changed, in a sentence. Bootstrap intervals, seed agreement, ageing
@@ -71,6 +73,16 @@ but identify the result as stale and report its timestamp.
   restructuring a section). Read it before touching the notebook.
 
 ## Current improvement work — handoff
+
+- **October 2: v46's ordinary regressor blended 0.7/0.3 with a neural network is submitted as
+  v47: LB 245.3758 (−3.3366 vs v46), best ever, rank 26/221.** Jan/Jul CV 303.7536 → 302.3701
+  (−1.38 [−1.94, −0.95], every seed improves). The network (MLP, same 134 inputs and rows,
+  PyTorch on the desktop's RTX 3080) is in `VALIDATION/nn_jan_jul.py`; scoring in
+  `VALIDATION/tools/score_nn_jan_jul.py`; run `VALIDATION/runs/v3_20261002_nn_v46_jan_jul/`.
+  `VALIDATION/nn_submit.py` reuses v46's full-year boosters unchanged and fits one network;
+  manifest in `VALIDATION/runs/v3_20261002_nn_submit/submission_v47/`. Do not refit or upload
+  v47 again. Proposed next (not started): average several network seeds, and better numeric
+  encodings with early stopping on the last training month, decided as one comparison.
 
 - **October 1: the Jan/Jul hyperparameter search is done and submitted as v44: LB 269.5533
   (−5.2127 vs v43), best ever, rank 43/216.** Read the
