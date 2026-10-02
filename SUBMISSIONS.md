@@ -1,15 +1,17 @@
 # Submitted models
 
 **Current validation: Weighted CV.** The column is between CV combined and Official LB below.
+Jan/Jul CV, beside it, is scored for rows 42–47 only; see the notes under the table.
 Best verified Weighted CV: **v42 at 263.5929 s**
 ([validation report](VALIDATION/reports/OPDI_DISRUPTION_EXPERIMENT.md)). The six uploads before
 it — v34, v37, v38, v39, v40 and v41 — are scored on it too
 ([report](VALIDATION/reports/WEIGHTED_CV_RECENT.md)). Row 46 (stand coordinates, v43)
-scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe.
+scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Row 47 (v44) was
+chosen and submitted on Jan/Jul CV alone, so its four 16-fold columns are `-`.
 
-**Best and latest submission: v43, 274.7660 s**, improving v42 by **0.1416 s**.
-Live check **2026-09-25 12:17 UTC**: rank **38/191** scoring teams; all **344,841** flights scored.
-[Submission record](VALIDATION/runs/v3_20260925_stand_coords/submission_v43/submission_v43.json).
+**Best and latest submission: v44, 269.5533 s**, improving v43 by **5.2127 s**.
+Live check **2026-10-01 19:53 UTC**: rank **43/216** scoring teams; all **344,841** flights scored.
+[Submission record](VALIDATION/runs/v3_20261001_jan_jul/submission_v44/submission_v44.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -29,8 +31,9 @@ row 42 refitted with the flights the four-hour Rome rule overwrites removed from
 the model fit, uploaded as v40. Row 44 adds four taxi occupancy inputs to row 43 and
 was uploaded as v41; its supported CV gain reversed on the leaderboard. Row 45 adds
 12 snow-duration and completed-arrival inputs to row 43 and was uploaded as **v42**,
-Row 46 adds three stand-position inputs to row 45 and was uploaded as **v43**, which is the
-best submission.
+Row 46 adds three stand-position inputs to row 45 and was uploaded as **v43**. Row 47 keeps
+row 46's inputs and retunes its main model's LightGBM settings; it was uploaded as **v44**,
+which is the best submission.
 
 ## Codenames and recipes
 
@@ -39,54 +42,55 @@ twelve months of 2025 with seed 42, the original 27 model inputs (raw movement
 and flight-plan columns, plus departure-taxi history, arrival taxi-in history and
 traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 
-| Order | Codename | Actual recipe | CV next-month | CV longer-gap | CV combined | Weighted CV | Official LB | Submission |
-| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| 1 | **Airport-mean** | No model: 2025 mean taxi-out per airport (labels 1–7,200 s); global mean fallback | — | — | — | - | 661.5737 | v1 |
-| 2 | **LGBM-raw** | LightGBM, raw columns only (`pipeline/train.py`); 3,000 rounds; labels **1–7,200 s** | — | — | — | - | 533.3759 | v2 |
-| 3 | **Keep-tail** | 27 inputs; 800 rounds; labels widened to **1–200,000 s** | — | — | — | - | 405.6987 | v3 |
-| 4 | **FPL-flag** | Keep-tail + `has_flight_plan` input | 366.5209† | 333.9163† | 348.7321† | - | 405.7838 | v4 |
-| 5 | **Ceiling-10k** | Keep-tail, labels capped at **10,000 s** | — | — | — | - | 518.3068 | v5 |
-| 6 | **Ceiling-16k** | Keep-tail, labels capped at **16,000 s** | — | — | — | - | 498.3336 | v6 |
-| 7 | **Ceiling-22k** | Keep-tail, labels capped at **22,000 s** | — | — | — | - | 486.0517 | v7 |
-| 8 | **Ceiling-32k** | Keep-tail, labels capped at **32,000 s** | — | — | — | - | 472.7133 | v8 |
-| 9 | **Ceiling-50k** | Keep-tail, labels capped at **50,000 s** | — | — | — | - | 433.6797 | v9 |
-| 10 | **Ceiling-70k** | Keep-tail, labels capped at **70,000 s** | — | — | — | - | Rejected (daily limit) | v10 |
-| 11 | **Ceiling-90k** | Keep-tail, labels capped at **90,000 s** | — | — | — | - | Rejected (daily limit) | v11 |
-| 12 | **B0-800** | Baseline; no recovery, no rule | 366.7465 | 334.1785 | 348.9770 | 442.0361 | 406.4281 | v12 |
-| 13 | **Q0** | B0-800 + **6 h Rome rule** | 300.5904 | 256.1971 | 276.7374 | 326.3408 | 354.4303 | v13 |
-| 14 | **Q1** | B0-800 + **R3 recovery** + 6 h Rome rule | 296.9037 | 258.5505 | 276.1937 | 327.3573 | 354.0004 | v14 |
-| 15 | **Q0-4h** | B0-800 + **4 h Rome rule** | 296.2785 | 255.6200 | 274.3707 | 322.8504 | 344.3114 | v15 |
-| 16 | **Q1-4h** | B0-800 + **R3 recovery** + 4 h Rome rule | 292.8785 | 257.4787 | 273.7215 | 323.1023 | 344.4821 | v16 |
-| 17 | **no_month** | Q0-4h − **`month`** input | 296.4686 | 251.8408 | 272.5082 | 320.3023 | 345.8984 | v17 |
-| 18 | **no_history** | Q0-4h − **5 departure-taxi history inputs** | 296.5108 | 255.9093 | 274.6319 | 323.4994 | 342.5049 | v18 |
-| 19 | **clock_features** | Q0-4h + **18 clock inputs** (still predicts taxi time) | 293.6614 | 255.6326 | 273.1284 | 321.2360 | 338.1113 | v19 |
-| 20 | **small_trees** | Q0-4h with **63 leaves** instead of 255 | 296.6377 | 255.6624 | 274.5645 | 323.6976 | 345.3113 | v20 |
-| 21 | **rule_routing** | Q0-4h; **rule-eligible flights dropped from training**, rule still predicts them | 286.6291 | 251.4024 | 267.5759 | 312.8226 | 342.4009 | v21 |
-| 22 | **Rome-mix-base** | B0-800; Rome prediction = **p × gap + (1 − p) × B0-800**; no rule | 311.4125 | 283.5840 | 296.2310 | - | — | Not submitted |
-| 23 | **Rome-mix-ordinary** | Row 22 with the (1 − p) part from the **regressor** | 317.6906 | 294.5641 | 305.0225 | - | — | Not submitted |
-| 24 | **Rome-hybrid** | Row 23 + **6 h Rome rule** override; regressor at all airports | 280.6325 | 250.5677 | 264.3047 | - | — | Not submitted |
-| 25 | **Rome-hybrid-4h** | Row 24 with the **4 h** rule | 280.8670 | 250.4076 | 264.3304 | - | — | Not submitted |
-| 26 | **Rome-hybrid-4h-clock** | Row 25 + **18 clock inputs** (regressor and classifier) | 271.9287 | 246.7919 | 258.2262 | - | 333.8712 | v26 |
-| 27 | **Rome-hybrid-4h-clock-weather** | Row 26 + **21 METAR weather inputs** (regressor only) | 270.3396 | 239.4157 | 253.5766 | - | 329.1609 | v27 |
-| 28 | **Rome-hybrid-4h-clock-weather-queue** | Row 27 + **11 runway queue inputs** (regressor only) | 265.3809 | 234.4385 | 248.6174 | - | 322.6253 | v28 |
-| 29 | **Rome-signals** | Row 28 + **airline**, and for the classifier **handler share** and **flight-number format**; **late-row estimate** for no-ID Rome rows at 1-4 h | 260.3360 | 233.2610 | 245.6201 | - | 314.4667 | v29 |
-| 30 | **Stand-clock** | Row 29 + **5 stand clock inputs** (regressor and classifier) | 256.1836 | 229.7016 | 241.7877 | - | 309.9872 | v30 |
-| 31 | **Dirty-day** | Row 29 + **6 dirty-day inputs** (regressor and classifier) | 261.3248 | 232.7730 | 245.8271 | - | — | Not submitted |
-| 32 | **Stand-clock-dirty-day** | Row 29 + **both input sets** (regressor and classifier) | 257.6550 | 229.3705 | 242.3045 | - | — | Not submitted |
-| 33 | **Plan-window** | Row 30's predictions clipped to **takeoff - LOBT +/- 61 min** for flights with a flight ID (post-processing) | 253.9467 | 229.2985 | 240.5262 | - | 282.4525 | v33 |
-| 34 | **No-ID-cap** | Row 33 + **cap on no-ID predictions** outside Rome when the flight took off late (post-processing) | **253.0535** | **228.9805** | **239.9398** | 273.2162 | 280.4658 | v34 |
-| 35 | **Twin-records** | Row 33; where LFPG **logs one takeoff twice**, the flight-ID record is set to takeoff - LOBT - 5.5 min (post-processing) | 253.6312 | 228.9143 | 240.1746 | - | — | Not submitted |
-| 36 | **Seed-average** | Row 33's predictions **averaged over seeds 42, 142 and 242** (a submission needs two more full-year refits) | 252.6779 | 227.9686 | 239.2266 | - | — | Not submitted |
-| 37 | **Artifact-combined** | Row 34 + **four recording-artifact corrections** ([recipe](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)) | 249.9460 | 224.8911 | 236.3151 | 267.5814 | **279.3805** | v38 |
-| 38 | **Rome-binary-cal** | Row 34; **calibrated Rome probabilities** replace the hard 4 h override ([run](VALIDATION/runs/v3_20260919_rome_calibration/report.md)) | 296.7058 | 296.4860 | 296.5834 | - | — | Not submitted |
-| 39 | **Rome-three-cal** | Row 38 with a **three-class classifier** (ordinary/schedule/day) ([run](VALIDATION/runs/v3_20260919_rome_calibration/report.md)) | 294.2137 | 282.8235 | 287.9234 | - | — | Not submitted |
-| 40 | **Dayshift-hedge** | Row 34; Rome rule rows **14 h+ late on a later local day** get the probability-weighted mean of their two possible labels (post-processing) | 251.6273 | 221.3351 | 235.2323 | 265.9048 | 280.1743 | v37 |
-| 41 | **OPDI-tracks** | Row 30 + **14 OPDI inputs** from open ADS-B ground tracks, then rows 33 and 34. Superseded by row 42 | 250.2107 | 226.7397 | 237.4207 | - | — | Not submitted |
-| 42 | **OPDI-combined** | Row 41 + row 37's corrections, i.e. **v38's recipe with the OPDI inputs** | **247.0477** | **222.6081** | **233.7470** | 264.4218 | **277.3629** | v39 |
-| 43 | **Rule-routed-training** | Row 42 with the **127 rule-covered departures dropped from the model fit**; every evaluation row still scored | **245.9817** | **222.5802** | **233.2338** | **264.3397** | **275.4146** | v40 |
-| 44 | **Taxi-occupancy** | Row 43 + **4 taxi occupancy inputs**: other aircraft between their own `AOBT_3` and takeoff, at this flight's off-block and takeoff. CV gain did not transfer | 245.7880 | 222.2004 | 232.9414 | 263.8852 | 275.9592 | v41 |
-| 45 | **Snow-arrivals** | Row 43 + **12 snow-duration and completed-arrival inputs** (ordinary regressor only) ([report](VALIDATION/reports/V42_SUBMISSION.md)) | **245.5661** | **221.8747** | **232.6647** | **263.5929** | **274.9076** | v42 |
-| 46 | **Stand-coordinates** | Row 45 + **3 stand-position inputs** from public airport maps (ordinary regressor only) ([report](VALIDATION/reports/STAND_COORDINATES_EXPERIMENT.md)) | **245.1722** | **221.2893** | **232.1696** | **263.1476** | **274.7660** | v43 |
+| Order | Codename | Actual recipe | CV next-month | CV longer-gap | CV combined | Weighted CV | Jan/Jul CV | Official LB | Submission |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| 1 | **Airport-mean** | No model: 2025 mean taxi-out per airport (labels 1–7,200 s); global mean fallback | — | — | — | - | - | 661.5737 | v1 |
+| 2 | **LGBM-raw** | LightGBM, raw columns only (`pipeline/train.py`); 3,000 rounds; labels **1–7,200 s** | — | — | — | - | - | 533.3759 | v2 |
+| 3 | **Keep-tail** | 27 inputs; 800 rounds; labels widened to **1–200,000 s** | — | — | — | - | - | 405.6987 | v3 |
+| 4 | **FPL-flag** | Keep-tail + `has_flight_plan` input | 366.5209† | 333.9163† | 348.7321† | - | - | 405.7838 | v4 |
+| 5 | **Ceiling-10k** | Keep-tail, labels capped at **10,000 s** | — | — | — | - | - | 518.3068 | v5 |
+| 6 | **Ceiling-16k** | Keep-tail, labels capped at **16,000 s** | — | — | — | - | - | 498.3336 | v6 |
+| 7 | **Ceiling-22k** | Keep-tail, labels capped at **22,000 s** | — | — | — | - | - | 486.0517 | v7 |
+| 8 | **Ceiling-32k** | Keep-tail, labels capped at **32,000 s** | — | — | — | - | - | 472.7133 | v8 |
+| 9 | **Ceiling-50k** | Keep-tail, labels capped at **50,000 s** | — | — | — | - | - | 433.6797 | v9 |
+| 10 | **Ceiling-70k** | Keep-tail, labels capped at **70,000 s** | — | — | — | - | - | Rejected (daily limit) | v10 |
+| 11 | **Ceiling-90k** | Keep-tail, labels capped at **90,000 s** | — | — | — | - | - | Rejected (daily limit) | v11 |
+| 12 | **B0-800** | Baseline; no recovery, no rule | 366.7465 | 334.1785 | 348.9770 | 442.0361 | - | 406.4281 | v12 |
+| 13 | **Q0** | B0-800 + **6 h Rome rule** | 300.5904 | 256.1971 | 276.7374 | 326.3408 | - | 354.4303 | v13 |
+| 14 | **Q1** | B0-800 + **R3 recovery** + 6 h Rome rule | 296.9037 | 258.5505 | 276.1937 | 327.3573 | - | 354.0004 | v14 |
+| 15 | **Q0-4h** | B0-800 + **4 h Rome rule** | 296.2785 | 255.6200 | 274.3707 | 322.8504 | - | 344.3114 | v15 |
+| 16 | **Q1-4h** | B0-800 + **R3 recovery** + 4 h Rome rule | 292.8785 | 257.4787 | 273.7215 | 323.1023 | - | 344.4821 | v16 |
+| 17 | **no_month** | Q0-4h − **`month`** input | 296.4686 | 251.8408 | 272.5082 | 320.3023 | - | 345.8984 | v17 |
+| 18 | **no_history** | Q0-4h − **5 departure-taxi history inputs** | 296.5108 | 255.9093 | 274.6319 | 323.4994 | - | 342.5049 | v18 |
+| 19 | **clock_features** | Q0-4h + **18 clock inputs** (still predicts taxi time) | 293.6614 | 255.6326 | 273.1284 | 321.2360 | - | 338.1113 | v19 |
+| 20 | **small_trees** | Q0-4h with **63 leaves** instead of 255 | 296.6377 | 255.6624 | 274.5645 | 323.6976 | - | 345.3113 | v20 |
+| 21 | **rule_routing** | Q0-4h; **rule-eligible flights dropped from training**, rule still predicts them | 286.6291 | 251.4024 | 267.5759 | 312.8226 | - | 342.4009 | v21 |
+| 22 | **Rome-mix-base** | B0-800; Rome prediction = **p × gap + (1 − p) × B0-800**; no rule | 311.4125 | 283.5840 | 296.2310 | - | - | — | Not submitted |
+| 23 | **Rome-mix-ordinary** | Row 22 with the (1 − p) part from the **regressor** | 317.6906 | 294.5641 | 305.0225 | - | - | — | Not submitted |
+| 24 | **Rome-hybrid** | Row 23 + **6 h Rome rule** override; regressor at all airports | 280.6325 | 250.5677 | 264.3047 | - | - | — | Not submitted |
+| 25 | **Rome-hybrid-4h** | Row 24 with the **4 h** rule | 280.8670 | 250.4076 | 264.3304 | - | - | — | Not submitted |
+| 26 | **Rome-hybrid-4h-clock** | Row 25 + **18 clock inputs** (regressor and classifier) | 271.9287 | 246.7919 | 258.2262 | - | - | 333.8712 | v26 |
+| 27 | **Rome-hybrid-4h-clock-weather** | Row 26 + **21 METAR weather inputs** (regressor only) | 270.3396 | 239.4157 | 253.5766 | - | - | 329.1609 | v27 |
+| 28 | **Rome-hybrid-4h-clock-weather-queue** | Row 27 + **11 runway queue inputs** (regressor only) | 265.3809 | 234.4385 | 248.6174 | - | - | 322.6253 | v28 |
+| 29 | **Rome-signals** | Row 28 + **airline**, and for the classifier **handler share** and **flight-number format**; **late-row estimate** for no-ID Rome rows at 1-4 h | 260.3360 | 233.2610 | 245.6201 | - | - | 314.4667 | v29 |
+| 30 | **Stand-clock** | Row 29 + **5 stand clock inputs** (regressor and classifier) | 256.1836 | 229.7016 | 241.7877 | - | - | 309.9872 | v30 |
+| 31 | **Dirty-day** | Row 29 + **6 dirty-day inputs** (regressor and classifier) | 261.3248 | 232.7730 | 245.8271 | - | - | — | Not submitted |
+| 32 | **Stand-clock-dirty-day** | Row 29 + **both input sets** (regressor and classifier) | 257.6550 | 229.3705 | 242.3045 | - | - | — | Not submitted |
+| 33 | **Plan-window** | Row 30's predictions clipped to **takeoff - LOBT +/- 61 min** for flights with a flight ID (post-processing) | 253.9467 | 229.2985 | 240.5262 | - | - | 282.4525 | v33 |
+| 34 | **No-ID-cap** | Row 33 + **cap on no-ID predictions** outside Rome when the flight took off late (post-processing) | **253.0535** | **228.9805** | **239.9398** | 273.2162 | - | 280.4658 | v34 |
+| 35 | **Twin-records** | Row 33; where LFPG **logs one takeoff twice**, the flight-ID record is set to takeoff - LOBT - 5.5 min (post-processing) | 253.6312 | 228.9143 | 240.1746 | - | - | — | Not submitted |
+| 36 | **Seed-average** | Row 33's predictions **averaged over seeds 42, 142 and 242** (a submission needs two more full-year refits) | 252.6779 | 227.9686 | 239.2266 | - | - | — | Not submitted |
+| 37 | **Artifact-combined** | Row 34 + **four recording-artifact corrections** ([recipe](VALIDATION/reports/RECORDING_ARTIFACT_EXPERIMENTS.md)) | 249.9460 | 224.8911 | 236.3151 | 267.5814 | - | **279.3805** | v38 |
+| 38 | **Rome-binary-cal** | Row 34; **calibrated Rome probabilities** replace the hard 4 h override ([run](VALIDATION/runs/v3_20260919_rome_calibration/report.md)) | 296.7058 | 296.4860 | 296.5834 | - | - | — | Not submitted |
+| 39 | **Rome-three-cal** | Row 38 with a **three-class classifier** (ordinary/schedule/day) ([run](VALIDATION/runs/v3_20260919_rome_calibration/report.md)) | 294.2137 | 282.8235 | 287.9234 | - | - | — | Not submitted |
+| 40 | **Dayshift-hedge** | Row 34; Rome rule rows **14 h+ late on a later local day** get the probability-weighted mean of their two possible labels (post-processing) | 251.6273 | 221.3351 | 235.2323 | 265.9048 | - | 280.1743 | v37 |
+| 41 | **OPDI-tracks** | Row 30 + **14 OPDI inputs** from open ADS-B ground tracks, then rows 33 and 34. Superseded by row 42 | 250.2107 | 226.7397 | 237.4207 | - | - | — | Not submitted |
+| 42 | **OPDI-combined** | Row 41 + row 37's corrections, i.e. **v38's recipe with the OPDI inputs** | **247.0477** | **222.6081** | **233.7470** | 264.4218 | 321.2736 | **277.3629** | v39 |
+| 43 | **Rule-routed-training** | Row 42 with the **127 rule-covered departures dropped from the model fit**; every evaluation row still scored | **245.9817** | **222.5802** | **233.2338** | **264.3397** | 318.9388 | **275.4146** | v40 |
+| 44 | **Taxi-occupancy** | Row 43 + **4 taxi occupancy inputs**: other aircraft between their own `AOBT_3` and takeoff, at this flight's off-block and takeoff. CV gain did not transfer | 245.7880 | 222.2004 | 232.9414 | 263.8852 | 318.7320 | 275.9592 | v41 |
+| 45 | **Snow-arrivals** | Row 43 + **12 snow-duration and completed-arrival inputs** (ordinary regressor only) ([report](VALIDATION/reports/V42_SUBMISSION.md)) | **245.5661** | **221.8747** | **232.6647** | **263.5929** | 318.5942 | **274.9076** | v42 |
+| 46 | **Stand-coordinates** | Row 45 + **3 stand-position inputs** from public airport maps (ordinary regressor only) ([report](VALIDATION/reports/STAND_COORDINATES_EXPERIMENT.md)) | **245.1722** | **221.2893** | **232.1696** | **263.1476** | 318.0408 | **274.7660** | v43 |
+| 47 | **Jan/Jul-tuned** | Row 46 with the main model's **LightGBM settings tuned on Jan/Jul CV** ([report](VALIDATION/reports/JAN_JUL_TUNING.md)) | - | - | - | - | **314.1959** | **269.5533** | v44 |
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV is the new
 validation headline**, adopted on 20 September 2026. It uses the existing v3
@@ -114,6 +118,19 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   smaller, so it does not protect against a change whose CV gain fades with model age. The
   ageing readouts did catch it (8 of 10 positive, see row 44), which is the signal to lean on
   when weighted CV and combined CV agree on a small gain.
+- **Jan/Jul CV (rows 42–47 only)** is the average RMSE of two fits: January 2025 held out
+  with March–November training, and July 2025 held out with January–March and
+  September–December training. Each upload's recipe is refitted unchanged at seeds 42, 142
+  and 242, and every held-out flight is scored. It sits **43 s above** the official score,
+  but that gap is the steadiest of the five validations (spread 0.39 s). It also tracks the
+  four upload-to-upload steps best: a mean step error of **0.43 s**, against 0.49 for CV
+  next-month, 0.67 combined, 0.85 weighted and 0.87 longer-gap. It is the only one to size
+  v40's step (−2.34 against −1.95 on the leaderboard). Like every other column it misses
+  v41, though its interval for that step is inconclusive rather than a gain. This rests on
+  four steps. See the [report](VALIDATION/reports/JAN_JUL_VALIDATION.md). Row 47 was then
+  chosen on it: its step from v43 is −3.84 here and **−5.21** on the leaderboard, so it
+  transferred at about 1.4×. This is the first step selected on this validation, out of 22
+  settings tried on the same January and July data.
 - **v1–v3 and v5–v11 have no protocol-v3 CV.** v1–v3 predate the protocol; v3 was
   checked only with the older, non-comparable harness. Its configuration was
   later validated as `baseline-v3` (366.7673 / 334.2027 / 348.9996) and
@@ -194,6 +211,7 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   | v41 minus v40 (taxi occupancy inputs) | **+0.54** | −0.29 |
   | v42 minus v40 (snow and completed-arrival inputs) | **−0.51** | −0.57 |
   | v43 minus v42 (stand-position inputs) | **−0.14** | −0.51 |
+  | v44 minus v43 (main-model settings tuned on Jan/Jul CV) | **−5.21** | - |
 
   The weather and queue gains carried over to the leaderboard in full. Only about
   a third of the Rome hybrid's CV gain did. v41 is the first step in this table whose
@@ -419,6 +437,33 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   that cache and platform difference; on CV the two controls differ by only 0.02 s. The
   manifest is `submission_v43.json` in the run directory. External data still to declare: X-Plane
   Scenery Gateway airport data (GPL v2 or later) and OpenStreetMap (ODbL).
+- **Row 47:** the first hyperparameter search on this model, run with
+  `VALIDATION/tuning_seasonal.py search` on macOS (Apple M3, 535 minutes). Only the ordinary
+  regressor's settings change; inputs, Rome classifier, corrections and rules are row 46's.
+  Twenty random settings plus v43's own were fitted on both Jan/Jul splits at seed 42 with
+  learning rate 0.05 and 2,000 rounds, scored every 200 rounds, and ranked on departures with
+  a flight ID. The best, refitted at learning rate 0.02 for 5,000 rounds, was chosen:
+  127 leaves, 200 flights per leaf, `lambda_l2` 100, `feature_fraction` 0.7, `cat_smooth` 100
+  and `max_cat_threshold` 16 (v43: 255 leaves, `lambda_l2` 0, `feature_fraction` 0.9,
+  `cat_smooth` 10, `max_cat_threshold` 32, learning rate 0.05, 800 rounds). Against v43 at
+  800 rounds on Jan/Jul CV, all flights: −3.90 / −4.11 / −3.91 at seeds 42 / 142 / 242;
+  three-seed **−3.84 [−5.17, −2.93]** (95%, whole days resampled within each fit), January
+  −3.04, July −4.65, flight-ID departures −5.36. Thirteen of the 20 random settings beat
+  v43 at seed 42; all eight with `max_cat_threshold` 16 did. The winner was picked from 22
+  tries on the same data, so the Jan/Jul change is not an independent estimate. The 16-fold
+  confirmation was started and then cancelled on the user's request, and its partial output
+  deleted. Search records: `VALIDATION/runs/v3_20261001_jan_jul/search/` and
+  [result.json](VALIDATION/reports/jan_jul_validation/result.json).
+- **v44 (row 47):** prepared and uploaded 2026-10-01 at 19:52 UTC on macOS by
+  `VALIDATION/tuned_submit.py`, the first upload of that UTC day. One seed-42 refit on all of
+  2025 (tuned regressor 5,000 rounds, 7.3 minutes; 14.0 minutes in all), excluding the same
+  127 rule-covered departures. Before the tuned fit, v43's classifier and 800-round regressor
+  were refitted from the rebuilt inputs and matched v43's saved model files byte for byte, and
+  every ranking input, classifier probability and rule row matched v43's saved ranking frames.
+  The four-hour rule overrides the same 43 rows. Against v43's file, predictions move by
+  37.1 s on average in January and 29.4 s in July (mean signed +1.9 / +0.7 s; correlation
+  0.994 / 0.997). Official score **269.5533** on all 344,841 rows: **−5.2127 against v43**.
+  The manifest is `submission_v44.json` in the run directory.
 - **Row 29:** CV from run `v3_20260918T120331999764Z` on macOS (45.2 minutes).
   Row 28 is the control and was not refitted: its boosters were reloaded from
   row 28's run and reproduced its saved predictions exactly on every fold and seed.

@@ -72,6 +72,23 @@ but identify the result as stale and report its timestamp.
 
 ## Current improvement work — handoff
 
+- **October 1: the Jan/Jul hyperparameter search is done and submitted as v44: LB 269.5533
+  (−5.2127 vs v43), best ever, rank 43/216.** Read the
+  [tuning report](VALIDATION/reports/JAN_JUL_TUNING.md). Only the ordinary regressor's
+  LightGBM settings changed: 127 leaves, `lambda_l2` 100, `feature_fraction` 0.7,
+  `cat_smooth` 100, `max_cat_threshold` 16, learning rate 0.02 × 5,000 rounds. Jan/Jul CV
+  318.0408 → 314.1959 (−3.84 [−5.17, −2.93], three seeds, every seed and both months
+  improve); the leaderboard moved 1.4× that. The winner was picked from 22 tries on the same
+  data. The user cancelled the 16-fold `confirm` stage and had its partial output deleted,
+  so row 47 in `SUBMISSIONS.md` has no 16-fold scores by the user's decision; do not run it
+  unless asked. All eight random settings with `max_cat_threshold` 16 beat v43, a lead for
+  further category tuning. Search trials/predictions: `VALIDATION/runs/v3_20261001_jan_jul/search/`;
+  v44 refit, ranking frames and manifest: `.../submission_v44/` (`VALIDATION/tuned_submit.py`,
+  which first reproduces v43's boosters byte for byte). Do not refit or upload v44 again.
+  The validation itself (two fits, average RMSE, history frozen at each training end) is in
+  the [validation report](VALIDATION/reports/JAN_JUL_VALIDATION.md); its prepared splits and
+  v39–v43 refits are reused by the runner `VALIDATION/tuning_seasonal.py`.
+
 - **September 25: idea 34 (stand coordinates) is submitted as v43: LB 274.7660 (−0.1416 vs v42).**
   Read the [experiment report](VALIDATION/reports/STAND_COORDINATES_EXPERIMENT.md) and
   [map report](VALIDATION/reports/STAND_COORDINATES.md). Three map inputs (stand offset,

@@ -47,3 +47,7 @@ VALIDATION/runs/overnight_*/progress.json
 VALIDATION/runs/overnight_*/progress.json.tmp
 VALIDATION/runs/overnight_*/.lock
 VALIDATION/runs/overnight_*/*.parquet.tmp
+
+# Jan/Jul tuning keeps prepared row-level splits and boosters local; meta.json stays tracked.
+VALIDATION/**/runs/v3_*/splits/*/*.pkl
+VALIDATION/**/runs/v3_*/splits/*/*.txt
