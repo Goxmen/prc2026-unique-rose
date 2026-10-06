@@ -1,0 +1,84 @@
+{
+  "version": 56,
+  "state": "prepared",
+  "file": "submissions/unique-rose_v56.parquet",
+  "sha256": "19e07ff583800badf63fef58cac9742d80d4bb8791bc2ddee4b8b17fd2485aff",
+  "parent": "v54",
+  "change": "Rome classifier R20 + flight-number copy input (arm F)",
+  "jan_jul_cv": {
+    "control": 296.5760611714865,
+    "arm_F": 295.04092194759284,
+    "change": {
+      "change": -1.5369878630563676,
+      "ci95": [
+        -2.4444783914756316,
+        -0.7485036524346681
+      ],
+      "decision": "improvement"
+    }
+  },
+  "reproduction": {
+    "v54": true,
+    "r20_classifier": 0.0
+  },
+  "summary": {
+    "2026-01": {
+      "rows": 152719,
+      "lirf_rows": 11061,
+      "changed": 11046,
+      "mean_change_lirf": 1.2445811242873746,
+      "mean_abs_change_lirf": 12.602099741847102,
+      "max_abs_change": 2331.028581502399,
+      "over_1h": 0,
+      "sum_sq_change": 44033155.766392685,
+      "fn_seen_share": 0.985353946297803,
+      "mean_p": {
+        "v54": 0.2070329225744151,
+        "new": 0.2079839331438476
+      },
+      "correction_masks": {
+        "clock12": 0,
+        "clock2": 0,
+        "day": 1,
+        "rule_band": 12,
+        "rule_confidence": 1,
+        "twins": 5
+      }
+    },
+    "2026-07": {
+      "rows": 192122,
+      "lirf_rows": 15838,
+      "changed": 15808,
+      "mean_change_lirf": 21.753754512726445,
+      "mean_abs_change_lirf": 41.766036183872934,
+      "max_abs_change": 3971.3540225425354,
+      "over_1h": 1,
+      "sum_sq_change": 496092669.6033385,
+      "fn_seen_share": 0.5199520141431999,
+      "mean_p": {
+        "v54": 0.17706150697471876,
+        "new": 0.1952699776815651
+      },
+      "correction_masks": {
+        "clock12": 1,
+        "clock2": 2,
+        "day": 4,
+        "rule_band": 20,
+        "rule_confidence": 0,
+        "twins": 11
+      }
+    }
+  },
+  "flips_over_1h": [
+    {
+      "mvt_id": 213148030.0,
+      "month": "2026-07",
+      "v54": 2167.0392423831613,
+      "new": 6138.393264925697,
+      "p_v54": 0.12322373678736742,
+      "p_new": 0.573211666275355
+    }
+  ],
+  "minutes": 2.033010006183334,
+  "prepared_at": "2026-10-06T11:16:10+00:00"
+}

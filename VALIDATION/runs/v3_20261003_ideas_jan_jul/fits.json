@@ -1,0 +1,664 @@
+{
+  "arrtaxi": {
+    "42": {
+      "2025-01": {
+        "seconds": 808.0988911150016,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0012801427448241233,
+          "sa_prev_taxiin_sec": 0.0007316545478964007,
+          "ra_last_taxiin_sec": 0.0011216048675262236,
+          "ra_last_land_age_sec": 0.0026346964444552553
+        }
+      },
+      "2025-07": {
+        "seconds": 633.0781366690026,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0011208185691602545,
+          "sa_prev_taxiin_sec": 0.0012570182412664495,
+          "ra_last_taxiin_sec": 0.0012728578292865694,
+          "ra_last_land_age_sec": 0.0022722886277184266
+        }
+      }
+    },
+    "142": {
+      "2025-01": {
+        "seconds": 879.1655686800004,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0013104488339017078,
+          "sa_prev_taxiin_sec": 0.0007042646686931369,
+          "ra_last_taxiin_sec": 0.0012007153089290475,
+          "ra_last_land_age_sec": 0.0024799884269552175
+        }
+      },
+      "2025-07": {
+        "seconds": 626.8198379940004,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0011265187554436974,
+          "sa_prev_taxiin_sec": 0.0013155972690369205,
+          "ra_last_taxiin_sec": 0.0012787827977633257,
+          "ra_last_land_age_sec": 0.002236609803443398
+        }
+      }
+    },
+    "242": {
+      "2025-01": {
+        "seconds": 888.4325588479987,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0012694740208861258,
+          "sa_prev_taxiin_sec": 0.0007259723663476504,
+          "ra_last_taxiin_sec": 0.0010947622926911265,
+          "ra_last_land_age_sec": 0.0025029496713713474
+        }
+      },
+      "2025-07": {
+        "seconds": 676.1350913729984,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0011200373821055492,
+          "sa_prev_taxiin_sec": 0.0012518657279535035,
+          "ra_last_taxiin_sec": 0.0013008484732615077,
+          "ra_last_land_age_sec": 0.0022697072717935453
+        }
+      }
+    }
+  },
+  "_source": {
+    "arrtaxi": {
+      "runner": "983f2cad859c654bc52611ba202459f8786bf9de6fa518c5f467024431af1c81",
+      "features": "556f7a0aead83f960094f0e955ee604c4f3698eb611864c2799f7a07c2e38149",
+      "extra_features_code": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67",
+      "columns": [
+        "sa_last_taxiin_sec",
+        "sa_prev_taxiin_sec",
+        "ra_last_taxiin_sec",
+        "ra_last_land_age_sec"
+      ],
+      "rounds": 5000
+    },
+    "peers": {
+      "runner": "983f2cad859c654bc52611ba202459f8786bf9de6fa518c5f467024431af1c81",
+      "features": "556f7a0aead83f960094f0e955ee604c4f3698eb611864c2799f7a07c2e38149",
+      "extra_features_code": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67",
+      "columns": [
+        "pc_apt_mean_pm30",
+        "pc_apt_std_pm30",
+        "pc_apt_n_pm30",
+        "pc_apt_mean_next30",
+        "pc_rwy_mean_pm30",
+        "pc_rwy_n_pm30",
+        "pc_zone_mean_pm60",
+        "pc_zone_n_pm60",
+        "pc_rwy_prev_proxy",
+        "pc_rwy_next_proxy",
+        "pc_own_minus_apt"
+      ],
+      "rounds": 5000
+    },
+    "rwycfg": {
+      "runner": "983f2cad859c654bc52611ba202459f8786bf9de6fa518c5f467024431af1c81",
+      "features": "556f7a0aead83f960094f0e955ee604c4f3698eb611864c2799f7a07c2e38149",
+      "extra_features_code": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67",
+      "columns": [
+        "rc_burst_prev",
+        "rc_burst_next",
+        "rc_rwy_streak_sec",
+        "rc_dep_rwys_60",
+        "rc_arr_rwys_60",
+        "rc_dep_set_60",
+        "rc_arr_set_60"
+      ],
+      "rounds": 5000
+    },
+    "airport": {
+      "runner": "983f2cad859c654bc52611ba202459f8786bf9de6fa518c5f467024431af1c81",
+      "features": "556f7a0aead83f960094f0e955ee604c4f3698eb611864c2799f7a07c2e38149",
+      "extra_features_code": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67",
+      "columns": [],
+      "rounds": 2500
+    },
+    "route": {
+      "runner": "b759b879161b14f0e554492b51488ac3adc6cf88002f9909ff73043215da8017",
+      "features": "556f7a0aead83f960094f0e955ee604c4f3698eb611864c2799f7a07c2e38149",
+      "extra_features_code": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67",
+      "columns": [
+        "rt_path_m",
+        "rt_turn_deg",
+        "rt_ratio"
+      ],
+      "rounds": 5000
+    },
+    "combo": {
+      "runner": "b759b879161b14f0e554492b51488ac3adc6cf88002f9909ff73043215da8017",
+      "features": "556f7a0aead83f960094f0e955ee604c4f3698eb611864c2799f7a07c2e38149",
+      "extra_features_code": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67",
+      "columns": [
+        "sa_last_taxiin_sec",
+        "sa_prev_taxiin_sec",
+        "ra_last_taxiin_sec",
+        "ra_last_land_age_sec",
+        "pc_apt_mean_pm30",
+        "pc_apt_std_pm30",
+        "pc_apt_n_pm30",
+        "pc_apt_mean_next30",
+        "pc_rwy_mean_pm30",
+        "pc_rwy_n_pm30",
+        "pc_zone_mean_pm60",
+        "pc_zone_n_pm60",
+        "pc_rwy_prev_proxy",
+        "pc_rwy_next_proxy",
+        "pc_own_minus_apt",
+        "rc_burst_prev",
+        "rc_burst_next",
+        "rc_rwy_streak_sec",
+        "rc_dep_rwys_60",
+        "rc_arr_rwys_60",
+        "rc_dep_set_60",
+        "rc_arr_set_60"
+      ],
+      "rounds": 5000
+    },
+    "combo_airport": {
+      "runner": "b759b879161b14f0e554492b51488ac3adc6cf88002f9909ff73043215da8017",
+      "features": "556f7a0aead83f960094f0e955ee604c4f3698eb611864c2799f7a07c2e38149",
+      "extra_features_code": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67",
+      "columns": [
+        "sa_last_taxiin_sec",
+        "sa_prev_taxiin_sec",
+        "ra_last_taxiin_sec",
+        "ra_last_land_age_sec",
+        "pc_apt_mean_pm30",
+        "pc_apt_std_pm30",
+        "pc_apt_n_pm30",
+        "pc_apt_mean_next30",
+        "pc_rwy_mean_pm30",
+        "pc_rwy_n_pm30",
+        "pc_zone_mean_pm60",
+        "pc_zone_n_pm60",
+        "pc_rwy_prev_proxy",
+        "pc_rwy_next_proxy",
+        "pc_own_minus_apt",
+        "rc_burst_prev",
+        "rc_burst_next",
+        "rc_rwy_streak_sec",
+        "rc_dep_rwys_60",
+        "rc_arr_rwys_60",
+        "rc_dep_set_60",
+        "rc_arr_set_60"
+      ],
+      "rounds": 2500
+    }
+  },
+  "peers": {
+    "42": {
+      "2025-01": {
+        "seconds": 790.856195843,
+        "gain_share": {
+          "pc_apt_mean_pm30": 0.0024773278921957774,
+          "pc_apt_std_pm30": 0.0014976260283166283,
+          "pc_apt_n_pm30": 0.0009531533823650849,
+          "pc_apt_mean_next30": 0.0018291319619378977,
+          "pc_rwy_mean_pm30": 0.002651979155206451,
+          "pc_rwy_n_pm30": 0.0008873081722646376,
+          "pc_zone_mean_pm60": 0.0010594389467694174,
+          "pc_zone_n_pm60": 0.000502399642636027,
+          "pc_rwy_prev_proxy": 0.0011808825215212759,
+          "pc_rwy_next_proxy": 0.0010424580859606596,
+          "pc_own_minus_apt": 0.008377600525371573
+        }
+      },
+      "2025-07": {
+        "seconds": 759.3185066829974,
+        "gain_share": {
+          "pc_apt_mean_pm30": 0.007720426771064494,
+          "pc_apt_std_pm30": 0.0016459080154431057,
+          "pc_apt_n_pm30": 0.0010861014382431593,
+          "pc_apt_mean_next30": 0.0024622199294642502,
+          "pc_rwy_mean_pm30": 0.011810539594111259,
+          "pc_rwy_n_pm30": 0.0012279114459322381,
+          "pc_zone_mean_pm60": 0.0014059133332861235,
+          "pc_zone_n_pm60": 0.00032293164022729006,
+          "pc_rwy_prev_proxy": 0.0013762575814343558,
+          "pc_rwy_next_proxy": 0.0018890755671411182,
+          "pc_own_minus_apt": 0.007823845712222425
+        }
+      }
+    },
+    "142": {
+      "2025-01": {
+        "seconds": 911.6221470489982,
+        "gain_share": {
+          "pc_apt_mean_pm30": 0.002230558175676464,
+          "pc_apt_std_pm30": 0.001430451508605673,
+          "pc_apt_n_pm30": 0.0009939780807635044,
+          "pc_apt_mean_next30": 0.0019429588974845227,
+          "pc_rwy_mean_pm30": 0.0021070299961066844,
+          "pc_rwy_n_pm30": 0.0008168626603086551,
+          "pc_zone_mean_pm60": 0.0010348630928782958,
+          "pc_zone_n_pm60": 0.0004815621969803151,
+          "pc_rwy_prev_proxy": 0.001162070709341862,
+          "pc_rwy_next_proxy": 0.0010344983001245984,
+          "pc_own_minus_apt": 0.010427067586194116
+        }
+      },
+      "2025-07": {
+        "seconds": 640.7465882469987,
+        "gain_share": {
+          "pc_apt_mean_pm30": 0.006593417696375032,
+          "pc_apt_std_pm30": 0.0017177614395530979,
+          "pc_apt_n_pm30": 0.0011165256454645828,
+          "pc_apt_mean_next30": 0.0025308325221709217,
+          "pc_rwy_mean_pm30": 0.006933226083619276,
+          "pc_rwy_n_pm30": 0.001178360981382576,
+          "pc_zone_mean_pm60": 0.001434272149149683,
+          "pc_zone_n_pm60": 0.0002828092425456763,
+          "pc_rwy_prev_proxy": 0.0014049860617007194,
+          "pc_rwy_next_proxy": 0.0018821273161726334,
+          "pc_own_minus_apt": 0.008741111035452956
+        }
+      }
+    },
+    "242": {
+      "2025-01": {
+        "seconds": 828.156386720002,
+        "gain_share": {
+          "pc_apt_mean_pm30": 0.0023594104447993607,
+          "pc_apt_std_pm30": 0.0014697912197010627,
+          "pc_apt_n_pm30": 0.0009933725404108178,
+          "pc_apt_mean_next30": 0.0018638139387462394,
+          "pc_rwy_mean_pm30": 0.00168766595726256,
+          "pc_rwy_n_pm30": 0.0008402660139111627,
+          "pc_zone_mean_pm60": 0.0009940800239061165,
+          "pc_zone_n_pm60": 0.0004764111026075856,
+          "pc_rwy_prev_proxy": 0.0011339975582853417,
+          "pc_rwy_next_proxy": 0.001061133550109774,
+          "pc_own_minus_apt": 0.010000525695367267
+        }
+      },
+      "2025-07": {
+        "seconds": 699.7081056200004,
+        "gain_share": {
+          "pc_apt_mean_pm30": 0.006349729859453102,
+          "pc_apt_std_pm30": 0.0016328812104636973,
+          "pc_apt_n_pm30": 0.0012404390736119404,
+          "pc_apt_mean_next30": 0.0024637916012284987,
+          "pc_rwy_mean_pm30": 0.004482780797700443,
+          "pc_rwy_n_pm30": 0.0011726539873700742,
+          "pc_zone_mean_pm60": 0.0013420726772898567,
+          "pc_zone_n_pm60": 0.0002908706875656777,
+          "pc_rwy_prev_proxy": 0.0013469837706655678,
+          "pc_rwy_next_proxy": 0.001949749899295002,
+          "pc_own_minus_apt": 0.006135508061442678
+        }
+      }
+    }
+  },
+  "rwycfg": {
+    "42": {
+      "2025-01": {
+        "seconds": 1557.016715001002,
+        "gain_share": {
+          "rc_burst_prev": 0.0001417490316026971,
+          "rc_burst_next": 0.001290344336505903,
+          "rc_rwy_streak_sec": 0.001084402272796055,
+          "rc_dep_rwys_60": 3.1441850692115295e-05,
+          "rc_arr_rwys_60": 3.8503765132650306e-05,
+          "rc_dep_set_60": 0.006462136005720796,
+          "rc_arr_set_60": 0.006205821749256026
+        }
+      },
+      "2025-07": {
+        "seconds": 610.4217673470012,
+        "gain_share": {
+          "rc_burst_prev": 0.00014165088015602646,
+          "rc_burst_next": 0.0007594364414766714,
+          "rc_rwy_streak_sec": 0.0015739806596190113,
+          "rc_dep_rwys_60": 3.7493427327287374e-05,
+          "rc_arr_rwys_60": 2.9248249711757492e-05,
+          "rc_dep_set_60": 0.008335952660769336,
+          "rc_arr_set_60": 0.006846185899856966
+        }
+      }
+    },
+    "142": {
+      "2025-01": {
+        "seconds": 899.3267642200008,
+        "gain_share": {
+          "rc_burst_prev": 0.00015501515973806706,
+          "rc_burst_next": 0.001264499043381937,
+          "rc_rwy_streak_sec": 0.001117721281028795,
+          "rc_dep_rwys_60": 3.611883434607167e-05,
+          "rc_arr_rwys_60": 2.2678495260800146e-05,
+          "rc_dep_set_60": 0.008858772040785185,
+          "rc_arr_set_60": 0.006688826052512383
+        }
+      },
+      "2025-07": {
+        "seconds": 1337.444066696,
+        "gain_share": {
+          "rc_burst_prev": 0.00015016295910118762,
+          "rc_burst_next": 0.0007947650884054617,
+          "rc_rwy_streak_sec": 0.0015628355164868687,
+          "rc_dep_rwys_60": 3.4258346975396104e-05,
+          "rc_arr_rwys_60": 2.6698802065524092e-05,
+          "rc_dep_set_60": 0.008709404045816846,
+          "rc_arr_set_60": 0.007185628011059488
+        }
+      }
+    },
+    "242": {
+      "2025-01": {
+        "seconds": 1532.7038349180002,
+        "gain_share": {
+          "rc_burst_prev": 0.00014919055616076284,
+          "rc_burst_next": 0.001217685766923954,
+          "rc_rwy_streak_sec": 0.0010881109025210015,
+          "rc_dep_rwys_60": 2.8513249283058442e-05,
+          "rc_arr_rwys_60": 4.732007924755563e-05,
+          "rc_dep_set_60": 0.0074338651908038,
+          "rc_arr_set_60": 0.005744645570216598
+        }
+      },
+      "2025-07": {
+        "seconds": 354.9297571520001,
+        "gain_share": {
+          "rc_burst_prev": 0.00016828137243683086,
+          "rc_burst_next": 0.0007003022726127166,
+          "rc_rwy_streak_sec": 0.0016062314905198613,
+          "rc_dep_rwys_60": 3.013498519466194e-05,
+          "rc_arr_rwys_60": 2.2006385703897765e-05,
+          "rc_dep_set_60": 0.008966386097459037,
+          "rc_arr_set_60": 0.006877660517685739
+        }
+      }
+    }
+  },
+  "airport": {
+    "42": {
+      "2025-01": {
+        "seconds": 594.9099480449986,
+        "gain_share": {}
+      },
+      "2025-07": {
+        "seconds": 469.0102195420004,
+        "gain_share": {}
+      }
+    },
+    "142": {
+      "2025-01": {
+        "seconds": 595.9136637330012,
+        "gain_share": {}
+      },
+      "2025-07": {
+        "seconds": 510.03228175500044,
+        "gain_share": {}
+      }
+    },
+    "242": {
+      "2025-01": {
+        "seconds": 706.5680801070012,
+        "gain_share": {}
+      },
+      "2025-07": {
+        "seconds": 538.7620883970012,
+        "gain_share": {}
+      }
+    }
+  },
+  "route": {
+    "42": {
+      "2025-01": {
+        "seconds": 900.9375421219993,
+        "gain_share": {
+          "rt_path_m": 0.011139147845689671,
+          "rt_turn_deg": 0.0025069161498517674,
+          "rt_ratio": 0.000723298739788358
+        }
+      },
+      "2025-07": {
+        "seconds": 922.9104684989943,
+        "gain_share": {
+          "rt_path_m": 0.008107224277524928,
+          "rt_turn_deg": 0.002191586785573726,
+          "rt_ratio": 0.000791954856358715
+        }
+      }
+    },
+    "142": {
+      "2025-01": {
+        "seconds": 1613.253993739003,
+        "gain_share": {
+          "rt_path_m": 0.012351087074116366,
+          "rt_turn_deg": 0.0024863159156641346,
+          "rt_ratio": 0.0007329453029256284
+        }
+      },
+      "2025-07": {
+        "seconds": 628.3818176870045,
+        "gain_share": {
+          "rt_path_m": 0.008988279292529761,
+          "rt_turn_deg": 0.00224404734987578,
+          "rt_ratio": 0.0007726935894079001
+        }
+      }
+    },
+    "242": {
+      "2025-01": {
+        "seconds": 1016.1635221130055,
+        "gain_share": {
+          "rt_path_m": 0.011960550420851089,
+          "rt_turn_deg": 0.0025569082180995927,
+          "rt_ratio": 0.0006927046498403617
+        }
+      },
+      "2025-07": {
+        "seconds": 439.3820665929961,
+        "gain_share": {
+          "rt_path_m": 0.009750448415963016,
+          "rt_turn_deg": 0.0022020043346703874,
+          "rt_ratio": 0.0007898891262950871
+        }
+      }
+    }
+  },
+  "combo": {
+    "42": {
+      "2025-01": {
+        "seconds": 1149.956651878998,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0011592773000975896,
+          "sa_prev_taxiin_sec": 0.0006162527627832403,
+          "ra_last_taxiin_sec": 0.000984051706207293,
+          "ra_last_land_age_sec": 0.0021273321366976016,
+          "pc_apt_mean_pm30": 0.0021969393782450375,
+          "pc_apt_std_pm30": 0.0013675403550124088,
+          "pc_apt_n_pm30": 0.0008057817702665357,
+          "pc_apt_mean_next30": 0.0018544992886282998,
+          "pc_rwy_mean_pm30": 0.002055331792429722,
+          "pc_rwy_n_pm30": 0.0007315944534094166,
+          "pc_zone_mean_pm60": 0.0009063698338543155,
+          "pc_zone_n_pm60": 0.00042623760332613,
+          "pc_rwy_prev_proxy": 0.0010474334271038045,
+          "pc_rwy_next_proxy": 0.000907428597750136,
+          "pc_own_minus_apt": 0.008558295717933075,
+          "rc_burst_prev": 0.0001346674006864306,
+          "rc_burst_next": 0.00120906772999327,
+          "rc_rwy_streak_sec": 0.0008857158756417469,
+          "rc_dep_rwys_60": 4.2610006273476144e-05,
+          "rc_arr_rwys_60": 2.1232455203769416e-05,
+          "rc_dep_set_60": 0.006609604835545662,
+          "rc_arr_set_60": 0.006367869894091272
+        }
+      },
+      "2025-07": {
+        "seconds": 999.9833478820001,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0009449012091395168,
+          "sa_prev_taxiin_sec": 0.001145430084233745,
+          "ra_last_taxiin_sec": 0.001082100825861189,
+          "ra_last_land_age_sec": 0.0019320354243174452,
+          "pc_apt_mean_pm30": 0.006438592001948086,
+          "pc_apt_std_pm30": 0.0015018943246123237,
+          "pc_apt_n_pm30": 0.0009865248825333595,
+          "pc_apt_mean_next30": 0.002275377287959356,
+          "pc_rwy_mean_pm30": 0.008771546858313177,
+          "pc_rwy_n_pm30": 0.0009763672997757473,
+          "pc_zone_mean_pm60": 0.001254966999603071,
+          "pc_zone_n_pm60": 0.000244655861089344,
+          "pc_rwy_prev_proxy": 0.0011827462254204511,
+          "pc_rwy_next_proxy": 0.001620030035500952,
+          "pc_own_minus_apt": 0.007479242491096102,
+          "rc_burst_prev": 0.00013090579759645593,
+          "rc_burst_next": 0.0007332158544143912,
+          "rc_rwy_streak_sec": 0.001285616576491795,
+          "rc_dep_rwys_60": 2.241983861212022e-05,
+          "rc_arr_rwys_60": 2.0542980828906342e-05,
+          "rc_dep_set_60": 0.0070596011724264615,
+          "rc_arr_set_60": 0.006538338467032571
+        }
+      }
+    },
+    "142": {
+      "2025-01": {
+        "seconds": 1149.6214869600008,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0011617325690493078,
+          "sa_prev_taxiin_sec": 0.0006245557123439299,
+          "ra_last_taxiin_sec": 0.001010027254307629,
+          "ra_last_land_age_sec": 0.0021564017886963136,
+          "pc_apt_mean_pm30": 0.002406474371202993,
+          "pc_apt_std_pm30": 0.0014689141366742977,
+          "pc_apt_n_pm30": 0.0008569191376487649,
+          "pc_apt_mean_next30": 0.0016838444859303132,
+          "pc_rwy_mean_pm30": 0.00241893668836125,
+          "pc_rwy_n_pm30": 0.0006890453757208435,
+          "pc_zone_mean_pm60": 0.0008844361133506775,
+          "pc_zone_n_pm60": 0.0004279795161680592,
+          "pc_rwy_prev_proxy": 0.0010408308606352223,
+          "pc_rwy_next_proxy": 0.0009244039702497732,
+          "pc_own_minus_apt": 0.00940385587468495,
+          "rc_burst_prev": 0.00012729839416328773,
+          "rc_burst_next": 0.0012101917828650256,
+          "rc_rwy_streak_sec": 0.0008527989881008114,
+          "rc_dep_rwys_60": 2.9550022706302082e-05,
+          "rc_arr_rwys_60": 1.9024578571123912e-05,
+          "rc_dep_set_60": 0.007042993936542887,
+          "rc_arr_set_60": 0.005387309704560459
+        }
+      },
+      "2025-07": {
+        "seconds": 1583.5660918290014,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0009910188305918986,
+          "sa_prev_taxiin_sec": 0.0011738152232376056,
+          "ra_last_taxiin_sec": 0.0010946023667953327,
+          "ra_last_land_age_sec": 0.0018881904310663455,
+          "pc_apt_mean_pm30": 0.007297429296578246,
+          "pc_apt_std_pm30": 0.0016752098632708187,
+          "pc_apt_n_pm30": 0.0009248505813426773,
+          "pc_apt_mean_next30": 0.0022918321428619173,
+          "pc_rwy_mean_pm30": 0.011322520294890072,
+          "pc_rwy_n_pm30": 0.000928620135496487,
+          "pc_zone_mean_pm60": 0.0012988716471472068,
+          "pc_zone_n_pm60": 0.0002277181850165908,
+          "pc_rwy_prev_proxy": 0.001242697450788282,
+          "pc_rwy_next_proxy": 0.0017155838607272808,
+          "pc_own_minus_apt": 0.008920860131830273,
+          "rc_burst_prev": 0.00015187431248524255,
+          "rc_burst_next": 0.000700651854813152,
+          "rc_rwy_streak_sec": 0.0012688623500791286,
+          "rc_dep_rwys_60": 3.2587924021864433e-05,
+          "rc_arr_rwys_60": 3.0590789870726324e-05,
+          "rc_dep_set_60": 0.008806007240124324,
+          "rc_arr_set_60": 0.007692675523550797
+        }
+      }
+    },
+    "242": {
+      "2025-01": {
+        "seconds": 902.1251585329956,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0011611648089683358,
+          "sa_prev_taxiin_sec": 0.0006258845463157394,
+          "ra_last_taxiin_sec": 0.0009665256576447657,
+          "ra_last_land_age_sec": 0.0021176968915296557,
+          "pc_apt_mean_pm30": 0.0027986695305610917,
+          "pc_apt_std_pm30": 0.0013830044071458,
+          "pc_apt_n_pm30": 0.0008745174597022809,
+          "pc_apt_mean_next30": 0.0017453867247192965,
+          "pc_rwy_mean_pm30": 0.0018178146151012738,
+          "pc_rwy_n_pm30": 0.0007008041911704364,
+          "pc_zone_mean_pm60": 0.0008767340886225284,
+          "pc_zone_n_pm60": 0.0004280002192867785,
+          "pc_rwy_prev_proxy": 0.0010759250508996887,
+          "pc_rwy_next_proxy": 0.00095587726695021,
+          "pc_own_minus_apt": 0.010473532012574054,
+          "rc_burst_prev": 0.00012759931085157313,
+          "rc_burst_next": 0.0012269484133224926,
+          "rc_rwy_streak_sec": 0.0008389741793475874,
+          "rc_dep_rwys_60": 5.4123746166156975e-05,
+          "rc_arr_rwys_60": 2.3280975413540368e-05,
+          "rc_dep_set_60": 0.006783939245622801,
+          "rc_arr_set_60": 0.005501701132824176
+        }
+      },
+      "2025-07": {
+        "seconds": 534.4104382840014,
+        "gain_share": {
+          "sa_last_taxiin_sec": 0.0009875197114408657,
+          "sa_prev_taxiin_sec": 0.0011009952325158323,
+          "ra_last_taxiin_sec": 0.0011628476591889537,
+          "ra_last_land_age_sec": 0.001915028214284187,
+          "pc_apt_mean_pm30": 0.006111819405048784,
+          "pc_apt_std_pm30": 0.0015923503625683876,
+          "pc_apt_n_pm30": 0.0010423115033976606,
+          "pc_apt_mean_next30": 0.002069175453343399,
+          "pc_rwy_mean_pm30": 0.008227773772006338,
+          "pc_rwy_n_pm30": 0.0008826200290980902,
+          "pc_zone_mean_pm60": 0.0013003127728571883,
+          "pc_zone_n_pm60": 0.0002389104945985073,
+          "pc_rwy_prev_proxy": 0.001214332847651813,
+          "pc_rwy_next_proxy": 0.001787895762278891,
+          "pc_own_minus_apt": 0.007858313348870044,
+          "rc_burst_prev": 0.00014661066836967678,
+          "rc_burst_next": 0.0007487257917944056,
+          "rc_rwy_streak_sec": 0.0012673733035196409,
+          "rc_dep_rwys_60": 2.3236513837067587e-05,
+          "rc_arr_rwys_60": 2.4390491554233812e-05,
+          "rc_dep_set_60": 0.007312942734419895,
+          "rc_arr_set_60": 0.0058606895616949185
+        }
+      }
+    }
+  },
+  "combo_airport": {
+    "42": {
+      "2025-01": {
+        "seconds": 894.3517792940038,
+        "gain_share": {}
+      },
+      "2025-07": {
+        "seconds": 659.6228169110036,
+        "gain_share": {}
+      }
+    },
+    "142": {
+      "2025-01": {
+        "seconds": 771.152521475,
+        "gain_share": {}
+      },
+      "2025-07": {
+        "seconds": 697.8477007000038,
+        "gain_share": {}
+      }
+    },
+    "242": {
+      "2025-01": {
+        "seconds": 433.98399611800414,
+        "gain_share": {}
+      },
+      "2025-07": {
+        "seconds": 295.0296533129949,
+        "gain_share": {}
+      }
+    }
+  }
+}

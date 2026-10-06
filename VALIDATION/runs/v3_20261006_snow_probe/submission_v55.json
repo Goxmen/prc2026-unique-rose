@@ -1,0 +1,51 @@
+{
+ "parent": {
+  "file": "unique-rose_v54.parquet",
+  "sha256": "367d4d19f365c497e7a408713513a4813a633e02d5f7f658233f68a53d77970e",
+  "lb": 236.3328
+ },
+ "share": 0.5,
+ "airports": {
+  "EDDF": {
+   "snow_days_2025_winter": 12,
+   "snow_days_2026_jan": 12,
+   "up_2025_real": 16.185526523457725,
+   "up_2026_v54": 158.4441127324546,
+   "extra": 142.2585862089969,
+   "shift_sec": 71.12929310449844,
+   "rows": 5887
+  },
+  "LFPG": {
+   "snow_days_2025_winter": 10,
+   "snow_days_2026_jan": 3,
+   "up_2025_real": 22.41168009409212,
+   "up_2026_v54": 83.30870456429975,
+   "extra": 60.897024470207626,
+   "shift_sec": 30.448512235103813,
+   "rows": 1599
+  },
+  "LEMD": {
+   "snow_days_2025_winter": 2,
+   "snow_days_2026_jan": 2,
+   "up_2025_real": 5.175399300107806,
+   "up_2026_v54": 80.5510082909243,
+   "extra": 75.37560899081649,
+   "shift_sec": 37.687804495408244,
+   "rows": 1016
+  }
+ },
+ "n_total": 344841,
+ "file": "unique-rose_v55.parquet",
+ "sha256": "9c83f49fe7573c3b1845d8e00f7950e6ff6f0e7b7037d4806a1bd0bfb4347bdf",
+ "changed_rows": 8502,
+ "sum_sq_change": 32708980.0,
+ "mean_change": -59.48082804046107,
+ "solve": {
+  "note": "k = (sum_A n_A d_A^2 - N dMSE) / (2 sum_A n_A d_A extra_A); best shift = k * extra_A",
+  "sum_n_d2": 32710096.960371,
+  "sum_n_d_extra": 65420193.920742
+ },
+ "state": "scored",
+ "lb": 236.5586,
+ "k": -0.031424839204804135
+}

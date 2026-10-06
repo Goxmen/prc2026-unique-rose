@@ -1,0 +1,86 @@
+{
+ "version": 56,
+ "state": "scored",
+ "file": "submissions/unique-rose_v56.parquet",
+ "sha256": "bf1bf32eb31bf9b57f330393dde19ed97352173d6d9b82dff5c232f6fc0e93a9",
+ "parent": "v54",
+ "change": "Rome classifier R20 + flight-number copy input (arm F); unseen flight numbers keep v54",
+ "fallback_unseen": true,
+ "jan_jul_cv": {
+  "control": 296.5760611714865,
+  "arm_F": 295.04092194759284,
+  "change": {
+   "change": -1.5369878630563676,
+   "ci95": [
+    -2.4444783914756316,
+    -0.7485036524346681
+   ],
+   "decision": "improvement"
+  }
+ },
+ "reproduction": {
+  "v54": true,
+  "r20_classifier": 0.0
+ },
+ "summary": {
+  "2026-01": {
+   "rows": 152719,
+   "lirf_rows": 11061,
+   "changed": 10890,
+   "mean_change_lirf": -0.2883083775393493,
+   "mean_abs_change_lirf": 10.700916886969132,
+   "max_abs_change": 2331.028581502399,
+   "over_1h": 0,
+   "sum_sq_change": 26129630.045823127,
+   "fn_seen_share": 0.985353946297803,
+   "mean_p": {
+    "v54": 0.2070329225744151,
+    "new": 0.20740640750146616
+   },
+   "correction_masks": {
+    "clock12": 0,
+    "clock2": 0,
+    "day": 1,
+    "rule_band": 12,
+    "rule_confidence": 1,
+    "twins": 5
+   }
+  },
+  "2026-07": {
+   "rows": 192122,
+   "lirf_rows": 15838,
+   "changed": 8224,
+   "mean_change_lirf": -0.9259802767332144,
+   "mean_abs_change_lirf": 7.1417024560814255,
+   "max_abs_change": 2263.7103659475197,
+   "over_1h": 0,
+   "sum_sq_change": 34434818.1701367,
+   "fn_seen_share": 0.5199520141431999,
+   "mean_p": {
+    "v54": 0.17706150697471876,
+    "new": 0.17726539133285102
+   },
+   "correction_masks": {
+    "clock12": 1,
+    "clock2": 2,
+    "day": 4,
+    "rule_band": 20,
+    "rule_confidence": 0,
+    "twins": 11
+   }
+  }
+ },
+ "flips_over_1h": [],
+ "minutes": 1.9789347555333279,
+ "prepared_at": "2026-10-06T11:27:25+00:00",
+ "lb": 236.5988,
+ "jan_jul_cv_on_c5": {
+  "c5": 295.3603,
+  "v56": 294.5503,
+  "change": -0.81,
+  "ci95": [
+   -1.46,
+   -0.21
+  ]
+ }
+}

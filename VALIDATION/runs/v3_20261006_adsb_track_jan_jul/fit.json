@@ -1,0 +1,69 @@
+{
+  "settings": {
+    "num_leaves": 127,
+    "min_data_in_leaf": 200,
+    "lambda_l2": 100.0,
+    "feature_fraction": 0.7,
+    "bagging_fraction": 0.8,
+    "path_smooth": 0.0,
+    "cat_smooth": 100.0,
+    "cat_l2": 10.0,
+    "min_data_per_group": 100,
+    "max_cat_threshold": 8
+  },
+  "learning_rate": 0.02,
+  "rounds": 10000,
+  "seed": 42,
+  "features": [
+    "ab_path_m",
+    "ab_straight_m",
+    "ab_max_gs",
+    "ab_moving_share",
+    "ab_stop_sec",
+    "ab_turn_deg",
+    "ab_first_bearing",
+    "ab_first_x_m",
+    "ab_first_y_m",
+    "ab_last_rwy_m"
+  ],
+  "months": {
+    "2025-01": {
+      "minutes": 11.088219381700007,
+      "held_out_seen": {
+        "ab_path_m": 0.428,
+        "ab_max_gs": 0.38
+      },
+      "gain_share": {
+        "ab_path_m": 0.0008539353129079857,
+        "ab_straight_m": 0.0004895051097764501,
+        "ab_max_gs": 0.0019216986305731524,
+        "ab_moving_share": 0.0015429594126353575,
+        "ab_stop_sec": 0.00043092909823797123,
+        "ab_turn_deg": 0.0004058323037252428,
+        "ab_first_bearing": 0.0009042045214090024,
+        "ab_first_x_m": 0.0007310696114224458,
+        "ab_first_y_m": 0.0008251149621249717,
+        "ab_last_rwy_m": 0.0003561861104779269
+      }
+    },
+    "2025-07": {
+      "minutes": 10.016399322066627,
+      "held_out_seen": {
+        "ab_path_m": 0.542,
+        "ab_max_gs": 0.52
+      },
+      "gain_share": {
+        "ab_path_m": 0.0005256680081985852,
+        "ab_straight_m": 0.00038485291218961094,
+        "ab_max_gs": 0.0017656772024448421,
+        "ab_moving_share": 0.001253528775561885,
+        "ab_stop_sec": 0.0003060313564808777,
+        "ab_turn_deg": 0.0002555157221077949,
+        "ab_first_bearing": 0.0002703722369977057,
+        "ab_first_x_m": 0.00038289147836730286,
+        "ab_first_y_m": 0.0006131250944862484,
+        "ab_last_rwy_m": 0.00021654177154769425
+      }
+    }
+  }
+}

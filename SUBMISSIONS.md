@@ -6,13 +6,13 @@ Best verified Weighted CV: **v42 at 263.5929 s**
 ([validation report](VALIDATION/reports/OPDI_DISRUPTION_EXPERIMENT.md)). The six uploads before
 it — v34, v37, v38, v39, v40 and v41 — are scored on it too
 ([report](VALIDATION/reports/WEIGHTED_CV_RECENT.md)). Row 46 (stand coordinates, v43)
-scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 47–50 (v44–v47)
+scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 47–54 (v44–v51)
 were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are `-`.
 On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
-**Best and latest submission: v47, 245.3758 s**, improving v46 by **3.3366 s**.
-Live check **2026-10-02 20:34 UTC**: rank **26/221** scoring teams; all **344,841** flights scored.
-[Submission record](VALIDATION/runs/v3_20261002_nn_submit/submission_v47/submission_v47.json).
+**Best submission: v58, 236.1895 s**, improving v54 by **0.1433 s** and v51 by **2.0875 s**. Latest: v58.
+Live check **2026-10-06 14:05 UTC**: rank **22/232** scoring teams; all **344,841** flights scored.
+[Submission record](VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/submission_v54.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -37,7 +37,10 @@ row 46's inputs and retunes its main model's LightGBM settings; it was uploaded 
 Row 48 adds 14 inputs from ADSB.lol's open ADS-B heatmaps to row 47 and was uploaded as
 **v45**. Row 49 adds 8 stand-exit inputs from the same positions and the public stand map to
 row 48 and was uploaded as **v46**. Row 50 blends row 49's ordinary regressor with a neural
-network on the same inputs and was uploaded as **v47**, which is the best submission.
+network on the same inputs and was uploaded as **v47**. Row 51 improves that network and was
+uploaded as **v49**; row 52 gives row 51's network a larger blend weight and was uploaded as
+**v48**. Row 53 pools 15 of row 52's networks and was uploaded as **v50**. Row 54 adds other
+teams' ideas to row 53 and was uploaded as **v51**, which is the best submission. Row 55 adds an Istanbul snow correction to row 54's predictions, with no refit, and was uploaded as v52; it scored 2.60 s worse. It changes no January/July 2025 flight, so its Jan/Jul CV is row 54's. Row 56 changes only row 54's Rome classifier settings and was uploaded as **v53**, which scored better than v51; one Rome flight in it was held at v51's prediction (see the notes). Row 57 gives every part of row 54 its searched settings and was uploaded as **v54**, which is now the best submission. Rows 58 and 59 are two leaderboard tests on v54, each changing a different group of flights: row 58 lowers snow-day predictions at three airports (v55) and row 59 gives the Rome classifier a flight-number input (v56). Both scored worse than v54. Row 60 lowers the networks' share in row 57's blend (v57); it also scored worse. Row 61 raises the share to 0.71, the value v54's and v57's scores point to, and was uploaded as **v58**, which is now the best submission.
 
 ## Codenames and recipes
 
@@ -98,6 +101,17 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 48 | **ADSB.lol** | Row 47 + **14 inputs from ADSB.lol ADS-B heatmaps** (ordinary regressor only) ([result](VALIDATION/runs/v3_20261002_adsblol_jan_jul/result.json)) | - | - | - | - | **306.9405** | **254.9163** | v45 |
 | 49 | **ADSB.lol-stand** | Row 48 + **8 stand-exit inputs** from the ADS-B positions and the public stand map (ordinary regressor only) ([result](VALIDATION/runs/v3_20261002_adsblol_jan_jul/result_stand_3seed.json)) | - | - | - | - | **303.7536** | **248.7124** | v46 |
 | 50 | **NN-blend** | Row 49 with its ordinary regressor **blended 0.7/0.3 with a neural network** on the same inputs ([result](VALIDATION/runs/v3_20261002_nn_v46_jan_jul/score_3seed.json)) | - | - | - | - | **302.3701** | **245.3758** | v47 |
+| 51 | **NN-PLE** | Row 50 with an **improved network**: piecewise-linear input embeddings, stopping on the last training month, five seeds averaged ([report](VALIDATION/reports/NN_IMPROVE_JAN_JUL.md)) | - | - | - | - | **300.8628** | **242.9764** | v49 |
+| 52 | **NN-PLE-0.6** | Row 51 **blended 0.6 network / 0.4 LightGBM** instead of 0.3/0.7 ([report](VALIDATION/reports/NN_IMPROVE_JAN_JUL.md)) | - | - | - | - | **300.0652** | **239.7731** | v48 |
+| 53 | **NN-PLE15** | Row 52 with **15 networks pooled** instead of 5 ([report](VALIDATION/reports/IDEAS_JAN_JUL.md)) | - | - | - | - | **299.5479** | **239.0108** | v50 |
+| 54 | **Ideas-C4** | Row 53 with **other teams' ideas**: 22 new inputs in both models, and LightGBM averaged with per-airport LightGBMs and CatBoost ([report](VALIDATION/reports/IDEAS_JAN_JUL.md)) | - | - | - | - | **298.2138** | **238.2770** | v51 |
+| 55 | **Snow-addon** | Row 54 with **minutes added to Istanbul flights after recent snow**, sized by other departures' clocks and learned on held-out February 2025 ([record](VALIDATION/runs/v3_20261005_feb_snow_check/submission_v52.json)) | - | - | - | - | 298.2138 | 240.8758 | v52 |
+| 56 | **Rome-HPO** | Row 54 with the **Rome classifier's settings from a search** (127 leaves, 1,700 rounds at learning rate 0.02); one flight held at v51's value, see below ([record](VALIDATION/runs/v3_20261005_rome_hpo_submit/submission_v53/submission_v53.json)) | - | - | - | - | **295.8929** | **237.7683** | v53 |
+| 57 | **HPO-all** | Row 54 with **every part's settings from the search** (Rome classifier, CatBoost, both LightGBMs, networks), refitted on 2025, no flight held ([report](VALIDATION/reports/HPO_JAN_JUL.md)) | - | - | - | - | **295.3603** | **236.3328** | v54 |
+| 58 | **Snow-offset** | Row 57 with **January snow-day predictions at EDDF, LFPG and LEMD lowered** by half their extra gap above the clock ([record](VALIDATION/runs/v3_20261006_snow_probe/submission_v55.json)) | - | - | - | - | 295.3603 | 236.5586 | v55 |
+| 59 | **Rome-flight-number** | Row 57 with the **Rome classifier given each flight number's 2025 copy share** ([report](VALIDATION/reports/ROME_COST_JAN_JUL.md)) | - | - | - | - | 294.5503 | 236.5988 | v56 |
+| 60 | **Network-share-0.45** | Row 57 with the **networks' blend share lowered from 0.6 to 0.45** ([record](VALIDATION/runs/v3_20261006_blend_weight_submit/submission_v57/submission_v57.json)) | - | - | - | - | 295.1427 | 236.9652 | v57 |
+| 61 | **Network-share-0.71** | Row 57 with the **networks' blend share raised from 0.6 to 0.71** ([record](VALIDATION/runs/v3_20261006_blend_weight_submit/submission_v58/submission_v58.json)) | - | - | - | - | 295.7414 | **236.1895** | v58 |
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV is the new
 validation headline**, adopted on 20 September 2026. It uses the existing v3
@@ -125,6 +139,12 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   smaller, so it does not protect against a change whose CV gain fades with model age. The
   ageing readouts did catch it (8 of 10 positive, see row 44), which is the signal to lean on
   when weighted CV and combined CV agree on a small gain.
+- **Row 56 (v53) holds one flight at v51's value.** ITA flight ITY108 (movement 202681908, January 2026, no flight ID, 4.95 h after schedule) gets a substitution probability of 3% from the new classifier, below the 5% at which the rule-confidence correction swaps the four-hour rule's 17,816 s for an ordinary taxi (1,585 s). That one flight could move the score by about 1.6 s either way, so it was kept at v51's 17,816 s and the upload measures the classifier change on the other 25,830 changed Rome flights. This is a leaderboard test, not a recipe. The settings come from trial R20 of the Jan/Jul search (`VALIDATION/hpo_jan_jul.py`), chosen with its round count on the same two months it is scored on; the CV gain (−2.32, nearly all July) transferred at about 0.22× (−0.51). Script: `VALIDATION/rome_hpo_submit.py --version 53 --hold-v51 202681908`.
+- **Row 57 (v54)** uses each part's winner from the Jan/Jul search: Rome classifier R20, CatBoost K07 (learning rate 0.1, 70% row sampling, 10,000 rounds), main LightGBM LB1 (`max_cat_threshold` 8, 10,000 rounds), per-airport LightGBMs P04 (63 leaves, ≥50 rows per leaf, `lambda_l2` 10, 5,000 rounds) and networks N09 (batch 2,048). Jan/Jul CV −2.85 [−5.51, −0.95] against row 54; the leaderboard moved −1.94 (about 0.68×), −1.44 of it after v53. The network change alone was noise on CV (−0.05). ITY108 is not held (1,585 s). Script: `VALIDATION/hpo_submit.py`; record in `VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/`.
+- **Row 58 (v55)** is a one-group leaderboard test with no refit (`VALIDATION/snow_offset_probe.py`). On January 2026 snow days, v54's predictions sat further above the AOBT_3 clock than on dry days by much more than real taxi-outs did on 2025 winter snow days: EDDF +142 s, LFPG +61 s, LEMD +75 s beyond 2025's gap. The file lowers those 8,502 flights by half of that (EDDF 71 s, LFPG 30 s, LEMD 38 s; mean −59.5 s). The score got 0.23 s worse. Solving the leaderboard change for v54's average error on these flights gives k ≈ −0.03 of the extra (shift +4 s at EDDF): v54's snow-day predictions are about right on average, and January 2026 snow days were simply slower. It changes no January/July 2025 flight, so its Jan/Jul CV is row 57's.
+- **Row 59 (v56)** refits only the Rome classifier (R20 settings, 1,700 rounds) with two more inputs: the share of the flight number's 2025 LIRF departures whose label equals takeoff minus schedule (other months only for training rows, pulled toward the overall share with weight 10) and their count. Flight numbers unseen in 2025 keep v54's probability: 48% of LIRF departures in July 2026 (2–3% in the practice months). On C4's parts the input scored −1.54 [−2.44, −0.75] (three seeds); on v54's recipe (Jan/Jul CV row 57's composition, classifier seed 42) −0.81 [−1.46, −0.21]. The leaderboard moved +0.27: the second Rome-classifier change in a row whose CV gain did not transfer as expected (v53: 0.22×). Cost-weighted training of the classifier failed on CV (+1.37) and was not uploaded. Script: `VALIDATION/rome_fn_submit.py --version 56`; runner `VALIDATION/rome_cost_jan_jul.py`.
+- **Row 60 (v57)** recombines v54's saved network and tree parts with network share 0.45 instead of 0.6, then applies v54's Rome probabilities, corrections and rules; no refit (`VALIDATION/blend_weight_submit.py --version 57 --w-nn 0.45`). The share was read off a Jan/Jul grid on the same two months it is scored on (0.45: −0.22 [−0.34, −0.09], both months, every seed). The leaderboard moved +0.63. A lower network share also lost on the leaderboard at v49 (0.3 against v48's 0.6, +3.20). Because the final step is nearly linear in the share, the two scores give the leaderboard's preferred share directly: about 0.71, predicted 236.20 (−0.14 against v54); uploaded as v58 (row 61).
+- **Row 61 (v58)** is row 60's recombination with network share 0.71 (`VALIDATION/blend_weight_submit.py --version 58 --w-nn 0.71`); no refit. The share comes from the leaderboard scores of v54 (0.6) and v57 (0.45), not from CV: Jan/Jul CV puts 0.71 at +0.38 against 0.6 (three seeds). The leaderboard moved −0.1433, as predicted (−0.14). The change from v54 is −0.731 times v57's change (correlation −0.996), as the share steps imply. The leaderboard has preferred a larger network share than Jan/Jul CV every time it was tested (v49, v57, v58).
 - **Jan/Jul CV (rows 42–49 only)** is the average RMSE of two fits: January 2025 held out
   with March–November training, and July 2025 held out with January–March and
   September–December training. Each upload's recipe is refitted unchanged at seeds 42, 142
@@ -143,7 +163,12 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   one other variant (a daily coverage input, no gain) tried at seed 42. Row 50's step from row 49
   is −1.38 here and **−3.34** on the leaderboard, about 2.4×; its network design was first
   tried once on row 48's inputs on the same months, and the blend weight was fixed before row 50
-  was scored.
+  was scored. Row 51's step from row 50 is −1.51 here and **−2.40** on the leaderboard, about
+  1.6×; it was chosen over two other network changes tried on the same months. Row 52's step
+  from row 51 is −0.80 here and **−3.20** on the leaderboard, about 4×; its weight was read off
+  the same two months (see the row 51–52 note). Row 53's step from row 52 is −0.43 here and
+  **−0.76** on the leaderboard, about 1.8×. Row 54's step from row 53 is −1.33 here and **−0.73**
+  on the leaderboard, about 0.55×; it combines seven changes that each passed on the same months.
 - **v1–v3 and v5–v11 have no protocol-v3 CV.** v1–v3 predate the protocol; v3 was
   checked only with the older, non-comparable harness. Its configuration was
   later validated as `baseline-v3` (366.7673 / 334.2027 / 348.9996) and
@@ -228,6 +253,10 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   | v45 minus v44 (ADSB.lol heatmap inputs) | **−14.64** | - |
   | v46 minus v45 (ADS-B stand-exit inputs) | **−6.20** | - |
   | v47 minus v46 (neural-network blend) | **−3.34** | - |
+  | v49 minus v47 (improved network) | **−2.40** | - |
+  | v48 minus v49 (blend weight 0.6) | **−3.20** | - |
+  | v50 minus v48 (15 networks pooled) | **−0.76** | - |
+  | v51 minus v50 (other teams' ideas) | **−0.73** | - |
 
   The weather and queue gains carried over to the leaderboard in full. Only about
   a third of the Rome hybrid's CV gain did. v41 is the first step in this table whose
@@ -549,6 +578,48 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
   repeatable, so the network's ranking predictions are kept in the run directory. Official
   score **245.3758** on all 344,841 rows: **−3.3366 against v46**. The manifest is
   `submission_v47.json` in the run directory.
+- **Rows 51–52:** Jan/Jul CV from `VALIDATION/nn_improve_jan_jul.py` and
+  `VALIDATION/tools/score_nn_improve_jan_jul.py` on the WSL desktop (RTX 3080). Row 51's network
+  turns each rank-transformed numeric input into a piecewise-linear embedding (48 quantile bins,
+  16 dimensions; Gorishniy et al. 2022), keeps row 50's clipped linear copies, missing flags and
+  categorical embeddings, and stops at the epoch (of a 24-epoch schedule) that is best on the
+  last training month; five networks are averaged. Change against row 50 **−1.51 [−2.27, −1.08]**;
+  every seed improves; a single network gives −0.96. It was chosen by a rule fixed in advance
+  over two other changes tried on the same months: five seeds of row 50's network (−0.24) and
+  TabM (−0.70, +0.81 worse than row 51). Row 52's cell blends each month at the other month's
+  best weight (0.55 for January, 0.65 for July): −0.80 [−1.35, −0.43] against row 51. At 0.6 in
+  both months it scores 299.979, but that weight was read off both months.
+- **v48 (row 52) and v49 (row 51):** prepared and uploaded 2026-10-03 at 13:02 and 13:14 UTC on
+  the WSL desktop by `VALIDATION/nn_improve_submit.py` (10.9 / 11.5 minutes), the first two
+  uploads of that UTC day. Both reuse v46's full-year ordinary regressor and classifier, which
+  reproduce v46's ranking predictions exactly. Each fits five networks (seeds 42, 1042, …, 4042)
+  on v46's 2,051,327 full-year rows, stopped at the epoch best on December 2025 after training
+  on January–November: 15 for v48, 17 for v49. GPU training is not repeatable, so the two
+  uploads' networks differ. Same correction rows and 43 rule rows as v46. Against v47's file,
+  predictions move by 25.2 / 19.9 s on average in January / July for v48 and 15.3 / 12.3 s for
+  v49. Official scores **239.7731** (v48) and **242.9764** (v49) on all 344,841 rows: −5.6027
+  and −2.3994 against v47. Manifests are in `VALIDATION/runs/v3_20261003_nn_improve_submit/`.
+- **Rows 53–54:** Jan/Jul CV from `VALIDATION/tools/score_candidates_jan_jul.py` on saved predictions
+  of runs `v3_20261003_nn_improve_jan_jul` and `v3_20261003_ideas_jan_jul`, the base model blended
+  0.6 network / 0.4 boosted trees as in row 52. Row 53 pools the fifteen `ple` networks of the three
+  seed groups: −0.43 [−0.60, −0.36] against row 52. Row 54's 22 inputs are other departures'
+  AOBT_3 clocks around takeoff, taxi-in of earlier arrivals at the stand and on the runway, and the
+  runway sets in use with takeoff bursts (`VALIDATION/extra_features.py`; movement fields only,
+  never departure labels). They enter the networks and a LightGBM; that LightGBM is averaged
+  equally with one LightGBM per airport on the same inputs and a GPU CatBoost on row 52's inputs.
+  Row 54 versus row 52: −1.77 [−2.40, −1.42], every seed improves. Each of the seven changes
+  passed alone on the same months (CatBoost −0.65, per-airport −0.42, the inputs −0.09 to −0.17),
+  chosen from nine tried, so the combination is not independent confirmation. See the report.
+- **v50 (row 53) and v51 (row 54):** prepared and uploaded 2026-10-03 at 20:27 and 22:22 UTC on
+  the WSL desktop by `VALIDATION/ideas_submit.py` (one fitting process at a time; a power loss
+  during v51's first network fit was recovered by refitting that part only, after integrity
+  checks). Both reuse v46's full-year Rome classifier, corrections and rule; v50 also reuses v46's
+  full-year LightGBM, which reproduces v46's ranking predictions exactly. Networks: three seed
+  groups of five, epochs chosen on December 2025; v51's CatBoost stopped at 9,996 iterations chosen
+  on December. Same correction rows and 43 rule rows as v46. Against v48's file, predictions move
+  by 11.5 / 9.0 s on average in January / July for v50 and 21.2 / 16.9 s for v51. Official scores
+  **239.0108** (v50) and **238.2770** (v51) on all 344,841 rows: −0.7623 and −1.4961 against v48.
+  Manifests are in `VALIDATION/runs/v3_20261003_ideas_submit/`.
 - **Row 29:** CV from run `v3_20260918T120331999764Z` on macOS (45.2 minutes).
   Row 28 is the control and was not refitted: its boosters were reloaded from
   row 28's run and reproduced its saved predictions exactly on every fold and seed.

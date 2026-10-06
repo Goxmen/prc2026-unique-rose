@@ -1,0 +1,22 @@
+{
+  "rounds": 2500,
+  "settings": {
+    "num_leaves": 127,
+    "min_data_in_leaf": 200,
+    "lambda_l2": 100.0,
+    "feature_fraction": 0.7,
+    "bagging_fraction": 0.8,
+    "path_smooth": 0.0,
+    "cat_smooth": 100.0,
+    "cat_l2": 10.0,
+    "min_data_per_group": 100,
+    "max_cat_threshold": 16
+  },
+  "seed": 42,
+  "minutes": 5.179249562683329,
+  "finished_at": "2026-10-03T21:24:07+00:00",
+  "device": "cpu",
+  "artifacts": {
+    "parts/lgb_combo_airport.parquet": "b0af4a3db28a99a2dc7258fefce20929d3415944504619b28309087a1564603a"
+  }
+}

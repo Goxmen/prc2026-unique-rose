@@ -1,0 +1,99 @@
+[12:50:11] rome: {'trial': 'R00', 'checkpoint': 'c300', 'gain': 0.0, 'cv': 298.2257898413724, 'control': 298.2257898413724, 'confirmed': True}
+[12:50:11] nn: {'trial': 'N01', 'checkpoint': None, 'gain': -3.765799704013091, 'cv': 305.13588660413456, 'control': 301.37008690012146, 'confirmed': True}
+[12:50:11] catboost: {'trial': 'K00', 'checkpoint': 'c500', 'gain': -0.8270030005243143, 'cv': 299.0527928418967, 'control': 298.2257898413724, 'confirmed': True}
+[12:50:11] lgb: {'trial': 'L00', 'checkpoint': 'c300', 'gain': -0.3894130567744014, 'cv': 298.6152028981468, 'control': 298.2257898413724, 'confirmed': True}
+[12:50:11] airport: {'trial': 'P00', 'checkpoint': 'c300', 'gain': -0.5558436367591639, 'cv': 298.78163347813154, 'control': 298.2257898413724, 'confirmed': True}
+Loaded 2,085,047 departures / 2,082,750 arrivals.
+/home/gunes/PRC/VALIDATION/nn_improve_jan_jul.py:242: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  total += float(loss) * len(b)
+[12:52:03]     epoch 1: train 0.3600, monitored RMSE 190.65 (4s)
+[12:52:07]     epoch 2: train 0.2432, monitored RMSE 181.39 (3s)
+[12:52:10]     epoch 1: train 0.3519, monitored RMSE 467.94 (3s)
+[12:52:14]     epoch 2: train 0.2384, monitored RMSE 459.99 (4s)
+[12:52:18]     epoch 1: train 0.3502, monitored RMSE 466.15 (4s)
+[12:52:22]     epoch 2: train 0.2363, monitored RMSE 459.72 (3s)
+[12:52:22] nn N01_k34 s42 2025-01: stop 2, inner 181.39, 0.4 min
+[12:53:09]     epoch 1: train 0.3634, monitored RMSE 199.84 (3s)
+[12:53:12]     epoch 2: train 0.2237, monitored RMSE 177.93 (2s)
+[12:53:14]     epoch 1: train 0.3464, monitored RMSE 638.40 (2s)
+[12:53:17]     epoch 2: train 0.2141, monitored RMSE 632.96 (3s)
+[12:53:20]     epoch 1: train 0.3453, monitored RMSE 637.39 (3s)
+[12:53:23]     epoch 2: train 0.2140, monitored RMSE 630.97 (3s)
+[12:53:23] nn N01_k34 s42 2025-07: stop 2, inner 177.93, 0.3 min
+Loaded 2,085,047 departures / 2,082,750 arrivals.
+[12:55:13]     epoch 1: train 0.3594, monitored RMSE 191.71 (3s)
+[12:55:16]     epoch 2: train 0.2447, monitored RMSE 179.42 (3s)
+[12:55:20]     epoch 1: train 0.3498, monitored RMSE 464.73 (3s)
+[12:55:23]     epoch 2: train 0.2376, monitored RMSE 457.37 (4s)
+[12:55:27]     epoch 1: train 0.3515, monitored RMSE 466.84 (3s)
+[12:55:29]     epoch 2: train 0.2379, monitored RMSE 460.62 (4s)
+[12:55:32]     epoch 1: train 0.3488, monitored RMSE 464.73 (3s)
+[12:55:36]     epoch 2: train 0.2361, monitored RMSE 460.41 (4s)
+[12:55:39]     epoch 1: train 0.3518, monitored RMSE 466.03 (4s)
+[12:55:43]     epoch 2: train 0.2381, monitored RMSE 459.97 (4s)
+[12:55:47]     epoch 1: train 0.3517, monitored RMSE 462.60 (4s)
+[12:55:50]     epoch 2: train 0.2360, monitored RMSE 458.88 (3s)
+[12:55:50] nn N01 s142 2025-01: stop 2, inner 179.42, 0.7 min
+[12:55:53]     epoch 1: train 0.3594, monitored RMSE 187.08 (3s)
+[12:55:56]     epoch 2: train 0.2442, monitored RMSE 179.89 (3s)
+[12:55:58]     epoch 1: train 0.3492, monitored RMSE 472.26 (4s)
+[12:56:01]     epoch 2: train 0.2372, monitored RMSE 460.62 (3s)
+[12:56:05]     epoch 1: train 0.3512, monitored RMSE 468.17 (4s)
+[12:56:09]     epoch 2: train 0.2379, monitored RMSE 460.35 (3s)
+[12:56:13]     epoch 1: train 0.3495, monitored RMSE 465.39 (4s)
+[12:56:17]     epoch 2: train 0.2388, monitored RMSE 459.37 (4s)
+[12:56:20]     epoch 1: train 0.3493, monitored RMSE 466.88 (3s)
+[12:56:24]     epoch 2: train 0.2369, monitored RMSE 460.53 (3s)
+[12:56:27]     epoch 1: train 0.3491, monitored RMSE 468.55 (3s)
+[12:56:29]     epoch 2: train 0.2361, monitored RMSE 459.44 (4s)
+[12:56:29] nn N01 s242 2025-01: stop 2, inner 179.89, 0.7 min
+[12:57:19]     epoch 1: train 0.3626, monitored RMSE 185.42 (3s)
+[12:57:21]     epoch 2: train 0.2242, monitored RMSE 177.00 (2s)
+[12:57:24]     epoch 1: train 0.3468, monitored RMSE 636.68 (3s)
+[12:57:27]     epoch 2: train 0.2158, monitored RMSE 632.96 (3s)
+[12:57:28]     epoch 1: train 0.3465, monitored RMSE 641.02 (3s)
+[12:57:30]     epoch 2: train 0.2158, monitored RMSE 632.91 (2s)
+[12:57:33]     epoch 1: train 0.3441, monitored RMSE 639.50 (3s)
+[12:57:35]     epoch 2: train 0.2147, monitored RMSE 633.29 (3s)
+[12:57:38]     epoch 1: train 0.3475, monitored RMSE 636.89 (2s)
+[12:57:40]     epoch 2: train 0.2171, monitored RMSE 633.53 (3s)
+[12:57:43]     epoch 1: train 0.3437, monitored RMSE 641.35 (3s)
+[12:57:46]     epoch 2: train 0.2135, monitored RMSE 631.38 (3s)
+[12:57:46] nn N01 s142 2025-07: stop 2, inner 177.00, 0.5 min
+[12:57:48]     epoch 1: train 0.3606, monitored RMSE 186.88 (2s)
+[12:57:51]     epoch 2: train 0.2250, monitored RMSE 177.94 (2s)
+[12:57:53]     epoch 1: train 0.3436, monitored RMSE 637.69 (3s)
+[12:57:56]     epoch 2: train 0.2146, monitored RMSE 632.48 (3s)
+[12:57:58]     epoch 1: train 0.3477, monitored RMSE 636.79 (3s)
+[12:57:59]     epoch 2: train 0.2146, monitored RMSE 632.41 (3s)
+[12:58:02]     epoch 1: train 0.3432, monitored RMSE 642.31 (3s)
+[12:58:04]     epoch 2: train 0.2142, monitored RMSE 631.63 (3s)
+[12:58:07]     epoch 1: train 0.3430, monitored RMSE 638.04 (3s)
+[12:58:10]     epoch 2: train 0.2145, monitored RMSE 631.57 (3s)
+[12:58:12]     epoch 1: train 0.3466, monitored RMSE 638.90 (3s)
+[12:58:15]     epoch 2: train 0.2147, monitored RMSE 630.75 (3s)
+[12:58:15] nn N01 s242 2025-07: stop 2, inner 177.94, 0.5 min
+Loaded 2,085,047 departures / 2,082,750 arrivals.
+[12:59:27] 2025-01: training (1596201, 156), held-out (153706, 156); held-out missing shares {'sa_last_taxiin_sec': 0.0082, 'sa_prev_taxiin_sec': 0.0228, 'ra_last_taxiin_sec': 0.3631, 'ra_last_land_age_sec': 0.3631, 'pc_apt_mean_pm30': 0.0013, 'pc_apt_std_pm30': 0.003, 'pc_apt_n_pm30': 0.0, 'pc_apt_mean_next30': 0.0046, 'pc_rwy_mean_pm30': 0.0056, 'pc_rwy_n_pm30': 0.0, 'pc_zone_mean_pm60': 0.1716, 'pc_zone_n_pm60': 0.0074, 'pc_rwy_prev_proxy': 0.0183, 'pc_rwy_next_proxy': 0.0182, 'pc_own_minus_apt': 0.0111, 'rc_burst_prev': 0.0, 'rc_burst_next': 0.0, 'rc_rwy_streak_sec': 0.0, 'rc_dep_rwys_60': 0.0, 'rc_arr_rwys_60': 0.0, 'rc_dep_set_60': 0.0, 'rc_arr_set_60': 0.0}
+[12:59:50] 2025-07: training (1140233, 156), held-out (190713, 156); held-out missing shares {'sa_last_taxiin_sec': 0.0006, 'sa_prev_taxiin_sec': 0.0007, 'ra_last_taxiin_sec': 0.2251, 'ra_last_land_age_sec': 0.2251, 'pc_apt_mean_pm30': 0.0009, 'pc_apt_std_pm30': 0.0021, 'pc_apt_n_pm30': 0.0, 'pc_apt_mean_next30': 0.0035, 'pc_rwy_mean_pm30': 0.0051, 'pc_rwy_n_pm30': 0.0, 'pc_zone_mean_pm60': 0.1524, 'pc_zone_n_pm60': 0.0088, 'pc_rwy_prev_proxy': 0.0158, 'pc_rwy_next_proxy': 0.016, 'pc_own_minus_apt': 0.0225, 'rc_burst_prev': 0.0, 'rc_burst_next': 0.0, 'rc_rwy_streak_sec': 0.0, 'rc_dep_rwys_60': 0.0, 'rc_arr_rwys_60': 0.0, 'rc_dep_set_60': 0.0, 'rc_arr_set_60': 0.0}
+0:	learn: 398.0541024	total: 249ms	remaining: 2m 4s
+499:	learn: 197.3139942	total: 1m 20s	remaining: 0us
+[13:01:12] catboost K00 s142 2025-01: 1.4 min
+0:	learn: 415.7888662	total: 174ms	remaining: 1m 26s
+499:	learn: 198.7803058	total: 1m 5s	remaining: 0us
+[13:02:20] catboost K00 s142 2025-07: 1.2 min
+0:	learn: 398.0572483	total: 147ms	remaining: 1m 13s
+499:	learn: 196.0800985	total: 1m 18s	remaining: 0us
+[13:03:39] catboost K00 s242 2025-01: 1.4 min
+0:	learn: 415.9177490	total: 110ms	remaining: 55s
+499:	learn: 197.8906272	total: 58.8s	remaining: 0us
+[13:04:39] catboost K00 s242 2025-07: 1.0 min
+[13:05:15] lgb L00 s142 2025-01: 0.6 min
+[13:05:43] lgb L00 s142 2025-07: 0.5 min
+[13:06:18] lgb L00 s242 2025-01: 0.6 min
+[13:06:46] lgb L00 s242 2025-07: 0.5 min
+[13:07:32] airport P00 s142 2025-01: 0.8 min
+[13:08:12] airport P00 s142 2025-07: 0.7 min
+[13:09:01] airport P00 s242 2025-01: 0.8 min
+[13:09:42] airport P00 s242 2025-07: 0.7 min

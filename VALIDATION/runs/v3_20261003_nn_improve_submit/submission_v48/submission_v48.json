@@ -1,0 +1,1786 @@
+{
+  "version": 48,
+  "file": "unique-rose_v48.parquet",
+  "recipe": "v46-nn-ple-blend",
+  "parent": "v47",
+  "state": "scored",
+  "prepared_at": "2026-10-03T13:02:37+00:00",
+  "sha256": "16e3ff56f48c2058d588748d25e5a57e8ad630fc735e1c1a06364bcd2f7472e1",
+  "rows": 344841,
+  "weight": 0.6,
+  "jan_jul_evidence": {
+    "arm": "ple",
+    "weight": 0.6,
+    "level": {
+      "lgb": {
+        "2025-01": 333.73586078989996,
+        "2025-07": 273.7713431931526,
+        "average": 303.75360199152624
+      },
+      "v47": {
+        "2025-01": 332.8783335476805,
+        "2025-07": 271.86176931365105,
+        "average": 302.37005143066574
+      },
+      "avg5": {
+        "2025-01": 332.7119888903891,
+        "2025-07": 271.55145062079106,
+        "average": 302.1317197555901
+      },
+      "ple": {
+        "2025-01": 330.9832520548649,
+        "2025-07": 270.74231831413965,
+        "average": 300.8627851845023
+      },
+      "tabm": {
+        "2025-01": 332.2717844290216,
+        "2025-07": 271.07215727038505,
+        "average": 301.6719708497033
+      },
+      "ple1": {
+        "2025-01": 331.4152668012385,
+        "2025-07": 271.40722425621647,
+        "average": 301.4112455287275
+      }
+    },
+    "change": {
+      "avg5_vs_v47": {
+        "change": -0.23833167507569897,
+        "ci95": [
+          -0.3438734883754602,
+          -0.16199989003696377
+        ],
+        "decision": "improvement"
+      },
+      "ple_vs_v47": {
+        "change": -1.507266246163482,
+        "ci95": [
+          -2.2717055009491927,
+          -1.0746599184564134
+        ],
+        "decision": "improvement"
+      },
+      "tabm_vs_v47": {
+        "change": -0.6980805809624542,
+        "ci95": [
+          -1.1293754210116975,
+          -0.405989477031853
+        ],
+        "decision": "improvement"
+      },
+      "ple1_vs_v47": {
+        "change": -0.9588059019382911,
+        "ci95": [
+          -1.6082777905686023,
+          -0.5773104595407023
+        ],
+        "decision": "improvement"
+      },
+      "ple_vs_avg5": {
+        "change": -1.268934571087783,
+        "ci95": [
+          -1.9678897913319235,
+          -0.8682068616850847
+        ],
+        "decision": "improvement"
+      },
+      "tabm_vs_avg5": {
+        "change": -0.4597489058867552,
+        "ci95": [
+          -0.8595816842485767,
+          -0.18744058607739486
+        ],
+        "decision": "improvement"
+      },
+      "tabm_vs_ple": {
+        "change": 0.8091856652010279,
+        "ci95": [
+          0.544012363564088,
+          1.3112566821874105
+        ],
+        "decision": "regression"
+      }
+    },
+    "by_seed": {
+      "42": {
+        "lgb": 303.7371196272457,
+        "v47": 302.5574189884745,
+        "avg5": 302.2385855962656,
+        "ple": 300.85727262472193,
+        "tabm": 301.54071389333797,
+        "ple1": 301.4649953770843
+      },
+      "142": {
+        "lgb": 303.8304194137203,
+        "v47": 302.2781516157795,
+        "avg5": 302.07163108082943,
+        "ple": 301.0045371073065,
+        "tabm": 301.9317574403444,
+        "ple1": 301.54174494771735
+      },
+      "242": {
+        "lgb": 303.69321373384383,
+        "v47": 302.2743980945754,
+        "avg5": 302.0848912884044,
+        "ple": 300.72639040148294,
+        "tabm": 301.5432279277044,
+        "ple1": 301.2268947727543
+      }
+    },
+    "weight_grid": {
+      "average": {
+        "0.0": 303.75360199152624,
+        "0.05": 303.13357222576,
+        "0.1": 302.56829909618017,
+        "0.15": 302.0590161750622,
+        "0.2": 301.60417766684543,
+        "0.25": 301.20504011937027,
+        "0.3": 300.8627851845023,
+        "0.35": 300.5767793559784,
+        "0.4": 300.3473461389109,
+        "0.45": 300.1737958583757,
+        "0.5": 300.05375123510544,
+        "0.55": 299.98846990822904,
+        "0.6": 299.9789522151765,
+        "0.65": 300.0242411957332,
+        "0.7": 300.12662496152797,
+        "0.75": 300.28395585717647,
+        "0.8": 300.4947875798961,
+        "0.85": 300.75674236861266,
+        "0.9": 301.072609456891,
+        "0.95": 301.4424567387971,
+        "1.0": 301.86513439831674
+      },
+      "best_per_month": {
+        "2025-01": 0.65,
+        "2025-07": 0.55
+      },
+      "cross_month": 300.06518676293405,
+      "cross_month_vs_0.3": {
+        "change": -0.7975984215682672,
+        "ci95": [
+          -1.346939786527966,
+          -0.4257352045338368
+        ],
+        "decision": "improvement"
+      }
+    },
+    "runner_sha256": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20"
+  },
+  "lightgbm": {
+    "reused_from": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46",
+    "models": {
+      "ordinary": "refit2025__ordinary_adsblol_stand__42",
+      "classifier": "refit2025__classifier__42"
+    }
+  },
+  "network": {
+    "inputs": {
+      "numeric": 123,
+      "ple_inputs": 92,
+      "plain_inputs": 237,
+      "categoricals": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "airline"
+      ],
+      "cards": [
+        11,
+        808,
+        161,
+        61,
+        2223,
+        3,
+        9,
+        6,
+        5,
+        468,
+        773
+      ],
+      "bins_per_input": [
+        20,
+        6,
+        11,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        29,
+        27,
+        43,
+        42,
+        32,
+        13,
+        2,
+        33,
+        38,
+        48,
+        48,
+        31,
+        18,
+        19,
+        20,
+        33,
+        5,
+        15,
+        48,
+        8,
+        19,
+        22,
+        48,
+        23,
+        28,
+        48,
+        48,
+        24,
+        8,
+        48,
+        23,
+        48,
+        48,
+        48,
+        48,
+        48,
+        2,
+        8,
+        2,
+        4,
+        2,
+        6,
+        12,
+        8,
+        22,
+        16,
+        22,
+        2,
+        40,
+        48,
+        5,
+        48,
+        48,
+        11,
+        48,
+        48,
+        48,
+        28,
+        28,
+        6,
+        29,
+        23,
+        28,
+        26,
+        36,
+        37,
+        37,
+        45,
+        36,
+        36,
+        28,
+        14,
+        14,
+        14,
+        28,
+        28,
+        32,
+        24
+      ],
+      "inner_month": "2025-12",
+      "inner_val_rows": 162836,
+      "inner_train_rows": 1888491
+    },
+    "label_mean": 982.3276532702977,
+    "label_sd": 407.31600230259727,
+    "inner_curve": [
+      {
+        "epoch": 1,
+        "train_mse_std": 0.38039046719408465,
+        "rmse": 204.1164215987102,
+        "seconds": 4.36105298700204
+      },
+      {
+        "epoch": 2,
+        "train_mse_std": 0.27337380025101365,
+        "rmse": 187.88963908242619,
+        "seconds": 3.517953579001187
+      },
+      {
+        "epoch": 3,
+        "train_mse_std": 0.24869280813428493,
+        "rmse": 179.79633967027664,
+        "seconds": 3.566505087997939
+      },
+      {
+        "epoch": 4,
+        "train_mse_std": 0.23336879635839028,
+        "rmse": 191.1826735208339,
+        "seconds": 3.5381100529994
+      },
+      {
+        "epoch": 5,
+        "train_mse_std": 0.22514473036740215,
+        "rmse": 176.2400727220068,
+        "seconds": 4.14104229700024
+      },
+      {
+        "epoch": 6,
+        "train_mse_std": 0.21035400006840874,
+        "rmse": 168.59622826607665,
+        "seconds": 4.130095382999571
+      },
+      {
+        "epoch": 7,
+        "train_mse_std": 0.1999379640406212,
+        "rmse": 170.85307139398722,
+        "seconds": 4.054881882999325
+      },
+      {
+        "epoch": 8,
+        "train_mse_std": 0.19152395039735803,
+        "rmse": 173.5208647403853,
+        "seconds": 3.9268439620027493
+      },
+      {
+        "epoch": 9,
+        "train_mse_std": 0.1837881698239096,
+        "rmse": 171.07854997308715,
+        "seconds": 3.716764601002069
+      },
+      {
+        "epoch": 10,
+        "train_mse_std": 0.1776480019333173,
+        "rmse": 177.29459037158858,
+        "seconds": 3.6081794620004075
+      },
+      {
+        "epoch": 11,
+        "train_mse_std": 0.17193466397109025,
+        "rmse": 161.62350721652314,
+        "seconds": 3.464289309002197
+      },
+      {
+        "epoch": 12,
+        "train_mse_std": 0.16337304026371546,
+        "rmse": 170.8203980127447,
+        "seconds": 3.917036875998747
+      },
+      {
+        "epoch": 13,
+        "train_mse_std": 0.15789351555762796,
+        "rmse": 162.88260764980052,
+        "seconds": 3.5862209820006683
+      },
+      {
+        "epoch": 14,
+        "train_mse_std": 0.15126988354817172,
+        "rmse": 160.38754448862767,
+        "seconds": 3.670583622002596
+      },
+      {
+        "epoch": 15,
+        "train_mse_std": 0.14467223204584992,
+        "rmse": 160.1517017265333,
+        "seconds": 3.760350319000281
+      },
+      {
+        "epoch": 16,
+        "train_mse_std": 0.13791638035904988,
+        "rmse": 161.11618640280568,
+        "seconds": 3.3772360709990608
+      },
+      {
+        "epoch": 17,
+        "train_mse_std": 0.13315771988306332,
+        "rmse": 160.5011832562343,
+        "seconds": 3.4212212240017834
+      },
+      {
+        "epoch": 18,
+        "train_mse_std": 0.12778009127937273,
+        "rmse": 161.24709468477164,
+        "seconds": 3.567919941000582
+      },
+      {
+        "epoch": 19,
+        "train_mse_std": 0.12303058063571666,
+        "rmse": 161.486696433382,
+        "seconds": 4.2603997890000755
+      },
+      {
+        "epoch": 20,
+        "train_mse_std": 0.11864358496431505,
+        "rmse": 160.91398425827984,
+        "seconds": 4.036689901997306
+      },
+      {
+        "epoch": 21,
+        "train_mse_std": 0.115678828114264,
+        "rmse": 161.51893373604815,
+        "seconds": 4.004091211001651
+      },
+      {
+        "epoch": 22,
+        "train_mse_std": 0.11325518916601177,
+        "rmse": 161.45518700683002,
+        "seconds": 3.8972872769991227
+      },
+      {
+        "epoch": 23,
+        "train_mse_std": 0.111960043358477,
+        "rmse": 161.51104526095693,
+        "seconds": 4.071905723998498
+      },
+      {
+        "epoch": 24,
+        "train_mse_std": 0.11128200633991356,
+        "rmse": 161.55888908589506,
+        "seconds": 3.7523778379982105
+      }
+    ],
+    "stop_epoch": 15,
+    "inner_seconds": 92.70168068000203,
+    "networks": [
+      {
+        "seed": 42,
+        "seconds": 62.99826927100003,
+        "train_curve": [
+          {
+            "epoch": 1,
+            "train_mse_std": 0.3708849785956118
+          },
+          {
+            "epoch": 2,
+            "train_mse_std": 0.2656226687559075
+          },
+          {
+            "epoch": 3,
+            "train_mse_std": 0.2425695457172106
+          },
+          {
+            "epoch": 4,
+            "train_mse_std": 0.2272216364089055
+          },
+          {
+            "epoch": 5,
+            "train_mse_std": 0.2141084282177235
+          },
+          {
+            "epoch": 6,
+            "train_mse_std": 0.20302664573600207
+          },
+          {
+            "epoch": 7,
+            "train_mse_std": 0.19519761106444944
+          },
+          {
+            "epoch": 8,
+            "train_mse_std": 0.18606572052601192
+          },
+          {
+            "epoch": 9,
+            "train_mse_std": 0.18148160967189772
+          },
+          {
+            "epoch": 10,
+            "train_mse_std": 0.1738300579697646
+          },
+          {
+            "epoch": 11,
+            "train_mse_std": 0.16835766157621668
+          },
+          {
+            "epoch": 12,
+            "train_mse_std": 0.16199907070790953
+          },
+          {
+            "epoch": 13,
+            "train_mse_std": 0.1534914924926143
+          },
+          {
+            "epoch": 14,
+            "train_mse_std": 0.14746993487986973
+          },
+          {
+            "epoch": 15,
+            "train_mse_std": 0.1405657277575493
+          }
+        ]
+      },
+      {
+        "seed": 1042,
+        "seconds": 67.7658315339977,
+        "train_curve": [
+          {
+            "epoch": 1,
+            "train_mse_std": 0.3727230270908638
+          },
+          {
+            "epoch": 2,
+            "train_mse_std": 0.2664070593825497
+          },
+          {
+            "epoch": 3,
+            "train_mse_std": 0.24447474778021627
+          },
+          {
+            "epoch": 4,
+            "train_mse_std": 0.227906125923164
+          },
+          {
+            "epoch": 5,
+            "train_mse_std": 0.21510660885192331
+          },
+          {
+            "epoch": 6,
+            "train_mse_std": 0.20383265278438448
+          },
+          {
+            "epoch": 7,
+            "train_mse_std": 0.19473233169126614
+          },
+          {
+            "epoch": 8,
+            "train_mse_std": 0.18592211628143093
+          },
+          {
+            "epoch": 9,
+            "train_mse_std": 0.18014966359287354
+          },
+          {
+            "epoch": 10,
+            "train_mse_std": 0.17366103319608364
+          },
+          {
+            "epoch": 11,
+            "train_mse_std": 0.16621402563448745
+          },
+          {
+            "epoch": 12,
+            "train_mse_std": 0.16035998118439537
+          },
+          {
+            "epoch": 13,
+            "train_mse_std": 0.15354996886168165
+          },
+          {
+            "epoch": 14,
+            "train_mse_std": 0.14736469301488087
+          },
+          {
+            "epoch": 15,
+            "train_mse_std": 0.14166888791309515
+          }
+        ]
+      },
+      {
+        "seed": 2042,
+        "seconds": 66.34036327600188,
+        "train_curve": [
+          {
+            "epoch": 1,
+            "train_mse_std": 0.3737179466444578
+          },
+          {
+            "epoch": 2,
+            "train_mse_std": 0.26554410213494445
+          },
+          {
+            "epoch": 3,
+            "train_mse_std": 0.24320315156628663
+          },
+          {
+            "epoch": 4,
+            "train_mse_std": 0.22758191922131527
+          },
+          {
+            "epoch": 5,
+            "train_mse_std": 0.21265546490110315
+          },
+          {
+            "epoch": 6,
+            "train_mse_std": 0.20274267263941126
+          },
+          {
+            "epoch": 7,
+            "train_mse_std": 0.19400904324353047
+          },
+          {
+            "epoch": 8,
+            "train_mse_std": 0.1861698104559337
+          },
+          {
+            "epoch": 9,
+            "train_mse_std": 0.18016318159991987
+          },
+          {
+            "epoch": 10,
+            "train_mse_std": 0.17621541022844697
+          },
+          {
+            "epoch": 11,
+            "train_mse_std": 0.16824065417106623
+          },
+          {
+            "epoch": 12,
+            "train_mse_std": 0.16037151685272338
+          },
+          {
+            "epoch": 13,
+            "train_mse_std": 0.15554145508515416
+          },
+          {
+            "epoch": 14,
+            "train_mse_std": 0.1477764979745782
+          },
+          {
+            "epoch": 15,
+            "train_mse_std": 0.14104756713472127
+          }
+        ]
+      },
+      {
+        "seed": 3042,
+        "seconds": 60.993752341997606,
+        "train_curve": [
+          {
+            "epoch": 1,
+            "train_mse_std": 0.3724000248019279
+          },
+          {
+            "epoch": 2,
+            "train_mse_std": 0.2661711659102511
+          },
+          {
+            "epoch": 3,
+            "train_mse_std": 0.24257750630478417
+          },
+          {
+            "epoch": 4,
+            "train_mse_std": 0.22693805767724762
+          },
+          {
+            "epoch": 5,
+            "train_mse_std": 0.21239937507465714
+          },
+          {
+            "epoch": 6,
+            "train_mse_std": 0.20247006008054844
+          },
+          {
+            "epoch": 7,
+            "train_mse_std": 0.1944559748730739
+          },
+          {
+            "epoch": 8,
+            "train_mse_std": 0.18592203837911586
+          },
+          {
+            "epoch": 9,
+            "train_mse_std": 0.18114468111138154
+          },
+          {
+            "epoch": 10,
+            "train_mse_std": 0.17265946552480707
+          },
+          {
+            "epoch": 11,
+            "train_mse_std": 0.1671817388128672
+          },
+          {
+            "epoch": 12,
+            "train_mse_std": 0.1609935871942781
+          },
+          {
+            "epoch": 13,
+            "train_mse_std": 0.15434820459613519
+          },
+          {
+            "epoch": 14,
+            "train_mse_std": 0.14706044550360697
+          },
+          {
+            "epoch": 15,
+            "train_mse_std": 0.14050723752020394
+          }
+        ]
+      },
+      {
+        "seed": 4042,
+        "seconds": 63.09532627000226,
+        "train_curve": [
+          {
+            "epoch": 1,
+            "train_mse_std": 0.3718106603267722
+          },
+          {
+            "epoch": 2,
+            "train_mse_std": 0.2664013618730411
+          },
+          {
+            "epoch": 3,
+            "train_mse_std": 0.24333260038942375
+          },
+          {
+            "epoch": 4,
+            "train_mse_std": 0.22786062104808766
+          },
+          {
+            "epoch": 5,
+            "train_mse_std": 0.2127695687984832
+          },
+          {
+            "epoch": 6,
+            "train_mse_std": 0.20296627205648052
+          },
+          {
+            "epoch": 7,
+            "train_mse_std": 0.1962471633626285
+          },
+          {
+            "epoch": 8,
+            "train_mse_std": 0.18802065290933448
+          },
+          {
+            "epoch": 9,
+            "train_mse_std": 0.18081870492941146
+          },
+          {
+            "epoch": 10,
+            "train_mse_std": 0.17275384997468687
+          },
+          {
+            "epoch": 11,
+            "train_mse_std": 0.16665775070082098
+          },
+          {
+            "epoch": 12,
+            "train_mse_std": 0.1615371281407827
+          },
+          {
+            "epoch": 13,
+            "train_mse_std": 0.1538722138214791
+          },
+          {
+            "epoch": 14,
+            "train_mse_std": 0.14747286944164215
+          },
+          {
+            "epoch": 15,
+            "train_mse_std": 0.14198619848817906
+          }
+        ]
+      }
+    ],
+    "arm": "ple",
+    "seconds": 453.0274556270015,
+    "training": {
+      "rows": 2051327,
+      "substituted_rows": 33205,
+      "ordinary_rows_v46": 2051327
+    },
+    "ranking": {
+      "2026-01": {
+        "rows": 152719,
+        "corr_with_lgb": 0.9760643531714353,
+        "nn_minus_lgb_mean": 3.0997626865559744,
+        "reproduction": {
+          "ordinary": 0.0,
+          "final": 0.0
+        },
+        "artifacts": {
+          "ranking_2026-01.parquet": "929faacbecea0ad0dc52ee3eb1c30678bff09829dabdf785f167ba600e8fb261"
+        }
+      },
+      "2026-07": {
+        "rows": 192122,
+        "corr_with_lgb": 0.9691526798443673,
+        "nn_minus_lgb_mean": 2.396656897552478,
+        "reproduction": {
+          "ordinary": 0.0,
+          "final": 0.0
+        },
+        "artifacts": {
+          "ranking_2026-07.parquet": "1a76d77f95a7cda93c2deacd73f5b1142d8678848bfda06838fc6dff9a2fae3b"
+        }
+      }
+    }
+  },
+  "ordinary_extra": [
+    "wx_temp_c",
+    "wx_dewpoint_spread_c",
+    "wx_wind_kt",
+    "wx_gust_kt",
+    "wx_wind_dir",
+    "wx_visibility_m",
+    "wx_ceiling_ft",
+    "wx_thunder",
+    "wx_snow",
+    "wx_freezing",
+    "wx_fog",
+    "wx_rain",
+    "wx_heavy",
+    "wx_deicing",
+    "wx_age_min",
+    "wx_2h_min_visibility_m",
+    "wx_2h_min_ceiling_ft",
+    "wx_2h_max_gust_kt",
+    "wx_2h_thunder",
+    "wx_2h_snow_or_freezing",
+    "wx_2h_fog",
+    "q_rwy_prev_takeoff_gap_sec",
+    "q_rwy_takeoffs_prev30",
+    "q_apt_takeoffs_prev30",
+    "q_rwy_others_gap_prev60",
+    "q_apt_others_gap_prev60",
+    "q_queue_ahead_since_aobt3",
+    "q_rwy_landings_prev30",
+    "q_rwy_next_takeoff_gap_sec",
+    "q_rwy_takeoffs_next30",
+    "q_rwy_others_gap_pm30",
+    "q_apt_others_gap_pm30",
+    "airline",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60",
+    "dis_snow_6h_fraction",
+    "dis_snow_6h_coverage",
+    "dis_snow_24h_fraction",
+    "dis_snow_24h_coverage",
+    "dis_arr_60m_count",
+    "dis_arr_60m_mean_sec",
+    "dis_arr_60m_over30_share",
+    "dis_arr_60m_over60_share",
+    "dis_arr_180m_count",
+    "dis_arr_180m_mean_sec",
+    "dis_arr_180m_over30_share",
+    "dis_arr_180m_over60_share",
+    "sc_x_m",
+    "sc_y_m",
+    "sc_rwy_end_m",
+    "ab_matched",
+    "ab_seg_sec",
+    "ab_move_sec",
+    "ab_still_end_sec",
+    "ab_seg_n",
+    "ab_first_gs",
+    "ab_last_gnd_sec",
+    "ab_prev_gap_sec",
+    "ab_moving_10",
+    "ab_moving_30",
+    "ab_ground_10",
+    "ab_low_air_10",
+    "ab_nb_seg_mean_60",
+    "ab_nb_seg_n_60",
+    "ab_stand_min_m",
+    "ab_stand_n",
+    "ab_stand_exit_sec",
+    "ab_exit_gap_sec",
+    "ab_seg_stand_m",
+    "ab_seg_rwy_m",
+    "ab_nb_exit_mean_60",
+    "ab_nb_exit_n_60"
+  ],
+  "classifier_extra": [
+    "airline",
+    "handler_arr_sched_share",
+    "handler_arr_n",
+    "flight_number_format",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60"
+  ],
+  "correction_masks": {
+    "2026-01": {
+      "clock12": 0,
+      "clock2": 0,
+      "day": 1,
+      "rule_band": 12,
+      "rule_confidence": 0,
+      "twins": 5
+    },
+    "2026-07": {
+      "clock12": 1,
+      "clock2": 2,
+      "day": 4,
+      "rule_band": 20,
+      "rule_confidence": 0,
+      "twins": 11
+    }
+  },
+  "rule_triggered_rows": 43,
+  "against": {
+    "v47": {
+      "2026-01": {
+        "rows": 152719,
+        "mean_change": 2.935731637844669,
+        "mean_abs_change": 25.178700751052588,
+        "corr": 0.9968564820425411
+      },
+      "2026-07": {
+        "rows": 192122,
+        "mean_change": 4.15459968145241,
+        "mean_abs_change": 19.874496413737106,
+        "corr": 0.998652765829527
+      }
+    },
+    "v46": {
+      "2026-01": {
+        "rows": 152719,
+        "mean_change": 2.180062729588329,
+        "mean_abs_change": 30.56228105212842,
+        "corr": 0.9949525033340384
+      },
+      "2026-07": {
+        "rows": 192122,
+        "mean_change": 1.6383652054423752,
+        "mean_abs_change": 23.606687417370214,
+        "corr": 0.9979227631114291
+      }
+    }
+  },
+  "prediction_summary": {
+    "count": 344841.0,
+    "mean": 1045.871691118424,
+    "std": 643.6568779625319,
+    "min": 6.341364210372862,
+    "25%": 763.3210317033835,
+    "50%": 960.9309999650106,
+    "75%": 1216.466913866157,
+    "max": 103797.56098352856
+  },
+  "identity": {
+    "version": 48,
+    "parent": "v47",
+    "lightgbm_parent": "v46",
+    "arm": "ple",
+    "weight": 0.6,
+    "recipe": {
+      "new": {
+        "bins": 48,
+        "d_ple": 16,
+        "epochs": 24,
+        "batch": 4096,
+        "ple": {
+          "lr": 0.002,
+          "weight_decay": 1e-05
+        },
+        "tabm": {
+          "lr": 0.002,
+          "weight_decay": 0.0003,
+          "k": 32,
+          "n_blocks": 2,
+          "d_block": 512,
+          "dropout": 0.1,
+          "activation": "ReLU",
+          "arch_type": "tabm",
+          "start_scaling_init": "normal"
+        }
+      },
+      "networks": {
+        "avg5": 5,
+        "ple": 5,
+        "tabm": 1
+      },
+      "v47": {
+        "min_cat_rows": 20,
+        "quantiles": 1024,
+        "clip": 5.0,
+        "hidden": [
+          512,
+          512,
+          256
+        ],
+        "dropout": 0.1,
+        "label_clip": 10800.0,
+        "lr": 0.002,
+        "weight_decay": 1e-05,
+        "batch": 4096,
+        "epochs": 8
+      }
+    },
+    "seed": 42,
+    "signature": {
+      "VALIDATION/nn_improve_submit.py": "10aea4b461a7aa9da3ee880283349fb84cab23490177765b32a9f591d5f379e5",
+      "VALIDATION/nn_improve_jan_jul.py": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20",
+      "VALIDATION/nn_jan_jul.py": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766",
+      "VALIDATION/tools/score_nn_improve_jan_jul.py": "ab1d0cd31339ad9d2361b27cc000468c26d79a8b3aac6e8439d2f13610190b15",
+      "VALIDATION/adsblol_submit.py": "3158ab0c44067d711616dfab027d746f7e4e23adcd5708b41c307ba7dedfae06",
+      "VALIDATION/adsblol.py": "9b1153c345c5520d6e3dccd96c549253d8f83370e728a18f21393472070a1a90"
+    },
+    "packages": {
+      "tabm": "fc654af6a16bac53d893a8265c79d7af4ebddcb95ad0d600cc6b6bc6b7317ade",
+      "rtdl_num_embeddings": "48dfc019d447e0cd225deb8b8145b3efa8b42cde9aa314772d6e234753e1cee1"
+    },
+    "v46_identity": {
+      "version": 46,
+      "signature": {
+        "VALIDATION/adsblol_submit.py": "3158ab0c44067d711616dfab027d746f7e4e23adcd5708b41c307ba7dedfae06",
+        "VALIDATION/adsblol.py": "9b1153c345c5520d6e3dccd96c549253d8f83370e728a18f21393472070a1a90",
+        "VALIDATION/adsblol_jan_jul.py": "cd8b834268449030eccd090536c22f75d3e79112f3c931ed62df8f8332fea02a",
+        "VALIDATION/tools/download_adsblol_heatmap.py": "a3774fb7da43fe95ace67d943ddda9e29b688f92655e620f9a598c859d779ece",
+        "VALIDATION/tuned_submit.py": "509eb585e64ee8a535e8902a86adac0e568f56098693e0377e7844185af5abd6",
+        "VALIDATION/tuning_seasonal.py": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3",
+        "VALIDATION/stand_coords_submit.py": "db929614f51d7074755e60743dbadb26635fbb400c90b0c3597c67d6e878f82c"
+      },
+      "config": {
+        "recovery": "off",
+        "target_mode": "direct",
+        "model_mode": "single",
+        "clock_features": true,
+        "fpl_flag": false,
+        "max_taxi_sec": 200000,
+        "lag_train_days": 0,
+        "rounds": 800,
+        "early_stopping_rounds": 0,
+        "threads": 8,
+        "prediction_threads": 8,
+        "fit_workers": 1,
+        "prediction_rule": "rome_4h",
+        "seeds": [
+          42,
+          142,
+          242
+        ],
+        "params": {
+          "objective": "regression",
+          "metric": "rmse",
+          "learning_rate": 0.05,
+          "num_leaves": 255,
+          "min_data_in_leaf": 200,
+          "feature_fraction": 0.9,
+          "bagging_fraction": 0.8,
+          "bagging_freq": 1,
+          "verbosity": -1
+        },
+        "sample": 1.0,
+        "exclude_rule_rows": true,
+        "train_months": 6,
+        "bootstrap_reps": 2000,
+        "bootstrap_seed": 0,
+        "block_days": 1,
+        "label": "v42-stand-coordinates-main",
+        "smoke": false,
+        "rome_hybrid": {
+          "airport": "LIRF",
+          "match_sec": 60,
+          "rule": "rome_4h",
+          "flags": [
+            "raw_flight_id_missing",
+            "raw_plan_block_missing"
+          ],
+          "classifier_params": {
+            "objective": "binary",
+            "metric": "binary_logloss",
+            "learning_rate": 0.05,
+            "num_leaves": 31,
+            "min_data_in_leaf": 100,
+            "feature_fraction": 0.9,
+            "bagging_fraction": 0.8,
+            "bagging_freq": 1,
+            "verbosity": -1
+          },
+          "classifier_rounds": 300
+        },
+        "weather": {
+          "source": "Iowa Environmental Mesonet ASOS/METAR archive",
+          "max_age_min": 90,
+          "window": "2h",
+          "visibility_cap_m": 10000.0,
+          "no_ceiling_ft": 25000.0,
+          "features": [
+            "wx_temp_c",
+            "wx_dewpoint_spread_c",
+            "wx_wind_kt",
+            "wx_gust_kt",
+            "wx_wind_dir",
+            "wx_visibility_m",
+            "wx_ceiling_ft",
+            "wx_thunder",
+            "wx_snow",
+            "wx_freezing",
+            "wx_fog",
+            "wx_rain",
+            "wx_heavy",
+            "wx_deicing",
+            "wx_age_min",
+            "wx_2h_min_visibility_m",
+            "wx_2h_min_ceiling_ft",
+            "wx_2h_max_gust_kt",
+            "wx_2h_thunder",
+            "wx_2h_snow_or_freezing",
+            "wx_2h_fog"
+          ]
+        },
+        "queue": {
+          "anchor": "takeoff time",
+          "max_gap_sec": 7200,
+          "past": [
+            "q_rwy_prev_takeoff_gap_sec",
+            "q_rwy_takeoffs_prev30",
+            "q_apt_takeoffs_prev30",
+            "q_rwy_others_gap_prev60",
+            "q_apt_others_gap_prev60",
+            "q_queue_ahead_since_aobt3",
+            "q_rwy_landings_prev30"
+          ],
+          "future": [
+            "q_rwy_next_takeoff_gap_sec",
+            "q_rwy_takeoffs_next30",
+            "q_rwy_others_gap_pm30",
+            "q_apt_others_gap_pm30"
+          ],
+          "dep_columns": [
+            "ADEP_mvt",
+            "RUNWAY_mvt",
+            "MVT_TIME_UTC_mvt",
+            "AOBT_3_flt"
+          ],
+          "arr_columns": [
+            "ADES_mvt",
+            "RUNWAY_mvt",
+            "MVT_TIME_UTC_mvt"
+          ]
+        },
+        "rome_signals": {
+          "signals": [
+            "airline",
+            "handler_arr_sched_share",
+            "handler_arr_n",
+            "flight_number_format"
+          ],
+          "handler_match_sec": 60,
+          "handler_prior_weight": 10,
+          "handler_scope": "airport x airline x UTC month",
+          "late_delay_sec": 3600,
+          "late_floor_sec": 60,
+          "dayshift_gap_sec": 50400,
+          "timezone": "Europe/Rome"
+        },
+        "stand_day": {
+          "stand": [
+            "st_last_arr_sec",
+            "st_prev_arr_sec",
+            "st_same_type",
+            "st_same_airline",
+            "st_inblock_minus_sched_sec"
+          ],
+          "day": [
+            "dd_noid_share",
+            "dd_notype_share",
+            "dd_arr_sched_share",
+            "dd_delay_mean_sec",
+            "dd_late_share",
+            "dh_noid_share_pm90"
+          ],
+          "day_scope": "airport x UTC day",
+          "arr_sched_match_sec": 60,
+          "late_sec": 2700,
+          "delay_clip_sec": 10800,
+          "window_sec": 5400,
+          "dep_columns": [
+            "mvt_id",
+            "ADEP_mvt",
+            "MVT_TIME_UTC_mvt",
+            "SCHED_TIME_UTC_mvt",
+            "FLIGHT_ID_mvt",
+            "AIRCRAFT_TYPE_mvt"
+          ],
+          "arr_columns": [
+            "ADES_mvt",
+            "STAND_mvt",
+            "MVT_TIME_UTC_mvt",
+            "SCHED_TIME_UTC_mvt",
+            "taxi_sec",
+            "AIRCRAFT_TYPE_mvt",
+            "FLIGHT_mvt"
+          ]
+        },
+        "opdi": {
+          "source": "EUROCONTROL OPDI v0.0.2 flight events and flight list (from OpenSky Network ADS-B)",
+          "box_deg": [
+            0.1,
+            0.15
+          ],
+          "match_slack_min": 5,
+          "event_slack_sec": 30,
+          "features": [
+            "op_matched",
+            "op_fs_ground",
+            "op_fs_sec",
+            "op_own_stand_sec",
+            "op_first_stand_sec",
+            "op_first_apron_sec",
+            "op_first_twy_sec",
+            "op_rwy_sec",
+            "op_deice_sec",
+            "op_ground_sec",
+            "nb_op_ground_mean_60",
+            "nb_op_ground_n_60",
+            "nb_op_ground_mean_pm30",
+            "nb_op_deice_share_60"
+          ]
+        },
+        "plan_window_margin_sec": 3660,
+        "candidates": {
+          "control": "pred_control",
+          "candidate": "pred_stand"
+        },
+        "post_candidates": {
+          "control": "pred34",
+          "opdi": "pred34_opdi",
+          "reg_opdi": "pred34_reg_opdi"
+        },
+        "candidate_specs": {
+          "control": {
+            "ordinary": "control",
+            "classifier": "control"
+          },
+          "opdi": {
+            "ordinary": "opdi",
+            "classifier": "opdi"
+          },
+          "reg_opdi": {
+            "ordinary": "opdi",
+            "classifier": "control"
+          }
+        },
+        "late": true,
+        "dayshift": false,
+        "ordinaries": {
+          "control": [
+            "wx_temp_c",
+            "wx_dewpoint_spread_c",
+            "wx_wind_kt",
+            "wx_gust_kt",
+            "wx_wind_dir",
+            "wx_visibility_m",
+            "wx_ceiling_ft",
+            "wx_thunder",
+            "wx_snow",
+            "wx_freezing",
+            "wx_fog",
+            "wx_rain",
+            "wx_heavy",
+            "wx_deicing",
+            "wx_age_min",
+            "wx_2h_min_visibility_m",
+            "wx_2h_min_ceiling_ft",
+            "wx_2h_max_gust_kt",
+            "wx_2h_thunder",
+            "wx_2h_snow_or_freezing",
+            "wx_2h_fog",
+            "q_rwy_prev_takeoff_gap_sec",
+            "q_rwy_takeoffs_prev30",
+            "q_apt_takeoffs_prev30",
+            "q_rwy_others_gap_prev60",
+            "q_apt_others_gap_prev60",
+            "q_queue_ahead_since_aobt3",
+            "q_rwy_landings_prev30",
+            "q_rwy_next_takeoff_gap_sec",
+            "q_rwy_takeoffs_next30",
+            "q_rwy_others_gap_pm30",
+            "q_apt_others_gap_pm30",
+            "airline",
+            "st_last_arr_sec",
+            "st_prev_arr_sec",
+            "st_same_type",
+            "st_same_airline",
+            "st_inblock_minus_sched_sec"
+          ],
+          "opdi": [
+            "wx_temp_c",
+            "wx_dewpoint_spread_c",
+            "wx_wind_kt",
+            "wx_gust_kt",
+            "wx_wind_dir",
+            "wx_visibility_m",
+            "wx_ceiling_ft",
+            "wx_thunder",
+            "wx_snow",
+            "wx_freezing",
+            "wx_fog",
+            "wx_rain",
+            "wx_heavy",
+            "wx_deicing",
+            "wx_age_min",
+            "wx_2h_min_visibility_m",
+            "wx_2h_min_ceiling_ft",
+            "wx_2h_max_gust_kt",
+            "wx_2h_thunder",
+            "wx_2h_snow_or_freezing",
+            "wx_2h_fog",
+            "q_rwy_prev_takeoff_gap_sec",
+            "q_rwy_takeoffs_prev30",
+            "q_apt_takeoffs_prev30",
+            "q_rwy_others_gap_prev60",
+            "q_apt_others_gap_prev60",
+            "q_queue_ahead_since_aobt3",
+            "q_rwy_landings_prev30",
+            "q_rwy_next_takeoff_gap_sec",
+            "q_rwy_takeoffs_next30",
+            "q_rwy_others_gap_pm30",
+            "q_apt_others_gap_pm30",
+            "airline",
+            "st_last_arr_sec",
+            "st_prev_arr_sec",
+            "st_same_type",
+            "st_same_airline",
+            "st_inblock_minus_sched_sec",
+            "op_matched",
+            "op_fs_ground",
+            "op_fs_sec",
+            "op_own_stand_sec",
+            "op_first_stand_sec",
+            "op_first_apron_sec",
+            "op_first_twy_sec",
+            "op_rwy_sec",
+            "op_deice_sec",
+            "op_ground_sec",
+            "nb_op_ground_mean_60",
+            "nb_op_ground_n_60",
+            "nb_op_ground_mean_pm30",
+            "nb_op_deice_share_60"
+          ]
+        },
+        "classifiers": {
+          "control": [
+            "airline",
+            "handler_arr_sched_share",
+            "handler_arr_n",
+            "flight_number_format",
+            "st_last_arr_sec",
+            "st_prev_arr_sec",
+            "st_same_type",
+            "st_same_airline",
+            "st_inblock_minus_sched_sec"
+          ],
+          "opdi": [
+            "airline",
+            "handler_arr_sched_share",
+            "handler_arr_n",
+            "flight_number_format",
+            "st_last_arr_sec",
+            "st_prev_arr_sec",
+            "st_same_type",
+            "st_same_airline",
+            "st_inblock_minus_sched_sec",
+            "op_matched",
+            "op_fs_ground",
+            "op_fs_sec",
+            "op_own_stand_sec",
+            "op_first_stand_sec",
+            "op_first_apron_sec",
+            "op_first_twy_sec",
+            "op_rwy_sec",
+            "op_deice_sec",
+            "op_ground_sec",
+            "nb_op_ground_mean_60",
+            "nb_op_ground_n_60",
+            "nb_op_ground_mean_pm30",
+            "nb_op_deice_share_60"
+          ]
+        },
+        "reuse_control": true,
+        "control_source": {
+          "run": "v3_20260918T151436598224Z",
+          "parts": {
+            "ordinary": "stand",
+            "classifier": "stand"
+          },
+          "column": "pred_stand"
+        },
+        "disruption": {
+          "snow_codes": [
+            "SN",
+            "SG"
+          ],
+          "snow_grid_minutes": 30,
+          "report_max_age_minutes": 90,
+          "snow_windows_hours": [
+            6,
+            24
+          ],
+          "minimum_known_samples": [
+            10,
+            40
+          ],
+          "arrival_windows_minutes": [
+            60,
+            180
+          ],
+          "arrival_mean_cap_sec": 7200,
+          "arrival_available": "landing + finite nonnegative taxi_sec < departure takeoff",
+          "arrival_window": "[takeoff - window, takeoff)",
+          "features": [
+            "dis_snow_6h_fraction",
+            "dis_snow_6h_coverage",
+            "dis_snow_24h_fraction",
+            "dis_snow_24h_coverage",
+            "dis_arr_60m_count",
+            "dis_arr_60m_mean_sec",
+            "dis_arr_60m_over30_share",
+            "dis_arr_60m_over60_share",
+            "dis_arr_180m_count",
+            "dis_arr_180m_mean_sec",
+            "dis_arr_180m_over30_share",
+            "dis_arr_180m_over60_share"
+          ]
+        },
+        "stand": {
+          "features": [
+            "sc_x_m",
+            "sc_y_m",
+            "sc_rwy_end_m"
+          ],
+          "origin": "mean of the airport X-Plane runway ends",
+          "distance": "flat-earth metres (stand_geometry.metres)",
+          "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+          "sources": "stand_coords.parquet / runway_ends.parquet (tools/build_stand_coords.py)"
+        },
+        "control_ordinary_extra": [
+          "wx_temp_c",
+          "wx_dewpoint_spread_c",
+          "wx_wind_kt",
+          "wx_gust_kt",
+          "wx_wind_dir",
+          "wx_visibility_m",
+          "wx_ceiling_ft",
+          "wx_thunder",
+          "wx_snow",
+          "wx_freezing",
+          "wx_fog",
+          "wx_rain",
+          "wx_heavy",
+          "wx_deicing",
+          "wx_age_min",
+          "wx_2h_min_visibility_m",
+          "wx_2h_min_ceiling_ft",
+          "wx_2h_max_gust_kt",
+          "wx_2h_thunder",
+          "wx_2h_snow_or_freezing",
+          "wx_2h_fog",
+          "q_rwy_prev_takeoff_gap_sec",
+          "q_rwy_takeoffs_prev30",
+          "q_apt_takeoffs_prev30",
+          "q_rwy_others_gap_prev60",
+          "q_apt_others_gap_prev60",
+          "q_queue_ahead_since_aobt3",
+          "q_rwy_landings_prev30",
+          "q_rwy_next_takeoff_gap_sec",
+          "q_rwy_takeoffs_next30",
+          "q_rwy_others_gap_pm30",
+          "q_apt_others_gap_pm30",
+          "airline",
+          "st_last_arr_sec",
+          "st_prev_arr_sec",
+          "st_same_type",
+          "st_same_airline",
+          "st_inblock_minus_sched_sec",
+          "op_matched",
+          "op_fs_ground",
+          "op_fs_sec",
+          "op_own_stand_sec",
+          "op_first_stand_sec",
+          "op_first_apron_sec",
+          "op_first_twy_sec",
+          "op_rwy_sec",
+          "op_deice_sec",
+          "op_ground_sec",
+          "nb_op_ground_mean_60",
+          "nb_op_ground_n_60",
+          "nb_op_ground_mean_pm30",
+          "nb_op_deice_share_60",
+          "dis_snow_6h_fraction",
+          "dis_snow_6h_coverage",
+          "dis_snow_24h_fraction",
+          "dis_snow_24h_coverage",
+          "dis_arr_60m_count",
+          "dis_arr_60m_mean_sec",
+          "dis_arr_60m_over30_share",
+          "dis_arr_60m_over60_share",
+          "dis_arr_180m_count",
+          "dis_arr_180m_mean_sec",
+          "dis_arr_180m_over30_share",
+          "dis_arr_180m_over60_share"
+        ],
+        "candidate_ordinary_extra": [
+          "wx_temp_c",
+          "wx_dewpoint_spread_c",
+          "wx_wind_kt",
+          "wx_gust_kt",
+          "wx_wind_dir",
+          "wx_visibility_m",
+          "wx_ceiling_ft",
+          "wx_thunder",
+          "wx_snow",
+          "wx_freezing",
+          "wx_fog",
+          "wx_rain",
+          "wx_heavy",
+          "wx_deicing",
+          "wx_age_min",
+          "wx_2h_min_visibility_m",
+          "wx_2h_min_ceiling_ft",
+          "wx_2h_max_gust_kt",
+          "wx_2h_thunder",
+          "wx_2h_snow_or_freezing",
+          "wx_2h_fog",
+          "q_rwy_prev_takeoff_gap_sec",
+          "q_rwy_takeoffs_prev30",
+          "q_apt_takeoffs_prev30",
+          "q_rwy_others_gap_prev60",
+          "q_apt_others_gap_prev60",
+          "q_queue_ahead_since_aobt3",
+          "q_rwy_landings_prev30",
+          "q_rwy_next_takeoff_gap_sec",
+          "q_rwy_takeoffs_next30",
+          "q_rwy_others_gap_pm30",
+          "q_apt_others_gap_pm30",
+          "airline",
+          "st_last_arr_sec",
+          "st_prev_arr_sec",
+          "st_same_type",
+          "st_same_airline",
+          "st_inblock_minus_sched_sec",
+          "op_matched",
+          "op_fs_ground",
+          "op_fs_sec",
+          "op_own_stand_sec",
+          "op_first_stand_sec",
+          "op_first_apron_sec",
+          "op_first_twy_sec",
+          "op_rwy_sec",
+          "op_deice_sec",
+          "op_ground_sec",
+          "nb_op_ground_mean_60",
+          "nb_op_ground_n_60",
+          "nb_op_ground_mean_pm30",
+          "nb_op_deice_share_60",
+          "dis_snow_6h_fraction",
+          "dis_snow_6h_coverage",
+          "dis_snow_24h_fraction",
+          "dis_snow_24h_coverage",
+          "dis_arr_60m_count",
+          "dis_arr_60m_mean_sec",
+          "dis_arr_60m_over30_share",
+          "dis_arr_60m_over60_share",
+          "dis_arr_180m_count",
+          "dis_arr_180m_mean_sec",
+          "dis_arr_180m_over30_share",
+          "dis_arr_180m_over60_share",
+          "sc_x_m",
+          "sc_y_m",
+          "sc_rwy_end_m"
+        ]
+      },
+      "params": {
+        "objective": "regression",
+        "metric": "rmse",
+        "learning_rate": 0.02,
+        "num_leaves": 127,
+        "min_data_in_leaf": 200,
+        "feature_fraction": 0.7,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "verbosity": -1,
+        "seed": 42,
+        "bagging_seed": 43,
+        "feature_fraction_seed": 44,
+        "num_threads": 8,
+        "lambda_l2": 100.0,
+        "path_smooth": 0.0,
+        "cat_smooth": 100.0,
+        "cat_l2": 10.0,
+        "min_data_per_group": 100,
+        "max_cat_threshold": 16
+      },
+      "rounds": 5000,
+      "data_identity": [
+        {
+          "file": "metar.parquet",
+          "bytes": 8790277,
+          "sha256": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5"
+        },
+        {
+          "file": "ranking.parquet",
+          "bytes": 43564605,
+          "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+        },
+        {
+          "file": "training_2025-01-01_2025-02-01.parquet",
+          "bytes": 21218481,
+          "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+        },
+        {
+          "file": "training_2025-02-01_2025-03-01.parquet",
+          "bytes": 19824510,
+          "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+        },
+        {
+          "file": "training_2025-03-01_2025-04-01.parquet",
+          "bytes": 22606072,
+          "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+        },
+        {
+          "file": "training_2025-04-01_2025-05-01.parquet",
+          "bytes": 23840340,
+          "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+        },
+        {
+          "file": "training_2025-05-01_2025-06-01.parquet",
+          "bytes": 25187756,
+          "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+        },
+        {
+          "file": "training_2025-06-01_2025-07-01.parquet",
+          "bytes": 24991697,
+          "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+        },
+        {
+          "file": "training_2025-07-01_2025-08-01.parquet",
+          "bytes": 26014977,
+          "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+        },
+        {
+          "file": "training_2025-08-01_2025-09-01.parquet",
+          "bytes": 25969246,
+          "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+        },
+        {
+          "file": "training_2025-09-01_2025-10-01.parquet",
+          "bytes": 25102673,
+          "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+        },
+        {
+          "file": "training_2025-10-01_2025-11-01.parquet",
+          "bytes": 25392098,
+          "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+        },
+        {
+          "file": "training_2025-11-01_2025-12-01.parquet",
+          "bytes": 22173840,
+          "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+        },
+        {
+          "file": "training_2025-12-01_2026-01-01.parquet",
+          "bytes": 22653598,
+          "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+        }
+      ],
+      "opdi_identity": [
+        {
+          "file": "opdi_features.parquet",
+          "bytes": 37061372,
+          "sha256": "c1b6e3372403b909e5a69ee7487d7bf04e7a408165097f4725e6d396db8fb5b6"
+        }
+      ],
+      "stand_identity": [
+        {
+          "file": "runway_ends.parquet",
+          "bytes": 5091,
+          "sha256": "91c4ceff31bf1295d795a850a69ad15453f8bfad510f8dc790b55d696d25a853"
+        },
+        {
+          "file": "stand_coords.parquet",
+          "bytes": 114720,
+          "sha256": "217ff73ec7cb09e3c552efea72d586790db957529df6bc86921428e0a330b2c8"
+        }
+      ],
+      "adsblol_tables_sha256": {
+        "features": "50c544d3e5c4fde7af30a3e5358bcaef224cc3b6c36fbc9bc5ae6dddd4ee7da6",
+        "stand_features": "4d78bc0c98a4e2812ab86bf8d04508cf54d36aedb87976c06bbb314aa78353fc"
+      },
+      "template_sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+      "anchors": {
+        "VALIDATION/runs/v3_20261001_jan_jul/submission_v44/submission_v44.json": "c57750b2e66133eda03797df0f80f77bb9e63b1b20e4277b71e2c402cebd641f",
+        "VALIDATION/runs/v3_20261002_adsblol_jan_jul/result_stand_3seed.json": "8f86584af9c14e496cabeffd4aa756d51ef06d43f3364cce5e93b8dbb057573f",
+        "tmp/adsblol_features_20261002/v44_official/unique-rose_v44.parquet": "9b6f5f3ab44de0ec8e23a3b1ac1208ad9271b524b0723e4764d7d44cddf9731c"
+      }
+    },
+    "parent_models": {
+      "refit2025__ordinary_adsblol_stand__42": {
+        "models/refit2025__ordinary_adsblol_stand__42.txt": "0d927558d9f787eb47899351f3545ca04212d944d722e047b846663b02f62d76"
+      },
+      "refit2025__classifier__42": {
+        "models/refit2025__classifier__42.txt": "9501e34314f919425cc74cc345eef9562e895f1516002847fba1583afa97d31e"
+      }
+    },
+    "anchors": {
+      "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/submission_v46.json": "b88bfbfb3d91432a7da05c3387f55010a6bf52aa2e0e515a807a3535ebc4e4c4",
+      "submissions/unique-rose_v46.parquet": "60cb551aa581d556be361e62793769b0bfa901532dde28472443a5f15cf4f3ff",
+      "VALIDATION/runs/v3_20261002_nn_submit/submission_v47/submission_v47.json": "5bcdeaf05c65e6c91d7eb63112ad62ac7f2ed41b8adee391f3a7d0b4671010c2",
+      "submissions/unique-rose_v47.parquet": "1e81c66b92cf83a8fd9bc8bfd731e8d21eec8851d49ab01658946bf7b685298b",
+      "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/score.json": "cccd09a163396a85f4a6b51ff8b9874930ca251b7df3c3e66c0e9ae434f66172",
+      "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/result.json": "73a04380c824fd8e248b29bf18b8832e0d39122d2e015ddf827a76c8558d5e1d"
+    },
+    "torch": "2.14.1+cu130",
+    "device": "NVIDIA GeForce RTX 3080"
+  },
+  "external_data": "EUROCONTROL OPDI v0.0.2 (OpenSky Network ADS-B), declared in SUBMISSIONS.md; X-Plane Scenery Gateway airport data (GPL v2 or later) and OpenStreetMap aeroway=parking_position/runway (ODbL), fetched 2026-09-25; ADSB.lol globe_history heatmaps (GitHub adsblol/globe_history_2025 and _2026; CC0 1.0 / ODbL 1.0 per archive), fetched 2026-10-02",
+  "minutes": 10.910733118483343,
+  "quota_check": {
+    "at": "2026-10-03T13:02:52+00:00",
+    "existing_uploads_today": []
+  },
+  "uploaded_at": "2026-10-03T13:02:54+00:00",
+  "remote_sha256": "16e3ff56f48c2058d588748d25e5a57e8ad630fc735e1c1a06364bcd2f7472e1",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v48.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 239.7731
+  },
+  "score_checked_at": "2026-10-03T13:03:17+00:00",
+  "score": 239.7731
+}

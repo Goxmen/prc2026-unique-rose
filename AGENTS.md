@@ -72,7 +72,94 @@ but identify the result as stale and report its timestamp.
   honest-holdout numbers, tables-over-prose, process: explain and get approval before
   restructuring a section). Read it before touching the notebook.
 
+## Two machines: desktop and laptop
+
+Training can be split between gunes's desktop and laptop. Agents drive both from the desktop.
+
+**Machines**
+
+| | Desktop (Tailscale `gpc`, this host) | Laptop (Tailscale `glaptop-wsl`) |
+|---|---|---|
+| CPU | Ryzen 7 7800X3D | i7-13650HX |
+| GPU | RTX 3080, 10 GB | RTX 5060 Laptop, 8 GB |
+| WSL memory | 24 GB | 16 GB |
+
+**Rules (from the user)**
+- Leave the laptop alone unless the user asks for it.
+- On the desktop, run heavy jobs one at a time: CPU and GPU jobs together make the PC unusable.
+
+**Access**
+- `ssh glaptop-wsl` from the desktop; the key is `~/.ssh/id_ed25519_laptop`, user `gunes`.
+- The laptop has its own checkout at `~/PRC` and its own `.venv`, with the same pinned packages.
+- `nvidia-smi` is at `/usr/lib/wsl/lib/nvidia-smi`.
+- The laptop's WSL settings are in `C:\Users\Gox\.wslconfig`: `memory=16GB`, and both idle timeouts set to -1 so WSL keeps running without a terminal open.
+- After a laptop reboot, WSL only starts when someone opens a terminal on it.
+
+**Workflow**
+1. **Code:** `git pull` on the laptop, then `rsync` any uncommitted `*.py` files across, excluding `VALIDATION/runs/`.
+2. **Data:** copy only the inputs the job needs (prepared splits `after_drop.pkl`, `heldout.pkl`, `meta.json`; feature tables), over Tailscale with `rsync`. 1.7 GB took about 15 minutes. Check `sha256sum` on both sides.
+3. **Jobs:** run one job at a time on the laptop; CatBoost or LightGBM with full data needs 7–10 GB. Give each arm all its seeds on one machine, because LightGBM can differ slightly between machines.
+4. **Results:** copy the predictions back with `rsync` and merge the run records, noting which machine produced each seed (as in `VALIDATION/runs/v3_20261003_ideas_jan_jul/catboost.json`).
+
+CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than on the 3080 while it shared the desktop with LightGBM jobs (55–65 min per fit).
+
 ## Current improvement work — handoff
+
+- **October 6: hyperparameter search of every v51 part is done; Rome part uploaded as v53
+  (LB 237.7683, −0.51 vs v51, best).** Read the [report](VALIDATION/reports/HPO_JAN_JUL.md). On
+  Jan/Jul CV vs C4 (298.2138), three seeds: Rome classifier −2.32, CatBoost −0.15, main LightGBM
+  −0.12, per-airport LightGBMs −0.18, networks −0.05 (noise); the three tree models add −0.45 on
+  top of Rome. v53 holds ITA flight 202681908 at v51's value (see SUBMISSIONS.md row 56). Runner
+  `VALIDATION/hpo_jan_jul.py`, run `VALIDATION/runs/v3_20261005_hpo_jan_jul/` (CatBoost ran on the
+  laptop). All five winners refitted on 2025 and uploaded as **v54: LB 236.3328 (−1.94 vs v51, −1.44 vs v53), best**; no flight held (`VALIDATION/hpo_submit.py`, run `v3_20261006_hpo_submit/`). Do not repeat the search or refit/upload v53/v54 again.
+
+- **October 6 (afternoon): three leaderboard tests on v54 all lost; v54 stays best.**
+  v55 (`VALIDATION/snow_offset_probe.py`): January snow-day predictions at EDDF/LFPG/LEMD lowered by
+  half their extra gap above the clock (8,502 flights, mean −59.5 s) → 236.5586 (+0.23); solved, v54's
+  snow-day level is right (k ≈ −0.03). v56 (`VALIDATION/rome_fn_submit.py`): Rome classifier + flight
+  number's 2025 copy share, unseen flight numbers kept at v54 (48% of LIRF in July 2026) → 236.5988
+  (+0.27), although Jan/Jul CV said −0.81 on v54's recipe and −1.54 on C4 parts
+  ([report](VALIDATION/reports/ROME_COST_JAN_JUL.md); cost-weighted Rome training failed CV, +1.37).
+  Rome-classifier CV gains have now transferred at 0.22× and then the wrong way. The test-set study
+  behind these leads is in the "Test Set Casebook" artifact (https://claude.ai/artifact/BcyN58UNkY6ZmbNC3RJAd4).
+  Do not re-upload v55/v56 or a no-fallback v56 (kept in `v3_20261006_rome_fn_submit/nofallback_build/`).
+  v57 (`VALIDATION/blend_weight_submit.py --version 57 --w-nn 0.45`): network share 0.45 instead of 0.6, Jan/Jul CV
+  −0.22 → 236.9652 (+0.63). Solving v54/v57 (final step nearly linear in the share) puts the leaderboard's best share near
+  0.71 (predicted 236.20, −0.14). **v58 = v54 with share 0.71: LB 236.1895 (−0.14), best; later experiments start
+  from v58.** ADS-B track-shape inputs (`VALIDATION/adsb_track.py`, run `v3_20261006_adsb_track_jan_jul`) failed Jan/Jul CV
+  (+0.004 on v54's main LightGBM) and were not uploaded. Per-airport tailoring (own LightGBM settings, tree mix or network
+  share per airport) and capping tree labels at 3 h both failed Jan/Jul CV; see the "Submissions by Airport" artifact
+  (https://claude.ai/artifact/NB76KEBwaqUJFQKKDqGYia) and `VALIDATION/clip_labels_jan_jul.py`. Uploads on 6 Oct: v54–v57 (4).
+
+- **October 3 (evening): other teams' ideas submitted as v51 (C4): LB 238.2770, best ever, rank
+  21/223; v50 (C1, 15 pooled networks) scores 239.0108.** Read the
+  [report](VALIDATION/reports/IDEAS_JAN_JUL.md). On v48's recipe (Jan/Jul CV 299.9790), passing single
+  changes: CatBoost −0.65, per-airport LightGBMs −0.42, 15 pooled `ple` networks −0.43, arrival
+  taxi-in −0.17, runway configuration −0.13, peer AOBT_3 clocks −0.09, OSM taxi route −0.07 (not
+  used). Failed: second-stage model on the other month's errors (+3.13), per-airport blend weights
+  (+0.11). C4 = 15 networks refitted with the 22 new inputs + equal mean of combo LightGBM, combo
+  per-airport LightGBMs and CatBoost: CV 298.2138 (−1.77); LB −1.50 vs v48. Validation runs:
+  `VALIDATION/runs/v3_20261003_ideas_jan_jul/`; submissions: `VALIDATION/ideas_submit.py`, manifests
+  and full-year parts in `VALIDATION/runs/v3_20261003_ideas_submit/`. Do not refit or upload v50/v51
+  again. **The user wants heavy jobs run one at a time (CPU and GPU together make the PC unusable).**
+  The laptop (`ssh glaptop-wsl`, Tailscale; key `~/.ssh/id_ed25519_laptop`) can run jobs; the user
+  asked to leave it alone unless needed. CatBoost (`catboost==1.2.10`) is in `requirements.txt`.
+
+- **October 3: an improved network is submitted as v48 (weight 0.6): LB 239.7731 (−5.6027 vs
+  v47), best ever, rank 21/222; v49 (same network, weight 0.3) scores 242.9764.** Read the
+  [report](VALIDATION/reports/NN_IMPROVE_JAN_JUL.md). Three changes to v47's network were scored
+  on Jan/Jul CV at weight 0.3: five seeds of v47's network −0.24; piecewise-linear input
+  embeddings + stopping on the last training month, five seeds (`ple`) **−1.51 [−2.27, −1.08]**
+  (302.3701 → 300.8628, every seed); TabM, one network, −0.70 (worse than ple by +0.81). ple's
+  best blend weight is ~0.6 (out-of-month check −0.80 [−1.35, −0.43] vs 0.3); the leaderboard
+  gave −3.20 for that step. Runner `VALIDATION/nn_improve_jan_jul.py`, scorer
+  `VALIDATION/tools/score_nn_improve_jan_jul.py`, run `VALIDATION/runs/v3_20261003_nn_improve_jan_jul/`;
+  submissions by `VALIDATION/nn_improve_submit.py` (manifests in
+  `VALIDATION/runs/v3_20261003_nn_improve_submit/`). Do not refit or upload v48/v49 again. Needs
+  `tabm`/`rtdl_num_embeddings` (in `requirements.txt`); the runners set
+  `TORCH_DISABLE_NATIVE_JIT=1` because torch 2.14's Triton kernels need Python headers this
+  machine lacks. Leads: the weight above 0.6 was not tried; TabM with five seeds or blended with
+  ple was not tried; idea D (sequence model on raw ADS-B ground tracks) is not started.
 
 - **October 2: v46's ordinary regressor blended 0.7/0.3 with a neural network is submitted as
   v47: LB 245.3758 (−3.3366 vs v46), best ever, rank 26/221.** Jan/Jul CV 303.7536 → 302.3701

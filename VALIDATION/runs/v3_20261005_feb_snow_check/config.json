@@ -1,0 +1,755 @@
+{
+  "v43_run": "VALIDATION/runs/v3_20260925_stand_coords/main",
+  "config": {
+    "recovery": "off",
+    "target_mode": "direct",
+    "model_mode": "single",
+    "clock_features": true,
+    "fpl_flag": false,
+    "max_taxi_sec": 200000,
+    "lag_train_days": 0,
+    "rounds": 800,
+    "early_stopping_rounds": 0,
+    "threads": 8,
+    "prediction_threads": 8,
+    "fit_workers": 1,
+    "prediction_rule": "rome_4h",
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "params": {
+      "objective": "regression",
+      "metric": "rmse",
+      "learning_rate": 0.05,
+      "num_leaves": 255,
+      "min_data_in_leaf": 200,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1
+    },
+    "sample": 1.0,
+    "exclude_rule_rows": true,
+    "train_months": 6,
+    "bootstrap_reps": 2000,
+    "bootstrap_seed": 0,
+    "block_days": 1,
+    "label": "v42-stand-coordinates-main",
+    "smoke": false,
+    "rome_hybrid": {
+      "airport": "LIRF",
+      "match_sec": 60,
+      "rule": "rome_4h",
+      "flags": [
+        "raw_flight_id_missing",
+        "raw_plan_block_missing"
+      ],
+      "classifier_params": {
+        "objective": "binary",
+        "metric": "binary_logloss",
+        "learning_rate": 0.05,
+        "num_leaves": 31,
+        "min_data_in_leaf": 100,
+        "feature_fraction": 0.9,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "verbosity": -1
+      },
+      "classifier_rounds": 300
+    },
+    "weather": {
+      "source": "Iowa Environmental Mesonet ASOS/METAR archive",
+      "max_age_min": 90,
+      "window": "2h",
+      "visibility_cap_m": 10000.0,
+      "no_ceiling_ft": 25000.0,
+      "features": [
+        "wx_temp_c",
+        "wx_dewpoint_spread_c",
+        "wx_wind_kt",
+        "wx_gust_kt",
+        "wx_wind_dir",
+        "wx_visibility_m",
+        "wx_ceiling_ft",
+        "wx_thunder",
+        "wx_snow",
+        "wx_freezing",
+        "wx_fog",
+        "wx_rain",
+        "wx_heavy",
+        "wx_deicing",
+        "wx_age_min",
+        "wx_2h_min_visibility_m",
+        "wx_2h_min_ceiling_ft",
+        "wx_2h_max_gust_kt",
+        "wx_2h_thunder",
+        "wx_2h_snow_or_freezing",
+        "wx_2h_fog"
+      ]
+    },
+    "queue": {
+      "anchor": "takeoff time",
+      "max_gap_sec": 7200,
+      "past": [
+        "q_rwy_prev_takeoff_gap_sec",
+        "q_rwy_takeoffs_prev30",
+        "q_apt_takeoffs_prev30",
+        "q_rwy_others_gap_prev60",
+        "q_apt_others_gap_prev60",
+        "q_queue_ahead_since_aobt3",
+        "q_rwy_landings_prev30"
+      ],
+      "future": [
+        "q_rwy_next_takeoff_gap_sec",
+        "q_rwy_takeoffs_next30",
+        "q_rwy_others_gap_pm30",
+        "q_apt_others_gap_pm30"
+      ],
+      "dep_columns": [
+        "ADEP_mvt",
+        "RUNWAY_mvt",
+        "MVT_TIME_UTC_mvt",
+        "AOBT_3_flt"
+      ],
+      "arr_columns": [
+        "ADES_mvt",
+        "RUNWAY_mvt",
+        "MVT_TIME_UTC_mvt"
+      ]
+    },
+    "rome_signals": {
+      "signals": [
+        "airline",
+        "handler_arr_sched_share",
+        "handler_arr_n",
+        "flight_number_format"
+      ],
+      "handler_match_sec": 60,
+      "handler_prior_weight": 10,
+      "handler_scope": "airport x airline x UTC month",
+      "late_delay_sec": 3600,
+      "late_floor_sec": 60,
+      "dayshift_gap_sec": 50400,
+      "timezone": "Europe/Rome"
+    },
+    "stand_day": {
+      "stand": [
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec"
+      ],
+      "day": [
+        "dd_noid_share",
+        "dd_notype_share",
+        "dd_arr_sched_share",
+        "dd_delay_mean_sec",
+        "dd_late_share",
+        "dh_noid_share_pm90"
+      ],
+      "day_scope": "airport x UTC day",
+      "arr_sched_match_sec": 60,
+      "late_sec": 2700,
+      "delay_clip_sec": 10800,
+      "window_sec": 5400,
+      "dep_columns": [
+        "mvt_id",
+        "ADEP_mvt",
+        "MVT_TIME_UTC_mvt",
+        "SCHED_TIME_UTC_mvt",
+        "FLIGHT_ID_mvt",
+        "AIRCRAFT_TYPE_mvt"
+      ],
+      "arr_columns": [
+        "ADES_mvt",
+        "STAND_mvt",
+        "MVT_TIME_UTC_mvt",
+        "SCHED_TIME_UTC_mvt",
+        "taxi_sec",
+        "AIRCRAFT_TYPE_mvt",
+        "FLIGHT_mvt"
+      ]
+    },
+    "opdi": {
+      "source": "EUROCONTROL OPDI v0.0.2 flight events and flight list (from OpenSky Network ADS-B)",
+      "box_deg": [
+        0.1,
+        0.15
+      ],
+      "match_slack_min": 5,
+      "event_slack_sec": 30,
+      "features": [
+        "op_matched",
+        "op_fs_ground",
+        "op_fs_sec",
+        "op_own_stand_sec",
+        "op_first_stand_sec",
+        "op_first_apron_sec",
+        "op_first_twy_sec",
+        "op_rwy_sec",
+        "op_deice_sec",
+        "op_ground_sec",
+        "nb_op_ground_mean_60",
+        "nb_op_ground_n_60",
+        "nb_op_ground_mean_pm30",
+        "nb_op_deice_share_60"
+      ]
+    },
+    "plan_window_margin_sec": 3660,
+    "candidates": {
+      "control": "pred_control",
+      "candidate": "pred_stand"
+    },
+    "post_candidates": {
+      "control": "pred34",
+      "opdi": "pred34_opdi",
+      "reg_opdi": "pred34_reg_opdi"
+    },
+    "candidate_specs": {
+      "control": {
+        "ordinary": "control",
+        "classifier": "control"
+      },
+      "opdi": {
+        "ordinary": "opdi",
+        "classifier": "opdi"
+      },
+      "reg_opdi": {
+        "ordinary": "opdi",
+        "classifier": "control"
+      }
+    },
+    "late": true,
+    "dayshift": false,
+    "ordinaries": {
+      "control": [
+        "wx_temp_c",
+        "wx_dewpoint_spread_c",
+        "wx_wind_kt",
+        "wx_gust_kt",
+        "wx_wind_dir",
+        "wx_visibility_m",
+        "wx_ceiling_ft",
+        "wx_thunder",
+        "wx_snow",
+        "wx_freezing",
+        "wx_fog",
+        "wx_rain",
+        "wx_heavy",
+        "wx_deicing",
+        "wx_age_min",
+        "wx_2h_min_visibility_m",
+        "wx_2h_min_ceiling_ft",
+        "wx_2h_max_gust_kt",
+        "wx_2h_thunder",
+        "wx_2h_snow_or_freezing",
+        "wx_2h_fog",
+        "q_rwy_prev_takeoff_gap_sec",
+        "q_rwy_takeoffs_prev30",
+        "q_apt_takeoffs_prev30",
+        "q_rwy_others_gap_prev60",
+        "q_apt_others_gap_prev60",
+        "q_queue_ahead_since_aobt3",
+        "q_rwy_landings_prev30",
+        "q_rwy_next_takeoff_gap_sec",
+        "q_rwy_takeoffs_next30",
+        "q_rwy_others_gap_pm30",
+        "q_apt_others_gap_pm30",
+        "airline",
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec"
+      ],
+      "opdi": [
+        "wx_temp_c",
+        "wx_dewpoint_spread_c",
+        "wx_wind_kt",
+        "wx_gust_kt",
+        "wx_wind_dir",
+        "wx_visibility_m",
+        "wx_ceiling_ft",
+        "wx_thunder",
+        "wx_snow",
+        "wx_freezing",
+        "wx_fog",
+        "wx_rain",
+        "wx_heavy",
+        "wx_deicing",
+        "wx_age_min",
+        "wx_2h_min_visibility_m",
+        "wx_2h_min_ceiling_ft",
+        "wx_2h_max_gust_kt",
+        "wx_2h_thunder",
+        "wx_2h_snow_or_freezing",
+        "wx_2h_fog",
+        "q_rwy_prev_takeoff_gap_sec",
+        "q_rwy_takeoffs_prev30",
+        "q_apt_takeoffs_prev30",
+        "q_rwy_others_gap_prev60",
+        "q_apt_others_gap_prev60",
+        "q_queue_ahead_since_aobt3",
+        "q_rwy_landings_prev30",
+        "q_rwy_next_takeoff_gap_sec",
+        "q_rwy_takeoffs_next30",
+        "q_rwy_others_gap_pm30",
+        "q_apt_others_gap_pm30",
+        "airline",
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec",
+        "op_matched",
+        "op_fs_ground",
+        "op_fs_sec",
+        "op_own_stand_sec",
+        "op_first_stand_sec",
+        "op_first_apron_sec",
+        "op_first_twy_sec",
+        "op_rwy_sec",
+        "op_deice_sec",
+        "op_ground_sec",
+        "nb_op_ground_mean_60",
+        "nb_op_ground_n_60",
+        "nb_op_ground_mean_pm30",
+        "nb_op_deice_share_60"
+      ]
+    },
+    "classifiers": {
+      "control": [
+        "airline",
+        "handler_arr_sched_share",
+        "handler_arr_n",
+        "flight_number_format",
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec"
+      ],
+      "opdi": [
+        "airline",
+        "handler_arr_sched_share",
+        "handler_arr_n",
+        "flight_number_format",
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec",
+        "op_matched",
+        "op_fs_ground",
+        "op_fs_sec",
+        "op_own_stand_sec",
+        "op_first_stand_sec",
+        "op_first_apron_sec",
+        "op_first_twy_sec",
+        "op_rwy_sec",
+        "op_deice_sec",
+        "op_ground_sec",
+        "nb_op_ground_mean_60",
+        "nb_op_ground_n_60",
+        "nb_op_ground_mean_pm30",
+        "nb_op_deice_share_60"
+      ]
+    },
+    "reuse_control": true,
+    "control_source": {
+      "run": "v3_20260918T151436598224Z",
+      "parts": {
+        "ordinary": "stand",
+        "classifier": "stand"
+      },
+      "column": "pred_stand"
+    },
+    "disruption": {
+      "snow_codes": [
+        "SN",
+        "SG"
+      ],
+      "snow_grid_minutes": 30,
+      "report_max_age_minutes": 90,
+      "snow_windows_hours": [
+        6,
+        24
+      ],
+      "minimum_known_samples": [
+        10,
+        40
+      ],
+      "arrival_windows_minutes": [
+        60,
+        180
+      ],
+      "arrival_mean_cap_sec": 7200,
+      "arrival_available": "landing + finite nonnegative taxi_sec < departure takeoff",
+      "arrival_window": "[takeoff - window, takeoff)",
+      "features": [
+        "dis_snow_6h_fraction",
+        "dis_snow_6h_coverage",
+        "dis_snow_24h_fraction",
+        "dis_snow_24h_coverage",
+        "dis_arr_60m_count",
+        "dis_arr_60m_mean_sec",
+        "dis_arr_60m_over30_share",
+        "dis_arr_60m_over60_share",
+        "dis_arr_180m_count",
+        "dis_arr_180m_mean_sec",
+        "dis_arr_180m_over30_share",
+        "dis_arr_180m_over60_share"
+      ]
+    },
+    "stand": {
+      "features": [
+        "sc_x_m",
+        "sc_y_m",
+        "sc_rwy_end_m"
+      ],
+      "origin": "mean of the airport X-Plane runway ends",
+      "distance": "flat-earth metres (stand_geometry.metres)",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "sources": "stand_coords.parquet / runway_ends.parquet (tools/build_stand_coords.py)"
+    },
+    "control_ordinary_extra": [
+      "wx_temp_c",
+      "wx_dewpoint_spread_c",
+      "wx_wind_kt",
+      "wx_gust_kt",
+      "wx_wind_dir",
+      "wx_visibility_m",
+      "wx_ceiling_ft",
+      "wx_thunder",
+      "wx_snow",
+      "wx_freezing",
+      "wx_fog",
+      "wx_rain",
+      "wx_heavy",
+      "wx_deicing",
+      "wx_age_min",
+      "wx_2h_min_visibility_m",
+      "wx_2h_min_ceiling_ft",
+      "wx_2h_max_gust_kt",
+      "wx_2h_thunder",
+      "wx_2h_snow_or_freezing",
+      "wx_2h_fog",
+      "q_rwy_prev_takeoff_gap_sec",
+      "q_rwy_takeoffs_prev30",
+      "q_apt_takeoffs_prev30",
+      "q_rwy_others_gap_prev60",
+      "q_apt_others_gap_prev60",
+      "q_queue_ahead_since_aobt3",
+      "q_rwy_landings_prev30",
+      "q_rwy_next_takeoff_gap_sec",
+      "q_rwy_takeoffs_next30",
+      "q_rwy_others_gap_pm30",
+      "q_apt_others_gap_pm30",
+      "airline",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60",
+      "dis_snow_6h_fraction",
+      "dis_snow_6h_coverage",
+      "dis_snow_24h_fraction",
+      "dis_snow_24h_coverage",
+      "dis_arr_60m_count",
+      "dis_arr_60m_mean_sec",
+      "dis_arr_60m_over30_share",
+      "dis_arr_60m_over60_share",
+      "dis_arr_180m_count",
+      "dis_arr_180m_mean_sec",
+      "dis_arr_180m_over30_share",
+      "dis_arr_180m_over60_share"
+    ],
+    "candidate_ordinary_extra": [
+      "wx_temp_c",
+      "wx_dewpoint_spread_c",
+      "wx_wind_kt",
+      "wx_gust_kt",
+      "wx_wind_dir",
+      "wx_visibility_m",
+      "wx_ceiling_ft",
+      "wx_thunder",
+      "wx_snow",
+      "wx_freezing",
+      "wx_fog",
+      "wx_rain",
+      "wx_heavy",
+      "wx_deicing",
+      "wx_age_min",
+      "wx_2h_min_visibility_m",
+      "wx_2h_min_ceiling_ft",
+      "wx_2h_max_gust_kt",
+      "wx_2h_thunder",
+      "wx_2h_snow_or_freezing",
+      "wx_2h_fog",
+      "q_rwy_prev_takeoff_gap_sec",
+      "q_rwy_takeoffs_prev30",
+      "q_apt_takeoffs_prev30",
+      "q_rwy_others_gap_prev60",
+      "q_apt_others_gap_prev60",
+      "q_queue_ahead_since_aobt3",
+      "q_rwy_landings_prev30",
+      "q_rwy_next_takeoff_gap_sec",
+      "q_rwy_takeoffs_next30",
+      "q_rwy_others_gap_pm30",
+      "q_apt_others_gap_pm30",
+      "airline",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60",
+      "dis_snow_6h_fraction",
+      "dis_snow_6h_coverage",
+      "dis_snow_24h_fraction",
+      "dis_snow_24h_coverage",
+      "dis_arr_60m_count",
+      "dis_arr_60m_mean_sec",
+      "dis_arr_60m_over30_share",
+      "dis_arr_60m_over60_share",
+      "dis_arr_180m_count",
+      "dis_arr_180m_mean_sec",
+      "dis_arr_180m_over30_share",
+      "dis_arr_180m_over60_share",
+      "sc_x_m",
+      "sc_y_m",
+      "sc_rwy_end_m"
+    ]
+  },
+  "folds": {
+    "2025-01": [
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11"
+    ],
+    "2025-07": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ],
+    "2025-02": [
+      "2025-01",
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ]
+  },
+  "freezes": {
+    "2025-02": "2025-12-31"
+  },
+  "data_identity": [
+    {
+      "file": "metar.parquet",
+      "bytes": 8790277,
+      "sha256": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5"
+    },
+    {
+      "file": "ranking.parquet",
+      "bytes": 43564605,
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "file": "training_2025-01-01_2025-02-01.parquet",
+      "bytes": 21218481,
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "file": "training_2025-02-01_2025-03-01.parquet",
+      "bytes": 19824510,
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "file": "training_2025-03-01_2025-04-01.parquet",
+      "bytes": 22606072,
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "file": "training_2025-04-01_2025-05-01.parquet",
+      "bytes": 23840340,
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "file": "training_2025-05-01_2025-06-01.parquet",
+      "bytes": 25187756,
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "file": "training_2025-06-01_2025-07-01.parquet",
+      "bytes": 24991697,
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "file": "training_2025-07-01_2025-08-01.parquet",
+      "bytes": 26014977,
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "file": "training_2025-08-01_2025-09-01.parquet",
+      "bytes": 25969246,
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "file": "training_2025-09-01_2025-10-01.parquet",
+      "bytes": 25102673,
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "file": "training_2025-10-01_2025-11-01.parquet",
+      "bytes": 25392098,
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "file": "training_2025-11-01_2025-12-01.parquet",
+      "bytes": 22173840,
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "file": "training_2025-12-01_2026-01-01.parquet",
+      "bytes": 22653598,
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "stage_a": {
+    "trials": 20,
+    "learning_rate": 0.05,
+    "rounds": 2000,
+    "seed": 20261001
+  },
+  "stage_b": {
+    "learning_rate": 0.02,
+    "factor": 2.5,
+    "max_rounds": 5000
+  },
+  "control": {
+    "num_leaves": 255,
+    "min_data_in_leaf": 200,
+    "lambda_l2": 0.0,
+    "feature_fraction": 0.9,
+    "bagging_fraction": 0.8,
+    "path_smooth": 0.0,
+    "cat_smooth": 10.0,
+    "cat_l2": 10.0,
+    "min_data_per_group": 100,
+    "max_cat_threshold": 32
+  },
+  "space": {
+    "num_leaves": [
+      127,
+      255,
+      511,
+      1023
+    ],
+    "min_data_in_leaf": [
+      50,
+      100,
+      200,
+      400,
+      800,
+      1600
+    ],
+    "lambda_l2": [
+      0.0,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "feature_fraction": [
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "bagging_fraction": [
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "path_smooth": [
+      0.0,
+      10.0,
+      100.0
+    ],
+    "cat_smooth": [
+      1.0,
+      10.0,
+      50.0,
+      100.0
+    ],
+    "cat_l2": [
+      1.0,
+      10.0,
+      50.0
+    ],
+    "min_data_per_group": [
+      50,
+      100,
+      200,
+      500
+    ],
+    "max_cat_threshold": [
+      16,
+      32,
+      64
+    ]
+  },
+  "check_seeds": [
+    142,
+    242
+  ],
+  "step": 200,
+  "source_sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+}

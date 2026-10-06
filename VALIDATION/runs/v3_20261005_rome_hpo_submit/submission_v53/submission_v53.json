@@ -1,0 +1,72 @@
+{
+  "version": 53,
+  "state": "scored",
+  "file": "submissions/unique-rose_v53.parquet",
+  "sha256": "897b815164abc5ec044fb9dc0ac71774ba2e1d18bbb2ce0b56a98b96c328fa7c",
+  "parent": "v51",
+  "change": "Rome classifier settings from the Jan/Jul search (trial R20)",
+  "held_at_v51": [
+    202681908.0
+  ],
+  "jan_jul_cv": {
+    "c4": 298.2257898413724,
+    "r20_seed42": 295.89966078058626
+  },
+  "reproduction": {
+    "v51": true,
+    "v46_classifier": 0.0
+  },
+  "summary": {
+    "2026-01": {
+      "rows": 152719,
+      "lirf_rows": 11061,
+      "changed": 11045,
+      "held_at_v51": [
+        202681908.0
+      ],
+      "mean_change_lirf": -3.818863435555493,
+      "mean_abs_change_lirf": 21.369635983633398,
+      "max_abs_change": 2783.5011046875334,
+      "mean_p": {
+        "v51": 0.22025898081619102,
+        "new": 0.2070329225744151
+      },
+      "correction_masks": {
+        "clock12": 0,
+        "clock2": 0,
+        "day": 1,
+        "rule_band": 12,
+        "rule_confidence": 1,
+        "twins": 5
+      }
+    },
+    "2026-07": {
+      "rows": 192122,
+      "lirf_rows": 15838,
+      "changed": 15808,
+      "held_at_v51": [],
+      "mean_change_lirf": -12.563987630990304,
+      "mean_abs_change_lirf": 33.00249575756758,
+      "max_abs_change": 2330.2616674387546,
+      "mean_p": {
+        "v51": 0.19040139970550288,
+        "new": 0.17706150697471876
+      },
+      "correction_masks": {
+        "clock12": 1,
+        "clock2": 2,
+        "day": 4,
+        "rule_band": 20,
+        "rule_confidence": 0,
+        "twins": 11
+      }
+    }
+  },
+  "minutes": 2.085297425250004,
+  "prepared_at": "2026-10-05T13:45:42+00:00",
+  "uploaded_at": "2026-10-05T15:45:55+02:00",
+  "remote": "opensky/prc-2026-unique-rose/unique-rose_v53.parquet",
+  "official_score": 237.7683,
+  "used_pairs": 344841,
+  "change_vs_v51": -0.5087
+}

@@ -50,4 +50,9 @@ VALIDATION/runs/overnight_*/*.parquet.tmp
 
 # Jan/Jul tuning keeps prepared row-level splits and boosters local; meta.json stays tracked.
 VALIDATION/**/runs/v3_*/splits/*/*.pkl
+VALIDATION/**/runs/v3_*/work/*.pkl
 VALIDATION/**/runs/v3_*/splits/*/*.txt
+
+# LightGBM boosters saved straight into a run folder, and CatBoost's training-log folder, stay local.
+VALIDATION/runs/v3_20261002_adsblol_screen/*.txt
+catboost_info/

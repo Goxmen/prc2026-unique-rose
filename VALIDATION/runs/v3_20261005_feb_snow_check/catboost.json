@@ -1,0 +1,37 @@
+{
+  "recipe": {
+    "loss_function": "RMSE",
+    "depth": 8,
+    "learning_rate": 0.05,
+    "l2_leaf_reg": 3,
+    "border_count": 254,
+    "iterations": 10000,
+    "od_patience": 300
+  },
+  "runner": "26ba16e459de838a71cf404dd610e617b23a9798cc83f42b5befe4e6fc6272e6",
+  "42": {
+    "2025-02": {
+      "iterations": 10000,
+      "inner_month": "2025-12",
+      "inner_rmse": 159.7788542696859,
+      "minutes": 60.11801658759999,
+      "top_importance": {
+        "mvt_minus_eobt1_sec": 11.808305192038448,
+        "stand_taxi_90d": 9.11536613933445,
+        "clock_baseline_sec": 7.612789547562503,
+        "ab_move_sec": 7.006616599297841,
+        "clock_median_sec": 4.275513878064515,
+        "runway": 3.250034574975049,
+        "airport": 3.0801523696557367,
+        "mvt_minus_aobt3_sec": 2.967800111098837,
+        "sc_rwy_end_m": 2.4801301184084115,
+        "clock_aobt3_minus_eobt1_sec": 2.3659849978263185,
+        "ab_seg_sec": 2.233702688509975,
+        "st_last_arr_sec": 2.220165505054989,
+        "ab_stand_exit_sec": 1.9158928384714924,
+        "mvt_minus_sched_sec": 1.8592076365610628,
+        "ab_seg_rwy_m": 1.788056923278676
+      }
+    }
+  }
+}

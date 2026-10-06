@@ -1,0 +1,61 @@
+{
+  "recipe": {
+    "inputs": [
+      "mvt_minus_aobt3_sec",
+      "mvt_minus_sched_sec",
+      "mvt_minus_eobt1_sec",
+      "clock_available_count",
+      "q_rwy_takeoffs_prev30",
+      "dis_arr_60m_mean_sec",
+      "ab_seg_sec",
+      "ab_stand_exit_sec"
+    ],
+    "params": {
+      "objective": "regression",
+      "num_leaves": 15,
+      "learning_rate": 0.03,
+      "min_data_in_leaf": 1000,
+      "lambda_l2": 100.0,
+      "feature_fraction": 0.8,
+      "bagging_fraction": 1.0,
+      "verbose": -1,
+      "num_threads": 4
+    },
+    "rounds": 400,
+    "clip": 3600
+  },
+  "level": {
+    "v48": {
+      "2025-01": 329.8976992121722,
+      "2025-07": 270.0602052181807,
+      "average": 299.9789522151765
+    },
+    "stacked": {
+      "2025-01": 331.65452045049676,
+      "2025-07": 274.5729579719575,
+      "average": 303.11373921122714
+    }
+  },
+  "change": {
+    "change": 3.1347869960506785,
+    "ci95": [
+      2.5988088870445294,
+      3.927138427288351
+    ],
+    "decision": "regression"
+  },
+  "by_seed": {
+    "42": {
+      "v48": 300.0528015651274,
+      "stacked": 303.2376838303626
+    },
+    "142": {
+      "v48": 300.1175681843981,
+      "stacked": 303.71137316236843
+    },
+    "242": {
+      "v48": 299.7658582882383,
+      "stacked": 302.3904942949656
+    }
+  }
+}
