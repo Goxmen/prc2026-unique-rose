@@ -1,0 +1,23 @@
+Loaded 2,085,047 departures / 2,082,750 arrivals.
+[12:13:41] 2025-01: training (1596201, 156), held-out (153706, 156); held-out missing shares {'sa_last_taxiin_sec': 0.0082, 'sa_prev_taxiin_sec': 0.0228, 'ra_last_taxiin_sec': 0.3631, 'ra_last_land_age_sec': 0.3631, 'pc_apt_mean_pm30': 0.0013, 'pc_apt_std_pm30': 0.003, 'pc_apt_n_pm30': 0.0, 'pc_apt_mean_next30': 0.0046, 'pc_rwy_mean_pm30': 0.0056, 'pc_rwy_n_pm30': 0.0, 'pc_zone_mean_pm60': 0.1716, 'pc_zone_n_pm60': 0.0074, 'pc_rwy_prev_proxy': 0.0183, 'pc_rwy_next_proxy': 0.0182, 'pc_own_minus_apt': 0.0111, 'rc_burst_prev': 0.0, 'rc_burst_next': 0.0, 'rc_rwy_streak_sec': 0.0, 'rc_dep_rwys_60': 0.0, 'rc_arr_rwys_60': 0.0, 'rc_dep_set_60': 0.0, 'rc_arr_set_60': 0.0}
+[12:14:05] 2025-07: training (1140233, 156), held-out (190713, 156); held-out missing shares {'sa_last_taxiin_sec': 0.0006, 'sa_prev_taxiin_sec': 0.0007, 'ra_last_taxiin_sec': 0.2251, 'ra_last_land_age_sec': 0.2251, 'pc_apt_mean_pm30': 0.0009, 'pc_apt_std_pm30': 0.0021, 'pc_apt_n_pm30': 0.0, 'pc_apt_mean_next30': 0.0035, 'pc_rwy_mean_pm30': 0.0051, 'pc_rwy_n_pm30': 0.0, 'pc_zone_mean_pm60': 0.1524, 'pc_zone_n_pm60': 0.0088, 'pc_rwy_prev_proxy': 0.0158, 'pc_rwy_next_proxy': 0.016, 'pc_own_minus_apt': 0.0225, 'rc_burst_prev': 0.0, 'rc_burst_next': 0.0, 'rc_rwy_streak_sec': 0.0, 'rc_dep_rwys_60': 0.0, 'rc_arr_rwys_60': 0.0, 'rc_dep_set_60': 0.0, 'rc_arr_set_60': 0.0}
+[12:15:27] neighbour labels 2025-01 done
+[12:16:25] neighbour labels 2025-07 done
+[12:16:27] 2025-01: model 328.43; knn alone {5: 501.0, 20: 497.6, 50: 498.8, 200: 502.5}; residual corr {5: -0.053, 20: -0.056, 50: -0.059, 200: -0.06}
+[12:16:27]    neighbours' mean [0.0, 600.0): n 15,741, label 504, model 535, bias -30.9, model RMSE 149
+[12:16:27]    neighbours' mean [600.0, 900.0): n 54,058, label 768, model 787, bias -18.9, model RMSE 134
+[12:16:27]    neighbours' mean [900.0, 1200.0): n 50,248, label 1057, model 1074, bias -16.9, model RMSE 500
+[12:16:27]    neighbours' mean [1200.0, 1800.0): n 31,563, label 1451, model 1469, bias -18.3, model RMSE 267
+[12:16:27]    neighbours' mean [1800.0, 3600.0): n 2,092, label 2211, model 2162, bias +49.1, model RMSE 463
+[12:16:27]    neighbours' mean [3600.0, inf): n 4, label 1573, model 2318, bias -744.9, model RMSE 1085
+[12:16:27] 2025-07: model 263.03; knn alone {5: 657.0, 20: 653.7, 50: 655.0, 200: 658.7}; residual corr {5: -0.022, 20: -0.024, 50: -0.026, 200: -0.028}
+[12:16:27]    neighbours' mean [0.0, 600.0): n 15,451, label 478, model 507, bias -29.2, model RMSE 109
+[12:16:27]    neighbours' mean [600.0, 900.0): n 65,369, label 770, model 778, bias -8.0, model RMSE 154
+[12:16:27]    neighbours' mean [900.0, 1200.0): n 64,028, label 1063, model 1063, bias -0.5, model RMSE 271
+[12:16:27]    neighbours' mean [1200.0, 1800.0): n 42,644, label 1469, model 1460, bias +9.4, model RMSE 364
+[12:16:27]    neighbours' mean [1800.0, 3600.0): n 3,202, label 2238, model 2207, bias +31.4, model RMSE 584
+[12:16:27]    neighbours' mean [3600.0, inf): n 19, label 1870, model 1954, bias -83.6, model RMSE 597
+[12:16:27] blend knn5: weights [-0.041, -0.01], Jan/Jul CV change +0.237
+[12:16:27] blend knn20: weights [-0.045, -0.01], Jan/Jul CV change +0.271
+[12:16:27] blend knn50: weights [-0.047, -0.011], Jan/Jul CV change +0.284
+[12:16:27] blend knn200: weights [-0.047, -0.012], Jan/Jul CV change +0.271

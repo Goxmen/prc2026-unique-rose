@@ -1,0 +1,124 @@
+{
+  "version": 60,
+  "state": "scored",
+  "file": "submissions/unique-rose_v60.parquet",
+  "sha256": "658aee5c871f732c65ef0def15c63df7e0c4db81df079032223f4adc02bea1e1",
+  "parent": "v58",
+  "variant": "Rome weather only",
+  "jan_jul_cv": {
+    "control": {
+      "2025-01": 328.4316664067627,
+      "2025-07": 263.0285858055726,
+      "cv": 295.73012610616763
+    },
+    "candidate": {
+      "2025-01": 328.3131913170437,
+      "2025-07": 262.2281696817702,
+      "cv": 295.2706804994069,
+      "change": {
+        "change": -0.4594456067607098,
+        "ci95": [
+          -1.1327431527590963,
+          0.14207983024612772
+        ],
+        "decision": "inconclusive"
+      }
+    }
+  },
+  "summary": {
+    "2026-01": {
+      "rows": 152719,
+      "changed": 11046,
+      "mean_change": 0.04802006401997248,
+      "mean_abs_change": 0.8828008334919341,
+      "max_abs_change": 16230.710138337732,
+      "over_1h": 1,
+      "correction_masks": {
+        "clock12": 0,
+        "clock2": 0,
+        "day": 1,
+        "rule_band": 12,
+        "rule_confidence": 0,
+        "twins": 5
+      }
+    },
+    "2026-07": {
+      "rows": 192122,
+      "changed": 15808,
+      "mean_change": -0.17589938598195928,
+      "mean_abs_change": 1.3251990996732534,
+      "max_abs_change": 2190.820295352495,
+      "over_1h": 0,
+      "correction_masks": {
+        "clock12": 1,
+        "clock2": 2,
+        "day": 4,
+        "rule_band": 20,
+        "rule_confidence": 0,
+        "twins": 11
+      }
+    }
+  },
+  "reproduced_v58": true,
+  "network_share": 0.71,
+  "prepared_at": "2026-10-08T14:59:06+00:00",
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "source_sha256": "161bc88398b642bbf0ffc6143fa0cf82d31b7a2d74814a82eb7261049667fa4e",
+  "weather_manifest_sha256": "e94af4105f57ab2dd21648a11df536974dce11d8d63489319661e0466bf088b1",
+  "uploaded_at": "2026-10-08T14:59:09+00:00",
+  "remote": "opensky/prc-2026-unique-rose/unique-rose_v60.parquet",
+  "remote_sha256": "658aee5c871f732c65ef0def15c63df7e0c4db81df079032223f4adc02bea1e1",
+  "official": {
+    "file": "unique-rose_v60.parquet",
+    "sizeBytes": 2209141,
+    "uploadedAt": "2026-10-08T16:59:07.863+02:00",
+    "status": "Succeeded",
+    "score": 237.3022,
+    "usedPairs": 344841,
+    "version": 60,
+    "processedAt": "2026-10-08T14:59:42.236714Z",
+    "improvementVsPrevious": 1.2410000000000139,
+    "scoreChangeVsPrevious": -1.2410000000000139,
+    "bestSoFar": 236.1895
+  },
+  "score_checked_at": "2026-10-08T15:00:59+00:00",
+  "flips_over_1h": [
+    {
+      "month": "2026-01",
+      "mvt_id": 202681908.0,
+      "v58": 1585.289861662268,
+      "v60": 17816.0,
+      "p_v58": 0.030218906097593423,
+      "p_v60": 0.050345606934645286
+    }
+  ]
+}

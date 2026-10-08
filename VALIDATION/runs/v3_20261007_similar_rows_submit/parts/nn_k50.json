@@ -1,0 +1,74 @@
+{
+  "trial": "N09",
+  "k": 50,
+  "months": {
+    "2026-01": {
+      "config": {
+        "hidden": [
+          512,
+          512,
+          256
+        ],
+        "dropout": 0.1,
+        "lr": 0.002,
+        "weight_decay": 1e-05,
+        "batch": 2048,
+        "epochs": 24,
+        "bins": 48,
+        "d_ple": 16,
+        "label_clip": 10800.0
+      },
+      "groups": {
+        "42": {
+          "stop_epoch": 19,
+          "december_rmse": 161.34952531954804
+        },
+        "142": {
+          "stop_epoch": 15,
+          "december_rmse": 162.3592574843902
+        },
+        "242": {
+          "stop_epoch": 19,
+          "december_rmse": 162.9083336955969
+        }
+      },
+      "training_rows": 1338682
+    },
+    "2026-07": {
+      "config": {
+        "hidden": [
+          512,
+          512,
+          256
+        ],
+        "dropout": 0.1,
+        "lr": 0.002,
+        "weight_decay": 1e-05,
+        "batch": 2048,
+        "epochs": 24,
+        "bins": 48,
+        "d_ple": 16,
+        "label_clip": 10800.0
+      },
+      "groups": {
+        "42": {
+          "stop_epoch": 19,
+          "december_rmse": 153.94237009675658
+        },
+        "142": {
+          "stop_epoch": 16,
+          "december_rmse": 153.9539450731908
+        },
+        "242": {
+          "stop_epoch": 14,
+          "december_rmse": 152.88747980148798
+        }
+      },
+      "training_rows": 1323093
+    }
+  },
+  "finished_at": "2026-10-07T09:17:19+00:00",
+  "host": "GPC",
+  "minutes": 36.79124566068332,
+  "device": "NVIDIA GeForce RTX 3080"
+}

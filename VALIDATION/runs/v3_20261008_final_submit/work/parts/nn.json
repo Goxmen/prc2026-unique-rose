@@ -1,0 +1,30 @@
+{
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "stop_epochs": {
+    "42": 15,
+    "142": 21,
+    "242": 16
+  },
+  "networks": 15,
+  "against_v54_old_inputs": {
+    "corr": 1.0,
+    "rms_diff": 2.3991798010750862e-06,
+    "mean_diff": 5.7729891354024795e-09
+  },
+  "device": "NVIDIA GeForce RTX 3080",
+  "minutes": 33.53534797024998
+}

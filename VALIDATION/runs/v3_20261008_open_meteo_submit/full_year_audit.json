@@ -1,0 +1,381 @@
+{
+  "original_columns_unchanged": 156,
+  "source_files_verified": 30,
+  "population": {
+    "raw_phase_counts": {
+      "DEP": 2085047,
+      "ARR": 2082750
+    },
+    "ordinary_rows": 2051327,
+    "ordinary_by_month": {
+      "2025-01": 151117,
+      "2025-02": 141173,
+      "2025-03": 161407,
+      "2025-04": 172399,
+      "2025-05": 182182,
+      "2025-06": 180264,
+      "2025-07": 188129,
+      "2025-08": 188120,
+      "2025-09": 181211,
+      "2025-10": 182762,
+      "2025-11": 159727,
+      "2025-12": 162836
+    },
+    "ordinary_by_airport": {
+      "EDDF": 230141,
+      "EDDM": 167334,
+      "EGLL": 239546,
+      "EHAM": 247948,
+      "LEBL": 179700,
+      "LEMD": 212242,
+      "LFPG": 239487,
+      "LIRF": 127372,
+      "LSZH": 134594,
+      "LTFM": 272963
+    },
+    "rome_rows": 160577,
+    "rome_positive_rows": 33205,
+    "substituted_rows": 33205,
+    "invalid_labels": 388,
+    "rule_exclusions": 127,
+    "every_eligible_row_accounted_for": true
+  },
+  "weather": {
+    "ordinary": {
+      "rows": 2051327,
+      "values": 22564597,
+      "missing": 0,
+      "max_error": 3.0517580853484105e-06
+    },
+    "ranking": {
+      "rows": 344841,
+      "values": 3793251,
+      "missing": 0,
+      "max_error": 3.051757971661573e-06
+    },
+    "rome": {
+      "rows": 160577,
+      "values": 1766347,
+      "missing": 0,
+      "max_error": 3.0517580853484105e-06
+    }
+  },
+  "weather_ranges": {
+    "om_temperature_2m": {
+      "train_min": -9.5,
+      "train_max": 39.70000076293945,
+      "rank_min": -11.399999618530273,
+      "rank_max": 39.0,
+      "rank_above_train_max": 0
+    },
+    "om_precipitation": {
+      "train_min": 0.0,
+      "train_max": 9.100000381469727,
+      "rank_min": 0.0,
+      "rank_max": 6.0,
+      "rank_above_train_max": 0
+    },
+    "om_rain": {
+      "train_min": 0.0,
+      "train_max": 9.100000381469727,
+      "rank_min": 0.0,
+      "rank_max": 6.0,
+      "rank_above_train_max": 0
+    },
+    "om_snowfall": {
+      "train_min": 0.0,
+      "train_max": 1.2599999904632568,
+      "rank_min": 0.0,
+      "rank_max": 1.3300000429153442,
+      "rank_above_train_max": 19
+    },
+    "om_wind_speed_10m": {
+      "train_min": 0.0,
+      "train_max": 14.460000038146973,
+      "rank_min": 0.0,
+      "rank_max": 13.229999542236328,
+      "rank_above_train_max": 0
+    },
+    "om_precipitation_6h": {
+      "train_min": 0.0,
+      "train_max": 36.599998474121094,
+      "rank_min": 0.0,
+      "rank_max": 19.0,
+      "rank_above_train_max": 0
+    },
+    "om_precipitation_24h": {
+      "train_min": 0.0,
+      "train_max": 73.0,
+      "rank_min": 0.0,
+      "rank_max": 44.5,
+      "rank_above_train_max": 0
+    },
+    "om_precipitation_48h": {
+      "train_min": 0.0,
+      "train_max": 75.0,
+      "rank_min": 0.0,
+      "rank_max": 72.0999984741211,
+      "rank_above_train_max": 0
+    },
+    "om_snowfall_6h": {
+      "train_min": 0.0,
+      "train_max": 4.409999847412109,
+      "rank_min": 0.0,
+      "rank_max": 4.059999942779541,
+      "rank_above_train_max": 0
+    },
+    "om_snowfall_24h": {
+      "train_min": 0.0,
+      "train_max": 5.599999904632568,
+      "rank_min": 0.0,
+      "rank_max": 4.96999979019165,
+      "rank_above_train_max": 0
+    },
+    "om_snowfall_48h": {
+      "train_min": 0.0,
+      "train_max": 8.539999961853027,
+      "rank_min": 0.0,
+      "rank_max": 6.090000152587891,
+      "rank_above_train_max": 0
+    }
+  },
+  "models": {
+    "airport_EDDF.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 2587,
+        "om_precipitation": 721,
+        "om_rain": 464,
+        "om_snowfall": 35,
+        "om_wind_speed_10m": 2746,
+        "om_precipitation_6h": 815,
+        "om_precipitation_24h": 1199,
+        "om_precipitation_48h": 1566,
+        "om_snowfall_6h": 60,
+        "om_snowfall_24h": 129,
+        "om_snowfall_48h": 246
+      }
+    },
+    "airport_EDDM.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 2724,
+        "om_precipitation": 638,
+        "om_rain": 439,
+        "om_snowfall": 50,
+        "om_wind_speed_10m": 2869,
+        "om_precipitation_6h": 1378,
+        "om_precipitation_24h": 1856,
+        "om_precipitation_48h": 2359,
+        "om_snowfall_6h": 87,
+        "om_snowfall_24h": 54,
+        "om_snowfall_48h": 116
+      }
+    },
+    "airport_EGLL.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 3868,
+        "om_precipitation": 401,
+        "om_rain": 228,
+        "om_snowfall": 10,
+        "om_wind_speed_10m": 3450,
+        "om_precipitation_6h": 959,
+        "om_precipitation_24h": 1645,
+        "om_precipitation_48h": 2133,
+        "om_snowfall_6h": 11,
+        "om_snowfall_24h": 8,
+        "om_snowfall_48h": 104
+      }
+    },
+    "airport_EHAM.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 2957,
+        "om_precipitation": 301,
+        "om_rain": 98,
+        "om_snowfall": 29,
+        "om_wind_speed_10m": 3313,
+        "om_precipitation_6h": 728,
+        "om_precipitation_24h": 2107,
+        "om_precipitation_48h": 1561,
+        "om_snowfall_6h": 157,
+        "om_snowfall_24h": 72,
+        "om_snowfall_48h": 1927
+      }
+    },
+    "airport_LEBL.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 4471,
+        "om_precipitation": 270,
+        "om_rain": 80,
+        "om_snowfall": 0,
+        "om_wind_speed_10m": 3301,
+        "om_precipitation_6h": 847,
+        "om_precipitation_24h": 1629,
+        "om_precipitation_48h": 2302,
+        "om_snowfall_6h": 0,
+        "om_snowfall_24h": 0,
+        "om_snowfall_48h": 0
+      }
+    },
+    "airport_LEMD.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 3291,
+        "om_precipitation": 335,
+        "om_rain": 131,
+        "om_snowfall": 0,
+        "om_wind_speed_10m": 3675,
+        "om_precipitation_6h": 679,
+        "om_precipitation_24h": 1124,
+        "om_precipitation_48h": 1899,
+        "om_snowfall_6h": 26,
+        "om_snowfall_24h": 11,
+        "om_snowfall_48h": 38
+      }
+    },
+    "airport_LFPG.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 4258,
+        "om_precipitation": 352,
+        "om_rain": 167,
+        "om_snowfall": 4,
+        "om_wind_speed_10m": 3510,
+        "om_precipitation_6h": 883,
+        "om_precipitation_24h": 2869,
+        "om_precipitation_48h": 2638,
+        "om_snowfall_6h": 6,
+        "om_snowfall_24h": 22,
+        "om_snowfall_48h": 536
+      }
+    },
+    "airport_LIRF.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 3024,
+        "om_precipitation": 646,
+        "om_rain": 163,
+        "om_snowfall": 0,
+        "om_wind_speed_10m": 3947,
+        "om_precipitation_6h": 1109,
+        "om_precipitation_24h": 1673,
+        "om_precipitation_48h": 2647,
+        "om_snowfall_6h": 0,
+        "om_snowfall_24h": 0,
+        "om_snowfall_48h": 0
+      }
+    },
+    "airport_LSZH.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 1847,
+        "om_precipitation": 263,
+        "om_rain": 190,
+        "om_snowfall": 177,
+        "om_wind_speed_10m": 2049,
+        "om_precipitation_6h": 651,
+        "om_precipitation_24h": 1034,
+        "om_precipitation_48h": 1371,
+        "om_snowfall_6h": 56,
+        "om_snowfall_24h": 71,
+        "om_snowfall_48h": 171
+      }
+    },
+    "airport_LTFM.txt": {
+      "columns": 167,
+      "iterations": 5000,
+      "weather_split_counts": {
+        "om_temperature_2m": 3940,
+        "om_precipitation": 494,
+        "om_rain": 283,
+        "om_snowfall": 27,
+        "om_wind_speed_10m": 4036,
+        "om_precipitation_6h": 919,
+        "om_precipitation_24h": 1200,
+        "om_precipitation_48h": 1960,
+        "om_snowfall_6h": 129,
+        "om_snowfall_24h": 238,
+        "om_snowfall_48h": 349
+      }
+    },
+    "lgb.txt": {
+      "columns": 167,
+      "iterations": 10000,
+      "weather_split_counts": {
+        "om_temperature_2m": 12996,
+        "om_precipitation": 932,
+        "om_rain": 696,
+        "om_snowfall": 18,
+        "om_wind_speed_10m": 12308,
+        "om_precipitation_6h": 2708,
+        "om_precipitation_24h": 6082,
+        "om_precipitation_48h": 7893,
+        "om_snowfall_6h": 118,
+        "om_snowfall_24h": 181,
+        "om_snowfall_48h": 567
+      }
+    },
+    "rome.txt": {
+      "columns": 79,
+      "iterations": 1700,
+      "weather_split_counts": {
+        "om_temperature_2m": 7403,
+        "om_precipitation": 943,
+        "om_rain": 416,
+        "om_snowfall": 0,
+        "om_wind_speed_10m": 8508,
+        "om_precipitation_6h": 2217,
+        "om_precipitation_24h": 3440,
+        "om_precipitation_48h": 5323,
+        "om_snowfall_6h": 0,
+        "om_snowfall_24h": 0,
+        "om_snowfall_48h": 0
+      }
+    },
+    "catboost.cbm": {
+      "columns": 145,
+      "iterations": 10000,
+      "weather_importance": {
+        "om_temperature_2m": 0.596547103219174,
+        "om_precipitation": 0.023493101897467884,
+        "om_rain": 0.050516502222126225,
+        "om_snowfall": 0.002250149012355317,
+        "om_wind_speed_10m": 0.36509733853257326,
+        "om_precipitation_6h": 0.0725479539432745,
+        "om_precipitation_24h": 0.17894260159982736,
+        "om_precipitation_48h": 0.227233165444104,
+        "om_snowfall_6h": 0.003839409900695575,
+        "om_snowfall_24h": 0.009307621883001563,
+        "om_snowfall_48h": 0.13405495170527268
+      }
+    }
+  },
+  "networks": {
+    "members": 15,
+    "columns": 167,
+    "stop_epochs": {
+      "42": 16,
+      "142": 18,
+      "242": 18
+    },
+    "full_year_refit_verified_in_code": true
+  },
+  "passed": true,
+  "prediction_parts_verified": 5,
+  "final_blend_reproduced": true,
+  "submission_rows": 344841,
+  "submission_sha256": "a2189a71e70548a88732b933f493f55b748abe85a9cfc8741986c99cd39e3fc8",
+  "source_sha256": "f1c99d9f4864cbfe1231c7aa956d7a75b80464a25ec6578929f2f68b1fc663e0"
+}

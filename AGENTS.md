@@ -105,6 +105,81 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 8: the organisers published a FINAL test set; deadline extended to 14 Oct 2026
+  12:00 CET.** `data/final_ranking.parquet` / `data/final_submitting.parquet` (bucket
+  `prc-2026-datasets`, uploaded 2026-10-08 13:04 CEST): January and July 2026 as before plus
+  February and June 2026, **670,790 departures** to predict (Jan 152,719, Feb 144,158,
+  Jun 181,791, Jul 192,122). Same columns; training files unchanged. Every old Jan/Jul row is
+  still there, but movement times are jittered by up to ±12 s (departure takeoff times; arrival
+  landing and in-block times, with arrival taxi-in labels recomputed from the jittered times).
+  The data page says only "same as the ranking and submitting dataset but covering two
+  additional months". **v63 = v58's recipe on the final test set is prepared and uploaded, but
+  the scorer rejected it** ("Submission contains 325949 rows not in truth"): the leaderboard's
+  truth still holds only the 344,841 old Jan/Jul labels. Keep the v63 file for when four-month
+  files are accepted; ask before any upload. v62 (v58's old file re-uploaded unchanged) scored
+  236.1895, identical to v58 — a duplicate that wasted a slot; don't repeat. On the old inputs,
+  the refitted networks/Rome classifier and the saved trees reproduce v58's parts (see
+  SUBMISSIONS.md row 64). Runner `VALIDATION/final_submit.py`, run
+  `VALIDATION/runs/v3_20261008_final_submit/`; stages tables → inputs → trees → rome → nn →
+  build → upload, one heavy stage at a time on the desktop. Saved v54 tree models are reused; the
+  15 networks and the Rome classifier were never saved and are refitted. OPDI raw files for the
+  2026 months were re-downloaded to `data/external/opdi_final/` (`VALIDATION/tools/fetch_opdi_final.py`);
+  ADSB.lol days 2026-02-01..28, 05-31, 06-01..30 were added to `data/external/adsblol_heatmap/`.
+  Rebuilt flight-keyed tables live in `data/derived/final_tables/{old,final}/`. Logs:
+  `tmp/final_20261008/`.
+
+- **October 8: ERA5 v61 scored 236.6319; v58 stays best, further uploads require fresh approval.**
+  User explicitly chose **both**: v60 = v58 with weather only in the Rome classifier;
+  v61 = v58 with weather in all five parts, despite the CV regression below. Driver
+  `VALIDATION/run_open_meteo_submit.py` runs prepare → Rome → build/upload v60 →
+  networks → main LightGBM → airport LightGBMs → CatBoost → build v61,
+  sequentially on the desktop. Runner `VALIDATION/open_meteo_submit.py`; state/logs
+  in `VALIDATION/runs/v3_20261008_open_meteo_submit/`. Inspect `execution.json`
+  before resuming; never start duplicate fits or uploads. Authorization is already
+  superseded: the user now requires asking before ANY further submission.
+  The user subsequently said **"submit v61"** and requested its ledger entry.
+  It was uploaded at 20:09 Amsterdam; remote SHA-256 matches the audited file.
+  Official score **236.6319 (+0.4424 vs v58)** on all 344,841 flights; live check
+  at 20:11 Amsterdam, rank 26/239. Both weather variants lost; retain the results.
+  `upload_approval_v61.json` records the consumed approval for that file hash.
+  `uploads_paused.json` still blocks further uploads; the guard rejects both
+  v60 and v61 after consuming the approval. The driver is complete. Leave the
+  laptop alone; do not repeat these fits or uploads. SUBMISSIONS.md row 65.
+  **v60 is uploaded and scored: 237.3022 (+1.1127 vs v58), all 344,841 flights.**
+  All v61 fits and file checks finished at 18:25 Amsterdam. The file contains
+  the original two-month test set (344,841 rows); do not switch to four months.
+  The user's follow-up data audit passed: all 156 original ordinary columns
+  unchanged, every eligible full-year departure accounted for, all 28,124,195
+  weather entries checked against source arrays without missing values, tree
+  feature orders and the final blend verified. See `full_year_audit.json` and
+  `VALIDATION/tools/audit_open_meteo_submit.py`; no repeated fits or uploads are needed.
+  Source #3 licence check: Airport Corner is publicly readable, but an open-data
+  reuse licence was not established. [Published terms](https://ext.eurocontrol.int/airport_corner_public/dc_requests)
+  say free of charge and for information purposes only. No event features are used.
+
+- **October 8: Open-Meteo ERA5 in every v58 part failed Jan/Jul CV; keep v58.**
+  The user requested all five parts after the main-LightGBM screen was inconclusive.
+  Fixed v58 HPO settings, network share 0.71, tree/classifier seed 42 and the full
+  15-network pool: matched control **295.7301 → 296.8264 (+1.0963)**, paired-day
+  interval [+0.2838, +2.1992]. Single-part effects: main LightGBM +0.0081,
+  per-airport LightGBMs +0.0042, CatBoost +0.0066 (all effectively flat); networks
+  +1.5080 (all three seed groups worsen in both months); Rome −0.4594, but its
+  interval [−1.1327, +0.1421] includes no gain. Rome is an exploratory lead, not
+  a selected candidate. Read [the report](VALIDATION/reports/OPEN_METEO_JAN_JUL.md).
+  Runners: `VALIDATION/open_meteo_jan_jul.py`, `VALIDATION/open_meteo_all.py`;
+  complete run `VALIDATION/runs/v3_20261008_open_meteo_jan_jul/`, definitive
+  `all_result.json`. All models, predictions and prepared matrices are retained;
+  do not repeat completed fits. Eleven weather inputs and 30 hashed sources are
+  cached in `data/external/conditions_20261008/`; do not redownload. Independent
+  audit checked 14,080 weather values; seven targeted tests passed. The audit's
+  initial calendar check used local DuckDB time and was corrected to UTC;
+  training/weather joins were already UTC. All new fits ran sequentially on the
+  desktop; historical CatBoost controls used the laptop GPU, a comparison caveat.
+  The CV phase ended before full-year fits; subsequent authorized uploads are recorded
+  above. Source #3 (Airport Corner events) remains unused; leave the laptop alone.
+
+- **October 7: training only on the flights nearest the test (user's idea) lost; v58 stays best.** Each test flight picks its K nearest training flights at its airport (every input; numbers as percentiles, categories match/mismatch, weighted by a fast LightGBM's gain shares); parts are refitted on the picked flights only, one model per test month. Practice scan (`VALIDATION/similar_rows_jan_jul.py`, fast main LightGBM, seed 42, run `v3_20261007_similar_rows_jan_jul`): every K from 1 to 50 is worse in both months, less so as K grows (K = 1 +9.98, K = 50 +1.22 alone); weighting by pick count is worse still. The user chose K on the leaderboard: **v59 = v58 with every part refitted on the 50 nearest (`VALIDATION/similar_rows_submit.py`, run `v3_20261007_similar_rows_submit`) → 238.5432 (+2.35)**. An earlier variant (a classifier telling training from test, dropping the least test-like share) was also worse and was deleted at the user's request. Do not retry training-set selection by similarity. Uploads on 7 Oct: v59 (1).
+
 - **October 6: hyperparameter search of every v51 part is done; Rome part uploaded as v53
   (LB 237.7683, −0.51 vs v51, best).** Read the [report](VALIDATION/reports/HPO_JAN_JUL.md). On
   Jan/Jul CV vs C4 (298.2138), three seeds: Rome classifier −2.32, CatBoost −0.15, main LightGBM

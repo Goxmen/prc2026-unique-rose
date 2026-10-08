@@ -1,0 +1,25 @@
+{
+  "reason": "User requested training all model parts with the weather inputs to see results",
+  "supersedes": "Main-LightGBM-only screening gate; all five parts will now be tested regardless of that screen",
+  "parts": [
+    "main LightGBM",
+    "per-airport LightGBMs",
+    "CatBoost",
+    "15 PLE networks",
+    "Rome classifier"
+  ],
+  "tree_and_classifier_seeds": [
+    42
+  ],
+  "network_seed_groups": [
+    42,
+    142,
+    242
+  ],
+  "networks_per_group": 5,
+  "network_share": 0.71,
+  "settings": "Fixed v58 HPO winners; no new search",
+  "training": "Same component-specific feature sets and rows, plus 11 weather inputs",
+  "execution": "Desktop only, one heavy job at a time",
+  "readout": "Full ensemble plus one-part replacements, Jan/Jul CV and paired day bootstrap; reused development data"
+}

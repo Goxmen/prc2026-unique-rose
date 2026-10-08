@@ -1,0 +1,22 @@
+{
+  "authorization": "User explicitly requested uploading both weather variants on 2026-10-08",
+  "versions": {
+    "60": "v58 with ERA5 in Rome classifier only",
+    "61": "v58 with ERA5 in all five parts"
+  },
+  "source_sha256": {
+    "VALIDATION/open_meteo_submit.py": "f4b11cc8863763a0249b79871cbda6dbab05a6a2ffd61470c391386628daf80c",
+    "VALIDATION/run_open_meteo_submit.py": "363c4fd1288fb4058c7a508aa43f0d5082196456b216e9b6a657fcaceac8c64f",
+    "VALIDATION/external_conditions.py": "efd19823c25f6999cd59a6709a86e27208e98475818277c178fb93cbb88cf74a",
+    "VALIDATION/hpo_submit.py": "5e47e979b2f97d86173495fff683b1aa74e3a6188edd28d4ab466ebe4186fcfe",
+    "VALIDATION/rome_hpo_submit.py": "e3086118234b8f24ec356c99a91412b16cc8fc07678b55d91bd93acdf42819fc",
+    "VALIDATION/nn_improve_submit.py": "10aea4b461a7aa9da3ee880283349fb84cab23490177765b32a9f591d5f379e5",
+    "VALIDATION/open_meteo_all.py": "c83f7643afc2d6445f7ea2ca62563f8e0d54d6ccf907af97b22330f3f1cb99eb"
+  },
+  "network_share": 0.71,
+  "tree_classifier_seed": 42,
+  "networks": 15,
+  "execution": "Sequential desktop jobs; laptop unused",
+  "validation_run": "v3_20261008_open_meteo_jan_jul",
+  "weather_license": "CC BY 4.0; Open-Meteo and Copernicus/ECMWF ERA5"
+}

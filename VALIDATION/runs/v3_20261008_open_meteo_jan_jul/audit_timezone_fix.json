@@ -1,0 +1,9 @@
+{
+  "issue": "Standalone audit used DuckDB default Europe/Amsterdam and extracted local calendar months",
+  "evidence": "2025-11-30 23:30 UTC displayed as 2025-12-01 locally",
+  "fix": "Set DuckDB TimeZone UTC and convert timestamps to UTC before month extraction",
+  "training_affected": false,
+  "weather_features_affected": false,
+  "reason": "Training loader and weather join already explicitly used UTC; row IDs, labels and original features agreed",
+  "refits_repeated": false
+}

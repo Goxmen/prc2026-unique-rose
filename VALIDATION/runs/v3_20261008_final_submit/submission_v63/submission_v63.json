@@ -1,0 +1,162 @@
+{
+ "version": 63,
+ "state": "uploaded",
+ "file": "submissions/unique-rose_v63.parquet",
+ "sha256": "5797a2f65bec534e9b8c6d389800f3ca7c3a3c9e62d03bc719b6370ebf8b6f6d",
+ "test_set": "final_ranking.parquet (Jan/Feb/Jun/Jul 2026)",
+ "rows": 670790,
+ "parent": "v58",
+ "change": "v58's recipe on the final test set",
+ "network_share": 0.71,
+ "summary": {
+  "2026-01": {
+   "rows": 152719,
+   "mean_pred": 1088.2859717092977,
+   "rule_triggered": 15,
+   "correction_masks": {
+    "clock12": 0,
+    "clock2": 0,
+    "day": 1,
+    "rule_band": 12,
+    "rule_confidence": 1,
+    "twins": 5
+   }
+  },
+  "2026-02": {
+   "rows": 144158,
+   "mean_pred": 995.6021587720059,
+   "rule_triggered": 8,
+   "correction_masks": {
+    "clock12": 0,
+    "clock2": 0,
+    "day": 0,
+    "rule_band": 8,
+    "rule_confidence": 0,
+    "twins": 9
+   }
+  },
+  "2026-06": {
+   "rows": 181791,
+   "mean_pred": 997.4925660123217,
+   "rule_triggered": 12,
+   "correction_masks": {
+    "clock12": 0,
+    "clock2": 1,
+    "day": 3,
+    "rule_band": 8,
+    "rule_confidence": 0,
+    "twins": 11
+   }
+  },
+  "2026-07": {
+   "rows": 192122,
+   "mean_pred": 1017.2167787185975,
+   "rule_triggered": 28,
+   "correction_masks": {
+    "clock12": 1,
+    "clock2": 2,
+    "day": 4,
+    "rule_band": 20,
+    "rule_confidence": 0,
+    "twins": 11
+   }
+  }
+ },
+ "jan_jul_against_v58": {
+  "rows": 344841,
+  "mean_change": 0.042016465559489735,
+  "mean_abs_change": 6.8648188585464025,
+  "rms_change": 11.884271606751415,
+  "max_abs_change": 1621.0,
+  "corr": 0.9998267902477993
+ },
+ "parts": {
+  "nn": {
+   "config": {
+    "hidden": [
+     512,
+     512,
+     256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+   },
+   "stop_epochs": {
+    "42": 15,
+    "142": 21,
+    "242": 16
+   },
+   "networks": 15,
+   "against_v54_old_inputs": {
+    "corr": 1.0,
+    "rms_diff": 2.3991798010750862e-06,
+    "mean_diff": 5.7729891354024795e-09
+   },
+   "device": "NVIDIA GeForce RTX 3080",
+   "minutes": 33.53534797024998
+  },
+  "trees": {
+   "lgb_v54_max_abs_diff": 0.0,
+   "airport_v54_max_abs_diff": 0.0,
+   "catboost_v54_max_abs_diff": 0.0,
+   "minutes": 6.764439438666644,
+   "sha256": "4eb4db3561f9065d3a3768d8e84084faf291b33ee640b9fe2a0d2b7099f5cf9e"
+  },
+  "rome": {
+   "trial": "R20",
+   "rounds": 1700,
+   "v53_max_abs_diff": 0.0,
+   "training_rows": 160577,
+   "minutes": 0.3190333058833251,
+   "model_sha256": "1458215f63374328d0506384c5c031f8a57817f68e5b4b0dad938e763fb0fd01"
+  }
+ },
+ "template_sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924",
+ "ranking_sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f",
+ "source_sha256": "60820fe3be984b14f47e1a6db09585842d93c42dd49014a936d6ebac7433679c",
+ "runtime": {
+  "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "logical_cpus": 16,
+  "affinity": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "versions": {
+   "duckdb": "1.5.5",
+   "lightgbm": "4.7.0",
+   "numpy": "2.5.2",
+   "pandas": "3.0.5"
+  }
+ },
+ "prepared_at": "2026-10-08T17:54:04+00:00",
+ "uploaded_at": "2026-10-08T17:54:50+00:00",
+ "remote": "opensky/prc-2026-unique-rose/unique-rose_v63.parquet",
+ "remote_sha256": "5797a2f65bec534e9b8c6d389800f3ca7c3a3c9e62d03bc719b6370ebf8b6f6d",
+ "leaderboard": {
+  "status": "Failed",
+  "checked_at": "2026-10-08T17:55:26+00:00",
+  "error": "Submission contains 325949 rows not in truth (the scorer still holds only the 344,841 Jan/Jul labels; the extra rows are exactly the Feb/Jun departures)"
+ }
+}

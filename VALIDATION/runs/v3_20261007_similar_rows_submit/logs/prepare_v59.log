@@ -1,0 +1,71 @@
+[11:36:07] {
+ "summary": {
+  "2026-01": {
+   "rows": 152719,
+   "correction_masks": {
+    "clock12": 0,
+    "clock2": 0,
+    "day": 1,
+    "rule_band": 12,
+    "rule_confidence": 1,
+    "twins": 5
+   },
+   "part_vs_v54": {
+    "nn": {
+     "corr": 0.9953623276083494,
+     "mean_change": 0.7520871654713297
+    },
+    "catboost": {
+     "corr": 0.9822380957614102,
+     "mean_change": -1.314803826638685
+    },
+    "lgb": {
+     "corr": 0.9923873570600215,
+     "mean_change": 0.09464113902764333
+    },
+    "airport": {
+     "corr": 0.9901384605985367,
+     "mean_change": 0.3848792713944039
+    }
+   }
+  },
+  "2026-07": {
+   "rows": 192122,
+   "correction_masks": {
+    "clock12": 1,
+    "clock2": 2,
+    "day": 4,
+    "rule_band": 20,
+    "rule_confidence": 0,
+    "twins": 11
+   },
+   "part_vs_v54": {
+    "nn": {
+     "corr": 0.9916912566083345,
+     "mean_change": -3.637181030583659
+    },
+    "catboost": {
+     "corr": 0.9731545735077496,
+     "mean_change": 0.6848414386751214
+    },
+    "lgb": {
+     "corr": 0.9859473639141562,
+     "mean_change": 0.40683118722716816
+    },
+    "airport": {
+     "corr": 0.9699239561063023,
+     "mean_change": -0.992377166443462
+    }
+   }
+  }
+ },
+ "against": {
+  "v58": {
+   "mean_change": -1.0717954071586615,
+   "mean_abs_change": 16.010529490402824,
+   "rms_change": 33.202697534930685,
+   "corr": 0.998648677624385
+  }
+ }
+}
+[11:36:07] prepared /home/gunes/PRC/submissions/unique-rose_v59.parquet; not uploaded

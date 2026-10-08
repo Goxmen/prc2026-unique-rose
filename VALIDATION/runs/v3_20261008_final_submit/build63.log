@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/gunes/PRC/VALIDATION/final_submit.py", line 500, in <module>
+    build(args.version)
+  File "/home/gunes/PRC/VALIDATION/final_submit.py", line 439, in build
+    nis.transfer.validate_submission(table, template)
+  File "/home/gunes/PRC/VALIDATION/overnight_submit.py", line 125, in validate_submission
+    raise ValueError('Submission/template row count differs from the complete ranking set')
+ValueError: Submission/template row count differs from the complete ranking set
