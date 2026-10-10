@@ -1,9 +1,11 @@
 # Next steps
 
-**Current status, 10 October 2026:** v58 remains the best official submission at
-**236.1895 seconds**. The active research network has selected a raw-track,
-callsign and Rome ensemble at **293.6566 Jan/Jul CV**, 2.0729 seconds below its
-matched control. The audited v64 file is prepared; no upload is authorized.
+**Current status, 11 October 2026:** v64 is the best official submission at
+**232.7751 seconds**, improving v58 by **3.4144 seconds** on all 344,841 flights.
+The raw-track, callsign and Rome ensemble scores **293.6566 Jan/Jul CV**,
+2.0729 seconds below its matched control. The user approved the upload; the remote
+file hash matches the audited candidate. Rank **20/242** at 00:02 Amsterdam.
+The five-second goal still needs **1.5856 seconds**. Further uploads require fresh approval.
 See the [current research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md)
 for completed experiments, rejected ideas, remaining leads and transfer caveats.
 New candidates require Jan/Jul CV; the older 16-fold validations are not run by default.

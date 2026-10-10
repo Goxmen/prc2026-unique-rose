@@ -1,10 +1,25 @@
 # Research network: 10 October 2026
 
-**Status: fixed raw-track/callsign/Rome candidate selected on development CV;
-full-year models and both candidate audits complete; v64 awaits upload approval.** The objective is a five-second
+**Status: v64 uploaded with explicit user approval and scored 232.7751 seconds,
+improving v58 by 3.4144 seconds on all 344,841 flights.** The objective is a five-second
 official RMSE reduction, from **236.1895 to 231.1895**. That requires approximately
 4.19% less mean squared error on the same scored population. Local validation
 improvements are not official gains.
+
+The upload completed at **2026-10-11 00:00:55 Amsterdam**. Its remote SHA-256
+matches the audited file, and the scorer processed it at 00:01:30. The live
+00:02 check places unique-rose **20th of 242 scoring teams**. Approval was bound
+to this file and consumed; any further upload requires fresh approval. The
+five-second goal remains **1.5856 seconds** away. See the
+[submission record](../runs/v3_20261010_sparse_callsign_submit/submission_v64/submission_v64.json).
+
+A diagnostic using the two official scores and the exact prediction difference
+rules out another substantial gain merely by scaling this combined change.
+The best point on the v58-to-v64 prediction line is approximately 1.1855 times
+the change, with projected RMSE 232.6888, only 0.0863 below v64. This follows
+from squared-error arithmetic on the same scored rows; it is conditioned on
+rounded leaderboard scores, not independent validation or a submitted result.
+No candidate or upload was created from this diagnostic.
 
 The selected fixed combination scores **293.6566** on Jan/Jul CV versus its
 matched seed42-tree control **295.7295**, a **2.0729-second reduction** with a
@@ -28,7 +43,8 @@ per view. Their neural reload audit covers 15,360 predictions. All three selecte
 networks are complete, with both ranking predictions and saved-model reload checks.
 Both ranking-view track caches were built and independently audited on the
 laptop; their returned files passed SHA-256 verification on the desktop. A separate matched-laptop physical
-clock-bypass screen has finished and is not selected. No upload has occurred.
+clock-bypass screen has finished and is not selected. The selected old-view
+candidate was uploaded once as v64; the four-month candidate remains local.
 
 The sparse production trainer initially failed an exact CUDA parity check.
 Repeating the original trainer also produces tiny variations (maximum parameter
@@ -72,7 +88,7 @@ from all 344,419 stored row errors, and
 are 64 additional scalar raw-track reconstruction checks. All artifacts are
 retained and v64 stays unchanged.
 The three subagents are currently unavailable due verified account usage limits;
-the root reviewed and is executing these follow-ups.
+the root completed and reviewed these follow-ups.
 
 The laptop completed a separate twelve-date arrival-clock pilot on March,
 September, October and November 5/15/25, all within both outer training folds.
@@ -278,7 +294,7 @@ No failed or inconclusive experiment is added to the submission ledger.
 | Three raw-track networks | Three matched N09 networks | -1.9140 s | Passing matched comparison |
 | Same three raw-track networks | Full v58 network pool | -0.9405 s | Passing fixed comparison |
 | Half raw-track3 / half v58 network pool | v58 | -1.1165 s | Passing fixed comparison |
-| Half raw-track3 / half callsign15 with callsign main tree and half Cat3/R20 | Matched laptop v58, tree seed 42 | -2.0729 s | v64 prepared and audited |
+| Half raw-track3 / half callsign15 with callsign main tree and half Cat3/R20 | Matched laptop v58, tree seed 42 | -2.0729 s | v64: 232.7751 official (-3.4144 s) |
 | Joint callsign/raw-track network in fixed half mixture | Matched same-desktop single-track mixture | +0.3401 s | Stop |
 | Frozen track encoder inputs in Rome CatBoost | Same-laptop single-classifier control in selected ordinary stack | -0.3817 s | Inconclusive; retain lead |
 | Context-conditioned attention over raw-track representation | Matched same-desktop single-track mixture | -0.0671 s | Inconclusive; stop |
@@ -784,7 +800,8 @@ Continue with concrete new signals and materially different model families.
 Judge a small neural screen with matched-size controls, including a matched
 half-single/half-pool control when needed. Mixing one new network into a
 15-network parent changes ensemble variance; that difference alone is not an
-architecture verdict. Any expanded candidate must beat the actual v58 pool.
+architecture verdict. Further candidates must beat the actual v64 combination;
+retain v58 comparisons where they isolate a previously studied change.
 Retain failed evidence and original
 controls. Prepare a complete, audited candidate before seeking upload approval;
-the existing pause on further uploads remains in force.
+v64's approval is consumed and any further upload needs fresh approval.

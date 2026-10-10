@@ -105,7 +105,22 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
-- **October 10: research network is active; v58 remains the official best.**
+- **October 11: v64 uploaded and scored 232.7751, the new official best.**
+  The user explicitly said "go ahead and upload" for the audited v64 file.
+  One upload completed at 00:00:55 Amsterdam; remote SHA-256 matches
+  `2a596d95610b748b49a5da8803533f3e4bec50e3d919f92138b40b194b49f5b3`.
+  All 344,841 original January/July flights scored. Improvement versus v58 is
+  **3.4144 seconds**; the five-second goal still needs **1.5856 seconds**.
+  Live check 00:02 Amsterdam: rank **20/242** scoring teams (508 registered).
+  Row 66 and the research report record the result. Approval/result/remote hash
+  are in `VALIDATION/runs/v3_20261010_sparse_callsign_submit/submission_v64/`.
+  Approval is consumed; ask before any further upload. Do not repeat this upload
+  or its completed fits. The separate four-month candidate remains local.
+  A saved-prediction diagnostic projects only 0.0863 seconds by optimally scaling
+  the entire v58-to-v64 change; this is leaderboard-conditioned arithmetic,
+  not an independently validated or uploaded improvement.
+
+- **October 10: research network selected the candidate later uploaded as v64.**
   The user requested a five-second improvement and explicitly authorized laptop
   training. Keep one heavy job per machine and ask before any upload. Read
   `VALIDATION/reports/RESEARCH_NETWORK_20261010.md` before proposing or repeating
@@ -117,11 +132,11 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   improve; three predeclared paired comparisons pass. The full-year three-member
   raw-track refit and both ranking-view audits are complete. Runner
   `nn_sparse_track_submit.py`; selected recipe `half_sparse3_combination`; builder
-  `sparse_callsign_submit.py`. Audited old-view **v64** is prepared at
+  `sparse_callsign_submit.py`. Audited and now scored old-view **v64** is retained at
   `submissions/unique-rose_v64.parquet`, SHA-256
   `2a596d95610b748b49a5da8803533f3e4bec50e3d919f92138b40b194b49f5b3`.
-  Row 66 records the selected candidate. Fresh upload approval was requested;
-  no new upload is authorized or has occurred. Never infer approval from elapsed time.
+  Row 66 records the selected candidate and its official score. The user's explicit
+  approval was consumed by the October 11 upload above; no further upload is authorized.
   All 15 callsign networks, the full-year main LightGBM and three Rome CatBoost
   classifiers are complete. Neural reload/return audits pass. Both parent candidates
   are built and passed full-source, exact-parent and independent all-row audits.
@@ -170,8 +185,8 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   1,796 physical-stop witnesses; recent airport/airline context worsens arrival-lag
   RMSE and MAE against the static airport/airline reference. All 11,910 causal
   edges and 60 sampled contexts pass; no full-year build or taxi-out fit follows.
-  Both follow-ups are complete and retained; do not repeat. v64 stays immutable and
-  awaiting explicit upload approval. All three research subagents currently have
+  Both follow-ups are complete and retained; do not repeat. v64 stays immutable;
+  its approved upload is complete. All three research subagents currently have
   account-usage-limit errors; do not repeatedly relaunch them.
 
 - **October 8: the organisers published a FINAL test set; deadline extended to 14 Oct 2026
