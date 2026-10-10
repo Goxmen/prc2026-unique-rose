@@ -1,0 +1,1388 @@
+{
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "design": {
+    "parent": "v58",
+    "control": "HPO N09 matched seed42 k0",
+    "added_features": [
+      "cc_call_start_sec",
+      "cc_squawk_start_sec",
+      "cc_previous_call_end_sec",
+      "cc_before_own_arrival",
+      "cc_ambiguous",
+      "cc_censored"
+    ],
+    "target": "direct min(taxi_sec,10800)",
+    "network_share": 0.71,
+    "neural_arms": [
+      "callsign_clocks",
+      "half_callsign_half_v58"
+    ],
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "stop_choice": "frozen historical N09 seed42 epochs; no candidate inner fit",
+    "frozen_stop_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+    "feature_cache": "/home/gunes/PRC/data/derived/callsign_clocks_20261010",
+    "reference": "input-only daily callsign/squawk aggregate clocks; prior arrival check uses fold references",
+    "training_reference": "ts.FOLDS[held month] for prior own arrivals",
+    "held_reference": "ts.FOLDS[held month] plus own held month input/arrival context",
+    "query_missing": "numeric NaNs preserved; independent of original AOBT availability",
+    "feature_settings": {
+      "min_records": 3,
+      "near_event_slack_sec": 180,
+      "lookback_sec": 14400,
+      "day_boundary_bridge_sec": 600,
+      "source_boundary_period_sec": 1800,
+      "source_boundary_tolerance_sec": 20,
+      "feature_names": [
+        "cc_call_start_sec",
+        "cc_squawk_start_sec",
+        "cc_previous_call_end_sec",
+        "cc_before_own_arrival",
+        "cc_ambiguous",
+        "cc_censored"
+      ],
+      "source_semantics": "daily hex/callsign/squawk aggregates; no contiguous episodes inferred",
+      "ambiguity": "overlapping other callsign, multiple active squawks, or earlier same-call departure that UTC day",
+      "censor": "call start in first 20 seconds after half-hour boundary or after supplied takeoff"
+    },
+    "weather_inputs_used": false,
+    "groups": [
+      42
+    ],
+    "networks_per_group": 1,
+    "exploratory_reused_development_months": true
+  },
+  "group": 242,
+  "month": "2025-01",
+  "stop_epoch": 17,
+  "inner_curve": [],
+  "stop_minutes": 0.0,
+  "epoch_source": {
+    "control": {
+      "path": "VALIDATION/runs/v3_20261005_hpo_jan_jul/nn.json",
+      "sha256": "12a26036019cf904e38853e76e02e20980827ef0eab80018ab3fcbf5bfb18e88",
+      "config": {
+        "hidden": [
+          512,
+          512,
+          256
+        ],
+        "dropout": 0.1,
+        "lr": 0.002,
+        "weight_decay": 1e-05,
+        "batch": 2048,
+        "epochs": 24,
+        "bins": 48,
+        "d_ple": 16,
+        "label_clip": 10800.0
+      },
+      "predictions": {
+        "VALIDATION/runs/v3_20261005_hpo_jan_jul/predictions/nn/N09_s42.parquet": "27a006023a5c12dfba98e4b0e9dce0e14300873fcf082d7d534f18ef546e4741",
+        "VALIDATION/runs/v3_20261005_hpo_jan_jul/predictions/nn/N09_k34_s42.parquet": "17b5b0ff8120a4db1d85e4ad6572c36d89b2fd5061c3543121ed233c62e20d1f",
+        "VALIDATION/runs/v3_20261005_hpo_jan_jul/predictions/nn/N09_s142.parquet": "07e4c7d0b219abdfd729788d4df0a5c467863f7fbdb5820170bb2e9bdcb05251",
+        "VALIDATION/runs/v3_20261005_hpo_jan_jul/predictions/nn/N09_s242.parquet": "2be0bd66f3fcd42e48e525aacb6f1ae81d61fe1a3e4f3b34d1318ae68f5513a3"
+      }
+    },
+    "group": 242,
+    "month": "2025-01",
+    "epoch": 17
+  },
+  "networks": {
+    "0": {
+      "seed": 242,
+      "minutes": 1.2390068860666663,
+      "sha256": "398ffe0eb5902f53a137a72dd34b5e84a9df10a41cbcaf0eac79f8f55957d6df",
+      "model_sha256": "17bd4afcab53e50a0217ea65e9d16ebfe0713ca5165c57be11c23a118e83d83b",
+      "held_curve": [
+        {
+          "epoch": 1,
+          "train_mse_std": 0.3485045662641012,
+          "rmse": 477.3822733972544,
+          "seconds": 4.781570759000715
+        },
+        {
+          "epoch": 2,
+          "train_mse_std": 0.2663138477653826,
+          "rmse": 463.7777627458908,
+          "seconds": 4.410066768999968
+        },
+        {
+          "epoch": 3,
+          "train_mse_std": 0.24497399262688715,
+          "rmse": 461.2503161593086,
+          "seconds": 4.571046117000151
+        },
+        {
+          "epoch": 4,
+          "train_mse_std": 0.22945966462735115,
+          "rmse": 460.90696418331635,
+          "seconds": 4.533740926000064
+        },
+        {
+          "epoch": 5,
+          "train_mse_std": 0.21930841475606072,
+          "rmse": 464.3924423962505,
+          "seconds": 4.470657005000248
+        },
+        {
+          "epoch": 6,
+          "train_mse_std": 0.21255322396625084,
+          "rmse": 458.96500985231097,
+          "seconds": 4.294446253999922
+        },
+        {
+          "epoch": 7,
+          "train_mse_std": 0.2074598332075643,
+          "rmse": 461.90106663852157,
+          "seconds": 4.564376993999758
+        },
+        {
+          "epoch": 8,
+          "train_mse_std": 0.2046336026602169,
+          "rmse": 460.57996337946446,
+          "seconds": 4.259805591000259
+        },
+        {
+          "epoch": 9,
+          "train_mse_std": 0.19963517762036315,
+          "rmse": 458.36549413376895,
+          "seconds": 4.384968086999834
+        },
+        {
+          "epoch": 10,
+          "train_mse_std": 0.20450831744831677,
+          "rmse": 460.881152089279,
+          "seconds": 4.405019998999705
+        },
+        {
+          "epoch": 11,
+          "train_mse_std": 0.18733259539595498,
+          "rmse": 458.6229780981325,
+          "seconds": 4.312388445000579
+        },
+        {
+          "epoch": 12,
+          "train_mse_std": 0.2037484468069086,
+          "rmse": 462.11406268878545,
+          "seconds": 4.203005219000261
+        },
+        {
+          "epoch": 13,
+          "train_mse_std": 0.2034308822099546,
+          "rmse": 454.6225013173335,
+          "seconds": 4.1831783180005
+        },
+        {
+          "epoch": 14,
+          "train_mse_std": 0.18198742424625733,
+          "rmse": 459.31841605525017,
+          "seconds": 4.217056866999883
+        },
+        {
+          "epoch": 15,
+          "train_mse_std": 0.17306538908527622,
+          "rmse": 455.70250435899095,
+          "seconds": 4.244345514000088
+        },
+        {
+          "epoch": 16,
+          "train_mse_std": 0.16567924485759827,
+          "rmse": 456.5735465000407,
+          "seconds": 4.223744491000616
+        },
+        {
+          "epoch": 17,
+          "train_mse_std": 0.15803049670902625,
+          "rmse": 457.1386966918988,
+          "seconds": 4.223290928999631
+        }
+      ],
+      "expansion": {
+        "manifest": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+        "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642",
+        "source_sha256": "33ac3eebdb93975f3c8ec85af6bbca8fe7496b82a797e77bab14fd78f77a3f66",
+        "design": {
+          "parent": "v58",
+          "candidate": "original156 plus six callsign clock inputs",
+          "groups": [
+            42,
+            142,
+            242
+          ],
+          "nets": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "pool_size": 15,
+          "seed_formula": "group+1000*k",
+          "epochs": {
+            "2025-01": {
+              "42": 21,
+              "142": 13,
+              "242": 17
+            },
+            "2025-07": {
+              "42": 17,
+              "142": 16,
+              "242": 14
+            }
+          },
+          "epoch_policy": "frozen historical N09 month/group values; no inner fit",
+          "inherited_members": {
+            "42": [
+              0,
+              1,
+              2
+            ]
+          },
+          "new_fits": 24,
+          "preprocessing": "validate regenerated state exactly and retain original saved bytes",
+          "neural_share": 0.71,
+          "arms": [
+            "callsign15",
+            "half_callsign15_half_v58"
+          ],
+          "exploratory_reused_development_months": true
+        }
+      }
+    },
+    "1": {
+      "seed": 1242,
+      "minutes": 1.2011450246666604,
+      "sha256": "14b60ae9dfb0ef0512dbd6fe1a1b646c2e33cf2abae1c2d997569c2ee6b53c2b",
+      "model_sha256": "ae15a30f193e5bf80bdca1aaf1e28353c2b0aa7a08e00d999294abf093acb294",
+      "held_curve": [
+        {
+          "epoch": 1,
+          "train_mse_std": 0.34878220832165285,
+          "rmse": 472.95849457474657,
+          "seconds": 4.258121292000396
+        },
+        {
+          "epoch": 2,
+          "train_mse_std": 0.2665444529650799,
+          "rmse": 467.8150522287631,
+          "seconds": 4.1499754169999505
+        },
+        {
+          "epoch": 3,
+          "train_mse_std": 0.24485627365957188,
+          "rmse": 462.69771893317926,
+          "seconds": 4.165144233999854
+        },
+        {
+          "epoch": 4,
+          "train_mse_std": 0.23006523751861574,
+          "rmse": 454.5399808541941,
+          "seconds": 4.144762149000599
+        },
+        {
+          "epoch": 5,
+          "train_mse_std": 0.218573186890851,
+          "rmse": 459.2744793396594,
+          "seconds": 4.165888659000302
+        },
+        {
+          "epoch": 6,
+          "train_mse_std": 0.21249532494994255,
+          "rmse": 457.04326526838616,
+          "seconds": 4.1725382349995925
+        },
+        {
+          "epoch": 7,
+          "train_mse_std": 0.21315414036721136,
+          "rmse": 461.22813815729364,
+          "seconds": 4.170224739999867
+        },
+        {
+          "epoch": 8,
+          "train_mse_std": 0.20134464810796093,
+          "rmse": 457.1738897065076,
+          "seconds": 4.192484346000128
+        },
+        {
+          "epoch": 9,
+          "train_mse_std": 0.19085891796398344,
+          "rmse": 460.9578678420274,
+          "seconds": 4.302774791000047
+        },
+        {
+          "epoch": 10,
+          "train_mse_std": 0.1887507407977597,
+          "rmse": 457.80080324546236,
+          "seconds": 4.524051684000369
+        },
+        {
+          "epoch": 11,
+          "train_mse_std": 0.18292560401215444,
+          "rmse": 459.3578002009715,
+          "seconds": 4.404056880000098
+        },
+        {
+          "epoch": 12,
+          "train_mse_std": 0.1911905366632506,
+          "rmse": 460.22155735278835,
+          "seconds": 3.9214847160001227
+        },
+        {
+          "epoch": 13,
+          "train_mse_std": 0.1772604873983127,
+          "rmse": 459.79841170659785,
+          "seconds": 3.909108152999579
+        },
+        {
+          "epoch": 14,
+          "train_mse_std": 0.16506598632338026,
+          "rmse": 456.9063386010614,
+          "seconds": 4.209082286000012
+        },
+        {
+          "epoch": 15,
+          "train_mse_std": 0.16080726044344168,
+          "rmse": 455.31411675683785,
+          "seconds": 4.242566922999686
+        },
+        {
+          "epoch": 16,
+          "train_mse_std": 0.1510233495409154,
+          "rmse": 457.8362542580381,
+          "seconds": 4.449149072999717
+        },
+        {
+          "epoch": 17,
+          "train_mse_std": 0.14409612039364378,
+          "rmse": 457.3484738053488,
+          "seconds": 4.62923931000023
+        }
+      ],
+      "expansion": {
+        "manifest": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+        "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642",
+        "source_sha256": "33ac3eebdb93975f3c8ec85af6bbca8fe7496b82a797e77bab14fd78f77a3f66",
+        "design": {
+          "parent": "v58",
+          "candidate": "original156 plus six callsign clock inputs",
+          "groups": [
+            42,
+            142,
+            242
+          ],
+          "nets": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "pool_size": 15,
+          "seed_formula": "group+1000*k",
+          "epochs": {
+            "2025-01": {
+              "42": 21,
+              "142": 13,
+              "242": 17
+            },
+            "2025-07": {
+              "42": 17,
+              "142": 16,
+              "242": 14
+            }
+          },
+          "epoch_policy": "frozen historical N09 month/group values; no inner fit",
+          "inherited_members": {
+            "42": [
+              0,
+              1,
+              2
+            ]
+          },
+          "new_fits": 24,
+          "preprocessing": "validate regenerated state exactly and retain original saved bytes",
+          "neural_share": 0.71,
+          "arms": [
+            "callsign15",
+            "half_callsign15_half_v58"
+          ],
+          "exploratory_reused_development_months": true
+        }
+      }
+    },
+    "2": {
+      "seed": 2242,
+      "minutes": 1.1591255145333283,
+      "sha256": "56428c6478ebcf79e7433055f41ca0e305b9ead688afa251d090ae523cf8ee7d",
+      "model_sha256": "8368cdd376097fbad6ba72575d1bb33557130b3bf35d4afc4dee5032063c4437",
+      "held_curve": [
+        {
+          "epoch": 1,
+          "train_mse_std": 0.34706710342818625,
+          "rmse": 471.33056639959466,
+          "seconds": 4.448859131000063
+        },
+        {
+          "epoch": 2,
+          "train_mse_std": 0.2662787749532304,
+          "rmse": 463.34934268215557,
+          "seconds": 4.405952733000049
+        },
+        {
+          "epoch": 3,
+          "train_mse_std": 0.24441769227060958,
+          "rmse": 462.9390355159137,
+          "seconds": 3.9182718169995496
+        },
+        {
+          "epoch": 4,
+          "train_mse_std": 0.22916985250545996,
+          "rmse": 460.48212573710634,
+          "seconds": 4.437730865999583
+        },
+        {
+          "epoch": 5,
+          "train_mse_std": 0.22117966311343537,
+          "rmse": 459.9530572829661,
+          "seconds": 4.139017767999576
+        },
+        {
+          "epoch": 6,
+          "train_mse_std": 0.21416004116780488,
+          "rmse": 464.3782714586182,
+          "seconds": 3.9735224079995533
+        },
+        {
+          "epoch": 7,
+          "train_mse_std": 0.21218574536507723,
+          "rmse": 460.0773920668406,
+          "seconds": 3.9529601449994516
+        },
+        {
+          "epoch": 8,
+          "train_mse_std": 0.20542916828133184,
+          "rmse": 466.9320127268754,
+          "seconds": 3.904695162999815
+        },
+        {
+          "epoch": 9,
+          "train_mse_std": 0.1970782663426561,
+          "rmse": 460.6497274125515,
+          "seconds": 3.8944382159997986
+        },
+        {
+          "epoch": 10,
+          "train_mse_std": 0.18726303808619107,
+          "rmse": 465.7493295634121,
+          "seconds": 3.9052045580001504
+        },
+        {
+          "epoch": 11,
+          "train_mse_std": 0.2739000025090137,
+          "rmse": 463.573368943522,
+          "seconds": 3.937174724000215
+        },
+        {
+          "epoch": 12,
+          "train_mse_std": 0.2084941301133816,
+          "rmse": 463.6114599845653,
+          "seconds": 3.9182846610001434
+        },
+        {
+          "epoch": 13,
+          "train_mse_std": 0.1911526118803609,
+          "rmse": 458.893289072331,
+          "seconds": 3.8764286040004663
+        },
+        {
+          "epoch": 14,
+          "train_mse_std": 0.17979685269130433,
+          "rmse": 459.8136377224997,
+          "seconds": 4.112072808999983
+        },
+        {
+          "epoch": 15,
+          "train_mse_std": 0.17316665269464004,
+          "rmse": 460.24024992861473,
+          "seconds": 4.2014512129999275
+        },
+        {
+          "epoch": 16,
+          "train_mse_std": 0.17520291409041766,
+          "rmse": 459.1741689768068,
+          "seconds": 4.500026185999559
+        },
+        {
+          "epoch": 17,
+          "train_mse_std": 0.16113621854866333,
+          "rmse": 457.9251704859147,
+          "seconds": 3.9637296800001423
+        }
+      ],
+      "expansion": {
+        "manifest": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+        "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642",
+        "source_sha256": "33ac3eebdb93975f3c8ec85af6bbca8fe7496b82a797e77bab14fd78f77a3f66",
+        "design": {
+          "parent": "v58",
+          "candidate": "original156 plus six callsign clock inputs",
+          "groups": [
+            42,
+            142,
+            242
+          ],
+          "nets": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "pool_size": 15,
+          "seed_formula": "group+1000*k",
+          "epochs": {
+            "2025-01": {
+              "42": 21,
+              "142": 13,
+              "242": 17
+            },
+            "2025-07": {
+              "42": 17,
+              "142": 16,
+              "242": 14
+            }
+          },
+          "epoch_policy": "frozen historical N09 month/group values; no inner fit",
+          "inherited_members": {
+            "42": [
+              0,
+              1,
+              2
+            ]
+          },
+          "new_fits": 24,
+          "preprocessing": "validate regenerated state exactly and retain original saved bytes",
+          "neural_share": 0.71,
+          "arms": [
+            "callsign15",
+            "half_callsign15_half_v58"
+          ],
+          "exploratory_reused_development_months": true
+        }
+      }
+    },
+    "3": {
+      "seed": 3242,
+      "minutes": 1.1465493547666634,
+      "sha256": "4f6e942943177ea8f8379c33e97e8d80b80847b5296e426d28bbb91538804384",
+      "model_sha256": "26367c79baf80b18784924e0b013624c0d75f6ee1ddbbbaa2deefdf283e96530",
+      "held_curve": [
+        {
+          "epoch": 1,
+          "train_mse_std": 0.3478943558104215,
+          "rmse": 474.1329578646238,
+          "seconds": 4.028313330000856
+        },
+        {
+          "epoch": 2,
+          "train_mse_std": 0.2653027904031898,
+          "rmse": 464.77302466856815,
+          "seconds": 3.8841037710008095
+        },
+        {
+          "epoch": 3,
+          "train_mse_std": 0.24431674549701982,
+          "rmse": 464.0886269955518,
+          "seconds": 3.9402244940001765
+        },
+        {
+          "epoch": 4,
+          "train_mse_std": 0.22852712642069725,
+          "rmse": 460.1870127426989,
+          "seconds": 3.988193716999376
+        },
+        {
+          "epoch": 5,
+          "train_mse_std": 0.21801067361128407,
+          "rmse": 463.0047024392641,
+          "seconds": 3.865245003000382
+        },
+        {
+          "epoch": 6,
+          "train_mse_std": 0.2111254172278895,
+          "rmse": 453.4607917285654,
+          "seconds": 3.9076789499995357
+        },
+        {
+          "epoch": 7,
+          "train_mse_std": 0.20781072940674158,
+          "rmse": 459.86428515659287,
+          "seconds": 3.906531728999653
+        },
+        {
+          "epoch": 8,
+          "train_mse_std": 0.202129622821054,
+          "rmse": 460.53566301353993,
+          "seconds": 3.910126734000187
+        },
+        {
+          "epoch": 9,
+          "train_mse_std": 0.19845294728288104,
+          "rmse": 460.8264194186951,
+          "seconds": 3.88583649300017
+        },
+        {
+          "epoch": 10,
+          "train_mse_std": 0.1901418765786714,
+          "rmse": 459.0720850540995,
+          "seconds": 3.962379764999241
+        },
+        {
+          "epoch": 11,
+          "train_mse_std": 0.18005263570843294,
+          "rmse": 459.71879990508995,
+          "seconds": 3.8883040190003157
+        },
+        {
+          "epoch": 12,
+          "train_mse_std": 0.1780747233336395,
+          "rmse": 459.7860524787412,
+          "seconds": 4.002811080999891
+        },
+        {
+          "epoch": 13,
+          "train_mse_std": 0.16799773124110082,
+          "rmse": 460.774546908253,
+          "seconds": 4.214931661999799
+        },
+        {
+          "epoch": 14,
+          "train_mse_std": 0.1793566707158117,
+          "rmse": 463.0476509603612,
+          "seconds": 4.001376374999381
+        },
+        {
+          "epoch": 15,
+          "train_mse_std": 0.17969126891325715,
+          "rmse": 459.917918343951,
+          "seconds": 4.665342944000258
+        },
+        {
+          "epoch": 16,
+          "train_mse_std": 0.15748391176611934,
+          "rmse": 459.5488878459304,
+          "seconds": 4.506939566000256
+        },
+        {
+          "epoch": 17,
+          "train_mse_std": 0.15041285219219988,
+          "rmse": 459.2444804570064,
+          "seconds": 4.179994792000798
+        }
+      ],
+      "expansion": {
+        "manifest": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+        "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642",
+        "source_sha256": "33ac3eebdb93975f3c8ec85af6bbca8fe7496b82a797e77bab14fd78f77a3f66",
+        "design": {
+          "parent": "v58",
+          "candidate": "original156 plus six callsign clock inputs",
+          "groups": [
+            42,
+            142,
+            242
+          ],
+          "nets": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "pool_size": 15,
+          "seed_formula": "group+1000*k",
+          "epochs": {
+            "2025-01": {
+              "42": 21,
+              "142": 13,
+              "242": 17
+            },
+            "2025-07": {
+              "42": 17,
+              "142": 16,
+              "242": 14
+            }
+          },
+          "epoch_policy": "frozen historical N09 month/group values; no inner fit",
+          "inherited_members": {
+            "42": [
+              0,
+              1,
+              2
+            ]
+          },
+          "new_fits": 24,
+          "preprocessing": "validate regenerated state exactly and retain original saved bytes",
+          "neural_share": 0.71,
+          "arms": [
+            "callsign15",
+            "half_callsign15_half_v58"
+          ],
+          "exploratory_reused_development_months": true
+        }
+      }
+    },
+    "4": {
+      "seed": 4242,
+      "minutes": 1.1744653945666716,
+      "sha256": "9621b5258e1bdab4816df7ba215362011a2333ebdf37668fe1eaedaf02736157",
+      "model_sha256": "144120b3bcaf9ffe0ef2ee4bf3f37e2ebea306c60e7b8b99d27ce2ae8b2574d7",
+      "held_curve": [
+        {
+          "epoch": 1,
+          "train_mse_std": 0.34674441431219727,
+          "rmse": 469.6911650015527,
+          "seconds": 4.082257275999837
+        },
+        {
+          "epoch": 2,
+          "train_mse_std": 0.26525760410935856,
+          "rmse": 464.8356581160479,
+          "seconds": 4.017547432000356
+        },
+        {
+          "epoch": 3,
+          "train_mse_std": 0.24385457482162803,
+          "rmse": 460.5795301840165,
+          "seconds": 3.9125206740000067
+        },
+        {
+          "epoch": 4,
+          "train_mse_std": 0.22942159651602112,
+          "rmse": 459.54785118234304,
+          "seconds": 4.213425811999514
+        },
+        {
+          "epoch": 5,
+          "train_mse_std": 0.21858765045402953,
+          "rmse": 455.9603285686573,
+          "seconds": 4.222693286000322
+        },
+        {
+          "epoch": 6,
+          "train_mse_std": 0.21305168294811755,
+          "rmse": 460.93535023127464,
+          "seconds": 4.040251311000247
+        },
+        {
+          "epoch": 7,
+          "train_mse_std": 0.20519252613858677,
+          "rmse": 457.07777542322333,
+          "seconds": 3.876750766999976
+        },
+        {
+          "epoch": 8,
+          "train_mse_std": 0.20776574086422767,
+          "rmse": 460.49070143479804,
+          "seconds": 3.9236891079999623
+        },
+        {
+          "epoch": 9,
+          "train_mse_std": 0.30190929873917005,
+          "rmse": 459.30283917666173,
+          "seconds": 4.122162978000233
+        },
+        {
+          "epoch": 10,
+          "train_mse_std": 0.2160286608825475,
+          "rmse": 458.30673570645547,
+          "seconds": 4.572061959000166
+        },
+        {
+          "epoch": 11,
+          "train_mse_std": 0.20243151829411948,
+          "rmse": 460.2066691996263,
+          "seconds": 4.132932776000416
+        },
+        {
+          "epoch": 12,
+          "train_mse_std": 0.19450988953414564,
+          "rmse": 459.5314407466562,
+          "seconds": 4.122043865000705
+        },
+        {
+          "epoch": 13,
+          "train_mse_std": 0.20114079960663725,
+          "rmse": 459.7899595828789,
+          "seconds": 4.071987076999903
+        },
+        {
+          "epoch": 14,
+          "train_mse_std": 0.18293031884113084,
+          "rmse": 460.6094075973224,
+          "seconds": 4.033830071999546
+        },
+        {
+          "epoch": 15,
+          "train_mse_std": 0.1750546799704521,
+          "rmse": 456.21311053288696,
+          "seconds": 4.264550858999428
+        },
+        {
+          "epoch": 16,
+          "train_mse_std": 0.168849185571175,
+          "rmse": 459.8068107794499,
+          "seconds": 4.2709822479992
+        },
+        {
+          "epoch": 17,
+          "train_mse_std": 0.1628195341521135,
+          "rmse": 457.4482481885316,
+          "seconds": 4.532356887999413
+        }
+      ],
+      "expansion": {
+        "manifest": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+        "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642",
+        "source_sha256": "33ac3eebdb93975f3c8ec85af6bbca8fe7496b82a797e77bab14fd78f77a3f66",
+        "design": {
+          "parent": "v58",
+          "candidate": "original156 plus six callsign clock inputs",
+          "groups": [
+            42,
+            142,
+            242
+          ],
+          "nets": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "pool_size": 15,
+          "seed_formula": "group+1000*k",
+          "epochs": {
+            "2025-01": {
+              "42": 21,
+              "142": 13,
+              "242": 17
+            },
+            "2025-07": {
+              "42": 17,
+              "142": 16,
+              "242": 14
+            }
+          },
+          "epoch_policy": "frozen historical N09 month/group values; no inner fit",
+          "inherited_members": {
+            "42": [
+              0,
+              1,
+              2
+            ]
+          },
+          "new_fits": 24,
+          "preprocessing": "validate regenerated state exactly and retain original saved bytes",
+          "neural_share": 0.71,
+          "arms": [
+            "callsign15",
+            "half_callsign15_half_v58"
+          ],
+          "exploratory_reused_development_months": true
+        }
+      }
+    }
+  },
+  "source_sha256": "33ac3eebdb93975f3c8ec85af6bbca8fe7496b82a797e77bab14fd78f77a3f66",
+  "inputs": {
+    "source": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+    "source_sha256": "ee1239362fd6b4a32c412931465be86a928b9c0904f7ec64b5b74291435ab2c7",
+    "selected_baseline_columns": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "hour",
+      "dow",
+      "month",
+      "mvt_minus_sched_sec",
+      "mvt_minus_lobt_sec",
+      "mvt_minus_iobt_sec",
+      "mvt_minus_eobt1_sec",
+      "mvt_minus_aobt3_sec",
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d",
+      "arr_taxiin_7d",
+      "dep_actual_30m_before",
+      "arr_actual_30m_before",
+      "dep_sched_60m_around",
+      "clock_aobt3_minus_schedule_sec",
+      "clock_aobt3_minus_eobt1_sec",
+      "clock_eobt1_minus_iobt_sec",
+      "clock_iobt_minus_lobt_sec",
+      "clock_schedule_available",
+      "clock_lobt_available",
+      "clock_iobt_available",
+      "clock_eobt1_available",
+      "clock_aobt3_available",
+      "clock_raw_flight_id_missing",
+      "clock_raw_plan_block_missing",
+      "clock_raw_aobt3_missing",
+      "clock_available_count",
+      "clock_span_sec",
+      "clock_std_sec",
+      "clock_median_sec",
+      "clock_baseline_sec",
+      "clock_baseline_source",
+      "wx_temp_c",
+      "wx_dewpoint_spread_c",
+      "wx_wind_kt",
+      "wx_gust_kt",
+      "wx_wind_dir",
+      "wx_visibility_m",
+      "wx_ceiling_ft",
+      "wx_thunder",
+      "wx_snow",
+      "wx_freezing",
+      "wx_fog",
+      "wx_rain",
+      "wx_heavy",
+      "wx_deicing",
+      "wx_age_min",
+      "wx_2h_min_visibility_m",
+      "wx_2h_min_ceiling_ft",
+      "wx_2h_max_gust_kt",
+      "wx_2h_thunder",
+      "wx_2h_snow_or_freezing",
+      "wx_2h_fog",
+      "q_rwy_prev_takeoff_gap_sec",
+      "q_rwy_takeoffs_prev30",
+      "q_apt_takeoffs_prev30",
+      "q_rwy_others_gap_prev60",
+      "q_apt_others_gap_prev60",
+      "q_queue_ahead_since_aobt3",
+      "q_rwy_landings_prev30",
+      "q_rwy_next_takeoff_gap_sec",
+      "q_rwy_takeoffs_next30",
+      "q_rwy_others_gap_pm30",
+      "q_apt_others_gap_pm30",
+      "airline",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60",
+      "dis_snow_6h_fraction",
+      "dis_snow_6h_coverage",
+      "dis_snow_24h_fraction",
+      "dis_snow_24h_coverage",
+      "dis_arr_60m_count",
+      "dis_arr_60m_mean_sec",
+      "dis_arr_60m_over30_share",
+      "dis_arr_60m_over60_share",
+      "dis_arr_180m_count",
+      "dis_arr_180m_mean_sec",
+      "dis_arr_180m_over30_share",
+      "dis_arr_180m_over60_share",
+      "sc_x_m",
+      "sc_y_m",
+      "sc_rwy_end_m",
+      "ab_matched",
+      "ab_seg_sec",
+      "ab_move_sec",
+      "ab_still_end_sec",
+      "ab_seg_n",
+      "ab_first_gs",
+      "ab_last_gnd_sec",
+      "ab_prev_gap_sec",
+      "ab_moving_10",
+      "ab_moving_30",
+      "ab_ground_10",
+      "ab_low_air_10",
+      "ab_nb_seg_mean_60",
+      "ab_nb_seg_n_60",
+      "ab_stand_min_m",
+      "ab_stand_n",
+      "ab_stand_exit_sec",
+      "ab_exit_gap_sec",
+      "ab_seg_stand_m",
+      "ab_seg_rwy_m",
+      "ab_nb_exit_mean_60",
+      "ab_nb_exit_n_60",
+      "sa_last_taxiin_sec",
+      "sa_prev_taxiin_sec",
+      "ra_last_taxiin_sec",
+      "ra_last_land_age_sec",
+      "pc_apt_mean_pm30",
+      "pc_apt_std_pm30",
+      "pc_apt_n_pm30",
+      "pc_apt_mean_next30",
+      "pc_rwy_mean_pm30",
+      "pc_rwy_n_pm30",
+      "pc_zone_mean_pm60",
+      "pc_zone_n_pm60",
+      "pc_rwy_prev_proxy",
+      "pc_rwy_next_proxy",
+      "pc_own_minus_apt",
+      "rc_burst_prev",
+      "rc_burst_next",
+      "rc_rwy_streak_sec",
+      "rc_dep_rwys_60",
+      "rc_arr_rwys_60",
+      "rc_dep_set_60",
+      "rc_arr_set_60"
+    ],
+    "added_features": [
+      "cc_call_start_sec",
+      "cc_squawk_start_sec",
+      "cc_previous_call_end_sec",
+      "cc_before_own_arrival",
+      "cc_ambiguous",
+      "cc_censored"
+    ],
+    "train_rows": 1596201,
+    "held_rows": 153706,
+    "feature_builder": {
+      "path": "data/derived/callsign_clocks_20261010/manifest.json",
+      "sha256": "6026c63a2448522a75dabc10e5bd690a88723cc8d72edc9141f2dfbcb126523b",
+      "fold_sources": {
+        "train": {
+          "rows": 1621932,
+          "sha256": "08b4697d13b39aec807e44d67272a30eb699ba650f73991e2e14955e31bdbc54",
+          "rotation_sha256": "0b60eaf1727db04ffdddc53e991a976ffe22802e18a2214679349d2152995e69",
+          "reference_months": [
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11"
+          ],
+          "nonmissing": {
+            "cc_call_start_sec": 1370445,
+            "cc_squawk_start_sec": 1373522,
+            "cc_previous_call_end_sec": 987512,
+            "cc_before_own_arrival": 1352770,
+            "cc_ambiguous": 1375344,
+            "cc_censored": 1375344
+          }
+        },
+        "held": {
+          "rows": 153706,
+          "sha256": "f0e215a727906798f4281c083e41c281568ceec5ec9a5dd90ad676110749c848",
+          "rotation_sha256": "843d99a57280705f53da86a230d1a2b71cb0bd0acd5441945dd2887a1784d43f",
+          "reference_months": [
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-01"
+          ],
+          "nonmissing": {
+            "cc_call_start_sec": 126536,
+            "cc_squawk_start_sec": 126852,
+            "cc_previous_call_end_sec": 85609,
+            "cc_before_own_arrival": 122320,
+            "cc_ambiguous": 126957,
+            "cc_censored": 126957
+          }
+        }
+      },
+      "raw_callsign_provenance": "builder manifest retains source hashes; independent builder audit required"
+    },
+    "feature_sources": {
+      "train": {
+        "path": "data/derived/callsign_clocks_20261010/2025-01_train.parquet",
+        "sha256": "08b4697d13b39aec807e44d67272a30eb699ba650f73991e2e14955e31bdbc54"
+      },
+      "held": {
+        "path": "data/derived/callsign_clocks_20261010/2025-01_held.parquet",
+        "sha256": "f0e215a727906798f4281c083e41c281568ceec5ec9a5dd90ad676110749c848"
+      }
+    },
+    "encoding": {
+      "numeric": 149,
+      "ple_inputs": 117,
+      "plain_inputs": 283,
+      "categoricals": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "airline",
+        "rc_dep_set_60",
+        "rc_arr_set_60"
+      ],
+      "cards": [
+        11,
+        770,
+        155,
+        61,
+        2179,
+        3,
+        9,
+        6,
+        5,
+        439,
+        713,
+        219,
+        232
+      ],
+      "bins_per_input": [
+        20,
+        6,
+        8,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        29,
+        27,
+        43,
+        42,
+        33,
+        14,
+        2,
+        32,
+        40,
+        48,
+        48,
+        27,
+        20,
+        19,
+        20,
+        34,
+        4,
+        12,
+        48,
+        6,
+        17,
+        22,
+        48,
+        23,
+        28,
+        48,
+        48,
+        23,
+        8,
+        48,
+        23,
+        48,
+        48,
+        48,
+        48,
+        48,
+        2,
+        6,
+        2,
+        4,
+        2,
+        6,
+        12,
+        8,
+        22,
+        16,
+        22,
+        39,
+        48,
+        5,
+        48,
+        48,
+        11,
+        48,
+        48,
+        48,
+        30,
+        28,
+        6,
+        30,
+        25,
+        30,
+        28,
+        37,
+        38,
+        38,
+        45,
+        38,
+        36,
+        30,
+        14,
+        14,
+        14,
+        30,
+        30,
+        32,
+        24,
+        48,
+        48,
+        37,
+        38,
+        48,
+        48,
+        41,
+        48,
+        48,
+        35,
+        42,
+        12,
+        48,
+        48,
+        48,
+        9,
+        9,
+        48,
+        4,
+        4,
+        42,
+        42,
+        30,
+        2,
+        2,
+        2
+      ],
+      "inner_month": "2025-11",
+      "inner_val_rows": 159727,
+      "inner_train_rows": 1436474,
+      "target_mode": "direct",
+      "offset_nonzero": 0,
+      "offset_at_cap": 0,
+      "target_mu": 979.7989827095711,
+      "target_sd": 395.16688026413607
+    },
+    "preprocessing_sha256": "1190a61072db72195aa2158ab185828471ac78cc21aa43ae18396616b1099f81",
+    "feature_nonmissing": {
+      "train": {
+        "cc_call_start_sec": 1349306,
+        "cc_squawk_start_sec": 1352374,
+        "cc_previous_call_end_sec": 972043,
+        "cc_before_own_arrival": 1331922,
+        "cc_ambiguous": 1354175,
+        "cc_censored": 1354175
+      },
+      "held": {
+        "cc_call_start_sec": 126536,
+        "cc_squawk_start_sec": 126852,
+        "cc_previous_call_end_sec": 85609,
+        "cc_before_own_arrival": 122320,
+        "cc_ambiguous": 126957,
+        "cc_censored": 126957
+      }
+    }
+  },
+  "expansion": {
+    "manifest": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+    "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642",
+    "source_sha256": "33ac3eebdb93975f3c8ec85af6bbca8fe7496b82a797e77bab14fd78f77a3f66",
+    "design": {
+      "parent": "v58",
+      "candidate": "original156 plus six callsign clock inputs",
+      "groups": [
+        42,
+        142,
+        242
+      ],
+      "nets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "pool_size": 15,
+      "seed_formula": "group+1000*k",
+      "epochs": {
+        "2025-01": {
+          "42": 21,
+          "142": 13,
+          "242": 17
+        },
+        "2025-07": {
+          "42": 17,
+          "142": 16,
+          "242": 14
+        }
+      },
+      "epoch_policy": "frozen historical N09 month/group values; no inner fit",
+      "inherited_members": {
+        "42": [
+          0,
+          1,
+          2
+        ]
+      },
+      "new_fits": 24,
+      "preprocessing": "validate regenerated state exactly and retain original saved bytes",
+      "neural_share": 0.71,
+      "arms": [
+        "callsign15",
+        "half_callsign15_half_v58"
+      ],
+      "exploratory_reused_development_months": true
+    }
+  }
+}

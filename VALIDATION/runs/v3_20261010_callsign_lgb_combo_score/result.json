@@ -1,0 +1,99 @@
+{
+  "design": {
+    "parent": "full15 callsign networks plus fixed half CatBoost Rome",
+    "changed_part": "main LightGBM: original156 to original156 plus callsign6",
+    "ordinary_tree_seeds": [
+      42
+    ],
+    "main_lgb_control": "matched laptop original156 seed42",
+    "nn": "full15 callsign PLE",
+    "rome": "0.5 three-seed CatBoost plus 0.5 original R20",
+    "network_share": 0.71,
+    "other_parts_and_rules": "unchanged",
+    "fitting": false,
+    "weight_search": false,
+    "evaluation": "reused Jan/Jul development months"
+  },
+  "source_sha256": "cb2ae3aee18cd149f9137c3b50b126b0238c4e7d2087d379d60460ce11de8cd1",
+  "input_sha256": {
+    "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/scored_g42_142_242_k0_1_2_3_4.parquet": "d728e72082513c35a98a12d4ee4ac7b60a2c16912eccb514f8e345c16bbd5245",
+    "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_control_jan_jul/predictions/2025-01_s42.parquet": "12fe9c204d20519aa7aac492cec39d3d6b14a6b0f8d2cb75f0232a9633cdf77f",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_control_jan_jul/predictions/2025-01_s42.json": "a52a34ca4fb730c8a882dc8ec2f014c33b32d1f8881dd7887cc3c1a307c5ba9e",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.parquet": "052e80acc3097ff04968a4774c8edad4e24cbdbd7637203c019342227ff73e9f",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.json": "3c582a659a0627c02a9b29404f34a33b7f331f54b7614487f460b1254121d04d",
+    "VALIDATION/runs/v3_20261010_rome_catboost_jan_jul/predictions/2025-01_s42.parquet": "29f5458274130107750c8fbefbc7a00b14b36d2e50fff91f7951f491d15096b2",
+    "VALIDATION/runs/v3_20261010_rome_catboost_jan_jul/predictions/2025-01_s42.json": "429619119714e868513645d4fb971abbfc83fac81972b6c2a50dc4cbf9210f1a",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-01_s142.parquet": "2413436f53d4b690f6ee335f3b40ba77412b8faad387e3405e39384c5faac3c9",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-01_s142.json": "25d187db4f75c5b7bedb99479e37a2ebd45007ff1e05090531785d71236aa465",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-01_s242.parquet": "d7ca9bed147daa8097a25ddbda2f6018b6cd5a1fccada3ba336c746949a37916",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-01_s242.json": "a70b827ec36ca6b577179de34a8158238139b4944c1b7f263c10ac201ef48114",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_control_jan_jul/predictions/2025-07_s42.parquet": "fc3aab4d6e8c6c085db42101081b1148c46f6c3fac116b4cbd3c71a3c347c9bd",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_control_jan_jul/predictions/2025-07_s42.json": "11972f63f1af0ac559f304c5a3e369e87a9f02c3abf4aa700fc219a6c6c55de6",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.parquet": "aacb44cd2441070c4bf1731992a184eb8987b1fa3c55b5299693dcdd272e6ee8",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.json": "6895725874f13b83a901f242734ee2eb31655e6dd93cde1ad218e5e36fe1e8ac",
+    "VALIDATION/runs/v3_20261010_rome_catboost_jan_jul/predictions/2025-07_s42.parquet": "958f5b161092d543ed06fd3d62959a6e745752fb7b63d8bfae0df47922eba2b3",
+    "VALIDATION/runs/v3_20261010_rome_catboost_jan_jul/predictions/2025-07_s42.json": "f1b72b04cb7433341f5c27d8a8e93c524ae70d52a8576a550fe350937abea0bb",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-07_s142.parquet": "63c1613bf80e62d5f7272a694c145513c63bd8db38ebaa39ab926c2e5f48cbba",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-07_s142.json": "30bb4056b26c6ad8ff10d7caebcdbffca8575bbf7c4cdd90f53b389fd1b068d4",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-07_s242.parquet": "79e06a2ca1d4d8b47018cccd55c317bc678e7e87b6c0fdd99e7c2e9d875a9004",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-07_s242.json": "1fac7992e04f0660105f4000707230477a8df58866e243f391e658304a5a25ff"
+  },
+  "scores": {
+    "matched_v58": {
+      "2025-01": 328.4311023682349,
+      "2025-07": 263.02794135651897,
+      "cv": 295.72952186237694
+    },
+    "combined_historical": {
+      "2025-01": 328.35677998149,
+      "2025-07": 260.6227478812733,
+      "cv": 294.4897639313816
+    },
+    "combined_matched": {
+      "2025-01": 328.3555416589802,
+      "2025-07": 260.62393125624516,
+      "cv": 294.4897364576127
+    },
+    "combined_calls_lgb": {
+      "2025-01": 328.32885993083744,
+      "2025-07": 260.5146068798352,
+      "cv": 294.42173340533634
+    }
+  },
+  "comparisons": {
+    "combined_calls_lgb_vs_combined_matched": {
+      "change": -0.06800305227636727,
+      "ci95": [
+        -0.1173362287249919,
+        -0.030160671263960385
+      ],
+      "decision": "improvement"
+    },
+    "combined_calls_lgb_vs_combined_historical": {
+      "change": -0.06803052604533377,
+      "ci95": [
+        -0.11413017806204237,
+        -0.03247556324796615
+      ],
+      "decision": "improvement"
+    },
+    "combined_calls_lgb_vs_matched_v58": {
+      "change": -1.3077884570406297,
+      "ci95": [
+        -1.9058661890664481,
+        -0.7067704440902409
+      ],
+      "decision": "improvement"
+    },
+    "combined_matched_vs_matched_v58": {
+      "change": -1.2397854047642625,
+      "ci95": [
+        -1.8350515936718146,
+        -0.6502329684915046
+      ],
+      "decision": "improvement"
+    }
+  },
+  "caution": "Bootstrap describes the reused development months, not independent confirmation or an official score."
+}

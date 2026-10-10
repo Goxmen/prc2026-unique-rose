@@ -1,0 +1,144 @@
+{
+  "design": {
+    "parent": "v58",
+    "control": "HPO N09 matched network seeds",
+    "architecture": "shared N09 trunk/global head plus zero-initialized linear airport residual heads",
+    "head_parameters_per_airport": 257,
+    "head_penalty": 0.1,
+    "penalty_units": "mean squared residual-head output in standardized-target units",
+    "unknown_airport": "hard zero residual, global output only",
+    "target": "direct min(taxi_sec,10800)",
+    "added_features": [],
+    "network_share": 0.71,
+    "neural_arms": [
+      "airport_heads",
+      "half_airport_half_v58"
+    ],
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "stop_choice": "last training month only",
+    "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+    "weather_inputs_used": false,
+    "groups": [
+      42,
+      142,
+      242
+    ],
+    "networks_per_group": 5,
+    "exploratory_reused_development_months": true
+  },
+  "groups": [
+    42
+  ],
+  "nets": [
+    0
+  ],
+  "pool_size": 1,
+  "source_sha256": "44f0688bb8832f2f6e09136ada0f1e8ff3266ec671d99232e2b502f7b09eb061",
+  "scores": {
+    "v58": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.4316664067627,
+          "2025-07": 263.0285858055726
+        },
+        "142": {
+          "2025-01": 328.44744119856585,
+          "2025-07": 262.99712069913744
+        },
+        "242": {
+          "2025-01": 328.55501098948906,
+          "2025-07": 262.988808954983
+        }
+      }
+    },
+    "direct_matched": {
+      "2025-01": 331.6930824220631,
+      "2025-07": 266.2815806253393,
+      "cv": 298.9873315237012,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 331.6445920422308,
+          "2025-07": 266.3048796045559
+        },
+        "142": {
+          "2025-01": 331.6572353894418,
+          "2025-07": 266.2615940949186
+        },
+        "242": {
+          "2025-01": 331.7774036352136,
+          "2025-07": 266.27826638654346
+        }
+      }
+    },
+    "airport_heads": {
+      "2025-01": 332.4488297867161,
+      "2025-07": 267.3048838991638,
+      "cv": 299.87685684293996,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 332.4027988812603,
+          "2025-07": 267.336628657383
+        },
+        "142": {
+          "2025-01": 332.42650766178156,
+          "2025-07": 267.2906761485046
+        },
+        "242": {
+          "2025-01": 332.51717185638205,
+          "2025-07": 267.2873440535787
+        }
+      }
+    },
+    "half_airport_half_v58": {
+      "2025-01": 329.55066845564164,
+      "2025-07": 263.94030020164934,
+      "cv": 296.7454843286455,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 329.5049833865281,
+          "2025-07": 263.96719245961276
+        },
+        "142": {
+          "2025-01": 329.52000672700535,
+          "2025-07": 263.92919320659666
+        },
+        "242": {
+          "2025-01": 329.62700181987356,
+          "2025-07": 263.9245128628923
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "airport_heads_vs_direct_matched": {
+      "change": 0.8895253192387429,
+      "ci95": [
+        0.3169009241449544,
+        1.5512142767909527
+      ],
+      "decision": "regression"
+    },
+    "airport_heads_vs_v58": {
+      "change": 4.135415268752894,
+      "ci95": [
+        3.4533581855442446,
+        5.552636050077844
+      ],
+      "decision": "regression"
+    },
+    "half_airport_half_v58_vs_v58": {
+      "change": 1.0040427544584247,
+      "ci95": [
+        0.748801766351044,
+        1.4369346681034865
+      ],
+      "decision": "regression"
+    }
+  }
+}

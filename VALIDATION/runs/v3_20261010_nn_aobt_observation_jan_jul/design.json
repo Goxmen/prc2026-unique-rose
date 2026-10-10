@@ -1,0 +1,59 @@
+{
+  "parent": "v58",
+  "control": "HPO N09 matched seed42 k0",
+  "added_features": [
+    "ao_point_offset_sec",
+    "ao_speed_kt",
+    "ao_stand_distance_m",
+    "ao_on_ground",
+    "ao_moving_before",
+    "ao_moving_after"
+  ],
+  "target": "direct min(taxi_sec,10800)",
+  "network_share": 0.71,
+  "neural_arms": [
+    "aobt_observations",
+    "half_aobt_half_v58"
+  ],
+  "heldout_months": [
+    "2025-01",
+    "2025-07"
+  ],
+  "stop_choice": "frozen historical N09 seed42 epochs; no candidate inner fit",
+  "frozen_stop_epochs": {
+    "2025-01": 21,
+    "2025-07": 17
+  },
+  "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+  "feature_cache": "/home/gunes/PRC/data/derived/aobt_track_observation_20261010",
+  "reference": "global input-only supplied 2025 departures and ADS-B positions; no departure labels",
+  "query_missing": "all six new features NaN when genuine original AOBT3 is unavailable",
+  "feature_settings": {
+    "features": [
+      "ao_point_offset_sec",
+      "ao_speed_kt",
+      "ao_stand_distance_m",
+      "ao_on_ground",
+      "ao_moving_before",
+      "ao_moving_after"
+    ],
+    "source_clock": "original AOBT_3_flt only",
+    "query_clock_age_sec": [
+      -180,
+      14400
+    ],
+    "nearest_tolerance_sec": 120,
+    "fraction_window_sec": 300,
+    "moving_threshold_kt": 5,
+    "position_cutoff_sec_after_takeoff": 60,
+    "tie_break": "earlier position",
+    "fractions": "valid-speed ground points; before excludes clock, after includes clock",
+    "labels_used": false
+  },
+  "weather_inputs_used": false,
+  "groups": [
+    42
+  ],
+  "networks_per_group": 1,
+  "exploratory_reused_development_months": true
+}

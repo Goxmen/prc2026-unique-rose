@@ -1,0 +1,36 @@
+{
+  "parent": "v58",
+  "changed_part": "main LightGBM",
+  "features": [
+    "cc_call_start_sec",
+    "cc_squawk_start_sec",
+    "cc_previous_call_end_sec",
+    "cc_before_own_arrival",
+    "cc_ambiguous",
+    "cc_censored"
+  ],
+  "trial": "LB1",
+  "rounds": 10000,
+  "seed": 42,
+  "network_share": 0.71,
+  "feature_design": {
+    "min_records": 3,
+    "near_event_slack_sec": 180,
+    "lookback_sec": 14400,
+    "day_boundary_bridge_sec": 600,
+    "source_boundary_period_sec": 1800,
+    "source_boundary_tolerance_sec": 20,
+    "feature_names": [
+      "cc_call_start_sec",
+      "cc_squawk_start_sec",
+      "cc_previous_call_end_sec",
+      "cc_before_own_arrival",
+      "cc_ambiguous",
+      "cc_censored"
+    ],
+    "source_semantics": "daily hex/callsign/squawk aggregates; no contiguous episodes inferred",
+    "ambiguity": "overlapping other callsign, multiple active squawks, or earlier same-call departure that UTC day",
+    "censor": "call start in first 20 seconds after half-hour boundary or after supplied takeoff"
+  },
+  "holdout_usage": "fixed Jan/Jul screen; no feature or parameter selection"
+}

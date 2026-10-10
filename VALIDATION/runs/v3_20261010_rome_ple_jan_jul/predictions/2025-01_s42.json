@@ -1,0 +1,757 @@
+{
+  "provenance": {
+    "design": {
+      "parent": "v58",
+      "part": "Rome recording classifier",
+      "family": "PLE neural binary classifier",
+      "config": {
+        "seed": 42,
+        "hidden": [
+          256,
+          128
+        ],
+        "dropout": 0.1,
+        "bins": 48,
+        "d_ple": 16,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "batch": 1024,
+        "max_epochs": 60,
+        "optimizer": "AdamW",
+        "scheduler": null,
+        "loss": "unweighted BCEWithLogits",
+        "min_cat_rows": 20,
+        "quantiles": 1024,
+        "numeric_clip": 5.0
+      },
+      "train_population": "original R20 after_drop Rome rows including copy positives",
+      "features": "original R20 68 inputs and11 categorical columns; no ADS-B additions",
+      "source_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261010_rome_adsblol_jan_jul/inputs",
+      "target": "abs(takeoff-original schedule-raw taxi)<=60",
+      "inner_stop": "minimum logloss among60epochs on last allowed training month; earliest tie",
+      "preprocessing": "inner fitted on inner-train only; full fitted on all allowed training rows",
+      "arms": [
+        "ple",
+        "half_ple_half_R20"
+      ],
+      "network_share": 0.71,
+      "ordinary_networks_unchanged": true,
+      "thresholds_unchanged": true,
+      "probability_calibration": false,
+      "heldout_months": [
+        "2025-01",
+        "2025-07"
+      ],
+      "exploratory_reused_development_months": true
+    },
+    "source_sha256": "99ca770dd293ad10f43980a387f311c929a0e59946031c78d7c2779c7837a416",
+    "helper_sha256": {
+      "VALIDATION/rome_adsblol_jan_jul.py": "7e3d8995baaf95615a49bb53a64dae4a421e1f28825d7b47a7f6dbe1a02b420f",
+      "VALIDATION/open_meteo_jan_jul.py": "74816946afd1e619c789c490e27e8845d033080ac7e7ee132129edbfb07af943",
+      "VALIDATION/hpo_jan_jul.py": "89638bacf1033b3fb796d0ddee94bbd35b3ac28d3e501d07a2e4a37a7371ed49",
+      "VALIDATION/rome_signals.py": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7",
+      "VALIDATION/nn_jan_jul.py": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766",
+      "VALIDATION/nn_improve_jan_jul.py": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20"
+    },
+    "raw_date_sources": {
+      "data/training_2025-01-01_2025-02-01.parquet": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94",
+      "data/training_2025-02-01_2025-03-01.parquet": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066",
+      "data/training_2025-03-01_2025-04-01.parquet": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3",
+      "data/training_2025-04-01_2025-05-01.parquet": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390",
+      "data/training_2025-05-01_2025-06-01.parquet": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9",
+      "data/training_2025-06-01_2025-07-01.parquet": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025",
+      "data/training_2025-07-01_2025-08-01.parquet": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d",
+      "data/training_2025-08-01_2025-09-01.parquet": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540",
+      "data/training_2025-09-01_2025-10-01.parquet": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a",
+      "data/training_2025-10-01_2025-11-01.parquet": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f",
+      "data/training_2025-11-01_2025-12-01.parquet": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0",
+      "data/training_2025-12-01_2026-01-01.parquet": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  },
+  "input_sha256": "8e8053b69f5d78627b6316944805582f94e645b1bc0477e9c1d44c94c036c7e9",
+  "original_R20_columns": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "op_taxi_30d",
+    "op_taxi_30d_n",
+    "rwy_taxi_30d",
+    "stand_taxi_90d",
+    "aphour_taxi_30d",
+    "arr_taxiin_7d",
+    "dep_actual_30m_before",
+    "arr_actual_30m_before",
+    "dep_sched_60m_around",
+    "clock_aobt3_minus_schedule_sec",
+    "clock_aobt3_minus_eobt1_sec",
+    "clock_eobt1_minus_iobt_sec",
+    "clock_iobt_minus_lobt_sec",
+    "clock_schedule_available",
+    "clock_lobt_available",
+    "clock_iobt_available",
+    "clock_eobt1_available",
+    "clock_aobt3_available",
+    "clock_raw_flight_id_missing",
+    "clock_raw_plan_block_missing",
+    "clock_raw_aobt3_missing",
+    "clock_available_count",
+    "clock_span_sec",
+    "clock_std_sec",
+    "clock_median_sec",
+    "clock_baseline_sec",
+    "clock_baseline_source",
+    "airline",
+    "handler_arr_sched_share",
+    "handler_arr_n",
+    "flight_number_format",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60"
+  ],
+  "categoricals": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "airline"
+  ],
+  "training_rows": 126507,
+  "positives": 25343,
+  "train_ids_sha256": "4123fec6a119a177f482b73bbfcb06d1e1f2f56377d2bfb79254638ad47f399a",
+  "stop_month": "2025-11",
+  "stop_epoch": 7,
+  "inner_rows": 115183,
+  "stop_rows": 11324,
+  "inner_curve": [
+    {
+      "epoch": 1,
+      "training_logloss": 0.40144847676842443,
+      "seconds": 1.0582187749996592,
+      "validation_logloss": 0.3993345325755513
+    },
+    {
+      "epoch": 2,
+      "training_logloss": 0.35147081988199746,
+      "seconds": 0.4554900479997741,
+      "validation_logloss": 0.38866435322595816
+    },
+    {
+      "epoch": 3,
+      "training_logloss": 0.3412672591927878,
+      "seconds": 0.45196529700024257,
+      "validation_logloss": 0.37535304452131507
+    },
+    {
+      "epoch": 4,
+      "training_logloss": 0.3352726451309948,
+      "seconds": 0.4485691059999226,
+      "validation_logloss": 0.3728703304421873
+    },
+    {
+      "epoch": 5,
+      "training_logloss": 0.3298069811621896,
+      "seconds": 0.4215196389995981,
+      "validation_logloss": 0.3694317403920364
+    },
+    {
+      "epoch": 6,
+      "training_logloss": 0.3253405722838263,
+      "seconds": 0.4689220780001051,
+      "validation_logloss": 0.3810485002745756
+    },
+    {
+      "epoch": 7,
+      "training_logloss": 0.32114679098587756,
+      "seconds": 0.48311831999944843,
+      "validation_logloss": 0.3662114692278506
+    },
+    {
+      "epoch": 8,
+      "training_logloss": 0.3174047232888715,
+      "seconds": 0.4806578529996841,
+      "validation_logloss": 0.36631509037714727
+    },
+    {
+      "epoch": 9,
+      "training_logloss": 0.3139357823282554,
+      "seconds": 0.4719264610002938,
+      "validation_logloss": 0.36766440971962283
+    },
+    {
+      "epoch": 10,
+      "training_logloss": 0.30981472689921447,
+      "seconds": 0.4436789499995939,
+      "validation_logloss": 0.3670944549927342
+    },
+    {
+      "epoch": 11,
+      "training_logloss": 0.3059915973851974,
+      "seconds": 0.49253132800004096,
+      "validation_logloss": 0.3680827218625675
+    },
+    {
+      "epoch": 12,
+      "training_logloss": 0.30124824875627493,
+      "seconds": 0.44961842500015337,
+      "validation_logloss": 0.3772146851510325
+    },
+    {
+      "epoch": 13,
+      "training_logloss": 0.29805144641130565,
+      "seconds": 0.44664155399914307,
+      "validation_logloss": 0.37071736695975616
+    },
+    {
+      "epoch": 14,
+      "training_logloss": 0.2930461136389266,
+      "seconds": 0.3782765140003903,
+      "validation_logloss": 0.37444521245902723
+    },
+    {
+      "epoch": 15,
+      "training_logloss": 0.2884305411219285,
+      "seconds": 0.43626769599995896,
+      "validation_logloss": 0.37725623997035174
+    },
+    {
+      "epoch": 16,
+      "training_logloss": 0.28400444383256207,
+      "seconds": 0.44029423399933876,
+      "validation_logloss": 0.389811067534455
+    },
+    {
+      "epoch": 17,
+      "training_logloss": 0.27814080485771187,
+      "seconds": 0.4409007329995802,
+      "validation_logloss": 0.4030424229719781
+    },
+    {
+      "epoch": 18,
+      "training_logloss": 0.27167190117080603,
+      "seconds": 0.4370270879999225,
+      "validation_logloss": 0.40094239920535646
+    },
+    {
+      "epoch": 19,
+      "training_logloss": 0.2655110171518223,
+      "seconds": 0.3611378129999139,
+      "validation_logloss": 0.4044749798951092
+    },
+    {
+      "epoch": 20,
+      "training_logloss": 0.2585944746541173,
+      "seconds": 0.43769261299985374,
+      "validation_logloss": 0.42132271462957344
+    },
+    {
+      "epoch": 21,
+      "training_logloss": 0.25342032444139373,
+      "seconds": 0.41715806599950156,
+      "validation_logloss": 0.4314558433581869
+    },
+    {
+      "epoch": 22,
+      "training_logloss": 0.24508538163917215,
+      "seconds": 0.46436600800007,
+      "validation_logloss": 0.43610328576188284
+    },
+    {
+      "epoch": 23,
+      "training_logloss": 0.239493310432749,
+      "seconds": 0.4605081390000123,
+      "validation_logloss": 0.46356361955856357
+    },
+    {
+      "epoch": 24,
+      "training_logloss": 0.23092062456189302,
+      "seconds": 0.37354145600056654,
+      "validation_logloss": 0.4602348911862724
+    },
+    {
+      "epoch": 25,
+      "training_logloss": 0.22533847457790787,
+      "seconds": 0.4333823580000171,
+      "validation_logloss": 0.47839798966109964
+    },
+    {
+      "epoch": 26,
+      "training_logloss": 0.2166257647591493,
+      "seconds": 0.36161011200056237,
+      "validation_logloss": 0.49375311088190454
+    },
+    {
+      "epoch": 27,
+      "training_logloss": 0.21141246973362898,
+      "seconds": 0.39225773599991953,
+      "validation_logloss": 0.5107490793806747
+    },
+    {
+      "epoch": 28,
+      "training_logloss": 0.2026678506583569,
+      "seconds": 0.38067600799968204,
+      "validation_logloss": 0.5472805908683909
+    },
+    {
+      "epoch": 29,
+      "training_logloss": 0.1965970309530154,
+      "seconds": 0.37664781300009054,
+      "validation_logloss": 0.5383760962698131
+    },
+    {
+      "epoch": 30,
+      "training_logloss": 0.18949452949407739,
+      "seconds": 0.3742176980003933,
+      "validation_logloss": 0.5976418782411179
+    },
+    {
+      "epoch": 31,
+      "training_logloss": 0.1814709605473446,
+      "seconds": 0.39766093800062663,
+      "validation_logloss": 0.6376257612879801
+    },
+    {
+      "epoch": 32,
+      "training_logloss": 0.17718610673117974,
+      "seconds": 0.39759144799973,
+      "validation_logloss": 0.644639738733051
+    },
+    {
+      "epoch": 33,
+      "training_logloss": 0.1713616496328265,
+      "seconds": 0.4072394019995045,
+      "validation_logloss": 0.6687343548466783
+    },
+    {
+      "epoch": 34,
+      "training_logloss": 0.16407295957645077,
+      "seconds": 0.3922623090002162,
+      "validation_logloss": 0.6971366374166841
+    },
+    {
+      "epoch": 35,
+      "training_logloss": 0.1546695039153506,
+      "seconds": 0.37957984400054556,
+      "validation_logloss": 0.7034220744797242
+    },
+    {
+      "epoch": 36,
+      "training_logloss": 0.15106769052213403,
+      "seconds": 0.3966966649995811,
+      "validation_logloss": 0.7545783937753161
+    },
+    {
+      "epoch": 37,
+      "training_logloss": 0.14533903971397874,
+      "seconds": 0.39812970899947686,
+      "validation_logloss": 0.7872825824058414
+    },
+    {
+      "epoch": 38,
+      "training_logloss": 0.1397491904810055,
+      "seconds": 0.3832451640000727,
+      "validation_logloss": 0.7901361071845072
+    },
+    {
+      "epoch": 39,
+      "training_logloss": 0.13460406698447275,
+      "seconds": 0.3965669210001579,
+      "validation_logloss": 0.8377896027897168
+    },
+    {
+      "epoch": 40,
+      "training_logloss": 0.13080303074243776,
+      "seconds": 0.3918116450004163,
+      "validation_logloss": 0.8341942069279172
+    },
+    {
+      "epoch": 41,
+      "training_logloss": 0.12636930175589323,
+      "seconds": 0.44582494699989184,
+      "validation_logloss": 0.8691297183826028
+    },
+    {
+      "epoch": 42,
+      "training_logloss": 0.12335450112994062,
+      "seconds": 0.448723475999941,
+      "validation_logloss": 0.910716778953955
+    },
+    {
+      "epoch": 43,
+      "training_logloss": 0.11705294989248857,
+      "seconds": 0.4561857049993705,
+      "validation_logloss": 0.9225756328105172
+    },
+    {
+      "epoch": 44,
+      "training_logloss": 0.11483536130968026,
+      "seconds": 0.3448953960005383,
+      "validation_logloss": 0.8921914782028533
+    },
+    {
+      "epoch": 45,
+      "training_logloss": 0.11013010480193225,
+      "seconds": 0.41139357200063387,
+      "validation_logloss": 0.9712790059868965
+    },
+    {
+      "epoch": 46,
+      "training_logloss": 0.10551371352374127,
+      "seconds": 0.40848716300024535,
+      "validation_logloss": 1.0114155872832733
+    },
+    {
+      "epoch": 47,
+      "training_logloss": 0.09940474229924828,
+      "seconds": 0.3573328760003278,
+      "validation_logloss": 1.047523167040458
+    },
+    {
+      "epoch": 48,
+      "training_logloss": 0.09827842444299686,
+      "seconds": 0.4091511900005571,
+      "validation_logloss": 1.066204637847029
+    },
+    {
+      "epoch": 49,
+      "training_logloss": 0.09528111792272158,
+      "seconds": 0.39501575399935973,
+      "validation_logloss": 1.078559582690078
+    },
+    {
+      "epoch": 50,
+      "training_logloss": 0.09521823369489427,
+      "seconds": 0.3327680349993898,
+      "validation_logloss": 1.066044974983798
+    },
+    {
+      "epoch": 51,
+      "training_logloss": 0.09081767703527174,
+      "seconds": 0.4257523090000177,
+      "validation_logloss": 1.055745390820553
+    },
+    {
+      "epoch": 52,
+      "training_logloss": 0.08889179258254529,
+      "seconds": 0.470316412000102,
+      "validation_logloss": 1.085901036034909
+    },
+    {
+      "epoch": 53,
+      "training_logloss": 0.08628892974538248,
+      "seconds": 0.47886236300018936,
+      "validation_logloss": 1.1585611540345704
+    },
+    {
+      "epoch": 54,
+      "training_logloss": 0.08349971898771343,
+      "seconds": 0.47674784599985287,
+      "validation_logloss": 1.1743086455594844
+    },
+    {
+      "epoch": 55,
+      "training_logloss": 0.08139719039714816,
+      "seconds": 0.3950517720004427,
+      "validation_logloss": 1.2090637448899864
+    },
+    {
+      "epoch": 56,
+      "training_logloss": 0.08026511052456067,
+      "seconds": 0.3617843049996736,
+      "validation_logloss": 1.251277408753271
+    },
+    {
+      "epoch": 57,
+      "training_logloss": 0.07567437733076536,
+      "seconds": 0.39954540300004737,
+      "validation_logloss": 1.2277193251430831
+    },
+    {
+      "epoch": 58,
+      "training_logloss": 0.07640430867194851,
+      "seconds": 0.43185802700008935,
+      "validation_logloss": 1.2493489545717993
+    },
+    {
+      "epoch": 59,
+      "training_logloss": 0.07305499612827097,
+      "seconds": 0.4520582570003171,
+      "validation_logloss": 1.242760412183386
+    },
+    {
+      "epoch": 60,
+      "training_logloss": 0.07110380267552383,
+      "seconds": 0.40143421799984935,
+      "validation_logloss": 1.263778481317606
+    }
+  ],
+  "full_curve": [
+    {
+      "epoch": 1,
+      "training_logloss": 0.3992270532594184,
+      "seconds": 0.48721373999978823
+    },
+    {
+      "epoch": 2,
+      "training_logloss": 0.353975902322392,
+      "seconds": 0.3860361409997495
+    },
+    {
+      "epoch": 3,
+      "training_logloss": 0.34244170764619836,
+      "seconds": 0.40218989999993937
+    },
+    {
+      "epoch": 4,
+      "training_logloss": 0.33532380936251455,
+      "seconds": 0.42845293800019135
+    },
+    {
+      "epoch": 5,
+      "training_logloss": 0.33048257165773937,
+      "seconds": 0.3975835040000675
+    },
+    {
+      "epoch": 6,
+      "training_logloss": 0.3262126151594036,
+      "seconds": 0.4160972009995021
+    },
+    {
+      "epoch": 7,
+      "training_logloss": 0.3223125876966563,
+      "seconds": 0.38705254300020897
+    }
+  ],
+  "codec_info": {
+    "columns": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "hour",
+      "dow",
+      "month",
+      "mvt_minus_sched_sec",
+      "mvt_minus_lobt_sec",
+      "mvt_minus_iobt_sec",
+      "mvt_minus_eobt1_sec",
+      "mvt_minus_aobt3_sec",
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d",
+      "arr_taxiin_7d",
+      "dep_actual_30m_before",
+      "arr_actual_30m_before",
+      "dep_sched_60m_around",
+      "clock_aobt3_minus_schedule_sec",
+      "clock_aobt3_minus_eobt1_sec",
+      "clock_eobt1_minus_iobt_sec",
+      "clock_iobt_minus_lobt_sec",
+      "clock_schedule_available",
+      "clock_lobt_available",
+      "clock_iobt_available",
+      "clock_eobt1_available",
+      "clock_aobt3_available",
+      "clock_raw_flight_id_missing",
+      "clock_raw_plan_block_missing",
+      "clock_raw_aobt3_missing",
+      "clock_available_count",
+      "clock_span_sec",
+      "clock_std_sec",
+      "clock_median_sec",
+      "clock_baseline_sec",
+      "clock_baseline_source",
+      "airline",
+      "handler_arr_sched_share",
+      "handler_arr_n",
+      "flight_number_format",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60"
+    ],
+    "categoricals": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "airline"
+    ],
+    "cards": [
+      2,
+      238,
+      43,
+      6,
+      128,
+      2,
+      8,
+      5,
+      4,
+      108,
+      110
+    ],
+    "ple_columns": [
+      "hour",
+      "dow",
+      "month",
+      "mvt_minus_sched_sec",
+      "mvt_minus_lobt_sec",
+      "mvt_minus_iobt_sec",
+      "mvt_minus_eobt1_sec",
+      "mvt_minus_aobt3_sec",
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d",
+      "arr_taxiin_7d",
+      "dep_actual_30m_before",
+      "arr_actual_30m_before",
+      "dep_sched_60m_around",
+      "clock_aobt3_minus_schedule_sec",
+      "clock_aobt3_minus_eobt1_sec",
+      "clock_eobt1_minus_iobt_sec",
+      "clock_iobt_minus_lobt_sec",
+      "clock_span_sec",
+      "clock_std_sec",
+      "clock_median_sec",
+      "clock_baseline_sec",
+      "handler_arr_sched_share",
+      "handler_arr_n",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_inblock_minus_sched_sec",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30"
+    ],
+    "bins_per_column": [
+      19,
+      6,
+      8,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      21,
+      21,
+      32,
+      42,
+      28,
+      22,
+      2,
+      35,
+      41,
+      48,
+      48,
+      45,
+      43,
+      48,
+      48,
+      2,
+      48,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "plain_count": 104,
+    "fit_rows": 126507
+  },
+  "outputs": {
+    "VALIDATION/runs/v3_20261010_rome_ple_jan_jul/preprocessing/2025-01_inner.pkl": "d2188793ddeca236b6687f8e24dc6f9bab35fded1c42f26c1f5778e5e8254ece",
+    "VALIDATION/runs/v3_20261010_rome_ple_jan_jul/models/2025-01_inner.pt": "65fa9d3d60650e6b2aa32384f775d8e1c9bec7f3cda8025eb9d68924ad7aeaa8",
+    "VALIDATION/runs/v3_20261010_rome_ple_jan_jul/preprocessing/2025-01_full.pkl": "eefadb826c2a9b851a0116be0aacbb039ade63ee0766ea64b230dbcf236d61d3",
+    "VALIDATION/runs/v3_20261010_rome_ple_jan_jul/models/2025-01_full.pt": "37112d66f20edfd5b9b605ccf9d3dbf5aefe485195347145308729a9c72f9a9c",
+    "VALIDATION/runs/v3_20261010_rome_ple_jan_jul/predictions/2025-01_s42.parquet": "5c0ec5bf747d8f4df3ba1d547c99a70f55236393ee5b896ff82f93b8e95a9dcd"
+  },
+  "minutes": 0.5408953248000065
+}

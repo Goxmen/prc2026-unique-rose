@@ -1,0 +1,43 @@
+{
+  "parent": "v58",
+  "control": "HPO N09 matched seed42 k0",
+  "architecture": "original N09 mean plus zero-initialized shared-trunk auxiliary12-logit head",
+  "auxiliary_parameters": 3084,
+  "auxiliary_weight": 0.1,
+  "ordinal_thresholds_sec": [
+    -1800.0,
+    -600.0,
+    -300.0,
+    -120.0,
+    -60.0,
+    0.0,
+    60.0,
+    120.0,
+    300.0,
+    600.0,
+    1800.0
+  ],
+  "ordinal_target": "I((takeoff - original AOBT3 - raw uncapped y)>threshold)",
+  "copy_target": "I(abs(takeoff - original schedule - raw uncapped y)<=60)",
+  "auxiliary_loss": "0.1*(0.5*mean valid ordinal BCE +0.5*mean valid schedule-copy BCE); empty task zero",
+  "target": "direct min(taxi_sec,10800)",
+  "added_features": [],
+  "network_share": 0.71,
+  "neural_arms": [
+    "auxiliary_modes",
+    "half_auxiliary_half_v58"
+  ],
+  "heldout_months": [
+    "2025-01",
+    "2025-07"
+  ],
+  "stop_choice": "last training month mean-output RMSE only",
+  "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+  "weather_inputs_used": false,
+  "groups": [
+    42
+  ],
+  "networks_per_group": 1,
+  "auxiliary_logits_used_at_inference": false,
+  "exploratory_reused_development_months": true
+}

@@ -23,6 +23,7 @@ submissions/
 # Reproducibility artifacts are retained locally; concise run results stay tracked.
 VALIDATION/**/runs/v3_*/**/source/
 VALIDATION/**/runs/v3_*/**/source.patch
+VALIDATION/**/runs/v3_*/runner_initial.py
 VALIDATION/**/runs/v3_*/**/progress.json
 VALIDATION/**/runs/v3_*/**/models/
 VALIDATION/**/runs/v3_*/**/.lock
@@ -52,6 +53,13 @@ VALIDATION/runs/overnight_*/*.parquet.tmp
 VALIDATION/**/runs/v3_*/splits/*/*.pkl
 VALIDATION/**/runs/v3_*/work/*.pkl
 VALIDATION/**/runs/v3_*/inputs/*.pkl
+VALIDATION/**/runs/v3_*/inputs/*.pkl.gz
+VALIDATION/**/runs/v3_*/features/*.pkl
+VALIDATION/**/runs/v3_*/preprocessing/*.pkl
+VALIDATION/**/runs/v3_*/model_reload_audit/*.pkl
+VALIDATION/**/runs/v3_*/portable_worker/*.pkl.gz
+VALIDATION/**/runs/v3_*/portable_worker/*.pkl.tmp
+VALIDATION/**/runs/v3_*/portable_worker/*/encoding_*/
 VALIDATION/**/runs/v3_*/splits/*/*.txt
 
 # LightGBM boosters saved straight into a run folder, and CatBoost's training-log folder, stay local.

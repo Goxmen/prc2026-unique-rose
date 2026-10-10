@@ -1,0 +1,26 @@
+{
+  "view": "old",
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/predictions/old.parquet",
+    "sha256": "a3aa95752feca6b43fd89fe04cc06bca9c8cde5b71c524988ffc188dc89d9cfe"
+  },
+  "design_sha256": "457f675d44e1169b2cade68f2b7cf36f8c4522e8ed9e46c47ae38dcd83ed3939",
+  "model_sha256": "204a8f39bda743aaeb4cc96ed4a5a61d43757905e9877ca42179e7105ad321dc",
+  "prepared_sha256": "84baa8c78bf9fb171e1aba4516e658bbd6091aae54d9dea42676fc106553c58a",
+  "feature_table": {
+    "path": "data/derived/callsign_submit_20261010/old.parquet",
+    "sha256": "563b3e20714efaff9cf5e9b58bb5cae9a33abab4722e8d7f1f63042546714b5e"
+  },
+  "ranking_inputs": {
+    "kind": "shared stripped ranking packet",
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/manifest.json",
+      "sha256": "279580a52250cdc230020e3c1d9f715dffa86f8e12baa6b8e3e2f380e7f4a614"
+    },
+    "source": {
+      "path": "VALIDATION/callsign_submit_portable.py",
+      "sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c"
+    }
+  },
+  "rows": 344841
+}

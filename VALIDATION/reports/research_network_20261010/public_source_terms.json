@@ -1,0 +1,83 @@
+{
+  "source_repository": "https://github.com/AbdullahKhan-x/PRC-2026",
+  "commit": "66967439b57bdf4b04b0fdc9dd9621840c1eb758",
+  "commit_time": "2026-10-10T08:22:03Z",
+  "source_files_sha256": {
+    "download_external.py": "0db8b7c268ae54dafe73a97adeaf71dbba4bf1e45eb79fbf04ba0276bf564a88",
+    "README.md": "ab15356505d06b8ec49777021b10091fcb00e6bf07a2e7ccb2f9a45ed159dbc1",
+    "docs/submissions.md": "4a6112a221632ccd51ad9990a759519becf2435de26a2d827c39df74d1094f92",
+    "docs/project_context.md": "807b72736beab8f29a25a24fa19345c76c795eb53c28b79f69fb5dc31c87b29e",
+    "DATA_ANALYTICS/42d_external.py": "31244294f2b7145c7623007d191f859c99bd0c71b1e28f7e0260a88883229284",
+    "DATA_ANALYTICS/te_extra2.py": "c859c4cb38e38fb204d16f23f5b9c7ba1fe6696f8c32775fe3fa2dda09a72100",
+    "DATA_ANALYTICS/55_final_v116.py": "cf873b2559bc909a51e17d3e3bc5498ef3d52f6196ebd8200345efcf9ca850b1",
+    "DATA_ANALYTICS/42_context_features.py": "9e579f7e4932bc2cf9d9fe7e6146be4a7e3385faccff3fd35b896c995f5d1964",
+    "DATA_ANALYTICS/42b_context_features2.py": "9dc3a2b92a86d4a3a4bd5af44255d149d0be148c859376c95ff63fa2dfe8cd04",
+    "DATA_ANALYTICS/44_train_full.py": "58b80781405267ff628aa97bdc142384b6ff824c621d988dd9b6beab8f333127",
+    "DATA_ANALYTICS/41_oof_harness.py": "bff2741ca7704b0f07c6feb940e2a982254da1d369b89420da734fce97d80d7d",
+    "DATA_ANALYTICS/rome_rates.py": "5525c2e896110725435c3adb86da994f9205c150e67cc5b9fc1367bfc3b9f7d0",
+    "DATA_ANALYTICS/te_extra.py": "a5d77707afb519c0aefaa669041fc39e01280f313287df23fbe383821fb5b0c8"
+  },
+  "external_daily": {
+    "status": "frozen: source terms unsuitable for established openly licensed competition use; no data downloads or fits",
+    "genuinely_new": [
+      "airport-day ATFM regulated departure share",
+      "regulated departures late outside CTOT slot share",
+      "all-causes predeparture delay minutes per flight",
+      "ATC predeparture delay minutes per flight"
+    ],
+    "redundant": [
+      "IFR departure count substantially overlaps existing traffic counts",
+      "airport-normalized predeparture mean is affine redundancy conditional on airport"
+    ],
+    "reported_gain": "logical-ladder README 269.37 to268.60; bundled daily series and OPDI first contact plus previous same-aircraft arrival in one tree member; no isolated proof",
+    "licence_url": "https://ansperformance.eu/about/disclaimer/",
+    "licence_summary": "Primary portal permits attribution-backed copies for non-commercial use only, excludes financial gain, and requires prior written permission for modification. Repository GPL3 only covers code.",
+    "coverage_url": "https://ansperformance.eu/data/",
+    "coverage_summary": "Portal metadata says slot adherence throughAug2026, predeparture series throughJun2026. CSV index size could reflect newer data; July availability remains unverified without inspecting sourceCSV.",
+    "csv_index": "https://ansperformance.eu/csv/",
+    "metric_primary_urls": [
+      "https://ansperformance.eu/reference/dataset/all-pre-departure-delay/",
+      "https://www.sesperformance.eu/dataportal/metadata/atc-pre-departure-delay/",
+      "https://www.sesperformance.eu/dataportal/metadata/atfm-slot-adherence/"
+    ],
+    "meaning": "ATC predeparture records local stand holds/IATA89 and slot adherence measures ATOT vs CTOT; independent operational regulation information beyond weather, not a taxi-out label. Delay reporting quality differs by airport."
+  },
+  "opdi_rotation": {
+    "status": "new compared with v58; assigned to signal_scout for retained-cache coverage",
+    "source_design": "match callsign+departure-airport first_seen in[takeoff\u22122h,takeoff+10min], closest; sameicao24 previous flight arrival at sameairport, last_seen prior to first_seen within48h; feature takeoff\u2212last_seen",
+    "overlap": "v58 ownOPDI interval+same-stand arrival features do not track sameairframe acrossstands. Firstcontact overlaps op_fs_sec albeit different filter.",
+    "risk": "source callsign only CALLSIGN_flt without FLIGHT_mvt fallback; restrict ambiguous matches and verify aircraftarrival before currentdeparture. Our two LFPG monsters already fail arrivalcopy but broader rotation untested."
+  },
+  "target_clock_encodings": {
+    "status": "untried as proposed four-feature fixed arm; no fit",
+    "source": [
+      "DATA_ANALYTICS/te_extra.py",
+      "DATA_ANALYTICS/te_extra2.py",
+      "DATA_ANALYTICS/41_oof_harness.py"
+    ],
+    "source_description": "median BLOCK\u2212AOBT by airport\u00d7stand/operator/runway using noncopy abs(offset)<3600, minimum30 otherwise airportmedian; correctedgap. Also K50smoothed stand/operator copyrates, roundedsecondsrate and copyrate\u00d7lateness.",
+    "source_caveat": "Outer month excluded from encoding fit, but each training row contributes to its own encoding; v116 gain bundles manychanges.",
+    "ours_overlap": "Historical rawtaximeans by operator/runway/stand exist, not clockresidualmedians. Rare>=12h clock correction exists. Flightnumbercopyrate tried and failed LB.",
+    "proposed_frozen_screen": {
+      "part": "mainLightGBM LB1 seed42 Jan/Jul, originalrowsfeaturesrounds retained",
+      "added_features": [
+        "clock_delta_stand_median",
+        "clock_delta_operator_median",
+        "clock_delta_runway_median",
+        "actual_aobt_gap_minus_stand_median"
+      ],
+      "statistics": "same outerallowed training labels; rawactualAOBT required; exclude schedulecopieswithin60s; absdelta<3600; minimum30support elseairportmedian; all train encodings exclude ownUTCmonth including fallback; held statistics only outertrain",
+      "target": "unchanged direct taxi target; noforcedoffset orschedulefallback",
+      "no_joint_change": "no copyrates inthisarm; Rome unchanged",
+      "runtime": "two normal mainLightGBM fits; do not run until rootallocates"
+    }
+  },
+  "reviews": {
+    "rome_catboost_jan_jul": "No blocking issue.68originalfeatures11nativecategoricals; targets/IDs/masks valid; stopping uses lasttrainmonth; source+input+predictionhashguard. Minor dependencycodehashgap communicated.",
+    "nn_airport_heads_jan_jul": "Forward/loss/sharedpredict review passed; zero-init noRNG, explicit unknownhardzero, regularizeddeltatargetstandardized, unchangeddirectclippedtarget."
+  },
+  "classifier_population_artifacts": [
+    "tmp/research_20261010/error_mechanisms/rome_classifier_population_and_oracle.json",
+    "tmp/research_20261010/error_mechanisms/rome_noid_history.json"
+  ]
+}

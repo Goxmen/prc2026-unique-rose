@@ -1,0 +1,151 @@
+{
+  "design": {
+    "parent": "v58",
+    "control": "HPO N09 matched network seeds",
+    "added_features": [
+      "ar_aircraft",
+      "ar_prev_inblock_age_sec",
+      "ar_prev_same_stand",
+      "ar_prev_taxiin_sec",
+      "ar_departures_24h",
+      "ar_prev_minus_stand_age_sec",
+      "ar_stand_same_aircraft",
+      "ar_prev_arrival_delay_sec"
+    ],
+    "target": "direct min(taxi_sec,10800)",
+    "network_share": 0.71,
+    "neural_arms": [
+      "rotation",
+      "half_rotation_half_v58"
+    ],
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "stop_choice": "last training month only",
+    "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+    "rotation_feature_cache": "/home/gunes/PRC/data/derived/aircraft_rotation_20261010",
+    "training_reference": "ts.FOLDS[held month] only; strict past arrival and inblock, max72h",
+    "held_reference": "training months + held month; strict past arrival and inblock, max72h",
+    "weather_inputs_used": false,
+    "groups": [
+      42,
+      142,
+      242
+    ],
+    "networks_per_group": 5,
+    "exploratory_reused_development_months": true
+  },
+  "groups": [
+    42
+  ],
+  "nets": [
+    0
+  ],
+  "pool_size": 1,
+  "source_sha256": "238933df5588fe27dd47700c9eb106f11c5bd3e2c22fc38770d6a7a3afce1356",
+  "scores": {
+    "v58": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.4316664067627,
+          "2025-07": 263.0285858055726
+        },
+        "142": {
+          "2025-01": 328.44744119856585,
+          "2025-07": 262.99712069913744
+        },
+        "242": {
+          "2025-01": 328.55501098948906,
+          "2025-07": 262.988808954983
+        }
+      }
+    },
+    "direct_matched": {
+      "2025-01": 331.6930824220631,
+      "2025-07": 266.2815806253393,
+      "cv": 298.9873315237012,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 331.6445920422308,
+          "2025-07": 266.3048796045559
+        },
+        "142": {
+          "2025-01": 331.6572353894418,
+          "2025-07": 266.2615940949186
+        },
+        "242": {
+          "2025-01": 331.7774036352136,
+          "2025-07": 266.27826638654346
+        }
+      }
+    },
+    "rotation": {
+      "2025-01": 331.83681118030233,
+      "2025-07": 267.6805228478454,
+      "cv": 299.75866701407386,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 331.799894426817,
+          "2025-07": 267.7105015444802
+        },
+        "142": {
+          "2025-01": 331.7996890957498,
+          "2025-07": 267.670687433215
+        },
+        "242": {
+          "2025-01": 331.91083763151175,
+          "2025-07": 267.66037694832727
+        }
+      }
+    },
+    "half_rotation_half_v58": {
+      "2025-01": 329.23824084451905,
+      "2025-07": 263.6758344581709,
+      "cv": 296.457037651345,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 329.19722233356674,
+          "2025-07": 263.7060413844095
+        },
+        "142": {
+          "2025-01": 329.2027443784585,
+          "2025-07": 263.66648575882647
+        },
+        "242": {
+          "2025-01": 329.3147424649194,
+          "2025-07": 263.65497351006474
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "rotation_vs_direct_matched": {
+      "change": 0.7713354903726497,
+      "ci95": [
+        0.19750231593181197,
+        1.5314236238227195
+      ],
+      "decision": "regression"
+    },
+    "rotation_vs_v58": {
+      "change": 4.017225439886801,
+      "ci95": [
+        3.2428785650631617,
+        5.471797166490422
+      ],
+      "decision": "regression"
+    },
+    "half_rotation_half_v58_vs_v58": {
+      "change": 0.715596077157926,
+      "ci95": [
+        0.45638496591932237,
+        1.1394342381919325
+      ],
+      "decision": "regression"
+    }
+  }
+}

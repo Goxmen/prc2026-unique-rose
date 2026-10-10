@@ -1,0 +1,110 @@
+{
+  "source": "data/derived/sparse_track_sequence_20261010/full_index.parquet",
+  "scope": "all supplied Rome departures; input-only; not exact R20 membership",
+  "months": [
+    {
+      "month": "2025-01",
+      "rows": 11317,
+      "usable": 8822,
+      "ground": 1
+    },
+    {
+      "month": "2025-02",
+      "rows": 10703,
+      "usable": 8617,
+      "ground": 0
+    },
+    {
+      "month": "2025-03",
+      "rows": 12544,
+      "usable": 9972,
+      "ground": 0
+    },
+    {
+      "month": "2025-04",
+      "rows": 14028,
+      "usable": 4230,
+      "ground": 2
+    },
+    {
+      "month": "2025-05",
+      "rows": 14541,
+      "usable": 3340,
+      "ground": 3157
+    },
+    {
+      "month": "2025-06",
+      "rows": 14696,
+      "usable": 14577,
+      "ground": 12930
+    },
+    {
+      "month": "2025-07",
+      "rows": 15211,
+      "usable": 15125,
+      "ground": 14804
+    },
+    {
+      "month": "2025-08",
+      "rows": 15459,
+      "usable": 15346,
+      "ground": 14501
+    },
+    {
+      "month": "2025-09",
+      "rows": 14667,
+      "usable": 14468,
+      "ground": 8003
+    },
+    {
+      "month": "2025-10",
+      "rows": 14142,
+      "usable": 13945,
+      "ground": 10568
+    },
+    {
+      "month": "2025-11",
+      "rows": 11328,
+      "usable": 11208,
+      "ground": 8323
+    },
+    {
+      "month": "2025-12",
+      "rows": 12068,
+      "usable": 11933,
+      "ground": 10360
+    }
+  ],
+  "outer_training": {
+    "2025-01": {
+      "rows": 126616,
+      "usable": 102211,
+      "ground": 72288,
+      "months": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ]
+    },
+    "2025-07": {
+      "rows": 86769,
+      "usable": 78965,
+      "ground": 37255,
+      "months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ]
+    }
+  }
+}

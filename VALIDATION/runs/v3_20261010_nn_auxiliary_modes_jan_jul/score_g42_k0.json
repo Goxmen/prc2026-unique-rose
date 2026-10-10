@@ -1,0 +1,157 @@
+{
+  "design": {
+    "parent": "v58",
+    "control": "HPO N09 matched seed42 k0",
+    "architecture": "original N09 mean plus zero-initialized shared-trunk auxiliary12-logit head",
+    "auxiliary_parameters": 3084,
+    "auxiliary_weight": 0.1,
+    "ordinal_thresholds_sec": [
+      -1800.0,
+      -600.0,
+      -300.0,
+      -120.0,
+      -60.0,
+      0.0,
+      60.0,
+      120.0,
+      300.0,
+      600.0,
+      1800.0
+    ],
+    "ordinal_target": "I((takeoff - original AOBT3 - raw uncapped y)>threshold)",
+    "copy_target": "I(abs(takeoff - original schedule - raw uncapped y)<=60)",
+    "auxiliary_loss": "0.1*(0.5*mean valid ordinal BCE +0.5*mean valid schedule-copy BCE); empty task zero",
+    "target": "direct min(taxi_sec,10800)",
+    "added_features": [],
+    "network_share": 0.71,
+    "neural_arms": [
+      "auxiliary_modes",
+      "half_auxiliary_half_v58"
+    ],
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "stop_choice": "last training month mean-output RMSE only",
+    "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+    "weather_inputs_used": false,
+    "groups": [
+      42
+    ],
+    "networks_per_group": 1,
+    "auxiliary_logits_used_at_inference": false,
+    "exploratory_reused_development_months": true
+  },
+  "groups": [
+    42
+  ],
+  "nets": [
+    0
+  ],
+  "pool_size": 1,
+  "source_sha256": "daee206b63d1875ebabe21cd26ebb7092958394d532bb45f2dbb1978aaef647b",
+  "scores": {
+    "v58": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.4316664067627,
+          "2025-07": 263.0285858055726
+        },
+        "142": {
+          "2025-01": 328.44744119856585,
+          "2025-07": 262.99712069913744
+        },
+        "242": {
+          "2025-01": 328.55501098948906,
+          "2025-07": 262.988808954983
+        }
+      }
+    },
+    "direct_matched": {
+      "2025-01": 331.6930824220631,
+      "2025-07": 266.2815806253393,
+      "cv": 298.9873315237012,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 331.6445920422308,
+          "2025-07": 266.3048796045559
+        },
+        "142": {
+          "2025-01": 331.6572353894418,
+          "2025-07": 266.2615940949186
+        },
+        "242": {
+          "2025-01": 331.7774036352136,
+          "2025-07": 266.27826638654346
+        }
+      }
+    },
+    "auxiliary_modes": {
+      "2025-01": 330.9451181899496,
+      "2025-07": 267.6083499662229,
+      "cv": 299.27673407808624,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 330.9091437935232,
+          "2025-07": 267.6432709587938
+        },
+        "142": {
+          "2025-01": 330.91136727579635,
+          "2025-07": 267.5893681813943
+        },
+        "242": {
+          "2025-01": 331.01483248153636,
+          "2025-07": 267.5924073319217
+        }
+      }
+    },
+    "half_auxiliary_half_v58": {
+      "2025-01": 328.67779275133694,
+      "2025-07": 264.0760205930693,
+      "cv": 296.3769066722031,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.6380954837027,
+          "2025-07": 264.108554656165
+        },
+        "142": {
+          "2025-01": 328.6437728780613,
+          "2025-07": 264.0611173383081
+        },
+        "242": {
+          "2025-01": 328.751497470339,
+          "2025-07": 264.0583867713526
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "auxiliary_modes_vs_direct_matched": {
+      "change": 0.2894025543850205,
+      "ci95": [
+        -0.31747705802899906,
+        0.8217051854078223
+      ],
+      "decision": "inconclusive"
+    },
+    "auxiliary_modes_vs_v58": {
+      "change": 3.5352925038991714,
+      "ci95": [
+        3.018859699697893,
+        4.491214871439972
+      ],
+      "decision": "regression"
+    },
+    "half_auxiliary_half_v58_vs_v58": {
+      "change": 0.6354650980160557,
+      "ci95": [
+        0.41984168592590976,
+        0.8714370990906335
+      ],
+      "decision": "regression"
+    }
+  }
+}

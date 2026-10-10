@@ -1,0 +1,63 @@
+{
+  "design": {
+    "parent": "v58",
+    "part": "Rome recording classifier",
+    "new_features": [],
+    "retained_classifier_extras": [
+      "airline",
+      "handler_arr_sched_share",
+      "handler_arr_n",
+      "flight_number_format",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60"
+    ],
+    "seed": 42,
+    "rounds": 1700,
+    "trial": "R20",
+    "network_share": 0.71,
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "training_membership": "all original before_drop rows for classifier only; ordinary remains unchanged",
+    "checkpoint_selection": false,
+    "exploratory_reused_development_months": true
+  },
+  "params": {
+    "objective": "binary",
+    "metric": "binary_logloss",
+    "learning_rate": 0.02,
+    "num_leaves": 127,
+    "min_data_in_leaf": 50,
+    "feature_fraction": 0.6,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "verbosity": -1,
+    "seed": 42,
+    "bagging_seed": 43,
+    "feature_fraction_seed": 44,
+    "num_threads": 8
+  },
+  "minutes": 0.19428776210000176,
+  "model_sha256": "3d743b5d190abd2f36a782a14a4141ba0a4c27ea2aec5bba380c9d3d3427051e",
+  "input_sha256": "5a0df5f58e96155b3a5534e2ec3713d03253bf5f5ae1dccfab0a63b63e577a7b",
+  "prediction_sha256": "f9a698f118acc0747f1a96148325e3358edb519d9f63e43a5193524541bb2a7c",
+  "source_sha256": "7e3d8995baaf95615a49bb53a64dae4a421e1f28825d7b47a7f6dbe1a02b420f"
+}

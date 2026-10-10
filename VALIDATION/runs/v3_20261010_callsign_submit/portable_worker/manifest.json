@@ -1,0 +1,524 @@
+{
+  "design": {
+    "parent_runner": "VALIDATION/callsign_submit.py",
+    "original_columns": 156,
+    "packet_schema": [
+      "view",
+      "Vn",
+      "rank_ids"
+    ],
+    "view_order": [
+      "old",
+      "final"
+    ],
+    "old_view": "reuse original Vn/rank_ids in verified cached hs.INPUTS",
+    "groups": [
+      42,
+      142,
+      242
+    ],
+    "nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "epochs": {
+      "42": 15,
+      "142": 21,
+      "242": 16
+    },
+    "target": "unchanged clipped direct mean",
+    "training": "original shared.train; no inner fit",
+    "portable_scope": "Portable worker: exact cached original training matrix, transferred ranking matrices, feature tables, training IDs, recipe, source and helper hashes. Original ranking/raw sources fully checked on desktop prepare; desktop audit/build checks them again.",
+    "original_runner_unchanged": true
+  },
+  "worker_source_sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c",
+  "cached_training_inputs": {
+    "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+    "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9"
+  },
+  "columns": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "op_taxi_30d",
+    "op_taxi_30d_n",
+    "rwy_taxi_30d",
+    "stand_taxi_90d",
+    "aphour_taxi_30d",
+    "arr_taxiin_7d",
+    "dep_actual_30m_before",
+    "arr_actual_30m_before",
+    "dep_sched_60m_around",
+    "clock_aobt3_minus_schedule_sec",
+    "clock_aobt3_minus_eobt1_sec",
+    "clock_eobt1_minus_iobt_sec",
+    "clock_iobt_minus_lobt_sec",
+    "clock_schedule_available",
+    "clock_lobt_available",
+    "clock_iobt_available",
+    "clock_eobt1_available",
+    "clock_aobt3_available",
+    "clock_raw_flight_id_missing",
+    "clock_raw_plan_block_missing",
+    "clock_raw_aobt3_missing",
+    "clock_available_count",
+    "clock_span_sec",
+    "clock_std_sec",
+    "clock_median_sec",
+    "clock_baseline_sec",
+    "clock_baseline_source",
+    "wx_temp_c",
+    "wx_dewpoint_spread_c",
+    "wx_wind_kt",
+    "wx_gust_kt",
+    "wx_wind_dir",
+    "wx_visibility_m",
+    "wx_ceiling_ft",
+    "wx_thunder",
+    "wx_snow",
+    "wx_freezing",
+    "wx_fog",
+    "wx_rain",
+    "wx_heavy",
+    "wx_deicing",
+    "wx_age_min",
+    "wx_2h_min_visibility_m",
+    "wx_2h_min_ceiling_ft",
+    "wx_2h_max_gust_kt",
+    "wx_2h_thunder",
+    "wx_2h_snow_or_freezing",
+    "wx_2h_fog",
+    "q_rwy_prev_takeoff_gap_sec",
+    "q_rwy_takeoffs_prev30",
+    "q_apt_takeoffs_prev30",
+    "q_rwy_others_gap_prev60",
+    "q_apt_others_gap_prev60",
+    "q_queue_ahead_since_aobt3",
+    "q_rwy_landings_prev30",
+    "q_rwy_next_takeoff_gap_sec",
+    "q_rwy_takeoffs_next30",
+    "q_rwy_others_gap_pm30",
+    "q_apt_others_gap_pm30",
+    "airline",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60",
+    "dis_snow_6h_fraction",
+    "dis_snow_6h_coverage",
+    "dis_snow_24h_fraction",
+    "dis_snow_24h_coverage",
+    "dis_arr_60m_count",
+    "dis_arr_60m_mean_sec",
+    "dis_arr_60m_over30_share",
+    "dis_arr_60m_over60_share",
+    "dis_arr_180m_count",
+    "dis_arr_180m_mean_sec",
+    "dis_arr_180m_over30_share",
+    "dis_arr_180m_over60_share",
+    "sc_x_m",
+    "sc_y_m",
+    "sc_rwy_end_m",
+    "ab_matched",
+    "ab_seg_sec",
+    "ab_move_sec",
+    "ab_still_end_sec",
+    "ab_seg_n",
+    "ab_first_gs",
+    "ab_last_gnd_sec",
+    "ab_prev_gap_sec",
+    "ab_moving_10",
+    "ab_moving_30",
+    "ab_ground_10",
+    "ab_low_air_10",
+    "ab_nb_seg_mean_60",
+    "ab_nb_seg_n_60",
+    "ab_stand_min_m",
+    "ab_stand_n",
+    "ab_stand_exit_sec",
+    "ab_exit_gap_sec",
+    "ab_seg_stand_m",
+    "ab_seg_rwy_m",
+    "ab_nb_exit_mean_60",
+    "ab_nb_exit_n_60",
+    "sa_last_taxiin_sec",
+    "sa_prev_taxiin_sec",
+    "ra_last_taxiin_sec",
+    "ra_last_land_age_sec",
+    "pc_apt_mean_pm30",
+    "pc_apt_std_pm30",
+    "pc_apt_n_pm30",
+    "pc_apt_mean_next30",
+    "pc_rwy_mean_pm30",
+    "pc_rwy_n_pm30",
+    "pc_zone_mean_pm60",
+    "pc_zone_n_pm60",
+    "pc_rwy_prev_proxy",
+    "pc_rwy_next_proxy",
+    "pc_own_minus_apt",
+    "rc_burst_prev",
+    "rc_burst_next",
+    "rc_rwy_streak_sec",
+    "rc_dep_rwys_60",
+    "rc_arr_rwys_60",
+    "rc_dep_set_60",
+    "rc_arr_set_60"
+  ],
+  "views": {
+    "old": {
+      "storage": "cached_training_inputs",
+      "rows": 344841,
+      "original_source": {
+        "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_old.pkl",
+        "sha256": "22e91f3aee2a614aba8ee626de366fa1edb281a1a35a5f660d70664463cf9821"
+      },
+      "exact_matrix_and_ids_verified_by_parent_prepare": true
+    },
+    "final": {
+      "storage": "portable_pickle",
+      "packet": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+        "sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033"
+      },
+      "rows": 670790,
+      "original_source": {
+        "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_final.pkl",
+        "sha256": "4432bb7eaa886e69a5f0b84a1bc5baff3b62cf8d179280da980fdb1d4bdf44ae"
+      },
+      "exact_matrix_and_ids_verified": true
+    }
+  },
+  "training_ids": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/training_ids.parquet",
+    "sha256": "e97c401274cd7656408100e5aeed1397db839d838d734bbba895ccfea990a923"
+  },
+  "feature_records": {
+    "train": {
+      "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+      "artifact": {
+        "path": "data/derived/callsign_submit_20261010/train.parquet",
+        "sha256": "baed91fcdea27de1e021409bd234888bd0cfad0dfb09987f30be04ff01896e6f"
+      },
+      "rows": 2085047,
+      "reference_months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "sources": [
+        {
+          "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+          "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f"
+        },
+        {
+          "path": "data/derived/callsign_clocks_20261010/shared.parquet",
+          "sha256": "91145d4829e3568cc5de9a8e870d8eaab162c1581683b6cca2c660ef83a4b089"
+        }
+      ],
+      "nonmissing": {
+        "cc_call_start_sec": 1750340,
+        "cc_squawk_start_sec": 1754308,
+        "cc_previous_call_end_sec": 1252310,
+        "cc_before_own_arrival": 1726279,
+        "cc_ambiguous": 1756519,
+        "cc_censored": 1756519
+      },
+      "elapsed_sec": 15.029482178000762
+    },
+    "old": {
+      "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+      "artifact": {
+        "path": "data/derived/callsign_submit_20261010/old.parquet",
+        "sha256": "563b3e20714efaff9cf5e9b58bb5cae9a33abab4722e8d7f1f63042546714b5e"
+      },
+      "rows": 344841,
+      "ranking_view": "old",
+      "per_query_month_reference_months": {
+        "2026-01": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12",
+          "2026-01"
+        ],
+        "2026-07": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12",
+          "2026-07"
+        ]
+      },
+      "sources": [
+        {
+          "path": "data/derived/callsign_submit_20261010/old/identity.parquet",
+          "sha256": "0fb05b4bab4e6ba265f897294eb09587a51e060dfa3d87ca97d3fd81fe268a0b"
+        },
+        {
+          "path": "data/derived/callsign_submit_20261010/old/shared.parquet",
+          "sha256": "f438a6784311cf2abba6b4986d37d1a930ff7c9cdcd59b106125aaa7fe707eca"
+        },
+        {
+          "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+          "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f"
+        }
+      ],
+      "nonmissing": {
+        "cc_call_start_sec": 296865,
+        "cc_squawk_start_sec": 297578,
+        "cc_previous_call_end_sec": 209615,
+        "cc_before_own_arrival": 291676,
+        "cc_ambiguous": 298020,
+        "cc_censored": 298020
+      },
+      "elapsed_sec": 20.41864543599877
+    },
+    "final": {
+      "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+      "artifact": {
+        "path": "data/derived/callsign_submit_20261010/final.parquet",
+        "sha256": "a6d67be5b4427b45dff6cb6b6c00a61485d120cdf15231114791448bbac68ce4"
+      },
+      "rows": 670790,
+      "ranking_view": "final",
+      "per_query_month_reference_months": {
+        "2026-01": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12",
+          "2026-01"
+        ],
+        "2026-02": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12",
+          "2026-02"
+        ],
+        "2026-06": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12",
+          "2026-06"
+        ],
+        "2026-07": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12",
+          "2026-07"
+        ]
+      },
+      "sources": [
+        {
+          "path": "data/derived/callsign_submit_20261010/final/identity.parquet",
+          "sha256": "ec5fd03fca49d7c881c43eb0eb2dc24a8d883b96201058eb526aa9ac79672b20"
+        },
+        {
+          "path": "data/derived/callsign_submit_20261010/final/shared.parquet",
+          "sha256": "3227fc52b1bb84f8b8d8bba9927c719767a199a820bed81efb1ce9a810ddf343"
+        },
+        {
+          "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+          "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f"
+        }
+      ],
+      "nonmissing": {
+        "cc_call_start_sec": 574459,
+        "cc_squawk_start_sec": 575895,
+        "cc_previous_call_end_sec": 405315,
+        "cc_before_own_arrival": 563213,
+        "cc_ambiguous": 576773,
+        "cc_censored": 576773
+      },
+      "elapsed_sec": 41.052646225998615
+    }
+  },
+  "files": [
+    {
+      "path": "VALIDATION/callsign_submit.py",
+      "sha256": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954"
+    },
+    {
+      "path": "VALIDATION/callsign_submit_features.py",
+      "sha256": "843d8d664f75c094afad03b02dcc4ef75c4930368cd6fbdf66c5f5ef7d811af9"
+    },
+    {
+      "path": "VALIDATION/callsign_submit_portable.py",
+      "sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c"
+    },
+    {
+      "path": "VALIDATION/final_submit.py",
+      "sha256": "60820fe3be984b14f47e1a6db09585842d93c42dd49014a936d6ebac7433679c"
+    },
+    {
+      "path": "VALIDATION/hpo_submit.py",
+      "sha256": "5e47e979b2f97d86173495fff683b1aa74e3a6188edd28d4ab466ebe4186fcfe"
+    },
+    {
+      "path": "VALIDATION/nn_callsign_clocks_jan_jul.py",
+      "sha256": "4763756ce09d4e6da4e3c47d8dd844f063a29ae5addee6d56fc4a6ec60d74132"
+    },
+    {
+      "path": "VALIDATION/nn_callsign_pool_resume.py",
+      "sha256": "015c108ee6ffa1b05a7442af966fc55c79699ef6241b82c68582fccf677f47e5"
+    },
+    {
+      "path": "VALIDATION/nn_improve_jan_jul.py",
+      "sha256": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20"
+    },
+    {
+      "path": "VALIDATION/nn_improve_submit.py",
+      "sha256": "10aea4b461a7aa9da3ee880283349fb84cab23490177765b32a9f591d5f379e5"
+    },
+    {
+      "path": "VALIDATION/nn_jan_jul.py",
+      "sha256": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766"
+    },
+    {
+      "path": "VALIDATION/nn_residual_jan_jul.py",
+      "sha256": "e5cf29800ca49dbea75882e3587bd970d66b6845481ef1d8c9578367b9322f8b"
+    },
+    {
+      "path": "VALIDATION/nn_sensor_differences_jan_jul.py",
+      "sha256": "acbee310db0fd9421f4ee9850e6d5cc48f9999e88c07577fd1907571a8072a75"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/work/parts/nn.json",
+      "sha256": "55cf40ef18c4cf88b037f6b475981c71503b37b84e5bbc59d5fb131e295810a1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/design.json",
+      "sha256": "95d66c8b9336c77242f428baf3f7fda97a877051200736cd0da02eb79385db3e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+      "sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/prepared.json",
+      "sha256": "84baa8c78bf9fb171e1aba4516e658bbd6091aae54d9dea42676fc106553c58a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/training_ids.parquet",
+      "sha256": "e97c401274cd7656408100e5aeed1397db839d838d734bbba895ccfea990a923"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+      "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/score_g42_142_242_k0_1_2_3_4.json",
+      "sha256": "1406db0bfc6aa481a5837b780a06aa09a2a525cf9a180c1b72e1bf15fb3930ff"
+    },
+    {
+      "path": "data/derived/callsign_submit_20261010/design.json",
+      "sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b"
+    },
+    {
+      "path": "data/derived/callsign_submit_20261010/final.parquet",
+      "sha256": "a6d67be5b4427b45dff6cb6b6c00a61485d120cdf15231114791448bbac68ce4"
+    },
+    {
+      "path": "data/derived/callsign_submit_20261010/old.parquet",
+      "sha256": "563b3e20714efaff9cf5e9b58bb5cae9a33abab4722e8d7f1f63042546714b5e"
+    },
+    {
+      "path": "data/derived/callsign_submit_20261010/train.parquet",
+      "sha256": "baed91fcdea27de1e021409bd234888bd0cfad0dfb09987f30be04ff01896e6f"
+    }
+  ],
+  "full_desktop_source_validation_complete": true
+}

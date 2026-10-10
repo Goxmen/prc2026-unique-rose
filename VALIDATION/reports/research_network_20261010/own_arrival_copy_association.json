@@ -1,0 +1,193 @@
+{
+  "design": "Training-only original R20 query rows; own arrival features from already audited allowed outer-training references only. Copy tolerance60s; no held-departure labels or threshold selection.",
+  "existing_feature": "Original68 lack own-aircraft previous-arrival copy flag. st_inblock_minus_sched_sec is previous-stand-arrival inblock minus CURRENT DEPARTURE schedule (stand_day.py:21), not arrival schedule, and cannot serve as its copy flag.",
+  "conditional_support": "Each own-copy state must have at least30 rows within a stratum; weight n0*n1/(n0+n1). Descriptive association, not validation.",
+  "folds": {
+    "2025-01": {
+      "all": {
+        "rows": 126507,
+        "own_available": 104410,
+        "rates": {
+          "0.0": {
+            "rows": 91925,
+            "departure_copy_rate": 0.17563230894751156,
+            "age_median_sec": 5521.0
+          },
+          "1.0": {
+            "rows": 12485,
+            "departure_copy_rate": 0.36307569082899477,
+            "age_median_sec": 6412.0
+          },
+          "nan": {
+            "rows": 22097,
+            "departure_copy_rate": 0.2111146309453772,
+            "age_median_sec": null
+          }
+        }
+      },
+      "no_id": {
+        "rows": 1172,
+        "own_available": 911,
+        "rates": {
+          "0.0": {
+            "rows": 836,
+            "departure_copy_rate": 0.37320574162679426,
+            "age_median_sec": 7682.5
+          },
+          "1.0": {
+            "rows": 75,
+            "departure_copy_rate": 0.4266666666666667,
+            "age_median_sec": 11456.0
+          },
+          "nan": {
+            "rows": 261,
+            "departure_copy_rate": 0.5977011494252874,
+            "age_median_sec": null
+          }
+        }
+      },
+      "no_id_gap_above1h": {
+        "rows": 1085,
+        "own_available": 877,
+        "rates": {
+          "0.0": {
+            "rows": 808,
+            "departure_copy_rate": 0.3811881188118812,
+            "age_median_sec": 7735.5
+          },
+          "1.0": {
+            "rows": 69,
+            "departure_copy_rate": 0.4492753623188406,
+            "age_median_sec": 11944.0
+          },
+          "nan": {
+            "rows": 208,
+            "departure_copy_rate": 0.6201923076923077,
+            "age_median_sec": null
+          }
+        }
+      },
+      "reference_months": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "query_months": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "own_available": 104410,
+      "conditional_airline_month": {
+        "groups": 50,
+        "rows": 59413,
+        "weighted_copy_probability_difference": 0.07339366446879104,
+        "positive_groups": 42,
+        "negative_groups": 8
+      }
+    },
+    "2025-07": {
+      "all": {
+        "rows": 86723,
+        "own_available": 83389,
+        "rates": {
+          "0.0": {
+            "rows": 73175,
+            "departure_copy_rate": 0.19482063546293132,
+            "age_median_sec": 5342.0
+          },
+          "1.0": {
+            "rows": 10214,
+            "departure_copy_rate": 0.3860387703152536,
+            "age_median_sec": 6363.0
+          },
+          "nan": {
+            "rows": 3334,
+            "departure_copy_rate": 0.25464907018596283,
+            "age_median_sec": null
+          }
+        }
+      },
+      "no_id": {
+        "rows": 554,
+        "own_available": 434,
+        "rates": {
+          "0.0": {
+            "rows": 385,
+            "departure_copy_rate": 0.5168831168831168,
+            "age_median_sec": 7084.0
+          },
+          "1.0": {
+            "rows": 49,
+            "departure_copy_rate": 0.4897959183673469,
+            "age_median_sec": 15595.0
+          },
+          "nan": {
+            "rows": 120,
+            "departure_copy_rate": 0.6833333333333333,
+            "age_median_sec": null
+          }
+        }
+      },
+      "no_id_gap_above1h": {
+        "rows": 502,
+        "own_available": 413,
+        "rates": {
+          "0.0": {
+            "rows": 366,
+            "departure_copy_rate": 0.5355191256830601,
+            "age_median_sec": 7141.5
+          },
+          "1.0": {
+            "rows": 47,
+            "departure_copy_rate": 0.5106382978723404,
+            "age_median_sec": 16912.0
+          },
+          "nan": {
+            "rows": 89,
+            "departure_copy_rate": 0.7078651685393258,
+            "age_median_sec": null
+          }
+        }
+      },
+      "reference_months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "query_months": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11,
+        12
+      ],
+      "own_available": 83389,
+      "conditional_airline_month": {
+        "groups": 41,
+        "rows": 48325,
+        "weighted_copy_probability_difference": 0.06872052980609042,
+        "positive_groups": 30,
+        "negative_groups": 11
+      }
+    }
+  }
+}

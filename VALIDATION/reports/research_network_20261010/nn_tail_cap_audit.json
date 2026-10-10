@@ -1,0 +1,167 @@
+{
+  "held": {
+    "2025-01": {
+      "all_tail": {
+        "rows": 10,
+        "sse": 10765139920.917908,
+        "sse_share": 0.6492901440513281,
+        "oracle_global_rmse_gain": 133.93193347285668,
+        "airport_counts": {
+          "EHAM": 1,
+          "LFPG": 2,
+          "LIRF": 7
+        },
+        "actual_aobt_rows": 0
+      },
+      "tail_ordinary_active": {
+        "rows": 3,
+        "sse": 10345317310.850578,
+        "sse_share": 0.6239689048506232,
+        "oracle_global_rmse_gain": 127.03285478371373,
+        "airport_counts": {
+          "EHAM": 1,
+          "LFPG": 2
+        },
+        "actual_aobt_rows": 0
+      },
+      "tail_ordinary_active_excluding_two_LFPG_extremes": {
+        "rows": 1,
+        "sse": 117510235.98336445,
+        "sse_share": 0.0070875286907221705,
+        "oracle_global_rmse_gain": 1.1659540360907386,
+        "airport_counts": {
+          "EHAM": 1
+        },
+        "actual_aobt_rows": 0
+      }
+    },
+    "2025-07": {
+      "all_tail": {
+        "rows": 50,
+        "sse": 818205220.3258078,
+        "sse_share": 0.062012044258834484,
+        "oracle_global_rmse_gain": 8.28598357838976,
+        "airport_counts": {
+          "EGLL": 1,
+          "EHAM": 1,
+          "LFPG": 1,
+          "LIRF": 47
+        },
+        "actual_aobt_rows": 4
+      },
+      "tail_ordinary_active": {
+        "rows": 2,
+        "sse": 92510706.61932299,
+        "sse_share": 0.007011417051347014,
+        "oracle_global_rmse_gain": 0.9237235566607751,
+        "airport_counts": {
+          "EGLL": 1,
+          "LIRF": 1
+        },
+        "actual_aobt_rows": 1
+      },
+      "tail_ordinary_active_excluding_two_LFPG_extremes": {
+        "rows": 2,
+        "sse": 92510706.61932299,
+        "sse_share": 0.007011417051347014,
+        "oracle_global_rmse_gain": 0.9237235566607751,
+        "airport_counts": {
+          "EGLL": 1,
+          "LIRF": 1
+        },
+        "actual_aobt_rows": 1
+      }
+    }
+  },
+  "training": {
+    "2025-01": {
+      "ordinary_rows": 1596201,
+      "tail_rows": 15,
+      "tail_fraction": 9.397312744447598e-06,
+      "tail_above21600": 4,
+      "tail_actual_aobt_rows": 9,
+      "tail_by_airport": {
+        "EGLL": 3,
+        "EHAM": 1,
+        "LFPG": 4,
+        "LIRF": 6,
+        "LSZH": 1
+      },
+      "tail_by_airport_and_noid": {
+        "('EGLL', False)": 2,
+        "('EGLL', True)": 1,
+        "('EHAM', False)": 1,
+        "('LFPG', False)": 4,
+        "('LIRF', False)": 2,
+        "('LIRF', True)": 4,
+        "('LSZH', True)": 1
+      },
+      "reference_months": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ]
+    },
+    "2025-07": {
+      "ordinary_rows": 1140233,
+      "tail_rows": 11,
+      "tail_fraction": 9.647151064738522e-06,
+      "tail_above21600": 2,
+      "tail_actual_aobt_rows": 6,
+      "tail_by_airport": {
+        "EGLL": 3,
+        "EHAM": 1,
+        "LFPG": 4,
+        "LIRF": 2,
+        "LSZH": 1
+      },
+      "tail_by_airport_and_noid": {
+        "('EGLL', False)": 3,
+        "('EHAM', True)": 1,
+        "('LFPG', False)": 2,
+        "('LFPG', True)": 2,
+        "('LIRF', False)": 1,
+        "('LIRF', True)": 1,
+        "('LSZH', True)": 1
+      },
+      "reference_months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ]
+    }
+  },
+  "existing_hpo": {
+    "N00": {
+      "2025-01": 329.020388377399,
+      "2025-07": 269.1950144400636,
+      "cv": 299.10770140873126
+    },
+    "N09": {
+      "2025-01": 329.1995280389633,
+      "2025-07": 268.42807174194905,
+      "cv": 298.81379989045615
+    },
+    "N14": {
+      "2025-01": 335.62821387810504,
+      "2025-07": 269.1049452992398,
+      "cv": 302.3665795886724
+    },
+    "N15": {
+      "2025-01": 329.4811965036269,
+      "2025-07": 269.9518882914742,
+      "cv": 299.71654239755054
+    },
+    "note": "N14 increases clip10800 to21600 against batch4096 N00, not current batch2048 N09; three networks seed42. No evidence of full uncapped trial."
+  }
+}

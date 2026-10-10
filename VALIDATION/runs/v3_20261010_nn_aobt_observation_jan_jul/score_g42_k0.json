@@ -1,0 +1,173 @@
+{
+  "design": {
+    "parent": "v58",
+    "control": "HPO N09 matched seed42 k0",
+    "added_features": [
+      "ao_point_offset_sec",
+      "ao_speed_kt",
+      "ao_stand_distance_m",
+      "ao_on_ground",
+      "ao_moving_before",
+      "ao_moving_after"
+    ],
+    "target": "direct min(taxi_sec,10800)",
+    "network_share": 0.71,
+    "neural_arms": [
+      "aobt_observations",
+      "half_aobt_half_v58"
+    ],
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "stop_choice": "frozen historical N09 seed42 epochs; no candidate inner fit",
+    "frozen_stop_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+    "feature_cache": "/home/gunes/PRC/data/derived/aobt_track_observation_20261010",
+    "reference": "global input-only supplied 2025 departures and ADS-B positions; no departure labels",
+    "query_missing": "all six new features NaN when genuine original AOBT3 is unavailable",
+    "feature_settings": {
+      "features": [
+        "ao_point_offset_sec",
+        "ao_speed_kt",
+        "ao_stand_distance_m",
+        "ao_on_ground",
+        "ao_moving_before",
+        "ao_moving_after"
+      ],
+      "source_clock": "original AOBT_3_flt only",
+      "query_clock_age_sec": [
+        -180,
+        14400
+      ],
+      "nearest_tolerance_sec": 120,
+      "fraction_window_sec": 300,
+      "moving_threshold_kt": 5,
+      "position_cutoff_sec_after_takeoff": 60,
+      "tie_break": "earlier position",
+      "fractions": "valid-speed ground points; before excludes clock, after includes clock",
+      "labels_used": false
+    },
+    "weather_inputs_used": false,
+    "groups": [
+      42
+    ],
+    "networks_per_group": 1,
+    "exploratory_reused_development_months": true
+  },
+  "groups": [
+    42
+  ],
+  "nets": [
+    0
+  ],
+  "pool_size": 1,
+  "source_sha256": "5ea1069823cba932bc67fdb8e93a4856baf43e8ec8473e32a353012b1bfaffc7",
+  "scores": {
+    "v58": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.4316664067627,
+          "2025-07": 263.0285858055726
+        },
+        "142": {
+          "2025-01": 328.44744119856585,
+          "2025-07": 262.99712069913744
+        },
+        "242": {
+          "2025-01": 328.55501098948906,
+          "2025-07": 262.988808954983
+        }
+      }
+    },
+    "direct_matched": {
+      "2025-01": 331.6930824220631,
+      "2025-07": 266.2815806253393,
+      "cv": 298.9873315237012,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 331.6445920422308,
+          "2025-07": 266.3048796045559
+        },
+        "142": {
+          "2025-01": 331.6572353894418,
+          "2025-07": 266.2615940949186
+        },
+        "242": {
+          "2025-01": 331.7774036352136,
+          "2025-07": 266.27826638654346
+        }
+      }
+    },
+    "aobt_observations": {
+      "2025-01": 331.8155604794519,
+      "2025-07": 266.99762957366573,
+      "cv": 299.4065950265588,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 331.77583073046947,
+          "2025-07": 267.0090017900288
+        },
+        "142": {
+          "2025-01": 331.77634228603046,
+          "2025-07": 267.00155671810563
+        },
+        "242": {
+          "2025-01": 331.89449433711314,
+          "2025-07": 266.98232950341475
+        }
+      }
+    },
+    "half_aobt_half_v58": {
+      "2025-01": 329.21191542031005,
+      "2025-07": 263.49787882275336,
+      "cv": 296.35489712153174,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 329.16943919903713,
+          "2025-07": 263.51814409564025
+        },
+        "142": {
+          "2025-01": 329.1714057528804,
+          "2025-07": 263.49410102133277
+        },
+        "242": {
+          "2025-01": 329.29488562106786,
+          "2025-07": 263.481390029012
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "aobt_observations_vs_direct_matched": {
+      "change": 0.4192635028576035,
+      "ci95": [
+        -0.1269177795174066,
+        0.9815532035201031
+      ],
+      "decision": "inconclusive"
+    },
+    "aobt_observations_vs_v58": {
+      "change": 3.6651534523717544,
+      "ci95": [
+        3.00832433156691,
+        4.8507390375731125
+      ],
+      "decision": "regression"
+    },
+    "half_aobt_half_v58_vs_v58": {
+      "change": 0.6134555473446426,
+      "ci95": [
+        0.39712942563708253,
+        0.907654171788135
+      ],
+      "decision": "regression"
+    }
+  }
+}

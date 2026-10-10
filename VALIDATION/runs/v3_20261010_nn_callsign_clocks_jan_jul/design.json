@@ -1,0 +1,58 @@
+{
+  "parent": "v58",
+  "control": "HPO N09 matched seed42 k0",
+  "added_features": [
+    "cc_call_start_sec",
+    "cc_squawk_start_sec",
+    "cc_previous_call_end_sec",
+    "cc_before_own_arrival",
+    "cc_ambiguous",
+    "cc_censored"
+  ],
+  "target": "direct min(taxi_sec,10800)",
+  "network_share": 0.71,
+  "neural_arms": [
+    "callsign_clocks",
+    "half_callsign_half_v58"
+  ],
+  "heldout_months": [
+    "2025-01",
+    "2025-07"
+  ],
+  "stop_choice": "frozen historical N09 seed42 epochs; no candidate inner fit",
+  "frozen_stop_epochs": {
+    "2025-01": 21,
+    "2025-07": 17
+  },
+  "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+  "feature_cache": "/home/gunes/PRC/data/derived/callsign_clocks_20261010",
+  "reference": "input-only daily callsign/squawk aggregate clocks; prior arrival check uses fold references",
+  "training_reference": "ts.FOLDS[held month] for prior own arrivals",
+  "held_reference": "ts.FOLDS[held month] plus own held month input/arrival context",
+  "query_missing": "numeric NaNs preserved; independent of original AOBT availability",
+  "feature_settings": {
+    "min_records": 3,
+    "near_event_slack_sec": 180,
+    "lookback_sec": 14400,
+    "day_boundary_bridge_sec": 600,
+    "source_boundary_period_sec": 1800,
+    "source_boundary_tolerance_sec": 20,
+    "feature_names": [
+      "cc_call_start_sec",
+      "cc_squawk_start_sec",
+      "cc_previous_call_end_sec",
+      "cc_before_own_arrival",
+      "cc_ambiguous",
+      "cc_censored"
+    ],
+    "source_semantics": "daily hex/callsign/squawk aggregates; no contiguous episodes inferred",
+    "ambiguity": "overlapping other callsign, multiple active squawks, or earlier same-call departure that UTC day",
+    "censor": "call start in first 20 seconds after half-hour boundary or after supplied takeoff"
+  },
+  "weather_inputs_used": false,
+  "groups": [
+    42
+  ],
+  "networks_per_group": 1,
+  "exploratory_reused_development_months": true
+}

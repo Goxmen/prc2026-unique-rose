@@ -1,0 +1,39 @@
+{
+  "design": {
+    "parent": "v58",
+    "part": "Rome recording classifier",
+    "input_columns": 68,
+    "new_features": [],
+    "membership": "original R20 rows with takeoff-minus-schedule >3600 seconds",
+    "inference_gate": "Rome finite takeoff-minus-schedule >3600 seconds",
+    "params": {
+      "objective": "binary",
+      "metric": "binary_logloss",
+      "learning_rate": 0.02,
+      "num_leaves": 127,
+      "min_data_in_leaf": 50,
+      "feature_fraction": 0.6,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1,
+      "seed": 42,
+      "bagging_seed": 43,
+      "feature_fraction_seed": 44,
+      "num_threads": 8
+    },
+    "rounds": 1700,
+    "seed": 42,
+    "threshold_sec": 3600.0,
+    "target": "unchanged original R20 binary schedule-copy target",
+    "arms": [
+      "long_gap",
+      "half_long_gap_half_R20"
+    ],
+    "outside_gate": "original R20 probability exactly unchanged",
+    "network_share": 0.71,
+    "selection": "no parameter, threshold or stopping search",
+    "exploratory_reused_development_months": true
+  },
+  "runner_sha256": "e397ffcedb460ed77894d69637cd85fd1723cd22b92bc70b86b821c8e561200f",
+  "helper_sha256": "7a6a3f07ba306a7f3bf682ce82207d1cf45455ddb9dadb5b4fdcc77514e6e350"
+}

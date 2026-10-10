@@ -1,0 +1,264 @@
+{
+  "status": "passed",
+  "interpretation": "Same reused development months; paired-day intervals are exploratory, not independent confirmation.",
+  "nn_share": 0.71,
+  "tree_seeds": [
+    42,
+    142,
+    242
+  ],
+  "matched_half": ".5 historical N09 seed42 k0 + .5 original 15-network v58 pool",
+  "control": {
+    "2025-01": 329.2444041819796,
+    "2025-07": 263.62679698521333,
+    "cv": 296.43560058359645
+  },
+  "v58": {
+    "2025-01": 328.47804410386993,
+    "2025-07": 263.0048390445042,
+    "cv": 295.7414415741871
+  },
+  "matched_half_vs_v58": {
+    "change": 0.6941590094093897,
+    "ci95": [
+      0.49617668348300226,
+      0.9710145778501817
+    ],
+    "decision": "regression"
+  },
+  "arms": {
+    "airport_heads": {
+      "scores": {
+        "2025-01": 329.55066845564164,
+        "2025-07": 263.94030020164934,
+        "cv": 296.7454843286455
+      },
+      "vs_matched_half": {
+        "change": 0.30988374504903504,
+        "ci95": [
+          0.024051120093084678,
+          0.638649095385591
+        ],
+        "decision": "regression"
+      },
+      "vs_v58": {
+        "change": 1.0040427544584247,
+        "ci95": [
+          0.748801766351044,
+          1.4369346681034865
+        ],
+        "decision": "regression"
+      },
+      "source": "VALIDATION/runs/v3_20261010_nn_airport_heads_jan_jul/scored_g42_k0.parquet",
+      "source_sha256": "350796437aea6aee03ec25a702b7f22f5896a0974760d5f97ed0aff9c15e26e8",
+      "delta_by_month": {
+        "2025-01": 0.306264273662066,
+        "2025-07": 0.3135032164360041
+      }
+    },
+    "aobt_observation": {
+      "scores": {
+        "2025-01": 329.21191542031005,
+        "2025-07": 263.49787882275336,
+        "cv": 296.35489712153174
+      },
+      "vs_matched_half": {
+        "change": -0.0807034620647471,
+        "ci95": [
+          -0.3392303692217883,
+          0.17652342276657645
+        ],
+        "decision": "inconclusive"
+      },
+      "vs_v58": {
+        "change": 0.6134555473446426,
+        "ci95": [
+          0.39712942563708253,
+          0.907654171788135
+        ],
+        "decision": "regression"
+      },
+      "source": "VALIDATION/runs/v3_20261010_nn_aobt_observation_jan_jul/scored_g42_k0.parquet",
+      "source_sha256": "95f119d583d33f718e929796c0a8e1824cc92f7d25d64a8e9f76d35ff7d1508d",
+      "delta_by_month": {
+        "2025-01": -0.03248876166952641,
+        "2025-07": -0.1289181624599678
+      }
+    },
+    "auxiliary_modes": {
+      "scores": {
+        "2025-01": 328.67779275133694,
+        "2025-07": 264.0760205930693,
+        "cv": 296.3769066722031
+      },
+      "vs_matched_half": {
+        "change": -0.05869391139333402,
+        "ci95": [
+          -0.42041428869979997,
+          0.2188056813881237
+        ],
+        "decision": "inconclusive"
+      },
+      "vs_v58": {
+        "change": 0.6354650980160557,
+        "ci95": [
+          0.41984168592590976,
+          0.8714370990906335
+        ],
+        "decision": "regression"
+      },
+      "source": "VALIDATION/runs/v3_20261010_nn_auxiliary_modes_jan_jul/scored_g42_k0.parquet",
+      "source_sha256": "ce3d5771f4b1d1f39f4514b16f863d3be76300781ef7e045525ab8a07a95071d",
+      "delta_by_month": {
+        "2025-01": -0.566611430642638,
+        "2025-07": 0.44922360785596993
+      }
+    },
+    "callsign_clocks": {
+      "scores": {
+        "2025-01": 328.72168574187015,
+        "2025-07": 263.2012794476275,
+        "cv": 295.9614825947488
+      },
+      "vs_matched_half": {
+        "change": -0.4741179888476381,
+        "ci95": [
+          -0.8627947231840725,
+          -0.1482918897274431
+        ],
+        "decision": "improvement"
+      },
+      "vs_v58": {
+        "change": 0.22004102056175157,
+        "ci95": [
+          -0.0538088060049585,
+          0.5280230962108642
+        ],
+        "decision": "inconclusive"
+      },
+      "source": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/scored_g42_k0.parquet",
+      "source_sha256": "60344b1fd4798bc3b55f4a8795ca5de7e126de0ba3e058e4d79d14845c0004eb",
+      "delta_by_month": {
+        "2025-01": -0.5227184401094291,
+        "2025-07": -0.4255175375858471
+      }
+    },
+    "clock_encoding": {
+      "scores": {
+        "2025-01": 329.0381132877541,
+        "2025-07": 264.2658920483849,
+        "cv": 296.6520026680695
+      },
+      "vs_matched_half": {
+        "change": 0.21640208447303166,
+        "ci95": [
+          -0.058788212827053245,
+          0.4616267859858795
+        ],
+        "decision": "inconclusive"
+      },
+      "vs_v58": {
+        "change": 0.9105610938824213,
+        "ci95": [
+          0.7244770865390677,
+          1.1486237342847785
+        ],
+        "decision": "regression"
+      },
+      "source": "VALIDATION/runs/v3_20261010_nn_clock_encoding_jan_jul/scored_g42_k0.parquet",
+      "source_sha256": "aedb96d6afcd326169b528ffb49df3c497278955f2ae45f05a4b8b1cd137e4e3",
+      "delta_by_month": {
+        "2025-01": -0.2062908942255035,
+        "2025-07": 0.6390950631715668
+      }
+    },
+    "residual": {
+      "scores": {
+        "2025-01": 328.8330655257757,
+        "2025-07": 263.8168262562914,
+        "cv": 296.3249458910335
+      },
+      "vs_matched_half": {
+        "change": -0.11065469256291749,
+        "ci95": [
+          -0.4863145981092913,
+          0.20800968525828004
+        ],
+        "decision": "inconclusive"
+      },
+      "vs_v58": {
+        "change": 0.5835043168464722,
+        "ci95": [
+          0.28960362249676874,
+          0.9644555362947336
+        ],
+        "decision": "regression"
+      },
+      "source": "VALIDATION/runs/v3_20261010_nn_residual_jan_jul/scored_g42_k0.parquet",
+      "source_sha256": "6b8d0370ba4bdfd4f243667c27e8e28244f745cf5aa971eb59a40a0774ce1a4d",
+      "delta_by_month": {
+        "2025-01": -0.4113386562038954,
+        "2025-07": 0.19002927107806045
+      }
+    },
+    "rotation": {
+      "scores": {
+        "2025-01": 329.23824084451905,
+        "2025-07": 263.6758344581709,
+        "cv": 296.457037651345
+      },
+      "vs_matched_half": {
+        "change": 0.021437067748536265,
+        "ci95": [
+          -0.24524391233176351,
+          0.3607173129725053
+        ],
+        "decision": "inconclusive"
+      },
+      "vs_v58": {
+        "change": 0.715596077157926,
+        "ci95": [
+          0.45638496591932237,
+          1.1394342381919325
+        ],
+        "decision": "regression"
+      },
+      "source": "VALIDATION/runs/v3_20261010_nn_rotation_jan_jul/scored_g42_k0.parquet",
+      "source_sha256": "2a7c7526c33464f1345ac8aed8a00260fb1b26ee1671d31d633b12d4291b312f",
+      "delta_by_month": {
+        "2025-01": -0.006163337460520779,
+        "2025-07": 0.04903747295759331
+      }
+    },
+    "sensor_differences": {
+      "scores": {
+        "2025-01": 329.01347510106814,
+        "2025-07": 263.28938179258677,
+        "cv": 296.1514284468275
+      },
+      "vs_matched_half": {
+        "change": -0.2841721367690013,
+        "ci95": [
+          -0.6081174893183728,
+          0.013213140987450264
+        ],
+        "decision": "inconclusive"
+      },
+      "vs_v58": {
+        "change": 0.40998687264038836,
+        "ci95": [
+          0.05570336433722361,
+          0.7825325910446163
+        ],
+        "decision": "regression"
+      },
+      "source": "VALIDATION/runs/v3_20261010_nn_sensor_differences_jan_jul/scored_g42_k0.parquet",
+      "source_sha256": "89b0e0d991f03c9d89ca47262e420a08a493d353f56505c7b7c20abc4f42c2d4",
+      "delta_by_month": {
+        "2025-01": -0.23092908091143727,
+        "2025-07": -0.3374151926265654
+      }
+    }
+  },
+  "elapsed_sec": 29.14295482200032
+}

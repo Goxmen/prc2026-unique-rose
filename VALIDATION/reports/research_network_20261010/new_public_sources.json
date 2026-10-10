@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-10",
+  "scope": "Public GitHub repository/readme/code search; primary repository source only; no datasets or models fetched",
+  "conclusion": "No newly public implementation attributable to a 213-225 second team was found. Search absence does not establish that none exists.",
+  "searches": [
+    "PRC 2026 pushed:>=2026-10-09",
+    "PRC Data Challenge in:readme pushed:>=2026-10-09",
+    "taxi-out challenge in:readme pushed:>=2026-10-09",
+    "EUROCONTROL 2026 in:readme pushed:>=2026-10-09",
+    "PRC 2026 taxi in:readme",
+    "Exact top ten team names in GitHub repository/readme/code search; code searches exclude the organiser website",
+    "Dreamlone and eeftychiou profile README links (both lead to prior-year challenges)"
+  ],
+  "new_repositories": [
+    {
+      "url": "https://github.com/dhsdb010/OPDI",
+      "pushed_at": "2026-10-10T08:15:44Z",
+      "team": "quirky-honey",
+      "self_reported_official_score": 269.33,
+      "mechanism": "LightGBM clipped out-of-fold residual corrector from ADSB off-block witnesses; Rome missing-ID specialist; these broad mechanisms are already covered by our history.",
+      "rotation_evidence": "README reports ADSB prior-aircraft landing to first-ground/first-movement/takeoff intervals improve four-month proxy 295.08 to 294.99, Jan/Jul311.87 to311.80; not adopted because <0.15s and coverage shift. This is weaker, differently scoped evidence than our ongoing supplied-arrival eight-feature test.",
+      "source_read": "adsb_stage.py, README.md"
+    },
+    {
+      "url": "https://github.com/nurcombethorne-lgtm/prc-taxitime",
+      "pushed_at": "2026-10-10T08:04:53Z",
+      "team": "resilient-kiwi",
+      "self_reported_official_score": 271.29,
+      "mechanism": "Schedule-copy mixture, flight-plan revision gaps, ADSB witnesses and month-out-of-fold residual corrector. No new signal with evidence superior to ours.",
+      "source_read": "README.md"
+    },
+    {
+      "url": "https://github.com/joris-decombe/taxiout",
+      "pushed_at": "2026-10-10T06:44:11Z",
+      "team": "gentle-octopus",
+      "self_reported_official_score": 271.9,
+      "mechanism": "Flight-plan clocks, ADSB crossfit correction, matched/missing-ID distinction. CatBoost classifier diversification overlaps our already running Rome screen. No identified top-team breakthrough.",
+      "source_read": "README.md"
+    }
+  ],
+  "excluded_known": ["AbdullahKhan-x/PRC-2026", "skylinkapi/prc-data-challenge-2026-kind-mango", "Phoenix-Ops-LTD/prc2026-taxiout", "javidmardanov/PRC-Data-Challenge-2026"],
+  "older_not_promoted": ["EnioAguiar/prc-taxiout-2026: Oct3, 243.9532", "radekacar/joyous-rainbow: Sep25, 299.23", "RavindraTarunokusumo/prc-data-challenge-2026: Oct8, genuine-cabbage; README only has project/governance links"],
+  "action": "No new experiment proposed from this search. Preserve ongoing independent rotation and Rome diversity tests."
+}

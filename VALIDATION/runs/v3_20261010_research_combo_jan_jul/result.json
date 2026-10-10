@@ -1,0 +1,81 @@
+{
+  "design": {
+    "parent": "v58",
+    "nn": "full15 callsign PLE",
+    "rome": "0.5 three-seed CatBoost plus 0.5 original R20 probability",
+    "unchanged": "all three tree parts, network share0.71, corrections and rules",
+    "arms": [
+      "control",
+      "callsign15",
+      "catboost_half",
+      "combined"
+    ],
+    "exploratory_reused_development_months": true,
+    "no_weight_search": true
+  },
+  "source_sha256": "cea0f08f461a2b628f4e675ca971156185be262b0de6395e9f953df6ba9b91a4",
+  "input_sha256": {
+    "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/scored_g42_142_242_k0_1_2_3_4.parquet": "d728e72082513c35a98a12d4ee4ac7b60a2c16912eccb514f8e345c16bbd5245",
+    "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642",
+    "VALIDATION/runs/v3_20261010_rome_catboost_jan_jul/predictions/2025-01_s42.parquet": "29f5458274130107750c8fbefbc7a00b14b36d2e50fff91f7951f491d15096b2",
+    "VALIDATION/runs/v3_20261010_rome_catboost_jan_jul/predictions/2025-01_s42.json": "429619119714e868513645d4fb971abbfc83fac81972b6c2a50dc4cbf9210f1a",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-01_s142.parquet": "2413436f53d4b690f6ee335f3b40ba77412b8faad387e3405e39384c5faac3c9",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-01_s142.json": "25d187db4f75c5b7bedb99479e37a2ebd45007ff1e05090531785d71236aa465",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-01_s242.parquet": "d7ca9bed147daa8097a25ddbda2f6018b6cd5a1fccada3ba336c746949a37916",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-01_s242.json": "a70b827ec36ca6b577179de34a8158238139b4944c1b7f263c10ac201ef48114",
+    "VALIDATION/runs/v3_20261010_rome_catboost_jan_jul/predictions/2025-07_s42.parquet": "958f5b161092d543ed06fd3d62959a6e745752fb7b63d8bfae0df47922eba2b3",
+    "VALIDATION/runs/v3_20261010_rome_catboost_jan_jul/predictions/2025-07_s42.json": "f1b72b04cb7433341f5c27d8a8e93c524ae70d52a8576a550fe350937abea0bb",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-07_s142.parquet": "63c1613bf80e62d5f7272a694c145513c63bd8db38ebaa39ab926c2e5f48cbba",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-07_s142.json": "30bb4056b26c6ad8ff10d7caebcdbffca8575bbf7c4cdd90f53b389fd1b068d4",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-07_s242.parquet": "79e06a2ca1d4d8b47018cccd55c317bc678e7e87b6c0fdd99e7c2e9d875a9004",
+    "VALIDATION/runs/v3_20261010_rome_catboost_bagging_jan_jul/predictions/2025-07_s242.json": "1fac7992e04f0660105f4000707230477a8df58866e243f391e658304a5a25ff"
+  },
+  "scores": {
+    "control": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871
+    },
+    "callsign15": {
+      "2025-01": 328.4281576751951,
+      "2025-07": 261.74916567029896,
+      "cv": 295.08866167274704
+    },
+    "catboost_half": {
+      "2025-01": 328.45746514635556,
+      "2025-07": 261.8709290944691,
+      "cv": 295.1641971204123
+    },
+    "combined": {
+      "2025-01": 328.40635494940614,
+      "2025-07": 260.5975505219844,
+      "cv": 294.5019527356952
+    }
+  },
+  "comparisons": {
+    "combined_vs_control": {
+      "change": -1.239488838491809,
+      "ci95": [
+        -1.833975811744247,
+        -0.6502102742838484
+      ],
+      "decision": "improvement"
+    },
+    "combined_vs_callsign15": {
+      "change": -0.5867089370517817,
+      "ci95": [
+        -1.1554496372266683,
+        -0.01409570292826287
+      ],
+      "decision": "improvement"
+    },
+    "combined_vs_catboost_half": {
+      "change": -0.66224438471707,
+      "ci95": [
+        -0.94545005625309,
+        -0.3862486670445115
+      ],
+      "decision": "improvement"
+    }
+  }
+}

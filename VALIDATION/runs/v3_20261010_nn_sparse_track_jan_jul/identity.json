@@ -1,0 +1,226 @@
+{
+  "runner_sha256": "b1225096a7f259020823c46d9a53f0acae942cd58f70dd35a535a54a575d9884",
+  "helpers": {
+    "VALIDATION/nn_residual_jan_jul.py": "e5cf29800ca49dbea75882e3587bd970d66b6845481ef1d8c9578367b9322f8b",
+    "VALIDATION/nn_sensor_differences_jan_jul.py": "acbee310db0fd9421f4ee9850e6d5cc48f9999e88c07577fd1907571a8072a75",
+    "VALIDATION/nn_aobt_observation_jan_jul.py": "5ea1069823cba932bc67fdb8e93a4856baf43e8ec8473e32a353012b1bfaffc7",
+    "VALIDATION/nn_callsign_pool_resume.py": "015c108ee6ffa1b05a7442af966fc55c79699ef6241b82c68582fccf677f47e5",
+    "VALIDATION/nn_sparse_track_prototype.py": "9842a81b46395568839556a4f6c5145d0eb91c95fea81109c5c2fd70acfc2c52",
+    "VALIDATION/sparse_track_sequence.py": "f51a4f96dbe57fdfddb1403e82cbb14e5474a7c89418f2c96604d4862a71b22e",
+    "VALIDATION/sparse_track_tensors.py": "c24577d69eb13edef8b1b64f8d003f195c9ef7b4651811a1e1d3aede1d0ce906",
+    "VALIDATION/stand_features.py": "2ce15697cba515960fa5a27b70ec913248fcf44ccec7c1b106e0945f4dd8b4e6",
+    "VALIDATION/stand_geometry.py": "4043b700e2681cf7bd6b2dc64ffff2d968d9f230f4af48ba85c31a2402905c1b",
+    "VALIDATION/aircraft_rotation.py": "f3602d272d512dfb807309b3ee6da0ca31532d338454e40aac8c293917e8bdc2",
+    "VALIDATION/nn_improve_jan_jul.py": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20",
+    "VALIDATION/nn_jan_jul.py": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766",
+    "VALIDATION/hpo_jan_jul.py": "89638bacf1033b3fb796d0ddee94bbd35b3ac28d3e501d07a2e4a37a7371ed49"
+  },
+  "cache": {
+    "path": "data/derived/sparse_track_sequence_20261010/full.json",
+    "sha256": "723cb02477e53b3c3e6b265fa98d3bd67a8e531b45d37943c6f527de5735d6da",
+    "outputs": {
+      "full_index.parquet": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684",
+      "full_points.bin": "e24e96f34f4fd536c621a3f5c36dd7fc8eae0f037fb0a32b59c1c1b84392d147"
+    },
+    "rows": 2085047,
+    "stored_points": 84624170
+  },
+  "control": {
+    "config": {
+      "hidden": [
+        512,
+        512,
+        256
+      ],
+      "dropout": 0.1,
+      "lr": 0.002,
+      "weight_decay": 1e-05,
+      "batch": 2048,
+      "epochs": 24,
+      "bins": 48,
+      "d_ple": 16,
+      "label_clip": 10800.0
+    },
+    "stop_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "record_path": "VALIDATION/runs/v3_20261005_hpo_jan_jul/nn.json",
+    "record_sha256": "12a26036019cf904e38853e76e02e20980827ef0eab80018ab3fcbf5bfb18e88",
+    "predictions_path": "VALIDATION/runs/v3_20261005_hpo_jan_jul/predictions/nn/N09_s42.parquet",
+    "predictions_sha256": "27a006023a5c12dfba98e4b0e9dce0e14300873fcf082d7d534f18ef546e4741",
+    "control_member": "n0",
+    "network_share": 0.71,
+    "tree_share": 0.29
+  },
+  "design": {
+    "parent": "v58",
+    "original_tabular_columns": 156,
+    "appended_tabular_features": [],
+    "model": {
+      "sequence_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "width": 32,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "kernel": 3,
+      "dilations": [
+        1,
+        4,
+        16
+      ],
+      "activation": "SiLU",
+      "normalization": "LayerNorm over channels independently per point",
+      "pooling": "masked mean and max",
+      "fusion_hidden": 128,
+      "final_residual_initialization": "zero",
+      "usable": "at least two distinct timestamps",
+      "original_inputs": 156,
+      "extra_dropout": 0
+    },
+    "sequence": {
+      "window_before_sec": 7200,
+      "window_after_sec": 60,
+      "max_points": 128,
+      "minimum_distinct_timestamps": 2,
+      "labels_used": false,
+      "identity": "audited unique near-takeoff identity; missing and ambiguous remain absent",
+      "sort": [
+        "airport",
+        "hex",
+        "ts_ms",
+        "lat",
+        "lon",
+        "alt",
+        "gs"
+      ],
+      "duplicate_timestamp": "retain lexicographically first lat/lon/alt/gs per airport/hex/time",
+      "selection": "floor(linspace(0,n-1,128)); first and last always retained",
+      "gap": "previous raw observation within query window; first=-1; never interpolated",
+      "ground_alt_code": -123,
+      "other_negative_alt": "unknown",
+      "negative_speed": "unknown",
+      "origin": "mean of the airport X-Plane runway ends",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "point_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "bounds": {
+        "time": [
+          -0.008333333333333333,
+          1
+        ],
+        "gap": [
+          0,
+          1
+        ],
+        "east_north": [
+          -2,
+          2
+        ],
+        "speed": [
+          0,
+          1
+        ],
+        "altitude": [
+          0,
+          1
+        ],
+        "distance": [
+          0,
+          1
+        ],
+        "clock": [
+          -1,
+          1
+        ]
+      },
+      "scales": {
+        "time_sec": 7200,
+        "gap_log_sec": 7260,
+        "east_north_m": 20000,
+        "speed_kt": 300,
+        "altitude_ft": 10000,
+        "distance_m": 40000,
+        "clock": "clip(asinh((point-originalAOBT)/1800),-8,8)/8",
+        "raw_count_cap": 4096
+      },
+      "padding": "right padding, independent boolean point mask, all padded channels zero",
+      "absent_sequence": "0 or 1 points cached honestly; model residual hard-gated off"
+    },
+    "sequence_population": "all supplied2025 departures",
+    "target": "original direct min(y,10800), standardized with ordinary training population",
+    "seed": 42,
+    "member": 0,
+    "stopping": "frozen historical N09 epochs; no new inner fit",
+    "stop_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "network_share": 0.71,
+    "tree_share": 0.29,
+    "arms": [
+      "v58",
+      "direct_matched",
+      "sparse_fusion",
+      "half_sparse_half_v58",
+      "half_direct_half_v58"
+    ],
+    "absent_branch": "sequence residual exactlyzero for fewer than2points; jointly trained tabular branch may change",
+    "inference": "conditional mean only; original Rome and correction stack",
+    "exploratory_reused_development_months": true
+  }
+}

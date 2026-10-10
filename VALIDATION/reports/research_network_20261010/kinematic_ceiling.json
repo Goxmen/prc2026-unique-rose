@@ -1,0 +1,74 @@
+{
+  "control_jan_jul": 295.73012610616763,
+  "perfect_jan_jul": 293.95668183238445,
+  "maximum_gain_jan_jul_sec": 1.7734442737831841,
+  "control_pooled": 294.0195280198176,
+  "perfect_pooled": 292.25748961803475,
+  "months": {
+    "2025-01": {
+      "rows": 153706,
+      "recovered": 201,
+      "control_rmse": 328.4316664067627,
+      "perfect_on_recovered_rmse": 326.7737580917561,
+      "maximum_gain_sec": 1.6579083150065799,
+      "recovered_sse_share": 0.010070428407273107
+    },
+    "2025-07": {
+      "rows": 190713,
+      "recovered": 591,
+      "control_rmse": 263.02858580557256,
+      "perfect_on_recovered_rmse": 261.1396055730128,
+      "maximum_gain_sec": 1.8889802325597884,
+      "recovered_sse_share": 0.014311731371700007
+    }
+  },
+  "feature_rows": 792,
+  "scored_recovered": 792,
+  "unscored_ids": 0,
+  "caveat": "An oracle bound only for changing predictions on recovered rows. A full refit may alter all rows, so this is not a mathematical bound on every possible refit.",
+  "score_source": "/home/gunes/PRC/tmp/research_20261010/error_mechanisms/diagnostic_rows.parquet",
+  "features_source": "/home/gunes/PRC/tmp/research_20261010/signal_scout/kinematic_heldout_bound/build_features.parquet",
+  "known_identity_changes": {
+    "callsign_strength": {
+      "months": {
+        "2025-01": {
+          "changed": 173,
+          "current_rmse": 328.4316664067627,
+          "perfect_rmse": 328.31641825017306,
+          "maximum_gain_sec": 0.11524815658964371
+        },
+        "2025-07": {
+          "changed": 201,
+          "current_rmse": 263.02858580557256,
+          "perfect_rmse": 262.9533403674909,
+          "maximum_gain_sec": 0.07524543808165163
+        }
+      },
+      "maximum_gain_jan_jul_sec": 0.09524679733564767
+    },
+    "recovery_and_strength_union": {
+      "months": {
+        "2025-01": {
+          "changed": 374,
+          "current_rmse": 328.4316664067627,
+          "perfect_rmse": 326.65792500918917,
+          "maximum_gain_sec": 1.7737413975735308
+        },
+        "2025-07": {
+          "changed": 792,
+          "current_rmse": 263.02858580557256,
+          "perfect_rmse": 261.0638156818573,
+          "maximum_gain_sec": 1.9647701237152546
+        }
+      },
+      "maximum_gain_jan_jul_sec": 1.8692557606443927
+    }
+  },
+  "strength_evidence": {
+    "changed_rows": 374,
+    "new_event_corrob": 221,
+    "old_event_corrob": 0,
+    "median_old_records": 1.0,
+    "median_new_records": 23.0
+  }
+}

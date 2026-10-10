@@ -1,0 +1,30 @@
+{
+  "parent": "v58",
+  "control": "HPO N09 matched network seeds",
+  "architecture": "shared N09 trunk/global head plus zero-initialized linear airport residual heads",
+  "head_parameters_per_airport": 257,
+  "head_penalty": 0.1,
+  "penalty_units": "mean squared residual-head output in standardized-target units",
+  "unknown_airport": "hard zero residual, global output only",
+  "target": "direct min(taxi_sec,10800)",
+  "added_features": [],
+  "network_share": 0.71,
+  "neural_arms": [
+    "airport_heads",
+    "half_airport_half_v58"
+  ],
+  "heldout_months": [
+    "2025-01",
+    "2025-07"
+  ],
+  "stop_choice": "last training month only",
+  "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+  "weather_inputs_used": false,
+  "groups": [
+    42,
+    142,
+    242
+  ],
+  "networks_per_group": 5,
+  "exploratory_reused_development_months": true
+}

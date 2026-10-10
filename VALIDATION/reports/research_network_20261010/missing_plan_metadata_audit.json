@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "rows": 3309,
+  "months": [
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+  ],
+  "airports": [
+    "EDDF",
+    "EDDM",
+    "EGLL",
+    "EHAM",
+    "LEBL",
+    "LEMD",
+    "LFPG",
+    "LIRF",
+    "LSZH",
+    "LTFM"
+  ],
+  "raw_missing_rows": 1162,
+  "changed_op_keys": 586,
+  "changed_ab_keys": 586,
+  "checks": [
+    "Independent pandas normalization against DuckDB cached key flags",
+    "raw AOBT missingness",
+    "raw month/airport/label identity",
+    "nonRome missingAOBT scope"
+  ],
+  "source_sha256": "224c0cf4cc459ed8428638f52f252a52175954f9c9c846916196e3d32015a112",
+  "metadata_sha256": "28a878774dcc40e54def883001c84a856aac22bdd63c942e9cd4e9b260cfc219",
+  "manifest_sha256": "2e3b18762f9c0fc752fb5283c1db52becff9e7668b52213b4db2508aa4ba7a22",
+  "bytes": 12364936,
+  "elapsed_seconds": 0.35060725299990736
+}

@@ -1,0 +1,77 @@
+{
+  "design": {
+    "parent": "v58",
+    "change": "original156 plus six callsign inputs in all15 N09 networks",
+    "columns": [
+      "cc_call_start_sec",
+      "cc_squawk_start_sec",
+      "cc_previous_call_end_sec",
+      "cc_before_own_arrival",
+      "cc_ambiguous",
+      "cc_censored"
+    ],
+    "groups": [
+      42,
+      142,
+      242
+    ],
+    "nets": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "epochs": {
+      "42": 15,
+      "142": 21,
+      "242": 16
+    },
+    "seed_formula": "group+1000*k",
+    "stopping": "frozen original full-year15/21/16; no new inner fit",
+    "target": "direct min(taxi_sec,10800), original ordinary population",
+    "network_share": 0.71,
+    "views": [
+      "old",
+      "final"
+    ],
+    "tree_models": "unchanged saved parent predictions",
+    "rules": "unchanged nis.final",
+    "arms": [
+      "callsign15",
+      "callsign15_half_catboost_R20"
+    ],
+    "upload_stage": false
+  },
+  "source_sha256": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954",
+  "helpers": {
+    "VALIDATION/callsign_submit_features.py": "843d8d664f75c094afad03b02dcc4ef75c4930368cd6fbdf66c5f5ef7d811af9",
+    "VALIDATION/nn_callsign_clocks_jan_jul.py": "4763756ce09d4e6da4e3c47d8dd844f063a29ae5addee6d56fc4a6ec60d74132",
+    "VALIDATION/nn_callsign_pool_resume.py": "015c108ee6ffa1b05a7442af966fc55c79699ef6241b82c68582fccf677f47e5",
+    "VALIDATION/nn_residual_jan_jul.py": "e5cf29800ca49dbea75882e3587bd970d66b6845481ef1d8c9578367b9322f8b",
+    "VALIDATION/nn_sensor_differences_jan_jul.py": "acbee310db0fd9421f4ee9850e6d5cc48f9999e88c07577fd1907571a8072a75",
+    "VALIDATION/nn_jan_jul.py": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766",
+    "VALIDATION/nn_improve_jan_jul.py": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20",
+    "VALIDATION/final_submit.py": "60820fe3be984b14f47e1a6db09585842d93c42dd49014a936d6ebac7433679c",
+    "VALIDATION/hpo_submit.py": "5e47e979b2f97d86173495fff683b1aa74e3a6188edd28d4ab466ebe4186fcfe",
+    "VALIDATION/nn_improve_submit.py": "10aea4b461a7aa9da3ee880283349fb84cab23490177765b32a9f591d5f379e5"
+  },
+  "evidence": {
+    "full15_score": {
+      "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/score_g42_142_242_k0_1_2_3_4.json",
+      "sha256": "1406db0bfc6aa481a5837b780a06aa09a2a525cf9a180c1b72e1bf15fb3930ff"
+    },
+    "full15_pool": {
+      "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+      "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642"
+    }
+  },
+  "parent_nn": {
+    "path": "VALIDATION/runs/v3_20261006_hpo_submit/work/parts/nn.json",
+    "sha256": "55cf40ef18c4cf88b037f6b475981c71503b37b84e5bbc59d5fb131e295810a1"
+  },
+  "v58_manifest": {
+    "path": "VALIDATION/runs/v3_20261006_blend_weight_submit/submission_v58/submission_v58.json",
+    "sha256": "2fdbd27dd8d96ab3a4a6f36ba31346460ec8bfd9d439c47792d2784a4f5e6bb9"
+  }
+}

@@ -1,0 +1,966 @@
+{
+  "status": "passed",
+  "auditor_sha256": "622f100702e4a12b928e25248d7ff0c276de3b253bf974f3fc1936a9e600d2c0",
+  "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+  "views": [
+    {
+      "view": "old",
+      "rows": 344841,
+      "identity_sha256": "0fb05b4bab4e6ba265f897294eb09587a51e060dfa3d87ca97d3fd81fe268a0b",
+      "shared_sha256": "f438a6784311cf2abba6b4986d37d1a930ff7c9cdcd59b106125aaa7fe707eca",
+      "features_sha256": "563b3e20714efaff9cf5e9b58bb5cae9a33abab4722e8d7f1f63042546714b5e",
+      "nonmissing": {
+        "cc_call_start_sec": 296865,
+        "cc_squawk_start_sec": 297578,
+        "cc_previous_call_end_sec": 209615,
+        "cc_before_own_arrival": 291676,
+        "cc_ambiguous": 298020,
+        "cc_censored": 298020
+      },
+      "coverage": [
+        {
+          "month": "2026-01",
+          "row_count": 152719,
+          "identified": 131081,
+          "call_start": 130539,
+          "arrival_comparison": 127701
+        },
+        {
+          "month": "2026-07",
+          "row_count": 192122,
+          "identified": 166939,
+          "call_start": 166326,
+          "arrival_comparison": 163975
+        }
+      ],
+      "sampled_rows": 34,
+      "raw_departure_input_rows": 34,
+      "raw_arrival_input_rows": 30
+    },
+    {
+      "view": "final",
+      "rows": 670790,
+      "identity_sha256": "ec5fd03fca49d7c881c43eb0eb2dc24a8d883b96201058eb526aa9ac79672b20",
+      "shared_sha256": "3227fc52b1bb84f8b8d8bba9927c719767a199a820bed81efb1ce9a810ddf343",
+      "features_sha256": "a6d67be5b4427b45dff6cb6b6c00a61485d120cdf15231114791448bbac68ce4",
+      "nonmissing": {
+        "cc_call_start_sec": 574459,
+        "cc_squawk_start_sec": 575895,
+        "cc_previous_call_end_sec": 405315,
+        "cc_before_own_arrival": 563213,
+        "cc_ambiguous": 576773,
+        "cc_censored": 576773
+      },
+      "coverage": [
+        {
+          "month": "2026-01",
+          "row_count": 152719,
+          "identified": 131117,
+          "call_start": 130575,
+          "arrival_comparison": 127703
+        },
+        {
+          "month": "2026-02",
+          "row_count": 144158,
+          "identified": 125588,
+          "call_start": 125050,
+          "arrival_comparison": 121924
+        },
+        {
+          "month": "2026-06",
+          "row_count": 181791,
+          "identified": 153152,
+          "call_start": 152531,
+          "arrival_comparison": 149637
+        },
+        {
+          "month": "2026-07",
+          "row_count": 192122,
+          "identified": 166916,
+          "call_start": 166303,
+          "arrival_comparison": 163949
+        }
+      ],
+      "sampled_rows": 38,
+      "raw_departure_input_rows": 38,
+      "raw_arrival_input_rows": 34
+    }
+  ],
+  "reused_table_audit": {
+    "path": "tmp/research_20261010/error_mechanisms/callsign_production_features_audit.json",
+    "sha256": "aa15a93e5b2e2e1de35b6609d12c0103b738052408b01863c854e649beb7129e"
+  },
+  "raw_sample_rows": 72,
+  "raw_sample_values": 720,
+  "bridge_examples": 12,
+  "raw_source_files": 101,
+  "checked_raw_sources": {
+    "data/external/adsblol_heatmap/callsigns/2025-12-30.parquet": "4c5b605a9a6465d74179201b56edbe8e590f67efa6690b075237c823a5a584c4",
+    "data/external/adsblol_heatmap/callsigns/2025-12-31.parquet": "d95b6d720119e683e7e139e1bcb1b09ddaf62677d0c7b2aebedf6bef8ded70a4",
+    "data/external/adsblol_heatmap/callsigns/2026-01-01.parquet": "eee712871618076cf7e13af1d416c13bb6e56c7d4f3ec8f3a42c76d9d43d9af4",
+    "data/external/adsblol_heatmap/callsigns/2026-01-02.parquet": "69b1720afbacb061de9b2923baddb7a6c56c61fa1296d5e2911ee295917eada9",
+    "data/external/adsblol_heatmap/callsigns/2026-01-03.parquet": "2969cc207931b8e7728f2c2b619cb938d53a7642a98017cedaecf6804ddcadea",
+    "data/external/adsblol_heatmap/callsigns/2026-01-04.parquet": "7a37497fee69960276a5abe9bb1201abd0cd9f4fbf77d18caad85f325ccaf442",
+    "data/external/adsblol_heatmap/callsigns/2026-01-05.parquet": "5b863ee6748569010fb47ffef8e25d9da9e3e118bad9144498bb7132d9f9e5c2",
+    "data/external/adsblol_heatmap/callsigns/2026-01-06.parquet": "82d133bf742f93d1458128d399c36fae2c9af331b958ffd6d988b969b652adff",
+    "data/external/adsblol_heatmap/callsigns/2026-01-07.parquet": "b05320699b2834e7bc11b0e6c2a14555aa4c50dc8be83e0c707943d03c33e06d",
+    "data/external/adsblol_heatmap/callsigns/2026-01-08.parquet": "e1412c1f1a7d3f4820e4236d9dc8fdd489d13a0be7ec9559689f4e0940b6cb49",
+    "data/external/adsblol_heatmap/callsigns/2026-01-09.parquet": "47b8cd10b90534ba63786bb2a444681e0ce27ab65ca9c6aaddb4b5a38d4e901d",
+    "data/external/adsblol_heatmap/callsigns/2026-01-10.parquet": "ccf08a04b390ba3600c746413a0d2ff84874579f727e86e0c629c83c7d699ffd",
+    "data/external/adsblol_heatmap/callsigns/2026-01-16.parquet": "3bd89edfe0bc81afa9130527b68807a6f92f1b585c9ac4ac610c3e64dabf2c74",
+    "data/external/adsblol_heatmap/callsigns/2026-01-17.parquet": "9b105372af9194f435005c2e49b247691ced2b9e240d9bf4e7bb67b247a83e9a",
+    "data/external/adsblol_heatmap/callsigns/2026-01-18.parquet": "85062136f548dde496ee5ded95dd40d7dea1c12a69d369c39b39958d91e654fa",
+    "data/external/adsblol_heatmap/callsigns/2026-01-19.parquet": "39e4fdc99f5c27775cad500dd35a5c274c633e53dd867b5041bf79a71828c24b",
+    "data/external/adsblol_heatmap/callsigns/2026-01-20.parquet": "b42a1f400ab3fe9f9d726f0861ade1c0005dd98dc2100b32b6a9bc343313a617",
+    "data/external/adsblol_heatmap/callsigns/2026-01-21.parquet": "008e0e8765465b723f73310e295b91cc991b5ee8701e7073b9a17383a7de7adc",
+    "data/external/adsblol_heatmap/callsigns/2026-01-22.parquet": "f017da319eb232b12604e285bdc2dfd80fa04c2e78c6ba65ddcee7d43f49c896",
+    "data/external/adsblol_heatmap/callsigns/2026-01-25.parquet": "d22f1c03b10ab9d93b664bf4711e91cfe638c21ca1fcd52fdb26f84864c325f6",
+    "data/external/adsblol_heatmap/callsigns/2026-01-26.parquet": "176fc77e8d53aeb2c0fa54a523e9cc0997e44b80ffba9f849cf7d439b4f9f7d6",
+    "data/external/adsblol_heatmap/callsigns/2026-01-27.parquet": "e0963fd5d111a90ac4954e8ea9fdecaaacb3cbdcdb27e7d988cbd6f919294f5f",
+    "data/external/adsblol_heatmap/callsigns/2026-01-28.parquet": "2b6cb3d20a2328dd7f3371b2c68bd82f4ed338798d7d546a5ea475f3516fc54a",
+    "data/external/adsblol_heatmap/callsigns/2026-01-29.parquet": "ac6c170549e2bbcd7ed9858764f988d923a786b3418a9c6aba10f7d8c5244609",
+    "data/external/adsblol_heatmap/callsigns/2026-01-30.parquet": "6600e1639ce324c0232577293a38eb30dba1f73d83ad6d53d2ccadf427ebf7f8",
+    "data/external/adsblol_heatmap/callsigns/2026-01-31.parquet": "b97f666f83e184d602dbd32c25257bff09940a7329e2963b730c321ee2b45048",
+    "data/external/adsblol_heatmap/callsigns/2026-02-01.parquet": "aa061ba2585d02e0f951c942b2021e20832984c1b8c5ef49f948a3e9436e5cb1",
+    "data/external/adsblol_heatmap/callsigns/2026-07-02.parquet": "a18821e7d01b3f0c5a479567055584840c1dac67b8701722cb8dc303038c7a46",
+    "data/external/adsblol_heatmap/callsigns/2026-07-03.parquet": "5cf84f434aea795f8ed164ab08c72004b5194793eb90f99d5732217004555cf2",
+    "data/external/adsblol_heatmap/callsigns/2026-07-04.parquet": "8054010ba67145d79609d2570d13ce5d99551296e1efbb1d0f6d27606d351f59",
+    "data/external/adsblol_heatmap/callsigns/2026-07-05.parquet": "b50e76d3d9b99c45f7f3fb761dc1e1ae8a5cac992d93ecdfefed3a3cd307a9b9",
+    "data/external/adsblol_heatmap/callsigns/2026-07-06.parquet": "ec4ddb7bcd13264ef88427f409ec9fbfa64a3fe85cd3bc2003da9b0ef41491cf",
+    "data/external/adsblol_heatmap/callsigns/2026-07-07.parquet": "c89e811e911d961ace789857064a389624b97db87acfe8859805623f22fcc51c",
+    "data/external/adsblol_heatmap/callsigns/2026-07-08.parquet": "6997eb7badca1fadd1ba26ec849ceac849aa53287ac5c903cc19eadd60efa422",
+    "data/external/adsblol_heatmap/callsigns/2026-07-09.parquet": "6033e3ff58ef7cf66359ee09a1b67ce408027a64846c2118636a46ef742b049b",
+    "data/external/adsblol_heatmap/callsigns/2026-07-10.parquet": "3cf67be17dd88c8d290010cd772554ece02927266f4829edd9e00dd183883256",
+    "data/external/adsblol_heatmap/callsigns/2026-07-11.parquet": "26e05d5d3a88de58aab837c5d82bb014a3c9c7d38487133f8a3f848dfc4ff485",
+    "data/external/adsblol_heatmap/callsigns/2026-07-12.parquet": "871662981910b0cbebf057b1eeba1e2517e4776b56b6897ed9baa6f5dca1a5d5",
+    "data/external/adsblol_heatmap/callsigns/2026-07-13.parquet": "82e56e516489a2d3ff6e190bbebc20fee555013d5025fca7aedd163e3153e14a",
+    "data/external/adsblol_heatmap/callsigns/2026-07-14.parquet": "9e5be2457aac039082d8ec30866743f185af74e1852633f5be2d443bd4e54e6e",
+    "data/external/adsblol_heatmap/callsigns/2026-07-15.parquet": "461a7e76c296f35c61dacbf3644c1f07ae8000dc2f077b197253d1a2d55707c4",
+    "data/external/adsblol_heatmap/callsigns/2026-07-16.parquet": "ae87009f40c9845529429d39ec3382c92f0a51a44d458712a9c4777d37486c0b",
+    "data/external/adsblol_heatmap/callsigns/2026-07-17.parquet": "23cdffe6d082f219e13c9ada9f1063cba2285bc652988741fb84820313062471",
+    "data/external/adsblol_heatmap/callsigns/2026-07-18.parquet": "f5d74f21301d59ba1dd55bd96491878d0c3c82d99e9d2b4139e545e0bc8c7c3e",
+    "data/external/adsblol_heatmap/callsigns/2026-07-19.parquet": "405b2806b8539686b656f47c9b0b52432b798ba29fcd834777f4a899cedf4511",
+    "data/external/adsblol_heatmap/callsigns/2026-07-20.parquet": "a378c6758586bc2855bbeefb0639799c9feb01bb8d375eabe5b4d6796ed047a2",
+    "data/external/adsblol_heatmap/callsigns/2026-07-21.parquet": "ace8e3ab5e956ee710d4c72d7faab497c8b50b0853e30a33a6d030a4c4dc258e",
+    "data/external/adsblol_heatmap/callsigns/2026-07-22.parquet": "2f8af00cafa04514b89bf6a2fddfabdab598f5eb059d7646ec172a59dd058e3d",
+    "data/external/adsblol_heatmap/callsigns/2026-07-23.parquet": "b0a921e2627038666a28e4a4afe83de03a1db27b61890dddcc6232576f981384",
+    "data/external/adsblol_heatmap/callsigns/2026-07-24.parquet": "872386d256a0e5e8dadb87e33a4aac4cf993b763b41ecbe8f718c988b73d1f73",
+    "data/external/adsblol_heatmap/callsigns/2026-07-25.parquet": "79efc7ce419a2b6df06fbffa82b4e6afac2e5771633d32f83426dcc132d741da",
+    "data/external/adsblol_heatmap/callsigns/2026-07-26.parquet": "5d49fddfa13d48467e284c972169c4ed3072b3bd39396cdb9dba3c08fd6eedab",
+    "data/external/adsblol_heatmap/callsigns/2026-07-27.parquet": "4b6a6fb45667f60ad843d6101289eb03139f97055d4de63a2b707307593ddab9",
+    "data/external/adsblol_heatmap/callsigns/2026-07-28.parquet": "d81ba007e4f3835f0d36a109ea69b301cc4a47a44aa5989531537a14f5781869",
+    "data/external/adsblol_heatmap/callsigns/2026-07-29.parquet": "a314cc306a5882de515502529c4be613b9b5128e958e86a18ed123a6cb93b08e",
+    "data/external/adsblol_heatmap/callsigns/2026-07-30.parquet": "269f596f05c6e7472b307aee45b825628984685da5c486232c3743e4cfd78ba0",
+    "data/external/adsblol_heatmap/callsigns/2026-07-31.parquet": "f36260a73dda62d61e4b0c4c936efa379f7304f9b1ac24000d1f1d196503d4c1",
+    "data/external/adsblol_heatmap/callsigns/2026-02-02.parquet": "230571d1be09dce52b5b2f78917ce37ff3a87cb8c596bc29e9cd384358944dce",
+    "data/external/adsblol_heatmap/callsigns/2026-02-03.parquet": "6f13646c3cad955a903104a2dd22782d22a896408a611f386ddb8439dc6e5ce3",
+    "data/external/adsblol_heatmap/callsigns/2026-02-04.parquet": "0bbba19c89c60c7ace43f7c2586009ee09236e1cdcd9e9ff45eca1379cb328fa",
+    "data/external/adsblol_heatmap/callsigns/2026-02-05.parquet": "e34fc5a19282094bcdd705df2ff5f3a0fdd55c520867cda7d9e3725751952f5a",
+    "data/external/adsblol_heatmap/callsigns/2026-02-07.parquet": "ca30d5d271ff5e832fcf4cf52a49b1b51a35be4f371a730a2852b444a04cdfad",
+    "data/external/adsblol_heatmap/callsigns/2026-02-08.parquet": "00ae0afb1ead99dcfff87be27cdd82994161245c41ff1c1c67494a7754544164",
+    "data/external/adsblol_heatmap/callsigns/2026-02-09.parquet": "c3573f82742fe4b25f5b18f81f6bca52e3b003891c03bf0f87d2451b99752c07",
+    "data/external/adsblol_heatmap/callsigns/2026-02-10.parquet": "f73ef25ccb0873247ff09ca18de996588de50570ee72c9a63e7fd81bfbdd193e",
+    "data/external/adsblol_heatmap/callsigns/2026-02-13.parquet": "dbbcede290571def59fc1915f35d34a0b924f08d6fe022258a037afc4f15b28b",
+    "data/external/adsblol_heatmap/callsigns/2026-02-14.parquet": "6ad4e51a507ccb6761a045f5a1adca5f4b5c0397228bd3bb9736e64e83d2990d",
+    "data/external/adsblol_heatmap/callsigns/2026-02-15.parquet": "77f055f34359e1a1a2b98e39899687544a92f11c091784a3d8d3d3db1028dae0",
+    "data/external/adsblol_heatmap/callsigns/2026-02-16.parquet": "c8e1ab17b050844552af24bcd46b865d72ccc9b6d1becc4af2f2e9544ad6c6dc",
+    "data/external/adsblol_heatmap/callsigns/2026-02-18.parquet": "34e17b188f22e2bd6b42aefb9537edf626e013bb3c8146bd6ca3fb19fc6765f3",
+    "data/external/adsblol_heatmap/callsigns/2026-02-19.parquet": "704c477fc392a0f69286ff93528f1c475932b1db01436778e60dd2164f9c513c",
+    "data/external/adsblol_heatmap/callsigns/2026-02-20.parquet": "a6802774db684f2d12bf8191a6046f64112e8399074209008d9730b1887128d8",
+    "data/external/adsblol_heatmap/callsigns/2026-02-21.parquet": "84dc2f3340e54183bb6e342d163ff133339b6431d7e34fee721e9b69acbe8e92",
+    "data/external/adsblol_heatmap/callsigns/2026-05-31.parquet": "75d842516b808e853cae39897e5181f05fe1476f87d8b102ed059d664b373ba6",
+    "data/external/adsblol_heatmap/callsigns/2026-06-01.parquet": "4059573dce0b3ec174bc8f449432822d8f0a763c5111c517dca4ab1e8e9fdc02",
+    "data/external/adsblol_heatmap/callsigns/2026-06-02.parquet": "e5f3ef7b483d4fc4f908748ed61129ec5c05310c7eacd66ad52e4001411f6f5a",
+    "data/external/adsblol_heatmap/callsigns/2026-06-03.parquet": "e2b3d036158109c9c7d0717897558fd04c5e50828bae25058fc56b6b8bef0867",
+    "data/external/adsblol_heatmap/callsigns/2026-06-06.parquet": "ddd18c163bbfd351917bcde7427aace48a70b8844c9ae65d93bb062bcd80cc03",
+    "data/external/adsblol_heatmap/callsigns/2026-06-07.parquet": "d11ccabbe6f107d0205e76fcb7bcf25df29b2b58e70e6cae9a292e46c876d23d",
+    "data/external/adsblol_heatmap/callsigns/2026-06-08.parquet": "103f28491389b6d56da76e5a76e2d69039b5e272fcd7b85e90c0ce57e43fa7f5",
+    "data/external/adsblol_heatmap/callsigns/2026-06-09.parquet": "a24761fbe61b6af913a007e6cdf52ec6455863c377bf65279d64fa2d7f90dacf",
+    "data/external/adsblol_heatmap/callsigns/2026-06-10.parquet": "6d6ff23c62706bc3efee7ca2698b677bb29429078d89bb598b4a109fd0a62a03",
+    "data/external/adsblol_heatmap/callsigns/2026-06-11.parquet": "890d7df7307dcff173fb9b2f851a3781b381284ec107ec911ae9baf5bfdd73ec",
+    "data/external/adsblol_heatmap/callsigns/2026-06-12.parquet": "9986e6db1dd20aa7096a6aa8f314e93bc71895710deea8bd5ca7bffb8938e292",
+    "data/external/adsblol_heatmap/callsigns/2026-06-13.parquet": "ed970a221f344f72d8caeed6c98fcf60a9137e51124c7e9a204b3126eaa21517",
+    "data/external/adsblol_heatmap/callsigns/2026-06-14.parquet": "7bfa0bb766a2ef323eb53909f1d626b9dc635f602cc33284c59a2129c2da35fb",
+    "data/external/adsblol_heatmap/callsigns/2026-06-15.parquet": "265959d103f6679fba1fde083bfa98b39b3a2248fbbfc0e91df0069c4d1afdb8",
+    "data/external/adsblol_heatmap/callsigns/2026-06-16.parquet": "a4f1cd154e04e6b41ddde5f535fa5a05fe9414cd6f7daaaa01ff58d20bcae1b6",
+    "data/external/adsblol_heatmap/callsigns/2026-06-17.parquet": "cf339f21d6660d35ca55a4e646ab08535e7544e6f06a7c81b43ff02b71023d24",
+    "data/external/adsblol_heatmap/callsigns/2026-06-20.parquet": "3280add329bd7d579edd1373c5fc203d1037b7109fb802589d55f34dbf2e0801",
+    "data/external/adsblol_heatmap/callsigns/2026-06-21.parquet": "d33cad12f8ad2dcc64f9a50fcc87c16d359c76ce4dbf803834c280be45827305",
+    "data/external/adsblol_heatmap/callsigns/2026-06-22.parquet": "ec417c9212a02c18ef6dd281136e2ee56a78a1e1ec28c84a150dea4b35fcb7f4",
+    "data/external/adsblol_heatmap/callsigns/2026-06-23.parquet": "e31b5414c57847f7ba891cc58ac9f3c5ab104780a6c94202fd474bbc665a7ba7",
+    "data/external/adsblol_heatmap/callsigns/2026-06-24.parquet": "26154b75b43afb9087f433ea2a034f4ef927cafd5457f246ae52ff91885d0b5c",
+    "data/external/adsblol_heatmap/callsigns/2026-06-25.parquet": "bfe402d3e241190c67e9420693ee0fa4e06b9516daeed51713a3c28f6a836578",
+    "data/external/adsblol_heatmap/callsigns/2026-06-26.parquet": "2db2ccb22f7585d8fd59f2cd836debf10dcfc629008971c903aa95430b5006f2",
+    "data/external/adsblol_heatmap/callsigns/2026-06-27.parquet": "e8c63aa60afa41313dac60e7b76b91c4c74d27e34677cacd6351573e309ba221",
+    "data/external/adsblol_heatmap/callsigns/2026-06-28.parquet": "09f6eafc15a49e7f6ab3ad82556d2d8439d6f5a6c967ab558c4e3ec1aadeff2d",
+    "data/external/adsblol_heatmap/callsigns/2026-06-29.parquet": "d28d7ced405549911e14f0ef7d492845c552c4cad8e1628a6f3aae02e5a3b87c",
+    "data/external/adsblol_heatmap/callsigns/2026-06-30.parquet": "1665b1e15857fb1f5f2e9df6b5a2d0a99e149df4874d1fdbc2ccf2e212493892",
+    "data/external/adsblol_heatmap/callsigns/2026-07-01.parquet": "f2d513a57f35b507cf10759fc576f6c562bc01395bb01fa288f5a65efb03632c"
+  },
+  "old_final_jitter_pairs": [
+    {
+      "mvt_id": 202708735,
+      "takeoff_jitter_sec": 4.0,
+      "same_envelope": true
+    },
+    {
+      "mvt_id": 202306835,
+      "takeoff_jitter_sec": -6.0,
+      "same_envelope": true
+    },
+    {
+      "mvt_id": 213149510,
+      "takeoff_jitter_sec": -8.0,
+      "same_envelope": true
+    },
+    {
+      "mvt_id": 213007839,
+      "takeoff_jitter_sec": 2.0,
+      "same_envelope": true
+    },
+    {
+      "mvt_id": 202683063,
+      "takeoff_jitter_sec": 5.0,
+      "same_envelope": true
+    },
+    {
+      "mvt_id": 212236513,
+      "takeoff_jitter_sec": 11.0,
+      "same_envelope": true
+    },
+    {
+      "mvt_id": 202180274,
+      "takeoff_jitter_sec": 12.0,
+      "same_envelope": true
+    },
+    {
+      "mvt_id": 213795781,
+      "takeoff_jitter_sec": 4.0,
+      "same_envelope": true
+    }
+  ],
+  "samples": [
+    {
+      "view": "old",
+      "mvt_id": 202180274,
+      "day": "2026-01-01",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202200173,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 202654471,
+      "day": "2026-01-02",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 1,
+      "arrival_id": 202676368,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 202306835,
+      "day": "2026-01-02",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202328726,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 202310850,
+      "day": "2026-01-05",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 1,
+      "arrival_id": 202327491,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 203123502,
+      "day": "2026-01-05",
+      "missing_identity": true,
+      "bridged": false,
+      "active_intervals": 0,
+      "arrival_id": null,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "old",
+      "mvt_id": 203125004,
+      "day": "2026-01-06",
+      "missing_identity": true,
+      "bridged": false,
+      "active_intervals": 0,
+      "arrival_id": null,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "old",
+      "mvt_id": 202682963,
+      "day": "2026-01-08",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202694153,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 202683063,
+      "day": "2026-01-08",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202693736,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 203351441,
+      "day": "2026-01-09",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 2,
+      "arrival_id": 203368225,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 202708533,
+      "day": "2026-01-18",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202720092,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 202708635,
+      "day": "2026-01-19",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202722094,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 203137634,
+      "day": "2026-01-21",
+      "missing_identity": true,
+      "bridged": false,
+      "active_intervals": 0,
+      "arrival_id": null,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "old",
+      "mvt_id": 202708735,
+      "day": "2026-01-27",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202721354,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 203137532,
+      "day": "2026-01-29",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202698735,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "old",
+      "mvt_id": 202306147,
+      "day": "2026-01-30",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202338999,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 202306735,
+      "day": "2026-01-31",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202340131,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 212995231,
+      "day": "2026-07-04",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213011353,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213425385,
+      "day": "2026-07-08",
+      "missing_identity": true,
+      "bridged": false,
+      "active_intervals": 0,
+      "arrival_id": null,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "old",
+      "mvt_id": 213795781,
+      "day": "2026-07-09",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213813546,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213145590,
+      "day": "2026-07-10",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213161296,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 212760391,
+      "day": "2026-07-11",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 212782877,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213149510,
+      "day": "2026-07-14",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213163207,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213736094,
+      "day": "2026-07-17",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 1,
+      "arrival_id": 213756627,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213147816,
+      "day": "2026-07-17",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213164280,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213731750,
+      "day": "2026-07-18",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 1,
+      "arrival_id": 213753747,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 212236513,
+      "day": "2026-07-18",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 212259654,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213149308,
+      "day": "2026-07-21",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213172080,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213741975,
+      "day": "2026-07-22",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 1,
+      "arrival_id": 213755413,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213149410,
+      "day": "2026-07-24",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213170139,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 212753067,
+      "day": "2026-07-24",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 212776735,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213007637,
+      "day": "2026-07-27",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213019348,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213007739,
+      "day": "2026-07-27",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213019347,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 213007839,
+      "day": "2026-07-28",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213018442,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "old",
+      "mvt_id": 212759627,
+      "day": "2026-07-30",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 2,
+      "arrival_id": 212778308,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 202180274,
+      "day": "2026-01-01",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202200173,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 202654471,
+      "day": "2026-01-02",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 1,
+      "arrival_id": 202676368,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 202306835,
+      "day": "2026-01-02",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202328726,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 202310850,
+      "day": "2026-01-05",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 1,
+      "arrival_id": 202327491,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 202683063,
+      "day": "2026-01-08",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202693736,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 202708533,
+      "day": "2026-01-18",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202720092,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 202708635,
+      "day": "2026-01-19",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202722094,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 203137634,
+      "day": "2026-01-21",
+      "missing_identity": true,
+      "bridged": false,
+      "active_intervals": 0,
+      "arrival_id": null,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "final",
+      "mvt_id": 202708735,
+      "day": "2026-01-27",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202721354,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 203137532,
+      "day": "2026-01-29",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202698735,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "final",
+      "mvt_id": 202306735,
+      "day": "2026-01-31",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 202340131,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 203814859,
+      "day": "2026-02-04",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 203830245,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 204761260,
+      "day": "2026-02-09",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 204777368,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 204105343,
+      "day": "2026-02-15",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 204132186,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 204764316,
+      "day": "2026-02-20",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 204784990,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 210129228,
+      "day": "2026-06-02",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 210148993,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 211494043,
+      "day": "2026-06-08",
+      "missing_identity": true,
+      "bridged": false,
+      "active_intervals": 0,
+      "arrival_id": null,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "final",
+      "mvt_id": 210207696,
+      "day": "2026-06-11",
+      "missing_identity": true,
+      "bridged": false,
+      "active_intervals": 0,
+      "arrival_id": null,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "final",
+      "mvt_id": 211752339,
+      "day": "2026-06-15",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 2,
+      "arrival_id": 211775115,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 211838233,
+      "day": "2026-06-16",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 2,
+      "arrival_id": 211854734,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 211762717,
+      "day": "2026-06-22",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 1,
+      "arrival_id": 211775196,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 210902410,
+      "day": "2026-06-22",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 210916764,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 210902512,
+      "day": "2026-06-26",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 210912313,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 210932123,
+      "day": "2026-06-27",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 210944636,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 210220517,
+      "day": "2026-06-29",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 2,
+      "arrival_id": 210240233,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 210932021,
+      "day": "2026-06-30",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 210946695,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 213425385,
+      "day": "2026-07-08",
+      "missing_identity": true,
+      "bridged": false,
+      "active_intervals": 0,
+      "arrival_id": null,
+      "valid_previous_arrival": false
+    },
+    {
+      "view": "final",
+      "mvt_id": 213795781,
+      "day": "2026-07-09",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213813546,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 213145590,
+      "day": "2026-07-10",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213161296,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 212760391,
+      "day": "2026-07-11",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 212782877,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 213149510,
+      "day": "2026-07-14",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213163207,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 213736094,
+      "day": "2026-07-17",
+      "missing_identity": false,
+      "bridged": true,
+      "active_intervals": 1,
+      "arrival_id": 213756627,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 212236513,
+      "day": "2026-07-18",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 212259654,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 213149308,
+      "day": "2026-07-21",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213172080,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 213149410,
+      "day": "2026-07-24",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213170139,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 213007637,
+      "day": "2026-07-27",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213019348,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 213007839,
+      "day": "2026-07-28",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 1,
+      "arrival_id": 213018442,
+      "valid_previous_arrival": true
+    },
+    {
+      "view": "final",
+      "mvt_id": 212759627,
+      "day": "2026-07-30",
+      "missing_identity": false,
+      "bridged": false,
+      "active_intervals": 2,
+      "arrival_id": 212778308,
+      "valid_previous_arrival": true
+    }
+  ],
+  "scope": "Independent bounded raw-clock and scoped-arrival arithmetic, monthly coverage and separate jittered views; reused hashed sibling all-row table audit. No departure labels read.",
+  "elapsed_sec": 2.8459960899999714
+}

@@ -1,0 +1,150 @@
+{
+  "design": {
+    "parent": "v58",
+    "control": "HPO N09 matched seed42 k0",
+    "added_features": [
+      "te_dlt_stand",
+      "te_dlt_op",
+      "te_dlt_rwy",
+      "imp_minus_dlt_stand"
+    ],
+    "target": "direct min(taxi_sec,10800)",
+    "network_share": 0.71,
+    "neural_arms": [
+      "clock_offsets",
+      "half_clock_half_v58"
+    ],
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "stop_choice": "frozen historical N09 seed42 epochs; no candidate inner fit",
+    "frozen_stop_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+    "feature_cache": "/home/gunes/PRC/data/derived/clock_offset_encoding_20261010",
+    "training_reference": "ts.FOLDS[held month] excluding query whole month; all supplied training departure rows",
+    "held_reference": "all ts.FOLDS[held month] training departure labels only",
+    "query_missing": "all four new features NaN when genuine original AOBT3 is unavailable",
+    "weather_inputs_used": false,
+    "groups": [
+      42
+    ],
+    "networks_per_group": 1,
+    "exploratory_reused_development_months": true
+  },
+  "groups": [
+    42
+  ],
+  "nets": [
+    0
+  ],
+  "pool_size": 1,
+  "source_sha256": "38a3769c2a0965c5edb148a4c14ee8095bb3d2662b4fb9fe14644dbc5b48b3e0",
+  "scores": {
+    "v58": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.4316664067627,
+          "2025-07": 263.0285858055726
+        },
+        "142": {
+          "2025-01": 328.44744119856585,
+          "2025-07": 262.99712069913744
+        },
+        "242": {
+          "2025-01": 328.55501098948906,
+          "2025-07": 262.988808954983
+        }
+      }
+    },
+    "direct_matched": {
+      "2025-01": 331.6930824220631,
+      "2025-07": 266.2815806253393,
+      "cv": 298.9873315237012,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 331.6445920422308,
+          "2025-07": 266.3048796045559
+        },
+        "142": {
+          "2025-01": 331.6572353894418,
+          "2025-07": 266.2615940949186
+        },
+        "242": {
+          "2025-01": 331.7774036352136,
+          "2025-07": 266.27826638654346
+        }
+      }
+    },
+    "clock_offsets": {
+      "2025-01": 331.39514158978125,
+      "2025-07": 268.40924137529817,
+      "cv": 299.9021914825397,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 331.3433026587539,
+          "2025-07": 268.43481271699545
+        },
+        "142": {
+          "2025-01": 331.37164500422466,
+          "2025-07": 268.40128104548046
+        },
+        "242": {
+          "2025-01": 331.47046365900695,
+          "2025-07": 268.3916284494093
+        }
+      }
+    },
+    "half_clock_half_v58": {
+      "2025-01": 329.0381132877541,
+      "2025-07": 264.2658920483849,
+      "cv": 296.6520026680695,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.9905397676811,
+          "2025-07": 264.29045312269767
+        },
+        "142": {
+          "2025-01": 329.00847840445556,
+          "2025-07": 264.25830112112226
+        },
+        "242": {
+          "2025-01": 329.1153078622283,
+          "2025-07": 264.2489201059547
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "clock_offsets_vs_direct_matched": {
+      "change": 0.9148599588384911,
+      "ci95": [
+        0.39335784835657467,
+        1.4085678821009195
+      ],
+      "decision": "regression"
+    },
+    "clock_offsets_vs_v58": {
+      "change": 4.160749908352642,
+      "ci95": [
+        3.638427427739173,
+        5.16141973613298
+      ],
+      "decision": "regression"
+    },
+    "half_clock_half_v58_vs_v58": {
+      "change": 0.9105610938824213,
+      "ci95": [
+        0.7244770865390677,
+        1.1486237342847785
+      ],
+      "decision": "regression"
+    }
+  }
+}

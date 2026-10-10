@@ -105,6 +105,28 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 10: research network is active; v58 remains the official best.**
+  The user requested a five-second improvement and explicitly authorized laptop
+  training. Keep one heavy job per machine and ask before any upload. Read
+  `VALIDATION/reports/RESEARCH_NETWORK_20261010.md` before proposing or repeating
+  experiments; it records the many failed screens and their retained artifacts.
+  Best completed fixed combination: callsign15 networks + callsign main LightGBM
+  + half CatBoost/R20 Rome probabilities, **294.4217 Jan/Jul CV**, versus matched
+  seed42-tree control **295.7295** (-1.3078). Full-year CatBoost and main-LightGBM
+  models and both-view predictions are complete; callsign15 is still fitting. Inspect their run
+  records before resuming; no new upload is authorized or has occurred.
+  A new raw-track temporal network passes its fixed two-fold screen: -2.2255
+  versus matched single N09, and -0.8350 for a fixed half mixture with v58's
+  actual15-network pool. Three-member continuation is allocated the desktop, reusing k0;
+  do not repeat its completed fits. Runs use the `v3_20261010_*` prefix.
+  Laptop full-year neural fitting uses `callsign_submit_fast.py`: identical
+  fixed training updates, exact-parity chunked input encoding and bounded final
+  inference. The earlier workers hit host-memory limits or wasteful full-test
+  inference after every epoch; they produced no completed models and remain
+  preserved. All15 production network seeds stay on the laptop. No 16-fold
+  validation or ledger entries for failed screens were added. The five-second
+  official objective remains unachieved; reused CV is not independent evidence.
+
 - **October 8: the organisers published a FINAL test set; deadline extended to 14 Oct 2026
   12:00 CET.** `data/final_ranking.parquet` / `data/final_submitting.parquet` (bucket
   `prc-2026-datasets`, uploaded 2026-10-08 13:04 CEST): January and July 2026 as before plus

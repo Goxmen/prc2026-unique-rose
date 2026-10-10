@@ -1,0 +1,42 @@
+{
+  "view": "final",
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/probabilities/final.parquet",
+    "sha256": "a1a2b3ec70f033d77175f9ca3717ab88ae3b761baf8185eb382a237360ee5b18"
+  },
+  "source": {
+    "path": "VALIDATION/rome_catboost_submit.py",
+    "sha256": "e1ba5dbd728132c0d65c7b5f55262550a5af619d3d42f61acd325723f51830ef"
+  },
+  "seeds": [
+    42,
+    142,
+    242
+  ],
+  "probability_column": "p",
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/prepared.json",
+    "sha256": "1e0e6dba0ab360fce5915bca963b4968d237b9ace19b350ce14ab18a12fdce04"
+  },
+  "selection": {
+    "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/selection.json",
+    "sha256": "542afd0ec997f67426e16029c3300591d5c8b992a6084bacadb1c0219113244b"
+  },
+  "seed_records": [
+    {
+      "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/models/s42.json",
+      "sha256": "fbfb3e6aeb618f141a7dee45439f6839592d11e5793a0ce296d7d49990b999ea"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/models/s142.json",
+      "sha256": "3c37237523b75177233f5d3ddcf05c982ea404fbcab9a0537462bc2c16efa141"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/models/s242.json",
+      "sha256": "a1d9332f0bacb58ec2303026fe0da74ab2dd978fd5243f984f67a5af44ca3d4a"
+    }
+  ],
+  "rows": 670790,
+  "positive_probability_rows": 52146,
+  "consumer": "fixed0.5 exported mean +0.5 original R20; no calibration or upload"
+}

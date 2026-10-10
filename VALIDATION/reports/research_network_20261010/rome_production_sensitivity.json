@@ -1,0 +1,81 @@
+{
+  "source_sha256": "a4e8fed1e190d1b99dae30668ac2ab6deeadf4f2698dd352a9d2ad7f95788dc2",
+  "inputs": {
+    "VALIDATION/runs/v3_20261010_rome_catboost_submit/inputs/old.pkl": "97794cff92891706bf64548bb2717b1dddf7bfd64cd353847c91f06d9ef928fb",
+    "VALIDATION/runs/v3_20261010_rome_catboost_submit/old.json": "4b295c52ad3313f9f3a4e8cfa7ff200a4e173e329870c192394eb8e419a02cad",
+    "VALIDATION/runs/v3_20261010_rome_catboost_submit/probabilities/old.parquet": "9a8e241be231a32fa72727157a110b738bf989fe30ab19771989455649baaab2",
+    "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-01.parquet": "fe4c0c588387c397eb6cc0365d0449f564b23275c9a0d18af7cb7c271dae4ca1",
+    "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-07.parquet": "69bf84a9f86ff78ecfc1d2c42d7c0a84836a9cd3f7ff9d06d1f5198cf10a9770",
+    "VALIDATION/runs/v3_20261010_rome_catboost_submit/inputs/final.pkl": "2053988e8a0708ac8f8fc4e4c7f272dfce6c2b48510cde6a11a2ee482838a3bb",
+    "VALIDATION/runs/v3_20261010_rome_catboost_submit/final.json": "b121671d8d4ff505e92edcfbca16a90dc2810c2203ede7cc7ee000bd4f390203",
+    "VALIDATION/runs/v3_20261010_rome_catboost_submit/probabilities/final.parquet": "a1a2b3ec70f033d77175f9ca3717ab88ae3b761baf8185eb382a237360ee5b18",
+    "VALIDATION/runs/v3_20261008_final_submit/work/parts/rome.parquet": "0a37d6998bdf3be726bb690b730e30b23dd3cd4030014b6d1ec52898d39d2d98"
+  },
+  "views": {
+    "old": {
+      "months": {
+        "1": {
+          "rows": 11061,
+          "mean_p_change": 0.004496904861366684,
+          "mean_absolute_p_change": 0.0247163091542671,
+          "exception_band_rows": 12,
+          "parent_exception": 1,
+          "candidate_exception": 1,
+          "threshold_crossings": 0
+        },
+        "7": {
+          "rows": 15838,
+          "mean_p_change": 0.008764239517175417,
+          "mean_absolute_p_change": 0.024421126434527474,
+          "exception_band_rows": 20,
+          "parent_exception": 0,
+          "candidate_exception": 0,
+          "threshold_crossings": 0
+        }
+      },
+      "crossings": []
+    },
+    "final": {
+      "months": {
+        "1": {
+          "rows": 11061,
+          "mean_p_change": 0.004441746868247574,
+          "mean_absolute_p_change": 0.024733774957818765,
+          "exception_band_rows": 12,
+          "parent_exception": 1,
+          "candidate_exception": 1,
+          "threshold_crossings": 0
+        },
+        "2": {
+          "rows": 10264,
+          "mean_p_change": 0.00575334379040564,
+          "mean_absolute_p_change": 0.02523555411274617,
+          "exception_band_rows": 8,
+          "parent_exception": 0,
+          "candidate_exception": 0,
+          "threshold_crossings": 0
+        },
+        "6": {
+          "rows": 14983,
+          "mean_p_change": 0.005479551127592818,
+          "mean_absolute_p_change": 0.023443658542970952,
+          "exception_band_rows": 8,
+          "parent_exception": 0,
+          "candidate_exception": 0,
+          "threshold_crossings": 0
+        },
+        "7": {
+          "rows": 15838,
+          "mean_p_change": 0.008845736804492261,
+          "mean_absolute_p_change": 0.024556706979361746,
+          "exception_band_rows": 20,
+          "parent_exception": 0,
+          "candidate_exception": 0,
+          "threshold_crossings": 0
+        }
+      },
+      "crossings": []
+    }
+  },
+  "note": "Input-only sensitivity audit; no labels, tuning or prediction changes."
+}

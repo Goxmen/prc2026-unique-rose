@@ -1,0 +1,72 @@
+{
+  "status": "Design only; no builder, model, fit or new source scan started",
+  "mechanism": "Learn stop/start ordering, stand departure, inbound-versus-outbound motion and observation gaps from ordered raw positions; existing aggregate track inputs and six point-at-AOBT inputs do not preserve these sequences.",
+  "known_headroom": {
+    "source": "tmp/research_20261010/model_diversity/next_mechanism_headroom.json",
+    "existing_ground_track_any_sse_share": {"2025-01": 0.06351991427962106, "2025-07": 0.514125716153821},
+    "existing_at_least_32_points_sse_share": {"2025-01": 0.01375342065015533, "2025-07": 0.09311137120085607},
+    "hypothetical_10percent_track_scope_SSE_reduction_average_RMSE_gain_sec": 3.9477310853152686,
+    "limitation": "Descriptive reused CV error scope, not a gain forecast. The new identity-based two-point scope must be measured. Recording errors, especially no-AOBT rows, may remain physically unidentifiable."
+  },
+  "frozen_candidate_data_spec": {
+    "query_population": "All supplied 2025 departures; fit still uses exactly the original ordinary-model rows. No departure target or recorded BLOCK field is read by the builder.",
+    "query_fields": ["MVT_ID_mvt", "ADEP_mvt", "MVT_TIME_UTC_mvt", "AOBT_3_flt", "STAND_mvt", "RUNWAY_mvt"],
+    "identity": "Reuse the audited aircraft_rotation identity.parquet exactly; unique near-takeoff aircraft only. Missing/ambiguous/conflicting identity yields no sequence. Shared input-only 120-second conflict cleanup is the existing root-approved policy.",
+    "identity_as_model_input": false,
+    "source": "Existing data/external/adsblol_heatmap/positions daily cache, about1.665GB; retained observational snapshots around10s cadence, airport boxes +/-20km, ground or altitude<=10000ft.",
+    "window_relative_to_supplied_takeoff_sec": [-7200, 60],
+    "day_scope": "Load previous/current/next UTC source files as needed. Event anchor is supplied takeoff, not hidden off-block. Keep raw altitude/ground state so preceding arrival motion remains distinguishable.",
+    "selection": "Same airport and audited aircraft; sort by timestamp. Deduplicate exact aircraft/airport/timestamp observations deterministically. Keep all histories with at least2 distinct timestamps; no32-point threshold and no complete-track requirement.",
+    "max_points": 128,
+    "dense_downsampling": "Choose128 equally spaced chronological row indices including first and last. Preserve each selected point's true time and gap from its previous raw observation; do not interpolate across missing observations.",
+    "storage": "Ragged numeric point array plus per-movement start/count index; integer raw units preserve geometry/time precision. Six int32 point channels: takeoff-minus-position milliseconds, latitude microdegrees, longitude microdegrees, raw altitude code, deciknot ground speed, preceding-raw-point gap milliseconds.",
+    "origin": "Airport mean of cached X-Plane runway ends, matching existing stand_features origin. Per-point east/north offsets use that fixed origin; no label-based geometry.",
+    "stand_and_runway_references": "Supplied stand and departure runway, matched against existing stand_coords.parquet and runway_ends.parquet. Runway reference is the same paved runway end used by current features. Missing stand/runway coordinates receive explicit masks and zero numeric placeholders.",
+    "point_channels_after_transform": [
+      "time before supplied takeoff /7200",
+      "log1p(previous raw observation gap seconds)/log1p(7200)",
+      "east metres from airport origin /20000",
+      "north metres from airport origin /20000",
+      "ground speed knots /100, with missing mask",
+      "altitude feet /10000, ground represented as0, with validity and ground masks",
+      "distance to supplied stand /20000, with known-stand mask",
+      "distance to supplied runway end /20000, with known-runway mask",
+      "asinh((point time-original AOBT3)/1800), with original-clock mask"
+    ],
+    "sequence_metadata": ["original and retained point counts", "observed time span", "ground-point count", "left/right source-file censor indicators", "stand/runway/original-clock availability"],
+    "missingness": "Right padding carries a separate point mask. Never impute points or replace missing original AOBT with schedule. Fewer than2 points forces residual branch output to exactly0. Missing speed/altitude/georeferences have explicit masks.",
+    "fold_scope": "All inputs are observation-only; the same frozen per-movement table can serve both outer folds. No target encoding or arrival-label context is introduced. Model rows, raw labels and train/held membership remain the audited baseline ones."
+  },
+  "frozen_candidate_model_spec": {
+    "tabular_branch": "Original156-input N09 encoder/PLE/MLP and direct min(y,10800) target; unchanged optimizer, batch2048, 24-epoch OneCycle definition and final correction stack.",
+    "sequence_encoder": "Width32 temporal convolution;3 residual blocks,2 kernel3 convolutions per block, dilations1/4/16, SiLU and per-point channel normalization. No sequence dropout or batch normalization. Mask after convolutions and use masked mean+max pooling; all-missing max safely returns0.",
+    "fusion": "Concatenate original256-wide final tabular hidden state,64 pooled sequence values and quality masks; Linear128 -> SiLU -> Linear1. Last linear is all zeros. Add its output to the original standardized mean, gated by the >=2-point mask.",
+    "initialization": "Instantiate original N09 first using its exact seed; initialize extra modules inside torch.random.fork_rng and restore global state. Zero final fusion layer consumes no RNG. Require exact initial original tabular weights, eval/train mean predictions and dropout RNG equality against N09.",
+    "training": "Joint MSE on the original standardized clipped target; no auxiliary loss, sequence reconstruction loss, target-derived sampling or new class weighting. Trunk can change during training; only initialization and unavailable-branch residual are exact fallbacks.",
+    "initial_screen": "Seed42 k0, frozen parent full-fit epochs21 January/17 July, no inner replay. Compare matched N09 k0, exact size-matched half-control, full parent15, and fixed half-new/half-parent pool. No ensemble expansion before initial evidence.",
+    "callsign_inputs": "Do not silently combine the six new callsign features into this first architecture screen. A later combined candidate requires its own comparison if both mechanisms help."
+  },
+  "availability_shift_checks": [
+    "Report point/ground counts, duration, max gap and source censoring by airport/month, identity availability and original-AOBT presence; retain0/1/2-7/8-31/32+ cohorts.",
+    "Measure exact new >=2-point SSE scope using saved v58 errors after input-only features are frozen. Do not require32 points.",
+    "Explicitly compare 2025 and final2026 input coverage before deployment: 2026 summer source coverage is known to be much denser. No claim that availability masks alone solve this shift.",
+    "Report sparse versus dense and unavailable-sequence errors separately; a physical improvement cannot be inferred merely from aggregate RMSE on the covered subset."
+  ],
+  "builder_and_audit": {
+    "algorithm": "One UTC query day at a time; sort daily point groups by airport/hex/time, use searchsorted bounds per departure, immediately downsample and append the ragged result. Avoid a giant departure-by-position range join or loading the whole year into RAM.",
+    "input_hashes": "Retain original query sources, audited identity, every position-day source, both coordinate maps, builder code, frozen settings, ragged arrays and movement index hashes.",
+    "meaningful_tests": ["two-point and all-missing histories", "midnight source windows", "same-aircraft multiple departures", "ambiguous identity exclusion", "takeoff+60s exact boundary", "no interpolation over long gaps", "point sorting/deduplication", "sparse padding masks", "original AOBT absence", "independent raw sample arithmetic", "exact baseline initialization and RNG"]
+  },
+  "resource_estimates": {
+    "status": "Planning estimates, not measured benchmarks",
+    "CPU_build_minutes": [2, 8],
+    "CPU_threads": 2,
+    "builder_working_RAM_GB_excluding_OS_cache": [1, 2],
+    "storage": "Ragged int32 array requires24bytes per kept point plus index/masks. Absolute128-point upper bound about6.4GB for2.085M departures; actual likely lower and must be measured in a4-date pilot.",
+    "GPU_screen_minutes": [10, 20],
+    "GPU_strategy": "Keep existing tabular tensors on GPU; gather padded sequence minibatches from a memory-mapped array, transform raw units to float32 on GPU, and use smaller inference chunks than the current65536-row tabular predictor. No simultaneous CPU heavy build and GPU fit.",
+    "implementation_and_independent_audit_hours": [1, 2],
+    "first_gate": "Four-date source pilot plus one synthetic minibatch memory/runtime benchmark after explicit allocation; this measures scope/storage/runtime before a full build or fitted model."
+  },
+  "technical_source": "https://arxiv.org/abs/1803.01271"
+}

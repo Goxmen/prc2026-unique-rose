@@ -1,0 +1,31 @@
+{
+  "parent": "v58",
+  "part": "Rome recording classifier",
+  "parent_experiment": "VALIDATION/runs/v3_20261010_rome_catboost_jan_jul",
+  "seeds": [
+    42,
+    142,
+    242
+  ],
+  "reused_seed": 42,
+  "rounds": {
+    "2025-01": 1182,
+    "2025-07": 1401
+  },
+  "stopping": "none; frozen parent training-selected rounds",
+  "parameter_changes": [
+    "random_seed only"
+  ],
+  "train_membership": "original R20 after_drop",
+  "new_features": [],
+  "network_share": 0.71,
+  "arms": [
+    "catboost_three_seed",
+    "half_catboost_three_seed_half_R20"
+  ],
+  "heldout_months": [
+    "2025-01",
+    "2025-07"
+  ],
+  "exploratory_reused_development_months": true
+}

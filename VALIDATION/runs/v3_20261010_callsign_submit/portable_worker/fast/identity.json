@@ -1,0 +1,42 @@
+{
+  "source": {
+    "path": "VALIDATION/callsign_submit_fast.py",
+    "sha256": "40600f43d26fbe42c08608afc5cb8343539b3ddc5da3769e5b50f7b4afb4f3b4"
+  },
+  "adapter": {
+    "path": "VALIDATION/chunked_direct_data.py",
+    "sha256": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9"
+  },
+  "portable_worker": {
+    "source": {
+      "path": "VALIDATION/callsign_submit_portable.py",
+      "sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c"
+    },
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/manifest.json",
+      "sha256": "279580a52250cdc230020e3c1d9f715dffa86f8e12baa6b8e3e2f380e7f4a614"
+    },
+    "source_check_scope": "Portable worker: exact cached original training matrix, transferred ranking matrices, feature tables, training IDs, recipe, source and helper hashes. Original ranking/raw sources fully checked on desktop prepare; desktop audit/build checks them again."
+  },
+  "chunked_adapter": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/chunked/identity.json",
+    "sha256": "6b6e8308a56ad85bbcd7859ff06216d55b8ac37e8cdcb1dad1991e5145618c4f"
+  },
+  "trainer": {
+    "path": "VALIDATION/fixed_epoch_fast_train.py",
+    "sha256": "8858cce5f44017d8c057ef35a328454d0868b1538e7b17de9f9c0b93d11d628b"
+  },
+  "settings": {
+    "monitor_rows": 1024,
+    "monitor_selection": "first rows in unchanged ranking order",
+    "inference_chunk": 16384,
+    "full_inference": "once after final frozen epoch",
+    "training": "identical original initialization, batches, RNG, optimizer, schedule and loss",
+    "stopping": "none; original frozen full-year epochs unchanged"
+  },
+  "change": "identical fixed training; small unlabeled epoch monitor, one full bounded inference",
+  "parity_test": {
+    "path": "VALIDATION/tests/test_fixed_epoch_fast_train.py",
+    "sha256": "b67e8961c0b5d6958e3966be9514a637347586c98efa73fe8f6408344ef43873"
+  }
+}

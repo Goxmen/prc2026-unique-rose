@@ -1,0 +1,89 @@
+{
+  "parent": "v58",
+  "seed": 42,
+  "network_index": 0,
+  "trial": "N09",
+  "stop_epochs": {
+    "2025-01": 21,
+    "2025-07": 17
+  },
+  "stop_choice": "frozen original N09 epochs; no inner selection",
+  "target": "direct min(taxi_sec,10800)",
+  "training_rows": "unchanged original permitted ordinary population",
+  "features": {
+    "drop_groups": {
+      "plan_categories": [
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator"
+      ],
+      "plan_gaps": [
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec"
+      ],
+      "operator_history": [
+        "op_taxi_30d",
+        "op_taxi_30d_n"
+      ],
+      "obt_ref_counts": [
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around"
+      ],
+      "own_queue": [
+        "q_queue_ahead_since_aobt3"
+      ],
+      "own_clock_comparison": [
+        "pc_own_minus_apt"
+      ],
+      "clocks": [
+        "clock_aobt3_minus_schedule_sec",
+        "clock_aobt3_minus_eobt1_sec",
+        "clock_eobt1_minus_iobt_sec",
+        "clock_iobt_minus_lobt_sec",
+        "clock_schedule_available",
+        "clock_lobt_available",
+        "clock_iobt_available",
+        "clock_eobt1_available",
+        "clock_aobt3_available",
+        "clock_raw_flight_id_missing",
+        "clock_raw_plan_block_missing",
+        "clock_raw_aobt3_missing",
+        "clock_available_count",
+        "clock_span_sec",
+        "clock_std_sec",
+        "clock_median_sec",
+        "clock_baseline_sec",
+        "clock_baseline_source"
+      ],
+      "match_flags": [
+        "op_matched",
+        "ab_matched"
+      ]
+    },
+    "feature_count": 121,
+    "query_only_mask": true,
+    "recovery": "off",
+    "physical_reuse": "unchanged fallback key AND original matched flag==1",
+    "unavailable_physical": "all NaN for both changed/unverified keys and original no-match/missing flags",
+    "output_gate": "original raw AOBT3 missing AND movement airport != LIRF",
+    "raw_removed": "all16 PLAN_FIELDS and FLIGHT_ID; none of their own direct/derived descendants retained",
+    "label_use": "membership/target check and fixed-epoch monitoring only; no label-based feature construction"
+  },
+  "scope": "original AOBT3 missing AND airport != LIRF",
+  "arms": [
+    "full_specialist",
+    "half_specialist_half_parent"
+  ],
+  "replacement": "ordinary prediction before unchanged final stack; parent outside scope",
+  "parent_ordinary": "0.71 original15-network pool +0.29 original3-tree mean",
+  "tree_seeds": [
+    42,
+    142,
+    242
+  ],
+  "validation": "every Jan/Jul held row; reused development months"
+}

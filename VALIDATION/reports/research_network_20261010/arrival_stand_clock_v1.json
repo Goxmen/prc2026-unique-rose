@@ -1,0 +1,247 @@
+{
+  "settings": {
+    "days": [
+      "2025-01-15",
+      "2025-07-15"
+    ],
+    "window_after_landing_sec": 5400,
+    "stand_radius_m": 100,
+    "max_stop_speed_deciknot": 10,
+    "min_approach_speed_deciknot": 20,
+    "min_stop_points": 3,
+    "min_stop_span_sec": 30,
+    "max_point_gap_sec": 120,
+    "max_approach_age_sec": 300,
+    "ground_alt_code": -123,
+    "selection": "earliest consecutive slow/near run with observed preceding outside-stand approach",
+    "clock_comparison": "supplied arrival in-block minus independently selected first stop point",
+    "causal_availability": "max(stop confirmation, supplied arrival in-block); strictly before departure",
+    "labels": "supplied arrivals only, never used to select physical witness",
+    "identity": "unchanged audited unique near-movement aircraft identity",
+    "source_licensing": "existing ADSB.lol cache; X-Plane Gateway GPLv2+ and OSM ODbL maps"
+  },
+  "days": [
+    "2025-01-15",
+    "2025-07-15"
+  ],
+  "rows": 10818,
+  "witnessed": 10,
+  "summary": [
+    {
+      "day": "2025-01-15",
+      "airport": "EDDF",
+      "arrivals": 517,
+      "identified": 510,
+      "mapped": 509,
+      "witnessed": 2,
+      "lag_quantiles": {
+        "0.1": -53.8,
+        "0.5": 47.0,
+        "0.9": 147.8
+      }
+    },
+    {
+      "day": "2025-01-15",
+      "airport": "EDDM",
+      "arrivals": 352,
+      "identified": 349,
+      "mapped": 352,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-01-15",
+      "airport": "EGLL",
+      "arrivals": 627,
+      "identified": 623,
+      "mapped": 624,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-01-15",
+      "airport": "EHAM",
+      "arrivals": 509,
+      "identified": 501,
+      "mapped": 507,
+      "witnessed": 2,
+      "lag_quantiles": {
+        "0.1": -34.2,
+        "0.5": -27.0,
+        "0.9": -19.8
+      }
+    },
+    {
+      "day": "2025-01-15",
+      "airport": "LEBL",
+      "arrivals": 313,
+      "identified": 310,
+      "mapped": 307,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-01-15",
+      "airport": "LEMD",
+      "arrivals": 528,
+      "identified": 519,
+      "mapped": 525,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-01-15",
+      "airport": "LFPG",
+      "arrivals": 547,
+      "identified": 535,
+      "mapped": 547,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-01-15",
+      "airport": "LIRF",
+      "arrivals": 328,
+      "identified": 322,
+      "mapped": 328,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-01-15",
+      "airport": "LSZH",
+      "arrivals": 292,
+      "identified": 289,
+      "mapped": 283,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-01-15",
+      "airport": "LTFM",
+      "arrivals": 671,
+      "identified": 0,
+      "mapped": 671,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "EDDF",
+      "arrivals": 669,
+      "identified": 662,
+      "mapped": 658,
+      "witnessed": 2,
+      "lag_quantiles": {
+        "0.1": 64.0,
+        "0.5": 124.0,
+        "0.9": 184.0
+      }
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "EDDM",
+      "arrivals": 517,
+      "identified": 514,
+      "mapped": 516,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "EGLL",
+      "arrivals": 678,
+      "identified": 671,
+      "mapped": 671,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "EHAM",
+      "arrivals": 717,
+      "identified": 702,
+      "mapped": 709,
+      "witnessed": 3,
+      "lag_quantiles": {
+        "0.1": 6.200000000000003,
+        "0.5": 91.0,
+        "0.9": 203.8
+      }
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "LEBL",
+      "arrivals": 524,
+      "identified": 523,
+      "mapped": 518,
+      "witnessed": 1,
+      "lag_quantiles": {
+        "0.1": -67.0,
+        "0.5": -67.0,
+        "0.9": -67.0
+      }
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "LEMD",
+      "arrivals": 611,
+      "identified": 602,
+      "mapped": 608,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "LFPG",
+      "arrivals": 718,
+      "identified": 708,
+      "mapped": 718,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "LIRF",
+      "arrivals": 480,
+      "identified": 476,
+      "mapped": 473,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "LSZH",
+      "arrivals": 408,
+      "identified": 404,
+      "mapped": 390,
+      "witnessed": 0,
+      "lag_quantiles": null
+    },
+    {
+      "day": "2025-07-15",
+      "airport": "LTFM",
+      "arrivals": 812,
+      "identified": 0,
+      "mapped": 812,
+      "witnessed": 0,
+      "lag_quantiles": null
+    }
+  ],
+  "seconds": 8.218077371999243,
+  "sources": {
+    "data/derived/aircraft_rotation_20261010/identity.parquet": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f",
+    "data/external/adsblol_heatmap/positions/2025-01-15.parquet": "dad46de3f109603d695528319168e6d998e36ec2e25f85744a34053792bbd2f8",
+    "data/external/adsblol_heatmap/positions/2025-01-16.parquet": "aed159f4a8b05bfd0779189ca1dca3f09c9f4daa433ab35d0fbf01d938d835f6",
+    "data/external/adsblol_heatmap/positions/2025-07-15.parquet": "5925e953ed549beb08e1e8882bb42aaa443322fea0a42de0cbd4c8afe759df44",
+    "data/external/adsblol_heatmap/positions/2025-07-16.parquet": "4dc8fffc1ce27f4486ddcf19a166bad40870958bfda3865b6d400c843de4334f",
+    "data/external/stand_maps/stand_coords.parquet": "217ff73ec7cb09e3c552efea72d586790db957529df6bc86921428e0a330b2c8"
+  },
+  "helpers": {
+    "VALIDATION/aircraft_rotation.py": "f3602d272d512dfb807309b3ee6da0ca31532d338454e40aac8c293917e8bdc2",
+    "VALIDATION/stand_geometry.py": "4043b700e2681cf7bd6b2dc64ffff2d968d9f230f4af48ba85c31a2402905c1b",
+    "VALIDATION/stand_features.py": "2ce15697cba515960fa5a27b70ec913248fcf44ccec7c1b106e0945f4dd8b4e6"
+  },
+  "source_sha256": "a84f94d1755bda8cd85dd3b00c85aefcac8645ad5a173daae22045fe3f2826bc",
+  "table_sha256": "9828eb6aa914dd2ccc17f8061a632983ea56e48cc6a62dc3f5dd4b2b4831226b"
+}

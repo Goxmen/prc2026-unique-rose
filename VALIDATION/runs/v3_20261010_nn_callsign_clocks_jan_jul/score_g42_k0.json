@@ -1,0 +1,172 @@
+{
+  "design": {
+    "parent": "v58",
+    "control": "HPO N09 matched seed42 k0",
+    "added_features": [
+      "cc_call_start_sec",
+      "cc_squawk_start_sec",
+      "cc_previous_call_end_sec",
+      "cc_before_own_arrival",
+      "cc_ambiguous",
+      "cc_censored"
+    ],
+    "target": "direct min(taxi_sec,10800)",
+    "network_share": 0.71,
+    "neural_arms": [
+      "callsign_clocks",
+      "half_callsign_half_v58"
+    ],
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "stop_choice": "frozen historical N09 seed42 epochs; no candidate inner fit",
+    "frozen_stop_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "train_input_cache": "/home/gunes/PRC/VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs",
+    "feature_cache": "/home/gunes/PRC/data/derived/callsign_clocks_20261010",
+    "reference": "input-only daily callsign/squawk aggregate clocks; prior arrival check uses fold references",
+    "training_reference": "ts.FOLDS[held month] for prior own arrivals",
+    "held_reference": "ts.FOLDS[held month] plus own held month input/arrival context",
+    "query_missing": "numeric NaNs preserved; independent of original AOBT availability",
+    "feature_settings": {
+      "min_records": 3,
+      "near_event_slack_sec": 180,
+      "lookback_sec": 14400,
+      "day_boundary_bridge_sec": 600,
+      "source_boundary_period_sec": 1800,
+      "source_boundary_tolerance_sec": 20,
+      "feature_names": [
+        "cc_call_start_sec",
+        "cc_squawk_start_sec",
+        "cc_previous_call_end_sec",
+        "cc_before_own_arrival",
+        "cc_ambiguous",
+        "cc_censored"
+      ],
+      "source_semantics": "daily hex/callsign/squawk aggregates; no contiguous episodes inferred",
+      "ambiguity": "overlapping other callsign, multiple active squawks, or earlier same-call departure that UTC day",
+      "censor": "call start in first 20 seconds after half-hour boundary or after supplied takeoff"
+    },
+    "weather_inputs_used": false,
+    "groups": [
+      42
+    ],
+    "networks_per_group": 1,
+    "exploratory_reused_development_months": true
+  },
+  "groups": [
+    42
+  ],
+  "nets": [
+    0
+  ],
+  "pool_size": 1,
+  "source_sha256": "4763756ce09d4e6da4e3c47d8dd844f063a29ae5addee6d56fc4a6ec60d74132",
+  "scores": {
+    "v58": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.4316664067627,
+          "2025-07": 263.0285858055726
+        },
+        "142": {
+          "2025-01": 328.44744119856585,
+          "2025-07": 262.99712069913744
+        },
+        "242": {
+          "2025-01": 328.55501098948906,
+          "2025-07": 262.988808954983
+        }
+      }
+    },
+    "direct_matched": {
+      "2025-01": 331.6930824220631,
+      "2025-07": 266.2815806253393,
+      "cv": 298.9873315237012,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 331.6445920422308,
+          "2025-07": 266.3048796045559
+        },
+        "142": {
+          "2025-01": 331.6572353894418,
+          "2025-07": 266.2615940949186
+        },
+        "242": {
+          "2025-01": 331.7774036352136,
+          "2025-07": 266.27826638654346
+        }
+      }
+    },
+    "callsign_clocks": {
+      "2025-01": 331.00517014254257,
+      "2025-07": 266.22724477344264,
+      "cv": 298.6162074579926,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 330.9642845081483,
+          "2025-07": 266.2609500611689
+        },
+        "142": {
+          "2025-01": 330.9641588432441,
+          "2025-07": 266.21434421919827
+        },
+        "242": {
+          "2025-01": 331.08705188284557,
+          "2025-07": 266.2064367806339
+        }
+      }
+    },
+    "half_callsign_half_v58": {
+      "2025-01": 328.72168574187015,
+      "2025-07": 263.2012794476275,
+      "cv": 295.9614825947488,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.67950744620765,
+          "2025-07": 263.2291502602911
+        },
+        "142": {
+          "2025-01": 328.682444047943,
+          "2025-07": 263.19158870095157
+        },
+        "242": {
+          "2025-01": 328.80309060366153,
+          "2025-07": 263.183097099564
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "callsign_clocks_vs_direct_matched": {
+      "change": -0.37112406570861367,
+      "ci95": [
+        -1.0705590254652582,
+        0.2761158926357699
+      ],
+      "decision": "inconclusive"
+    },
+    "callsign_clocks_vs_v58": {
+      "change": 2.874765883805537,
+      "ci95": [
+        2.230708742745896,
+        3.9906295599567647
+      ],
+      "decision": "regression"
+    },
+    "half_callsign_half_v58_vs_v58": {
+      "change": 0.22004102056175157,
+      "ci95": [
+        -0.0538088060049585,
+        0.5280230962108642
+      ],
+      "decision": "inconclusive"
+    }
+  }
+}

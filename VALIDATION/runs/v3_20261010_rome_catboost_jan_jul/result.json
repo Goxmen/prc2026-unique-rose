@@ -1,0 +1,59 @@
+{
+  "design": {
+    "parent": "v58",
+    "part": "Rome recording classifier",
+    "new_features": [],
+    "seed": 42,
+    "depth": 6,
+    "learning_rate": 0.05,
+    "l2_leaf_reg": 10.0,
+    "max_iterations": 4000,
+    "stopping": "last allowed training month log loss; patience 150",
+    "train_membership": "original R20 after_drop",
+    "network_share": 0.71,
+    "arms": [
+      "catboost",
+      "half_catboost_half_R20"
+    ],
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "exploratory_reused_development_months": true
+  },
+  "scores": {
+    "control": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871
+    },
+    "catboost": {
+      "2025-01": 328.7003599257429,
+      "2025-07": 262.4494527694558,
+      "cv": 295.5749063475993
+    },
+    "half_catboost_half_R20": {
+      "2025-01": 328.5174563486718,
+      "2025-07": 261.8040792440018,
+      "cv": 295.1607677963368
+    }
+  },
+  "comparisons": {
+    "catboost": {
+      "change": -0.16653522658774023,
+      "ci95": [
+        -1.302793408083915,
+        0.96640314443326
+      ],
+      "decision": "inconclusive"
+    },
+    "half_catboost_half_R20": {
+      "change": -0.5806737778502793,
+      "ci95": [
+        -1.180074136178434,
+        0.00858250846629955
+      ],
+      "decision": "inconclusive"
+    }
+  }
+}

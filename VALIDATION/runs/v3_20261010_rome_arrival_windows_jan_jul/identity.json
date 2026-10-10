@@ -1,0 +1,58 @@
+{
+  "design": {
+    "parent": "v58",
+    "part": "Rome recording classifier",
+    "new_features": [
+      "handler_arr_copy_pm24h",
+      "handler_arr_n_pm24h",
+      "handler_arr_copy_prev7d",
+      "handler_arr_n_prev7d"
+    ],
+    "retained_classifier_extras": [
+      "airline",
+      "handler_arr_sched_share",
+      "handler_arr_n",
+      "flight_number_format",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60"
+    ],
+    "seed": 42,
+    "rounds": 1700,
+    "trial": "R20",
+    "network_share": 0.71,
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "training_membership": "unchanged original R20 after_drop",
+    "checkpoint_selection": false,
+    "exploratory_reused_development_months": true,
+    "windows": "centered \u00b124h and trailing7days; shares/counts",
+    "prior_weight": 10,
+    "context": "training arrivals only for training; training+held for held",
+    "unchanged_monthly_handler": true
+  },
+  "runner_sha256": "31ab116469743938651a3b23ad91be9d7d4e172ad2ff5f9c4311b61ad1c21e17",
+  "sources": {
+    "VALIDATION/tools/research_arrival_copy_windows_20261010.py": "d83374fc836d3de8e20dd7a56f902355be6af17d7f2f594207f9225ecb4c30c1",
+    "VALIDATION/rome_adsblol_jan_jul.py": "7e3d8995baaf95615a49bb53a64dae4a421e1f28825d7b47a7f6dbe1a02b420f"
+  },
+  "feature_design_sha256": "e2d291a182b86fd959d2d51837de7368b0c772f6b4f7ab116f1180955ef550d0"
+}

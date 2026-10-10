@@ -1,0 +1,335 @@
+"""v58 direct-target PLE plus eight frozen aircraft-rotation/identity inputs.
+
+Use original 156 N09 features plus aircraft_rotation.FEATURE_NAMES, materialized
+per fold without departure labels or hidden block times. Training reference months
+are the original ts.FOLDS[month]; held references include training plus the held
+month. Arrival precedences and age limits are enforced by aircraft_rotation.py.
+No feature selection is driven by held taxi-out labels. Unknown identity is an
+explicit '<MISSING>' category; unavailable numeric context stays NaN.
+
+Same clipped direct target, ordinary rows, PLE/trunk/optimizer/schedule, and
+last-training-month epoch choice as N09. Fixed score arms are the new neural pool
+alone and a half-new/half-v58 neural mix; total neural share remains 0.71. Report
+matched-size N09 separately from the full 15-network v58 parent.
+
+Run check; fit --groups 42 --nets 0; score --groups 42 --nets 0. Fit only after
+feature-builder checks pass and root allocates the machine. No uploads or ledger
+mutations. All candidate networks remain on one machine.
+"""
+import argparse
+import ast
+import gc
+import hashlib
+import json
+import os
+from pathlib import Path
+import sys
+import time
+
+os.environ.setdefault('TORCH_DISABLE_NATIVE_JIT','1')
+os.environ.setdefault('OMP_NUM_THREADS','2')
+os.environ.setdefault('OPENBLAS_NUM_THREADS','1')
+os.environ.setdefault('MKL_NUM_THREADS','1')
+
+import numpy as np
+import pandas as pd
+import torch
+from threadpoolctl import threadpool_limits
+
+ROOT=Path(__file__).resolve().parents[1]
+sys.path[:0]=[str(ROOT/'VALIDATION'),str(ROOT/'pipeline'),str(ROOT/'VALIDATION/tools')]
+import nn_residual_jan_jul as shared
+import nn_sensor_differences_jan_jul as sensor
+import aircraft_rotation as rotation
+from records import sha256,write_json
+
+hpo,ts,baseline=shared.hpo,shared.ts,shared.baseline
+OUT=ts.RUNS/'v3_20261010_nn_rotation_jan_jul'
+FEATURES=list(rotation.FEATURE_NAMES)
+EXPECTED_FEATURES=['ar_aircraft','ar_prev_inblock_age_sec','ar_prev_same_stand',
+    'ar_prev_taxiin_sec','ar_departures_24h','ar_prev_minus_stand_age_sec',
+    'ar_stand_same_aircraft','ar_prev_arrival_delay_sec']
+if FEATURES!=EXPECTED_FEATURES:
+    raise ValueError('Aircraft rotation feature contract changed')
+if rotation.FOLDS!=ts.FOLDS:
+    raise ValueError('Aircraft rotation reference months differ from model folds')
+FEATURE_DIR=ROOT/'data/derived/aircraft_rotation_20261010'
+DESIGN=dict(parent='v58',control='HPO N09 matched network seeds',added_features=FEATURES,
+    target='direct min(taxi_sec,10800)',network_share=.71,
+    neural_arms=['rotation','half_rotation_half_v58'],heldout_months=ts.SPLITS,
+    stop_choice='last training month only',train_input_cache=str(baseline.OUT/'inputs'),
+    rotation_feature_cache=str(FEATURE_DIR),
+    training_reference='ts.FOLDS[held month] only; strict past arrival and inblock, max72h',
+    held_reference='training months + held month; strict past arrival and inblock, max72h',
+    weather_inputs_used=False,groups=[42,142,242],networks_per_group=5,
+    exploratory_reused_development_months=True)
+
+
+def add_features(X,ids,table):
+    if set(FEATURES)&set(X.columns):
+        raise ValueError('Rotation features already present in baseline')
+    result=rotation.add_features(X,ids,table)
+    if list(result.columns)!=list(X.columns)+FEATURES or not result.index.equals(X.index):
+        raise ValueError('Rotation join changed row/column order')
+    if not isinstance(result['ar_aircraft'].dtype,pd.CategoricalDtype):
+        raise ValueError('Aircraft identity must be categorical')
+    if result['ar_aircraft'].isna().any():
+        raise ValueError('Missing feature rows or missing explicit identity sentinel')
+    return result
+
+
+class DirectData(sensor.DirectData):
+    def preprocessing(self):
+        result=super().preprocessing()
+        result['design']=DESIGN
+        return result
+
+
+def identity():
+    parsed=ast.parse(Path(__file__).read_text())
+    selected=[n for n in parsed.body if isinstance(n,(ast.FunctionDef,ast.ClassDef))
+              and n.name in {'add_features','DirectData','validate_feature_sources','fit'}]
+    digest=hashlib.sha256(ast.dump(ast.Module(body=selected,type_ignores=[]),
+                                 include_attributes=False).encode()).hexdigest()
+    return dict(feature_data_ast_sha256=digest,features=FEATURES,
+        helpers={str(Path(module.__file__).relative_to(ROOT)):sha256(Path(module.__file__))
+                 for module in [shared,sensor,rotation,shared.nni,shared.nnj,hpo]})
+
+
+def guard_run():
+    path=OUT/'design.json'
+    if path.exists() and ts.read(path)!=DESIGN:
+        raise ValueError('Existing design changed; use a distinct run directory')
+    current=identity()
+    path=OUT/'code_identity.json'
+    if path.exists():
+        if ts.read(path)!=current:
+            raise ValueError('Feature/data implementation or training helper sources changed')
+    else:
+        if list((OUT/'networks').glob('*.parquet')):
+            raise ValueError('Existing predictions lack a recorded implementation identity')
+        write_json(path,current)
+        (OUT/'runner_initial.py').write_text(Path(__file__).read_text())
+    if not (OUT/'design.json').exists():
+        write_json(OUT/'design.json',DESIGN)
+
+
+def prediction_path(month,group,k):
+    return OUT/'networks'/f'{month}_s{group}_k{k}.parquet'
+
+
+def validate_feature_sources(month):
+    manifest_path=FEATURE_DIR/'folds.json'
+    manifest=ts.read(manifest_path)
+    if manifest['settings']!=rotation.SETTINGS:
+        raise ValueError('Rotation builder settings changed')
+    if manifest['source_sha256']!=sha256(Path(rotation.__file__)):
+        raise ValueError('Rotation builder source differs from its feature manifest')
+    sources={part:FEATURE_DIR/f'{month}_{part}.parquet' for part in ['train','held']}
+    for part,path in sources.items():
+        entry=manifest['folds'][month][part]
+        expected=ts.FOLDS[month]+([month] if part=='held' else [])
+        if entry['reference_months']!=expected:
+            raise ValueError('Rotation feature reference months differ from the frozen fold')
+        if entry['sha256']!=sha256(path):
+            raise ValueError('Rotation feature file differs from its builder manifest')
+    return sources,dict(path=str(manifest_path.relative_to(ROOT)),
+                        sha256=sha256(manifest_path),
+                        identity_sha256=manifest['identity_sha256'])
+
+
+def validate_completed_month(month):
+    path=OUT/'preprocessing'/f'{month}.json'
+    records=list((OUT/'networks').glob(f'{month}_s*.json'))
+    if not path.exists():
+        if records:
+            raise ValueError('Existing fits lack preprocessing provenance')
+        return
+    manifest=ts.read(path)
+    _,builder=validate_feature_sources(month)
+    if manifest['rotation_builder']!=builder:
+        raise ValueError('Rotation builder provenance changed')
+    for source in manifest['rotation_sources'].values():
+        if sha256(ROOT/source['path'])!=source['sha256']:
+            raise ValueError('Rotation feature cache changed')
+    if sha256(ROOT/manifest['source'])!=manifest['source_sha256']:
+        raise ValueError('Cached training/held matrices changed')
+    if sha256(OUT/'preprocessing'/f'{month}.pkl')!=manifest['preprocessing_sha256']:
+        raise ValueError('Saved preprocessing changed')
+    known=set()
+    for path in records:
+        info=ts.read(path)
+        if info['inputs']!=manifest or info['design']!=DESIGN:
+            raise ValueError('Existing fit provenance changed')
+        for k,entry in info['networks'].items():
+            pred=prediction_path(month,info['group'],int(k))
+            model=OUT/'models'/f'{month}_s{info["group"]}_k{k}.pt'
+            if sha256(pred)!=entry['sha256'] or sha256(model)!=entry['model_sha256']:
+                raise ValueError('Saved model or prediction changed')
+            known.add(pred)
+    if set((OUT/'networks').glob(f'{month}_s*_k*.parquet'))-known:
+        raise ValueError('Unrecorded prediction file; inspect interrupted fit')
+
+
+def fit(groups,nets,months):
+    cfg=shared.recipe()
+    lookup=shared.weather_all.raw_lookup()
+    for month in months:
+        validate_completed_month(month)
+        if all(prediction_path(month,s,k).exists() for s in groups for k in nets):
+            shared.log(f'{month}: requested networks already complete; skip')
+            continue
+        source=baseline.OUT/'inputs'/f'{month}.pkl'
+        data=pd.read_pickle(source)
+        names=data['baseline']
+        if len(names)!=156 or len(set(names))!=156 or set(FEATURES)&set(names):
+            raise ValueError('Original v58 input list changed')
+        feature_sources,builder=validate_feature_sources(month)
+        train_table=rotation.load_features(feature_sources['train'])
+        held_table=rotation.load_features(feature_sources['held'])
+        data['X']=add_features(data['X'].loc[:,names],data['train_ids'],train_table)
+        data['V']=add_features(data['V'].loc[:,names],data['ids'],held_table)
+        del train_table,held_table
+        dates=lookup.loc[data['train_ids'],'MVT_TIME_UTC_mvt']
+        t=pd.to_datetime(dates,utc=True).dt.strftime('%Y-%m').to_numpy()
+        assert set(t)==set(ts.FOLDS[month])
+        assert not np.intersect1d(data['train_ids'],data['ids']).size
+        raw=lookup.loc[data['ids']].reset_index()
+        np.testing.assert_array_equal(data['y'],lookup.loc[data['train_ids'],'taxi_sec'].to_numpy())
+        item=dict(X=data['X'],Vn=data['V'],y=data['y'],raw=raw,tmonth=t,meta=dict(month=month))
+        shared.log(f'{month}: encode {len(data["X"]):,} training / {len(data["V"]):,} held rows')
+        d=DirectData(item,'cuda')
+        pre=OUT/'preprocessing'/f'{month}.pkl'
+        shared.atomic_pickle(pre,d.preprocessing())
+        manifest=dict(source=str(source.relative_to(ROOT)),source_sha256=sha256(source),
+            selected_baseline_columns=names,added_features=FEATURES,train_rows=len(d.y),held_rows=len(d.yv),
+            rotation_builder=builder,
+            rotation_sources={part:dict(path=str(path.relative_to(ROOT)),sha256=sha256(path))
+                              for part,path in feature_sources.items()},
+            encoding=d.info,preprocessing_sha256=sha256(pre),
+            feature_nonmissing={part:{name:int(frame[name].notna().sum()) for name in FEATURES}
+                                for part,frame in [('train',data['X']),('held',data['V'])]})
+        write_json(OUT/'preprocessing'/f'{month}.json',manifest)
+        for group in groups:
+            record=OUT/'networks'/f'{month}_s{group}.json'
+            if record.exists():
+                info=ts.read(record)
+                if info['config']!=cfg or info['inputs']!=manifest or info['design']!=DESIGN:
+                    raise ValueError('Saved fit does not match requested recipe/inputs')
+            else:
+                started=time.monotonic()
+                model,_,curve=shared.train(d,d.inner_train,group,cfg['epochs'],
+                    (d.subset(d.inner_val),d.y[d.inner_val],d.offset[d.inner_val]))
+                stop=min(curve,key=lambda entry:entry['rmse'])['epoch']
+                info=dict(config=cfg,design=DESIGN,group=group,month=month,stop_epoch=stop,
+                          inner_curve=curve,stop_minutes=(time.monotonic()-started)/60,
+                          networks={},source_sha256=sha256(Path(__file__)),inputs=manifest)
+                write_json(record,info)
+                del model
+                torch.cuda.empty_cache()
+            for k in nets:
+                dest=prediction_path(month,group,k)
+                if dest.exists():
+                    continue
+                started=time.monotonic()
+                model,pred,curve=shared.train(d,np.arange(len(d.y)),group+1000*k,info['stop_epoch'],
+                    (d.held,d.yv,d.val_offset))
+                model_path=OUT/'models'/f'{month}_s{group}_k{k}.pt'
+                model_path.parent.mkdir(parents=True,exist_ok=True)
+                temp=model_path.with_suffix('.pt.tmp')
+                torch.save(dict(state_dict=model.state_dict(),config=cfg,design=DESIGN,
+                                preprocessing=str(pre.relative_to(ROOT))),temp)
+                temp.replace(model_path)
+                shared.nni.save_network(dest,data['ids'],pred)
+                info['networks'][str(k)]=dict(seed=group+1000*k,minutes=(time.monotonic()-started)/60,
+                    sha256=sha256(dest),model_sha256=sha256(model_path),held_curve=curve)
+                write_json(record,info)
+                del model
+                torch.cuda.empty_cache()
+                shared.log(f'{month} group {group} network {k}: saved')
+        del d,data,item,raw,t
+        gc.collect()
+        torch.cuda.empty_cache()
+
+
+def score(groups,nets):
+    sc,rome,pool,trees=baseline.baseline()
+    errors={name:{} for name in ['v58','direct_matched','rotation','half_rotation_half_v58']}
+    by_seed={name:{} for name in errors}
+    rows=[]
+    for month in ts.SPLITS:
+        direct,candidate=[],[]
+        for group in groups:
+            for k in nets:
+                frame=pd.read_parquet(prediction_path(month,group,k))
+                np.testing.assert_array_equal(frame.mvt_id.to_numpy(),sc.d[month]['ids'])
+                candidate.append(frame.base.to_numpy(float))
+                direct.append(shared.direct_member(sc,month,group,k))
+        dmean,cmean=np.mean(direct,axis=0),np.mean(candidate,axis=0)
+        arms=dict(v58=pool[month],direct_matched=dmean,rotation=cmean,
+                  half_rotation_half_v58=.5*pool[month]+.5*cmean)
+        month_errors={name:[] for name in arms}
+        for seed in hpo.SEEDS:
+            replacements={hpo.MEMBER_OF[p]:trees[p][seed][month] for p in trees}
+            for name,neural in arms.items():
+                squared=sc.se(month,seed,nn=neural,p=rome[month],**replacements)
+                month_errors[name].append(squared)
+                by_seed[name].setdefault(str(seed),{})[month]=float(np.sqrt(squared.mean()))
+        for name in arms:
+            errors[name][month]=np.mean(month_errors[name],axis=0)
+        raw=sc.d[month]['held']['raw']
+        rows.append(pd.DataFrame(dict(mvt_id=sc.d[month]['ids'],month=month,day=sc.d[month]['day'],
+            airport=raw.ADEP_mvt.to_numpy(),y=sc.d[month]['y'],direct_nn=dmean,candidate_nn=cmean,
+            **{f'se_{name}':errors[name][month] for name in arms})))
+    report=dict(design=DESIGN,groups=groups,nets=nets,pool_size=len(groups)*len(nets),
+                source_sha256=sha256(Path(__file__)),scores={},comparisons={})
+    for name in errors:
+        report['scores'][name]=dict(**sc.cv(errors[name]),by_tree_seed=by_seed[name])
+    if abs(report['scores']['v58']['cv']-295.7414415741871)>1e-7:
+        raise ValueError('v58 control did not reproduce')
+    scored=pd.concat(rows,ignore_index=True)
+    for name,control in [('rotation','direct_matched'),('rotation','v58'),
+                         ('half_rotation_half_v58','v58')]:
+        report['comparisons'][f'{name}_vs_{control}']=ts.paired_bootstrap(scored.day.to_numpy(),
+            scored.month.to_numpy(),scored[f'se_{control}'].to_numpy(),scored[f'se_{name}'].to_numpy())
+    tag='g'+'_'.join(map(str,groups))+'_k'+'_'.join(map(str,nets))
+    scored.to_parquet(OUT/f'scored_{tag}.parquet',index=False)
+    write_json(OUT/f'score_{tag}.json',report)
+    shared.log(json.dumps(report,indent=2))
+
+
+def self_check():
+    X=pd.DataFrame({'ordinary':[7.,8.,9.]},index=[4,5,6])
+    table=pd.DataFrame({'mvt_id':[10,20,30],
+        **{name:np.array([100.,np.nan,300.]) for name in FEATURES if name!='ar_aircraft'},
+        'ar_aircraft':pd.Categorical(['abc123','<MISSING>','def456'])}).set_index('mvt_id')[FEATURES]
+    result=add_features(X,np.array([30,10,20]),table)
+    pd.testing.assert_frame_equal(result[X.columns],X)
+    assert result.ar_aircraft.astype(str).tolist()==['def456','abc123','<MISSING>']
+    for name in FEATURES[1:]:
+        np.testing.assert_equal(result[name].to_numpy(),[300.,100.,np.nan])
+    shared.log('eight rotation features preserve identity alignment, category type, NaN and original columns')
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('stage',choices=['check','fit','score'])
+    parser.add_argument('--groups',type=int,nargs='+',choices=hpo.SEEDS,default=[42])
+    parser.add_argument('--nets',type=int,nargs='+',choices=list(range(5)),default=[0])
+    parser.add_argument('--months',nargs='+',choices=ts.SPLITS,default=ts.SPLITS)
+    args=parser.parse_args()
+    if len(set(args.groups))!=len(args.groups) or len(set(args.nets))!=len(args.nets):
+        raise ValueError('Duplicate ensemble members')
+    OUT.mkdir(parents=True,exist_ok=True)
+    (OUT/'networks').mkdir(exist_ok=True)
+    if args.stage!='check':
+        guard_run()
+    torch.set_num_threads(2)
+    self_check()
+    with threadpool_limits(limits=1,user_api='blas'):
+        if args.stage=='fit': fit(args.groups,args.nets,args.months)
+        elif args.stage=='score': score(args.groups,args.nets)
+
+
+if __name__=='__main__':
+    main()

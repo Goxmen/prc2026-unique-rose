@@ -1,0 +1,315 @@
+{
+  "design": {
+    "parent": "v58",
+    "seed": 42,
+    "network_index": 0,
+    "trial": "N09",
+    "stop_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "stop_choice": "frozen original N09 epochs; no inner selection",
+    "target": "direct min(taxi_sec,10800)",
+    "training_rows": "unchanged original permitted ordinary population",
+    "features": {
+      "drop_groups": {
+        "plan_categories": [
+          "market_segment",
+          "flight_type",
+          "wake_cat",
+          "operator"
+        ],
+        "plan_gaps": [
+          "mvt_minus_lobt_sec",
+          "mvt_minus_iobt_sec",
+          "mvt_minus_eobt1_sec",
+          "mvt_minus_aobt3_sec"
+        ],
+        "operator_history": [
+          "op_taxi_30d",
+          "op_taxi_30d_n"
+        ],
+        "obt_ref_counts": [
+          "dep_actual_30m_before",
+          "arr_actual_30m_before",
+          "dep_sched_60m_around"
+        ],
+        "own_queue": [
+          "q_queue_ahead_since_aobt3"
+        ],
+        "own_clock_comparison": [
+          "pc_own_minus_apt"
+        ],
+        "clocks": [
+          "clock_aobt3_minus_schedule_sec",
+          "clock_aobt3_minus_eobt1_sec",
+          "clock_eobt1_minus_iobt_sec",
+          "clock_iobt_minus_lobt_sec",
+          "clock_schedule_available",
+          "clock_lobt_available",
+          "clock_iobt_available",
+          "clock_eobt1_available",
+          "clock_aobt3_available",
+          "clock_raw_flight_id_missing",
+          "clock_raw_plan_block_missing",
+          "clock_raw_aobt3_missing",
+          "clock_available_count",
+          "clock_span_sec",
+          "clock_std_sec",
+          "clock_median_sec",
+          "clock_baseline_sec",
+          "clock_baseline_source"
+        ],
+        "match_flags": [
+          "op_matched",
+          "ab_matched"
+        ]
+      },
+      "feature_count": 121,
+      "query_only_mask": true,
+      "recovery": "off",
+      "physical_reuse": "unchanged fallback key AND original matched flag==1",
+      "unavailable_physical": "all NaN for both changed/unverified keys and original no-match/missing flags",
+      "output_gate": "original raw AOBT3 missing AND movement airport != LIRF",
+      "raw_removed": "all16 PLAN_FIELDS and FLIGHT_ID; none of their own direct/derived descendants retained",
+      "label_use": "membership/target check and fixed-epoch monitoring only; no label-based feature construction"
+    },
+    "scope": "original AOBT3 missing AND airport != LIRF",
+    "arms": [
+      "full_specialist",
+      "half_specialist_half_parent"
+    ],
+    "replacement": "ordinary prediction before unchanged final stack; parent outside scope",
+    "parent_ordinary": "0.71 original15-network pool +0.29 original3-tree mean",
+    "tree_seeds": [
+      42,
+      142,
+      242
+    ],
+    "validation": "every Jan/Jul held row; reused development months"
+  },
+  "scores": {
+    "v58": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.4316664067627,
+          "2025-07": 263.02858580557256
+        },
+        "142": {
+          "2025-01": 328.44744119856585,
+          "2025-07": 262.99712069913744
+        },
+        "242": {
+          "2025-01": 328.55501098948906,
+          "2025-07": 262.988808954983
+        }
+      }
+    },
+    "full_specialist": {
+      "2025-01": 328.5877334262833,
+      "2025-07": 263.3134655126594,
+      "cv": 295.95059946947134,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.5628067234416,
+          "2025-07": 263.34029153682485
+        },
+        "142": {
+          "2025-01": 328.5650257129582,
+          "2025-07": 263.30787071477687
+        },
+        "242": {
+          "2025-01": 328.6353626603873,
+          "2025-07": 263.29223200430687
+        }
+      }
+    },
+    "half_specialist_half_parent": {
+      "2025-01": 328.3495627551868,
+      "2025-07": 262.8818575285338,
+      "cv": 295.6157101418603,
+      "by_tree_seed": {
+        "42": {
+          "2025-01": 328.3143749990271,
+          "2025-07": 262.904893351433
+        },
+        "142": {
+          "2025-01": 328.32267027376315,
+          "2025-07": 262.87673407856465
+        },
+        "242": {
+          "2025-01": 328.41163413903473,
+          "2025-07": 262.8639434860101
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "full_specialist_vs_v58": {
+      "change": 0.20915789528427808,
+      "ci95": [
+        -0.11688204079739214,
+        0.5598012100067533
+      ],
+      "decision": "inconclusive"
+    },
+    "half_specialist_half_parent_vs_v58": {
+      "change": -0.1257314323267451,
+      "ci95": [
+        -0.29994845707398954,
+        0.022784099865260282
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "gate_diagnostics": [
+    {
+      "month": "2025-01",
+      "airport": "EDDF",
+      "rows": 164,
+      "v58": 277.128724781242,
+      "full_specialist": 429.2047227315778,
+      "half_specialist_half_parent": 328.49990510916757
+    },
+    {
+      "month": "2025-01",
+      "airport": "EDDM",
+      "rows": 65,
+      "v58": 218.27696954540798,
+      "full_specialist": 291.329474337707,
+      "half_specialist_half_parent": 240.41484105351674
+    },
+    {
+      "month": "2025-01",
+      "airport": "EGLL",
+      "rows": 128,
+      "v58": 568.9408368305398,
+      "full_specialist": 602.3495088316233,
+      "half_specialist_half_parent": 570.1748218359315
+    },
+    {
+      "month": "2025-01",
+      "airport": "EHAM",
+      "rows": 293,
+      "v58": 865.5664590641829,
+      "full_specialist": 825.870853138073,
+      "half_specialist_half_parent": 836.3601075462459
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEBL",
+      "rows": 66,
+      "v58": 175.9744159897361,
+      "full_specialist": 160.39479444151348,
+      "half_specialist_half_parent": 164.68213596115007
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEMD",
+      "rows": 32,
+      "v58": 189.55932222134223,
+      "full_specialist": 156.08475964248336,
+      "half_specialist_half_parent": 165.95146646514212
+    },
+    {
+      "month": "2025-01",
+      "airport": "LFPG",
+      "rows": 216,
+      "v58": 6905.884198665429,
+      "full_specialist": 6910.430326224899,
+      "half_specialist_half_parent": 6906.739112457409
+    },
+    {
+      "month": "2025-01",
+      "airport": "LSZH",
+      "rows": 179,
+      "v58": 707.8066932458448,
+      "full_specialist": 673.6159876044907,
+      "half_specialist_half_parent": 685.6612194444533
+    },
+    {
+      "month": "2025-01",
+      "airport": "LTFM",
+      "rows": 232,
+      "v58": 517.9110245278945,
+      "full_specialist": 523.3316543843581,
+      "half_specialist_half_parent": 514.3456918112555
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDF",
+      "rows": 435,
+      "v58": 319.08811205340874,
+      "full_specialist": 309.943792258336,
+      "half_specialist_half_parent": 308.1999346817022
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDM",
+      "rows": 172,
+      "v58": 570.448371199031,
+      "full_specialist": 568.6064201317864,
+      "half_specialist_half_parent": 565.5771722999675
+    },
+    {
+      "month": "2025-07",
+      "airport": "EGLL",
+      "rows": 338,
+      "v58": 1105.3454471591938,
+      "full_specialist": 1147.3721223289183,
+      "half_specialist_half_parent": 1113.1017835277853
+    },
+    {
+      "month": "2025-07",
+      "airport": "EHAM",
+      "rows": 515,
+      "v58": 229.21524685476257,
+      "full_specialist": 231.04226320391047,
+      "half_specialist_half_parent": 221.93983375480238
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEBL",
+      "rows": 430,
+      "v58": 228.93699620089586,
+      "full_specialist": 225.47322707051487,
+      "half_specialist_half_parent": 221.4671564385867
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEMD",
+      "rows": 277,
+      "v58": 228.66254406667983,
+      "full_specialist": 222.68509114277643,
+      "half_specialist_half_parent": 217.06631497673382
+    },
+    {
+      "month": "2025-07",
+      "airport": "LFPG",
+      "rows": 664,
+      "v58": 434.32702055796534,
+      "full_specialist": 458.632535096554,
+      "half_specialist_half_parent": 434.5145997399862
+    },
+    {
+      "month": "2025-07",
+      "airport": "LSZH",
+      "rows": 345,
+      "v58": 526.666178380493,
+      "full_specialist": 545.420067051446,
+      "half_specialist_half_parent": 532.3507532368999
+    },
+    {
+      "month": "2025-07",
+      "airport": "LTFM",
+      "rows": 425,
+      "v58": 604.1682959617112,
+      "full_specialist": 566.9696046102051,
+      "half_specialist_half_parent": 580.6479306887929
+    }
+  ],
+  "caveat": "Whole-plan missingness is not random. Same reused development months; paired-day intervals are exploratory."
+}

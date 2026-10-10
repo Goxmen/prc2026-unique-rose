@@ -1,0 +1,72 @@
+{
+  "design": {
+    "parent": "v58",
+    "part": "Rome recording classifier",
+    "new_features": [
+      "handler_arr_copy_pm24h",
+      "handler_arr_n_pm24h",
+      "handler_arr_copy_prev7d",
+      "handler_arr_n_prev7d"
+    ],
+    "retained_classifier_extras": [
+      "airline",
+      "handler_arr_sched_share",
+      "handler_arr_n",
+      "flight_number_format",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60"
+    ],
+    "seed": 42,
+    "rounds": 1700,
+    "trial": "R20",
+    "network_share": 0.71,
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "training_membership": "unchanged original R20 after_drop",
+    "checkpoint_selection": false,
+    "exploratory_reused_development_months": true,
+    "windows": "centered \u00b124h and trailing7days; shares/counts",
+    "prior_weight": 10,
+    "context": "training arrivals only for training; training+held for held",
+    "unchanged_monthly_handler": true
+  },
+  "params": {
+    "objective": "binary",
+    "metric": "binary_logloss",
+    "learning_rate": 0.02,
+    "num_leaves": 127,
+    "min_data_in_leaf": 50,
+    "feature_fraction": 0.6,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "verbosity": -1,
+    "seed": 42,
+    "bagging_seed": 43,
+    "feature_fraction_seed": 44,
+    "num_threads": 8
+  },
+  "minutes": 0.198150066783334,
+  "model_sha256": "f87d06f16c40f607fb18449c4ea5343fbe66abca5d1713b242113c17d984598c",
+  "input_sha256": "4ee847bdba1c62ce2703811847fba38808a5b67965bf3480eb20c00af99555a4",
+  "prediction_sha256": "2e8b361e0e9b35973407acd2dcb744f4b7450e6c7fe84c82f4094342afc12984",
+  "source_sha256": "7e3d8995baaf95615a49bb53a64dae4a421e1f28825d7b47a7f6dbe1a02b420f"
+}

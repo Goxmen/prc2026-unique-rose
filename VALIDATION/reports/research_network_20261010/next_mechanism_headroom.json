@@ -1,0 +1,107 @@
+{
+  "note": "Descriptive same reused CV months; clock median stability is not a trained-feature score or independent validation. Model errors use v58 tree seed42.",
+  "scope": {
+    "2025-01": {
+      "actual_aobt": {
+        "rows": 152271,
+        "sse_share": 0.31577045782166363,
+        "rmse": 185.42469899791533,
+        "gain_if_scope_sse_falls10percent": 5.227045540305312
+      },
+      "clock_encoder_clean": {
+        "rows": 136714,
+        "sse_share": 0.27583300146618495,
+        "rmse": 182.89719785797985,
+        "gain_if_scope_sse_falls10percent": 4.56128840709664
+      },
+      "track_ground": {
+        "rows": 65806,
+        "sse_share": 0.06351991427962106,
+        "rmse": 126.50644141249248,
+        "gain_if_scope_sse_falls10percent": 1.044759283355802
+      },
+      "track_ground_noid": {
+        "rows": 203,
+        "sse_share": 0.005721423447186317,
+        "rmse": 683.5880482806679,
+        "gain_if_scope_sse_falls10percent": 0.09396827457919699
+      },
+      "track_ground_no_aobt": {
+        "rows": 203,
+        "sse_share": 0.005721423447186317,
+        "rmse": 683.5880482806679,
+        "gain_if_scope_sse_falls10percent": 0.09396827457919699
+      },
+      "track_atleast32points": {
+        "rows": 21683,
+        "sse_share": 0.01375342065015533,
+        "rmse": 102.55010571454136,
+        "gain_if_scope_sse_falls10percent": 0.22593065285741432
+      }
+    },
+    "2025-07": {
+      "actual_aobt": {
+        "rows": 186775,
+        "sse_share": 0.6873854650441296,
+        "rmse": 220.36057586614035,
+        "gain_if_scope_sse_falls10percent": 9.201032514822828
+      },
+      "clock_encoder_clean": {
+        "rows": 171802,
+        "sse_share": 0.5011238394318868,
+        "rmse": 196.1785512289914,
+        "gain_if_scope_sse_falls10percent": 6.675197046115727
+      },
+      "track_ground": {
+        "rows": 103381,
+        "sse_share": 0.514125716153821,
+        "rmse": 256.1576900278087,
+        "gain_if_scope_sse_falls10percent": 6.8507028872747355
+      },
+      "track_ground_noid": {
+        "rows": 1214,
+        "sse_share": 0.19608249088492924,
+        "rmse": 1459.8329540241011,
+        "gain_if_scope_sse_falls10percent": 2.5915317571920014
+      },
+      "track_ground_no_aobt": {
+        "rows": 1217,
+        "sse_share": 0.19614590733311155,
+        "rmse": 1458.2683000405593,
+        "gain_if_scope_sse_falls10percent": 2.592374074542988
+      },
+      "track_atleast32points": {
+        "rows": 39335,
+        "sse_share": 0.09311137120085607,
+        "rmse": 176.7278047247889,
+        "gain_if_scope_sse_falls10percent": 1.2274114455083236
+      }
+    }
+  },
+  "clock_stability": {
+    "STAND_mvt": {
+      "common_groups30plus": 1198,
+      "weighted_median_offset_change_mean": 61.01006580043312,
+      "median_offset_pearson": 0.8664989602021199,
+      "airport_centered_offset_pearson": 0.7657050482962238,
+      "airport_centered_weighted_rms_january": 84.0148568944436,
+      "airport_centered_weighted_rms_july": 82.37928373872492
+    },
+    "AIRCRAFT_OPERATOR_flt": {
+      "common_groups30plus": 464,
+      "weighted_median_offset_change_mean": 59.14350538403465,
+      "median_offset_pearson": 0.7926998513813353,
+      "airport_centered_offset_pearson": 0.6934186623998696,
+      "airport_centered_weighted_rms_january": 63.38162425844335,
+      "airport_centered_weighted_rms_july": 68.07213944043315
+    },
+    "RUNWAY_mvt": {
+      "common_groups30plus": 41,
+      "weighted_median_offset_change_mean": 42.359633534049934,
+      "median_offset_pearson": 0.8680000785959793,
+      "airport_centered_offset_pearson": 0.7495082916284589,
+      "airport_centered_weighted_rms_january": 49.365418206036836,
+      "airport_centered_weighted_rms_july": 48.86848994066173
+    }
+  }
+}

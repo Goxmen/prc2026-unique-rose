@@ -1,0 +1,35 @@
+{
+  "source": {
+    "path": "VALIDATION/callsign_submit_chunked.py",
+    "sha256": "a7c24fdf7c7a682257061520e6b3cf4781255c85d55251c02d896de4c1cde632"
+  },
+  "adapter": {
+    "path": "VALIDATION/chunked_direct_data.py",
+    "sha256": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9"
+  },
+  "portable_worker": {
+    "source": {
+      "path": "VALIDATION/callsign_submit_portable.py",
+      "sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c"
+    },
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/manifest.json",
+      "sha256": "279580a52250cdc230020e3c1d9f715dffa86f8e12baa6b8e3e2f380e7f4a614"
+    },
+    "source_check_scope": "Portable worker: exact cached original training matrix, transferred ranking matrices, feature tables, training IDs, recipe, source and helper hashes. Original ranking/raw sources fully checked on desktop prepare; desktop audit/build checks them again."
+  },
+  "settings": {
+    "chunk_rows": 65536,
+    "encoder": "unchanged nn_jan_jul.Encoder",
+    "transform": "unchanged Encoder.transform on row slices",
+    "quantiles": "same numpy quantile probabilities, one PLE input at a time",
+    "tensor_order": "same int64 categories, float32 PLE and plain features",
+    "target": "unchanged clipped direct target, population mean/std",
+    "random_draws": 0
+  },
+  "change": "identical original encoding in chunks and per-column PLE quantiles; training unchanged",
+  "parity_test": {
+    "path": "VALIDATION/tests/test_chunked_direct_data.py",
+    "sha256": "079c69f02a60b384ad95ffcbb257a5b796b112143685479a091859fcc449287e"
+  }
+}
