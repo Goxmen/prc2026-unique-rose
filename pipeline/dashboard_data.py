@@ -34,7 +34,7 @@ API = (
     "https://datacomp.opensky-network.org/api/competitions/"
     "bb3693e1-26bc-4a9e-8619-4fe78b4eab0c"
 )
-DEADLINE_UTC = "2026-10-11T21:59:59Z"  # 11 Oct 2026 23:59:59 CEST
+DEADLINE_UTC = "2026-10-14T10:00:00Z"  # Official extension: 14 Oct, 12:00 local (page explicitly gives 10:00Z).
 CHUNK = 1000  # feed rows per db doc (db doc cap is 256 KiB)
 
 

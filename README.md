@@ -2,7 +2,9 @@
 
 Predicting taxi-out times at major European airports for the [PRC Data Challenge 2026](https://prc-data-challenge-2026.netlify.app/).
 
-> Sections below marked *(TBD)* will be filled in as the project takes shape.
+Current experiments, retained models and submission approvals are tracked in
+[AGENTS.md](AGENTS.md), [SUBMISSIONS.md](SUBMISSIONS.md) and the
+[October 10 research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md).
 
 ## Competition rules & key information
 
@@ -19,17 +21,23 @@ Predict the **taxi-out time** (`TAXITIME_SEC_mvt`, in seconds) of departing flig
 | EDDF | Frankfurt | LSZH | Zurich |
 
 - **Training data:** all airport movements for the full year **2025** (~4.17 M rows).
-- **Evaluation data:** movements from **January and July 2026**.
+- **Evaluation data:** originally January and July 2026; the final files add
+  **February and June 2026** ([official data description](https://prc-data-challenge-2026.netlify.app/data.html)).
 
 ### Metric & ranking
 
-- Submissions are scored by **Root Mean Square Error (RMSE)** on the predicted taxi-out times for the Jan + Jul 2026 departures.
-- A team's rank is its **best RMSE across all of its submissions** — submitting often costs nothing.
+- Submissions are scored by **Root Mean Square Error (RMSE)** on predicted
+  taxi-out times for the accepted evaluation population. Historical scores
+  through v61 use the 344,841 original January/July departures.
+- A team's rank is its **best RMSE across its scored submissions**. Our team
+  requires explicit user approval before each upload.
 - Leaderboard REST API: `https://datacomp.opensky-network.org/api/competitions/bb3693e1-26bc-4a9e-8619-4fe78b4eab0c/leaderboard` (paginate via `nextCursor`; Swagger docs at `https://datacomp.opensky-network.org/api/swagger-ui/`).
 
 ### Timeline & prizes
 
-- Runs **1 September 2026 → 11 October 2026, 23:59:59 CET**.
+- Runs from **1 September 2026** until **14 October 2026, 10:00 UTC**.
+  The [official extension](https://prc-data-challenge-2026.netlify.app/) explicitly
+  gives `2026-10-14T10:00Z` alongside its displayed `12:00 CET` deadline.
 - Combined prize pool of **€5,000** for the top 3 teams.
 - Organizers reserve the right to change the rules or stop the challenge.
 
@@ -42,12 +50,20 @@ Hosted on OpenSky Network's MinIO object store (S3-compatible), endpoint `https:
 | `training_2025-MM-01_*.parquet` (×12) | 4,167,797 total | One month each of 2025 movements (departures **and** arrivals) with full features and targets |
 | `ranking.parquet` | 689,534 | Jan + Jul 2026 movements, same columns; `BLOCK_TIME_UTC_mvt` and `TAXITIME_SEC_mvt` are **blanked for departures** (`PHASE_mvt = "DEP"`, 344,841 rows) — these are what we predict |
 | `submitting.parquet` | 344,841 | Submission template: `MVT_ID_mvt` (double) + `TAXITIME_SEC_mvt` (int32, all null) |
+| `final_ranking.parquet` | 1,341,197 | Final January, February, June and July 2026 movements; departure targets are blanked |
+| `final_submitting.parquet` | 670,790 | Final four-month departure template, with the same two columns |
+
+The final files were released on 8 October. Shared old/final movements have
+jittered timestamps, so retain separate flight-keyed features and predictions.
+The first four-month upload, v63, was rejected because the scorer still had
+the old truth population. Check the accepted population before choosing a
+template; see [AGENTS.md](AGENTS.md) for current submission state.
 
 Each row carries movement fields (`*_mvt`: airport, phase, times, aircraft type, runway, stand, taxi time) joined with flight-plan fields (`*_flt`: callsign, operator, market segment, wake category, OBT/ARVT timestamps). Note from the organizers: *"Real world data is messy. You will find some inconsistencies between movement and flight information."*
 
 ### Submission format
 
-1. Start from the `submitting.parquet` template and fill the `TAXITIME_SEC_mvt` column with predictions (do **not** modify `MVT_ID_mvt`).
+1. Start from the template matching the accepted ranking population and fill `TAXITIME_SEC_mvt` with predictions (do **not** modify `MVT_ID_mvt`).
 2. Name the file `<team-name>_v<incremental integer>.parquet` — for us: `unique-rose_v1.parquet`, `unique-rose_v2.parquet`, …
 3. Upload it to the team's own MinIO bucket (ours: `prc-2026-unique-rose`).
 
@@ -121,10 +137,28 @@ The team MinIO keys are shared privately (ask a teammate) — never commit them.
 - `VALIDATION/` — the validation protocol ([v3](VALIDATION/docs/PROTOCOL.md)) and the harness that runs it; see [VALIDATION/README.md](VALIDATION/README.md) and [VALIDATION/archive/FINDINGS_20260907.md](VALIDATION/archive/FINDINGS_20260907.md).
 - `dashboard/` — source of the team's live leaderboard page (a Claude artifact). `pipeline/dashboard_data.py` rebuilds the data payloads from the leaderboard API + team bucket into `tmp/dashboard/`; the page reads them from the artifact's database, so refreshing the data needs no republish. `pipeline/leaderboard_status.py` provides the same live score history and public standings directly in text or JSON (`--json`), without using the webpage.
 
-## Approach *(TBD)*
+## Approach
 
-## Results *(TBD)*
+The best scored recipe combines piecewise-linear-embedding neural networks,
+main and per-airport LightGBMs, and CatBoost. It uses supplied flight plans,
+traffic/history features and cached external observations. A separate Rome
+classifier handles schedule-copy recording behavior, followed by retained
+corrections. The target is the recorded taxi duration, which sometimes differs
+from physical surface movement alone.
+
+New candidates use the two-fold January/July validation in
+[`VALIDATION/tuning_seasonal.py`](VALIDATION/tuning_seasonal.py). Its monthly
+RMSE average is distinct from the official test score. These development months
+have been reused extensively; bootstrap intervals do not make them independent
+confirmation. Full recipes, failed ideas and reproducible run locations are in
+the [research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md).
+
+## Results
+
+See [SUBMISSIONS.md](SUBMISSIONS.md) for actual uploads and selected candidates.
+For live scores, run `.venv/bin/python pipeline/leaderboard_status.py --json`;
+distinguish the latest upload from the best score.
 
 ## License
 
-GPLv3 (required by the competition's open-source rules — license file to be added).
+[GNU GPLv3](LICENSE), as required by the competition's open-source rules.
