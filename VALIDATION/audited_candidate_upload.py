@@ -22,6 +22,9 @@ def run(manifest_path,stage):
         assert table['TAXITIME_SEC_mvt'].null_count==0
         assert (table['TAXITIME_SEC_mvt'].to_numpy()>=0).all()
         public=transport.live.fetch_leaderboard();uploads=transport.live.fetch_bucket(strict=True)
+        byfile={r['filename']:r for r in public if r['teamName']==transport.live.TEAM}
+        for filename,score in m.get('basis_scores',{}).items():
+            assert byfile[filename]['usedPairs']==344841 and abs(byfile[filename]['score']-score)<1e-8
         latest=sorted(public,key=lambda x:x['processedAt'])[-50:]
         assert all(r.get('usedPairs') in [None,344841] for r in latest),'Accepted population changed'
         assert output.name not in {r['file'] for r in uploads},'Remote filename occupied; never re-upload'

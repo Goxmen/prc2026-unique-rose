@@ -3,41 +3,46 @@
   "target_rmse": 225.0,
   "baseline_version": 64,
   "baseline_rmse": 232.7751,
-  "remaining_seconds": 7.7751,
+  "remaining_seconds": 0.8994,
   "created_at": "2026-10-10T22:08:17.633707+00:00",
   "status": "research_active",
   "authorization": {
     "uploads": "autonomous; user explicitly superseded all per-upload approval requirements",
     "training": "desktop and laptop; one heavy job per machine"
   },
-  "goal_tracker_limitation": "Existing unfinished goal has stale objective/status; API permits only status changes and refuses replacement. Do not mark unfinished old goal complete. User instruction is authoritative.",
+  "goal_tracker_limitation": "Resolved: official v65 exceeded old five-second objective; completed old goal and created active225 goal.",
   "agents": "three existing agents unavailable due account usage limits; root continues",
   "next_experiments": [
     {
       "name": "scored_submission_geometry",
       "purpose": "Determine whether exact squared-error geometry of our already-scored submissions yields useful complementary predictions; explicitly leaderboard-selected, with Jan/Jul CV and rounding audit before any upload",
-      "fits": 0
+      "fits": 0,
+      "status": "v65 officially225.8994; retain and extend only with new scored model directions"
     },
     {
       "name": "track_physical_scales",
       "purpose": "Give raw track encoder distance and velocity features at apron/runway scales; preserve original branch initialization and compare matched single models plus actual v64",
       "machine": "desktop",
-      "status": "single seed completed and audited; CV 293.3477206913829 versus v64 293.6566180991573; fixed three-member continuation prepared"
+      "status": "pool3 CV running desktop; full-year k0 running laptop; same156 inputs and original15epochs"
     },
     {
       "name": "rome_cost_calibration",
       "purpose": "Assess feasibility of honest inner predictions and calibration for downstream squared error; avoid repeating failed cost-weighted classifier or unweighted Platt tests",
       "machine": "laptop",
-      "status": "deferred; laptop allocated to required legacy-fold fits"
+      "status": "deferred; laptop allocated to physical-scale production"
     }
   ],
   "validation_reconstruction": {
     "basic": "four fits complete on laptop; returned prediction hashes verified",
-    "raw": "running on laptop",
-    "hybrid": "running on desktop",
+    "raw": "all28 predictions complete on laptop; returned and hash verified",
+    "hybrid": "all20 predictions complete; v43 cached",
     "modern": "saved predictions replayed; v64 errors exact",
     "basis": "geometry/validation_ready_basis.json",
     "projected_rmse": 225.89945650938415,
-    "official_score": false
-  }
+    "official_score": 225.8994,
+    "jan_jul_cv": 297.02466770324986
+  },
+  "best_version": 65,
+  "best_rmse": 225.8994,
+  "latest_live": "2026-10-10T23:02:34+00:00"
 }

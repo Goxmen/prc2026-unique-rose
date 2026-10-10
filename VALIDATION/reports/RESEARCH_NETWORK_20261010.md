@@ -8,6 +8,10 @@ The old five-second objective is complete; the 225.00 objective remains active. 
 approval statements below describe the earlier phase; the new instructions take
 precedence. New experiment records live in `../runs/v3_20261011_target225/`.
 
+A saved-prediction scan of Rome CatBoost shares 0.0–1.0 on v64 selects 0.6,
+but improves only 0.0118 CV seconds over 0.5. This is inconclusive development
+noise; the fixed half mixture stays unchanged, with no candidate or upload.
+
 The first October 11 screen adds fourteen fixed local-distance/motion transforms
 to the sparse-track encoder through a zero-initialized parallel stem. Original
 weights, preprocessing, dropout RNG, epochs and missing-track gates are preserved.
@@ -841,5 +845,5 @@ half-single/half-pool control when needed. Mixing one new network into a
 architecture verdict. Further candidates must beat the actual v64 combination;
 retain v58 comparisons where they isolate a previously studied change.
 Retain failed evidence and original
-controls. Prepare a complete, audited candidate before seeking upload approval;
-v64's approval is consumed and any further upload needs fresh approval.
+controls. Prepare and audit each concrete candidate before uploading. The October11
+autonomous-upload instruction supersedes the historical per-file approval rule.
