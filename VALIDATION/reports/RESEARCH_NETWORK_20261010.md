@@ -17,6 +17,12 @@ production candidate yet. Run: `../runs/v3_20261011_nn_track_ground_pool_jan_jul
 Relaxing affine weight bounds/regularization projects only about 0.01 seconds
 beyond v69, so no candidate is selected from that diagnostic.
 
+A fixed airport-bias diagnostic on v69 also fails: each month uses the other
+month's mean error per airport, shrunk by a fixed 10,000-row prior. January
+worsens 0.8802 seconds and July 1.0366 (mean +0.9584). Several airport biases
+reverse sign. This reused, overlapping-fold diagnostic is not independent nested
+validation; no correction is selected or uploaded.
+
 A saved-prediction scan of Rome CatBoost shares 0.0–1.0 on v64 selects 0.6,
 but improves only 0.0118 CV seconds over 0.5. This is inconclusive development
 noise; the fixed half mixture stays unchanged, with no candidate or upload.
