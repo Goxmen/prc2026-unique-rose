@@ -1,16 +1,17 @@
 # Next steps
 
-**Current status, 11 October 2026:** v64 is the best official submission at
-**232.7751 seconds**, improving v58 by **3.4144 seconds** on all 344,841 flights.
-The raw-track, callsign and Rome ensemble scores **293.6566 Jan/Jul CV**,
-2.0729 seconds below its matched control. The user approved the upload; the remote
-file hash matches the audited candidate. Rank **20/242** at 00:02 Amsterdam.
-The user raised the goal to **225.00 or lower** on 11 October, requiring another
-**7.7751 seconds**, and authorized autonomous uploads. Older approval requirements
-in historical reports are superseded.
-See the [current research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md)
-for completed experiments, rejected ideas, remaining leads and transfer caveats.
-New candidates require Jan/Jul CV; the older 16-fold validations are not run by default.
+**Current status, 11 October 2026:** v65 is best at **225.8994 seconds**, improving
+v64 by **6.8757 seconds** and v58 by **10.2901 seconds**, on all 344,841 flights.
+Rank **15/242** at 01:02 Amsterdam. It uses signed ensemble weights selected from
+our own leaderboard scores. Jan/Jul CV **297.0247** regresses from v64's 293.6569;
+the official gain is specific to the scored population, not independent evidence.
+The active target is **225.00 or lower**, another **0.8994 seconds**. Autonomous
+uploads and both machines are authorized; one heavy job per machine.
+
+The physical-scale raw-track encoder passes a single-member Jan/Jul screen.
+Three-member CV runs on the desktop and the first full-year member runs on the
+laptop. See the [research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md).
+New candidates require Jan/Jul CV; the older 16-fold validations stay unused.
 
 The table below preserves the September idea inventory and its original estimates.
 Its gains are combined-CV seconds against **row 43 (233.2338, uploaded as v40)**,

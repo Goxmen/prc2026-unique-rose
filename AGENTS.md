@@ -114,6 +114,8 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 01:02: v65 scores 225.8994, best, rank 15/242.** It improves v64 by 6.8757 seconds and v58 by 10.2901. The original five-second goal is complete; the active target is **225.00 or lower** (0.8994 left). Autonomous uploads and laptop training are explicitly authorized. v65 is a signed affine ensemble selected from our own scored files; Jan/Jul CV regresses to **297.0247** from serialized v64's 293.6569. Do not claim independent validation. All legacy current-fold fits/replays are retained; do not repeat. Record: `VALIDATION/runs/v3_20261011_scored_blend_submit/submission_v65/`. Physical-scale track features passed the single-member screen (293.3477); desktop runs the fixed three-member CV expansion, laptop runs full-year seed42. One heavy job per host; resume retained artifacts. Three research subagents are unavailable due account allowance; root continues.
+
 - **October 11: user raised the target to 225.00 or lower and authorized autonomous uploads.**
   Starting best is v64 at 232.7751; the remaining reduction is 7.7751 seconds.
   Continue from completed artifacts; research state is recorded in

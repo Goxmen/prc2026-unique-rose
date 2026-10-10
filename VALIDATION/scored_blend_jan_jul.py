@@ -34,7 +34,8 @@ def load(path,ids,col):
 
 def saved(folder,m,v,ids):
     path=folder/'predictions'/f'{m}_v{v}.parquet'
-    r=ts.read(retain(path.with_suffix('.json')))
+    record_path=(folder/'records'/f'{m}_v{v}.json') if folder==RAW else path.with_suffix('.json')
+    r=ts.read(retain(record_path))
     digest=r.get('prediction_sha256') or r['prediction']['sha256']
     assert sha256(path)==digest
     return load(path,ids,'pred')
@@ -46,7 +47,11 @@ def main():
     for directory in [BASIC,RAW,HYBRID,MODERN]:
         record=ts.read(retain(directory/'complete.json'))
         if 'identity_sha256' in record:assert sha256(retain(directory/'identity.json'))==record['identity_sha256']
-        elif directory!=MODERN:retain(directory/'identity.json')
+        elif directory!=MODERN:
+            assert record['identity']==ts.read(retain(directory/'identity.json'))
+        if directory==MODERN:
+            assert record['source_sha256']==sha256(ROOT/'VALIDATION/modern_prediction_replay.py')
+            for part in record['parts']:assert sha256(retain(ROOT/part['path']))==part['sha256']
     progress=ts.read(retain(BASIC/'progress.json'))
     for v in progress['predictions'].values():
         for name,digest in v['artifacts'].items():assert sha256(retain(BASIC/name))==digest

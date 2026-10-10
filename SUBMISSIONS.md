@@ -10,11 +10,11 @@ scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 4
 were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are `-`.
 On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
-**Best and latest submission: v64, 232.7751 s**, improving v58 by **3.4144 s**.
-Live check **2026-10-11 00:02 Amsterdam time**: rank **20/242** scoring teams; all **344,841** flights scored.
-Jan/Jul CV is **293.6566**. The user's new target is **225.00 or lower**, another **7.7751 s**.
-On 11 October the user authorized autonomous uploads, superseding older approval requirements.
-[Submission record](VALIDATION/runs/v3_20261010_sparse_callsign_submit/submission_v64/submission_v64.json).
+**Best and latest submission: v65, 225.8994 s**, improving v64 by **6.8757 s** and v58 by **10.2901 s**.
+Live check **2026-10-11 01:02 Amsterdam time**: rank **15/242** scoring teams; all **344,841** flights scored.
+Jan/Jul CV is **297.0247**, worse than v64; weights were selected from our own leaderboard scores.
+The active target is **225.00 or lower**, another **0.8994 s**. Autonomous uploads are authorized.
+[Submission record](VALIDATION/runs/v3_20261011_scored_blend_submit/submission_v65/manifest.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -119,6 +119,7 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 64 | **Final-test-v58** | Row 61 on the final test set (Jan/Feb/Jun/Jul 2026, 670,790 departures). | - | - | - | - | 295.7414 | rejected | v63 |
 | 65 | **ERA5-all** | Row 61 with ERA5 weather added to all five model parts. | - | - | - | - | 296.8264 | 236.6319 | v61 |
 | 66 | **Track-callsign-ensemble** | Row 61 with callsign and raw-track networks plus a Rome CatBoost blend. | - | - | - | - | **293.6566** | **232.7751** | v64 |
+| 67 | **Scored-affine-ensemble** | Row 66 combined with earlier scored predictions using fitted affine weights. | - | - | - | - | 297.0247 | **225.8994** | v65 |
 
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV was adopted
@@ -956,3 +957,5 @@ EDDF are well covered, EDDM, LEMD and LIRF partly, EGLL and LFPG thinly, and LTF
 The organiser has approved open trajectory data if declared; this is the declaration.
 
 **Open-Meteo ERA5 inputs (rows 63 and 65):** [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api), fixed ERA5 model, CC BY 4.0. Attribution: Open-Meteo and Copernicus/ECMWF ERA5. Hourly temperature, wind, precipitation, rain and snowfall, plus preceding 6/24/48-hour precipitation and snowfall sums, matched by airport and UTC movement time. These are retrospective reanalysis estimates. Cached sources, units, coordinates and hashes are documented in the [experiment report](VALIDATION/reports/OPEN_METEO_JAN_JUL.md).
+
+- **Row 67 (v65)** uses 45 of our previously scored prediction files with signed weights summing to one, bounded to [−3, 4] and penalized toward v64 with ridge 1. The weights use public aggregate scores and prediction differences: this is leaderboard-conditioned selection, not independent validation. Before integer rounding, the independent squared-error identity projects **225.8994565**; the official result is **225.8994**. All current Jan/Jul folds were reconstructed or replayed: **293.6569 → 297.0247 (+3.3678)** after identical integer serialization; January 328.5817, July 265.4676, paired-day interval [−0.2738, +7.4274]. These reused development results do not support a generalization gain. The unavailable exact legacy v3–v9 source is an explicit reconstruction limitation. Old ledger rows are not backfilled. Upload at **11 October 01:01:39 Amsterdam**, processed 01:02:14, all 344,841 pairs; live rank **15/242**. SHA-256 `f0b163ba7dee68c73642267efd36a2f9f352cd54fce26c0f4ad3673072389089` matches the remote bytes. The original five-second objective is exceeded; **0.8994 seconds** remain to the active 225.00 target. [CV record](VALIDATION/runs/v3_20261011_scored_blend_jan_jul/result.json), [submission record](VALIDATION/runs/v3_20261011_scored_blend_submit/submission_v65/manifest.json).

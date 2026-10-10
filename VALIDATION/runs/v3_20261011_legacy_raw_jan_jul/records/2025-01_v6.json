@@ -1,0 +1,82 @@
+{
+  "identity": {
+    "source_sha256": "3cbbd47284724b998c646388209b18ae205967bb472ae9b70d11dac60dbaacb1",
+    "backend_sha256": "5eda81a506acb91e1baba28e369fac379bf7bfbbed31680deaf7474da8ed920d",
+    "helpers": {
+      "VALIDATION/modeling.py": "777b2d45fd97565dc83ecabce248734bfb811fbadce5616d8959cad03016c43b",
+      "VALIDATION/overnight_models.py": "79633c2479438729f145bfa5e3e5d99d70e50a7fca12780b71790a92d4f183a3",
+      "VALIDATION/tuning_seasonal.py": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    "folds": {
+      "2025-01": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "2025-07": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ]
+    },
+    "freezes": {
+      "2025-01": "2025-11-30",
+      "2025-07": "2025-12-31"
+    },
+    "versions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "seed": 42,
+    "threads": 6,
+    "reconstruction": {
+      "historical_source_sha256": "5233094e85cdabfb067f82471788f82d141e396d98c0a285b2398510b782fb14",
+      "archived_source_sha256": "5eda81a506acb91e1baba28e369fac379bf7bfbbed31680deaf7474da8ed920d",
+      "exact_historical_source_retained": false,
+      "basis": "Original27 feature implementation; recorded feature order and parameters matched"
+    }
+  },
+  "version": 6,
+  "month": "2025-01",
+  "rows": 153706,
+  "prediction_sha256": "5d8324e635d3bd97225081e8ba527b6202acb5f80388aeb23fcfd8a80c795cd2",
+  "model_sha256": "c39647d8162ca55b0801cdc2bd9c243a6a1c53275de997bbd5a078fe75725a09",
+  "training_rows": 1621571,
+  "rounds": 800,
+  "seconds": 43.98447944399959,
+  "training_months": [
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11"
+  ],
+  "history_frozen_at": "2025-11-30",
+  "host": "GLAPTOP"
+}

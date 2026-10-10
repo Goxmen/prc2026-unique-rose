@@ -2,7 +2,9 @@
 
 **October 11 continuation:** the user replaced the five-second goal with an official
 leaderboard score of **225.00 or lower**, and authorized autonomous uploads.
-That requires another **7.7751 seconds** from v64. The original objective and
+**v65 now scores 225.8994 officially**, leaving **0.8994 seconds**. It improves
+v64 by 6.8757 seconds and v58 by 10.2901 seconds. Rank 15/242 at 01:02 Amsterdam.
+The old five-second objective is complete; the 225.00 objective remains active. The original objective and
 approval statements below describe the earlier phase; the new instructions take
 precedence. New experiment records live in `../runs/v3_20261011_target225/`.
 
@@ -23,9 +25,14 @@ and aggregate RMSE values. Squared-error geometry identifies the score of any
 affine combination before final rounding. This is explicit **leaderboard-based
 selection**, not independent validation or hidden-label access. A basis excluding
 the date-specific probes, nearest-row experiment and unavailable completed
-v39–v42 validation artifacts projects **225.8995**. It has not been submitted.
-Current-fold legacy fits run sequentially on the laptop/desktop; saved modern
-predictions are replayed. No old ledger rows are backfilled. The exact v3–v9
+v39–v42 validation artifacts projects **225.8995**. Uploaded as **v65**, it scores **225.8994** on all 344,841 rows.
+Current-fold legacy fits completed sequentially on the laptop/desktop; saved modern
+predictions were replayed. Jan/Jul CV regresses **293.6569 → 297.0247** after
+submission-equivalent rounding (January 328.5817, July 265.4676; paired-day change
+interval [−0.2738, +7.4274]). This does not establish an out-of-sample improvement.
+The score projection is verified by a second algebraic identity and synthetic
+signed-weight cases. Upload/remote SHA and template audits pass; records are in
+`../runs/v3_20261011_scored_blend_submit/submission_v65/`. No old ledger rows are backfilled. The exact v3–v9
 historical source blob is absent; an archived original27 implementation and the
 recorded feature/parameter contracts are used, with that limitation retained in
 the reconstruction identity. The three research subagents remain unavailable

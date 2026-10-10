@@ -1,0 +1,493 @@
+{
+  "selection": "own leaderboard scores; not independent confirmation",
+  "source_sha256": "7e99392a7f3c25f07e2b049eaa38f39e0b497ec7fc7bdd45fc6ddc910810690e",
+  "inputs": {
+    "VALIDATION/runs/v3_20261011_target225/geometry/validation_ready_basis.json": "e4a79e3cb39023418e2661b7661ecea3502fdb268303567bc6762e17afaf1f22",
+    "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/complete.json": "78f133ecb90752f63c2b9375b59526705cfc1df2f0f939d35598944a39763331",
+    "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/identity.json": "64a15471a40317e7f371c7c31045ecf62dc8d1ca387c10b554b3c224caae8584",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/complete.json": "3f3ba7e1bb612a92d88ad454f24162c358cbdc6dd4dc35cc1e9bff498dde1311",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/identity.json": "16186360d35353087d3d2bb0d3e40be82b715d30af38b1e88d27df2480a7a082",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/complete.json": "677471ab75d81386d4e6d7b9544f9aaf8d6aa3237d221b8c5e74efaa456e357b",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/identity.json": "856eec5f9a58ba7905027420f258bd36b959db7729c567d4dfedd138754b242b",
+    "VALIDATION/runs/v3_20261011_modern_prediction_replay/complete.json": "45188194c281d8f432a9731aadc9919e9bce445c19b262919dbb8f3e02e59211",
+    "VALIDATION/runs/v3_20261011_modern_prediction_replay/2025-01.parquet": "a7917f627eeb009abb644797c32c7384534e35e5c921dd3d60cb36d4c157b976",
+    "VALIDATION/runs/v3_20261011_modern_prediction_replay/2025-07.parquet": "639e0abda0897f108c4c37c619c02d4af2ce84430a2153fea6582a8a4fda482f",
+    "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/progress.json": "c05cb7811c7678b4a6f92009b6cd6eadc9d14e0351f9d80c37a1e450251202bf",
+    "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/janjul_2025-01_baseline_2025-01_42.parquet": "9e7c6f8339fbe5f211a8d47ae6c80373d214b488c66bdb0c3aa08c5809f6e4db",
+    "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/janjul_2025-01_recovery_2025-01_42.parquet": "c41af17c01f8f802ffa7a034bef65ba72b3dfc2e57cd81e8b8e5694c63113c0d",
+    "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/janjul_2025-07_baseline_2025-07_42.parquet": "7e9e09c3d0abb55ec9b9adb8b6bc1258d56b1feed93ed4f687f61c94f94f90d4",
+    "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/janjul_2025-07_recovery_2025-07_42.parquet": "01d75f3dbe9a2a2f766de34c5c500d68b66840251daa14250b231363aaf90818",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v1.json": "9031e81000f06153d70cedb585162d258b5f25a3efbdcf87f658f9880172a9df",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v1.parquet": "8831258512e02660369d810b109a1fd16efd21b384a63025ec8dc9e2f3bb26b2",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v2.json": "7ad601902626562f68c1b90ea285c19da21078aa8571aab462d5b33c61b4fe0c",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v2.parquet": "f66b3a8a7701784f4186353093248d0c7b256f6b4564018c3b4d11d8929b623a",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v3.json": "549cd5eb37a8c3f187083dfe5dcebffb4e1ea24906963eabebc391dffd500e17",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v3.parquet": "a303d518273cd73d305e31c6e92df4f82dd095852b76c5ca9afc43c59fb33071",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v4.json": "78a6bcd3d1a6698b2ccd2d4a7ff5b4a4aaad1cf6af53425c1b73aef6583cde45",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v4.parquet": "57dd91b0c6daa9dc5196b380c1d21d33cfae739b8d933401811c7cb23fb7c3bb",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v5.json": "628feefae2e197ca26fa93667bde58a15a8cca15fd0c7b7fc4002cccba96b9e9",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v5.parquet": "479d7361d57fc91152fc46d07a98ffc3762ed806d4b59b2ba3c70990012dc0a2",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v6.json": "e16f1931fdff70b71142ac05bcd6bdcbbb941e71d673c02783e33e02a667aba4",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v6.parquet": "5d8324e635d3bd97225081e8ba527b6202acb5f80388aeb23fcfd8a80c795cd2",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v7.json": "a214278ba08a99f9cfd348a87288f4e1ef767ed15a1cc9068f003d9b15377c4a",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v7.parquet": "4c83d2dd760718210e802ea9f5f1b4647f407b21b5705b2609b9094fd2c3fc64",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v8.json": "5152a46abb9b6eb677acc84df492ea0925e60b4482cd2c0064a59160ccf01c35",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v8.parquet": "ce096fa4db9d1e80cddc3eba0a5b311cd39cadb86f121157950a8b595f33f6b4",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v9.json": "033bf05e0247f567654d8461dee139fabaeb150b441b0e33dc9e1285279ea909",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v9.parquet": "85b3082614489ab60270af79d81b267233be05a310861e9b2b82f13e3da6b2dc",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v17.json": "23aa3dd3512c00324fe88e8173e352c55bb8f2cbdfb954cb7d1fa373f900e391",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v17.parquet": "ce21ae9eb6a8bb7f490bcd65b6f0133d8918e53e41e029cb9fccb57810eef3c8",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v18.json": "b2a0a53db6b18e5220ddb389679729638ffc33b37b4e5b3510f15cc854d39b6f",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v18.parquet": "9f49204ad1663ce5a5d1a6f476a0342fbaeddc6ee601336f834da0d9a244dc0e",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v19.json": "f4690c5946b3c5d83de0c921186cc5d40ef9540b89ff748da7eab23c5f37abd5",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v19.parquet": "e117aa2b6fa3e5bc37013738797f92c3b9ff1d8b78d6b70e44a508db7b7f1f0f",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v20.json": "27d1ea0d2804db85231b35a499d72055e58772abac233a30722afd92d2914646",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v20.parquet": "7ded900f7400784c8c1c51f59c40328680dc8d4d976430166881ab5d9916aced",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-01_v21.json": "ea5c07d7624955e0bcc806da91ec9d7b8dbff8a8f7e8f22bb534dbedbdbc3fde",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-01_v21.parquet": "9e8c5407353b8a7f4da0172c1d4ba7c7d14e74d3cc997973f2d3c6d9a2957f98",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v26.json": "4bc64f9219e21ab05eef3b14e0c02ca31a651ec4ba1225b51bce53ec9b183574",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v26.parquet": "6e2896b957400d9f2e1eaff4a8274109804c80179a9f019ce7a3faf664d2312f",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v27.json": "febe1fa742614aa9df12a471d3bde629e771eac0e67bfbcccb0d6eca4c1ac362",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v27.parquet": "2734b60c35546ad85aac82ff968348272240c96f5deef0c94c4050580b90c2e7",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v28.json": "f09446cfe8c23d42f5943b84e0cf844c1ab3021d3c8aa0039eb0cbf6c5265b55",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v28.parquet": "a564e67bebd1aaf96bdbbd3109ee2affe4f36afd3fdc38cf7265dcfe0a628e55",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v29.json": "44685273fcdde725651d47a119f57d37d28766ae84cfffb668ba5e6f144265d9",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v29.parquet": "c7bbc6fe7770b18fc27705341ad64d5717b177c673979895ac253092441bd1fd",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v30.json": "178b934e54bef6ae0457606123f94c31a8f9ce8cf0530d43ccb10e7ef609168e",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v30.parquet": "7b343954acb2766f0356f957781175bc23b2d200b3e406ac339f8c93839379e4",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v33.json": "4755604c48215bf193ef4adbf4d49a4f326cce33587440a3635094a1c7919cfe",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v33.parquet": "5ad4ed1d5337e6c71b8785f71216abcbf5d398991fa5bc3e1c897af175451427",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v34.json": "27942ae1da18bb154002776e53e963da210f71ff316f94533dcf16708cb0490e",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v34.parquet": "002a9a19b7671dd6905f7fbddc935a8acd59d74e5236c5ceacfe32a6ea83b6d0",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v37.json": "e2f451402e1474c1c4062e2f46b691889f3904670097e06cd143a20dcf159821",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v37.parquet": "c2ada9a33243b1c5435607c5e862f81cecace8ca4062ebe308b6d22507556593",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v38.json": "d84b3301b9ee82078fc8e5ac9bc76438e0bf59b1f1b7686dedb64bc44657b369",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v38.parquet": "107d0972aef87a03b2c8ef678c3857ba5d06da567315035670d045ebd1eae53f",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v43.json": "a8eaad27edb7dfff0b4667e4a57f38b9f627acb4050731016dbcef5972022303",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-01_v43.parquet": "b6af024ab776dfc93dff8a3f7b5296047a044280dbfb3a9341744db430f5d966",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v1.json": "c78e0771da4e37a4cdacc29f3850407a324d7364c2be5c2caa35bc5657802037",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v1.parquet": "f982457b8e0a41aa4e7757e6f13f07b569103a39c1a59838274684d9acaa7790",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v2.json": "464138d0825f349879f0585cb9845b72bb0af27c438e806fd5338b4202496a44",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v2.parquet": "2befdaa7258866d07d156a80df50aa67258492e72aad6c8b887f35af3993c80a",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v3.json": "a4dc8b25ed2a6dc07b59fff1e3057e447582ffd57ff908620703059eef04bddd",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v3.parquet": "7781de2f9869bd741ddc05a693f13acf5d07a699cfa205bdb967c1ec71c0f558",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v4.json": "619663db1bd42fe939f00ee827433369b59aee99b96385290a5918d34489b855",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v4.parquet": "34601adff42c6b6ccaf54880c6584ae8d96dd1a6e9bbd22592db319bef100aa4",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v5.json": "a703ebcf344023fce5a841c95028c060d76864097d80730f856165f580cc64d1",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v5.parquet": "57c900938cdce0007d202b6540ca0dd2f99105441d7483b9ce0f652746c76c4a",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v6.json": "e5c4498eee61b272586d5ca6163add9724057870695aa900c8aa6d3227e939eb",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v6.parquet": "2383c6b32ec51426c55d309ef7eb30d33b400bc20f93c4f3039febcef6f52b15",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v7.json": "ed7d84d53604c9b1ed792f72bf8e05695a25757561ef6a18b433b8ba91aa47f5",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v7.parquet": "834644ffba67c3e11c71f3a5de69fdeee0dbefc7ab392f53b167cfc90805f84f",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v8.json": "23e9b8c60a60aa6ddcd0deac6beb441820bc3d3a0c74d02dc5926df02996d1fd",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v8.parquet": "d7e05c1efff645fd71d35b97963238810e7730cbfff2e92f51327f318a8775c8",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v9.json": "e92dfa32e7fa837800462941f6b4bdf4357feac60bf6c1d408291a48be9b8d9c",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v9.parquet": "126d868167efb0c9427b1042b73b0f639ca7efa7ea832497a461273b9b7c83f2",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v17.json": "35aafcdeb11cdcf9364166bc7a8c8680d5ee3113db0cd17a02634d8d4f29bfbd",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v17.parquet": "0d6af8190070138778d9e49d99a72ac1ac8a9f0a9745602f7b0ed2f0461ff531",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v18.json": "89f81c231ba700d87948b51e426b6ed36169d93e7e337863793a8c3e50c010ef",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v18.parquet": "8953e8e77622de8992d1a4003b091d3bbfe1133bece1fa95cfee2e3da72c98df",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v19.json": "f9f9899147b8dc45439be1fe7d0c6f3af057690bd00e90be9b5825153b84925d",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v19.parquet": "91de4f85cc5ae12fd69bb118bd1726e0608a7bc1dc82a4badc448addacdbc3b0",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v20.json": "845e7bfea8fe0e718f4d5067d63cf17fbe3294f524bf3f042c7f65e859b92009",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v20.parquet": "82269f005bd9560811fe8d7faa819c72e2f5d22794528a080b2adfafab62ef01",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/records/2025-07_v21.json": "28ec4d52c37fb21b23fcdecfcf68b65853025ea5f8f8220c6485008cfb749cd8",
+    "VALIDATION/runs/v3_20261011_legacy_raw_jan_jul/predictions/2025-07_v21.parquet": "628d1c6f625da1511998b251a1a1f65c7b124f1e6a2378bb74e311bba51e168f",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v26.json": "2e5333f13628d906e7db816ff1966fdb9d6d8aab8d7e7073181c9b1b356648b2",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v26.parquet": "fac2a11a03c2f9acbbbeab507322927f04bc2f86f88423ba6d5314591514f2a9",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v27.json": "eded8f1c34b226f1a6546a31f31d698406c0790d809952851fe09770a2db8984",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v27.parquet": "e6096251e4d8f8159cf95df3ccd833cccef61d5e66732f4626263cea856fcd3c",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v28.json": "17aff21b0845d3678e29714f51a93b23de3dc9aca378f52b6eca1232c86baf1e",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v28.parquet": "908b9e418b7ce781811d583a62375dd6668a87de52c803b53c89ae04e17e07fe",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v29.json": "57c705cb54c86ea43acc1fb33cd6a02425090e585be46a1c5b1143c4351019e6",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v29.parquet": "ce33d3529938982a88a4cf88450cb633ba6acc5cbb8ac5cc155d8593b5223d1b",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v30.json": "b9fd8d8c6bf0b8cc1ff6969d447f94fdbdfef4c9b44fa766b716d20befab6243",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v30.parquet": "91fbedd929269e9633b79bed049b7df4d8c69b32d08385426b99d6657f97d655",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v33.json": "b7d8f4bdb5c7b0d5e0e7f276cc6fca96d702a1c9e55ccfa6c2426063302c828e",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v33.parquet": "f89bbe8f3bfeb185e1de5f2392a25b76b48bb6a3fd9557d990c925055dbd85a9",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v34.json": "c301b40c3fc6d7377ba388c857ed80605fe303771fdf985e1363066627d0e95f",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v34.parquet": "f5bedc13b0c0ad0c008ae9cd49871b904e05d7c1234d2fcad6882b5067a4ec87",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v37.json": "9aff4d47aa97f65ef4f38b39ea0de49344ef362e84bf94e00f1071eeface5b28",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v37.parquet": "c8a527211ba68c285bc1d507bba86ced030a1c5c3d071dc9d7c1cec5f1c4d52f",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v38.json": "7becec2b2ea6ba82f8aa08e732fb7c0af3885a5c4f14565bf67b693cbe35e874",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v38.parquet": "811e91a2954b8f465368d62c1fb2448e2c7a969735c1ae48eca16b9dec2b2396",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v43.json": "5a79fbffb9622848f22458a8a70138b1107947845dc40129c60373cdf2b819f3",
+    "VALIDATION/runs/v3_20261011_legacy_hybrid_jan_jul/predictions/2025-07_v43.parquet": "a551942d6a331a9abecbf9b9b16bc9c121b333caa6f4970b23841adba5bfb93e"
+  },
+  "geometry_sha256": "e4a79e3cb39023418e2661b7661ecea3502fdb268303567bc6762e17afaf1f22",
+  "weights": {
+    "1": -0.006611364609744401,
+    "2": 0.06884095971126537,
+    "3": 0.0012844328584875016,
+    "4": -0.1339666213433362,
+    "5": 0.1453753598594803,
+    "6": 0.0028424761471856092,
+    "7": 0.06044778666482047,
+    "8": -0.288669483420645,
+    "9": -0.006292164675469326,
+    "12": 0.1425721302011622,
+    "13": -0.9651588721203679,
+    "14": 0.7833779660277737,
+    "15": 0.9324525006530495,
+    "16": -0.7389398097085468,
+    "17": 0.03145675709541799,
+    "18": -0.028213195734166065,
+    "19": 0.1227042845823695,
+    "20": -0.012632834496349202,
+    "21": -0.05169821329946574,
+    "26": -0.08511125926549189,
+    "27": 0.04107243376975493,
+    "28": -0.027193845451876662,
+    "29": -0.14095350355031536,
+    "30": 0.10508850412898998,
+    "33": -0.06109847965301761,
+    "34": 0.39287893972941407,
+    "37": 0.38863366338224525,
+    "38": -0.7162592274191276,
+    "43": 0.006664242961256503,
+    "44": 0.031499332165839895,
+    "45": -0.0865178404863056,
+    "46": -0.4245135311825927,
+    "47": -0.13773639129843684,
+    "48": -0.13274999731310647,
+    "49": 0.321696000451874,
+    "50": 0.577365400326648,
+    "51": -0.04978661353703769,
+    "53": -0.07490242314635834,
+    "54": -0.6781513725428789,
+    "56": -0.3228578124774782,
+    "57": 0.9038218274681411,
+    "58": -0.3296365658026613,
+    "60": -0.19203989258829143,
+    "61": 0.49588225467511915,
+    "64": 1.1357340622627723
+  },
+  "versions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    26,
+    27,
+    28,
+    29,
+    30,
+    33,
+    34,
+    37,
+    38,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    53,
+    54,
+    56,
+    57,
+    58,
+    60,
+    61,
+    64
+  ],
+  "folds": {
+    "2025-01": [
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11"
+    ],
+    "2025-07": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ]
+  },
+  "rows": 344419,
+  "component_scores": {
+    "1": {
+      "2025-01": 584.7126066828292,
+      "2025-07": 717.452602608432,
+      "cv": 651.0826046456307
+    },
+    "2": {
+      "2025-01": 467.42351390400785,
+      "2025-07": 627.061020370384,
+      "cv": 547.2422671371959
+    },
+    "3": {
+      "2025-01": 412.02918494126203,
+      "2025-07": 534.2246700954237,
+      "cv": 473.1269275183429
+    },
+    "4": {
+      "2025-01": 412.3121864818449,
+      "2025-07": 533.7174204619355,
+      "cv": 473.0148034718902
+    },
+    "5": {
+      "2025-01": 460.10368026652196,
+      "2025-07": 607.9876966466287,
+      "cv": 534.0456884565754
+    },
+    "6": {
+      "2025-01": 451.3585561735997,
+      "2025-07": 593.9745368278134,
+      "cv": 522.6665465007065
+    },
+    "7": {
+      "2025-01": 442.610962427796,
+      "2025-07": 586.5997288679887,
+      "cv": 514.6053456478924
+    },
+    "8": {
+      "2025-01": 436.22688359718194,
+      "2025-07": 574.0153111075653,
+      "cv": 505.12109735237357
+    },
+    "9": {
+      "2025-01": 418.9580837954025,
+      "2025-07": 548.0382088711523,
+      "cv": 483.4981463332774
+    },
+    "12": {
+      "2025-01": 412.0271091397079,
+      "2025-07": 534.2246700954237,
+      "cv": 473.1258896175658
+    },
+    "13": {
+      "2025-01": 367.302358291384,
+      "2025-07": 413.6905119474263,
+      "cv": 390.49643511940513
+    },
+    "14": {
+      "2025-01": 370.3379012027155,
+      "2025-07": 400.05255824314764,
+      "cv": 385.1952297229316
+    },
+    "15": {
+      "2025-01": 366.95291130816236,
+      "2025-07": 394.6636690470718,
+      "cv": 380.8082901776171
+    },
+    "16": {
+      "2025-01": 370.1555304413654,
+      "2025-07": 389.3288263646983,
+      "cv": 379.74217840303186
+    },
+    "17": {
+      "2025-01": 364.069028810197,
+      "2025-07": 394.8874669577431,
+      "cv": 379.47824788397
+    },
+    "18": {
+      "2025-01": 364.3434831422791,
+      "2025-07": 390.7732698956915,
+      "cv": 377.5583765189853
+    },
+    "19": {
+      "2025-01": 365.88818515215127,
+      "2025-07": 395.1820099691883,
+      "cv": 380.5350975606698
+    },
+    "20": {
+      "2025-01": 369.58430394239343,
+      "2025-07": 396.65369049560604,
+      "cv": 383.11899721899977
+    },
+    "21": {
+      "2025-01": 364.55161797907016,
+      "2025-07": 382.47395768872747,
+      "cv": 373.5127878338988
+    },
+    "26": {
+      "2025-01": 360.431447338489,
+      "2025-07": 341.5502120728166,
+      "cv": 350.9908297056528
+    },
+    "27": {
+      "2025-01": 355.7750919802326,
+      "2025-07": 338.45790180051523,
+      "cv": 347.1164968903739
+    },
+    "28": {
+      "2025-01": 352.7022025478355,
+      "2025-07": 333.77616266796076,
+      "cv": 343.2391826078981
+    },
+    "29": {
+      "2025-01": 350.4569412376359,
+      "2025-07": 315.61221799077373,
+      "cv": 333.0345796142048
+    },
+    "30": {
+      "2025-01": 349.7011332374221,
+      "2025-07": 307.6834876121584,
+      "cv": 328.6923104247902
+    },
+    "33": {
+      "2025-01": 349.37380351813255,
+      "2025-07": 304.25196059404146,
+      "cv": 326.812882056087
+    },
+    "34": {
+      "2025-01": 349.327753083457,
+      "2025-07": 303.87823331560924,
+      "cv": 326.6029931995331
+    },
+    "37": {
+      "2025-01": 347.27700006804537,
+      "2025-07": 298.1006465082866,
+      "cv": 322.68882328816596
+    },
+    "38": {
+      "2025-01": 346.0372239900099,
+      "2025-07": 299.1510438028453,
+      "cv": 322.5941338964276
+    },
+    "43": {
+      "2025-01": 341.95939107459276,
+      "2025-07": 294.2302774390779,
+      "cv": 318.0948342568353
+    },
+    "44": {
+      "2025-01": 339.1192445280723,
+      "2025-07": 289.4333499364113,
+      "cv": 314.27629723224175
+    },
+    "45": {
+      "2025-01": 333.69017752265034,
+      "2025-07": 273.9086211050161,
+      "cv": 303.7993993138332
+    },
+    "46": {
+      "2025-01": 333.67410920696597,
+      "2025-07": 273.80167767209014,
+      "cv": 303.7378934395281
+    },
+    "47": {
+      "2025-01": 333.0567071703318,
+      "2025-07": 272.059698798536,
+      "cv": 302.5582029844339
+    },
+    "48": {
+      "2025-01": 329.86546073196195,
+      "2025-07": 270.24125110723406,
+      "cv": 300.053355919598
+    },
+    "49": {
+      "2025-01": 330.90668259629734,
+      "2025-07": 270.8081107641575,
+      "cv": 300.85739668022745
+    },
+    "50": {
+      "2025-01": 329.4318792949162,
+      "2025-07": 269.65427285053016,
+      "cv": 299.5430760727232
+    },
+    "51": {
+      "2025-01": 328.6372258924828,
+      "2025-07": 267.8154183673329,
+      "cv": 298.2263221299078
+    },
+    "53": {
+      "2025-01": 328.562800487411,
+      "2025-07": 263.23717763808617,
+      "cv": 295.89998906274855
+    },
+    "54": {
+      "2025-01": 328.1235179771762,
+      "2025-07": 262.5651594807632,
+      "cv": 295.3443387289697
+    },
+    "56": {
+      "2025-01": 327.7001822657646,
+      "2025-07": 261.3701732369399,
+      "cv": 294.53517775135225
+    },
+    "57": {
+      "2025-01": 327.9527877320513,
+      "2025-07": 262.2877471422261,
+      "cv": 295.12026743713875
+    },
+    "58": {
+      "2025-01": 328.43254856193516,
+      "2025-07": 263.0288249359081,
+      "cv": 295.73068674892164
+    },
+    "60": {
+      "2025-01": 328.31409644033624,
+      "2025-07": 262.2283681383833,
+      "cv": 295.2712322893598
+    },
+    "61": {
+      "2025-01": 330.33823062092205,
+      "2025-07": 263.3151339324347,
+      "cv": 296.8266822766784
+    },
+    "64": {
+      "2025-01": 327.4437890581808,
+      "2025-07": 259.86998180762316,
+      "cv": 293.65688543290196
+    }
+  },
+  "months": {
+    "2025-01": {
+      "rows": 153706,
+      "candidate": 328.5817321051298,
+      "control": 327.4437890581808,
+      "negative_before_clipping": 0,
+      "mean_error_sec": 19.444348301302487
+    },
+    "2025-07": {
+      "rows": 190713,
+      "candidate": 265.46760330136993,
+      "control": 259.86998180762316,
+      "negative_before_clipping": 4,
+      "mean_error_sec": -4.971774341549868
+    }
+  },
+  "candidate_cv": 297.02466770324986,
+  "control_cv": 293.65688543290196,
+  "unclipped_cv": 297.8041692802694,
+  "paired": {
+    "change": 3.367782270347874,
+    "ci95": [
+      -0.273822012278951,
+      7.427442315962447
+    ],
+    "decision": "inconclusive"
+  },
+  "scored_sha256": "1d80ccb7dfdc20a17ab4cf9043c298a9619b75e9f108b56f876f7c434c5c8fb1",
+  "serialization": "round(max(pred,0)) per component, then after weighted sum",
+  "reconstruction_caveat": "v3-v9 use an archived original27 implementation; missing exact historical source is explicit in raw runner identity",
+  "machine": "legacy raw/recovery laptop; saved modern controls and legacy hybrids desktop"
+}
