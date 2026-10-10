@@ -1,0 +1,95 @@
+{
+  "design": {
+    "parent": "callsign15 plus callsign main LightGBM plus half CatBoost/R20 Rome",
+    "change": "ordinary neural prediction becomes fixed equal mean of callsign15 and sparse3",
+    "network_share": 0.71,
+    "ordinary_tree_seeds": [
+      42
+    ],
+    "neural_pool_sizes": [
+      15,
+      3
+    ],
+    "fair_control": "same equal blend, with matched historical group42 k0/k1/k2 replacing sparse3",
+    "rome": "fixed half three-seed CatBoost plus half original R20",
+    "main_lgb": "callsign162 LB1 seed42",
+    "other_trees_and_rules": "unchanged",
+    "declaration": "before new sparse3 k1/k2 outcomes; after original k0 screen",
+    "weight_search": false,
+    "new_availability_gate": false,
+    "fitting": false,
+    "evaluation": "reused Jan/Jul development months"
+  },
+  "source_sha256": "efac4caba3612047ef333228539a65912c86d5d5408b6ebfe612c8a289c3aa5e",
+  "inputs": {
+    "VALIDATION/runs/v3_20261010_callsign_lgb_combo_score/result.json": "29ea737431a0be4035f8ecc351af0d5af7d85a3f46b70a1ea0f933ccd0a237a1",
+    "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/scored_g42_142_242_k0_1_2_3_4.parquet": "d728e72082513c35a98a12d4ee4ac7b60a2c16912eccb514f8e345c16bbd5245",
+    "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/score_pool3.json": "65853a56c0f99845a73ada1edfacc29e593e768d6cda32522c11e3d6ca3f4fd8",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/scored_pool3.parquet": "da0aef1c753f488280c78353429233284f00fd5a1cbd2507c80d081c788cd55f",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/sparse_pool3_manifest.json": "d96b8dbc6bfc0b2c07a7bc27d90a2a061f9cf84d4017f6f2b35712436516edec",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k0.parquet": "2dd80f007b96d2387d0e306ec2d19482633635acc279a4cdc0a1310ca7d39712",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k1.parquet": "6ab84c47b90995fd448750ff6e3399ab4f85304319c741853138e7a9eee3b6f0",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k2.parquet": "0a9afd4da95f593ad989ce1403011dd99377c0a6895d15b1b4a3f80d855171a1",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_control_jan_jul/predictions/2025-01_s42.parquet": "12fe9c204d20519aa7aac492cec39d3d6b14a6b0f8d2cb75f0232a9633cdf77f",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_control_jan_jul/predictions/2025-01_s42.json": "a52a34ca4fb730c8a882dc8ec2f014c33b32d1f8881dd7887cc3c1a307c5ba9e",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.parquet": "052e80acc3097ff04968a4774c8edad4e24cbdbd7637203c019342227ff73e9f",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.json": "3c582a659a0627c02a9b29404f34a33b7f331f54b7614487f460b1254121d04d",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k0.parquet": "fdcef04e3b4fb927db946130f7d78877f761f09e93de30ed854860a453b66903",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k1.parquet": "09757c701ec8178df9acf3d459a97bdde6a97f62a035a28901c4fa574db8dae3",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k2.parquet": "d0246fa1b3b6d318af946513c1e63b1d55714a56b4c1e7ca023a1cde71a38fb7",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_control_jan_jul/predictions/2025-07_s42.parquet": "fc3aab4d6e8c6c085db42101081b1148c46f6c3fac116b4cbd3c71a3c347c9bd",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_control_jan_jul/predictions/2025-07_s42.json": "11972f63f1af0ac559f304c5a3e369e87a9f02c3abf4aa700fc219a6c6c55de6",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.parquet": "aacb44cd2441070c4bf1731992a184eb8987b1fa3c55b5299693dcdd272e6ee8",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.json": "6895725874f13b83a901f242734ee2eb31655e6dd93cde1ad218e5e36fe1e8ac"
+  },
+  "scores": {
+    "matched_v58": {
+      "2025-01": 328.4311023682349,
+      "2025-07": 263.02794135651897,
+      "cv": 295.72952186237694
+    },
+    "callsign_combination": {
+      "2025-01": 328.32885993083744,
+      "2025-07": 260.5146068798352,
+      "cv": 294.42173340533634
+    },
+    "half_direct3_combination": {
+      "2025-01": 328.2153202035968,
+      "2025-07": 261.15181211532513,
+      "cv": 294.68356615946095
+    },
+    "half_sparse3_combination": {
+      "2025-01": 327.4431534135344,
+      "2025-07": 259.87008278478027,
+      "cv": 293.6566180991573
+    }
+  },
+  "comparisons": {
+    "half_sparse3_combination_vs_matched_v58": {
+      "change": -2.072903763219614,
+      "ci95": [
+        -2.8069695598397373,
+        -1.4698971256539566
+      ],
+      "decision": "improvement"
+    },
+    "half_sparse3_combination_vs_callsign_combination": {
+      "change": -0.7651153061789842,
+      "ci95": [
+        -1.168951222118146,
+        -0.49840096003852996
+      ],
+      "decision": "improvement"
+    },
+    "half_sparse3_combination_vs_half_direct3_combination": {
+      "change": -1.0269480603036243,
+      "ci95": [
+        -1.4142798719948437,
+        -0.7971586601075332
+      ],
+      "decision": "improvement"
+    }
+  },
+  "caution": "Development comparisons, not independent validation or an official score."
+}

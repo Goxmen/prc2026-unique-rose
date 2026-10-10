@@ -1,0 +1,331 @@
+{
+  "design": {
+    "original_columns": 156,
+    "appended_tabular_columns": [],
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "fixed_epochs": 15,
+    "full_year_stop_source": "original N09 group42 full-year stop",
+    "model": {
+      "sequence_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "width": 32,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "kernel": 3,
+      "dilations": [
+        1,
+        4,
+        16
+      ],
+      "activation": "SiLU",
+      "normalization": "LayerNorm over channels independently per point",
+      "pooling": "masked mean and max",
+      "fusion_hidden": 128,
+      "final_residual_initialization": "zero",
+      "usable": "at least two distinct timestamps",
+      "original_inputs": 156,
+      "extra_dropout": 0
+    },
+    "sequence": {
+      "window_before_sec": 7200,
+      "window_after_sec": 60,
+      "max_points": 128,
+      "minimum_distinct_timestamps": 2,
+      "labels_used": false,
+      "identity": "audited unique near-takeoff identity; missing and ambiguous remain absent",
+      "sort": [
+        "airport",
+        "hex",
+        "ts_ms",
+        "lat",
+        "lon",
+        "alt",
+        "gs"
+      ],
+      "duplicate_timestamp": "retain lexicographically first lat/lon/alt/gs per airport/hex/time",
+      "selection": "floor(linspace(0,n-1,128)); first and last always retained",
+      "gap": "previous raw observation within query window; first=-1; never interpolated",
+      "ground_alt_code": -123,
+      "other_negative_alt": "unknown",
+      "negative_speed": "unknown",
+      "origin": "mean of the airport X-Plane runway ends",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "point_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "bounds": {
+        "time": [
+          -0.008333333333333333,
+          1
+        ],
+        "gap": [
+          0,
+          1
+        ],
+        "east_north": [
+          -2,
+          2
+        ],
+        "speed": [
+          0,
+          1
+        ],
+        "altitude": [
+          0,
+          1
+        ],
+        "distance": [
+          0,
+          1
+        ],
+        "clock": [
+          -1,
+          1
+        ]
+      },
+      "scales": {
+        "time_sec": 7200,
+        "gap_log_sec": 7260,
+        "east_north_m": 20000,
+        "speed_kt": 300,
+        "altitude_ft": 10000,
+        "distance_m": 40000,
+        "clock": "clip(asinh((point-originalAOBT)/1800),-8,8)/8",
+        "raw_count_cap": 4096
+      },
+      "padding": "right padding, independent boolean point mask, all padded channels zero",
+      "absent_sequence": "0 or 1 points cached honestly; model residual hard-gated off"
+    },
+    "target": "original direct min(y,10800), standardized with ordinary training population",
+    "population": "unchanged original ordinary full-year rows",
+    "sequence_namespaces": [
+      "train",
+      "old",
+      "final"
+    ],
+    "execution": {
+      "training": "exact frozen sparse train updates; fixed epochs only",
+      "monitor_rows": 1024,
+      "monitor_selection": "first rows in unchanged first-view order",
+      "monitor_labels": "not used; ranking targets unavailable",
+      "inference_chunk": 2048,
+      "full_inference": "once per ranking view after the last fixed epoch",
+      "persistence": "production saves completed weights before full ranking inference; inference-only resume",
+      "sequence_namespaces": "independent train, old and final stores and ID alignment"
+    },
+    "encoder": {
+      "chunk_rows": 65536,
+      "encoder": "unchanged nn_jan_jul.Encoder",
+      "transform": "unchanged Encoder.transform on row slices",
+      "quantiles": "same numpy quantile probabilities, one PLE input at a time",
+      "tensor_order": "same int64 categories, float32 PLE and plain features",
+      "target": "unchanged clipped direct target, population mean/std",
+      "random_draws": 0
+    },
+    "output": "three standalone ordinary-network predictions and equal mean",
+    "no_new_stopping_or_search": true,
+    "no_submission_build_or_upload": true
+  },
+  "chosen_recipe": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/chosen_recipe.json",
+    "sha256": "17fc9790f533d4b8646c7c72cf1f1235b486ce5710225ed7993707d738b81204"
+  },
+  "source": {
+    "path": "VALIDATION/nn_sparse_track_submit.py",
+    "sha256": "8feca43b661cff32b7c0fe298516c08377d8e5b03f4f3c0ba0a91616fc86908a"
+  },
+  "helpers": {
+    "VALIDATION/nn_sparse_track_jan_jul.py": "b1225096a7f259020823c46d9a53f0acae942cd58f70dd35a535a54a575d9884",
+    "VALIDATION/nn_sparse_track_pool3.py": "da511cea5e67595cc764f656c0d2079c784cc69627a85f5c46fab4716a8bfe19",
+    "VALIDATION/nn_sparse_track_prototype.py": "9842a81b46395568839556a4f6c5145d0eb91c95fea81109c5c2fd70acfc2c52",
+    "VALIDATION/sparse_track_sequence.py": "f51a4f96dbe57fdfddb1403e82cbb14e5474a7c89418f2c96604d4862a71b22e",
+    "VALIDATION/sparse_track_tensors.py": "c24577d69eb13edef8b1b64f8d003f195c9ef7b4651811a1e1d3aede1d0ce906",
+    "VALIDATION/build_sparse_track_submit.py": "ff0ac427bb23ef97408af542411bd85afebab022d7e8f3e5298203c66b0de7da",
+    "VALIDATION/callsign_submit_portable.py": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c",
+    "VALIDATION/chunked_direct_data.py": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9",
+    "VALIDATION/fixed_epoch_sparse_train.py": "ec2f938387748adac35af0912e93a16092b223b3beb04347c6e2da30ace389bc",
+    "VALIDATION/sparse_track_combo_score.py": "efac4caba3612047ef333228539a65912c86d5d5408b6ebfe612c8a289c3aa5e",
+    "VALIDATION/nn_residual_jan_jul.py": "e5cf29800ca49dbea75882e3587bd970d66b6845481ef1d8c9578367b9322f8b",
+    "VALIDATION/nn_sensor_differences_jan_jul.py": "acbee310db0fd9421f4ee9850e6d5cc48f9999e88c07577fd1907571a8072a75",
+    "VALIDATION/nn_improve_jan_jul.py": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20",
+    "VALIDATION/nn_jan_jul.py": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766",
+    "VALIDATION/nn_callsign_pool_resume.py": "015c108ee6ffa1b05a7442af966fc55c79699ef6241b82c68582fccf677f47e5",
+    "VALIDATION/callsign_submit.py": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954"
+  },
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "original_input_packet": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/manifest.json",
+    "sha256": "279580a52250cdc230020e3c1d9f715dffa86f8e12baa6b8e3e2f380e7f4a614"
+  },
+  "prepared_original_inputs": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/prepared.json",
+    "sha256": "84baa8c78bf9fb171e1aba4516e658bbd6091aae54d9dea42676fc106553c58a"
+  },
+  "training_cache": {
+    "path": "data/derived/sparse_track_sequence_20261010/full.json",
+    "sha256": "723cb02477e53b3c3e6b265fa98d3bd67a8e531b45d37943c6f527de5735d6da",
+    "outputs": {
+      "full_index.parquet": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684",
+      "full_points.bin": "e24e96f34f4fd536c621a3f5c36dd7fc8eae0f037fb0a32b59c1c1b84392d147"
+    },
+    "rows": 2085047,
+    "stored_points": 84624170
+  },
+  "ranking_caches": {
+    "old": {
+      "ranking_view": "old",
+      "manifest": {
+        "path": "data/derived/sparse_track_submit_20261010/old/full.json",
+        "sha256": "925a04bb6daa72d77869096e0acd2db464f889e5218ec57caa86732df65688a3"
+      },
+      "design": {
+        "path": "data/derived/sparse_track_submit_20261010/old/full_design.json",
+        "sha256": "0da5b09393525c7983fb733e78db93181e35200d2ec0ca1158aaca161a7bf049"
+      },
+      "outputs": {
+        "full_index.parquet": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98",
+        "full_points.bin": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a"
+      },
+      "rows": 344841,
+      "stored_points": 16165071
+    },
+    "final": {
+      "ranking_view": "final",
+      "manifest": {
+        "path": "data/derived/sparse_track_submit_20261010/final/full.json",
+        "sha256": "2f2037dbd051e1eea6834fb605dfba89aa0cc7119cfb7c025b18c3dfc9d00f19"
+      },
+      "design": {
+        "path": "data/derived/sparse_track_submit_20261010/final/full_design.json",
+        "sha256": "a8e576a72199bc50734f388acb3c1a34a1821fa593e2252dd966754da7698acd"
+      },
+      "outputs": {
+        "full_index.parquet": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2",
+        "full_points.bin": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a"
+      },
+      "rows": 670790,
+      "stored_points": 31252680
+    }
+  },
+  "cv_evidence": [
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42.json",
+      "sha256": "faf8674677c2cf9cdf5e621791f42bd33135cd93853127fa9925b6519723a162"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k1.json",
+      "sha256": "3be3070694e1a640d1b2ad23d8c3dd2a593cc9cc9911bc51e41b254e7dc310fc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k2.json",
+      "sha256": "23f4481ce835a76e353f817ce9bd8518b69e3f4c0d62da1e975788d74361d4b8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42.json",
+      "sha256": "a52e2572b9185762e2650de461827cf597ef4a78604128dd99e9665be4e22591"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k1.json",
+      "sha256": "0079a3274cf5fdc33b6ef87dea1d0c2923c9fc1e7fa6a84a715c28590b6237ee"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k2.json",
+      "sha256": "838b19a8ff23948bdcf831abfe78d68db6304a56be459c690e87e36285af9012"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/score_pool3.json",
+      "sha256": "65853a56c0f99845a73ada1edfacc29e593e768d6cda32522c11e3d6ca3f4fd8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/scored_pool3.parquet",
+      "sha256": "da0aef1c753f488280c78353429233284f00fd5a1cbd2507c80d081c788cd55f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/sparse_pool3_manifest.json",
+      "sha256": "d96b8dbc6bfc0b2c07a7bc27d90a2a061f9cf84d4017f6f2b35712436516edec"
+    }
+  ],
+  "historical_full_year": {
+    "path": "VALIDATION/runs/v3_20261006_hpo_submit/work/parts/nn.json",
+    "sha256": "55cf40ef18c4cf88b037f6b475981c71503b37b84e5bbc59d5fb131e295810a1"
+  },
+  "parity_test": {
+    "path": "VALIDATION/tests/test_fixed_epoch_sparse_train.py",
+    "sha256": "2bab880533bb292d1cdd0bdc425699b555b55ff33b5929d1559e08a5dc565787"
+  },
+  "namespace_test": {
+    "path": "VALIDATION/tests/test_nn_sparse_track_submit.py",
+    "sha256": "5c4814e96f767a2aed8a291c40907c6d1f1daff47ebdcb25cec22dd92a5d8f07"
+  }
+}

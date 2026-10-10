@@ -1,0 +1,41 @@
+{
+  "status": "code prepared; no fits or transfer",
+  "mechanism": "Joint original156+callsign6 tabular inputs and unchanged ordered raw-track residual branch can condition trajectory evidence on call/squawk continuity; selected model only averages independently trained predictions.",
+  "prior_status": "Confirmed with model agent: not previously fit. Distinct from failed generic clock differences/airport heads and from late averaging already selected.",
+  "feature_count": 162,
+  "training": {
+    "model": "unchanged SparseFusion",
+    "seed": 42,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "machine": "desktop3080, saved same-machine sparse156k0 controls",
+    "inner_selection": false,
+    "train_bytecode": "same codeobject, isolated globals differ only OUT"
+  },
+  "scoring": {
+    "primary": "half joint162k0 + half calls15 vs half saved sparse156k0 + half calls15",
+    "secondary_reference": "selected half sparse3 + half calls15; unequal pool-size limitation explicit",
+    "tree_rome_rules": "selected calls main LGB, fixedhalf Cat3/R20, unchanged rules",
+    "selected_control": "exact all-row saved squared-error replay"
+  },
+  "scope_evidence": "joint_callsign_track_scope.json",
+  "interpretation": "Hypothetical10% SSE bounds measure capacity, not expected gain. Existing evidence does not justify forecasting >1 second.",
+  "runtime_projection": "Two desktop fits roughly16min based on completed sparse k0; no transfer or extra control fits.",
+  "tests": {
+    "count": 2,
+    "seconds": 0.024,
+    "passed": true,
+    "coverage": [
+      "156 values/index/category orders and float32 calls6 alignment",
+      "missing original actual clock does not suppress independent callsign evidence",
+      "missing feature ID rejects",
+      "original training bytecode and globals untouched"
+    ]
+  },
+  "source": {
+    "VALIDATION/nn_joint_callsign_sparse_jan_jul.py": "10f39bd7ed6f48d945e302f74c38fb0d16479cef69cdb9241b9e51a2065be3ba",
+    "VALIDATION/tests/test_nn_joint_callsign_sparse.py": "4e98f35f6d00c95553daa3dde7826395c6d787cc7394476cb7b10f71b1e1edf5"
+  }
+}

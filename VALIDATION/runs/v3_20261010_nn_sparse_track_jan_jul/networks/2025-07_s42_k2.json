@@ -1,0 +1,376 @@
+{
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "design": {
+    "parent": "v58",
+    "candidate": "unchanged original156 plus frozen sparse-track fusion",
+    "group": 42,
+    "nets": [
+      0,
+      1,
+      2
+    ],
+    "pool_size": 3,
+    "inherited": [
+      0
+    ],
+    "new_members": [
+      1,
+      2
+    ],
+    "new_month_member_fits": 4,
+    "seed_formula": "42+1000*k",
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "epoch_policy": "original group42 fixed21/17; no inner fit",
+    "original_single_artifacts": "read-only and reused exactly",
+    "numerical_training_change": "only three RNG seed literals become the member seed",
+    "preprocessing": "exact recursive semantic equality; retain original pickle bytes",
+    "neural_share": 0.71,
+    "arms": [
+      "v58",
+      "direct3",
+      "sparse3",
+      "half_sparse3_v58",
+      "half_direct3_v58",
+      "available_half_sparse3_v58",
+      "available_half_direct3_v58",
+      "calls15",
+      "half_sparse3_calls15",
+      "half_direct3_calls15"
+    ],
+    "primary": [
+      "sparse3",
+      "half_sparse3_v58"
+    ],
+    "secondary_availability": {
+      "choice_time": "after k0 result, before k1/k2 fits",
+      "rule": "raw sequence count>=2: fixedhalf sparse3/old15; otherwise originalold15",
+      "fair_control": "same availability gate and fixedhalf historical3/old15",
+      "threshold_search": false
+    },
+    "secondary_callsign": {
+      "rule": "fixedhalf sparse3/calls15 on allrows",
+      "fair_control": "fixedhalf historical3/calls15",
+      "weight_search": false
+    },
+    "exploratory_reused_development_months": true
+  },
+  "original_design": {
+    "parent": "v58",
+    "original_tabular_columns": 156,
+    "appended_tabular_features": [],
+    "model": {
+      "sequence_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "width": 32,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "kernel": 3,
+      "dilations": [
+        1,
+        4,
+        16
+      ],
+      "activation": "SiLU",
+      "normalization": "LayerNorm over channels independently per point",
+      "pooling": "masked mean and max",
+      "fusion_hidden": 128,
+      "final_residual_initialization": "zero",
+      "usable": "at least two distinct timestamps",
+      "original_inputs": 156,
+      "extra_dropout": 0
+    },
+    "sequence": {
+      "window_before_sec": 7200,
+      "window_after_sec": 60,
+      "max_points": 128,
+      "minimum_distinct_timestamps": 2,
+      "labels_used": false,
+      "identity": "audited unique near-takeoff identity; missing and ambiguous remain absent",
+      "sort": [
+        "airport",
+        "hex",
+        "ts_ms",
+        "lat",
+        "lon",
+        "alt",
+        "gs"
+      ],
+      "duplicate_timestamp": "retain lexicographically first lat/lon/alt/gs per airport/hex/time",
+      "selection": "floor(linspace(0,n-1,128)); first and last always retained",
+      "gap": "previous raw observation within query window; first=-1; never interpolated",
+      "ground_alt_code": -123,
+      "other_negative_alt": "unknown",
+      "negative_speed": "unknown",
+      "origin": "mean of the airport X-Plane runway ends",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "point_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "bounds": {
+        "time": [
+          -0.008333333333333333,
+          1
+        ],
+        "gap": [
+          0,
+          1
+        ],
+        "east_north": [
+          -2,
+          2
+        ],
+        "speed": [
+          0,
+          1
+        ],
+        "altitude": [
+          0,
+          1
+        ],
+        "distance": [
+          0,
+          1
+        ],
+        "clock": [
+          -1,
+          1
+        ]
+      },
+      "scales": {
+        "time_sec": 7200,
+        "gap_log_sec": 7260,
+        "east_north_m": 20000,
+        "speed_kt": 300,
+        "altitude_ft": 10000,
+        "distance_m": 40000,
+        "clock": "clip(asinh((point-originalAOBT)/1800),-8,8)/8",
+        "raw_count_cap": 4096
+      },
+      "padding": "right padding, independent boolean point mask, all padded channels zero",
+      "absent_sequence": "0 or 1 points cached honestly; model residual hard-gated off"
+    },
+    "sequence_population": "all supplied2025 departures",
+    "target": "original direct min(y,10800), standardized with ordinary training population",
+    "seed": 42,
+    "member": 0,
+    "stopping": "frozen historical N09 epochs; no new inner fit",
+    "stop_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "network_share": 0.71,
+    "tree_share": 0.29,
+    "arms": [
+      "v58",
+      "direct_matched",
+      "sparse_fusion",
+      "half_sparse_half_v58",
+      "half_direct_half_v58"
+    ],
+    "absent_branch": "sequence residual exactlyzero for fewer than2points; jointly trained tabular branch may change",
+    "inference": "conditional mean only; original Rome and correction stack",
+    "exploratory_reused_development_months": true
+  },
+  "month": "2025-07",
+  "member": 2,
+  "seed": 2042,
+  "stop_epoch": 17,
+  "cache": {
+    "path": "data/derived/sparse_track_sequence_20261010/full.json",
+    "sha256": "723cb02477e53b3c3e6b265fa98d3bd67a8e531b45d37943c6f527de5735d6da",
+    "outputs": {
+      "full_index.parquet": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684",
+      "full_points.bin": "e24e96f34f4fd536c621a3f5c36dd7fc8eae0f037fb0a32b59c1c1b84392d147"
+    },
+    "rows": 2085047,
+    "stored_points": 84624170
+  },
+  "initial_check": {
+    "seed": 2042,
+    "initial_original_parameters_exact": true,
+    "initial_train_eval_predictions_exact": true,
+    "initialization_dropout_rng_exact": true
+  },
+  "minutes": 5.859857123950011,
+  "held_curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.3383644362374801,
+      "rmse": 647.5358089123522,
+      "seconds": 21.610915567998745
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.24401322987062343,
+      "rmse": 637.9474299660682,
+      "seconds": 21.46361335199981
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.2210620379824321,
+      "rmse": 633.6866449296251,
+      "seconds": 20.737274454000726
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.2070456798956436,
+      "rmse": 632.5813515485861,
+      "seconds": 20.822126440998545
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.19322072810762622,
+      "rmse": 626.8757474488374,
+      "seconds": 20.574296250997577
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.1850374148197275,
+      "rmse": 632.4386885459172,
+      "seconds": 20.43303072799972
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.17810916435565238,
+      "rmse": 623.7195367020622,
+      "seconds": 20.4682096860015
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.1685524666339482,
+      "rmse": 626.2720649815305,
+      "seconds": 20.533421909000026
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.16459073447357406,
+      "rmse": 624.2144439223434,
+      "seconds": 20.568714111999725
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.1545220308919646,
+      "rmse": 627.7106305443804,
+      "seconds": 20.549548154998774
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.1475875322602308,
+      "rmse": 632.5890247136018,
+      "seconds": 20.38372533599977
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.14013112075650733,
+      "rmse": 631.9039728913287,
+      "seconds": 20.51625628599868
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.13453873866354218,
+      "rmse": 627.3207826916778,
+      "seconds": 20.70571283299796
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.12825311335447703,
+      "rmse": 628.7672979743892,
+      "seconds": 20.612430262001
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.11939962492646661,
+      "rmse": 628.5539677899496,
+      "seconds": 20.552077680000366
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.11245828306316367,
+      "rmse": 629.4386595066121,
+      "seconds": 20.375879933999386
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.10576652333615297,
+      "rmse": 628.5299971709264,
+      "seconds": 20.628112501999567
+    }
+  ],
+  "expansion_manifest_sha256": "d96b8dbc6bfc0b2c07a7bc27d90a2a061f9cf84d4017f6f2b35712436516edec",
+  "train_rows": 1140233,
+  "held_rows": 190713,
+  "input_matrix_sha256": "1c44b5007b1cfe70db2387ce37089e55cad7540f8ebb5e9c043f2ee77c3d0f28",
+  "preprocessing_sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35",
+  "prediction_sha256": "d0246fa1b3b6d318af946513c1e63b1d55714a56b4c1e7ca023a1cde71a38fb7",
+  "model_sha256": "e81f402e23c30938057e02589b81d8bd9b3e64995d2bc8a47d709134cd1b71e0"
+}

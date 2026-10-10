@@ -1,0 +1,537 @@
+{
+  "source": {
+    "path": "VALIDATION/tools/audit_callsign_models_20261010.py",
+    "sha256": "ce2090531afd4ddf8b48830594bd703c7956912cf148b4e4042b886ccc4a2ddf"
+  },
+  "samples": {
+    "old": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/model_reload_audit/old.pkl",
+      "sha256": "8b3ba5c2a8df57ca7e57b92147c368e3b0eccf45dc03d6dc0c705846ee4de4c7"
+    },
+    "final": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/model_reload_audit/final.pkl",
+      "sha256": "e8ac2b2d9d042b4c44f91262f4c33dc4d5f7aacf6689a60b2a6b111da3486a4a"
+    }
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/preprocessing/full_year.pkl",
+    "sha256": "4a47af2ecf00bc55ed6e9918149e84c86b9792d1eca23c6d8ed9844b1312c89f"
+  },
+  "checks": [
+    {
+      "group": 42,
+      "k": 0,
+      "view": "old",
+      "rows": 512,
+      "exact": 174,
+      "max_abs_sec": 0.0006103515625,
+      "mean_abs_sec": 8.216500282287598e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k0.pt",
+        "sha256": "441a6522254f89032ac35797cd801e8bda523795e33327b8e048a079d0d595ae"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s42_k0.parquet",
+        "sha256": "446a7ffbf37e7b6b9aeb7eae64be348bfdecf0ed4211cb20beef5593efc6547f"
+      }
+    },
+    {
+      "group": 42,
+      "k": 0,
+      "view": "final",
+      "rows": 512,
+      "exact": 188,
+      "max_abs_sec": 0.0008544921875,
+      "mean_abs_sec": 8.185207843780518e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k0.pt",
+        "sha256": "441a6522254f89032ac35797cd801e8bda523795e33327b8e048a079d0d595ae"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s42_k0.parquet",
+        "sha256": "c2bfbc6aec427c42317ad384a84bbc39c125921b980d7dfa183bff4bc8eefb8f"
+      }
+    },
+    {
+      "group": 42,
+      "k": 1,
+      "view": "old",
+      "rows": 512,
+      "exact": 155,
+      "max_abs_sec": 0.001220703125,
+      "mean_abs_sec": 9.316205978393555e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k1.pt",
+        "sha256": "1ca443332b993dee06349e5a9350d048c6a1fba9a64d70c332b786d2f7aa58c6"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s42_k1.parquet",
+        "sha256": "bffca4f262e51e732edd7fad92a1b8a78e8869bb93119d62dbd2bbfb85f48933"
+      }
+    },
+    {
+      "group": 42,
+      "k": 1,
+      "view": "final",
+      "rows": 512,
+      "exact": 151,
+      "max_abs_sec": 0.0009765625,
+      "mean_abs_sec": 9.642541408538818e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k1.pt",
+        "sha256": "1ca443332b993dee06349e5a9350d048c6a1fba9a64d70c332b786d2f7aa58c6"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s42_k1.parquet",
+        "sha256": "9328e090d862f27d5c47a3d719bdfc98f3200fb11ada1f55030494a9788d2cb8"
+      }
+    },
+    {
+      "group": 42,
+      "k": 2,
+      "view": "old",
+      "rows": 512,
+      "exact": 163,
+      "max_abs_sec": 0.00146484375,
+      "mean_abs_sec": 9.000301361083984e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k2.pt",
+        "sha256": "413998b1e74aba9e6910a7cab9b038690a09108e1f140f7470ab3123dc6d06f0"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s42_k2.parquet",
+        "sha256": "345ed7eb5426d4631a77e7383994c8a941053fff3a8c15254effaeada2de92b2"
+      }
+    },
+    {
+      "group": 42,
+      "k": 2,
+      "view": "final",
+      "rows": 512,
+      "exact": 155,
+      "max_abs_sec": 0.00244140625,
+      "mean_abs_sec": 0.00010097026824951172,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k2.pt",
+        "sha256": "413998b1e74aba9e6910a7cab9b038690a09108e1f140f7470ab3123dc6d06f0"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s42_k2.parquet",
+        "sha256": "8c993c5a5a6eb03167b0c25fc3d2f699c4dda63b4c252f14807bd55ba8c19c7a"
+      }
+    },
+    {
+      "group": 42,
+      "k": 3,
+      "view": "old",
+      "rows": 512,
+      "exact": 186,
+      "max_abs_sec": 0.000732421875,
+      "mean_abs_sec": 7.835030555725098e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k3.pt",
+        "sha256": "f3fc5159ecff53812bcdb4d6796c807c496c31ca1cb3c7a973fcc9b1fe117e50"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s42_k3.parquet",
+        "sha256": "da2a9a8ea340e952f4e4d2abb3772de03abc98665ab632872b81afd76fa51699"
+      }
+    },
+    {
+      "group": 42,
+      "k": 3,
+      "view": "final",
+      "rows": 512,
+      "exact": 179,
+      "max_abs_sec": 0.001220703125,
+      "mean_abs_sec": 8.346140384674072e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k3.pt",
+        "sha256": "f3fc5159ecff53812bcdb4d6796c807c496c31ca1cb3c7a973fcc9b1fe117e50"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s42_k3.parquet",
+        "sha256": "d5367e09d28de354ee5a0ddf56e92bb5469cab34b9e586ac647a15c1b876dc7c"
+      }
+    },
+    {
+      "group": 42,
+      "k": 4,
+      "view": "old",
+      "rows": 512,
+      "exact": 193,
+      "max_abs_sec": 0.00048828125,
+      "mean_abs_sec": 7.635354995727539e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k4.pt",
+        "sha256": "44eb02436add978294788889c17d5ad795c74f18ef2231dda54523e18c41bb76"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s42_k4.parquet",
+        "sha256": "aa74ecd468d6a4ec61525ff17c9aa379951b4f03baf56c1f2d72e41bdc790613"
+      }
+    },
+    {
+      "group": 42,
+      "k": 4,
+      "view": "final",
+      "rows": 512,
+      "exact": 179,
+      "max_abs_sec": 0.00146484375,
+      "mean_abs_sec": 8.39531421661377e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k4.pt",
+        "sha256": "44eb02436add978294788889c17d5ad795c74f18ef2231dda54523e18c41bb76"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s42_k4.parquet",
+        "sha256": "d456e3767c3c7a00ac0401a91dac9e712a266c8fde18113784e5ab59d00a2c06"
+      }
+    },
+    {
+      "group": 142,
+      "k": 0,
+      "view": "old",
+      "rows": 512,
+      "exact": 167,
+      "max_abs_sec": 0.001220703125,
+      "mean_abs_sec": 9.739398956298828e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k0.pt",
+        "sha256": "56e963bad90451ea73bb200f382b84cfdb2f936c4576f1b1c969a84259abb7d9"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s142_k0.parquet",
+        "sha256": "2ad557eb15b98f5a4e79ffa6bf6227d535b9c21cd4c28ebe0df48ccf9f8a13c6"
+      }
+    },
+    {
+      "group": 142,
+      "k": 0,
+      "view": "final",
+      "rows": 512,
+      "exact": 158,
+      "max_abs_sec": 0.00146484375,
+      "mean_abs_sec": 9.554624557495117e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k0.pt",
+        "sha256": "56e963bad90451ea73bb200f382b84cfdb2f936c4576f1b1c969a84259abb7d9"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s142_k0.parquet",
+        "sha256": "be6c8f19818573592565f3528b3368fffdbdde1973f0045a19666b1e15e118b4"
+      }
+    },
+    {
+      "group": 142,
+      "k": 1,
+      "view": "old",
+      "rows": 512,
+      "exact": 174,
+      "max_abs_sec": 0.0013427734375,
+      "mean_abs_sec": 9.417533874511719e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k1.pt",
+        "sha256": "6729b099170a6f4123e06151005d69c1b18a84410458c8afa7afd14f65f14ef5"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s142_k1.parquet",
+        "sha256": "06b8a011e7ab1ff041fe53b8965b3b9c2ac1a74fbf598d7e28ef51f41bf724dd"
+      }
+    },
+    {
+      "group": 142,
+      "k": 1,
+      "view": "final",
+      "rows": 512,
+      "exact": 179,
+      "max_abs_sec": 0.0009765625,
+      "mean_abs_sec": 9.435415267944336e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k1.pt",
+        "sha256": "6729b099170a6f4123e06151005d69c1b18a84410458c8afa7afd14f65f14ef5"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s142_k1.parquet",
+        "sha256": "485f9d58c9c42d190e6a5f51e6a2cb8af3783ab3e6aef269dfa4756ec1acfcb5"
+      }
+    },
+    {
+      "group": 142,
+      "k": 2,
+      "view": "old",
+      "rows": 512,
+      "exact": 170,
+      "max_abs_sec": 0.001220703125,
+      "mean_abs_sec": 9.775161743164062e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k2.pt",
+        "sha256": "52e19ea8136b507b2488e1216522d2a292ebceed0a56cd544b0687300b61d5e9"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s142_k2.parquet",
+        "sha256": "8fc550201f05933876e468c55c861e15cc0bd69aaadc3f0ba1fee3896640e1e8"
+      }
+    },
+    {
+      "group": 142,
+      "k": 2,
+      "view": "final",
+      "rows": 512,
+      "exact": 190,
+      "max_abs_sec": 0.0010986328125,
+      "mean_abs_sec": 9.503960609436035e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k2.pt",
+        "sha256": "52e19ea8136b507b2488e1216522d2a292ebceed0a56cd544b0687300b61d5e9"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s142_k2.parquet",
+        "sha256": "977dbfeaa36474df566d078a2409df25695a553c6e22ec53bae352eef88e65d1"
+      }
+    },
+    {
+      "group": 142,
+      "k": 3,
+      "view": "old",
+      "rows": 512,
+      "exact": 172,
+      "max_abs_sec": 0.001708984375,
+      "mean_abs_sec": 9.28044319152832e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k3.pt",
+        "sha256": "05733f89eb303c718ed57de29a11780198061409b5a1e2fee21eecdcd0526c65"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s142_k3.parquet",
+        "sha256": "48affff2a4944ce123683e0b441d87fe587970e49d6eee7e277a82d5c19d1309"
+      }
+    },
+    {
+      "group": 142,
+      "k": 3,
+      "view": "final",
+      "rows": 512,
+      "exact": 177,
+      "max_abs_sec": 0.0009765625,
+      "mean_abs_sec": 8.821487426757812e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k3.pt",
+        "sha256": "05733f89eb303c718ed57de29a11780198061409b5a1e2fee21eecdcd0526c65"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s142_k3.parquet",
+        "sha256": "0388ebf9df786ab16887827ae54eeeb4ca394ef455d1d875bb75b33bb908fb8e"
+      }
+    },
+    {
+      "group": 142,
+      "k": 4,
+      "view": "old",
+      "rows": 512,
+      "exact": 174,
+      "max_abs_sec": 0.00146484375,
+      "mean_abs_sec": 8.973479270935059e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k4.pt",
+        "sha256": "a83c9ff1c896366f2e845d9d5377e1e170f410489d28bc1133d84000ba180fca"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s142_k4.parquet",
+        "sha256": "f209a995bc07f92ba61c20365094a528b0e77f1e1b9b669aa3bffa19dc92a39a"
+      }
+    },
+    {
+      "group": 142,
+      "k": 4,
+      "view": "final",
+      "rows": 512,
+      "exact": 176,
+      "max_abs_sec": 0.002685546875,
+      "mean_abs_sec": 0.00010032951831817627,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s142_k4.pt",
+        "sha256": "a83c9ff1c896366f2e845d9d5377e1e170f410489d28bc1133d84000ba180fca"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s142_k4.parquet",
+        "sha256": "28a8c94ce5b24bc067550d358b7af8d711808521f480cf7cd2fb0537cc9a474c"
+      }
+    },
+    {
+      "group": 242,
+      "k": 0,
+      "view": "old",
+      "rows": 512,
+      "exact": 154,
+      "max_abs_sec": 0.001953125,
+      "mean_abs_sec": 9.530782699584961e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k0.pt",
+        "sha256": "e093772bcb84007a2d67b1720e782b1e6da3ba2360f26c91cde83cbe09961837"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s242_k0.parquet",
+        "sha256": "45f55ad67a37e0543fd9bf962f2be2b4f754d492600786f6e7678e78a6628c86"
+      }
+    },
+    {
+      "group": 242,
+      "k": 0,
+      "view": "final",
+      "rows": 512,
+      "exact": 139,
+      "max_abs_sec": 0.00341796875,
+      "mean_abs_sec": 0.00010153651237487793,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k0.pt",
+        "sha256": "e093772bcb84007a2d67b1720e782b1e6da3ba2360f26c91cde83cbe09961837"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s242_k0.parquet",
+        "sha256": "1b1e9b0c78b6dee7775f4325d0b730a9e811b5e6a68ad6391b07db10148fe348"
+      }
+    },
+    {
+      "group": 242,
+      "k": 1,
+      "view": "old",
+      "rows": 512,
+      "exact": 187,
+      "max_abs_sec": 0.0009765625,
+      "mean_abs_sec": 8.684396743774414e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k1.pt",
+        "sha256": "0adb1c848624eb9a72b538c36030a81e8e0ec078c79add813157ba82c631b01d"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s242_k1.parquet",
+        "sha256": "feb1ba6a487ccd2671cca974d903f38e0002bd158f72db8753d0266b77d45a89"
+      }
+    },
+    {
+      "group": 242,
+      "k": 1,
+      "view": "final",
+      "rows": 512,
+      "exact": 182,
+      "max_abs_sec": 0.001220703125,
+      "mean_abs_sec": 8.48621129989624e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k1.pt",
+        "sha256": "0adb1c848624eb9a72b538c36030a81e8e0ec078c79add813157ba82c631b01d"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s242_k1.parquet",
+        "sha256": "0350d63046b9fca5a3062204e7866536f4b57daf5c806d4cdb8bde8c5c2714db"
+      }
+    },
+    {
+      "group": 242,
+      "k": 2,
+      "view": "old",
+      "rows": 512,
+      "exact": 168,
+      "max_abs_sec": 0.001708984375,
+      "mean_abs_sec": 9.149312973022461e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k2.pt",
+        "sha256": "e4c406e533fee89d5bb18dc7cd67bd3a38306da625b7152a1693c1cf375f7801"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s242_k2.parquet",
+        "sha256": "7d86d26136eecdf7c7303e32d5bde84636256300753277757690a708258e2f0a"
+      }
+    },
+    {
+      "group": 242,
+      "k": 2,
+      "view": "final",
+      "rows": 512,
+      "exact": 182,
+      "max_abs_sec": 0.0009765625,
+      "mean_abs_sec": 8.307397365570068e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k2.pt",
+        "sha256": "e4c406e533fee89d5bb18dc7cd67bd3a38306da625b7152a1693c1cf375f7801"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s242_k2.parquet",
+        "sha256": "6bcb67f3f54c140e931578bf66a1d23f2ccd87478c18e07aff0b2235e723bc09"
+      }
+    },
+    {
+      "group": 242,
+      "k": 3,
+      "view": "old",
+      "rows": 512,
+      "exact": 184,
+      "max_abs_sec": 0.001708984375,
+      "mean_abs_sec": 9.09566879272461e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k3.pt",
+        "sha256": "d3f0bebb8c426520e75bc23596d4384ec43e9a3f552b70a3095e0f6fe5e2f169"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s242_k3.parquet",
+        "sha256": "3674a58990e28079de103df062657600285c6bc199e9d4a6e6b1cb1c13862a64"
+      }
+    },
+    {
+      "group": 242,
+      "k": 3,
+      "view": "final",
+      "rows": 512,
+      "exact": 187,
+      "max_abs_sec": 0.00146484375,
+      "mean_abs_sec": 7.987022399902344e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k3.pt",
+        "sha256": "d3f0bebb8c426520e75bc23596d4384ec43e9a3f552b70a3095e0f6fe5e2f169"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s242_k3.parquet",
+        "sha256": "d5d8d65c9c7922b4f0c8c8aed12860d995769a05bbec1519e86747737d1a5e47"
+      }
+    },
+    {
+      "group": 242,
+      "k": 4,
+      "view": "old",
+      "rows": 512,
+      "exact": 192,
+      "max_abs_sec": 0.0009765625,
+      "mean_abs_sec": 8.678436279296875e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k4.pt",
+        "sha256": "c6b91d151a119f43c05e715ac9478dd8ee77c1d00ede7c0117f9ccec5dddedaf"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s242_k4.parquet",
+        "sha256": "80279c9e16c66d094d63675e8af4f2dd710ef17991dfb728c36ce4254888fbe1"
+      }
+    },
+    {
+      "group": 242,
+      "k": 4,
+      "view": "final",
+      "rows": 512,
+      "exact": 190,
+      "max_abs_sec": 0.00146484375,
+      "mean_abs_sec": 8.243322372436523e-05,
+      "model": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s242_k4.pt",
+        "sha256": "c6b91d151a119f43c05e715ac9478dd8ee77c1d00ede7c0117f9ccec5dddedaf"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s242_k4.parquet",
+        "sha256": "15cbec394c9bd93d5262af155a6be7b20a5a6e1a61494fe1615b6bf567a3385c"
+      }
+    }
+  ],
+  "total_predictions": 15360,
+  "tolerance_abs_sec": 0.01,
+  "device": "cuda",
+  "passed": true,
+  "no_training_cache_or_labels_read": true
+}

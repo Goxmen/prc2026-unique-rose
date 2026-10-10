@@ -1,37 +1,60 @@
 # Research network: 10 October 2026
 
-**Status: research in progress; no selected replacement for v58 and no upload.**
-The objective is a five-second official RMSE reduction, from **236.1895 to
-231.1895**. That requires approximately 4.19% less mean squared error on the
-same scored population. Local validation improvements are not official gains.
+**Status: fixed raw-track/callsign/Rome candidate selected on development CV;
+full-year track fits authorized, no upload.** The objective is a five-second
+official RMSE reduction, from **236.1895 to 231.1895**. That requires approximately
+4.19% less mean squared error on the same scored population. Local validation
+improvements are not official gains.
 
-The strongest completed fixed combination scores **294.4217** on Jan/Jul CV,
-**-1.3078 seconds** versus its matched seed42-tree control (295.7295): full15
-callsign networks, callsign inputs in the main LightGBM, and a fixed equal
-mixture of three-seed CatBoost and R20 Rome probabilities. The paired-day
-interval is [-1.9059, -0.7068]. The main-LightGBM addition contributes 0.0680
-seconds beyond the preceding combination. That preceding combination was
-also checked over all three tree seeds, scoring 294.5020 versus 295.7414
-(-1.2395 seconds). The seed42 candidate is not broadcast across other seeds.
-These development months have been reused extensively. Official v58 remains
-236.1895; the five-second objective is not achieved. Callsign and Rome CatBoost
-production inputs are prepared and audited. All three full-year Rome CatBoost
-models are complete. The laptop is fitting the 15 callsign networks after
-parity-checked memory/execution repairs. The full-year main LightGBM and its
-344,841/670,790-row predictions are complete; the saved model is retained.
-The raw-track sequence screen has now passed: **-2.2255 seconds** against its
-matched single network, or **-0.8350 seconds** for a fixed half mixture with
-the actual 15-network parent. Both months improve. A fixed three-member
-expansion is now running on the desktop; no upload has occurred.
+The selected fixed combination scores **293.6566** on Jan/Jul CV versus its
+matched seed42-tree control **295.7295**, a **2.0729-second reduction** with a
+paired-day interval [-2.8070, -1.4699]. January improves 0.9880 seconds and July
+3.1579. It combines equal shares of three raw-track networks and 15 callsign
+networks within the unchanged 0.71 neural share, callsign inputs in the main
+LightGBM, and a fixed half mixture of three-seed CatBoost and R20 Rome probabilities.
+The other two trees and inherited corrections remain unchanged.
+
+The track increment contributes **0.7651 seconds** beyond the completed
+callsign/Rome combination (294.4217), interval [-1.1690, -0.4984]. Replacing the
+track networks with three matched original networks in the same blend loses
+1.0269 seconds, which supports a representation gain beyond ensemble arithmetic.
+All comparisons use extensively reused development months, not independent
+confirmation. The target five-second official improvement is not achieved.
+
+All 15 full-year callsign networks, the main LightGBM and three Rome CatBoost
+models are complete and retained. Both ranking candidates passed the full-source audit, exact parent replay,
+independent all-row blend/serialization checks and 512 saved-tree predictions
+per view. Their neural reload audit covers 15,360 predictions. The three selected full-year track
+networks are authorized after cache verification and the CUDA execution check.
+Both ranking-view track caches were built and independently audited on the
+laptop; their returned files passed SHA-256 verification on the desktop. A separate matched-laptop physical
+clock-bypass screen remains exploratory. No upload has occurred.
+
+The sparse production trainer initially failed an exact CUDA parity check.
+Repeating the original trainer also produces tiny variations (maximum parameter
+difference 1.49e-8), identifying GPU kernel nondeterminism rather than evidence
+of a changed update rule. With deterministic CuDNN enabled only inside the test,
+the original and revised paths have exactly equal weights, losses, RNG states
+and predictions. Production retains the original backend settings; its four
+preflight tests passed before fitting.
+
+The next queued screen combines callsign6 and raw tracks inside one network.
+It preserves the existing track branch and fixed 21/17-epoch training recipe,
+with two new seed42 fits. Its primary comparison uses the saved same-desktop
+single-track control in an otherwise identical half-track/half-callsign blend.
+The selected three-track pool is a separate reference, with the ensemble-size
+difference explicit. The joint runner passed peer review and two bounded tests;
+no joint fit has started.
 
 ## Starting evidence
 
-The live check at 2026-10-10 16:45:31 UTC found v58 still best at 236.1895,
+The live check at 2026-10-10 18:15:19 UTC found v58 still best at 236.1895,
 rank 26/240 scoring teams. The latest scored upload is v61 at 236.6319.
 The four-month v63 file was rejected previously; its existence does not mean
 the scorer has accepted the enlarged truth set. No submission slot is used
-by this research. A separate public-API check finds all 5,236 published scored
-submissions, including the latest on 10 October, still report 344,841 pairs.
+by this research. A separate public-API check finds all 5,240 published scored
+submissions, including the latest at 18:13 UTC on 10 October, still report
+344,841 pairs.
 That provides no evidence that four-month submissions are accepted yet.
 
 The current recipe combines 15 PLE networks (share 0.71) with an equal mean of
@@ -135,6 +158,10 @@ after two fixed epochs exactly. A 65,537-row full-width inference probe also
 matches exactly between the two batch sizes. Peak inference allocation falls
 from 4.84 to 1.34 GiB; with all production tensors resident, the new peak is
 6.05 GiB. Full-year epochs now take about six seconds rather than seventy.
+All 15 models subsequently finished. An independent reload audit checked 512
+input-selected rows per view for every model: 15,360 predictions in total,
+maximum absolute difference 0.003418 seconds against the saved float32 outputs.
+This is an inference reproducibility check, not validation of prediction accuracy.
 
 A separate raw-source production audit checked 720 reconstructed values on
 72 flights, including 12 midnight bridges and eight overlapping old/final
@@ -190,7 +217,7 @@ No failed or inconclusive experiment is added to the submission ledger.
 | Fifteen callsign networks, half mixed with v58's pool | v58 | -0.5364 s | Passing fixed alternative |
 | Six callsign inputs in main LightGBM | Matched laptop v58, tree seed 42 | -0.1450 s | Passing fixed comparison |
 | Callsign15 plus fixed half CatBoost/R20 probabilities | v58 | -1.2395 s | Passing fixed combination |
-| Same combination plus callsign main LightGBM | Matched laptop v58, tree seed 42 | -1.3078 s | Strongest completed combination |
+| Same combination plus callsign main LightGBM | Matched laptop v58, tree seed 42 | -1.3078 s | Passing fixed combination |
 | Prior own-aircraft arrival copy flag and age in R20 | v58 | -0.2005 s | Inconclusive; no expansion |
 | Same own-arrival classifier, fixed half R20 mixture | v58 | -0.2121 s | Inconclusive; no expansion |
 | Six track observations around original AOBT | One matched N09 network | +0.4193 s | Stop |
@@ -202,6 +229,10 @@ No failed or inconclusive experiment is added to the submission ledger.
 | Raw sparse-track temporal branch | One matched N09 network | -2.2255 s | Expand to three members |
 | Same sequence model, fixed half mixture with v58's pool | v58 | -0.8350 s | Passing fixed comparison |
 | Same sequence half mixture | Matched half-N09/half-v58 control | -1.5292 s | Passing matched comparison |
+| Three raw-track networks | Three matched N09 networks | -1.9140 s | Passing matched comparison |
+| Same three raw-track networks | Full v58 network pool | -0.9405 s | Passing fixed comparison |
+| Half raw-track3 / half v58 network pool | v58 | -1.1165 s | Passing fixed comparison |
+| Half raw-track3 / half callsign15 with callsign main tree and half Cat3/R20 | Matched laptop v58, tree seed 42 | -2.0729 s | Selected for full-year fitting |
 
 The one-network direct control is 298.9873315237, substantially worse than
 the existing 15-network pool. Comparing a new single network directly with
@@ -209,8 +240,8 @@ the full pool would conflate architecture and ensemble size. Both the
 matched-size and fixed half-pool comparisons are retained.
 
 The residual network worsened July by 1.6423 seconds. The sensor-difference
-matched comparison has interval [-0.6742, +0.4947]. None of the single-network
-half mixtures beats the actual 15-member parent convincingly.
+matched comparison has interval [-0.6742, +0.4947]. Neither the residual nor the sensor-difference single-network
+half mixture beats the actual 15-member parent convincingly.
 
 An additional audit corrects for the ensemble-size difference: half historical
 N09 seed42/k0 plus half v58's pool scores **296.4356**, already 0.6942 seconds
@@ -510,12 +541,45 @@ subsets improve matched RMSE by 12.51/4.56 seconds in January/July, and sparse
 2–31-point histories improve by 3.54/4.46. The five largest gains contribute
 only 1.0% of gross squared-error reduction. Zero/one-point rows are flat in
 January and worse in July because the shared tabular branch is jointly trained.
-The next fixed three-member expansion reuses k0 and adds k1/k2, without changing
-inputs, architecture or stopping epochs. Primary comparisons remain unchanged.
+The completed fixed three-member expansion reused k0 and added k1/k2 without
+changing inputs, architecture or stopping epochs. It scores 294.8009, improving
+the matched original three-member pool by 1.9140 seconds and the actual parent
+by 0.9405. A fixed half mixture with the parent scores 294.6249, improving
+1.1165 seconds. The selected combined recipe and fair-control results are
+reported at the top; no availability gate enters that selected recipe.
 A secondary availability fallback, declared after the k0 diagnosis, keeps the
 original parent pool on fewer-than-two-point rows; its matched control and
 post-k0 development status must be reported. There is no ground/count threshold
-search. The weaker physical-clock-bypass idea is deferred behind this expansion.
+search. The four-fit matched-laptop physical-clock-bypass screen has completed
+training, with original N09 controls and unchanged fixed epochs; scoring is pending.
+
+Production sequence preparation reuses the audited aircraft identities and
+unchanged sequence selector, with separate old/final namespaces. The compact
+queries total 22.29 MB; the required cached position union is 122 files and
+637.94 MB. The training sequence cache stays on the desktop. A single pinned,
+low-priority CPU prepared the queries in 10.44 seconds. All 344,841 overlapping
+flights retain the same original AOBT, while 316,651 takeoff clocks shift by up
+to 12 seconds. Known aircraft identities never disagree, but identity availability
+changes for 475 flights (231 known-to-missing, 244 missing-to-known). The original
+descriptive manifest incorrectly reported zero differences because nullable
+comparisons omitted these cases; a supplemental audit corrects that count. Each
+view retains its own audited identities, queries and sequence cache. Missing March 1/August 1 source days
+remain explicit. Five focused tests and 224 independently reconstructed queries
+check schema, identity, raw clocks, geometry and view isolation. Both caches
+were built on the laptop: 16,165,071 old-view points (388 MB) and 31,252,680
+final-view points (750 MB). The independent output audit checks all 1,015,631
+rows and 47,417,751 points, plus 96 reconstructed raw cases containing 3,733
+points and eight shared old/final jitter IDs. The preparation does not select
+a production sequence recipe or establish an accuracy gain.
+
+Input-only coverage reveals substantial transfer uncertainty. Overall usable
+track coverage rises from 77.18% to 82.67% for January and from 82.16% to
+83.80% for July between 2025 and 2026. Rome has a much sharper reversal in
+ground observations: 1/11,317 flights in January 2025 versus 9,662/11,061 in
+January 2026, but 14,804/15,211 in July 2025 versus 48/15,838 in July 2026.
+Most July 2026 Rome flights still have airborne observations; this is not
+simply missing files or no track. No outcome-driven gate is derived from
+these input shifts. See the saved coverage and independent output audits.
 
 A cached-data feasibility check also rejected dynamic airline clock-versus-
 physical-sensor offsets. Prior two-hour same-airline peer coverage is sparse;

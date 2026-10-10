@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "source_sha256": "e70f9535b77c62cf5ce950077f89ec76a430c34f6779073793dbdf6c1a3cefd6",
+  "prepared_manifest_sha256": "e81a21ce1059728d5e14b0c158327cae7d10156d1c1f5e7c5e66f2c1d6cf8e61",
+  "views": {
+    "old": {
+      "rows": 344841,
+      "checked_rows": 104,
+      "months": [
+        "2026-01",
+        "2026-07"
+      ],
+      "missing_clock": 19,
+      "missing_identity": 27,
+      "query_sha256": "796bdbacb0940d19b9231fd22ee360be59f54dfca24e54a33edb32e4b48d5a59",
+      "fields": "raw phase/ID/airport/stand/runway/takeoff/AOBT, audited hex, static stand/runway/origin geometry"
+    },
+    "final": {
+      "rows": 670790,
+      "checked_rows": 120,
+      "months": [
+        "2026-01",
+        "2026-02",
+        "2026-06",
+        "2026-07"
+      ],
+      "missing_clock": 27,
+      "missing_identity": 28,
+      "query_sha256": "8aa452044878888667cfcc7c2c1c2132792166d73cc2e606cf2e3af47a58b6ce",
+      "fields": "raw phase/ID/airport/stand/runway/takeoff/AOBT, audited hex, static stand/runway/origin geometry"
+    }
+  },
+  "departure_labels_or_block_read": false,
+  "positions_or_model_cache_read": false
+}

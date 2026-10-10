@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "scope": "independent source review and two small CPU unit tests; no cache scans, fitting, scoring or CUDA jobs",
+  "sources": {
+    "VALIDATION/nn_joint_callsign_sparse_jan_jul.py": "10f39bd7ed6f48d945e302f74c38fb0d16479cef69cdb9241b9e51a2065be3ba",
+    "VALIDATION/tests/test_nn_joint_callsign_sparse.py": "4e98f35f6d00c95553daa3dde7826395c6d787cc7394476cb7b10f71b1e1edf5",
+    "VALIDATION/chunked_direct_data.py": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9",
+    "VALIDATION/nn_sparse_track_jan_jul.py": "b1225096a7f259020823c46d9a53f0acae942cd58f70dd35a535a54a575d9884",
+    "VALIDATION/nn_callsign_clocks_jan_jul.py": "4763756ce09d4e6da4e3c47d8dd844f063a29ae5addee6d56fc4a6ec60d74132"
+  },
+  "tests": {
+    "command": "OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -m unittest discover -s VALIDATION/tests -p test_nn_joint_callsign_sparse.py -v",
+    "passed": 2,
+    "seconds": 0.028
+  },
+  "checks": [
+    "Original 156 columns, dtypes, categories and row index retained exactly; only six frozen callsign columns appended in fixed order.",
+    "Train/held IDs align to immutable cached matrices, audited compact month/label/airport metadata and frozen outer month membership.",
+    "Existing all2025 ragged index/point bytes, genuine clock/geometry/missingness and ID alignment reused; no2026 namespace or rebuilt sequence.",
+    "Same RTX3080 seed42 sparse k0 controls verified; original training code object reused in an isolated namespace with only diagnostic OUT changed.",
+    "Original direct clipped target, zero offsets, AdamW/OneCycle schedule, fixed21/17epochs and all-row final stack retained.",
+    "Fixed half-joint-single versus half-sparse-single, both with calls15, gives matched pool size. Selected sparse3 reference is explicitly separate and its stored per-row errors replay exactly.",
+    "No train-time branch gate from heldout outcomes, upload, feature search, weight search or inner stopping."
+  ],
+  "limitations": [
+    "Static review and tiny tests only; complete source guards and fitted output checks run with the authorized experiment.",
+    "Same reused Jan/Jul development months, and unchanged CuDNN training may have machine-level nondeterminism."
+  ]
+}

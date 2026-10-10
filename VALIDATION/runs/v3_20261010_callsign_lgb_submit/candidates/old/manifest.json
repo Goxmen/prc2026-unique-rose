@@ -1,0 +1,263 @@
+{
+  "state": "prepared_not_uploaded",
+  "view": "old",
+  "design": {
+    "parent": "v58",
+    "ordinary_tree_seed": 42,
+    "rounds": 10000,
+    "trial": "LB1",
+    "new_features": [
+      "cc_call_start_sec",
+      "cc_squawk_start_sec",
+      "cc_previous_call_end_sec",
+      "cc_before_own_arrival",
+      "cc_ambiguous",
+      "cc_censored"
+    ],
+    "original_feature_count": 156,
+    "population": "unchanged original2051327 ordinary training rows",
+    "tree_mean": "equal mean of new main LightGBM and original airport LightGBM and CatBoost",
+    "neural": "full15 callsign PLE",
+    "network_share": 0.71,
+    "rome": "fixed half three-seed CatBoost plus half original R20",
+    "corrections": "unchanged callsign_submit.final_frame",
+    "views": [
+      "old",
+      "final"
+    ],
+    "upload": false
+  },
+  "design_sha256": "457f675d44e1169b2cade68f2b7cf36f8c4522e8ed9e46c47ae38dcd83ed3939",
+  "output": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidates/old/candidate.parquet",
+    "sha256": "9718afa9546f9a93d06d46a838fefbb1ffee22a457457dfe4989d06f2da6ac56"
+  },
+  "template": {
+    "path": "data/submitting.parquet",
+    "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+  },
+  "source_sha256": "bf6746f2f9adf440be8d009c3cdcbc88b13334547e768b1363d03f2f23403476",
+  "parent_prepared": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/prepared.json",
+    "sha256": "84baa8c78bf9fb171e1aba4516e658bbd6091aae54d9dea42676fc106553c58a"
+  },
+  "exact_parent_control": {
+    "exact_parent_reproduced": true,
+    "rows": 344841,
+    "parent_submission": {
+      "path": "submissions/unique-rose_v58.parquet",
+      "sha256": "f32f1808438eb2086a310401f9eef182d44d7e870a4bd85d04affe40494342e5"
+    },
+    "exact_raw_predictions_reproduced": true,
+    "parent_raw_predictions": [
+      {
+        "path": "VALIDATION/runs/v3_20261006_blend_weight_submit/submission_v58/ranking_2026-01.parquet",
+        "sha256": "93484bd5d098b3e8ed68a37bc5d911b9d8affea99ed12dd6ccc36a72556b5762"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261006_blend_weight_submit/submission_v58/ranking_2026-07.parquet",
+        "sha256": "a89579ed125e0dd5ac43ee02946fd97d0a732c2747bb6853e8fb7de646026178"
+      }
+    ],
+    "parent_template": {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    },
+    "parent_parts": [
+      {
+        "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-01.parquet",
+        "sha256": "fe4c0c588387c397eb6cc0365d0449f564b23275c9a0d18af7cb7c271dae4ca1"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-07.parquet",
+        "sha256": "69bf84a9f86ff78ecfc1d2c42d7c0a84836a9cd3f7ff9d06d1f5198cf10a9770"
+      }
+    ],
+    "correction_masks": {
+      "2026-01": {
+        "clock12": 0,
+        "clock2": 0,
+        "day": 1,
+        "rule_band": 12,
+        "rule_confidence": 1,
+        "twins": 5
+      },
+      "2026-07": {
+        "clock12": 1,
+        "clock2": 2,
+        "day": 4,
+        "rule_band": 20,
+        "rule_confidence": 0,
+        "twins": 11
+      }
+    },
+    "rule_triggered": 43
+  },
+  "exact_parent_tree_mean": true,
+  "model_record": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/model.json",
+    "sha256": "96a8d8875ce31bad7b1fadd1789a086ec3eca976fc84a8febc3e7b72a8f71491"
+  },
+  "main_prediction": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/predictions/old.json",
+    "sha256": "5698b13fa58dc4b868191d9b68209346d4df74a240b8dd9cb494427fcadb706a"
+  },
+  "network_records": [
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s42_k0.json",
+      "sha256": "9572fdf0c43379a9a95f826d609b4c3eb98f06586f087b9209e43f79eb4f0822"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s42_k1.json",
+      "sha256": "4029b240d409207f056b994cdb1b510abe02c069b1cfefcf3d9106dd3405f66b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s42_k2.json",
+      "sha256": "1223503073141f55817675cca499cb06d6c2c00c7729c785667920176aeb1898"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s42_k3.json",
+      "sha256": "5dc9595026e1709861cefccd0df75c743b955a92615ed04da5e85e5f13d38093"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s42_k4.json",
+      "sha256": "1470c39a6bcd220e4d61271a756851d8500e8884348b523e8dc91b0c4360d80c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s142_k0.json",
+      "sha256": "b01edd60556e114aaf937385e250fdd2cd1bb4828ccbc7fceab9a8275fd50a7e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s142_k1.json",
+      "sha256": "d3e28adf654da0e69ffd8db52f0827ae7942a677305d24ec4e3fbfdd479f382a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s142_k2.json",
+      "sha256": "e1df4b328f73350e1862a03c23a9ced910783469758f4bd9fbef3399fada982c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s142_k3.json",
+      "sha256": "f14b8f4c01dfd39be05a39f4619f144f0817f7316ee1a1ef8e6748c0cd0a0cf3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s142_k4.json",
+      "sha256": "dc5030a863dbcb6491db58faeccb934a13499fefa8196529e1a2d9f2cc96bc07"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s242_k0.json",
+      "sha256": "4d9c47d69f8d741130a03389dca04e0280f3fab38ecc66b0c5f9db43afb99305"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s242_k1.json",
+      "sha256": "2c8be781b55e3ff2581a652c1b527dd1524f09dd2df727811367c26f27b985f7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s242_k2.json",
+      "sha256": "f193bd88b462bdb867fba20bac9224e02bc792b0f9b96316c929319d51abca2c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s242_k3.json",
+      "sha256": "8fe11c04c2b11d71acdf07bb3d9d99838842d91b621865c93f60808656a689d6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/s242_k4.json",
+      "sha256": "c1869165746f3a0c71cd6a92f55517bcd3dffcc0bc8b8db6aec260b99664226e"
+    }
+  ],
+  "parent_parts": [
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-01.parquet",
+      "sha256": "fe4c0c588387c397eb6cc0365d0449f564b23275c9a0d18af7cb7c271dae4ca1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-07.parquet",
+      "sha256": "69bf84a9f86ff78ecfc1d2c42d7c0a84836a9cd3f7ff9d06d1f5198cf10a9770"
+    }
+  ],
+  "parent_tree_components": [
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-01.parquet",
+      "sha256": "fe4c0c588387c397eb6cc0365d0449f564b23275c9a0d18af7cb7c271dae4ca1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-07.parquet",
+      "sha256": "69bf84a9f86ff78ecfc1d2c42d7c0a84836a9cd3f7ff9d06d1f5198cf10a9770"
+    }
+  ],
+  "rome": {
+    "record": {
+      "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/old.json",
+      "sha256": "4b295c52ad3313f9f3a4e8cfa7ff200a4e173e329870c192394eb8e419a02cad"
+    },
+    "contents": {
+      "view": "old",
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/probabilities/old.parquet",
+        "sha256": "9a8e241be231a32fa72727157a110b738bf989fe30ab19771989455649baaab2"
+      },
+      "source": {
+        "path": "VALIDATION/rome_catboost_submit.py",
+        "sha256": "e1ba5dbd728132c0d65c7b5f55262550a5af619d3d42f61acd325723f51830ef"
+      },
+      "seeds": [
+        42,
+        142,
+        242
+      ],
+      "probability_column": "p",
+      "prepared": {
+        "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/prepared.json",
+        "sha256": "1e0e6dba0ab360fce5915bca963b4968d237b9ace19b350ce14ab18a12fdce04"
+      },
+      "selection": {
+        "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/selection.json",
+        "sha256": "542afd0ec997f67426e16029c3300591d5c8b992a6084bacadb1c0219113244b"
+      },
+      "seed_records": [
+        {
+          "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/models/s42.json",
+          "sha256": "fbfb3e6aeb618f141a7dee45439f6839592d11e5793a0ce296d7d49990b999ea"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/models/s142.json",
+          "sha256": "3c37237523b75177233f5d3ddcf05c982ea404fbcab9a0537462bc2c16efa141"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/models/s242.json",
+          "sha256": "a1d9332f0bacb58ec2303026fe0da74ab2dd978fd5243f984f67a5af44ca3d4a"
+        }
+      ],
+      "rows": 344841,
+      "positive_probability_rows": 26899,
+      "consumer": "fixed0.5 exported mean +0.5 original R20; no calibration or upload"
+    },
+    "combined_cv": {
+      "path": "VALIDATION/runs/v3_20261010_research_combo_jan_jul/result.json",
+      "sha256": "8e09e6860a0a4941d7600293c555e1ea15e7cb899c9e701c3cf211fe1571b1af"
+    }
+  },
+  "correction_masks": {
+    "2026-01": {
+      "clock12": 0,
+      "clock2": 0,
+      "day": 1,
+      "rule_band": 12,
+      "rule_confidence": 1,
+      "twins": 5
+    },
+    "2026-07": {
+      "clock12": 1,
+      "clock2": 2,
+      "day": 4,
+      "rule_band": 20,
+      "rule_confidence": 0,
+      "twins": 11
+    }
+  },
+  "rule_triggered": 43,
+  "cv_evidence": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_lgb_combo_score/result.json",
+    "sha256": "29ea737431a0be4035f8ecc351af0d5af7d85a3f46b70a1ea0f933ccd0a237a1"
+  },
+  "rows": 344841
+}

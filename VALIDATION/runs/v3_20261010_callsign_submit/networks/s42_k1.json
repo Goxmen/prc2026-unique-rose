@@ -1,0 +1,169 @@
+{
+  "design_sha256": "95d66c8b9336c77242f428baf3f7fda97a877051200736cd0da02eb79385db3e",
+  "prepared_sha256": "84baa8c78bf9fb171e1aba4516e658bbd6091aae54d9dea42676fc106553c58a",
+  "seed": 1042,
+  "epochs": 15,
+  "model": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/models/s42_k1.pt",
+    "sha256": "1ca443332b993dee06349e5a9350d048c6a1fba9a64d70c332b786d2f7aa58c6"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/preprocessing/full_year.pkl",
+    "sha256": "4a47af2ecf00bc55ed6e9918149e84c86b9792d1eca23c6d8ed9844b1312c89f"
+  },
+  "predictions": {
+    "old": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/old_s42_k1.parquet",
+      "sha256": "bffca4f262e51e732edd7fad92a1b8a78e8869bb93119d62dbd2bbfb85f48933"
+    },
+    "final": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/networks/final_s42_k1.parquet",
+      "sha256": "9328e090d862f27d5c47a3d719bdfc98f3200fb11ada1f55030494a9788d2cb8"
+    }
+  },
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "training_curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.3238427103567362,
+      "seconds": 6.065327954998793,
+      "train_seconds": 6.063623566999013,
+      "monitor_seconds": 0.0017043879997800104
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.24889443736392394,
+      "seconds": 6.123718607999763,
+      "train_seconds": 6.1220661500010465,
+      "monitor_seconds": 0.0016524579987162724
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.22808285534644365,
+      "seconds": 6.101942156001314,
+      "train_seconds": 6.099868429999333,
+      "monitor_seconds": 0.002073726001981413
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.21435505626820162,
+      "seconds": 6.02550437500031,
+      "train_seconds": 6.023422271999152,
+      "monitor_seconds": 0.0020821030011575203
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.2059812769593032,
+      "seconds": 6.067734767002548,
+      "train_seconds": 6.065969211002084,
+      "monitor_seconds": 0.0017655560004641302
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.19979563493403824,
+      "seconds": 6.08170429600068,
+      "train_seconds": 6.079675608998514,
+      "monitor_seconds": 0.002028687002166407
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.19545627673606192,
+      "seconds": 6.087170609000168,
+      "train_seconds": 6.085428149999643,
+      "monitor_seconds": 0.001742459000524832
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.18737915667360613,
+      "seconds": 6.072776378998242,
+      "train_seconds": 6.071115210997959,
+      "monitor_seconds": 0.001661168000282487
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.1843525923715372,
+      "seconds": 6.114780428000813,
+      "train_seconds": 6.113146335999772,
+      "monitor_seconds": 0.001634092001040699
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.18118325234571267,
+      "seconds": 6.0366955190002045,
+      "train_seconds": 6.03495091899822,
+      "monitor_seconds": 0.0017446000019845087
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.19404307003415136,
+      "seconds": 6.018592213000375,
+      "train_seconds": 6.01694633200168,
+      "monitor_seconds": 0.001645880998694338
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.17877815880923487,
+      "seconds": 6.011134945998492,
+      "train_seconds": 6.009491081000306,
+      "monitor_seconds": 0.0016438649981864728
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.16417095768094045,
+      "seconds": 6.03082089000236,
+      "train_seconds": 6.029078171999572,
+      "monitor_seconds": 0.001742718002788024
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.15874449326562767,
+      "seconds": 5.9747496740019415,
+      "train_seconds": 5.972679639002308,
+      "monitor_seconds": 0.002070034999633208
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.15249408149704455,
+      "seconds": 5.97449283899914,
+      "train_seconds": 5.972831835999386,
+      "monitor_seconds": 0.0016610029997536913,
+      "final_inference_seconds": 1.43134942100005
+    }
+  ],
+  "minutes": 1.5387306621499495,
+  "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.14.1+cu130",
+  "portable_worker": {
+    "source": {
+      "path": "VALIDATION/callsign_submit_portable.py",
+      "sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c"
+    },
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/manifest.json",
+      "sha256": "279580a52250cdc230020e3c1d9f715dffa86f8e12baa6b8e3e2f380e7f4a614"
+    },
+    "source_check_scope": "Portable worker: exact cached original training matrix, transferred ranking matrices, feature tables, training IDs, recipe, source and helper hashes. Original ranking/raw sources fully checked on desktop prepare; desktop audit/build checks them again."
+  },
+  "chunked_adapter": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/chunked/identity.json",
+    "sha256": "6b6e8308a56ad85bbcd7859ff06216d55b8ac37e8cdcb1dad1991e5145618c4f"
+  },
+  "execution_worker": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/fast/identity.json",
+    "sha256": "f6fd32b8d6622f170ee4b987f297b43b2728595cbd3873dce2dad649525608df"
+  }
+}

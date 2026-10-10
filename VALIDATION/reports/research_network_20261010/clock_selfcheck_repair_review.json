@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "scope": "Independent static review and CPU tests; CUDA run delegated to model agent on allocated laptop",
+  "files": {
+    "VALIDATION/clock_bypass_checks.py": "1f2117709b16d4a5f15fabde6342099a81010f2598dfd01e431e9c5cc04f4477",
+    "VALIDATION/nn_clock_bypass_portable.py": "c6b46f39ceb241e7a1c99d4130983d46dc3857d9fa4a932151974e8bac09acda",
+    "VALIDATION/nn_clock_bypass_jan_jul.py": "9b8e9bf4875cfe0a91d9bf63feddf6dae6ef24d56c96e71541172278926df2cc",
+    "VALIDATION/tests/test_nn_clock_bypass_portable.py": "2344f7e6ae158b1953ddad9b87fc374b73a123909639b7786215f7afa55f0fe0"
+  },
+  "exact_checks_preserved": [
+    "initial_parameters",
+    "initial_train_and_eval_outputs",
+    "original_gradients",
+    "initialization_rng",
+    "cpu_and_cuda_dropout_rng",
+    "missing_clock_fallback",
+    "signed_gate_symmetry"
+  ],
+  "only_relaxed_check": {
+    "expression": "saturated delta versus analytical expected",
+    "atol_standardized": 1e-06,
+    "rtol": 0,
+    "fixture_sd_seconds": 500,
+    "maximum_allowed_seconds": 0.0005
+  },
+  "cpu_tests": {
+    "count": 2,
+    "seconds": 1.262,
+    "full_width_preprocessing": true,
+    "partial_batch_model_state_loss_rng_parity": true
+  },
+  "original_source_matches_v1_manifest": true,
+  "original_sources_modified": false
+}

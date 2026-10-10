@@ -1,0 +1,17 @@
+{
+  "rows": 344841,
+  "old_hex_dtype": "Int32",
+  "final_hex_dtype": "Int32",
+  "old_known_final_missing": 231,
+  "old_missing_final_known": 244,
+  "both_known_changed": 0,
+  "month_changed": 0,
+  "source": "input-only prepared per-view query packets; no departure labels",
+  "original_clock_delta": {
+    "old_known_final_missing": 0,
+    "old_missing_final_known": 0,
+    "both_known_changed": 0
+  },
+  "nullable_counter_issue": "Int32/Int64 equality returns pd.NA for one-known/one-missing; boolean sum skips pd.NA. Explicit presence masks reveal availability transitions.",
+  "production_binding": "Each old/final query packet, design, index, point array and model ranking store is independently view-bound and hash-checked; overlap counter is descriptive only."
+}

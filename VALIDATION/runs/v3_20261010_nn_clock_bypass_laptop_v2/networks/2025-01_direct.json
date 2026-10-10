@@ -1,0 +1,161 @@
+{
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261010_nn_clock_bypass_laptop_v2/portable.json",
+    "sha256": "de00b45f0bc5ac0d60f7b85edfc6e8eb9d2a292c9b6a1222bb32ba6f4cbc439e"
+  },
+  "design": {
+    "original": {
+      "parent": "v58",
+      "control": "historical N09 seed42k0",
+      "original_inputs": 156,
+      "added_features": [],
+      "clocks": [
+        "mvt_minus_aobt3_sec",
+        "ab_stand_exit_sec",
+        "op_own_stand_sec",
+        "op_ground_sec"
+      ],
+      "clock_interval_inclusive": [
+        0,
+        10800
+      ],
+      "masks": [
+        "genuine AOBT flags",
+        "ab_matched==1 and ab_stand_n>0",
+        "op_matched==1",
+        "op_matched==1"
+      ],
+      "formula": "p0 + sum(mask * .25*tanh(W*h+b) * clip(clock-p0,-3600,3600))",
+      "gate_initialization": "all zero, no additional RNG consumption",
+      "extra_parameters": 1028,
+      "maximum_absolute_extra_seconds": 3600,
+      "missing": "zero extra branch; shared trunk is jointly trained",
+      "target": "unchanged min(y,10800), direct standardized MSE",
+      "stop_epochs": {
+        "2025-01": 21,
+        "2025-07": 17
+      },
+      "seed": 42,
+      "member": 0,
+      "inner_fits": 0,
+      "schedule": "original OneCycle24 horizon",
+      "network_share": 0.71,
+      "arms": [
+        "v58",
+        "direct_matched",
+        "clock_bypass",
+        "half_clock_half_v58",
+        "half_direct_half_v58"
+      ],
+      "exploratory_reused_development_months": true
+    },
+    "machine": "same laptop for candidate and direct control",
+    "arms": [
+      "direct",
+      "bypass"
+    ],
+    "fixed_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "seed": 42,
+    "encoder": {
+      "chunk_rows": 65536,
+      "encoder": "unchanged nn_jan_jul.Encoder",
+      "transform": "unchanged Encoder.transform on row slices",
+      "quantiles": "same numpy quantile probabilities, one PLE input at a time",
+      "tensor_order": "same int64 categories, float32 PLE and plain features",
+      "target": "unchanged clipped direct target, population mean/std",
+      "random_draws": 0
+    },
+    "prediction_chunk": 16384,
+    "update_function": "unchanged frozen original.train bytecode",
+    "namespace_changes": [
+      "model constructor for direct control",
+      "eval-only prediction chunk16384"
+    ],
+    "numerical_check": {
+      "saturated_gate_atol_std": 1e-06,
+      "rtol": 0,
+      "initial_parameters_outputs_gradients_rng": "all exact"
+    },
+    "data": "exact fingerprinted original156 plus audited compact month/y/airport/missing metadata",
+    "no_full_year_fit_or_upload": true
+  },
+  "arm": "direct",
+  "month": "2025-01",
+  "seed": 42,
+  "stop_epoch": 21,
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "input_matrix": {
+    "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-01.pkl",
+    "sha256": "b60ab60fcc058ce3cf8ca5b8488cc7c802c5cc43f8066621833f1ab3417a8bba",
+    "audited_candidate_record": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.json",
+      "sha256": "3c582a659a0627c02a9b29404f34a33b7f331f54b7614487f460b1254121d04d"
+    }
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_clock_bypass_laptop_v2/preprocessing/2025-01.pkl",
+    "sha256": "9dcf8c4d959d846995a5a56625624a8863ad3ad8ae0a5b5a2170b9b3e777db07"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261010_nn_clock_bypass_laptop_v2/networks/2025-01_direct.parquet",
+    "sha256": "94bbc6c1e450773dfcb192ea08a8ecf4f2a22f114ef44603688d28653c11d4e8"
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261010_nn_clock_bypass_laptop_v2/models/2025-01_direct.pt",
+    "sha256": "4d233871b1821cfb6126d5ee106e196b4db65102df621c5f17548f863fc17821"
+  },
+  "initial_check": {
+    "initial_parameters_exact": true,
+    "initial_eval_and_train_outputs_exact": true,
+    "initial_original_gradients_exact": true,
+    "initialization_and_dropout_rng_exact": true,
+    "missing_nan_clock_safe": true,
+    "missing_fallback_exact": true,
+    "signed_gate_and_bound_exact": true,
+    "device": "cuda",
+    "saturated_gate_arithmetic": {
+      "max_error_std": 4.76837158203125e-07,
+      "fixture_target_sd_seconds": 500.0,
+      "max_error_seconds": 0.0002384185791015625,
+      "atol_std": 1e-06,
+      "rtol": 0.0
+    }
+  },
+  "curve": null,
+  "minutes": null,
+  "host": "GLAPTOP",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.14.1+cu130",
+  "recovery": {
+    "source": {
+      "path": "VALIDATION/nn_clock_bypass_recover.py",
+      "sha256": "f920536137c4a0216d37b07364408dfe59d3d7edd25f4641025f99703ef53287"
+    },
+    "failed_log": {
+      "path": "tmp/research_20261010/model_diversity/clock_bypass_laptop_v2_fit.log",
+      "sha256": "ed31b70a6f7092f8695b56205969755064efc5d53d72d2cff856893f65226482"
+    },
+    "completed_training_epochs": 21,
+    "repeated_training_updates": 0,
+    "full_precision_curve": "unavailable after prediction-save failure; retained rounded original log",
+    "logged_last_rmse": 460.3016,
+    "reloaded_rmse": 460.301553927311
+  }
+}

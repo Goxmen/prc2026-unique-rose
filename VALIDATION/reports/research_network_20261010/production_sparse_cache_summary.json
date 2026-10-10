@@ -1,0 +1,32 @@
+{
+  "status": "complete",
+  "cache_root": "data/derived/sparse_track_submit_20261010",
+  "source": "VALIDATION/build_sparse_track_submit.py",
+  "source_sha256": "ff0ac427bb23ef97408af542411bd85afebab022d7e8f3e5298203c66b0de7da",
+  "views": {
+    "old": {
+      "sha256": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a",
+      "bytes": 387961704,
+      "rows": 344841,
+      "stored_points": 16165071,
+      "reused": false
+    },
+    "final": {
+      "sha256": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a",
+      "bytes": 750064320,
+      "rows": 670790,
+      "stored_points": 31252680,
+      "reused": false
+    }
+  },
+  "input_query_audit": "tmp/research_20261010/error_mechanisms/sparse_submit_queries_audit.json",
+  "output_audit": "data/derived/sparse_track_submit_20261010/output_audit.json",
+  "transport_audit": "data/derived/sparse_track_submit_20261010/transport_audit.json",
+  "coverage_comparison": "data/derived/sparse_track_submit_20261010/coverage_comparison.json",
+  "identity_counter_correction": "tmp/research_20261010/error_mechanisms/sparse_query_identity_delta.json",
+  "important_coverage_caveat": "Rome observed raw-ground coverage reverses from97.32% inJuly2025 to0.30% inJuly2026; several ordinary airports have denser2026coverage. No test-dependent gate added.",
+  "source_correction": "Prepared overlap.identity_differences is descriptive-only and undercounts nullable changes:231old-known/final-missing and244reverse,zero changed knownhex. Frozen cache inputs and arrays are correct and separate. GenuineAOBT changes zero.",
+  "no_labels_for_queries_or_sequences": true,
+  "models_fit": 0,
+  "uploads": 0
+}

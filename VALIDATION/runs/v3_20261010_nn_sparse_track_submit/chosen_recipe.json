@@ -1,0 +1,42 @@
+{
+  "chosen_recipe": "half_sparse3_combination",
+  "recipe": {
+    "parent": "callsign15 plus callsign main LightGBM plus half CatBoost/R20 Rome",
+    "change": "ordinary neural prediction becomes fixed equal mean of callsign15 and sparse3",
+    "network_share": 0.71,
+    "ordinary_tree_seeds": [
+      42
+    ],
+    "neural_pool_sizes": [
+      15,
+      3
+    ],
+    "fair_control": "same equal blend, with matched historical group42 k0/k1/k2 replacing sparse3",
+    "rome": "fixed half three-seed CatBoost plus half original R20",
+    "main_lgb": "callsign162 LB1 seed42",
+    "other_trees_and_rules": "unchanged",
+    "declaration": "before new sparse3 k1/k2 outcomes; after original k0 screen",
+    "weight_search": false,
+    "new_availability_gate": false,
+    "fitting": false,
+    "evaluation": "reused Jan/Jul development months"
+  },
+  "pool3_score": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/score_pool3.json",
+    "sha256": "65853a56c0f99845a73ada1edfacc29e593e768d6cda32522c11e3d6ca3f4fd8"
+  },
+  "combination_score": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/result.json",
+    "sha256": "6c36bc3fe1ba8852c0a8c051aff896c839c640389a820c62a68b46f7d0c7be12"
+  },
+  "combination_predictions": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/scored_errors.parquet",
+    "sha256": "4bd61faa57a30a7abe011f46ed4a2ebfc9b74d2ff1c17158fb61db9bd7428e1b"
+  },
+  "selected_cv": {
+    "2025-01": 327.4431534135344,
+    "2025-07": 259.87008278478027,
+    "cv": 293.6566180991573
+  },
+  "selection": "explicit production recipe choice after reused Jan/Jul development evidence"
+}

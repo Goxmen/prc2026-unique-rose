@@ -110,15 +110,28 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   training. Keep one heavy job per machine and ask before any upload. Read
   `VALIDATION/reports/RESEARCH_NETWORK_20261010.md` before proposing or repeating
   experiments; it records the many failed screens and their retained artifacts.
-  Best completed fixed combination: callsign15 networks + callsign main LightGBM
-  + half CatBoost/R20 Rome probabilities, **294.4217 Jan/Jul CV**, versus matched
-  seed42-tree control **295.7295** (-1.3078). Full-year CatBoost and main-LightGBM
-  models and both-view predictions are complete; callsign15 is still fitting. Inspect their run
-  records before resuming; no new upload is authorized or has occurred.
-  A new raw-track temporal network passes its fixed two-fold screen: -2.2255
-  versus matched single N09, and -0.8350 for a fixed half mixture with v58's
-  actual15-network pool. Three-member continuation is allocated the desktop, reusing k0;
-  do not repeat its completed fits. Runs use the `v3_20261010_*` prefix.
+  Selected fixed combination: half raw-track3/half callsign15 within the unchanged
+  0.71 neural share, callsign main LightGBM and half CatBoost/R20 Rome probabilities.
+  **293.6566 Jan/Jul CV**, versus matched seed42-tree control **295.7295** (-2.0729);
+  incremental -0.7651 beyond the callsign/Rome combination (294.4217). Both months
+  improve; three predeclared paired comparisons pass. The full-year three-member
+  raw-track refit is authorized after source/cache audits and CUDA parity. Runner
+  `nn_sparse_track_submit.py`; selected recipe `half_sparse3_combination`; builder
+  `sparse_callsign_submit.py`. No new upload is authorized or has occurred.
+  All 15 callsign networks, the full-year main LightGBM and three Rome CatBoost
+  classifiers are complete. Neural reload/return audits pass. Both parent candidates
+  are built and passed full-source, exact-parent and independent all-row audits.
+  Reuse every completed fit; all runs use the `v3_20261010_*` prefix. Both ranking
+  track caches were built and independently audited on the laptop; their returned
+  files passed desktop hash verification and the three full-year fits are running. Ground-observation coverage
+  changes sharply across years, especially Rome; retain this transfer caveat.
+  A separate four-fit matched-laptop physical-clock-bypass screen has completed
+  training and awaits scoring; it remains exploratory.
+  Its first worker stopped before training on an overly strict arithmetic
+  self-check; only that check's tolerance is repaired, with exact training/RNG
+  parity preserved. Inspect its execution record before resuming. The live
+  18:15 UTC check still has v58 best at 236.1895, rank 26/240; all 5,240 public
+  scored submissions still use 344,841 rows, not the enlarged truth population.
   Laptop full-year neural fitting uses `callsign_submit_fast.py`: identical
   fixed training updates, exact-parity chunked input encoding and bounded final
   inference. The earlier workers hit host-memory limits or wasteful full-test

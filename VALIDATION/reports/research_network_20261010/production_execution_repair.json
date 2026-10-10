@@ -1,0 +1,90 @@
+{
+  "original_attempt": {
+    "outcome": "host OOM before any model completed",
+    "exit_code": 137,
+    "kernel_evidence": {
+      "path": "tmp/research_20261010/production_callsign/oom_kernel.txt",
+      "sha256": "eb2bc474c1e36dc3f3317357760ae353ee91d0fdcd430ed5d0f569517f557e91"
+    }
+  },
+  "chunked_attempt": {
+    "outcome": "stopped with authorization before any model completed; full unlabeled inference after each epoch caused GPU memory spill",
+    "exit_code": 143,
+    "log": {
+      "path": "tmp/research_20261010/production_callsign/stopped_chunked_full_monitor.log",
+      "sha256": "784ce0ef089be6078024b54be6c046526d038a6b8d69be40dc9c2f2143e95c85"
+    },
+    "probe": {
+      "encoded_tensor_bytes": 5236402176,
+      "forward_peak_bytes": 10249187840,
+      "prediction_rows": 65536,
+      "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "device_total_bytes": 8518041600,
+      "rng_preserved": true,
+      "probe_only_no_optimizer_or_training": true
+    }
+  },
+  "fast_execution": {
+    "outcome": "completed all15 networks; independently reloaded all models; returned and SHA-verified all artifacts",
+    "probe": {
+      "encoded_tensor_bytes": 5236402176,
+      "forward_peak_bytes": 6495398912,
+      "prediction_rows": 16384,
+      "device": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "device_total_bytes": 8518041600,
+      "rng_preserved": true,
+      "probe_only_no_optimizer_or_training": true
+    },
+    "parity": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/fast_execution_parity.json",
+      "sha256": "23a462975771aac9b6155283720dfa890d5acac0438762845004090181c6ec70"
+    },
+    "identity": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/fast/identity.json",
+      "sha256": "f6fd32b8d6622f170ee4b987f297b43b2728595cbd3873dce2dad649525608df"
+    },
+    "run_log": "tmp/research_20261010/production_callsign/fit_fast.log",
+    "all_models_on": "glaptop-wsl RTX5060 Laptop GPU",
+    "preserved_preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/preprocessing/full_year.pkl",
+      "sha256": "4a47af2ecf00bc55ed6e9918149e84c86b9792d1eca23c6d8ed9844b1312c89f"
+    },
+    "model_count": 15,
+    "sum_fit_minutes": 25.9331221157999,
+    "per_group_fit_minutes": {
+      "42": [
+        1.5382603134833213,
+        1.5387306621499495,
+        1.5156388921666804,
+        1.4923404877499706,
+        1.4899030364666639
+      ],
+      "142": [
+        2.073943072300002,
+        2.0719722456499463,
+        2.0710405636166493,
+        2.0857373354000326,
+        2.0763904711500194
+      ],
+      "242": [
+        1.5936112955166513,
+        1.6026770033167244,
+        1.5989503793833137,
+        1.5910386904666667,
+        1.5928876669833092
+      ]
+    },
+    "reload_audit": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/model_reload_audit/result.json",
+      "sha256": "8982619253bdff98fcf3a01965955ec23ba8ed4463a8a6224c62fea85728d30c"
+    },
+    "return_audit": {
+      "path": "tmp/research_20261010/error_mechanisms/callsign_return_audit.json",
+      "sha256": "0d072f672349e75681796e05470c1f52c4c361b70038714755c506f57a3ea261"
+    },
+    "full_desktop_source_audit": "pending root-allocated desktop slot after sparse pool3 score"
+  },
+  "no_frozen_parent_or_helper_edited": true,
+  "no_completed_fit_repeated": true,
+  "changes": "Bounded exact original Encoder.transform row slices; per-column identical PLE quantiles; fixed first1024 unlabeled epoch monitor; full16384-chunk prediction once after final frozen epoch."
+}

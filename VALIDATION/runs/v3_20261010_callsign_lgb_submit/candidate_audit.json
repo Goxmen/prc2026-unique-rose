@@ -1,0 +1,72 @@
+{
+  "source": {
+    "path": "VALIDATION/tools/audit_research_candidate_20261010.py",
+    "sha256": "5da817e0ae0130f7f7663cef4b7849e321e219ff999a326fcc2eacec62da26db"
+  },
+  "neural_reload": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_submit/model_reload_audit/result.json",
+    "sha256": "8982619253bdff98fcf3a01965955ec23ba8ed4463a8a6224c62fea85728d30c"
+  },
+  "main_model": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/model.json",
+    "sha256": "96a8d8875ce31bad7b1fadd1789a086ec3eca976fc84a8febc3e7b72a8f71491"
+  },
+  "views": {
+    "old": {
+      "rows": 344841,
+      "manifest": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidates/old/manifest.json",
+        "sha256": "4dc40bde6dacf3708d6f04c1e0471e184a9fb1d9a8ed89e3b9401b7efe6d1559"
+      },
+      "output": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidates/old/candidate.parquet",
+        "sha256": "9718afa9546f9a93d06d46a838fefbb1ffee22a457457dfe4989d06f2da6ac56"
+      },
+      "parts": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidates/old/parts.parquet",
+        "sha256": "f1cffec406904e21d72bd049b898c6cbcc8e3fa9d01cac9c12b5ae2900905cab"
+      },
+      "all_network_means_exact": true,
+      "all_equal_tree_means_exact": true,
+      "all_ordinary_blends_exact": true,
+      "all_rome_probability_blends_exact": true,
+      "saved_tree_sample_rows": 512,
+      "saved_tree_sample_exact": true,
+      "template_protected_columns_exact": true,
+      "all_serialized_predictions_exact": true,
+      "changed_predictions": 328117,
+      "mean_change_sec": -0.6909648214684448,
+      "rms_change_sec": 29.005433079696246,
+      "maximum_absolute_change_sec": 2581.0
+    },
+    "final": {
+      "rows": 670790,
+      "manifest": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidates/final/manifest.json",
+        "sha256": "22d354e4b0b61faeb3ced6742e05286581d2b8294276978307809995f648edf5"
+      },
+      "output": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidates/final/candidate.parquet",
+        "sha256": "f4aa5ec0b385a28b72430769bd660af4f49b4abc1fdd7406622d64c754eb9fb3"
+      },
+      "parts": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidates/final/parts.parquet",
+        "sha256": "6c4a3838424267e4f0fe6a30716d44a9b46e646db565ffae725f5d6dc702f599"
+      },
+      "all_network_means_exact": true,
+      "all_equal_tree_means_exact": true,
+      "all_ordinary_blends_exact": true,
+      "all_rome_probability_blends_exact": true,
+      "saved_tree_sample_rows": 512,
+      "saved_tree_sample_exact": true,
+      "template_protected_columns_exact": true,
+      "all_serialized_predictions_exact": true,
+      "changed_predictions": 637916,
+      "mean_change_sec": -0.8387871017755184,
+      "rms_change_sec": 27.224789804921937,
+      "maximum_absolute_change_sec": 4175.0
+    }
+  },
+  "passed": true,
+  "scope": "Independent component arithmetic, saved-tree inference and serialization; inherited corrections use the builder's exact raw/serialized parent replay. No hidden labels or new fits."
+}
