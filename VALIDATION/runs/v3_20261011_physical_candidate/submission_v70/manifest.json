@@ -1,0 +1,80 @@
+{
+  "version": 70,
+  "state": "prepared",
+  "file": "submissions/unique-rose_v70.parquet",
+  "sha256": "0f9138d78d54be829ebb090b57a15eb989262876098eca9ce2ade57a21ba6d97",
+  "rows": 344841,
+  "members": [
+    0,
+    1,
+    2
+  ],
+  "jan_jul_cv": 292.867518727868,
+  "rounded_cv": 292.8677166942557,
+  "parent": "v64",
+  "change": "physical-scale sparse track encoder",
+  "parent_replay_exact": true,
+  "authorization": "October11 user authorized autonomous uploads",
+  "sources": {
+    "VALIDATION/runs/v3_20261011_physical_candidate/pool3/cv/result.json": "2d3d22ec0a0e4b88ca34d785910ecb3c105ca38037e9fd0064812690467208bf",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/portable.json": "f35ee26e8c50e49229197d7ec2fa110ca3367f44e090805b605c874543f53cda",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/models/k0.pt": "b323098d58c5f57d924de1b14a1978c9ac5debfe4dc6b299ff8baa7e5206bb88",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/trained/k0.json": "1cc4373bc6dde44f604473c7b59e1d9a35aea51911b729b21b82e1bed0228d61",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/k0.json": "959b7cc31d72bffd6501bdd33c43487a91ee8a5e2ad5dcdc884fa30321274565",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/old_k0.parquet": "508f0650c5534741ea1ccf4c72f04870feebe668be45baf5bc87561aff0c905a",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/final_k0.parquet": "fcec6df931370b5254e14cbdf7f539c094e662500416a515d6c1b6104c198100",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/models/k1.pt": "b01d38b23b7e2e075c39b9cb0ffee7e2a143b6c01224ea9f1602052cc1e96fb7",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/trained/k1.json": "38abd24c34661302180d0d163cfaa2240dc6deaabe9a32444023b6a5b7dc3be3",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/k1.json": "9d48656d10e6a2a81c16c2a9c8555b499fb47f2f5d864d5e6b3a41c1640001b7",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/old_k1.parquet": "d49a2b30ba24292d14318b0186eb12c9d714b516ecf105202a13ab9b36d84d95",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/final_k1.parquet": "a84722107bc852f13b7aca7b5676494a26ad712922079a7e65a631614ec49e06",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/models/k2.pt": "a3c88c868d2abc642d6d108f19b50b599ab7e9345ec3f9601d58928325064e39",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/trained/k2.json": "f8df261a0f5bd084f0391324b590671a5526c0d2f69dfe945a5712429a555d9c",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/k2.json": "731cfada59d11e3534212e869278816ccdf26edf3c554fe65609a5cbadb6229b",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/old_k2.parquet": "c952243cfa54f96d892f8c522f9c9434f32f1e14594a78251b5938545a159df0",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/final_k2.parquet": "13d711c9b2ebb386232e3dacd937192b55c81f621d9489de30625d7285c97dc4",
+    "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/manifest.json": "41753e478d4a7e9f5cf5c2e458a4611730b9801cd271920dcd827b8fbb24e2a0",
+    "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/parts.parquet": "58e448492c642c576a8aa025c7d42b3275a452e94f35e2bb229b784f911b8d30",
+    "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/candidate.parquet": "2a596d95610b748b49a5da8803533f3e4bec50e3d919f92138b40b194b49f5b3",
+    "data/submitting.parquet": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+    "VALIDATION/runs/v3_20261008_final_submit/work/inputs_old.pkl": "22e91f3aee2a614aba8ee626de366fa1edb281a1a35a5f660d70664463cf9821",
+    "VALIDATION/runs/v3_20261008_final_submit/inputs_old.json": "c852474621502dd23a2d987dbbce63764853ebb587846eee45fd73452fa50c0f",
+    "VALIDATION/physical_candidate.py": "7cbf2c4674ff1d88a2f59115b1e7032e0d03aace0ac4a5203c2893855ce78b59",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/audit_0_1_2.json": "797091105009fcd523ee5e65f561a2c159d49d925fb0df962fe00578612dec0c",
+    "VALIDATION/tools/audit_physical_production.py": "83a7ed8a2c6a41ddabb2a6be4d902379b08a2a51a6619ca410d0f731e27bdf00",
+    "VALIDATION/attach_physical_audit.py": "8e09b4cb990866e815a9dc8a75355c5754744a68895c83a97b0b9c0000db9bb0"
+  },
+  "model_host": "laptop RTX5060",
+  "cv_host": "desktop RTX3080",
+  "correction_masks": {
+    "2026-01": {
+      "clock12": 0,
+      "clock2": 0,
+      "day": 1,
+      "rule_band": 12,
+      "rule_confidence": 1,
+      "twins": 5
+    },
+    "2026-07": {
+      "clock12": 1,
+      "clock2": 2,
+      "day": 4,
+      "rule_band": 20,
+      "rule_confidence": 0,
+      "twins": 11
+    }
+  },
+  "audit": {
+    "parent_raw_and_serialized_exact": true,
+    "schema_and_ids_exact": true,
+    "output_readback_exact": true
+  },
+  "parts": {
+    "path": "VALIDATION/runs/v3_20261011_physical_candidate/submission_v70/parts.parquet",
+    "sha256": "c81806112430a08ff146b4a5e010d1d462f694f0c112e9aa3fe3943d1653bbe1"
+  },
+  "production_audit": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/audit_0_1_2.json",
+    "sha256": "797091105009fcd523ee5e65f561a2c159d49d925fb0df962fe00578612dec0c"
+  }
+}

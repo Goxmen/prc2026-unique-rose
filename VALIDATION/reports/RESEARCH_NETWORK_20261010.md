@@ -11,9 +11,11 @@ precedence. New experiment records live in `../runs/v3_20261011_target225/`.
 A further fixed screen adds a ground-only mean/max readout to the physical
 track representation. It preserves the existing all-point representation,
 initial weights, training bytecode, dropout RNG and missing-track gate; a
-zero-initialized 64-by-64 projection uses existing ground flags. Desktop Jan/Jul
-fits are running against saved physical single controls. This has no result or
-production candidate yet. Run: `../runs/v3_20261011_nn_track_ground_pool_jan_jul/`.
+zero-initialized 64-by-64 projection uses existing ground flags. Both Jan/Jul fits are complete: **293.3477 → 293.4749 (+0.1272)**
+against the matched physical single, interval [−0.1374, +0.4290]. January
+worsens 0.2629 and July changes −0.0084. Saved-model reloads pass on 1,094
+rows, with separate scalar pooling and score checks. No production fit or upload
+follows because the screen does not show an improvement. Run: `../runs/v3_20261011_nn_track_ground_pool_jan_jul/`.
 Relaxing affine weight bounds/regularization projects only about 0.01 seconds
 beyond v69, so no candidate is selected from that diagnostic.
 
@@ -30,8 +32,11 @@ noise; the fixed half mixture stays unchanged, with no candidate or upload.
 **Physical single production result:** v66 scores **233.7954**, 1.0203 worse than
 v64. Its fixed three-member CV continuation improves **293.6566 → 292.8675**
 (−0.7891; interval [−1.1227, −0.5638]), with both months better. Saved-model
-reload checks pass for all six fold/member combinations. The laptop is fitting
-production members1042/2042, retaining completed42. Adding the single model to
+reload checks pass for all six fold/member combinations. All three production members (42/1042/2042) are retained from the laptop.
+Six broader reload checks cover 615 rows per member and test namespace,
+including all ten airports; maximum difference is 0.0046 seconds. The v70
+build reproduces v64 exactly before replacing the track pool, and binds the
+production audit to its output manifest. Adding the single model to
 the scored affine basis projects225.7828; that file(v67) is retained without
 upload while another complementary component is evaluated.
 

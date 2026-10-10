@@ -1,0 +1,127 @@
+{
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/portable.json",
+    "sha256": "f35ee26e8c50e49229197d7ec2fa110ca3367f44e090805b605c874543f53cda"
+  },
+  "seed": 2042,
+  "epochs": 15,
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/models/k2.pt",
+    "sha256": "a3c88c868d2abc642d6d108f19b50b599ab7e9345ec3f9601d58928325064e39"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/preprocessing/full_year.pkl",
+    "sha256": "30da9e18bb88d2f949d2fe18aa096aa6cec9f3d8608fea78278311e8927b287b"
+  },
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.3248015233942312,
+      "seconds": 60.272511625000334,
+      "train_seconds": 60.25842323899997,
+      "monitor_seconds": 0.014088386000366881
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.24163722917964459,
+      "seconds": 60.3541976100023,
+      "train_seconds": 60.34043955600646,
+      "monitor_seconds": 0.013758053995843511
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.22251144273832116,
+      "seconds": 60.1821809030007,
+      "train_seconds": 60.16846093600179,
+      "monitor_seconds": 0.013719966998905875
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.209382994693845,
+      "seconds": 60.28457522499957,
+      "train_seconds": 60.26884555399738,
+      "monitor_seconds": 0.015729671002191026
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.20180353374907345,
+      "seconds": 60.395349726997665,
+      "train_seconds": 60.379596858001605,
+      "monitor_seconds": 0.015752868996059988
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.19441308372471078,
+      "seconds": 60.340415398000914,
+      "train_seconds": 60.32610484899487,
+      "monitor_seconds": 0.014310549006040674
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.1938713480554099,
+      "seconds": 60.15232672999991,
+      "train_seconds": 60.13834881100047,
+      "monitor_seconds": 0.013977918999444228
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.18563324494443573,
+      "seconds": 60.306725651003944,
+      "train_seconds": 60.29252280000219,
+      "monitor_seconds": 0.014202851001755334
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.1822879113658018,
+      "seconds": 60.1556822440034,
+      "train_seconds": 60.14104412800225,
+      "monitor_seconds": 0.014638116001151502
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.1768114714052088,
+      "seconds": 60.58852498399938,
+      "train_seconds": 60.574881145999825,
+      "monitor_seconds": 0.013643837999552488
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.17184317546191963,
+      "seconds": 60.177132133998384,
+      "train_seconds": 60.163129148000735,
+      "monitor_seconds": 0.014002985997649375
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.1655025756242098,
+      "seconds": 60.29511820899643,
+      "train_seconds": 60.28034856899467,
+      "monitor_seconds": 0.014769640001759399
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.18041259927173342,
+      "seconds": 60.20870900800219,
+      "train_seconds": 60.194913239000016,
+      "monitor_seconds": 0.013795769002172165
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.16146712592624907,
+      "seconds": 60.43650531000458,
+      "train_seconds": 60.41965085999982,
+      "monitor_seconds": 0.016854450004757382
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.15300853537314318,
+      "seconds": 60.29403637199721,
+      "train_seconds": 60.27986459899694,
+      "monitor_seconds": 0.01417177300027106
+    }
+  ],
+  "minutes": 15.074687809366635,
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "host": "GLAPTOP",
+  "torch": "2.14.1+cu130"
+}

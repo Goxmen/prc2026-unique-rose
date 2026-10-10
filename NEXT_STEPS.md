@@ -7,8 +7,8 @@ own leaderboard scores; Jan/Jul CV 296.8197 remains worse than v64's 293.6569.
 Autonomous uploads and both machines are authorized; one heavy job per machine.
 
 Physical-scale track pooling passed CV **292.8675 (−0.7891 versus v64)**. All six
-saved fold/member models pass reload audits. Full-year seed 42 is retained; the
-laptop is fitting 1042 and 2042. Honest inner-holdout Rome cost calibration
+saved fold/member models pass reload audits. All three full-year members are retained and audited; v70 is prepared.
+Ground-only pooling failed to improve the matched physical single (+0.1272 CV); no production fit follows. Honest inner-holdout Rome cost calibration
 failed (+1.6735 CV); no full-year fit or upload follows. See the
 [research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md).
 New candidates require Jan/Jul CV; older 16-fold validations stay unused.
