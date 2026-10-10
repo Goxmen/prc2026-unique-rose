@@ -1,0 +1,48 @@
+{
+  "version": 64,
+  "state": "prepared_awaiting_user_approval",
+  "prepared_at": "2026-10-10T18:58:50.517283+00:00",
+  "file": "submissions/unique-rose_v64.parquet",
+  "sha256": "2a596d95610b748b49a5da8803533f3e4bec50e3d919f92138b40b194b49f5b3",
+  "bytes": 2220282,
+  "rows": 344841,
+  "view": "old",
+  "parent": "v58",
+  "recipe": "fixed half sparse3 / half callsign15 neural pool, callsign main LightGBM, half CatBoost3/R20 Rome",
+  "network_share": 0.71,
+  "jan_jul_cv": {
+    "control": {
+      "2025-01": 328.4311023682349,
+      "2025-07": 263.02794135651897,
+      "cv": 295.72952186237694
+    },
+    "candidate": {
+      "2025-01": 327.4431534135344,
+      "2025-07": 259.87008278478027,
+      "cv": 293.6566180991573
+    },
+    "comparison": {
+      "change": -2.072903763219614,
+      "ci95": [
+        -2.8069695598397373,
+        -1.4698971256539566
+      ],
+      "decision": "improvement"
+    }
+  },
+  "candidate_manifest": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/manifest.json",
+    "sha256": "41753e478d4a7e9f5cf5c2e458a4611730b9801cd271920dcd827b8fbb24e2a0"
+  },
+  "independent_audit": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidate_audit.json",
+    "sha256": "945fb5948ab9554f93bbe8e42b510d72aaeec84dcdfef5139b28e7ebd0e8e8e0"
+  },
+  "cv_evidence": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/result.json",
+    "sha256": "6c36bc3fe1ba8852c0a8c051aff896c839c640389a820c62a68b46f7d0c7be12"
+  },
+  "approval_required": true,
+  "uploaded": false,
+  "caution": "Reused development months; no official improvement measured. Material 2025/2026 ground-track coverage shifts remain."
+}

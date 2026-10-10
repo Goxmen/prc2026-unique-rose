@@ -1,0 +1,249 @@
+{
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261010_nn_clock_bypass_laptop_v2/portable.json",
+    "sha256": "de00b45f0bc5ac0d60f7b85edfc6e8eb9d2a292c9b6a1222bb32ba6f4cbc439e"
+  },
+  "design": {
+    "original": {
+      "parent": "v58",
+      "control": "historical N09 seed42k0",
+      "original_inputs": 156,
+      "added_features": [],
+      "clocks": [
+        "mvt_minus_aobt3_sec",
+        "ab_stand_exit_sec",
+        "op_own_stand_sec",
+        "op_ground_sec"
+      ],
+      "clock_interval_inclusive": [
+        0,
+        10800
+      ],
+      "masks": [
+        "genuine AOBT flags",
+        "ab_matched==1 and ab_stand_n>0",
+        "op_matched==1",
+        "op_matched==1"
+      ],
+      "formula": "p0 + sum(mask * .25*tanh(W*h+b) * clip(clock-p0,-3600,3600))",
+      "gate_initialization": "all zero, no additional RNG consumption",
+      "extra_parameters": 1028,
+      "maximum_absolute_extra_seconds": 3600,
+      "missing": "zero extra branch; shared trunk is jointly trained",
+      "target": "unchanged min(y,10800), direct standardized MSE",
+      "stop_epochs": {
+        "2025-01": 21,
+        "2025-07": 17
+      },
+      "seed": 42,
+      "member": 0,
+      "inner_fits": 0,
+      "schedule": "original OneCycle24 horizon",
+      "network_share": 0.71,
+      "arms": [
+        "v58",
+        "direct_matched",
+        "clock_bypass",
+        "half_clock_half_v58",
+        "half_direct_half_v58"
+      ],
+      "exploratory_reused_development_months": true
+    },
+    "machine": "same laptop for candidate and direct control",
+    "arms": [
+      "direct",
+      "bypass"
+    ],
+    "fixed_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "seed": 42,
+    "encoder": {
+      "chunk_rows": 65536,
+      "encoder": "unchanged nn_jan_jul.Encoder",
+      "transform": "unchanged Encoder.transform on row slices",
+      "quantiles": "same numpy quantile probabilities, one PLE input at a time",
+      "tensor_order": "same int64 categories, float32 PLE and plain features",
+      "target": "unchanged clipped direct target, population mean/std",
+      "random_draws": 0
+    },
+    "prediction_chunk": 16384,
+    "update_function": "unchanged frozen original.train bytecode",
+    "namespace_changes": [
+      "model constructor for direct control",
+      "eval-only prediction chunk16384"
+    ],
+    "numerical_check": {
+      "saturated_gate_atol_std": 1e-06,
+      "rtol": 0,
+      "initial_parameters_outputs_gradients_rng": "all exact"
+    },
+    "data": "exact fingerprinted original156 plus audited compact month/y/airport/missing metadata",
+    "no_full_year_fit_or_upload": true
+  },
+  "arm": "direct",
+  "month": "2025-07",
+  "seed": 42,
+  "stop_epoch": 17,
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "input_matrix": {
+    "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-07.pkl",
+    "sha256": "888a51db63d881d247b7d6f89a2014ac0e0865da1fc680d410abd2c5ab8fb835",
+    "audited_candidate_record": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.json",
+      "sha256": "6895725874f13b83a901f242734ee2eb31655e6dd93cde1ad218e5e36fe1e8ac"
+    }
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_clock_bypass_laptop_v2/preprocessing/2025-07.pkl",
+    "sha256": "131851125942383837863e7cf3d862161e3b647b18a42b23385b53fc07f65ead"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261010_nn_clock_bypass_laptop_v2/networks/2025-07_direct.parquet",
+    "sha256": "a14a3ba539879127bacde4d8e840ec4bb76aac828698d522d8a56ee8a7746c70"
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261010_nn_clock_bypass_laptop_v2/models/2025-07_direct.pt",
+    "sha256": "4e45fcd9568a7991cedfc978cf23d5186adc1c80c8d27e95dcc6609b0e81ed4c"
+  },
+  "initial_check": {
+    "initial_parameters_exact": true,
+    "initial_eval_and_train_outputs_exact": true,
+    "initial_original_gradients_exact": true,
+    "initialization_and_dropout_rng_exact": true,
+    "missing_nan_clock_safe": true,
+    "missing_fallback_exact": true,
+    "signed_gate_and_bound_exact": true,
+    "device": "cuda",
+    "saturated_gate_arithmetic": {
+      "max_error_std": 4.76837158203125e-07,
+      "fixture_target_sd_seconds": 500.0,
+      "max_error_seconds": 0.0002384185791015625,
+      "atol_std": 1e-06,
+      "rtol": 0.0
+    }
+  },
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.3435059942212478,
+      "rmse": 644.6309829808373,
+      "seconds": 3.41220041500128
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.2467583639021536,
+      "rmse": 637.6609049962028,
+      "seconds": 3.4385982909989252
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.22473129691227278,
+      "rmse": 630.4807863134351,
+      "seconds": 3.40929505999884
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.2086010277365364,
+      "rmse": 632.684741980737,
+      "seconds": 3.3998528459997033
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.1951010199468304,
+      "rmse": 634.9527728696385,
+      "seconds": 3.38463044600212
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.18650780184288357,
+      "rmse": 630.7912721313262,
+      "seconds": 3.413638243000605
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.1810120273555502,
+      "rmse": 634.3564847295238,
+      "seconds": 3.4026725650001026
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.17070537252716908,
+      "rmse": 628.0330952434017,
+      "seconds": 3.4106206169999496
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.16612710381029464,
+      "rmse": 633.170362787138,
+      "seconds": 3.38763597399884
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.16121364154914308,
+      "rmse": 626.1839386275856,
+      "seconds": 3.400056031998247
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.14719081953185206,
+      "rmse": 629.5720404225901,
+      "seconds": 3.345944849999796
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.14178702720269243,
+      "rmse": 620.5864373119506,
+      "seconds": 3.363041833999887
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.1354335853374011,
+      "rmse": 632.1696847509864,
+      "seconds": 3.3471823319996474
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.12755259142615383,
+      "rmse": 625.9545141028724,
+      "seconds": 3.3557763950011577
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.12114343501040584,
+      "rmse": 631.7502065462733,
+      "seconds": 3.349865640000644
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.11286355233415038,
+      "rmse": 629.1384815753485,
+      "seconds": 3.3580716690012196
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.10611496348938934,
+      "rmse": 629.5820698604101,
+      "seconds": 3.349165212002845
+    }
+  ],
+  "minutes": 0.9596960110833607,
+  "host": "GLAPTOP",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.14.1+cu130"
+}

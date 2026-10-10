@@ -1,0 +1,37 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/identity.json",
+    "sha256": "ae6cb604f49d5c0a1533782e2177cf1e6fa360790481980b44fc7ecf4ca15eba"
+  },
+  "rule": "equal mean of three float32 saved member predictions",
+  "members": [
+    42,
+    1042,
+    2042
+  ],
+  "models": [
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/networks/s42_k0.json",
+      "sha256": "128617a6080ebb7ece9d41500c0c555e14275b36f64d119c89a3f714b2336ca4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/networks/s42_k1.json",
+      "sha256": "638470fd6a4fb975f170b0255fd1b7679f2ada5f0313173f5f5972280a8a9df2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/networks/s42_k2.json",
+      "sha256": "b009d6ad434445acc800c8ca1bdec773a0cd619e53b7b98be46d304058468eec"
+    }
+  ],
+  "outputs": {
+    "old": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/pooled/old.parquet",
+      "sha256": "e1babd39a694bf8cd728d122af2e7d693b0b0820ba2efff6bc05410c8f6e99cb"
+    },
+    "final": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/pooled/final.parquet",
+      "sha256": "d658e8b272b5e8e144804d282ceefd133bc8a10c2337aa97763410a65f67dd88"
+    }
+  },
+  "no_submission_build_or_upload": true
+}

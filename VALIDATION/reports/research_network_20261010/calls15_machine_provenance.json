@@ -1,0 +1,122 @@
+{
+  "cv": {
+    "candidate": "callsign15",
+    "new_member_fits": 30,
+    "rows": [
+      {
+        "month": "2025-01",
+        "group": 42,
+        "members": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "count": 5,
+        "epoch": 21,
+        "machine": "desktop RTX3080",
+        "attribution": "direct desktop execution and explicit agent resource handoffs",
+        "record": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/networks/2025-01_s42.json",
+        "sha256": "8ebf0207a49a56701a45167a4d6f2bc5b6d509bd692ab5e1aea78e6a80bf776b"
+      },
+      {
+        "month": "2025-01",
+        "group": 142,
+        "members": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "count": 5,
+        "epoch": 13,
+        "machine": "desktop RTX3080",
+        "attribution": "direct desktop execution and explicit agent resource handoffs",
+        "record": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/networks/2025-01_s142.json",
+        "sha256": "8a04cbd84c60db700d66af77a1c201ba102f50009b11cddeca93f3aa6a48960b"
+      },
+      {
+        "month": "2025-01",
+        "group": 242,
+        "members": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "count": 5,
+        "epoch": 17,
+        "machine": "desktop RTX3080",
+        "attribution": "direct desktop execution and explicit agent resource handoffs",
+        "record": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/networks/2025-01_s242.json",
+        "sha256": "4672f858f97a30853187a9bddf54d57b99b3223b93bb79a2071e0376b4d76c87"
+      },
+      {
+        "month": "2025-07",
+        "group": 42,
+        "members": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "count": 5,
+        "epoch": 17,
+        "machine": "desktop RTX3080",
+        "attribution": "direct desktop execution and explicit agent resource handoffs",
+        "record": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/networks/2025-07_s42.json",
+        "sha256": "b24a36eaadb572eda25ee43566c5dcf9f905a546257a9a30e70b859452fe418e"
+      },
+      {
+        "month": "2025-07",
+        "group": 142,
+        "members": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "count": 5,
+        "epoch": 16,
+        "machine": "desktop RTX3080",
+        "attribution": "direct desktop execution and explicit agent resource handoffs",
+        "record": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/networks/2025-07_s142.json",
+        "sha256": "c935e17d5e80fe49aa61aac68790f7c3136ad80546d77c62d6d9ade3edfb1a67"
+      },
+      {
+        "month": "2025-07",
+        "group": 242,
+        "members": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "count": 5,
+        "epoch": 14,
+        "machine": "desktop RTX3080",
+        "attribution": "direct desktop execution and explicit agent resource handoffs",
+        "record": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/networks/2025-07_s242.json",
+        "sha256": "82ef57efba0b20251ec7525821f56eabe8612efcfb857fc814b95c28c35c31f7"
+      }
+    ],
+    "historical_N09_controls": "desktop RTX3080 per HPO_JAN_JUL report; only CatBoost used laptop",
+    "same_machine_feature_comparison": true,
+    "metadata_limit": "CV network records do not independently store hardware names; attribution uses executed desktop stages, resource handoffs and contemporaneous HPO report"
+  },
+  "production": "Subsequent full-year calls15 refits ran on laptop RTX5060; separate from CV fits and comparisons",
+  "evidence": {
+    "tmp/research_20261010/model_diversity/callsign_clocks_stage1.log": "23eaf3e05b886805092bdd07726643a59d38c5bec199a54aaa59462565b44e4b",
+    "tmp/research_20261010/model_diversity/callsign_clocks_pool3.log": "2ff5d5a5ae6eb946747ee0508a8c19e85c81dcb7addb34c15d7caa1c48edf4e1",
+    "tmp/research_20261010/model_diversity/callsign_clocks_pool15.log": "7d86ef4ee4503a3b3e56f5940a0514bcceb0fb55dcabcfc4c585c1f91b721c4f",
+    "VALIDATION/reports/HPO_JAN_JUL.md": "a50d2183cc19c1ffbaac198151b3e5a8fb0834a3746d0f89f5941641960a4240"
+  },
+  "clarification": "Later same-laptop clock controls and callsign-LGB comparisons must not be confused with calls15 neural CV",
+  "no_new_controls_fit": true
+}

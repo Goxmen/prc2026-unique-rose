@@ -1,0 +1,148 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/identity.json",
+    "sha256": "ae6cb604f49d5c0a1533782e2177cf1e6fa360790481980b44fc7ecf4ca15eba"
+  },
+  "seed": 42,
+  "epochs": 15,
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/models/s42_k0.pt",
+    "sha256": "75350de98cab9c2479d78a83b66d7f97741e6561d02d452c58cce38fca67a229"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/preprocessing/full_year.pkl",
+    "sha256": "6d3fa0207b94f45324ab928a1f969be6b016a5de7ab93311ee6937ffbed726c4"
+  },
+  "initial_check": {
+    "seed": 42,
+    "initial_original_parameters_exact": true,
+    "initial_train_eval_predictions_exact": true,
+    "initialization_dropout_rng_exact": true
+  },
+  "training_curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.32666090724971875,
+      "seconds": 39.1298069350014,
+      "train_seconds": 39.11957216200244,
+      "monitor_seconds": 0.010234772998956032
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.2495530472302708,
+      "seconds": 34.44771052900251,
+      "train_seconds": 34.43803137800205,
+      "monitor_seconds": 0.009679151000455022
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.2284954832586414,
+      "seconds": 34.54668189299991,
+      "train_seconds": 34.53648992399758,
+      "monitor_seconds": 0.0101919690023351
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.21299712556658565,
+      "seconds": 34.821961526999075,
+      "train_seconds": 34.805180826999276,
+      "monitor_seconds": 0.016780699999799253
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.20422099058074114,
+      "seconds": 35.47493807999854,
+      "train_seconds": 35.462146891000884,
+      "monitor_seconds": 0.01279118899765308
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.19700403342812703,
+      "seconds": 35.577814647000196,
+      "train_seconds": 35.56394029600051,
+      "monitor_seconds": 0.013874350999685703
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.1927496681176671,
+      "seconds": 34.87552936499924,
+      "train_seconds": 34.86603209999885,
+      "monitor_seconds": 0.009497265000391053
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.18654100047842728,
+      "seconds": 35.597587553002086,
+      "train_seconds": 35.58789456000159,
+      "monitor_seconds": 0.009692993000498973
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.1810974593330474,
+      "seconds": 34.90697839799759,
+      "train_seconds": 34.89735102999839,
+      "monitor_seconds": 0.009627367999200942
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.17663097417791995,
+      "seconds": 34.12316556099904,
+      "train_seconds": 34.112475283000094,
+      "monitor_seconds": 0.01069027799894684
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.17072957358163032,
+      "seconds": 34.55480461300249,
+      "train_seconds": 34.539340733001154,
+      "monitor_seconds": 0.015463880001334473
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.16860927897390088,
+      "seconds": 35.141775879001216,
+      "train_seconds": 35.12663071100178,
+      "monitor_seconds": 0.015145167999435216
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.2211417818590115,
+      "seconds": 35.190638152002066,
+      "train_seconds": 35.18084685500071,
+      "monitor_seconds": 0.009791297001356725
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.19727224971538024,
+      "seconds": 34.84447938499943,
+      "train_seconds": 34.83102750599937,
+      "monitor_seconds": 0.013451879000058398
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.17047552744166902,
+      "seconds": 34.11268064899923,
+      "train_seconds": 34.10270065000077,
+      "monitor_seconds": 0.00997999899846036
+    }
+  ],
+  "minutes": 8.827649650483302,
+  "device": "NVIDIA GeForce RTX 3080",
+  "torch": "2.14.1+cu130",
+  "inference_complete": false
+}

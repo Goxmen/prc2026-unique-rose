@@ -1,11 +1,20 @@
 # Next steps
 
-Every idea proposed in the repo and not yet carried out. Gains are combined CV
-seconds against **row 43 (233.2338, uploaded as v40)**. The best submission is now
-**v43 (row 46, 274.7660 LB)**: stand-position inputs on v42 (row 45, gunes's snow and
-completed-arrival inputs on row 43). Build on that, not on row 44 / v41, which lost 0.54 s. Negative is better. Measured numbers come from
+**Current status, 10 October 2026:** v58 remains the best official submission at
+**236.1895 seconds**. The active research network has selected a raw-track,
+callsign and Rome ensemble at **293.6566 Jan/Jul CV**, 2.0729 seconds below its
+matched control. The audited v64 file is prepared; no upload is authorized.
+See the [current research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md)
+for completed experiments, rejected ideas, remaining leads and transfer caveats.
+New candidates require Jan/Jul CV; the older 16-fold validations are not run by default.
+
+The table below preserves the September idea inventory and its original estimates.
+Its gains are combined-CV seconds against **row 43 (233.2338, uploaded as v40)**,
+not estimates against today's model. Some historical statuses are superseded by
+the current report and [submission ledger](SUBMISSIONS.md). Negative is better.
+Measured historical numbers come from
 `.venv/bin/python VALIDATION/tools/estimate_ceilings.py`; "est." is a judgement
-call from comparable past changes. Update **Status** as each one is done.
+from the evidence available when the table was written.
 
 The **#** column numbers the rows in order, so an idea can be named as "idea 3" in
 conversation. It is not a priority ranking, and removing a row renumbers the ones

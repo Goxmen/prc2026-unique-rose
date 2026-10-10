@@ -1,0 +1,222 @@
+{
+  "identity": {
+    "design": {
+      "parent": "R20 original68",
+      "features": [
+        "handler_stand_arr_copy_residual",
+        "handler_stand_arr_n"
+      ],
+      "feature_design": {
+        "group": "airport LIRF x stand x UTC month",
+        "match_tolerance_sec": 60,
+        "airline_prior": "same UTC month original movement-airline share with K10 airport prior",
+        "feature": "sum(arrival_copy - airline_prior)/(stand_arrival_count+50)",
+        "support": "stand_arrival_count",
+        "stand_prior_weight": 50,
+        "absent_known_stand": "residual0,count0",
+        "missing_stand": "both NaN",
+        "phases": "arrival labels supplied as observable context; departure labels training-only",
+        "training_scope": {
+          "2025-01": [
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11"
+          ],
+          "2025-07": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12"
+          ]
+        },
+        "held_departure_data_used": false,
+        "association": "demean both target and residual within original airline x month; Pearson and slope",
+        "temporal": "per month and first/second chronological half of each outer training window",
+        "no_fitting": true,
+        "no_threshold_search": true
+      },
+      "support": "known-airline, known-stand arrivals with supplied valid arrival clocks",
+      "context": "training queries: allowed training arrivals; held queries: training plus own held month arrivals",
+      "original_columns": 68,
+      "rounds": 1700,
+      "params": {
+        "objective": "binary",
+        "metric": "binary_logloss",
+        "learning_rate": 0.02,
+        "num_leaves": 127,
+        "min_data_in_leaf": 50,
+        "feature_fraction": 0.6,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "verbosity": -1,
+        "seed": 42,
+        "bagging_seed": 43,
+        "feature_fraction_seed": 44,
+        "num_threads": 8
+      },
+      "seed": 42,
+      "membership": "exact original R20 rows/labels/categories",
+      "arms": [
+        "historical",
+        "matched",
+        "candidate",
+        "half"
+      ],
+      "v58": "original15 NN and three original tree seeds; replace R20 only",
+      "selected": "fixed half sparse3/half calls15, calls main tree seed42; replace only R20 half of half-Cat3/R20",
+      "half": "half new R20 probability plus half same-laptop original68 R20 probability",
+      "tuning": false,
+      "full_year_fit": false,
+      "upload": false,
+      "exploratory_reused_development_months": true
+    },
+    "source": {
+      "path": "VALIDATION/rome_stand_arrival_jan_jul.py",
+      "sha256": "2722759fa10614aefab9cce2fc09106ad9a764c1f600da4afdfa946c47e9f581"
+    },
+    "helpers": [
+      {
+        "path": "VALIDATION/rome_own_arrival_jan_jul.py",
+        "sha256": "7a6a3f07ba306a7f3bf682ce82207d1cf45455ddb9dadb5b4fdcc77514e6e350"
+      },
+      {
+        "path": "VALIDATION/tools/research_stand_arrival_copy_20261010.py",
+        "sha256": "13f0ae3e0573876dbbab590e9153dbedb24ecd85a1a030d47d09495786abf3b1"
+      }
+    ],
+    "airline_parser": {
+      "path": "VALIDATION/rome_signals.py",
+      "sha256": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7"
+    }
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261010_rome_stand_arrival_jan_jul/prepared.json",
+    "sha256": "64e3ce41274aece5b79f69350c91e87bab459b86157c09400042f177e8583e04"
+  },
+  "month": "2025-01",
+  "arm": "candidate",
+  "columns": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "op_taxi_30d",
+    "op_taxi_30d_n",
+    "rwy_taxi_30d",
+    "stand_taxi_90d",
+    "aphour_taxi_30d",
+    "arr_taxiin_7d",
+    "dep_actual_30m_before",
+    "arr_actual_30m_before",
+    "dep_sched_60m_around",
+    "clock_aobt3_minus_schedule_sec",
+    "clock_aobt3_minus_eobt1_sec",
+    "clock_eobt1_minus_iobt_sec",
+    "clock_iobt_minus_lobt_sec",
+    "clock_schedule_available",
+    "clock_lobt_available",
+    "clock_iobt_available",
+    "clock_eobt1_available",
+    "clock_aobt3_available",
+    "clock_raw_flight_id_missing",
+    "clock_raw_plan_block_missing",
+    "clock_raw_aobt3_missing",
+    "clock_available_count",
+    "clock_span_sec",
+    "clock_std_sec",
+    "clock_median_sec",
+    "clock_baseline_sec",
+    "clock_baseline_source",
+    "airline",
+    "handler_arr_sched_share",
+    "handler_arr_n",
+    "flight_number_format",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60",
+    "handler_stand_arr_copy_residual",
+    "handler_stand_arr_n"
+  ],
+  "categoricals": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "airline"
+  ],
+  "train_rows": 126507,
+  "positives": 25343,
+  "params": {
+    "objective": "binary",
+    "metric": "binary_logloss",
+    "learning_rate": 0.02,
+    "num_leaves": 127,
+    "min_data_in_leaf": 50,
+    "feature_fraction": 0.6,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "verbosity": -1,
+    "seed": 42,
+    "bagging_seed": 43,
+    "feature_fraction_seed": 44,
+    "num_threads": 8
+  },
+  "rounds": 1700,
+  "model": {
+    "path": "VALIDATION/runs/v3_20261010_rome_stand_arrival_jan_jul/models/2025-01_candidate.txt",
+    "sha256": "f73a12018dcd36a5010338806ab3a272fc7102d79ce899cc5e26b18b5de969ff"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261010_rome_stand_arrival_jan_jul/predictions/2025-01_candidate.parquet",
+    "sha256": "14eb4b423edd5792d8ea1118a1575bb1a124c15bfcfd82031c718afd67f1e7ef"
+  },
+  "hostname": "GLAPTOP",
+  "lightgbm_version": "4.7.0",
+  "seconds": 12.140499504999752,
+  "verification_scope": "portable source/design/packet/feature hashes; desktop prepare verified full original sources"
+}

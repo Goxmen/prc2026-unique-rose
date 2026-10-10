@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scope": "Static independent review and runner synthetic check; prepared actual matrices not yet built.",
+  "sources": {
+    "VALIDATION/rome_stand_arrival_jan_jul.py": "a00dd8192b1254c21bf25b637accb1c7092c03d0e862b946ec296aa49560ef50",
+    "VALIDATION/rome_own_arrival_jan_jul.py": "7a6a3f07ba306a7f3bf682ce82207d1cf45455ddb9dadb5b4fdcc77514e6e350",
+    "VALIDATION/tools/research_stand_arrival_copy_20261010.py": "13f0ae3e0573876dbbab590e9153dbedb24ecd85a1a030d47d09495786abf3b1"
+  },
+  "check": {
+    "command": ".venv/bin/python VALIDATION/rome_stand_arrival_jan_jul.py check",
+    "exit_code": 0
+  },
+  "checks": [
+    "Original68 names/dtypes/category orders/row index exactly preserved; only two float32 columns appended.",
+    "Original frozen train IDs, targets, held IDs and use mask reused; train and held feature tables validate exact outer month scope.",
+    "Feature computation depends only supplied arrival copy outcomes and departure month/stand; synthetic poisoned departure target/label/block columns leave inputs unchanged.",
+    "Preparation verifies every current source movement hash, identity table/source hash and original prepared packet; portable fits validate exact source/packet/feature manifests.",
+    "Two same-laptop original68 controls and two70-input candidates use seed42, identical R20 params and1700rounds.",
+    "v58 and current selected ordinary stacks scored separately through full sc.se correction stack on every held row.",
+    "Selected probability retains .5Cat3 plus .5R20; half arm mixes candidate/local R20 before this outer half. Historical selected per-row SSE must replay exactly.",
+    "Historical host variation is reported separately from matched-local feature effects; no extra weights or gates selected."
+  ]
+}

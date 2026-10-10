@@ -1,0 +1,70 @@
+{
+  "source": {
+    "path": "VALIDATION/tools/audit_sparse_candidate_20261010.py",
+    "sha256": "7072cda865fdf01247209bf7dad7173e007199392739ab59d9916dbf4271b252"
+  },
+  "design": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/design.json",
+    "sha256": "3f63b6d8f22e76b94a18c259b961b1501b6fe537b5715b3f2f80af15325151e9"
+  },
+  "pooled": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/pooled.json",
+    "sha256": "535f3c5623bccba8e2874ee0dc59ed2f0ea9e66c0f1109b84b6012fa9ab3132a"
+  },
+  "views": {
+    "old": {
+      "rows": 344841,
+      "manifest": {
+        "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/manifest.json",
+        "sha256": "41753e478d4a7e9f5cf5c2e458a4611730b9801cd271920dcd827b8fbb24e2a0"
+      },
+      "output": {
+        "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/candidate.parquet",
+        "sha256": "2a596d95610b748b49a5da8803533f3e4bec50e3d919f92138b40b194b49f5b3"
+      },
+      "parts": {
+        "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/parts.parquet",
+        "sha256": "58e448492c642c576a8aa025c7d42b3275a452e94f35e2bb229b784f911b8d30"
+      },
+      "all_three_member_means_exact": true,
+      "all_callsign_parent_predictions_exact": true,
+      "all_half_neural_blends_exact": true,
+      "all_ordinary_blends_exact": true,
+      "unchanged_tree_and_rome_parts_exact": true,
+      "all_serialized_predictions_exact": true,
+      "protected_template_columns_exact": true,
+      "changed_predictions": 328797,
+      "mean_change_sec": 1.038095818072677,
+      "rms_change_sec": 21.714365155786957,
+      "maximum_absolute_change_sec": 700.0
+    },
+    "final": {
+      "rows": 670790,
+      "manifest": {
+        "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/final/manifest.json",
+        "sha256": "22c6d0fa68337e37247d09c5c0fd859ed8412897f82049b05112ed01da6ac8c1"
+      },
+      "output": {
+        "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/final/candidate.parquet",
+        "sha256": "b92d9d31be5e60fc583f009b995cbf5a3032da92c497b8500733eab6bb32246c"
+      },
+      "parts": {
+        "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/final/parts.parquet",
+        "sha256": "ec9e548a7a6953337a760f8ab11b8689611daa13cd83fa6fe19d7e824701f684"
+      },
+      "all_three_member_means_exact": true,
+      "all_callsign_parent_predictions_exact": true,
+      "all_half_neural_blends_exact": true,
+      "all_ordinary_blends_exact": true,
+      "unchanged_tree_and_rome_parts_exact": true,
+      "all_serialized_predictions_exact": true,
+      "protected_template_columns_exact": true,
+      "changed_predictions": 639279,
+      "mean_change_sec": 0.4447517106695091,
+      "rms_change_sec": 19.142512691015842,
+      "maximum_absolute_change_sec": 716.0
+    }
+  },
+  "passed": true,
+  "scope": "Independent component arithmetic and serialization on every row; inherited corrections are covered by the builder's exact parent replay. No hidden labels, fitting, or upload."
+}

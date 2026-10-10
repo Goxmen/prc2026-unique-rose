@@ -1,0 +1,93 @@
+{
+  "status": "deferred by root after training-only feasibility pilot; no gain forecast",
+  "idea": "Conditioned event-time localization over individual cached track observations with an explicit nonphysical recording fallback.",
+  "novelty": {
+    "current": "Frozen temporal CNN pools point encodings with mean/max then regresses an unconstrained residual; no point-aligned target supervision or explicit normalized event time readout.",
+    "not_existing_physical_bypass": "Four hand-built aggregate clocks are replaced here by a distribution learned over up to128 actual observation times.",
+    "not_failed_auxiliary_modes": "That screen used11 global AOBT-offset thresholds and schedule-copy targets on156 tabular inputs; it had no trajectory localization.",
+    "not_arrival_stop_pilot": "No new raw witness or prior-arrival aggregation is built."
+  },
+  "evidence": {
+    "pilot": "tmp/research_20261010/signal_scout/point_localization_pilot_v2.json",
+    "pilot_sha256": "593b22696ea7dfa06e37159818d55fb1190ee04266e82474bd5748fad66e9361",
+    "ordinary": {
+      "rows": 10148,
+      "usable": 8276,
+      "ground": 5937,
+      "bracket": 4990,
+      "bracket_fraction": 0.4917225068979109,
+      "bracket_both_ground": 3337,
+      "outside_older_than_first": 3097,
+      "outside_newer_than_last": 189,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        10.0,
+        4020.0,
+        5970.0,
+        6970.0
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        10.0,
+        4020.0,
+        5970.0,
+        6970.0
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        5.0,
+        468.5,
+        1361.5,
+        4325.25
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        3.0,
+        355.0,
+        1147.0,
+        1727.1099999999997
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 915,
+        "60": 1088,
+        "120": 1231
+      },
+      "nearest_point_le_seconds": {
+        "30": 1659,
+        "60": 2013,
+        "120": 2381
+      },
+      "fractions": {
+        "usable": 0.8155301537248719,
+        "bracket": 0.4917225068979109,
+        "outside_older_than_first": 0.3051832873472605,
+        "outside_newer_than_last": 0.018624359479700432,
+        "bracket_gap_le120": 0.12130469057942452,
+        "nearest_point_le60": 0.19836420969649193
+      }
+    },
+    "interpretation": [
+      "Recorded-block event is within observed time hull for49.17% of ordinary rows, but actual raw absence creates67minute median bracket gaps.",
+      "12.13% have two-sided observations within120s;19.84% have any retained observation within60s. These descriptive widths are not candidate gates.",
+      "Candidate potential is concentrated at EHAM/EDDF/EDDM/LSZH; this pilot gives almost no fine recording-event evidence at LFPG/LIRF and none at LTFM.",
+      "The two-day training-only sample is not a Jan/Jul coverage estimate and contains seasonal/airport source-coverage differences.",
+      "Recorded event can precede first observed movement or differ from physical pushback; observation hull must never be a hard output bound."
+    ]
+  },
+  "minimal_experiment": {
+    "population": "Unchanged original ordinary training rows; all held rows retained through original final stack.",
+    "features": "Exactly original156 plus unchanged frozen2hour raw tracks. No new source, identity, threshold or labels as inputs.",
+    "model": "Retain original point encoder and tabular branch. Replace mean/max readout with a tabular-conditioned attention over individual point encodings, each linked to its exact takeoff-minus-observation age, plus one unrestricted tabular fallback token. Retain missing masks and force fallback for0/1point histories.",
+    "readout": "Conditional mean over observation-time components and an unrestricted learned fallback duration; point branch is not asserted to be physical truth. No physical-bound clipping.",
+    "loss": "Original standardized clipped-target MSE only for the initial architecture screen; no additional ordinal/copy losses or tuned auxiliary coefficient.",
+    "gate": "Learned fallback probability; never an airport/count/error-selected hard gate.",
+    "control": "Saved same-desktop sparse156 seed42k0 for both months; original early stopping21/17 and24epoch OneCycle horizon.",
+    "score": "Primary equal-size .5candidate-single+.5calls15 versus .5saved-sparse-single+.5calls15, with unchanged selected calls-LGB/Rome stack; actual selected sparse3/calls15 score separately.",
+    "falsification": "Stop if both-month matched gain is absent or fixedhalf does not beat actual selected recipe beyond numerical variation; retain fixed bracketing/airport diagnostics, do not rescue with new gates.",
+    "runtime": "Estimated18\u201325min desktop for twofits including encoding, based on saved sparse k0 fits10.08+6.02min. New head is smaller than CNN backbone; benchmark once beforefullfit. No rebuild/transfer needed."
+  },
+  "recommendation": "Defer training. Preserve fallback-attention design and descriptive evidence; no performance or remaining-goal gain is forecast.",
+  "limits": [
+    "No CV outcomes or prediction residuals used to set any threshold or select this design.",
+    "No full-array scans, downloads, fitting, transfer or upload performed.",
+    "Only the compact0.78MB pilot index,18.6MB pilot array,9.1MB audited membership and filtered12.4MB metadata were inspected."
+  ]
+}

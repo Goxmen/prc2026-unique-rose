@@ -1,0 +1,692 @@
+{
+  "status": "descriptive training-only pilot; no fitting or threshold selection",
+  "days": [
+    "2025-03-10",
+    "2025-09-10"
+  ],
+  "source_sha256": "6d76340ad7f7ff6a62ef7059147c2db3f436f4f7c2e8f88caaa94f082c5038ec",
+  "sources": {
+    "data/derived/sparse_track_sequence_20261010/pilot_index.parquet": "32345d8b2a3fa7464a075ff43b797401ebe6ec109eb82691d652bc26487791f4",
+    "data/derived/sparse_track_sequence_20261010/pilot_points.npy": "015ad3d470a0897182952562cf0aedac3b13cffc2e14aa9d0214b49b912fad2e",
+    "data/derived/missing_plan_view_20261010/metadata.parquet": "28a878774dcc40e54def883001c84a856aac22bdd63c942e9cd4e9b260cfc219",
+    "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/training_membership.parquet": "f6ac40ffbcb90c268c179032671130cdcde6f6f9cc095c8d38abe44076f72cf1"
+  },
+  "population": "Original audited full-year ordinary-regressor eligibility shown separately from all supplied rows. Both dates are existing input-selected pilot dates; no Jan/Jul labels enter any computation.",
+  "target": "Recorded off-block age equals supplied taxi-out label; not independently verified physical movement.",
+  "columns": "Point age uses exact int32 takeoff-minus-position-ms; intervals are retained-point gaps and raw preceding gaps are reported separately.",
+  "all": {
+    "rows": 10348,
+    "usable": 8446,
+    "ground": 5983,
+    "bracket": 5070,
+    "bracket_fraction": 0.4899497487437186,
+    "bracket_both_ground": 3349,
+    "outside_older_than_first": 3160,
+    "outside_newer_than_last": 216,
+    "y_gt7200": 4,
+    "y_le0": 3,
+    "bracket_gap_p10_p50_p90_p99": [
+      10.0,
+      4050.0,
+      5980.0,
+      6973.100000000004
+    ],
+    "bracket_raw_gap_after_p10_p50_p90_p99": [
+      10.0,
+      4050.0,
+      5980.0,
+      6973.100000000004
+    ],
+    "nearest_error_usable_p10_p50_p90_p99": [
+      5.0,
+      485.0,
+      1389.5,
+      4589.949999999993
+    ],
+    "nearest_error_bracket_p10_p50_p90_p99": [
+      3.0,
+      364.5,
+      1165.1000000000004,
+      1751.9300000000012
+    ],
+    "bracket_gap_le_seconds": {
+      "30": 917,
+      "60": 1090,
+      "120": 1233
+    },
+    "nearest_point_le_seconds": {
+      "30": 1661,
+      "60": 2015,
+      "120": 2384
+    }
+  },
+  "ordinary": {
+    "rows": 10148,
+    "usable": 8276,
+    "ground": 5937,
+    "bracket": 4990,
+    "bracket_fraction": 0.4917225068979109,
+    "bracket_both_ground": 3337,
+    "outside_older_than_first": 3097,
+    "outside_newer_than_last": 189,
+    "y_gt7200": 0,
+    "y_le0": 0,
+    "bracket_gap_p10_p50_p90_p99": [
+      10.0,
+      4020.0,
+      5970.0,
+      6970.0
+    ],
+    "bracket_raw_gap_after_p10_p50_p90_p99": [
+      10.0,
+      4020.0,
+      5970.0,
+      6970.0
+    ],
+    "nearest_error_usable_p10_p50_p90_p99": [
+      5.0,
+      468.5,
+      1361.5,
+      4325.25
+    ],
+    "nearest_error_bracket_p10_p50_p90_p99": [
+      3.0,
+      355.0,
+      1147.0,
+      1727.1099999999997
+    ],
+    "bracket_gap_le_seconds": {
+      "30": 915,
+      "60": 1088,
+      "120": 1231
+    },
+    "nearest_point_le_seconds": {
+      "30": 1659,
+      "60": 2013,
+      "120": 2381
+    }
+  },
+  "nonordinary": {
+    "rows": 200,
+    "usable": 170,
+    "ground": 46,
+    "bracket": 80,
+    "bracket_fraction": 0.4,
+    "bracket_both_ground": 12,
+    "outside_older_than_first": 63,
+    "outside_newer_than_last": 27,
+    "y_gt7200": 4,
+    "y_le0": 3,
+    "bracket_gap_p10_p50_p90_p99": [
+      3933.0,
+      5065.0,
+      6448.000000000001,
+      7028.4
+    ],
+    "bracket_raw_gap_after_p10_p50_p90_p99": [
+      3933.0,
+      5065.0,
+      6448.000000000001,
+      7028.4
+    ],
+    "nearest_error_usable_p10_p50_p90_p99": [
+      625.0000000000001,
+      1273.0,
+      4831.1,
+      6989.860000000002
+    ],
+    "nearest_error_bracket_p10_p50_p90_p99": [
+      550.0,
+      1034.0,
+      1691.0,
+      3085.6999999999994
+    ],
+    "bracket_gap_le_seconds": {
+      "30": 2,
+      "60": 2,
+      "120": 2
+    },
+    "nearest_point_le_seconds": {
+      "30": 2,
+      "60": 2,
+      "120": 3
+    }
+  },
+  "ordinary_by_day": {
+    "2025-03-10": {
+      "rows": 4154,
+      "usable": 3295,
+      "ground": 1833,
+      "bracket": 1867,
+      "bracket_fraction": 0.4494463168030814,
+      "bracket_both_ground": 981,
+      "outside_older_than_first": 1307,
+      "outside_newer_than_last": 121,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        20.0,
+        4380.0,
+        6120.0,
+        7043.4
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        20.0,
+        4380.0,
+        6120.0,
+        7043.4
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        16.400000000000034,
+        696.0,
+        1415.1999999999998,
+        4641.599999999999
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        4.0,
+        526.0,
+        1202.2000000000003,
+        1667.079999999999
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 217,
+        "60": 260,
+        "120": 294
+      },
+      "nearest_point_le_seconds": {
+        "30": 404,
+        "60": 479,
+        "120": 573
+      }
+    },
+    "2025-09-10": {
+      "rows": 5994,
+      "usable": 4981,
+      "ground": 4104,
+      "bracket": 3123,
+      "bracket_fraction": 0.521021021021021,
+      "bracket_both_ground": 2356,
+      "outside_older_than_first": 1790,
+      "outside_newer_than_last": 68,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        10.0,
+        3780.0,
+        5840.0,
+        6887.799999999997
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        10.0,
+        3780.0,
+        5840.0,
+        6887.799999999997
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        4.0,
+        357.0,
+        1314.0,
+        3560.3999999999933
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        3.0,
+        192.0,
+        1098.8000000000002,
+        1753.3399999999992
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 698,
+        "60": 828,
+        "120": 937
+      },
+      "nearest_point_le_seconds": {
+        "30": 1255,
+        "60": 1534,
+        "120": 1808
+      }
+    }
+  },
+  "ordinary_by_airport": {
+    "EDDF": {
+      "rows": 730,
+      "usable": 721,
+      "ground": 713,
+      "bracket": 449,
+      "bracket_fraction": 0.6150684931506849,
+      "bracket_both_ground": 441,
+      "outside_older_than_first": 272,
+      "outside_newer_than_last": 0,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        20.0,
+        3510.0,
+        5482.0,
+        6411.199999999999
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        20.0,
+        3510.0,
+        5482.0,
+        6411.199999999999
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        5.0,
+        101.0,
+        514.0,
+        780.5999999999997
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        3.0,
+        57.0,
+        472.59999999999997,
+        673.0399999999995
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 95,
+        "60": 120,
+        "120": 146
+      },
+      "nearest_point_le_seconds": {
+        "30": 205,
+        "60": 288,
+        "120": 381
+      }
+    },
+    "EDDM": {
+      "rows": 615,
+      "usable": 613,
+      "ground": 613,
+      "bracket": 448,
+      "bracket_fraction": 0.7284552845528456,
+      "bracket_both_ground": 446,
+      "outside_older_than_first": 165,
+      "outside_newer_than_last": 0,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        10.0,
+        2695.0,
+        4860.0,
+        6261.799999999998
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        10.0,
+        2695.0,
+        4860.0,
+        6261.799999999998
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        3.0,
+        39.0,
+        354.60000000000014,
+        618.2399999999999
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        3.0,
+        25.0,
+        325.0,
+        583.3999999999978
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 129,
+        "60": 168,
+        "120": 186
+      },
+      "nearest_point_le_seconds": {
+        "30": 262,
+        "60": 375,
+        "120": 457
+      }
+    },
+    "EGLL": {
+      "rows": 1263,
+      "usable": 1161,
+      "ground": 463,
+      "bracket": 474,
+      "bracket_fraction": 0.3752969121140142,
+      "bracket_both_ground": 58,
+      "outside_older_than_first": 675,
+      "outside_newer_than_last": 12,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        3622.0,
+        5145.0,
+        6580.0,
+        7142.7
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        3622.0,
+        5145.0,
+        6580.0,
+        7142.7
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        487.0,
+        1142.0,
+        1706.0,
+        3108.200000000034
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        244.8,
+        1089.0,
+        1578.7,
+        2156.0499999999997
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 1,
+        "60": 8,
+        "120": 12
+      },
+      "nearest_point_le_seconds": {
+        "30": 15,
+        "60": 21,
+        "120": 33
+      }
+    },
+    "EHAM": {
+      "rows": 1257,
+      "usable": 1235,
+      "ground": 1187,
+      "bracket": 970,
+      "bracket_fraction": 0.771678599840891,
+      "bracket_both_ground": 885,
+      "outside_older_than_first": 265,
+      "outside_newer_than_last": 0,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        10.0,
+        30.0,
+        5030.0,
+        6607.899999999995
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        10.0,
+        25.0,
+        5012.0,
+        6607.899999999995
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        1.0,
+        13.0,
+        530.6000000000001,
+        1055.0
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        1.0,
+        5.0,
+        450.30000000000007,
+        1035.9599999999991
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 490,
+        "60": 516,
+        "120": 531
+      },
+      "nearest_point_le_seconds": {
+        "30": 694,
+        "60": 723,
+        "120": 752
+      }
+    },
+    "LEBL": {
+      "rows": 982,
+      "usable": 978,
+      "ground": 947,
+      "bracket": 726,
+      "bracket_fraction": 0.7393075356415478,
+      "bracket_both_ground": 612,
+      "outside_older_than_first": 252,
+      "outside_newer_than_last": 0,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        20.0,
+        3720.0,
+        5360.0,
+        6660.0
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        20.0,
+        3720.0,
+        5360.0,
+        6660.0
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        5.0,
+        364.0,
+        870.0,
+        1258.69
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        4.0,
+        356.5,
+        902.5,
+        1256.25
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 109,
+        "60": 128,
+        "120": 141
+      },
+      "nearest_point_le_seconds": {
+        "30": 209,
+        "60": 256,
+        "120": 306
+      }
+    },
+    "LEMD": {
+      "rows": 1179,
+      "usable": 1149,
+      "ground": 893,
+      "bracket": 566,
+      "bracket_fraction": 0.48006785411365566,
+      "bracket_both_ground": 382,
+      "outside_older_than_first": 583,
+      "outside_newer_than_last": 0,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        2250.0,
+        4470.0,
+        6145.0,
+        7000.0
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        2250.0,
+        4470.0,
+        6145.0,
+        7000.0
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        95.0,
+        590.0,
+        1253.2,
+        1743.7199999999993
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        43.0,
+        591.5,
+        1200.5,
+        1665.1500000000005
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 9,
+        "60": 23,
+        "120": 51
+      },
+      "nearest_point_le_seconds": {
+        "30": 63,
+        "60": 80,
+        "120": 146
+      }
+    },
+    "LFPG": {
+      "rows": 1285,
+      "usable": 1066,
+      "ground": 190,
+      "bracket": 520,
+      "bracket_fraction": 0.4046692607003891,
+      "bracket_both_ground": 8,
+      "outside_older_than_first": 439,
+      "outside_newer_than_last": 107,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        4139.0,
+        5350.0,
+        6652.0,
+        7170.0
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        4139.0,
+        5350.0,
+        6652.0,
+        7170.0
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        670.0,
+        999.0,
+        2434.5,
+        5599.5999999999985
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        650.8,
+        903.5,
+        1299.0,
+        1749.8699999999985
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 0,
+        "60": 0,
+        "120": 0
+      },
+      "nearest_point_le_seconds": {
+        "30": 0,
+        "60": 0,
+        "120": 0
+      }
+    },
+    "LIRF": {
+      "rows": 695,
+      "usable": 638,
+      "ground": 239,
+      "bracket": 387,
+      "bracket_fraction": 0.5568345323741007,
+      "bracket_both_ground": 72,
+      "outside_older_than_first": 181,
+      "outside_newer_than_last": 70,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        3936.0,
+        4850.0,
+        6184.0,
+        7094.2
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        3936.0,
+        4850.0,
+        6184.0,
+        7094.2
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        636.0,
+        1056.0,
+        3337.5000000000005,
+        5698.42
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        601.0,
+        938.0,
+        1466.8000000000002,
+        2208.079999999998
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 1,
+        "60": 1,
+        "120": 2
+      },
+      "nearest_point_le_seconds": {
+        "30": 4,
+        "60": 6,
+        "120": 10
+      }
+    },
+    "LSZH": {
+      "rows": 727,
+      "usable": 715,
+      "ground": 692,
+      "bracket": 450,
+      "bracket_fraction": 0.6189821182943603,
+      "bracket_both_ground": 433,
+      "outside_older_than_first": 265,
+      "outside_newer_than_last": 0,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": [
+        20.0,
+        3425.0,
+        5394.000000000001,
+        6525.1
+      ],
+      "bracket_raw_gap_after_p10_p50_p90_p99": [
+        20.0,
+        3425.0,
+        5394.000000000001,
+        6525.1
+      ],
+      "nearest_error_usable_p10_p50_p90_p99": [
+        6.0,
+        242.0,
+        494.6,
+        975.8600000000007
+      ],
+      "nearest_error_bracket_p10_p50_p90_p99": [
+        3.0,
+        115.5,
+        438.0,
+        584.7699999999998
+      ],
+      "bracket_gap_le_seconds": {
+        "30": 81,
+        "60": 124,
+        "120": 162
+      },
+      "nearest_point_le_seconds": {
+        "30": 207,
+        "60": 264,
+        "120": 296
+      }
+    },
+    "LTFM": {
+      "rows": 1415,
+      "usable": 0,
+      "ground": 0,
+      "bracket": 0,
+      "bracket_fraction": 0.0,
+      "bracket_both_ground": 0,
+      "outside_older_than_first": 0,
+      "outside_newer_than_last": 0,
+      "y_gt7200": 0,
+      "y_le0": 0,
+      "bracket_gap_p10_p50_p90_p99": null,
+      "bracket_raw_gap_after_p10_p50_p90_p99": null,
+      "nearest_error_usable_p10_p50_p90_p99": null,
+      "nearest_error_bracket_p10_p50_p90_p99": null,
+      "bracket_gap_le_seconds": {
+        "30": 0,
+        "60": 0,
+        "120": 0
+      },
+      "nearest_point_le_seconds": {
+        "30": 0,
+        "60": 0,
+        "120": 0
+      }
+    }
+  },
+  "seconds": 0.4921713180010556
+}

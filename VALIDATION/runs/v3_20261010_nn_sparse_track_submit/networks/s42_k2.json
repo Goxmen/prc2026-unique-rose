@@ -1,0 +1,50 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/identity.json",
+    "sha256": "ae6cb604f49d5c0a1533782e2177cf1e6fa360790481980b44fc7ecf4ca15eba"
+  },
+  "seed": 2042,
+  "epochs": 15,
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/models/s42_k2.pt",
+    "sha256": "316384f66397b7b6dfc2bff116d91cc24e12c2e65ee6455289cfd768206bcf2d"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/preprocessing/full_year.pkl",
+    "sha256": "6d3fa0207b94f45324ab928a1f969be6b016a5de7ab93311ee6937ffbed726c4"
+  },
+  "predictions": {
+    "old": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/networks/old_s42_k2.parquet",
+      "sha256": "e56ab7632163289499ffa9eb2645d5c9d2fe94847e0b6a56587912a7d3f38db9"
+    },
+    "final": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/networks/final_s42_k2.parquet",
+      "sha256": "dfdd6d679f7c1c18cbf8ce9f3fadb48454cd53438ca9482ad04f195ceb4f4e50"
+    }
+  },
+  "training_checkpoint": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/trained/s42_k2.json",
+    "sha256": "2fbe31ec6110c4a82c7126ab68e7543bc8b9cbb2f488ddce455e7c94cfda49ae"
+  },
+  "inference_seconds": 8.826305464001052,
+  "portable_reload_rows_per_view": 2048,
+  "minutes": 8.85808901461666,
+  "device": "NVIDIA GeForce RTX 3080",
+  "torch": "2.14.1+cu130"
+}

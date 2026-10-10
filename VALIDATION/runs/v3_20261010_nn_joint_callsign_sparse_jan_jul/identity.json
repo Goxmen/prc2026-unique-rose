@@ -1,0 +1,417 @@
+{
+  "design": {
+    "parent": "selected half sparse3 / half calls15 combination",
+    "change": "jointly train original156 plus callsign6 and unchanged sparse-track branch",
+    "original_columns": 156,
+    "added_columns": [
+      "cc_call_start_sec",
+      "cc_squawk_start_sec",
+      "cc_previous_call_end_sec",
+      "cc_before_own_arrival",
+      "cc_ambiguous",
+      "cc_censored"
+    ],
+    "model": {
+      "sequence_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "width": 32,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "kernel": 3,
+      "dilations": [
+        1,
+        4,
+        16
+      ],
+      "activation": "SiLU",
+      "normalization": "LayerNorm over channels independently per point",
+      "pooling": "masked mean and max",
+      "fusion_hidden": 128,
+      "final_residual_initialization": "zero",
+      "usable": "at least two distinct timestamps",
+      "original_inputs": 156,
+      "extra_dropout": 0
+    },
+    "sequence": {
+      "window_before_sec": 7200,
+      "window_after_sec": 60,
+      "max_points": 128,
+      "minimum_distinct_timestamps": 2,
+      "labels_used": false,
+      "identity": "audited unique near-takeoff identity; missing and ambiguous remain absent",
+      "sort": [
+        "airport",
+        "hex",
+        "ts_ms",
+        "lat",
+        "lon",
+        "alt",
+        "gs"
+      ],
+      "duplicate_timestamp": "retain lexicographically first lat/lon/alt/gs per airport/hex/time",
+      "selection": "floor(linspace(0,n-1,128)); first and last always retained",
+      "gap": "previous raw observation within query window; first=-1; never interpolated",
+      "ground_alt_code": -123,
+      "other_negative_alt": "unknown",
+      "negative_speed": "unknown",
+      "origin": "mean of the airport X-Plane runway ends",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "point_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "bounds": {
+        "time": [
+          -0.008333333333333333,
+          1
+        ],
+        "gap": [
+          0,
+          1
+        ],
+        "east_north": [
+          -2,
+          2
+        ],
+        "speed": [
+          0,
+          1
+        ],
+        "altitude": [
+          0,
+          1
+        ],
+        "distance": [
+          0,
+          1
+        ],
+        "clock": [
+          -1,
+          1
+        ]
+      },
+      "scales": {
+        "time_sec": 7200,
+        "gap_log_sec": 7260,
+        "east_north_m": 20000,
+        "speed_kt": 300,
+        "altitude_ft": 10000,
+        "distance_m": 40000,
+        "clock": "clip(asinh((point-originalAOBT)/1800),-8,8)/8",
+        "raw_count_cap": 4096
+      },
+      "padding": "right padding, independent boolean point mask, all padded channels zero",
+      "absent_sequence": "0 or 1 points cached honestly; model residual hard-gated off"
+    },
+    "seed": 42,
+    "fixed_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "target": "original direct min(y,10800), standardized with ordinary training population",
+    "training": "unchanged original sparse train bytecode",
+    "preprocessing": "audited exact chunked original encoder and quantiles",
+    "machine": "desktop RTX3080; reuse same-machine saved sparse156 seed42 controls",
+    "primary": "half joint162 single + half calls15 versus half sparse156 single + half calls15",
+    "selected_reference": "half saved sparse3 + half calls15; different pool size is explicit",
+    "tree": "selected callsign main LightGBM plus original airport and CatBoost, seed42",
+    "rome": "selected fixed half Cat3 / half R20",
+    "network_share": 0.71,
+    "rules": "unchanged",
+    "no_inner_stopping": true,
+    "no_weight_search": true,
+    "held_labels": "fixed-epoch monitoring and final development scoring only",
+    "exploratory_reused_development_months": true,
+    "production_or_upload": false
+  },
+  "source": {
+    "path": "VALIDATION/nn_joint_callsign_sparse_jan_jul.py",
+    "sha256": "10f39bd7ed6f48d945e302f74c38fb0d16479cef69cdb9241b9e51a2065be3ba"
+  },
+  "cache": {
+    "path": "data/derived/sparse_track_sequence_20261010/full.json",
+    "sha256": "723cb02477e53b3c3e6b265fa98d3bd67a8e531b45d37943c6f527de5735d6da",
+    "outputs": {
+      "full_index.parquet": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684",
+      "full_points.bin": "e24e96f34f4fd536c621a3f5c36dd7fc8eae0f037fb0a32b59c1c1b84392d147"
+    },
+    "rows": 2085047,
+    "stored_points": 84624170
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/nn_sparse_track_jan_jul.py",
+      "sha256": "b1225096a7f259020823c46d9a53f0acae942cd58f70dd35a535a54a575d9884"
+    },
+    {
+      "path": "VALIDATION/nn_callsign_clocks_jan_jul.py",
+      "sha256": "4763756ce09d4e6da4e3c47d8dd844f063a29ae5addee6d56fc4a6ec60d74132"
+    },
+    {
+      "path": "VALIDATION/chunked_direct_data.py",
+      "sha256": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9"
+    },
+    {
+      "path": "VALIDATION/missing_plan_view.py",
+      "sha256": "224c0cf4cc459ed8428638f52f252a52175954f9c9c846916196e3d32015a112"
+    },
+    {
+      "path": "VALIDATION/nn_sparse_track_prototype.py",
+      "sha256": "9842a81b46395568839556a4f6c5145d0eb91c95fea81109c5c2fd70acfc2c52"
+    },
+    {
+      "path": "VALIDATION/sparse_track_tensors.py",
+      "sha256": "c24577d69eb13edef8b1b64f8d003f195c9ef7b4651811a1e1d3aede1d0ce906"
+    },
+    {
+      "path": "VALIDATION/nn_residual_jan_jul.py",
+      "sha256": "e5cf29800ca49dbea75882e3587bd970d66b6845481ef1d8c9578367b9322f8b"
+    },
+    {
+      "path": "VALIDATION/nn_improve_jan_jul.py",
+      "sha256": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20"
+    },
+    {
+      "path": "VALIDATION/nn_jan_jul.py",
+      "sha256": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766"
+    },
+    {
+      "path": "VALIDATION/hpo_jan_jul.py",
+      "sha256": "89638bacf1033b3fb796d0ddee94bbd35b3ac28d3e501d07a2e4a37a7371ed49"
+    },
+    {
+      "path": "VALIDATION/sparse_track_combo_score.py",
+      "sha256": "efac4caba3612047ef333228539a65912c86d5d5408b6ebfe612c8a289c3aa5e"
+    },
+    {
+      "path": "VALIDATION/callsign_lgb_combo_score.py",
+      "sha256": "cb2ae3aee18cd149f9137c3b50b126b0238c4e7d2087d379d60460ce11de8cd1"
+    }
+  ],
+  "folds": {
+    "2025-01": {
+      "features": {
+        "train": {
+          "path": "data/derived/callsign_clocks_20261010/2025-01_train.parquet",
+          "sha256": "08b4697d13b39aec807e44d67272a30eb699ba650f73991e2e14955e31bdbc54"
+        },
+        "held": {
+          "path": "data/derived/callsign_clocks_20261010/2025-01_held.parquet",
+          "sha256": "f0e215a727906798f4281c083e41c281568ceec5ec9a5dd90ad676110749c848"
+        }
+      },
+      "feature_record": {
+        "path": "data/derived/callsign_clocks_20261010/manifest.json",
+        "sha256": "6026c63a2448522a75dabc10e5bd690a88723cc8d72edc9141f2dfbcb126523b",
+        "fold_sources": {
+          "train": {
+            "rows": 1621932,
+            "sha256": "08b4697d13b39aec807e44d67272a30eb699ba650f73991e2e14955e31bdbc54",
+            "rotation_sha256": "0b60eaf1727db04ffdddc53e991a976ffe22802e18a2214679349d2152995e69",
+            "reference_months": [
+              "2025-03",
+              "2025-04",
+              "2025-05",
+              "2025-06",
+              "2025-07",
+              "2025-08",
+              "2025-09",
+              "2025-10",
+              "2025-11"
+            ],
+            "nonmissing": {
+              "cc_call_start_sec": 1370445,
+              "cc_squawk_start_sec": 1373522,
+              "cc_previous_call_end_sec": 987512,
+              "cc_before_own_arrival": 1352770,
+              "cc_ambiguous": 1375344,
+              "cc_censored": 1375344
+            }
+          },
+          "held": {
+            "rows": 153706,
+            "sha256": "f0e215a727906798f4281c083e41c281568ceec5ec9a5dd90ad676110749c848",
+            "rotation_sha256": "843d99a57280705f53da86a230d1a2b71cb0bd0acd5441945dd2887a1784d43f",
+            "reference_months": [
+              "2025-03",
+              "2025-04",
+              "2025-05",
+              "2025-06",
+              "2025-07",
+              "2025-08",
+              "2025-09",
+              "2025-10",
+              "2025-11",
+              "2025-01"
+            ],
+            "nonmissing": {
+              "cc_call_start_sec": 126536,
+              "cc_squawk_start_sec": 126852,
+              "cc_previous_call_end_sec": 85609,
+              "cc_before_own_arrival": 122320,
+              "cc_ambiguous": 126957,
+              "cc_censored": 126957
+            }
+          }
+        },
+        "raw_callsign_provenance": "builder manifest retains source hashes; independent builder audit required"
+      },
+      "matrix": {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+        "sha256": "ee1239362fd6b4a32c412931465be86a928b9c0904f7ec64b5b74291435ab2c7"
+      },
+      "control_record": {
+        "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42.json",
+        "sha256": "faf8674677c2cf9cdf5e621791f42bd33135cd93853127fa9925b6519723a162"
+      },
+      "control_prediction": {
+        "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k0.parquet",
+        "sha256": "2dd80f007b96d2387d0e306ec2d19482633635acc279a4cdc0a1310ca7d39712"
+      }
+    },
+    "2025-07": {
+      "features": {
+        "train": {
+          "path": "data/derived/callsign_clocks_20261010/2025-07_train.parquet",
+          "sha256": "798d926001c0bfd58c840b6d8ce40b6a50ec2849bd259fe8a4fb6d58451c815e"
+        },
+        "held": {
+          "path": "data/derived/callsign_clocks_20261010/2025-07_held.parquet",
+          "sha256": "bfff85f57074013b635cdd98f78125ce33429363400760785121a883f0a6da63"
+        }
+      },
+      "feature_record": {
+        "path": "data/derived/callsign_clocks_20261010/manifest.json",
+        "sha256": "6026c63a2448522a75dabc10e5bd690a88723cc8d72edc9141f2dfbcb126523b",
+        "fold_sources": {
+          "train": {
+            "rows": 1159520,
+            "sha256": "798d926001c0bfd58c840b6d8ce40b6a50ec2849bd259fe8a4fb6d58451c815e",
+            "rotation_sha256": "5ca40875d020912c0397af1638db5d554742123117be3e58588e7c230c083d91",
+            "reference_months": [
+              "2025-01",
+              "2025-02",
+              "2025-03",
+              "2025-09",
+              "2025-10",
+              "2025-11",
+              "2025-12"
+            ],
+            "nonmissing": {
+              "cc_call_start_sec": 977784,
+              "cc_squawk_start_sec": 980085,
+              "cc_previous_call_end_sec": 693892,
+              "cc_before_own_arrival": 962053,
+              "cc_ambiguous": 981316,
+              "cc_censored": 981316
+            }
+          },
+          "held": {
+            "rows": 190713,
+            "sha256": "bfff85f57074013b635cdd98f78125ce33429363400760785121a883f0a6da63",
+            "rotation_sha256": "71d8c34fc10f299eff8ee8f17a410922eca44ca3f7e2e4eb69bf935b19eced80",
+            "reference_months": [
+              "2025-01",
+              "2025-02",
+              "2025-03",
+              "2025-09",
+              "2025-10",
+              "2025-11",
+              "2025-12",
+              "2025-07"
+            ],
+            "nonmissing": {
+              "cc_call_start_sec": 162551,
+              "cc_squawk_start_sec": 162897,
+              "cc_previous_call_end_sec": 117002,
+              "cc_before_own_arrival": 160159,
+              "cc_ambiguous": 163137,
+              "cc_censored": 163137
+            }
+          }
+        },
+        "raw_callsign_provenance": "builder manifest retains source hashes; independent builder audit required"
+      },
+      "matrix": {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-07.pkl",
+        "sha256": "1c44b5007b1cfe70db2387ce37089e55cad7540f8ebb5e9c043f2ee77c3d0f28"
+      },
+      "control_record": {
+        "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42.json",
+        "sha256": "a52e2572b9185762e2650de461827cf597ef4a78604128dd99e9665be4e22591"
+      },
+      "control_prediction": {
+        "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k0.parquet",
+        "sha256": "fdcef04e3b4fb927db946130f7d78877f761f09e93de30ed854860a453b66903"
+      }
+    }
+  },
+  "metadata": {
+    "path": "data/derived/missing_plan_view_20261010/manifest.json",
+    "sha256": "2e3b18762f9c0fc752fb5283c1db52becff9e7668b52213b4db2508aa4ba7a22"
+  },
+  "metadata_values": {
+    "path": "data/derived/missing_plan_view_20261010/metadata.parquet",
+    "sha256": "28a878774dcc40e54def883001c84a856aac22bdd63c942e9cd4e9b260cfc219"
+  },
+  "selected_result": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/result.json",
+    "sha256": "6c36bc3fe1ba8852c0a8c051aff896c839c640389a820c62a68b46f7d0c7be12"
+  },
+  "selected_errors": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/scored_errors.parquet",
+    "sha256": "4bd61faa57a30a7abe011f46ed4a2ebfc9b74d2ff1c17158fb61db9bd7428e1b"
+  }
+}

@@ -115,28 +115,38 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   **293.6566 Jan/Jul CV**, versus matched seed42-tree control **295.7295** (-2.0729);
   incremental -0.7651 beyond the callsign/Rome combination (294.4217). Both months
   improve; three predeclared paired comparisons pass. The full-year three-member
-  raw-track refit is authorized after source/cache audits and CUDA parity. Runner
+  raw-track refit and both ranking-view audits are complete. Runner
   `nn_sparse_track_submit.py`; selected recipe `half_sparse3_combination`; builder
-  `sparse_callsign_submit.py`. No new upload is authorized or has occurred.
+  `sparse_callsign_submit.py`. Audited old-view **v64** is prepared at
+  `submissions/unique-rose_v64.parquet`, SHA-256
+  `2a596d95610b748b49a5da8803533f3e4bec50e3d919f92138b40b194b49f5b3`.
+  Row 66 records the selected candidate. Fresh upload approval was requested;
+  no new upload is authorized or has occurred. Never infer approval from elapsed time.
   All 15 callsign networks, the full-year main LightGBM and three Rome CatBoost
   classifiers are complete. Neural reload/return audits pass. Both parent candidates
   are built and passed full-source, exact-parent and independent all-row audits.
   Reuse every completed fit; all runs use the `v3_20261010_*` prefix. Both ranking
   track caches were built and independently audited on the laptop; their returned
-  files passed desktop hash verification and the three full-year fits are running. Ground-observation coverage
+  files passed desktop hash verification and all three full-year models are retained. Ground-observation coverage
   changes sharply across years, especially Rome; retain this transfer caveat.
-  A separate four-fit matched-laptop physical-clock-bypass screen has completed
-  training and awaits scoring; it remains exploratory.
+  The four-fit matched-laptop physical-clock-bypass screen is complete and closed:
+  its fixed half blend loses 0.6384 seconds against the actual v58 pool, despite
+  beating its weaker same-laptop single-network control. Do not expand it.
   Its first worker stopped before training on an overly strict arithmetic
   self-check; only that check's tolerance is repaired, with exact training/RNG
   parity preserved. Inspect its execution record before resuming. The live
-  18:15 UTC check still has v58 best at 236.1895, rank 26/240; all 5,240 public
+  18:56 UTC check still has v58 best at 236.1895, rank 26/241; all 5,253 public
   scored submissions still use 344,841 rows, not the enlarged truth population.
   Laptop full-year neural fitting uses `callsign_submit_fast.py`: identical
   fixed training updates, exact-parity chunked input encoding and bounded final
   inference. The earlier workers hit host-memory limits or wasteful full-test
   inference after every epoch; they produced no completed models and remain
-  preserved. All15 production network seeds stay on the laptop. No 16-fold
+  preserved. All15 production network seeds stay on the laptop.
+  A same-desktop joint callsign6/raw-track two-fold screen is running via
+  `nn_joint_callsign_sparse_jan_jul.py`; the matched-laptop stand/month arrival
+  recording-state classifier screen is closed: +0.7092 seconds on v58 and
+  +0.3216 inside the selected recipe; no expansion (`rome_stand_arrival_jan_jul.py`).
+  Inspect saved records and running processes before resuming either; do not duplicate fits. No 16-fold
   validation or ledger entries for failed screens were added. The five-second
   official objective remains unachieved; reused CV is not independent evidence.
 

@@ -1,7 +1,7 @@
 # Submitted models
 
-**Current validation: Weighted CV.** The column is between CV combined and Official LB below.
-Jan/Jul CV, beside it, is scored for rows 42–50 only; see the notes under the table.
+**Current validation for new candidates: Jan/Jul CV.** The older validation columns
+are retained below; they are not run for new candidates. See the notes under the table.
 Best verified Weighted CV: **v42 at 263.5929 s**
 ([validation report](VALIDATION/reports/OPDI_DISRUPTION_EXPERIMENT.md)). The six uploads before
 it — v34, v37, v38, v39, v40 and v41 — are scored on it too
@@ -11,7 +11,8 @@ were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are
 On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
 **Best submission: v58, 236.1895 s**, improving v54 by **0.1433 s** and v51 by **2.0875 s**. Latest: **v61, 236.6319 s** (+0.4424 s vs v58).
-Live check **2026-10-08 20:11 Amsterdam time**: rank **26/239** scoring teams; all **344,841** v61 flights scored.
+Live check **2026-10-10 20:56 Amsterdam time**: rank **26/241** scoring teams; all **344,841** v61 flights scored.
+**Prepared candidate: v64**, Jan/Jul CV **293.6566**; independently audited and awaiting upload approval.
 [Submission record](VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/submission_v54.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
@@ -116,10 +117,12 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 63 | **ERA5-Rome** | Row 61 with ERA5 weather added to the Rome classifier. | - | - | - | - | 295.2707 | 237.3022 | v60 |
 | 64 | **Final-test-v58** | Row 61 on the final test set (Jan/Feb/Jun/Jul 2026, 670,790 departures). | - | - | - | - | 295.7414 | rejected | v63 |
 | 65 | **ERA5-all** | Row 61 with ERA5 weather added to all five model parts. | - | - | - | - | 296.8264 | 236.6319 | v61 |
+| 66 | **Track-callsign-ensemble** | Row 61 with callsign and raw-track networks plus a Rome CatBoost blend. | - | - | - | - | **293.6566** | - | v64 prepared |
 
 
-All values are **RMSE in seconds; lower is better**. **Weighted CV is the new
-validation headline**, adopted on 20 September 2026. It uses the existing v3
+All values are **RMSE in seconds; lower is better**. **Weighted CV was adopted
+on 20 September 2026** for the older recipes. New candidates use Jan/Jul CV
+following the 2 October decision. Weighted CV uses the existing v3
 folds and three-seed losses, with fixed weights that make the validation flights
 better match ranking. The older CV columns remain for comparison. A `-` in
 Weighted CV means it has not been computed and verified for that recipe.
@@ -155,6 +158,7 @@ See the [method](VALIDATION/docs/WEIGHTED_CV.md), the
 - **Row 63 (v60)** was explicitly requested as a leaderboard test despite inconclusive Jan/Jul evidence: matched seed-42 control 295.7301 → 295.2707 (−0.4594, paired-day interval [−1.1327, +0.1421]). The 15-network pool and all other v58 parts are reused. Only the Rome classifier is refitted on all of 2025 with 11 ERA5 inputs. Official score **237.3022**, +1.1127 vs v58, all 344,841 flights. One January flight crosses the existing rule-confidence threshold and changes by over four hours; the manifest records it, without attributing the measured score change to that flight. [Report](VALIDATION/reports/OPEN_METEO_JAN_JUL.md), [record](VALIDATION/runs/v3_20261008_open_meteo_submit/submission_v60/submission_v60.json).
 - **Row 64 (v63)** is v58's recipe on the final test set the organisers published on 8 October (`data/final_ranking.parquet`: January/July 2026 plus February and June, movement times jittered by up to 12 s). v54's three tree models are reused unchanged; the 15 networks and the Rome classifier were never saved and are refitted with v54's settings and stop epochs. On the old January/July inputs the refits reproduce v54's networks (RMS difference 0.000002 s) and v53's Rome probabilities exactly, and the saved trees reproduce v54 exactly. On January/July, v63 moves v58's predictions by 6.9 s on average (RMS 11.9 s, correlation 0.9998), from the jittered times and the new June 30 ADSB.lol day. The scorer rejected the file: "Submission contains 325949 rows not in truth" — its truth still holds only the 344,841 old January/July labels, so the February/June rows cannot be scored yet. Jan/Jul CV is row 61's, as the recipe is unchanged. Before it, v58's file was re-uploaded unchanged as v62 and scored 236.1895, the same as v58 (a duplicate, not a separate row). Runner `VALIDATION/final_submit.py`, [record](VALIDATION/runs/v3_20261008_final_submit/submission_v63/submission_v63.json).
 - **Row 65 (v61)** adds the 11 ERA5 weather inputs to every v58 model part, with the existing HPO settings and network share 0.71. Matched Jan/Jul CV is 295.7301 → 296.8264 (+1.0963; paired-day interval [+0.2838, +2.1992]). Every part was refitted on all of 2025, using the inherited training populations and all 15 networks. The user explicitly approved submission after reviewing the failed CV and full-year audit. Uploaded 8 October at 20:09 Amsterdam time on the original 344,841-row January/July template; remote bytes match the verified local hash. Official score **236.6319**, **+0.4424 vs v58** and −0.6703 vs Rome-only v60, on all 344,841 flights. v58 remains best. [Report](VALIDATION/reports/OPEN_METEO_JAN_JUL.md), [record](VALIDATION/runs/v3_20261008_open_meteo_submit/submission_v61/submission_v61.json).
+- **Row 66 (v64, prepared)** combines equal shares of three raw-track networks and 15 callsign networks inside v58's unchanged 0.71 neural share, six callsign inputs in the main LightGBM, and equal shares of three Rome CatBoost classifiers and R20. Airport LightGBMs, the ordinary CatBoost and inherited corrections stay unchanged. Matched seed42-tree Jan/Jul CV is **295.7295 → 293.6566 (−2.0729)**, paired-day interval [−2.8070, −1.4699]; January −0.9880, July −3.1579. The track increment is −0.7651 beyond the callsign/Rome combination and −1.0269 against the equivalent blend using three original networks. These are comparisons on extensively reused development months, not independent confirmation. All full-year models, original-parent and zero-track-weight replays, saved-model checks and independent all-row blend/serialization audits pass. The original January/July file contains 344,841 departures, SHA-256 `2a596d95610b748b49a5da8803533f3e4bec50e3d919f92138b40b194b49f5b3`; a separately audited four-month candidate is retained. All 5,253 publicly scored submissions still used 344,841 rows at 20:56 Amsterdam. Ground-track coverage changes sharply between years, especially Rome. **No upload or official improvement is claimed; fresh user approval is required.** [Research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md), [prepared record](VALIDATION/runs/v3_20261010_sparse_callsign_submit/submission_v64/submission_v64.json).
 - **Jan/Jul CV (rows 42–49 only)** is the average RMSE of two fits: January 2025 held out
   with March–November training, and July 2025 held out with January–March and
   September–December training. Each upload's recipe is refitted unchanged at seeds 42, 142

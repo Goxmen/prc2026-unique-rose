@@ -1,0 +1,48 @@
+{
+  "design": {
+    "parent": "audited callsign15/main-callsign-LGB/half-Cat3-R20 combined candidate",
+    "neural": "0.5 sparse3 + 0.5 callsign15 on every row",
+    "sparse_weight": 0.5,
+    "network_share": 0.71,
+    "other_components": "unchanged parent tree/probability/corrections",
+    "views": [
+      "old",
+      "final"
+    ],
+    "availability_gate": false,
+    "fit": false,
+    "upload": false,
+    "control": "sparse weight0 exactly reproduces all parent parts and serialized columns"
+  },
+  "source": {
+    "path": "VALIDATION/sparse_callsign_submit.py",
+    "sha256": "254e9d047b8b86624f92a31ab1bac248f4e6f7d0f9141a1d503aadadc53522ca"
+  },
+  "helpers": {
+    "VALIDATION/callsign_lgb_submit.py": "bf6746f2f9adf440be8d009c3cdcbc88b13334547e768b1363d03f2f23403476",
+    "VALIDATION/callsign_submit.py": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954",
+    "VALIDATION/callsign_submit_fast.py": "40600f43d26fbe42c08608afc5cb8343539b3ddc5da3769e5b50f7b4afb4f3b4",
+    "VALIDATION/nn_sparse_track_submit.py": "8feca43b661cff32b7c0fe298516c08377d8e5b03f4f3c0ba0a91616fc86908a",
+    "VALIDATION/sparse_track_combo_score.py": "efac4caba3612047ef333228539a65912c86d5d5408b6ebfe612c8a289c3aa5e"
+  },
+  "sparse_identity": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/identity.json",
+    "sha256": "ae6cb604f49d5c0a1533782e2177cf1e6fa360790481980b44fc7ecf4ca15eba"
+  },
+  "chosen_recipe": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/chosen_recipe.json",
+    "sha256": "17fc9790f533d4b8646c7c72cf1f1235b486ce5710225ed7993707d738b81204"
+  },
+  "combined_cv": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/result.json",
+    "sha256": "6c36bc3fe1ba8852c0a8c051aff896c839c640389a820c62a68b46f7d0c7be12"
+  },
+  "combined_cv_predictions": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/scored_errors.parquet",
+    "sha256": "4bd61faa57a30a7abe011f46ed4a2ebfc9b74d2ff1c17158fb61db9bd7428e1b"
+  },
+  "parent_candidate_audit": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidate_audit.json",
+    "sha256": "8418d83509716dd54a1a98c53ec0725c43a0d69bb1f01e579ac7f839f9a09074"
+  }
+}

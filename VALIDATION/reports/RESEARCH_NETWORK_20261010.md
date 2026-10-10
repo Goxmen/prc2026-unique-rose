@@ -1,7 +1,7 @@
 # Research network: 10 October 2026
 
 **Status: fixed raw-track/callsign/Rome candidate selected on development CV;
-full-year track fits authorized, no upload.** The objective is a five-second
+full-year models and both candidate audits complete; v64 awaits upload approval.** The objective is a five-second
 official RMSE reduction, from **236.1895 to 231.1895**. That requires approximately
 4.19% less mean squared error on the same scored population. Local validation
 improvements are not official gains.
@@ -24,11 +24,11 @@ confirmation. The target five-second official improvement is not achieved.
 All 15 full-year callsign networks, the main LightGBM and three Rome CatBoost
 models are complete and retained. Both ranking candidates passed the full-source audit, exact parent replay,
 independent all-row blend/serialization checks and 512 saved-tree predictions
-per view. Their neural reload audit covers 15,360 predictions. The three selected full-year track
-networks are authorized after cache verification and the CUDA execution check.
+per view. Their neural reload audit covers 15,360 predictions. All three selected full-year track
+networks are complete, with both ranking predictions and saved-model reload checks.
 Both ranking-view track caches were built and independently audited on the
 laptop; their returned files passed SHA-256 verification on the desktop. A separate matched-laptop physical
-clock-bypass screen remains exploratory. No upload has occurred.
+clock-bypass screen has finished and is not selected. No upload has occurred.
 
 The sparse production trainer initially failed an exact CUDA parity check.
 Repeating the original trainer also produces tiny variations (maximum parameter
@@ -48,12 +48,12 @@ no joint fit has started.
 
 ## Starting evidence
 
-The live check at 2026-10-10 18:15:19 UTC found v58 still best at 236.1895,
-rank 26/240 scoring teams. The latest scored upload is v61 at 236.6319.
+The live check at 2026-10-10 18:56:02 UTC found v58 still best at 236.1895,
+rank 26/241 scoring teams. The latest scored upload is v61 at 236.6319.
 The four-month v63 file was rejected previously; its existence does not mean
 the scorer has accepted the enlarged truth set. No submission slot is used
-by this research. A separate public-API check finds all 5,240 published scored
-submissions, including the latest at 18:13 UTC on 10 October, still report
+by this research. A separate public-API check finds all 5,253 published scored
+submissions, including the latest at 18:55 UTC on 10 October, still report
 344,841 pairs.
 That provides no evidence that four-month submissions are accepted yet.
 
@@ -222,6 +222,10 @@ No failed or inconclusive experiment is added to the submission ledger.
 | Same own-arrival classifier, fixed half R20 mixture | v58 | -0.2121 s | Inconclusive; no expansion |
 | Six track observations around original AOBT | One matched N09 network | +0.4193 s | Stop |
 | Same AOBT-observation network, half mixed with v58's pool | v58 | +0.6135 s | Stop |
+| Stand/month arrival recorder inputs in R20 | v58 | +0.7092 s | Stop |
+| Same R20 change inside selected CatBoost/R20 mixture | Selected track/callsign recipe | +0.3216 s | Stop |
+| Physical-clock output gates | Same-laptop single network | -1.7364 s | Conditional single-model gain only |
+| Half clock-gated network / half original15 | Actual v58 pool | +0.6384 s | Stop |
 | Whole-plan-masked specialist on missing-AOBT non-Rome flights | v58 | +0.2092 s | Stop |
 | Same specialist, fixed half-parent mixture within its gate | v58 | -0.1257 s | Inconclusive; no expansion |
 | R20 trained only on Rome schedule gaps over one hour | v58 | +5.0082 s | Stop |
@@ -550,8 +554,17 @@ reported at the top; no availability gate enters that selected recipe.
 A secondary availability fallback, declared after the k0 diagnosis, keeps the
 original parent pool on fewer-than-two-point rows; its matched control and
 post-k0 development status must be reported. There is no ground/count threshold
-search. The four-fit matched-laptop physical-clock-bypass screen has completed
-training, with original N09 controls and unchanged fixed epochs; scoring is pending.
+search. The four-fit matched-laptop physical-clock-bypass screen is complete.
+It improves its same-laptop single-network control by 1.7364 seconds, interval
+[-2.6626, -0.9675], and the fair half-single/half-pool control by 0.4981 seconds.
+However, its half mixture scores 296.3799, **0.6384 seconds worse than v58's
+15-network pool**, interval [+0.4628, +0.8747]. No expansion is selected.
+The laptop single control itself is 1.7222 seconds worse than its historical
+desktop counterpart, almost entirely in July. The comparison therefore supports
+a conditional architecture effect, not a deployable improvement. All four
+models and predictions are retained. Callsign15 CV was run entirely on the
+desktop, as were its historical neural controls; the later callsign production
+fits ran on the laptop.
 
 Production sequence preparation reuses the audited aircraft identities and
 unchanged sequence selector, with separate old/final namespaces. The compact
@@ -580,6 +593,16 @@ January 2026, but 14,804/15,211 in July 2025 versus 48/15,838 in July 2026.
 Most July 2026 Rome flights still have airborne observations; this is not
 simply missing files or no track. No outcome-driven gate is derived from
 these input shifts. See the saved coverage and independent output audits.
+
+A different event-localization architecture was assessed without fitting.
+On the fixed March 10/September 10 training-date pilot, 4,990 of 10,148 original
+ordinary-training rows have observations bracketing their recorded off-block
+time. Only 1,231 bracket it within 120 seconds, and 2,013 have any point within
+60 seconds. The median bracketing gap is 4,020 seconds, also present in the raw
+points; sequence subsampling does not explain it. A universal timestamp pointer
+would constrain many flights to the wrong observed interval, so training is
+deferred. Any later localizer needs an unrestricted fallback. The pilot uses no
+held-out labels and establishes coverage, not an accuracy forecast.
 
 A cached-data feasibility check also rejected dynamic airline clock-versus-
 physical-sensor offsets. Prior two-hour same-airline peer coverage is sparse;
@@ -635,6 +658,18 @@ seconds, interval [-0.0117, +0.6782], with all three seeds worse. Its much large
 reported regression combined calibration with removing the rule; those are
 different comparisons. Cost-weighted Brier calibration remains untested, but
 requires new honest inner predictions and is not a cheap saved-output fix.
+
+A fixed stand/month arrival-recorder screen is also closed. Two inputs captured
+the stand's arrival schedule-copy residual after airline/month adjustment (K50
+shrinkage) and its support count. Original 68 classifier inputs, labels, folds
+and 1,700 R20 rounds stayed unchanged. Four laptop fits provided matched local
+controls and candidates. Both historical recipe scores reproduced exactly.
+Replacing R20 on v58 regresses 0.7092 seconds, interval [+0.2320, +1.1893];
+replacing only R20's half inside the selected track/callsign/CatBoost recipe
+regresses 0.3216, interval [+0.0980, +0.5467]. The predeclared half changes also
+regress (0.2721/0.1412). Small training associations and broad arrival coverage
+did not establish useful incremental information. No full-year fit, promotion
+or submission follows this test.
 
 A genuinely new Rome direction remains deferred: freeze each outer fold's
 ordinary sparse-track encoder and append its 64 pooled motion activations plus

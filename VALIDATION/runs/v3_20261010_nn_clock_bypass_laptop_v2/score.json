@@ -1,0 +1,148 @@
+{
+  "design": {
+    "original": {
+      "parent": "v58",
+      "control": "historical N09 seed42k0",
+      "original_inputs": 156,
+      "added_features": [],
+      "clocks": [
+        "mvt_minus_aobt3_sec",
+        "ab_stand_exit_sec",
+        "op_own_stand_sec",
+        "op_ground_sec"
+      ],
+      "clock_interval_inclusive": [
+        0,
+        10800
+      ],
+      "masks": [
+        "genuine AOBT flags",
+        "ab_matched==1 and ab_stand_n>0",
+        "op_matched==1",
+        "op_matched==1"
+      ],
+      "formula": "p0 + sum(mask * .25*tanh(W*h+b) * clip(clock-p0,-3600,3600))",
+      "gate_initialization": "all zero, no additional RNG consumption",
+      "extra_parameters": 1028,
+      "maximum_absolute_extra_seconds": 3600,
+      "missing": "zero extra branch; shared trunk is jointly trained",
+      "target": "unchanged min(y,10800), direct standardized MSE",
+      "stop_epochs": {
+        "2025-01": 21,
+        "2025-07": 17
+      },
+      "seed": 42,
+      "member": 0,
+      "inner_fits": 0,
+      "schedule": "original OneCycle24 horizon",
+      "network_share": 0.71,
+      "arms": [
+        "v58",
+        "direct_matched",
+        "clock_bypass",
+        "half_clock_half_v58",
+        "half_direct_half_v58"
+      ],
+      "exploratory_reused_development_months": true
+    },
+    "machine": "same laptop for candidate and direct control",
+    "arms": [
+      "direct",
+      "bypass"
+    ],
+    "fixed_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "seed": 42,
+    "encoder": {
+      "chunk_rows": 65536,
+      "encoder": "unchanged nn_jan_jul.Encoder",
+      "transform": "unchanged Encoder.transform on row slices",
+      "quantiles": "same numpy quantile probabilities, one PLE input at a time",
+      "tensor_order": "same int64 categories, float32 PLE and plain features",
+      "target": "unchanged clipped direct target, population mean/std",
+      "random_draws": 0
+    },
+    "prediction_chunk": 16384,
+    "update_function": "unchanged frozen original.train bytecode",
+    "namespace_changes": [
+      "model constructor for direct control",
+      "eval-only prediction chunk16384"
+    ],
+    "numerical_check": {
+      "saturated_gate_atol_std": 1e-06,
+      "rtol": 0,
+      "initial_parameters_outputs_gradients_rng": "all exact"
+    },
+    "data": "exact fingerprinted original156 plus audited compact month/y/airport/missing metadata",
+    "no_full_year_fit_or_upload": true
+  },
+  "scores": {
+    "v58": {
+      "2025-01": 328.47804410386993,
+      "2025-07": 263.0048390445042,
+      "cv": 295.7414415741871
+    },
+    "historical_direct": {
+      "2025-01": 331.6930824220631,
+      "2025-07": 266.2815806253393,
+      "cv": 298.9873315237012
+    },
+    "laptop_direct": {
+      "2025-01": 331.6624449439319,
+      "2025-07": 269.7567154361303,
+      "cv": 300.70958019003115
+    },
+    "bypass": {
+      "2025-01": 331.00034653251276,
+      "2025-07": 266.94600315774767,
+      "cv": 298.9731748451302
+    },
+    "half_bypass": {
+      "2025-01": 328.84034602096057,
+      "2025-07": 263.91939349582384,
+      "cv": 296.3798697583922
+    },
+    "half_laptop_direct": {
+      "2025-01": 329.16380781723126,
+      "2025-07": 264.5921472176112,
+      "cv": 296.87797751742124
+    }
+  },
+  "comparisons": {
+    "bypass_vs_laptop_direct": {
+      "change": -1.736405344900902,
+      "ci95": [
+        -2.662596597838925,
+        -0.9674759638411901
+      ],
+      "decision": "improvement"
+    },
+    "half_bypass_vs_half_laptop_direct": {
+      "change": -0.4981077590290397,
+      "ci95": [
+        -0.9470505997144023,
+        -0.1378277633422493
+      ],
+      "decision": "improvement"
+    },
+    "half_bypass_vs_v58": {
+      "change": 0.6384281842051394,
+      "ci95": [
+        0.4628051270757755,
+        0.8747059749128384
+      ],
+      "decision": "regression"
+    },
+    "laptop_direct_vs_historical_direct": {
+      "change": 1.7222486663299037,
+      "ci95": [
+        1.025731141768746,
+        2.5126966774435036
+      ],
+      "decision": "regression"
+    }
+  },
+  "caveat": "Four fits on same laptop; reused development months, not independent confirmation."
+}

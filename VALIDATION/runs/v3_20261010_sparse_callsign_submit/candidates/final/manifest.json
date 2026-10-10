@@ -1,0 +1,184 @@
+{
+  "state": "prepared_not_uploaded",
+  "view": "final",
+  "design": {
+    "parent": "audited callsign15/main-callsign-LGB/half-Cat3-R20 combined candidate",
+    "neural": "0.5 sparse3 + 0.5 callsign15 on every row",
+    "sparse_weight": 0.5,
+    "network_share": 0.71,
+    "other_components": "unchanged parent tree/probability/corrections",
+    "views": [
+      "old",
+      "final"
+    ],
+    "availability_gate": false,
+    "fit": false,
+    "upload": false,
+    "control": "sparse weight0 exactly reproduces all parent parts and serialized columns"
+  },
+  "design_record": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/design.json",
+    "sha256": "3f63b6d8f22e76b94a18c259b961b1501b6fe537b5715b3f2f80af15325151e9"
+  },
+  "source": {
+    "path": "VALIDATION/sparse_callsign_submit.py",
+    "sha256": "254e9d047b8b86624f92a31ab1bac248f4e6f7d0f9141a1d503aadadc53522ca"
+  },
+  "output": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/final/candidate.parquet",
+    "sha256": "b92d9d31be5e60fc583f009b995cbf5a3032da92c497b8500733eab6bb32246c"
+  },
+  "parts": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/final/parts.parquet",
+    "sha256": "ec9e548a7a6953337a760f8ab11b8689611daa13cd83fa6fe19d7e824701f684"
+  },
+  "template": {
+    "path": "data/final_submitting.parquet",
+    "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+  },
+  "parent_candidate": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidates/final/manifest.json",
+    "sha256": "22d354e4b0b61faeb3ced6742e05286581d2b8294276978307809995f648edf5"
+  },
+  "parent_audit": {
+    "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/candidate_audit.json",
+    "sha256": "8418d83509716dd54a1a98c53ec0725c43a0d69bb1f01e579ac7f839f9a09074"
+  },
+  "exact_original_parent": {
+    "exact_parent_reproduced": true,
+    "rows": 670790,
+    "parent_submission": {
+      "path": "submissions/unique-rose_v63.parquet",
+      "sha256": "5797a2f65bec534e9b8c6d389800f3ca7c3a3c9e62d03bc719b6370ebf8b6f6d"
+    },
+    "exact_raw_predictions_reproduced": true,
+    "parent_raw_predictions": [
+      {
+        "path": "VALIDATION/runs/v3_20261008_final_submit/submission_v63/ranking_2026-01.parquet",
+        "sha256": "cf360a3ffe19378b5d8e774bfe7ff00ff259c6ddfa30169f59dad76e31e817ca"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_final_submit/submission_v63/ranking_2026-02.parquet",
+        "sha256": "3383573539bdd5197b0a9b4d41cf17d99f9ad9c5d60d25dcb99f4c527dc0520f"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_final_submit/submission_v63/ranking_2026-06.parquet",
+        "sha256": "fd39a1e3d6623ba066d838c0633355015e516eb32822e9bf065a7dd5374a4b49"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_final_submit/submission_v63/ranking_2026-07.parquet",
+        "sha256": "5484eeec84559bd9f4509a2f6c2ec32aa41722301726d0fe86af2eb3fc9faed1"
+      }
+    ],
+    "parent_template": {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    "parent_parts": [
+      {
+        "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/nn.parquet",
+        "sha256": "f0a2d9ad78bad98afb1f4f813b0d5913988a8038955bb718b87daf05b2fa13ae"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/trees.parquet",
+        "sha256": "4eb4db3561f9065d3a3768d8e84084faf291b33ee640b9fe2a0d2b7099f5cf9e"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/rome.parquet",
+        "sha256": "0a37d6998bdf3be726bb690b730e30b23dd3cd4030014b6d1ec52898d39d2d98"
+      }
+    ],
+    "correction_masks": {
+      "2026-01": {
+        "clock12": 0,
+        "clock2": 0,
+        "day": 1,
+        "rule_band": 12,
+        "rule_confidence": 1,
+        "twins": 5
+      },
+      "2026-02": {
+        "clock12": 0,
+        "clock2": 0,
+        "day": 0,
+        "rule_band": 8,
+        "rule_confidence": 0,
+        "twins": 9
+      },
+      "2026-06": {
+        "clock12": 0,
+        "clock2": 1,
+        "day": 3,
+        "rule_band": 8,
+        "rule_confidence": 0,
+        "twins": 11
+      },
+      "2026-07": {
+        "clock12": 1,
+        "clock2": 2,
+        "day": 4,
+        "rule_band": 20,
+        "rule_confidence": 0,
+        "twins": 11
+      }
+    },
+    "rule_triggered": 63
+  },
+  "exact_weight_zero_raw_and_serialized": true,
+  "sparse_pool": {
+    "record": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/pooled.json",
+      "sha256": "535f3c5623bccba8e2874ee0dc59ed2f0ea9e66c0f1109b84b6012fa9ab3132a"
+    },
+    "prediction": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/pooled/final.parquet",
+      "sha256": "d658e8b272b5e8e144804d282ceefd133bc8a10c2337aa97763410a65f67dd88"
+    }
+  },
+  "view_query": {
+    "path": "data/derived/sparse_track_submit_20261010/final/queries.parquet",
+    "sha256": "8aa452044878888667cfcc7c2c1c2132792166d73cc2e606cf2e3af47a58b6ce",
+    "bytes": 14693718
+  },
+  "rows": 670790,
+  "correction_masks": {
+    "2026-01": {
+      "clock12": 0,
+      "clock2": 0,
+      "day": 1,
+      "rule_band": 12,
+      "rule_confidence": 1,
+      "twins": 5
+    },
+    "2026-02": {
+      "clock12": 0,
+      "clock2": 0,
+      "day": 0,
+      "rule_band": 8,
+      "rule_confidence": 0,
+      "twins": 9
+    },
+    "2026-06": {
+      "clock12": 0,
+      "clock2": 1,
+      "day": 3,
+      "rule_band": 8,
+      "rule_confidence": 0,
+      "twins": 11
+    },
+    "2026-07": {
+      "clock12": 1,
+      "clock2": 2,
+      "day": 4,
+      "rule_band": 20,
+      "rule_confidence": 0,
+      "twins": 11
+    }
+  },
+  "rule_triggered": 63,
+  "cv_evidence": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/result.json",
+    "sha256": "6c36bc3fe1ba8852c0a8c051aff896c839c640389a820c62a68b46f7d0c7be12"
+  },
+  "no_upload": true
+}
