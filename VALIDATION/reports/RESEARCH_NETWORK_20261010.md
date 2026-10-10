@@ -38,13 +38,15 @@ the original and revised paths have exactly equal weights, losses, RNG states
 and predictions. Production retains the original backend settings; its four
 preflight tests passed before fitting.
 
-The next queued screen combines callsign6 and raw tracks inside one network.
-It preserves the existing track branch and fixed 21/17-epoch training recipe,
-with two new seed42 fits. Its primary comparison uses the saved same-desktop
-single-track control in an otherwise identical half-track/half-callsign blend.
-The selected three-track pool is a separate reference, with the ensemble-size
-difference explicit. The joint runner passed peer review and two bounded tests;
-no joint fit has started.
+Combining callsign6 and raw tracks inside one network failed the completed
+same-desktop screen: **+0.3401 seconds** against the matched single-track
+control, interval [+0.0392, +0.7425], with both months worse. It also loses
+0.6259 seconds against the selected three-track pool, a separate comparison
+with different ensemble size. The fixed 21/17-epoch fits, predictions and
+preprocessing are retained; this branch is closed. A separate Rome classifier
+test using the frozen track representation improves 0.3817 seconds against
+its matched control but remains inconclusive, interval [-0.8153, +0.0459].
+It does not change v64.
 
 ## Starting evidence
 
@@ -236,7 +238,9 @@ No failed or inconclusive experiment is added to the submission ledger.
 | Three raw-track networks | Three matched N09 networks | -1.9140 s | Passing matched comparison |
 | Same three raw-track networks | Full v58 network pool | -0.9405 s | Passing fixed comparison |
 | Half raw-track3 / half v58 network pool | v58 | -1.1165 s | Passing fixed comparison |
-| Half raw-track3 / half callsign15 with callsign main tree and half Cat3/R20 | Matched laptop v58, tree seed 42 | -2.0729 s | Selected for full-year fitting |
+| Half raw-track3 / half callsign15 with callsign main tree and half Cat3/R20 | Matched laptop v58, tree seed 42 | -2.0729 s | v64 prepared and audited |
+| Joint callsign/raw-track network in fixed half mixture | Matched same-desktop single-track mixture | +0.3401 s | Stop |
+| Frozen track encoder inputs in Rome CatBoost | Same-laptop single-classifier control in selected ordinary stack | -0.3817 s | Inconclusive; retain lead |
 
 The one-network direct control is 298.9873315237, substantially worse than
 the existing 15-network pool. Comparing a new single network directly with
@@ -403,8 +407,9 @@ three-tree-seed control used by the classifier and neural screens. Both fits
 ran on the laptop, approximately 13.7 and 11.4 minutes; their original input
 matrices were subsequently verified equal to the desktop's.
 
-The CatBoost/R20 mixture changes January by +0.0394 and July by -1.2008 seconds;
-its overall interval is [-1.1801, +0.0086]. It is not a selected candidate.
+The initial single-seed CatBoost/R20 mixture changes January by +0.0394 and
+July by -1.2008 seconds; its overall interval is [-1.1801, +0.0086]. That screen
+was exploratory; the later three-seed mixture enters the selected combination.
 The five largest positive contributions account for 19.8% of gross squared
 error reduction, so the gain is not confined to one correction. A fixed
 three-seed bagging check reuses seed 42 and fits 142/242 at the parent model's
@@ -582,8 +587,8 @@ check schema, identity, raw clocks, geometry and view isolation. Both caches
 were built on the laptop: 16,165,071 old-view points (388 MB) and 31,252,680
 final-view points (750 MB). The independent output audit checks all 1,015,631
 rows and 47,417,751 points, plus 96 reconstructed raw cases containing 3,733
-points and eight shared old/final jitter IDs. The preparation does not select
-a production sequence recipe or establish an accuracy gain.
+points and eight shared old/final jitter IDs. These cache checks establish input
+integrity, not an accuracy gain; the selected production recipe is recorded above.
 
 Input-only coverage reveals substantial transfer uncertainty. Overall usable
 track coverage rises from 77.18% to 82.67% for January and from 82.16% to
@@ -671,18 +676,38 @@ regress (0.2721/0.1412). Small training associations and broad arrival coverage
 did not establish useful incremental information. No full-year fit, promotion
 or submission follows this test.
 
-A genuinely new Rome direction remains deferred: freeze each outer fold's
-ordinary sparse-track encoder and append its 64 pooled motion activations plus
-nine input-quality values to the original classifier. The downstream classifier
-would still see all original copy-positive labels, unlike the failed auxiliary
-head. Reusing the completed CatBoost rounds (1,182/1,401) avoids selecting an
-inner stopping epoch from rows whose taxi targets trained the encoder. Encoders
-must never cross outer folds. However, input-only coverage reveals a substantial
-transfer risk: January's 11,317 Rome validation rows contain 8,822 usable tracks
-but only **one** with ground observations, versus 72,288/126,616 ground-observed
-training rows. July has 14,804/15,211 versus 37,255/86,769 in training. The fixed
-design and coverage counts are retained in the evidence directory; no embeddings,
-new gate or classifier fit was made. Ordinary sequence validation has priority.
+A separate Rome screen freezes each outer fold's ordinary sparse-track encoder
+and appends its 64 pooled motion activations plus nine input-quality values to
+the original classifier. The downstream classifier retains all original
+copy-positive labels. Reusing the completed CatBoost rounds (1,182/1,401) avoids
+selecting an inner stopping epoch from rows whose taxi targets trained the
+encoder; encoders never cross outer folds. Only the track branch is extracted,
+with no predicted target or tabular hidden state. Original 68 inputs, categories,
+row identities and labels are preserved. Preparation completed in 10.2 seconds;
+128 raw-scalar/vectorized reconstruction checks pass. Four completed same-laptop
+GPU fits compare original68 with the new141 inputs. The primary comparison uses one
+matched classifier per arm; the actual selected three-classifier pool is a
+separate reference. There is no new gate, weight search or production fit.
+Input-only coverage still reveals substantial transfer risk: January's 11,317
+Rome validation rows contain 8,822 usable tracks but only **one** with ground
+observations; July has 14,804/15,211 ground-observed rows. The separate coverage
+pilot used slightly broader training populations than the exact retained
+classifier packets; prepared.json records the actual 126,507/86,723 training
+rows. The root reviewed this runner after the subagents exhausted their account
+usage allowance; this is not an independent-agent review. The matched control
+scores 293.6707 and the candidate 293.2890: **-0.3817 seconds**, interval
+[-0.8153, +0.0459], January -0.0155 and July -0.7480. Relative to actual v64,
+the change is -0.3676, interval [-0.8074, +0.0622], with different classifier
+pool size explicit. Both comparisons are inconclusive on reused development
+months. The original v64 squared errors replay exactly. Models, predictions
+and features are retained; no expansion, full-year fitting or promotion follows.
+All four returned model/prediction hashes pass; 2,048 input-selected reload
+probabilities reproduce exactly. A fixed input-cohort diagnosis sharpens the
+transfer concern: July's usable ground-track rows account for 107.38 million
+less squared error, while absent and airborne-only groups jointly incur 33.35
+million more. Ground coverage almost disappears in July 2026. This is a
+development-cohort diagnosis, not a measured test-set effect, and does not
+justify a new outcome-selected gate.
 
 The arrival-plan direction was suggested by public
 [kind-mango source](https://github.com/skylinkapi/prc-data-challenge-2026-kind-mango/blob/main/src_v3/build_plan_nm_taxi_v65.py).

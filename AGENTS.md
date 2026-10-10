@@ -142,11 +142,19 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   inference. The earlier workers hit host-memory limits or wasteful full-test
   inference after every epoch; they produced no completed models and remain
   preserved. All15 production network seeds stay on the laptop.
-  A same-desktop joint callsign6/raw-track two-fold screen is running via
-  `nn_joint_callsign_sparse_jan_jul.py`; the matched-laptop stand/month arrival
+  The same-desktop joint callsign6/raw-track screen is closed: +0.3401 seconds
+  against its matched single-track mixture, both months worse
+  (`nn_joint_callsign_sparse_jan_jul.py`). The matched-laptop stand/month arrival
   recording-state classifier screen is closed: +0.7092 seconds on v58 and
   +0.3216 inside the selected recipe; no expansion (`rome_stand_arrival_jan_jul.py`).
-  Inspect saved records and running processes before resuming either; do not duplicate fits. No 16-fold
+  A frozen ordinary-track encoder was tested in the Rome CatBoost
+  classifier (`rome_frozen_track_jan_jul.py`): original68 plus 64 activations
+  and nine quality inputs, fixed original rounds, four same-laptop control/candidate
+  fits. Prepared inputs pass 128 raw reconstruction checks. The matched change
+  is -0.3817 seconds, interval [-0.8153, +0.0459]; January -0.0155, July -0.7480.
+  It remains inconclusive, with strong Rome ground-coverage transfer risk; retain
+  as a lead, no expansion or production fit. All completed artifacts are retained;
+  do not duplicate fits. No 16-fold
   validation or ledger entries for failed screens were added. The five-second
   official objective remains unachieved; reused CV is not independent evidence.
 

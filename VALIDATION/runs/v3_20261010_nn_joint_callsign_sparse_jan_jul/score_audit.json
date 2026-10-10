@@ -1,0 +1,64 @@
+{
+  "status": "pass",
+  "reviewer": "root independent arithmetic from saved row errors, not independent development data",
+  "rows": 344419,
+  "scores": [
+    {
+      "arm": "selected_sparse3_mix",
+      "cv": 293.6566180991573,
+      "monthly": {
+        "2025-01": 327.4431534135344,
+        "2025-07": 259.87008278478027
+      }
+    },
+    {
+      "arm": "matched_sparse_single_mix",
+      "cv": 293.9424663049682,
+      "monthly": {
+        "2025-01": 327.5963743025656,
+        "2025-07": 260.28855830737075
+      }
+    },
+    {
+      "arm": "joint_single_mix",
+      "cv": 294.2825480734264,
+      "monthly": {
+        "2025-01": 328.07250091616316,
+        "2025-07": 260.4925952306897
+      }
+    }
+  ],
+  "records": [
+    {
+      "record": "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/networks/2025-01_s42.json",
+      "verified_artifacts": [
+        "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/identity.json",
+        "data/derived/callsign_clocks_20261010/2025-01_train.parquet",
+        "data/derived/callsign_clocks_20261010/2025-01_held.parquet",
+        "data/derived/callsign_clocks_20261010/manifest.json",
+        "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+        "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42.json",
+        "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k0.parquet",
+        "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/models/2025-01_s42.pt",
+        "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/networks/2025-01_s42.parquet",
+        "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/preprocessing/2025-01.pkl"
+      ]
+    },
+    {
+      "record": "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/networks/2025-07_s42.json",
+      "verified_artifacts": [
+        "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/identity.json",
+        "data/derived/callsign_clocks_20261010/2025-07_train.parquet",
+        "data/derived/callsign_clocks_20261010/2025-07_held.parquet",
+        "data/derived/callsign_clocks_20261010/manifest.json",
+        "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-07.pkl",
+        "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42.json",
+        "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k0.parquet",
+        "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/models/2025-07_s42.pt",
+        "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/networks/2025-07_s42.parquet",
+        "VALIDATION/runs/v3_20261010_nn_joint_callsign_sparse_jan_jul/preprocessing/2025-07.pkl"
+      ]
+    }
+  ],
+  "no_additional_fits": true
+}
