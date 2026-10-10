@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "reviewer": "root; separate reload and arithmetic, not independent development data",
+  "heldout_rows": 344419,
+  "checks": [
+    {
+      "month": "2025-01",
+      "reload_rows": 548,
+      "raw_scalar_checks": 32,
+      "max_prediction_difference_sec": 0.0004904857798919693
+    },
+    {
+      "month": "2025-07",
+      "reload_rows": 546,
+      "raw_scalar_checks": 32,
+      "max_prediction_difference_sec": 0.0009932270866102044
+    }
+  ],
+  "score": {
+    "path": "VALIDATION/runs/v3_20261010_nn_track_attention_jan_jul/score.json",
+    "sha256": "2d00c518628543fe7a1b6a84b72867c58b857d08f78cca327127131d3d0f1065"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_track_attention.py",
+    "sha256": "e864929dfdb5adfc93f7b768cb1cd5e692b6c84c62753fdde777eae6c3bdac46"
+  },
+  "finite_saved_predictions": true
+}

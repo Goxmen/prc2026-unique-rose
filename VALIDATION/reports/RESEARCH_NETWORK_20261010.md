@@ -54,14 +54,23 @@ pool, assuming independent exchangeable seeds and approximately linear final
 rules. These are projections, not measured gains or upper bounds; only three
 seeds inform them. Further generic pooling is deprioritized. The final rules
 are nonlinear on a small number of rows, explicitly recorded in the diagnostic.
-A fixed context-conditioned attention residual is now being tested on the
-desktop. It retains the original sparse model and adds four learned queries
+A fixed context-conditioned attention residual completed its desktop screen.
+It retains the original sparse model and adds four learned queries
 from the flight-plan hidden state over the existing track representation.
 CPU/CUDA checks preserve the original nonzero pooled path, initialization and
 dropout RNG exactly, including missing-track gates and padding invariance.
 Original156 preprocessing and the training-loop bytecode are unchanged; the
 new constructor alone changes the model. Two seed42 fits use fixed 21/17 epochs,
 with matched same-desktop controls and the actual v64 pool separately scored.
+The candidate scores **293.8753**, against **293.9425** for the matched single-
+track mixture: -0.0671 seconds, interval [-0.3597, +0.2511], January -0.1846
+and July +0.0503. It is 0.2187 seconds worse than actual v64, interval
+[-0.0202, +0.4807]. Both comparisons are inconclusive; this does not justify
+expansion. Separate arithmetic checks reproduce monthly and aggregate scores
+from all 344,419 stored row errors, and
+1,094 saved-model reload predictions differ by at most 0.001 seconds. There
+are 64 additional scalar raw-track reconstruction checks. All artifacts are
+retained and v64 stays unchanged.
 The three subagents are currently unavailable due verified account usage limits;
 the root reviewed and is executing these follow-ups.
 
@@ -272,6 +281,7 @@ No failed or inconclusive experiment is added to the submission ledger.
 | Half raw-track3 / half callsign15 with callsign main tree and half Cat3/R20 | Matched laptop v58, tree seed 42 | -2.0729 s | v64 prepared and audited |
 | Joint callsign/raw-track network in fixed half mixture | Matched same-desktop single-track mixture | +0.3401 s | Stop |
 | Frozen track encoder inputs in Rome CatBoost | Same-laptop single-classifier control in selected ordinary stack | -0.3817 s | Inconclusive; retain lead |
+| Context-conditioned attention over raw-track representation | Matched same-desktop single-track mixture | -0.0671 s | Inconclusive; stop |
 
 The one-network direct control is 298.9873315237, substantially worse than
 the existing 15-network pool. Comparing a new single network directly with
