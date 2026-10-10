@@ -8,6 +8,15 @@ The old five-second objective is complete; the 225.00 objective remains active. 
 approval statements below describe the earlier phase; the new instructions take
 precedence. New experiment records live in `../runs/v3_20261011_target225/`.
 
+A further fixed screen adds a ground-only mean/max readout to the physical
+track representation. It preserves the existing all-point representation,
+initial weights, training bytecode, dropout RNG and missing-track gate; a
+zero-initialized 64-by-64 projection uses existing ground flags. Desktop Jan/Jul
+fits are running against saved physical single controls. This has no result or
+production candidate yet. Run: `../runs/v3_20261011_nn_track_ground_pool_jan_jul/`.
+Relaxing affine weight bounds/regularization projects only about 0.01 seconds
+beyond v69, so no candidate is selected from that diagnostic.
+
 A saved-prediction scan of Rome CatBoost shares 0.0–1.0 on v64 selects 0.6,
 but improves only 0.0118 CV seconds over 0.5. This is inconclusive development
 noise; the fixed half mixture stays unchanged, with no candidate or upload.
