@@ -1,0 +1,87 @@
+{
+  "status": "diagnostic only",
+  "current_cv": 293.6566180991573,
+  "months": {
+    "2025-01": {
+      "rows": 153706,
+      "current_rmse": 327.4431534135344,
+      "post_rule_seed_variance": 577.1109631507958,
+      "member_rmses": [
+        327.5963743025656,
+        328.9357157078674,
+        327.5382320564436
+      ],
+      "nonlinearity_max_abs": 78.50960020616321,
+      "nonlinearity_rms": 0.3367564115890441,
+      "nonlinearity_rows_gt_1sec": 26
+    },
+    "2025-07": {
+      "rows": 190713,
+      "current_rmse": 259.87008278478027,
+      "post_rule_seed_variance": 602.6944412558069,
+      "member_rmses": [
+        260.28855830737075,
+        260.90884330672594,
+        260.65979430714765
+      ],
+      "nonlinearity_max_abs": 108.99444609917555,
+      "nonlinearity_rms": 0.48399418195344956,
+      "nonlinearity_rows_gt_1sec": 48
+    }
+  },
+  "estimates": {
+    "5": {
+      "2025-01": 327.3256338708891,
+      "2025-07": 259.7154224680052,
+      "cv": 293.5205281694472,
+      "estimated_change": -0.13608992971012412
+    },
+    "9": {
+      "2025-01": 327.2472640629701,
+      "2025-07": 259.6122644031127,
+      "cv": 293.4297642330414,
+      "estimated_change": -0.22685386611590275
+    },
+    "15": {
+      "2025-01": 327.20807212011016,
+      "2025-07": 259.5606699962464,
+      "cv": 293.3843710581783,
+      "estimated_change": -0.2722470409789821
+    },
+    "30": {
+      "2025-01": 327.1786750820631,
+      "2025-07": 259.52196745977363,
+      "cv": 293.35032127091836,
+      "estimated_change": -0.306296828238942
+    },
+    "infinity": {
+      "2025-01": 327.1492754024517,
+      "2025-07": 259.4832591507269,
+      "cv": 293.3162672765893,
+      "estimated_change": -0.3403508225679843
+    }
+  },
+  "inputs": {
+    "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/scored_g42_142_242_k0_1_2_3_4.parquet": "d728e72082513c35a98a12d4ee4ac7b60a2c16912eccb514f8e345c16bbd5245",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k0.parquet": "2dd80f007b96d2387d0e306ec2d19482633635acc279a4cdc0a1310ca7d39712",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k1.parquet": "6ab84c47b90995fd448750ff6e3399ab4f85304319c741853138e7a9eee3b6f0",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-01_s42_k2.parquet": "0a9afd4da95f593ad989ce1403011dd99377c0a6895d15b1b4a3f80d855171a1",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k0.parquet": "fdcef04e3b4fb927db946130f7d78877f761f09e93de30ed854860a453b66903",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k1.parquet": "09757c701ec8178df9acf3d459a97bdde6a97f62a035a28901c4fa574db8dae3",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/networks/2025-07_s42_k2.parquet": "d0246fa1b3b6d318af946513c1e63b1d55714a56b4c1e7ca023a1cde71a38fb7"
+  },
+  "source_sha256": "b016c3376bc582ac26ee47a0240d25b0cab4670e7e966729f17b66b3a42ed5e3",
+  "assumptions": [
+    "three seeds are exchangeable independent draws around one fixed recipe",
+    "same training distribution and stopping policy for future seeds",
+    "local ensemble averaging remains effectively linear through rules"
+  ],
+  "limitations": [
+    "three seeds give imprecise variance estimates",
+    "does not reduce systematic bias or establish 2026 transfer",
+    "not a measured gain, upper bound, or independent validation"
+  ],
+  "new_fit": false,
+  "weight_search": false,
+  "upload": false
+}

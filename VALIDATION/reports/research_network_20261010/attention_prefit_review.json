@@ -1,0 +1,30 @@
+{
+  "reviewer": "root; all three research agents currently have verified account-usage-limit errors",
+  "scope": "prefit fixed architecture review",
+  "source_hashes": {
+    "VALIDATION/nn_track_attention.py": "f7a2af905bcce991dc62734e1269f9e5c7e44cef2db93f6d5ec8a2106e46a57f",
+    "VALIDATION/nn_track_attention_jan_jul.py": "e753e5b7ded415c219faa0e8a1134892379d47331ee973319a0ea25616c16bce"
+  },
+  "checks": [
+    "Original156 inputs, original ordinary rows/targets and raw track cache are reused with identity guards.",
+    "Original sparse train code object is unchanged; only constructor and diagnostic output namespace differ.",
+    "CPU and CUDA checks preserve original nonzero residual path, parameters, initial predictions and dropout RNG.",
+    "Padding invariance, finite/nonzero query gradient and exact original missing-track gate checked.",
+    "Original saved preprocessing must be semantically equal before fitting; 21/17 stopping epochs are fixed.",
+    "Primary full-stack score uses same-machine single-model controls; selected three-member reference is separate.",
+    "No new gate, coefficient search, production fit or submission is part of this test."
+  ],
+  "benchmark": {
+    "original": {
+      "ms_forward_backward": 25.803989000269212,
+      "peak_bytes": 840518656
+    },
+    "attention": {
+      "ms_forward_backward": 28.320739600167144,
+      "peak_bytes": 957011456
+    },
+    "ratio": 1.0975333929909703,
+    "scope": "synthetic2048 with three numeric inputs; relative compute only, excludes real full resident data"
+  },
+  "no_gain_forecast": true
+}

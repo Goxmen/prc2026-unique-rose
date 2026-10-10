@@ -48,6 +48,37 @@ test using the frozen track representation improves 0.3817 seconds against
 its matched control but remains inconclusive, interval [-0.8153, +0.0459].
 It does not change v64.
 
+A follow-up saved-prediction diagnosis estimates only 0.2722 seconds from
+expanding the track pool from three to fifteen seeds, and 0.3404 for an infinite
+pool, assuming independent exchangeable seeds and approximately linear final
+rules. These are projections, not measured gains or upper bounds; only three
+seeds inform them. Further generic pooling is deprioritized. The final rules
+are nonlinear on a small number of rows, explicitly recorded in the diagnostic.
+A fixed context-conditioned attention residual is now being tested on the
+desktop. It retains the original sparse model and adds four learned queries
+from the flight-plan hidden state over the existing track representation.
+CPU/CUDA checks preserve the original nonzero pooled path, initialization and
+dropout RNG exactly, including missing-track gates and padding invariance.
+Original156 preprocessing and the training-loop bytecode are unchanged; the
+new constructor alone changes the model. Two seed42 fits use fixed 21/17 epochs,
+with matched same-desktop controls and the actual v64 pool separately scored.
+The three subagents are currently unavailable due verified account usage limits;
+the root reviewed and is executing these follow-ups.
+
+The laptop completed a separate twelve-date arrival-clock pilot on March,
+September, October and November 5/15/25, all within both outer training folds.
+It reuses the audited stop witness, tests causal recent lag context against
+leave-day-out airport/airline baselines and reads no departure targets. Its
+portable packet contains 67,741 arrivals and 8,551,637 position observations
+(89.95 MB). It finds 1,796 physical-stop witnesses; 1,795 can be compared with
+a cross-date prior (one LFPG witness has no other-date airport reference).
+Arrival-lag RMSE is 267.5498 for the static airport/airline baseline, 268.3273
+with recent airport context and 267.7982 with recent airline context. MAE also
+worsens, from 60.0800 to 61.1723/61.0166. All 11,910 donor edges satisfy the
+strict causal boundary; 60 separate context reconstructions and every metric
+pass. This signal-feasibility test does not justify a full-year feature build
+or taxi-out fit. These metrics are arrival-clock errors, not challenge CV.
+
 ## Starting evidence
 
 The live check at 2026-10-10 18:56:02 UTC found v58 still best at 236.1895,
@@ -633,8 +664,9 @@ Observed median recording lags are mostly airport-specific: EHAM -33.5/-31
 seconds, LSZH -13/-1, EDDF +54/+35 on the January/July pilot dates. Two dates
 and sparse airline coverage do not establish incremental predictive value or
 day-to-day regime changes. The corrected mechanism remains underexplored;
-no full-year builder, taxi-out fit or promotion follows this pilot. The stronger
-raw-sequence continuation has priority.
+no full-year builder, taxi-out fit or promotion follows the initial pilot.
+The subsequent twelve-date laptop test above finds no useful incremental
+recent context under its fixed definition; this lead is now deprioritized.
 
 Fixed diagnostic exclusions do not rescue the failed neural screens: removing
 the two previously identified LFPG extreme labels, or restricting to labels

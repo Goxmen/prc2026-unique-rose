@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "original_parameters_rng_and_nonzero_pool_path_exact": true,
+      "train_eval_and_dropout_rng_exact": true,
+      "zero_one_point_gate_exact": true,
+      "padding_invariant": true,
+      "query_gradient_finite_nonzero": true
+    },
+    {
+      "device": "cuda",
+      "original_parameters_rng_and_nonzero_pool_path_exact": true,
+      "train_eval_and_dropout_rng_exact": true,
+      "zero_one_point_gate_exact": true,
+      "padding_invariant": true,
+      "query_gradient_finite_nonzero": true
+    }
+  ],
+  "training_bytecode_exact": true,
+  "original_globals_unchanged": true
+}

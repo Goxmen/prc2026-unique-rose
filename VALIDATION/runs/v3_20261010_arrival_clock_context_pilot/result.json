@@ -1,0 +1,476 @@
+{
+  "identity": {
+    "design": {
+      "days": [
+        "2025-03-05",
+        "2025-03-15",
+        "2025-03-25",
+        "2025-09-05",
+        "2025-09-15",
+        "2025-09-25",
+        "2025-10-05",
+        "2025-10-15",
+        "2025-10-25",
+        "2025-11-05",
+        "2025-11-15",
+        "2025-11-25"
+      ],
+      "scope": "fixed dates in intersection of original January/July training months",
+      "target": "supplied arrival in-block minus independently witnessed stop; no departure labels",
+      "witness": "unchanged audited v2",
+      "airline": "leading letters of cached observed/fallback callsign",
+      "static": "airport median on other pilot dates; airport/airline median shrunk K10 toward airport",
+      "dynamic": "median residual of same-airport observations available before landing in preceding3h; K5",
+      "dynamic_airline": "same residual restricted to callsign airline; K3",
+      "causal": "max(stop confirmation, supplied in-block) strictly before query landing",
+      "boundary": "references only within same pilot UTC day; early-day context censored",
+      "departure_prediction": false,
+      "model_fitting": false,
+      "upload": false
+    },
+    "runner": {
+      "path": "VALIDATION/arrival_clock_context_pilot.py",
+      "sha256": "ca6797d287f1a6a3d3b51b8836750ebc46b4b97c9f5e8a27415f9d126eefd154"
+    },
+    "helpers": [
+      {
+        "path": "VALIDATION/arrival_stand_clock_pilot_v2.py",
+        "sha256": "6164ec34cb765a7bcf6ff040b0f1ca63a7b2f84a5bfc0f1de6bab1ef8d03008c"
+      },
+      {
+        "path": "VALIDATION/aircraft_rotation.py",
+        "sha256": "f3602d272d512dfb807309b3ee6da0ca31532d338454e40aac8c293917e8bdc2"
+      },
+      {
+        "path": "VALIDATION/stand_features.py",
+        "sha256": "2ce15697cba515960fa5a27b70ec913248fcf44ccec7c1b106e0945f4dd8b4e6"
+      },
+      {
+        "path": "VALIDATION/stand_geometry.py",
+        "sha256": "4043b700e2681cf7bd6b2dc64ffff2d968d9f230f4af48ba85c31a2402905c1b"
+      }
+    ]
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/prepared.json",
+    "sha256": "b62b75bc49e1ee0a940ed5e7f79830143801f87412a5d9e2247aac4abd3b654a"
+  },
+  "arrivals": 67741,
+  "witness_rows": 1796,
+  "scored": 1795,
+  "context_rows": 1634,
+  "airline_context_rows": 837,
+  "donor_edges": 11910,
+  "metrics": {
+    "airport_prior": {
+      "rmse": 267.74145560102147,
+      "mae": 60.228690807799445
+    },
+    "static": {
+      "rmse": 267.5497862893343,
+      "mae": 60.07999883902711
+    },
+    "dynamic": {
+      "rmse": 268.32729153716826,
+      "mae": 61.17232447579927
+    },
+    "dynamic_airline": {
+      "rmse": 267.7982447035497,
+      "mae": 61.01657385469923
+    }
+  },
+  "per_airport": {
+    "EDDF": {
+      "rows": 163,
+      "airport_prior": {
+        "rmse": 90.11999498963877,
+        "mae": 43.65030674846626
+      },
+      "static": {
+        "rmse": 90.14718696704263,
+        "mae": 42.05268871989245
+      },
+      "dynamic": {
+        "rmse": 89.62779087240351,
+        "mae": 42.72968356680791
+      },
+      "dynamic_airline": {
+        "rmse": 89.96245241772137,
+        "mae": 41.8901229448263
+      }
+    },
+    "EDDM": {
+      "rows": 236,
+      "airport_prior": {
+        "rmse": 594.2287071119438,
+        "mae": 132.67796610169492
+      },
+      "static": {
+        "rmse": 594.0269292117152,
+        "mae": 133.81376542797494
+      },
+      "dynamic": {
+        "rmse": 594.2744891441444,
+        "mae": 134.41729730085956
+      },
+      "dynamic_airline": {
+        "rmse": 594.1850090570128,
+        "mae": 134.2990525696249
+      }
+    },
+    "EGLL": {
+      "rows": 30,
+      "airport_prior": {
+        "rmse": 156.6493962111994,
+        "mae": 60.833333333333336
+      },
+      "static": {
+        "rmse": 157.75968212246835,
+        "mae": 62.38840187590187
+      },
+      "dynamic": {
+        "rmse": 157.43942231244262,
+        "mae": 63.55396073833573
+      },
+      "dynamic_airline": {
+        "rmse": 157.0632614614516,
+        "mae": 60.95715187590187
+      }
+    },
+    "EHAM": {
+      "rows": 817,
+      "airport_prior": {
+        "rmse": 115.96915213644542,
+        "mae": 47.77539779681763
+      },
+      "static": {
+        "rmse": 115.32042760705795,
+        "mae": 47.52418834750367
+      },
+      "dynamic": {
+        "rmse": 115.83893270431113,
+        "mae": 48.18172810594192
+      },
+      "dynamic_airline": {
+        "rmse": 116.17274745134677,
+        "mae": 49.169706305992804
+      }
+    },
+    "LEBL": {
+      "rows": 175,
+      "airport_prior": {
+        "rmse": 277.1372429475538,
+        "mae": 45.73714285714286
+      },
+      "static": {
+        "rmse": 277.0519935356433,
+        "mae": 46.06534367787986
+      },
+      "dynamic": {
+        "rmse": 282.60563740464283,
+        "mae": 51.50342440017095
+      },
+      "dynamic_airline": {
+        "rmse": 277.06117889715324,
+        "mae": 46.12557868243907
+      }
+    },
+    "LEMD": {
+      "rows": 112,
+      "airport_prior": {
+        "rmse": 57.97786677443631,
+        "mae": 37.69642857142857
+      },
+      "static": {
+        "rmse": 57.9772975030541,
+        "mae": 37.233649525515325
+      },
+      "dynamic": {
+        "rmse": 58.714034178081796,
+        "mae": 38.24494685395863
+      },
+      "dynamic_airline": {
+        "rmse": 58.27921977763293,
+        "mae": 38.08185008177951
+      }
+    },
+    "LIRF": {
+      "rows": 16,
+      "airport_prior": {
+        "rmse": 196.1278282141522,
+        "mae": 110.125
+      },
+      "static": {
+        "rmse": 193.5769290880218,
+        "mae": 107.7365451388889
+      },
+      "dynamic": {
+        "rmse": 193.5034544721774,
+        "mae": 107.87493799603176
+      },
+      "dynamic_airline": {
+        "rmse": 193.89978115356143,
+        "mae": 110.4709201388889
+      }
+    },
+    "LSZH": {
+      "rows": 246,
+      "airport_prior": {
+        "rmse": 269.4581773663466,
+        "mae": 60.31707317073171
+      },
+      "static": {
+        "rmse": 269.51786380736775,
+        "mae": 59.97828644232778
+      },
+      "dynamic": {
+        "rmse": 269.86215587820533,
+        "mae": 60.25723105427943
+      },
+      "dynamic_airline": {
+        "rmse": 269.80733871503026,
+        "mae": 60.5570764783147
+      }
+    }
+  },
+  "per_day": {
+    "2025-03-05": {
+      "rows": 75,
+      "airport_prior": {
+        "rmse": 384.6192662881047,
+        "mae": 81.77333333333333
+      },
+      "static": {
+        "rmse": 384.53741584171354,
+        "mae": 81.6373880800938
+      },
+      "dynamic": {
+        "rmse": 384.05141812649236,
+        "mae": 81.27699739288472
+      },
+      "dynamic_airline": {
+        "rmse": 384.4518312992146,
+        "mae": 81.02530362530702
+      }
+    },
+    "2025-03-15": {
+      "rows": 85,
+      "airport_prior": {
+        "rmse": 91.8382209296838,
+        "mae": 45.84705882352941
+      },
+      "static": {
+        "rmse": 91.35886893571254,
+        "mae": 44.894664754688996
+      },
+      "dynamic": {
+        "rmse": 91.82924374398294,
+        "mae": 45.33319680140566
+      },
+      "dynamic_airline": {
+        "rmse": 91.58937245098139,
+        "mae": 44.81765209540369
+      }
+    },
+    "2025-03-25": {
+      "rows": 80,
+      "airport_prior": {
+        "rmse": 107.47402302417082,
+        "mae": 49.38125
+      },
+      "static": {
+        "rmse": 107.23822413084774,
+        "mae": 48.1303825924192
+      },
+      "dynamic": {
+        "rmse": 108.0360394983031,
+        "mae": 49.677254103134494
+      },
+      "dynamic_airline": {
+        "rmse": 107.64090414921542,
+        "mae": 49.117450018492015
+      }
+    },
+    "2025-09-05": {
+      "rows": 168,
+      "airport_prior": {
+        "rmse": 280.53993434430106,
+        "mae": 65.97619047619048
+      },
+      "static": {
+        "rmse": 281.1374793962182,
+        "mae": 67.7427221010653
+      },
+      "dynamic": {
+        "rmse": 281.6021860474369,
+        "mae": 68.5982813675879
+      },
+      "dynamic_airline": {
+        "rmse": 281.1969863243185,
+        "mae": 68.56282461995877
+      }
+    },
+    "2025-09-15": {
+      "rows": 211,
+      "airport_prior": {
+        "rmse": 83.56732393903584,
+        "mae": 41.459715639810426
+      },
+      "static": {
+        "rmse": 82.04834888345518,
+        "mae": 41.059377385609245
+      },
+      "dynamic": {
+        "rmse": 82.39259820395034,
+        "mae": 41.8915928145629
+      },
+      "dynamic_airline": {
+        "rmse": 82.32315870204117,
+        "mae": 41.81024076899388
+      }
+    },
+    "2025-09-25": {
+      "rows": 165,
+      "airport_prior": {
+        "rmse": 218.26396307168432,
+        "mae": 55.43636363636364
+      },
+      "static": {
+        "rmse": 218.08411009863556,
+        "mae": 54.83584820907141
+      },
+      "dynamic": {
+        "rmse": 219.1731943143017,
+        "mae": 56.08958776275662
+      },
+      "dynamic_airline": {
+        "rmse": 218.80601498700378,
+        "mae": 56.540928354549465
+      }
+    },
+    "2025-10-05": {
+      "rows": 157,
+      "airport_prior": {
+        "rmse": 304.66796430103636,
+        "mae": 69.20063694267516
+      },
+      "static": {
+        "rmse": 304.3072611579488,
+        "mae": 68.92026654310975
+      },
+      "dynamic": {
+        "rmse": 310.1364269769041,
+        "mae": 74.96450955045228
+      },
+      "dynamic_airline": {
+        "rmse": 304.43468357422245,
+        "mae": 69.435929349427
+      }
+    },
+    "2025-10-15": {
+      "rows": 173,
+      "airport_prior": {
+        "rmse": 282.022164811716,
+        "mae": 60.2514450867052
+      },
+      "static": {
+        "rmse": 282.23256931258254,
+        "mae": 60.090297459248916
+      },
+      "dynamic": {
+        "rmse": 282.14082488530477,
+        "mae": 60.438664675150044
+      },
+      "dynamic_airline": {
+        "rmse": 281.7595474617429,
+        "mae": 62.033366300973434
+      }
+    },
+    "2025-10-25": {
+      "rows": 187,
+      "airport_prior": {
+        "rmse": 411.4434110315578,
+        "mae": 91.06684491978609
+      },
+      "static": {
+        "rmse": 411.47825355879564,
+        "mae": 90.69889219730796
+      },
+      "dynamic": {
+        "rmse": 412.152987541817,
+        "mae": 91.49297345593538
+      },
+      "dynamic_airline": {
+        "rmse": 412.510702595713,
+        "mae": 93.60894963294297
+      }
+    },
+    "2025-11-05": {
+      "rows": 163,
+      "airport_prior": {
+        "rmse": 61.859478594832495,
+        "mae": 36.75460122699386
+      },
+      "static": {
+        "rmse": 61.00315287181272,
+        "mae": 36.532199533264745
+      },
+      "dynamic": {
+        "rmse": 61.14000756125237,
+        "mae": 36.955710700098294
+      },
+      "dynamic_airline": {
+        "rmse": 60.73070158261962,
+        "mae": 36.698216295940114
+      }
+    },
+    "2025-11-15": {
+      "rows": 155,
+      "airport_prior": {
+        "rmse": 58.55612141218636,
+        "mae": 30.8
+      },
+      "static": {
+        "rmse": 59.71422149940938,
+        "mae": 31.039841053605603
+      },
+      "dynamic": {
+        "rmse": 59.930769581412186,
+        "mae": 31.735689632281197
+      },
+      "dynamic_airline": {
+        "rmse": 59.53258748717027,
+        "mae": 31.181021022369578
+      }
+    },
+    "2025-11-25": {
+      "rows": 176,
+      "airport_prior": {
+        "rmse": 427.99066903857954,
+        "mae": 91.29829545454545
+      },
+      "static": {
+        "rmse": 426.96869236870356,
+        "mae": 91.01918049329157
+      },
+      "dynamic": {
+        "rmse": 426.67815551782434,
+        "mae": 90.82562771101829
+      },
+      "dynamic_airline": {
+        "rmse": 427.2988871203683,
+        "mae": 91.39905100450385
+      }
+    }
+  },
+  "seconds": 52.27494909300003,
+  "witnesses": {
+    "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/witnesses.parquet",
+    "sha256": "9c0d42e241f2fe6c9d8c3fde352f34ced67f1f3a2c36e27f0a826c438bf5c513"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/predictions.parquet",
+    "sha256": "af8f74e56c1c01a7448660ec0a4c4ace86d8df038eca6c0802ba41df544ff245"
+  },
+  "caution": "Arrival recording-lag pilot only. No departure labels, taxi-out model, held-out score or gain forecast."
+}

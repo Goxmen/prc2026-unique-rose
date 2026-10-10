@@ -157,6 +157,19 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   do not duplicate fits. No 16-fold
   validation or ledger entries for failed screens were added. The five-second
   official objective remains unachieved; reused CV is not independent evidence.
+  Follow-up: saved post-rule seed variance projects only -0.2722 seconds from
+  track3 to track15 (not a measured gain or bound); generic pooling is deprioritized.
+  `nn_track_attention_jan_jul.py` is running two fixed21/17-epoch desktop fits:
+  original sparse156 plus a four-head conditional attention residual, same-desktop
+  controls and unchanged training bytecode. Initial CPU/GPU parity, padding and
+  missing-track checks pass. `arrival_clock_context_pilot.py` completed a laptop
+  pilot on twelve dates within both training folds, using no departure labels:
+  1,796 physical-stop witnesses; recent airport/airline context worsens arrival-lag
+  RMSE and MAE against the static airport/airline reference. All 11,910 causal
+  edges and 60 sampled contexts pass; no full-year build or taxi-out fit follows.
+  Check live processes and manifests before resuming. v64 stays immutable and
+  awaiting explicit upload approval. All three research subagents currently have
+  account-usage-limit errors; do not repeatedly relaunch them.
 
 - **October 8: the organisers published a FINAL test set; deadline extended to 14 Oct 2026
   12:00 CET.** `data/final_ranking.parquet` / `data/final_submitting.parquet` (bucket

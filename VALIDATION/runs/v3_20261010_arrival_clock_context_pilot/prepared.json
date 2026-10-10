@@ -1,0 +1,175 @@
+{
+  "identity": {
+    "design": {
+      "days": [
+        "2025-03-05",
+        "2025-03-15",
+        "2025-03-25",
+        "2025-09-05",
+        "2025-09-15",
+        "2025-09-25",
+        "2025-10-05",
+        "2025-10-15",
+        "2025-10-25",
+        "2025-11-05",
+        "2025-11-15",
+        "2025-11-25"
+      ],
+      "scope": "fixed dates in intersection of original January/July training months",
+      "target": "supplied arrival in-block minus independently witnessed stop; no departure labels",
+      "witness": "unchanged audited v2",
+      "airline": "leading letters of cached observed/fallback callsign",
+      "static": "airport median on other pilot dates; airport/airline median shrunk K10 toward airport",
+      "dynamic": "median residual of same-airport observations available before landing in preceding3h; K5",
+      "dynamic_airline": "same residual restricted to callsign airline; K3",
+      "causal": "max(stop confirmation, supplied in-block) strictly before query landing",
+      "boundary": "references only within same pilot UTC day; early-day context censored",
+      "departure_prediction": false,
+      "model_fitting": false,
+      "upload": false
+    },
+    "runner": {
+      "path": "VALIDATION/arrival_clock_context_pilot.py",
+      "sha256": "ca6797d287f1a6a3d3b51b8836750ebc46b4b97c9f5e8a27415f9d126eefd154"
+    },
+    "helpers": [
+      {
+        "path": "VALIDATION/arrival_stand_clock_pilot_v2.py",
+        "sha256": "6164ec34cb765a7bcf6ff040b0f1ca63a7b2f84a5bfc0f1de6bab1ef8d03008c"
+      },
+      {
+        "path": "VALIDATION/aircraft_rotation.py",
+        "sha256": "f3602d272d512dfb807309b3ee6da0ca31532d338454e40aac8c293917e8bdc2"
+      },
+      {
+        "path": "VALIDATION/stand_features.py",
+        "sha256": "2ce15697cba515960fa5a27b70ec913248fcf44ccec7c1b106e0945f4dd8b4e6"
+      },
+      {
+        "path": "VALIDATION/stand_geometry.py",
+        "sha256": "4043b700e2681cf7bd6b2dc64ffff2d968d9f230f4af48ba85c31a2402905c1b"
+      }
+    ]
+  },
+  "query": {
+    "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/queries.parquet",
+    "sha256": "9b8240e59ed73d99305f069c158eba61588163b924b57893c5d8c19179bd80b3"
+  },
+  "days": {
+    "2025-03-05": {
+      "points": 532012,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-03-05.parquet",
+        "sha256": "e562c5440ad74544315a4d108ec8d537cbf40380418706423f2f7773cce484b2"
+      }
+    },
+    "2025-03-15": {
+      "points": 576084,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-03-15.parquet",
+        "sha256": "9390312b2af51839786a3e59d18cd0b2bcf4c5461729f068b8ff3fd6aa2f4e86"
+      }
+    },
+    "2025-03-25": {
+      "points": 568533,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-03-25.parquet",
+        "sha256": "87c078ab7d1e2bd91352d5312b740129d713dd055ca4d8723c2e0802f934d016"
+      }
+    },
+    "2025-09-05": {
+      "points": 777028,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-09-05.parquet",
+        "sha256": "2dc3f00e4adb06ecf4c4d40cc34b6f23a5ced1b148b67b9f2edeaebadc871854"
+      }
+    },
+    "2025-09-15": {
+      "points": 807266,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-09-15.parquet",
+        "sha256": "edf23e3878d5a99f551a2b4981e1e05bb15157201f564325f5e89c6e8244e81c"
+      }
+    },
+    "2025-09-25": {
+      "points": 777254,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-09-25.parquet",
+        "sha256": "fd3cd1997458032f60737878a7d09383b0bd213ffc5046c0379e11dea2c5857a"
+      }
+    },
+    "2025-10-05": {
+      "points": 786020,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-10-05.parquet",
+        "sha256": "b9bff309cf910bf57b4da6d3c3a9196a0f721149e9c2c937cf88932e324e2819"
+      }
+    },
+    "2025-10-15": {
+      "points": 777783,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-10-15.parquet",
+        "sha256": "dba388416e425e60af5c08c7f5d16fe737407ad97a380b4ff6bc4cf10f1bc4ce"
+      }
+    },
+    "2025-10-25": {
+      "points": 774483,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-10-25.parquet",
+        "sha256": "b2602f99d9e41d6b13e82149c8d81a5a9d88cc57d98d66fc430cf359b2cfdb63"
+      }
+    },
+    "2025-11-05": {
+      "points": 725737,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-11-05.parquet",
+        "sha256": "ab4d293456fe074560cc87b9180254910f4945cec5ed5ff0e16b08c4275a40c6"
+      }
+    },
+    "2025-11-15": {
+      "points": 730654,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-11-15.parquet",
+        "sha256": "5864d723c1192d82eedfb964d78b0727da710ccbbc57214006854b19e8aa0029"
+      }
+    },
+    "2025-11-25": {
+      "points": 718783,
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_clock_context_pilot/inputs/2025-11-25.parquet",
+        "sha256": "549fdcb15daf5fea26665ef9b70af5898d080bf12baeb3c3636745eb49523f86"
+      }
+    }
+  },
+  "sources": {
+    "data/derived/aircraft_rotation_20261010/identity.parquet": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f",
+    "data/external/stand_maps/stand_coords.parquet": "217ff73ec7cb09e3c552efea72d586790db957529df6bc86921428e0a330b2c8",
+    "data/external/adsblol_heatmap/positions/2025-03-05.parquet": "861c4c1eea1d13800449538bb0458471ee7de05dbf710d46444ee4378469e0b3",
+    "data/external/adsblol_heatmap/positions/2025-03-06.parquet": "0792cd3b0c522f755c550fb49793a111c36d9b4a1efc52bf574e8528c434132a",
+    "data/external/adsblol_heatmap/positions/2025-03-15.parquet": "23f35455e07281934f5d5c18508356932d56f5bdc1feb090834cc6d013d4d39a",
+    "data/external/adsblol_heatmap/positions/2025-03-16.parquet": "af0abd2a70ea5cc7876aca8ba01a0cc2b77ec7f40accfb21131b801ac0021bd2",
+    "data/external/adsblol_heatmap/positions/2025-03-25.parquet": "59c457766b66ecfccf95196864086c19e3ec8717cf30b4a0c19fca0aad1703d1",
+    "data/external/adsblol_heatmap/positions/2025-03-26.parquet": "f8d6feffe18db0ee6a21852aaac37d85b6514d36cc746ec84fb68ecb89ce2958",
+    "data/external/adsblol_heatmap/positions/2025-09-05.parquet": "7b391595a8b7c755ee9c65e947f7b49e9d65b0e9df6787e4fc94a2e480921bb9",
+    "data/external/adsblol_heatmap/positions/2025-09-06.parquet": "0f7b63948eeacb2714ac668ea7de54b41841ed34f3f458d244beb7761e3137f0",
+    "data/external/adsblol_heatmap/positions/2025-09-15.parquet": "778336bab90f4357e08529ab630a544fd4dc7462917c6e81c6cc0c414439ca04",
+    "data/external/adsblol_heatmap/positions/2025-09-16.parquet": "51e28335e315b7a035a8782d873d601fb32720e106d73b8fd7cdeb02c14292f6",
+    "data/external/adsblol_heatmap/positions/2025-09-25.parquet": "2e9fc9a6ad208aa1db03a45df6ff37baa0bddedda842d11ed7a314c8aba5f262",
+    "data/external/adsblol_heatmap/positions/2025-09-26.parquet": "f4b1cf49c533bc6412b1cedd1ef12d4069056848fbc2e9e5a51f124826d8b4e1",
+    "data/external/adsblol_heatmap/positions/2025-10-05.parquet": "f0face95356406472597135be88c73eb610c89f6b65e6f072cbc02735ccb4732",
+    "data/external/adsblol_heatmap/positions/2025-10-06.parquet": "462d00fbd0f369527f332f1770e816f91e4017d91e35e101bb608a8048d55280",
+    "data/external/adsblol_heatmap/positions/2025-10-15.parquet": "4dffd709297642120457f5c3260bdbf263d3d941031802fda6a0cac177b7d1f9",
+    "data/external/adsblol_heatmap/positions/2025-10-16.parquet": "b4704ee20cf31bf3489c62a467381ed37fbfd0f62aab125abb1cb9c186a794f7",
+    "data/external/adsblol_heatmap/positions/2025-10-25.parquet": "3877ae7630e631d6096c94a6f15cdd07a7cb37342028a979b86b27e779a146dd",
+    "data/external/adsblol_heatmap/positions/2025-10-26.parquet": "6dea752f903b4d98cca865b8a5f7123b2ae207be8bd691c8be43931a1678e60d",
+    "data/external/adsblol_heatmap/positions/2025-11-05.parquet": "4e5f3b418dcb6f8cca7866055499f150014cedc5f48febcea6b7633ac277a78a",
+    "data/external/adsblol_heatmap/positions/2025-11-06.parquet": "ece7949383f4577f4ace7f11580889881397d471769a161dc6197cd3903db2e1",
+    "data/external/adsblol_heatmap/positions/2025-11-15.parquet": "9af98c7382904efff94811e42b5c408d86ca89a3cf89922d4bfc9753e6b3ebf8",
+    "data/external/adsblol_heatmap/positions/2025-11-16.parquet": "38831bfe7edd65ed25f8731726c16ed16f1bc706dc31e82613616e91026a1458",
+    "data/external/adsblol_heatmap/positions/2025-11-25.parquet": "475bbd23b40171b3dc3cd3a788e99d287b94e958b6995b1b947e05e9c8b4e27b",
+    "data/external/adsblol_heatmap/positions/2025-11-26.parquet": "6ded5c14d65921ea5c0d3f49e6b60bf91e0e9bdf2ec147e1b5ae41c19ebad99a"
+  },
+  "rows": 67741,
+  "seconds": 3.7878413639991777,
+  "bytes": 89948755
+}
