@@ -1,0 +1,159 @@
+{
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/identity.json",
+    "sha256": "4308fe0e70b2bc6c3ad226fd619465b00feaf312aac11b4f3d28f7615365ff62"
+  },
+  "month": "2025-01",
+  "member": 1,
+  "seed": 1042,
+  "epochs": 21,
+  "minutes": 10.696745158666696,
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.3495877294778197,
+      "rmse": 471.0834402231759,
+      "seconds": 30.252959030003694
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.26232279805954095,
+      "rmse": 463.84334498881384,
+      "seconds": 29.434225477998552
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.23922535103782472,
+      "rmse": 462.12730144483146,
+      "seconds": 29.7979495949985
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.22337839443291863,
+      "rmse": 462.8591411286632,
+      "seconds": 31.41918075200374
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.21589972163236015,
+      "rmse": 459.39916803177505,
+      "seconds": 31.37305363699852
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.20761786135103938,
+      "rmse": 460.54110380996957,
+      "seconds": 29.286275457998272
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.20408633945318277,
+      "rmse": 456.28335853167465,
+      "seconds": 29.980588042999443
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.19505997684944257,
+      "rmse": 459.7561451851948,
+      "seconds": 30.793694454994693
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.19647522405310755,
+      "rmse": 460.24939089299363,
+      "seconds": 31.52454141700582
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.1850360689218363,
+      "rmse": 457.5944300979192,
+      "seconds": 31.344923472002847
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.22180258731364716,
+      "rmse": 460.8794011979557,
+      "seconds": 31.164982723996218
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.19996249447371583,
+      "rmse": 456.1439520225738,
+      "seconds": 30.410335838998435
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.17960645073118212,
+      "rmse": 458.3054913291645,
+      "seconds": 30.263918342003308
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.17367865298616805,
+      "rmse": 457.73908447927744,
+      "seconds": 30.480441832005454
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.1621729005797621,
+      "rmse": 456.00527511002275,
+      "seconds": 30.385291170001437
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.1565488122443115,
+      "rmse": 456.15029497579496,
+      "seconds": 30.3862685300046
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.1906425975076397,
+      "rmse": 457.5114093796605,
+      "seconds": 29.728814632995636
+    },
+    {
+      "epoch": 18,
+      "train_mse_std": 0.1549704763548438,
+      "rmse": 457.45964608350266,
+      "seconds": 29.981216487001802
+    },
+    {
+      "epoch": 19,
+      "train_mse_std": 0.1465259410011732,
+      "rmse": 456.34702375652944,
+      "seconds": 29.732291382002586
+    },
+    {
+      "epoch": 20,
+      "train_mse_std": 0.14245968503795015,
+      "rmse": 456.186618011248,
+      "seconds": 31.60191224499431
+    },
+    {
+      "epoch": 21,
+      "train_mse_std": 0.13953312228364517,
+      "rmse": 456.6573286736183,
+      "seconds": 31.626355723994493
+    }
+  ],
+  "initial_check": {
+    "seed": 1042,
+    "original_weights_rng_and_nonzero_path_exact": true
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/models/2025-01_k1.pt",
+    "sha256": "e7ebb25040b8c3451878f09ef89c0894326c173fa5cd01b0e4980dd96349872b"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/networks/2025-01_k1.parquet",
+    "sha256": "be0fceca1fbf60eb8f0c8f491377560ef4db531f0fd14cc38bb02af624cb9034"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+    "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+  },
+  "train_rows": 1596201,
+  "held_rows": 153706,
+  "gpu": "NVIDIA GeForce RTX 3080",
+  "host": "GPC"
+}

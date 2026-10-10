@@ -1,0 +1,61 @@
+{
+  "status": "pass",
+  "members": [
+    0
+  ],
+  "checks": [
+    {
+      "member": 0,
+      "view": "old",
+      "rows": 615,
+      "airports": [
+        "EDDF",
+        "EDDM",
+        "EGLL",
+        "EHAM",
+        "LEBL",
+        "LEMD",
+        "LFPG",
+        "LIRF",
+        "LSZH",
+        "LTFM"
+      ],
+      "max_difference_sec": 0.004553438612674654,
+      "record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/k0.json",
+        "sha256": "959b7cc31d72bffd6501bdd33c43487a91ee8a5e2ad5dcdc884fa30321274565"
+      }
+    },
+    {
+      "member": 0,
+      "view": "final",
+      "rows": 615,
+      "airports": [
+        "EDDF",
+        "EDDM",
+        "EGLL",
+        "EHAM",
+        "LEBL",
+        "LEMD",
+        "LFPG",
+        "LIRF",
+        "LSZH",
+        "LTFM"
+      ],
+      "max_difference_sec": 0.001098169950182637,
+      "record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/k0.json",
+        "sha256": "959b7cc31d72bffd6501bdd33c43487a91ee8a5e2ad5dcdc884fa30321274565"
+      }
+    }
+  ],
+  "source": {
+    "path": "VALIDATION/tools/audit_physical_production.py",
+    "sha256": "83a7ed8a2c6a41ddabb2a6be4d902379b08a2a51a6619ca410d0f731e27bdf00"
+  },
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/portable.json",
+    "sha256": "f35ee26e8c50e49229197d7ec2fa110ca3367f44e090805b605c874543f53cda"
+  },
+  "reviewer": "root; same-GPU reload from input-selected rows; not independent development data"
+}

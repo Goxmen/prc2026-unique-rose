@@ -3,7 +3,7 @@
   "target_rmse": 225.0,
   "baseline_version": 64,
   "baseline_rmse": 232.7751,
-  "remaining_seconds": 0.8994,
+  "remaining_seconds": 0.3994,
   "created_at": "2026-10-10T22:08:17.633707+00:00",
   "status": "research_active",
   "authorization": {
@@ -29,7 +29,7 @@
       "name": "rome_cost_calibration",
       "purpose": "Assess feasibility of honest inner predictions and calibration for downstream squared error; avoid repeating failed cost-weighted classifier or unweighted Platt tests",
       "machine": "laptop",
-      "status": "deferred; laptop allocated to physical-scale production"
+      "status": "Closed: honest inner-holdout weighted-Brier calibration regresses1.6735 CV, CI[.3921,3.8614]; no full-year fit/upload"
     }
   ],
   "validation_reconstruction": {
@@ -42,7 +42,7 @@
     "official_score": 225.8994,
     "jan_jul_cv": 297.02466770324986
   },
-  "best_version": 65,
-  "best_rmse": 225.8994,
+  "best_version": 69,
+  "best_rmse": 225.3994,
   "latest_live": "2026-10-10T23:02:34+00:00"
 }

@@ -10,11 +10,11 @@ scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 4
 were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are `-`.
 On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
-**Best and latest submission: v65, 225.8994 s**, improving v64 by **6.8757 s** and v58 by **10.2901 s**.
-Live check **2026-10-11 01:02 Amsterdam time**: rank **15/242** scoring teams; all **344,841** flights scored.
-Jan/Jul CV is **297.0247**, worse than v64; weights were selected from our own leaderboard scores.
-The active target is **225.00 or lower**, another **0.8994 s**. Autonomous uploads are authorized.
-[Submission record](VALIDATION/runs/v3_20261011_scored_blend_submit/submission_v65/manifest.json).
+**Best and latest submission: v69, 225.3994 s**, improving v65 by **0.5000 s**, v64 by **7.3757 s** and v58 by **10.7901 s**.
+Live **11 October 01:29 Amsterdam**: rank **15/242**; all **344,841** original January/July flights scored. Jan/Jul CV is **296.8197**;
+weights use our own leaderboard scores, and this is not independent validation.
+The active target is **225.00 or lower**, another **0.3994 s**. Autonomous uploads are authorized.
+[Submission record](VALIDATION/runs/v3_20261011_physical_affine/submission_v69/manifest.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -120,6 +120,9 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 65 | **ERA5-all** | Row 61 with ERA5 weather added to all five model parts. | - | - | - | - | 296.8264 | 236.6319 | v61 |
 | 66 | **Track-callsign-ensemble** | Row 61 with callsign and raw-track networks plus a Rome CatBoost blend. | - | - | - | - | **293.6566** | **232.7751** | v64 |
 | 67 | **Scored-affine-ensemble** | Row 66 combined with earlier scored predictions using fitted affine weights. | - | - | - | - | 297.0247 | **225.8994** | v65 |
+| 68 | **Physical-track-single** | Row 66 with its track pool replaced by one physical-scale network. | - | - | - | - | 293.3477 | 233.7954 | v66 |
+| 69 | **Calls-only-ensemble** | Row 66 assigns its neural share entirely to the callsign networks. | - | - | - | - | 294.4217 | 234.7131 | v68 |
+| 70 | **Component-affine-ensemble** | Row 67 adds separately scored callsign and physical-track components. | - | - | - | - | 296.8197 | **225.3994** | v69 |
 
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV was adopted
@@ -959,3 +962,9 @@ The organiser has approved open trajectory data if declared; this is the declara
 **Open-Meteo ERA5 inputs (rows 63 and 65):** [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api), fixed ERA5 model, CC BY 4.0. Attribution: Open-Meteo and Copernicus/ECMWF ERA5. Hourly temperature, wind, precipitation, rain and snowfall, plus preceding 6/24/48-hour precipitation and snowfall sums, matched by airport and UTC movement time. These are retrospective reanalysis estimates. Cached sources, units, coordinates and hashes are documented in the [experiment report](VALIDATION/reports/OPEN_METEO_JAN_JUL.md).
 
 - **Row 67 (v65)** uses 45 of our previously scored prediction files with signed weights summing to one, bounded to [−3, 4] and penalized toward v64 with ridge 1. The weights use public aggregate scores and prediction differences: this is leaderboard-conditioned selection, not independent validation. Before integer rounding, the independent squared-error identity projects **225.8994565**; the official result is **225.8994**. All current Jan/Jul folds were reconstructed or replayed: **293.6569 → 297.0247 (+3.3678)** after identical integer serialization; January 328.5817, July 265.4676, paired-day interval [−0.2738, +7.4274]. These reused development results do not support a generalization gain. The unavailable exact legacy v3–v9 source is an explicit reconstruction limitation. Old ledger rows are not backfilled. Upload at **11 October 01:01:39 Amsterdam**, processed 01:02:14, all 344,841 pairs; live rank **15/242**. SHA-256 `f0b163ba7dee68c73642267efd36a2f9f352cd54fce26c0f4ad3673072389089` matches the remote bytes. The original five-second objective is exceeded; **0.8994 seconds** remain to the active 225.00 target. [CV record](VALIDATION/runs/v3_20261011_scored_blend_jan_jul/result.json), [submission record](VALIDATION/runs/v3_20261011_scored_blend_submit/submission_v65/manifest.json).
+
+- **Row 68 (v66)** replaces v64's three-member track pool with one network that adds fourteen fixed distance and motion transforms. CV **293.6566 → 293.3477 (−0.3089)**, paired-day interval [−0.5841, −0.0965]; the matched single-track comparison gains 0.5947. These reused development comparisons change pool size against the selected parent. Full-year fitting uses the original 156 inputs and 15 fixed epochs on the laptop RTX 5060; all other components stay unchanged. The saved-model audit covers 1,230 input-selected rows across all ten airports and both test namespaces (maximum difference 0.0046 s). All v64 predictions and serialized columns reproduce exactly before replacement. **Official 233.7954 (+1.0203 versus v64)** on 344,841 flights. SHA-256 `63ad13a978bf1a87daddeccd0069b3d8a2046e7189659a5a8830abbed2a7534b` matches the remote bytes. [Submission record](VALIDATION/runs/v3_20261011_physical_candidate/submission_v66/manifest.json).
+
+- **Row 69 (v68)** reuses the retained callsign15/main-callsign-LightGBM/half-CatBoost-R20 candidate without refitting. Jan/Jul CV **294.4217** is 1.3078 better than matched v58, but 0.7651 worse than v64. All saved row errors, full-year parts and serialized values reproduce exactly; the original independent model and combination audits remain valid. **Official 234.7131** is 1.9380 worse than v64 and 1.4764 better than v58. This separates the callsign and track directions for subsequent scored ensembling. [Submission record](VALIDATION/runs/v3_20261011_calls_only_candidate/submission_v68/manifest.json). v67 was retained without upload and is not a ledger candidate.
+
+- **Row 70 (v69)** extends v65's 45-file basis with v66 and v68, retaining coefficient bounds [−3, 4] and ridge 1. Derived affine submissions are excluded from the basis. The independent squared-error identity projects **225.3983** before serialization; the official score is **225.3994**, a **0.5000-second gain** on 344,841 flights. Jan/Jul CV improves **297.0247 → 296.8197** versus v65 (paired-day interval [−0.4678, −0.0206]); it remains worse than v64. Selection uses leaderboard scores and reused development data. Models were reused without new fits. Source hashes, template columns, rounding, readback and remote SHA checks pass. [CV record](VALIDATION/runs/v3_20261011_physical_affine/submission_v69/cv.json), [submission record](VALIDATION/runs/v3_20261011_physical_affine/submission_v69/manifest.json).

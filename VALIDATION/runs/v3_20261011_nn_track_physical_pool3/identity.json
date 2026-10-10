@@ -1,0 +1,101 @@
+{
+  "design": {
+    "parent": "v64",
+    "change": "replace original sparse3 with physical-scale sparse3",
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "reused_seed": 42,
+    "new_seeds": [
+      1042,
+      2042
+    ],
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "model": {
+      "features": [
+        "stand_near50m",
+        "stand_near200m",
+        "stand_near1000m",
+        "runway_near100m",
+        "runway_near500m",
+        "runway_near2000m",
+        "stand_log_distance",
+        "runway_log_distance",
+        "east_velocity",
+        "north_velocity",
+        "sampled_gap",
+        "sampled_pair_known",
+        "actual_clock_minute_scale",
+        "slow_speed"
+      ],
+      "stand_scales_m": [
+        50,
+        200,
+        1000
+      ],
+      "runway_scales_m": [
+        100,
+        500,
+        2000
+      ],
+      "velocity_scale_mps": 50,
+      "clock_scale_sec": 60,
+      "slow_speed_scale_kt": 5,
+      "initialization": "parallel linear stem zero; original encoder and RNG preserved",
+      "new_data": false,
+      "additional_dropout": 0
+    },
+    "training": "original sparse train AST with seed argument; constructor only replaced",
+    "neural": "equal calls15/physical3",
+    "network_share": 0.71,
+    "other_parts": "v64 unchanged",
+    "machine": "all physical seeds on desktop RTX3080",
+    "no_new_gate_or_weight_search": true,
+    "evaluation": "reused Jan/Jul development months; pool declared after k0 outcome"
+  },
+  "source": {
+    "path": "VALIDATION/nn_track_physical_pool3.py",
+    "sha256": "9e388ddb17d7c018e0cbb3a8bf09fa7633d4e39463b271b833190687a39181bc"
+  },
+  "parent_identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/identity.json",
+    "sha256": "ba195b24909efeba2890b354c21e45010b64ea8c0305111702041924ab2ef82a"
+  },
+  "parent_score": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/score.json",
+    "sha256": "815120744c2a05e1a0f76fbeebfbbc9ff2cfda2c1ece5acbd9743e215dbef466"
+  },
+  "parent_audit": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/audit.json",
+    "sha256": "ecfa3f2ea0b76a7a1e220a5d34b9370c1ada79e3a8f6062cff8cfbe7abecd5a8"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/nn_track_physical_scales_jan_jul.py",
+      "sha256": "f384a2c55a99d1fb11cf18448fad75f757b4f8008376379709175c7dc2ed3780"
+    },
+    {
+      "path": "VALIDATION/nn_sparse_track_pool3.py",
+      "sha256": "da511cea5e67595cc764f656c0d2079c784cc69627a85f5c46fab4716a8bfe19"
+    },
+    {
+      "path": "VALIDATION/nn_track_physical_scales.py",
+      "sha256": "9d62084a0617054a233d08a82655d9990fb6ea153cd3861566530312f80ae998"
+    },
+    {
+      "path": "VALIDATION/chunked_direct_data.py",
+      "sha256": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9"
+    }
+  ],
+  "seed_specialization": {
+    "seed_substitutions": 3,
+    "all_other_training_ast_exact": true,
+    "original_globals_unchanged": true,
+    "ast_sha256": "f2c7a095200841e3be7f1af89e319ae43f481a6d8f668576e2f71ddd620ac75a"
+  }
+}

@@ -2,8 +2,8 @@
 
 **October 11 continuation:** the user replaced the five-second goal with an official
 leaderboard score of **225.00 or lower**, and authorized autonomous uploads.
-**v65 now scores 225.8994 officially**, leaving **0.8994 seconds**. It improves
-v64 by 6.8757 seconds and v58 by 10.2901 seconds. Rank 15/242 at 01:02 Amsterdam.
+**v69 now scores 225.3994 officially**, leaving **0.3994 seconds**. It improves
+v64 by 7.3757 seconds and v58 by 10.7901 seconds. v65 previously scored 225.8994.
 The old five-second objective is complete; the 225.00 objective remains active. The original objective and
 approval statements below describe the earlier phase; the new instructions take
 precedence. New experiment records live in `../runs/v3_20261011_target225/`.
@@ -11,6 +11,23 @@ precedence. New experiment records live in `../runs/v3_20261011_target225/`.
 A saved-prediction scan of Rome CatBoost shares 0.0–1.0 on v64 selects 0.6,
 but improves only 0.0118 CV seconds over 0.5. This is inconclusive development
 noise; the fixed half mixture stays unchanged, with no candidate or upload.
+
+**Physical single production result:** v66 scores **233.7954**, 1.0203 worse than
+v64. Its fixed three-member CV continuation improves **293.6566 → 292.8675**
+(−0.7891; interval [−1.1227, −0.5638]), with both months better. Saved-model
+reload checks pass for all six fold/member combinations. The laptop is fitting
+production members1042/2042, retaining completed42. Adding the single model to
+the scored affine basis projects225.7828; that file(v67) is retained without
+upload while another complementary component is evaluated.
+
+The remaining cost-weighted Rome calibration idea is now closed. Original
+unweighted R20 classifiers were fitted on inner training months, with all
+label histories rebuilt and frozen before three inner calibration months.
+A weighted-Brier temperature/bias fit in each flight-ID group worsens v64
+**293.6566 → 295.3301 (+1.6735)**, interval [+0.3921, +3.8614]; January +0.0549,
+July +3.2921. All v64 errors reproduce exactly. The analytic objective gradient
+matches central differences to below 8e−10. No full-year fit or upload follows;
+retain `../runs/v3_20261011_rome_cost_calibration/` without repeating the fits.
 
 The first October 11 screen adds fourteen fixed local-distance/motion transforms
 to the sparse-track encoder through a zero-initialized parallel stem. Original

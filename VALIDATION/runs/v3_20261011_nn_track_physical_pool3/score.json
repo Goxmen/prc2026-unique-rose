@@ -1,0 +1,90 @@
+{
+  "design": {
+    "parent": "v64",
+    "change": "replace original sparse3 with physical-scale sparse3",
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "reused_seed": 42,
+    "new_seeds": [
+      1042,
+      2042
+    ],
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "model": {
+      "features": [
+        "stand_near50m",
+        "stand_near200m",
+        "stand_near1000m",
+        "runway_near100m",
+        "runway_near500m",
+        "runway_near2000m",
+        "stand_log_distance",
+        "runway_log_distance",
+        "east_velocity",
+        "north_velocity",
+        "sampled_gap",
+        "sampled_pair_known",
+        "actual_clock_minute_scale",
+        "slow_speed"
+      ],
+      "stand_scales_m": [
+        50,
+        200,
+        1000
+      ],
+      "runway_scales_m": [
+        100,
+        500,
+        2000
+      ],
+      "velocity_scale_mps": 50,
+      "clock_scale_sec": 60,
+      "slow_speed_scale_kt": 5,
+      "initialization": "parallel linear stem zero; original encoder and RNG preserved",
+      "new_data": false,
+      "additional_dropout": 0
+    },
+    "training": "original sparse train AST with seed argument; constructor only replaced",
+    "neural": "equal calls15/physical3",
+    "network_share": 0.71,
+    "other_parts": "v64 unchanged",
+    "machine": "all physical seeds on desktop RTX3080",
+    "no_new_gate_or_weight_search": true,
+    "evaluation": "reused Jan/Jul development months; pool declared after k0 outcome"
+  },
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/identity.json",
+    "sha256": "4308fe0e70b2bc6c3ad226fd619465b00feaf312aac11b4f3d28f7615365ff62"
+  },
+  "scores": {
+    "v64": {
+      "2025-01": 327.4431534135344,
+      "2025-07": 259.87008278478027,
+      "cv": 293.6566180991573
+    },
+    "physical3": {
+      "2025-01": 326.8094692499064,
+      "2025-07": 258.9255682058296,
+      "cv": 292.867518727868
+    }
+  },
+  "paired": {
+    "change": -0.7890993712893248,
+    "ci95": [
+      -1.1227023384998263,
+      -0.563814476782715
+    ],
+    "decision": "improvement"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/scored.parquet",
+    "sha256": "1ceab3c2ce7919bdfef51ac8a821f1e00bb42e9a5c8b9b41f3f46eea8b8e091c"
+  },
+  "note": "Same-size pools, same desktop; reused development months."
+}

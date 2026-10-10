@@ -1,0 +1,52 @@
+{
+  "groups": {
+    "id_present": {
+      "theta": [
+        0.7881951702456047,
+        -0.025817773348663305
+      ],
+      "rows": 39802,
+      "effective_rows": 3008.8824415244762,
+      "positive": 8032,
+      "objective_before": 1017.5857219508237,
+      "objective_after": 1006.1086909479719,
+      "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+    },
+    "id_missing": {
+      "theta": [
+        0.9574297639371149,
+        0.11148333020129474
+      ],
+      "rows": 311,
+      "effective_rows": 194.65314767871828,
+      "positive": 144,
+      "objective_before": 35.22749599362196,
+      "objective_after": 35.0143693186829,
+      "status": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH"
+    }
+  },
+  "typical_sec": 1029.0,
+  "design": {
+    "parent": "v64",
+    "changed_part": "R20 half of Rome probability mixture",
+    "inner": "last three allowed training months held out together; departure histories rebuilt and frozen at inner training end",
+    "classifier": "original68 inputs, unweighted R20,1700 rounds,seed42",
+    "calibrator": "cost-weighted Brier; two parameters per supplied flight-ID group",
+    "cost": "clip(abs(schedule_gap-training_noncopy_median),300,10800)^2; mean-normalized within ID group",
+    "prior": 20.0,
+    "minimum_rows": 50,
+    "minimum_effective_rows": 30,
+    "inverse_temperature_bounds": [
+      0.5,
+      2.0
+    ],
+    "bias_bounds": [
+      -2.0,
+      2.0
+    ],
+    "no_epoch_or_hyperparameter_search": true,
+    "ordinary_and_catboost": "v64 unchanged",
+    "validation": "reused Jan/Jul development; held targets only in scoring",
+    "threads": 8
+  }
+}

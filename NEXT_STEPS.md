@@ -1,17 +1,17 @@
 # Next steps
 
-**Current status, 11 October 2026:** v65 is best at **225.8994 seconds**, improving
-v64 by **6.8757 seconds** and v58 by **10.2901 seconds**, on all 344,841 flights.
-Rank **15/242** at 01:02 Amsterdam. It uses signed ensemble weights selected from
-our own leaderboard scores. Jan/Jul CV **297.0247** regresses from v64's 293.6569;
-the official gain is specific to the scored population, not independent evidence.
-The active target is **225.00 or lower**, another **0.8994 seconds**. Autonomous
-uploads and both machines are authorized; one heavy job per machine.
+**Current status, 11 October 2026:** v69 is best at **225.3994 seconds**, another
+**0.3994 seconds** from the user's 225.00 target. It improves v65 by 0.5000 and
+v58 by 10.7901 seconds on 344,841 flights. Its signed ensemble weights use our
+own leaderboard scores; Jan/Jul CV 296.8197 remains worse than v64's 293.6569.
+Autonomous uploads and both machines are authorized; one heavy job per machine.
 
-The physical-scale raw-track encoder passes a single-member Jan/Jul screen.
-Three-member CV runs on the desktop and the first full-year member runs on the
-laptop. See the [research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md).
-New candidates require Jan/Jul CV; the older 16-fold validations stay unused.
+Physical-scale track pooling passed CV **292.8675 (−0.7891 versus v64)**. All six
+saved fold/member models pass reload audits. Full-year seed 42 is retained; the
+laptop is fitting 1042 and 2042. Honest inner-holdout Rome cost calibration
+failed (+1.6735 CV); no full-year fit or upload follows. See the
+[research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md).
+New candidates require Jan/Jul CV; older 16-fold validations stay unused.
 
 The table below preserves the September idea inventory and its original estimates.
 Its gains are combined-CV seconds against **row 43 (233.2338, uploaded as v40)**,

@@ -39,12 +39,14 @@ def main(manifests,version):
     for mp in map(Path,manifests):
         mp=mp.resolve();m=cv.ts.read(mp)
         assert m['state']=='scored' and m['official_result']['used_pairs']==344841
-        assert m['change']=='physical-scale sparse track encoder' and m['parent']=='v64'
+        assert m['change'] in ['physical-scale sparse track encoder','neural share assigned to callsign15'] and m['parent']=='v64'
         assert m['version'] not in versions
         for path,digest in m['sources'].items():assert sha256(ROOT/path)==digest,path
         p=ROOT/m['file'];assert sha256(p)==m['sha256']
         submitted=pd.read_parquet(p);np.testing.assert_array_equal(submitted.MVT_ID_mvt,ids)
-        cp=physical.OUT/physical.tag(m['members'])/'cv/result.json';cr=cv.ts.read(cp)
+        cp=(physical.OUT/physical.tag(m['members'])/'cv/result.json' if 'members' in m
+            else physical.verify(m['cv_record']))
+        cr=cv.ts.read(cp)
         cf=pd.read_parquet(physical.verify(cr['prediction'])).set_index('mvt_id')
         assert cf.index.is_unique and set(cf.index)==set(held.mvt_id)
         cf=cf.loc[held.mvt_id];np.testing.assert_array_equal(cf.y,held.y)
@@ -81,7 +83,7 @@ def main(manifests,version):
         caveat=original_cv['reconstruction_caveat'],selection='Leaderboard-conditioned; reused development months'))
     sources.update({str(p.relative_to(ROOT)):sha256(p) for p in [dest/'geometry.json',dest/'cv.json',dest/'cv.parquet']})
     write_json(dest/'manifest.json',dict(version=version,state='prepared',file=str(output.relative_to(ROOT)),
-        sha256=sha256(output),rows=len(ids),parent='v65',change='add physical-scale network directions to scored basis',
+        sha256=sha256(output),rows=len(ids),parent='v65',change='add separately scored neural components to scored basis',
         jan_jul_cv=candidate_cv,projected_rmse=result['projected_rmse'],
         output_rounding_rms_sec=rounding_rms,
         conservative_rmse_interval=[result['score_rounding_rmse_interval'][0]-rounding_rms,

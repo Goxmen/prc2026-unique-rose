@@ -1,0 +1,82 @@
+{
+  "version": 66,
+  "state": "scored",
+  "file": "submissions/unique-rose_v66.parquet",
+  "sha256": "63ad13a978bf1a87daddeccd0069b3d8a2046e7189659a5a8830abbed2a7534b",
+  "rows": 344841,
+  "members": [
+    0
+  ],
+  "jan_jul_cv": 293.3477206913829,
+  "rounded_cv": 293.34768378673266,
+  "parent": "v64",
+  "change": "physical-scale sparse track encoder",
+  "parent_replay_exact": true,
+  "authorization": "October11 user authorized autonomous uploads",
+  "sources": {
+    "VALIDATION/runs/v3_20261011_physical_candidate/single/cv/result.json": "66e96318e4c924b4e8dbd39e0060f84b1566768a389424f238ca1efd86d070a3",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/portable.json": "f35ee26e8c50e49229197d7ec2fa110ca3367f44e090805b605c874543f53cda",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/models/k0.pt": "b323098d58c5f57d924de1b14a1978c9ac5debfe4dc6b299ff8baa7e5206bb88",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/trained/k0.json": "1cc4373bc6dde44f604473c7b59e1d9a35aea51911b729b21b82e1bed0228d61",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/k0.json": "959b7cc31d72bffd6501bdd33c43487a91ee8a5e2ad5dcdc884fa30321274565",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/old_k0.parquet": "508f0650c5534741ea1ccf4c72f04870feebe668be45baf5bc87561aff0c905a",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/final_k0.parquet": "fcec6df931370b5254e14cbdf7f539c094e662500416a515d6c1b6104c198100",
+    "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/manifest.json": "41753e478d4a7e9f5cf5c2e458a4611730b9801cd271920dcd827b8fbb24e2a0",
+    "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/parts.parquet": "58e448492c642c576a8aa025c7d42b3275a452e94f35e2bb229b784f911b8d30",
+    "VALIDATION/runs/v3_20261010_sparse_callsign_submit/candidates/old/candidate.parquet": "2a596d95610b748b49a5da8803533f3e4bec50e3d919f92138b40b194b49f5b3",
+    "data/submitting.parquet": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+    "VALIDATION/runs/v3_20261008_final_submit/work/inputs_old.pkl": "22e91f3aee2a614aba8ee626de366fa1edb281a1a35a5f660d70664463cf9821",
+    "VALIDATION/runs/v3_20261008_final_submit/inputs_old.json": "c852474621502dd23a2d987dbbce63764853ebb587846eee45fd73452fa50c0f",
+    "VALIDATION/physical_candidate.py": "7cbf2c4674ff1d88a2f59115b1e7032e0d03aace0ac4a5203c2893855ce78b59",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_submit/audit_0.json": "30cd04bf8af9611bcf418e29018708df8883430adaa73b1f24ba3c828147de94",
+    "VALIDATION/tools/audit_physical_production.py": "83a7ed8a2c6a41ddabb2a6be4d902379b08a2a51a6619ca410d0f731e27bdf00"
+  },
+  "model_host": "laptop RTX5060",
+  "cv_host": "desktop RTX3080",
+  "correction_masks": {
+    "2026-01": {
+      "clock12": 0,
+      "clock2": 0,
+      "day": 1,
+      "rule_band": 12,
+      "rule_confidence": 1,
+      "twins": 5
+    },
+    "2026-07": {
+      "clock12": 1,
+      "clock2": 2,
+      "day": 4,
+      "rule_band": 20,
+      "rule_confidence": 0,
+      "twins": 11
+    }
+  },
+  "audit": {
+    "parent_raw_and_serialized_exact": true,
+    "schema_and_ids_exact": true,
+    "output_readback_exact": true
+  },
+  "parts": {
+    "path": "VALIDATION/runs/v3_20261011_physical_candidate/submission_v66/parts.parquet",
+    "sha256": "742ac3dd644f186c3d1b188c2f965f489a34da17765df1e119a12e50f622149c"
+  },
+  "production_audit": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/audit_0.json",
+    "sha256": "30cd04bf8af9611bcf418e29018708df8883430adaa73b1f24ba3c828147de94"
+  },
+  "uploaded_at": "2026-10-10T23:19:24+00:00",
+  "remote_sha256": "63ad13a978bf1a87daddeccd0069b3d8a2046e7189659a5a8830abbed2a7534b",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v66.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 233.7954
+  },
+  "checked_at": "2026-10-10T23:20:01+00:00",
+  "score": 233.7954
+}

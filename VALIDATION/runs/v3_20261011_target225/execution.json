@@ -1,27 +1,30 @@
 {
-  "updated_at": "2026-10-10T23:09:08.537207+00:00",
+  "updated_at": "2026-10-10T23:29:00Z",
   "goal": "OfficialRMSE<=225",
   "best": {
-    "version": 65,
-    "score": 225.8994,
+    "version": 69,
+    "score": 225.3994,
     "rank": 15,
     "scoring_teams": 242
   },
   "desktop": {
-    "job": "physical_pool3 fixed CV",
-    "session": 6425,
-    "log": "tmp/research_20261011/physical_pool3_fit.log",
-    "next": "score then saved-model audit then pool CV replay"
+    "job": "idle; weighted calibration completed and rejected",
+    "cv_change": 1.6734841185848381
   },
   "laptop": {
-    "job": "physical production seed42",
-    "pid": 15448,
-    "log": "tmp/research_20261011/physical_production_k0.log",
-    "next": "verify completed model, return retained small artifacts, build v66"
+    "job": "Production physical members1042/2042",
+    "log": "tmp/research_20261011/physical_production_k1_k2.log",
+    "completed_member0": true,
+    "pid": 16450,
+    "session": 2949
   },
   "pending": {
-    "v66": "physical single prepared after production finishes; no upload yet",
-    "affine": "extend with new physical model official score; prepared runner"
+    "v66": "Scored233.7954, worse than v64",
+    "v67": "Not selected; projected225.7828",
+    "v68": "Scored234.7131",
+    "v69": "Official225.3994; best",
+    "physical_pool3": "Full-year members1/2 running; CVpassed; build only after completion and audit"
   },
-  "agents": "allthree unavailable due allowance; no bypass attempted"
+  "agents": "allthree unavailable due allowance; no bypass attempted",
+  "upload_quota": "Five used October10UTC; wait to00:00UTC/02:00Amsterdam"
 }

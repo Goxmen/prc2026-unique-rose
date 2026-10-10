@@ -1,0 +1,42 @@
+{
+  "members": [
+    0,
+    1,
+    2
+  ],
+  "scores": {
+    "2025-01": 326.8094692499064,
+    "2025-07": 258.9255682058296
+  },
+  "cv": 292.867518727868,
+  "rounded_cv": 292.8677166942557,
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_physical_candidate/pool3/cv/predictions.parquet",
+    "sha256": "d037778ff0c95be7dc7980dfadc67c64dc34bd441b3d016e77c67c07d124c9ad"
+  },
+  "sources": {
+    "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-01_s42.json": "618dc1053b75db5270046d8c99d26304b45867fd846758dfde4646bb3238811b",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/networks/2025-01_k1.json": "bf8560e941ee7aa25d77ce68ca4ca7709328a3bc4f4f90c93332563839c9d8c1",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/networks/2025-01_k2.json": "1a821b67512c9a3e1f14ecb4e583101f91de833e43db65cbe2d500b76b65e121",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-07_s42.json": "e56df70ffb9be8d8b3a64ea81789a2dc75b02a323274375837d40a24744279db",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/networks/2025-07_k1.json": "ccdac1980336b9dd434b9a95d6a8ee9ad78b27f00b2a960dd4249fe45ccd20da",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/networks/2025-07_k2.json": "7c8b2e16c9c24478f5173442d43a68bb6df1acdd9f77efeaf5c1f8bbb091b70e",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-01_s42.parquet": "325e16a9d3ce4272fa27424d7a60fc96ba2db7545c2a1572eabadd587d999c2f",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/networks/2025-01_k1.parquet": "be0fceca1fbf60eb8f0c8f491377560ef4db531f0fd14cc38bb02af624cb9034",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/networks/2025-01_k2.parquet": "8747c2ce3151786c84c6a9c82868fe738956fddd2ea681403406cdc2b1a8494c",
+    "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/scored_g42_142_242_k0_1_2_3_4.parquet": "d728e72082513c35a98a12d4ee4ac7b60a2c16912eccb514f8e345c16bbd5245",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.parquet": "052e80acc3097ff04968a4774c8edad4e24cbdbd7637203c019342227ff73e9f",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-07_s42.parquet": "f12392f47d049637d8b7c2d822165ac07b4e1902b45d2e7892e1e1a7574e9318",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/networks/2025-07_k1.parquet": "fd239d154827aa37b0694c81b91122429b37b937cbf4ed6375bfa381992122f2",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/networks/2025-07_k2.parquet": "81f173a54cef70db2438bd4dcaf15edf870d8f26f3af9c725a0344788b8dee9c",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.parquet": "aacb44cd2441070c4bf1731992a184eb8987b1fa3c55b5299693dcdd272e6ee8",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/score.json": "320531131bf81acb1ea0d4ced5963590c9f564fdbcbb6c60402e2d308c333e33",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/audit.json": "a165981e5986f306ab50cd3f89a5dd503e932603cfb0b7ac0698d028c62fa6a4",
+    "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/scored.parquet": "1ceab3c2ce7919bdfef51ac8a821f1e00bb42e9a5c8b9b41f3f46eea8b8e091c"
+  },
+  "source": {
+    "path": "VALIDATION/physical_candidate.py",
+    "sha256": "7cbf2c4674ff1d88a2f59115b1e7032e0d03aace0ac4a5203c2893855ce78b59"
+  },
+  "note": "Existing current-fold predictions; reused development months; all final squared errors reproduce exactly."
+}
