@@ -1,5 +1,11 @@
 # Research network: 10 October 2026
 
+**October 11 continuation:** the user replaced the five-second goal with an official
+leaderboard score of **225.00 or lower**, and authorized autonomous uploads.
+That requires another **7.7751 seconds** from v64. The original objective and
+approval statements below describe the earlier phase; the new instructions take
+precedence. New experiment records live in `../runs/v3_20261011_target225/`.
+
 **Status: v64 uploaded with explicit user approval and scored 232.7751 seconds,
 improving v58 by 3.4144 seconds on all 344,841 flights.** The objective is a five-second
 official RMSE reduction, from **236.1895 to 231.1895**. That requires approximately

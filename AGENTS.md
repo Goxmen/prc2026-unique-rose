@@ -23,6 +23,15 @@ local environment so a fresh agent session can work without rediscovery.
 
 ## Submissions
 
+**Current user authorization (11 October 2026): uploads are autonomous.** The user
+said "forget the rule of asking approval for uploads. You are free to submit to
+leaderboard as you please". This supersedes every older upload-approval requirement
+below and in historical run guards. Prepare, validate, upload once, verify the
+remote hash, and record the official result without asking again. Keep old approval
+records as history. The active target is **225.00 seconds or lower on the official
+leaderboard**, replacing the five-second improvement target. Desktop and laptop
+training are authorized, with one heavy job per machine.
+
 **User rule: keep experimental bookkeeping out of `SUBMISSIONS.md`.** List actual
 submissions and distinct, selected candidates with meaningful validation evidence.
 Do not add control replays, duplicate predictions, inactive gates, failed experiments,
@@ -104,6 +113,14 @@ Training can be split between gunes's desktop and laptop. Agents drive both from
 CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than on the 3080 while it shared the desktop with LightGBM jobs (55–65 min per fit).
 
 ## Current improvement work — handoff
+
+- **October 11: user raised the target to 225.00 or lower and authorized autonomous uploads.**
+  Starting best is v64 at 232.7751; the remaining reduction is 7.7751 seconds.
+  Continue from completed artifacts; research state is recorded in
+  `VALIDATION/runs/v3_20261011_target225/`. Existing subagents still report an account
+  usage limit; root continues executable work on both machines. The goal API cannot
+  edit objective text or replace an unfinished goal; do not falsely mark the old
+  five-second goal complete to replace it. The user's new target governs the work.
 
 - **October 11: v64 uploaded and scored 232.7751, the new official best.**
   The user explicitly said "go ahead and upload" for the audited v64 file.

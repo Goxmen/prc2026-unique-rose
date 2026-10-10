@@ -12,7 +12,8 @@ On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
 **Best and latest submission: v64, 232.7751 s**, improving v58 by **3.4144 s**.
 Live check **2026-10-11 00:02 Amsterdam time**: rank **20/242** scoring teams; all **344,841** flights scored.
-Jan/Jul CV is **293.6566**. The five-second improvement target, **231.1895**, remains **1.5856 s** away.
+Jan/Jul CV is **293.6566**. The user's new target is **225.00 or lower**, another **7.7751 s**.
+On 11 October the user authorized autonomous uploads, superseding older approval requirements.
 [Submission record](VALIDATION/runs/v3_20261010_sparse_callsign_submit/submission_v64/submission_v64.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have

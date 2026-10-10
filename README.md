@@ -29,8 +29,8 @@ Predict the **taxi-out time** (`TAXITIME_SEC_mvt`, in seconds) of departing flig
 - Submissions are scored by **Root Mean Square Error (RMSE)** on predicted
   taxi-out times for the accepted evaluation population. Historical scores
   through v61 use the 344,841 original January/July departures.
-- A team's rank is its **best RMSE across its scored submissions**. Our team
-  requires explicit user approval before each upload.
+- A team's rank is its **best RMSE across its scored submissions**. The user
+  authorized autonomous uploads on 11 October; the current target is **225.00 or lower**.
 - Leaderboard REST API: `https://datacomp.opensky-network.org/api/competitions/bb3693e1-26bc-4a9e-8619-4fe78b4eab0c/leaderboard` (paginate via `nextCursor`; Swagger docs at `https://datacomp.opensky-network.org/api/swagger-ui/`).
 
 ### Timeline & prizes

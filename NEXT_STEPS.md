@@ -5,7 +5,9 @@
 The raw-track, callsign and Rome ensemble scores **293.6566 Jan/Jul CV**,
 2.0729 seconds below its matched control. The user approved the upload; the remote
 file hash matches the audited candidate. Rank **20/242** at 00:02 Amsterdam.
-The five-second goal still needs **1.5856 seconds**. Further uploads require fresh approval.
+The user raised the goal to **225.00 or lower** on 11 October, requiring another
+**7.7751 seconds**, and authorized autonomous uploads. Older approval requirements
+in historical reports are superseded.
 See the [current research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md)
 for completed experiments, rejected ideas, remaining leads and transfer caveats.
 New candidates require Jan/Jul CV; the older 16-fold validations are not run by default.
