@@ -16,7 +16,7 @@ sys.path[:0]=[str(ROOT/'VALIDATION'),str(ROOT/'pipeline')]
 import seasonal
 import tuning_seasonal as ts
 from movement_data import load_phase
-from common import connect
+from common import connect, TRAIN_GLOB
 from records import sha256,write_json,runtime_identity
 OUT=ROOT/'VALIDATION/runs/v3_20261011_legacy_basic_jan_jul'
 
@@ -39,7 +39,7 @@ def main():
     progress=json.loads((OUT/'progress.json').read_text()) if (OUT/'progress.json').exists() else dict(models={},predictions={})
     seasonal.check_artifacts(OUT,progress)
     backend=seasonal.load_backend(blob,OUT)
-    con=connect();dep=load_phase(con,'DEP');arr=load_phase(con,'ARR');con.close()
+    con=connect();dep=load_phase(con,TRAIN_GLOB,'DEP');arr=load_phase(con,TRAIN_GLOB,'ARR');con.close()
     with seasonal.run_lock(OUT):
         for job in jobs:
             month=job['val'][0]

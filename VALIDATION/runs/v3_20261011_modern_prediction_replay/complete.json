@@ -1,0 +1,217 @@
+{
+  "source_sha256": "c9a33a964268293a274a306a4915140943e8f847328f32ba980377342e5a34f6",
+  "scores": {
+    "44": {
+      "2025-01": 339.1200251527022,
+      "2025-07": 289.4331400726732,
+      "cv": 314.2765826126877
+    },
+    "45": {
+      "2025-01": 333.6903658868638,
+      "2025-07": 273.9084947976705,
+      "cv": 303.79943034226716
+    },
+    "46": {
+      "2025-01": 333.6736638123404,
+      "2025-07": 273.80057395548187,
+      "cv": 303.73711888391114
+    },
+    "47": {
+      "2025-01": 333.0550788953953,
+      "2025-07": 272.0597590815538,
+      "cv": 302.5574189884745
+    },
+    "48": {
+      "2025-01": 329.8647103300475,
+      "2025-07": 270.24089280020735,
+      "cv": 300.0528015651274
+    },
+    "49": {
+      "2025-01": 330.90644573403176,
+      "2025-07": 270.8080995154121,
+      "cv": 300.85727262472193
+    },
+    "50": {
+      "2025-01": 329.4318546835135,
+      "2025-07": 269.6543759297423,
+      "cv": 299.5431153066279
+    },
+    "51": {
+      "2025-01": 328.63635849124506,
+      "2025-07": 267.81522119149963,
+      "cv": 298.2257898413724
+    },
+    "53": {
+      "2025-01": 328.5618890913831,
+      "2025-07": 263.2374324697895,
+      "cv": 295.89966078058626
+    },
+    "54": {
+      "2025-01": 328.12305015764565,
+      "2025-07": 262.5648362329976,
+      "cv": 295.34394319532163
+    },
+    "57": {
+      "2025-01": 327.9532388283042,
+      "2025-07": 262.28634604489866,
+      "cv": 295.1197924366014
+    },
+    "58": {
+      "2025-01": 328.4316664067627,
+      "2025-07": 263.0285858055726,
+      "cv": 295.73012610616763
+    },
+    "56": {
+      "2025-01": 327.69955790179887,
+      "2025-07": 261.3698061385559,
+      "cv": 294.53468202017734
+    },
+    "60": {
+      "2025-01": 328.3131913170437,
+      "2025-07": 262.2281696817702,
+      "cv": 295.2706804994069
+    },
+    "61": {
+      "2025-01": 330.3374938965997,
+      "2025-07": 263.31531706845476,
+      "cv": 296.8264054825272
+    },
+    "64": {
+      "2025-01": 327.4431534135344,
+      "2025-07": 259.87008278478027,
+      "cv": 293.6566180991573
+    }
+  },
+  "parts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_modern_prediction_replay/2025-01.parquet",
+      "sha256": "a7917f627eeb009abb644797c32c7384534e35e5c921dd3d60cb36d4c157b976",
+      "rows": 153706
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_modern_prediction_replay/2025-07.parquet",
+      "sha256": "639e0abda0897f108c4c37c619c02d4af2ce84430a2153fea6582a8a4fda482f",
+      "rows": 190713
+    }
+  ],
+  "inputs": {
+    "data/training_2025-01-01_2025-02-01.parquet": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94",
+    "data/training_2025-02-01_2025-03-01.parquet": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066",
+    "data/training_2025-03-01_2025-04-01.parquet": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3",
+    "data/training_2025-04-01_2025-05-01.parquet": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390",
+    "data/training_2025-05-01_2025-06-01.parquet": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9",
+    "data/training_2025-06-01_2025-07-01.parquet": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025",
+    "data/training_2025-07-01_2025-08-01.parquet": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d",
+    "data/training_2025-08-01_2025-09-01.parquet": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540",
+    "data/training_2025-09-01_2025-10-01.parquet": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a",
+    "data/training_2025-10-01_2025-11-01.parquet": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f",
+    "data/training_2025-11-01_2025-12-01.parquet": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0",
+    "data/training_2025-12-01_2026-01-01.parquet": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724",
+    "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-01/heldout.pkl": "b752b58bc34ff04fc4dd22be6c0b1e2540753abe73bb631f61100bba3b96e961",
+    "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-01/meta.json": "30535016524deb215ce932d45ac850c8f3ab2110d189b6bf141f4723f396e3ec",
+    "VALIDATION/runs/v3_20261002_adsblol_jan_jul/predictions/control_seed42.parquet": "f44a6b7bdca3b3fe8706a3e381f72edf2d80d32993176805931eefae38e850fb",
+    "VALIDATION/runs/v3_20261002_adsblol_jan_jul/predictions/cov_seed42.parquet": "9110b19216892666ca4b78f2a4cf633d2c096aab87e072ae2dd9736ab3366d7b",
+    "VALIDATION/runs/v3_20261002_adsblol_jan_jul/predictions/stand_seed42.parquet": "98f7b919b7b9650204d265365019b8d559c42f9ab8e2e47ec3c4ac7504d4b757",
+    "VALIDATION/runs/v3_20261002_nn_v46_jan_jul/predictions/nn_seeds42_142_242.parquet": "429d36c3b04bdd05b51a01e7058a01a76b2f5401775bf1d7c01a190a71a41842",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s42_k0.parquet": "e2c0fa6b422a8d3b19ccf8464d8a393cac28c706911e0d6cf06c9484feaa5bbb",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s42_k1.parquet": "ce5775dd02e9b1cc20f65ec34077c2f29a9643d92e79303460f303775846c3ac",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s42_k2.parquet": "3589ff9017871f2eed5e634ea369ff267b4c91dd82bf61ef370234f9c22f790f",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s42_k3.parquet": "0cb37d9c1d5d012f8e923be45282b8cf44aeaf8e80180dabadeba35c56dc3016",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s42_k4.parquet": "3fc0a664c4770d46498daf1fce3326c009ebbd5346dba2d366adcace61e82f7a",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s142_k0.parquet": "1a0438d88d11a47b81273391d8c8d292d09bad0c99655eb9cbd544d7a17458d7",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s142_k1.parquet": "54646f7a30b437038b494f804509a6787320cc0a13551a2d925a771c359a2919",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s142_k2.parquet": "6bd4a622e38e16b88454ac65769132659d030963a7d28c0e79e4134684073d44",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s142_k3.parquet": "e2a572d10f399c69800627c1689742111c204b32bbb42b5281dee01691b07b38",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s142_k4.parquet": "7c912b06dc942c99207b7d26ea1be6fe23ff035fcdafaa1b3f58f4ac78d4127b",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s242_k0.parquet": "66fc92e94b53e5fbc42a0c3ef38804ded6476c7fe9d9ce9760acca77ac88e9e2",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s242_k1.parquet": "6c0d8ff9f43e63c17137d3aa30235918d9ca6369690381e5443032e799ceb24d",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s242_k2.parquet": "31bd447b11d6a4c724a65c2e764c18224f7093d78c249a3c6c2310375429ed83",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s242_k3.parquet": "5947ec7b467a2e7e9d96cc7b5311f537285760a67573702576fe96611f1ec872",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-01_s242_k4.parquet": "e169d0a7c31f273e0c11fe825c16a0943d50368ac60fac15bc363da14f05c38b",
+    "VALIDATION/runs/v3_20261006_rome_cost_jan_jul/predictions/F_s42.parquet": "52cba4794ad7c61c820c0a55e58be604792b47efba54b9ab589809c9ede1fc65",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/predictions/rome_2025-01_s42.parquet": "6abac3fef9c51383070679e8550f3c4a909bbd87d158e6c68e3af9814800f91d",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/predictions/2025-01_s42.parquet": "33d68e3dbccf9830ce73a80de0ac24d533e016a9e9193da56c726774745100c6",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/predictions/airport_2025-01_s42.parquet": "105b4c6721f2e7b7b30ebd389adeedd0011af2861aa2d1ca97174b0873b10861",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/predictions/catboost_2025-01_s42.parquet": "d0bcd772adae934ad887831b1435f9a259a9b7e36792dc42e03644ac6967c4d0",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s42_k0.parquet": "f4853258a21423b4af29b815e60ff0405ca7d9fe8caec3b380c69dab3d9118b0",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s42_k1.parquet": "a4a4485b93b785dbc6a8a807ed6ebf60f5dfa3585ed8c3ac9222365e7e525bb9",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s42_k2.parquet": "c9bb9982eae2443c0baeb7bbd08751a3ac429eb2efdca662dddca86ef0466a6f",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s42_k3.parquet": "2d1c8c336cd0a429ea71b31ef5d4a5a8168aec2797ffcc731c2523f5b9bd2f68",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s42_k4.parquet": "4fe6dd6ba4b48cbdfcd160ae94dfed0994d7c1fcba185fb4edf5eb1cd38a0bfa",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s142_k0.parquet": "eb910f318339daaaf2112b248351788d7265fbb91190296ec39131f42e531d11",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s142_k1.parquet": "9f48d300ef1da305bb9f0e4fabbcecfa69c7352b33531b62b77e0c631eca14dd",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s142_k2.parquet": "bf9d64e773b16dbc1fb5daa33f1ab4283a52abd41b42f7694780e43d451bd876",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s142_k3.parquet": "a36fcee5d036c93527cf312a5442b363730f2da8e8247dfac80620751979c2b6",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s142_k4.parquet": "910ef15d0b0b1058adfee01beead37ea54afd102437618878567ad6eb21e1c51",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s242_k0.parquet": "de8ad98b34d1c91056d93978686f828320fdc5ae1db87213d7308464a47f5b34",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s242_k1.parquet": "5306bc757046132d05e6e0381a0355bc2d28a58aa1098a640174a81b208529be",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s242_k2.parquet": "29486d3ea0fa18ccf3c268e91ae1dceffc3f09a986d585ec67e015f6650a5fc9",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s242_k3.parquet": "8686f9f44d18906cde177774fd403f09c29da5db3eec338f82af5feaed1e0bbd",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-01_s242_k4.parquet": "c9adb9885eef222e2c6c367875e104449345b943f8c8b5b27c160064b538833c",
+    "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/scored_g42_142_242_k0_1_2_3_4.parquet": "d728e72082513c35a98a12d4ee4ac7b60a2c16912eccb514f8e345c16bbd5245",
+    "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/scored_pool3.parquet": "da0aef1c753f488280c78353429233284f00fd5a1cbd2507c80d081c788cd55f",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.parquet": "052e80acc3097ff04968a4774c8edad4e24cbdbd7637203c019342227ff73e9f",
+    "VALIDATION/runs/v3_20261010_sparse_track_combo_score/scored_errors.parquet": "4bd61faa57a30a7abe011f46ed4a2ebfc9b74d2ff1c17158fb61db9bd7428e1b",
+    "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-07/heldout.pkl": "b6a9db11204eb302d4f66bddb1e1d62d9268f63625d0d858c880355d88bef70a",
+    "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-07/meta.json": "96b3f254aa64241167601fcd54f83c114f46382bba21e2c775be86cd5f78f527",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s42_k0.parquet": "8f31ee7d6e9dd6412fbf589e59e5b2ad60f396d076119a3c2d7b68ebf51e391c",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s42_k1.parquet": "a22b8533eaf5849e3cb8f1c39176eb8d5f31e69d1c6f3a70fabd7ebc9463d1d2",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s42_k2.parquet": "2d908ab5f747b102184b99dd779fa2fde0d905f80ab806fcf8e8cdae80fb2c6a",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s42_k3.parquet": "58a23225f1d6403da5445b39555c02e2333eac5a453750cac413115e221b7f2c",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s42_k4.parquet": "ebad5b6305ad970aeacdf23188de3a14b90e195cb540a02238e24c35b2df6c5a",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s142_k0.parquet": "09bf42aa0ec82ae45714d211df5721daf0509bce4af85c0c8bb6e47e5ce8f5c9",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s142_k1.parquet": "f62d4980b8f123469527fe553b068f2468980763b04540b9c803fbc2c719260d",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s142_k2.parquet": "5f176bb725c5050ba23e76f4731a218d1c8612dba9944c3ca79966b5e9adc6ca",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s142_k3.parquet": "7db29f3f816c410ed39ddc0f93d278516ffacb1eb64bf52b23d2d2ec5f6f07fc",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s142_k4.parquet": "1d148a909440a7b9e00ea3099144d849c73496a517c9f96848cb6dc63de970cb",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s242_k0.parquet": "3276f5805279aba6abb6103e09cd1a03352757c34685d3368da59fb2b9bfbd88",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s242_k1.parquet": "54559ae5c9f4dc097a837fcdf327b0ca8903a600e1828904c888cdde5b0a0e8b",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s242_k2.parquet": "120c9a27aa749f3b73aa936666b13bc7a63103f85735d824d279a6e452c54311",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s242_k3.parquet": "e4064d9d63e34d9ad746c0fc0721bebd6fee5a5afcfa50f77af1721f851f07b1",
+    "VALIDATION/runs/v3_20261003_nn_improve_jan_jul/networks/ple_2025-07_s242_k4.parquet": "7ca13fbe17f567ae72b4780834ede5786fc1795e6ab05f6eb316d2bf2ec9cbd5",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/predictions/rome_2025-07_s42.parquet": "0e5010c0439b89221e60cdf57610555ac7441e48bf1a2d0e9ac0f4eed6af2f88",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/predictions/2025-07_s42.parquet": "7ba400b9d3511a4057750d6ba9f7f1477f59353069600c788c11c0d64c67c574",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/predictions/airport_2025-07_s42.parquet": "1ff87eb64495d85c504575ec19c15ff2632c4fe858d36653e0d56fcfd4ba830f",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/predictions/catboost_2025-07_s42.parquet": "a4312483030d17f734180c6eff110305f9fdd13e88e595121e8d86d9308abbd4",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s42_k0.parquet": "8c364d332910bc0e6483d9da8dc4a201c300c26686be3642fabe1d5543396d4b",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s42_k1.parquet": "1364b8b0d1240fb83de971cdedf2a31727c956038c0cc30383103bc0e8fea9a3",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s42_k2.parquet": "d37f956216a063d9e96deaa2e8b96bf7fa5a60cdd44f6fe517fcb24d97d35ebc",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s42_k3.parquet": "27ff60e740c97e38ff35b762be6a3bca93c28ffcd0b2cbc74dac31a9e6b123b0",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s42_k4.parquet": "cfdfe6462005ac2ccf37557661bcb545272ef4e1c7b7a6292b99c8262e156ee5",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s142_k0.parquet": "7412cc058621a52a2336265a2a66d629dcd92d56654f6806d75e6e6528a65e4e",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s142_k1.parquet": "43a140504cbb22b8edb63d5f09a6cab8219610c0c48ad7de897cb2f34eef05c3",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s142_k2.parquet": "4efc7a7568d5a58c424fdd3d55fe9653e9f4e369cd13143f0c295947c8e2bfd4",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s142_k3.parquet": "fa46d3ef68bf5ef12d367df39608f08c66a5c1a72b4063bc7d22e2bc901aa984",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s142_k4.parquet": "b8526a1265b5bd04de95d32c2382bb7399c5065babbbf9147f7d9c5c57cf802e",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s242_k0.parquet": "eaaaab71f0b40373353e34ac6b4656968b8d5b5e4331584efcf24948d25b782d",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s242_k1.parquet": "5a93bb58cec4fc286e225dd9e5c41398a0a0fa433f83236857d107384312fe27",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s242_k2.parquet": "8e0675c23bb06a8ca66f7c02f8afbfc09b3b75b1ba4109c57f0e6e93ba2650ce",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s242_k3.parquet": "530cf975f82e47224f08ac6d2ed2c149e5e187d8cfc3f788be33d849acbedca0",
+    "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/networks/2025-07_s242_k4.parquet": "ea0e21cc3fd842414c67c0456801305927c5c9fc1555c1a22cf777c44b129c7f",
+    "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.parquet": "aacb44cd2441070c4bf1731992a184eb8987b1fa3c55b5299693dcdd272e6ee8"
+  },
+  "folds": {
+    "2025-01": [
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11"
+    ],
+    "2025-07": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ]
+  },
+  "tree_seed": 42,
+  "note": "Existing predictions replayed; reused development months; no fitting."
+}

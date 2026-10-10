@@ -22,13 +22,22 @@
       "name": "track_physical_scales",
       "purpose": "Give raw track encoder distance and velocity features at apron/runway scales; preserve original branch initialization and compare matched single models plus actual v64",
       "machine": "desktop",
-      "status": "design"
+      "status": "single seed completed and audited; CV 293.3477206913829 versus v64 293.6566180991573; fixed three-member continuation prepared"
     },
     {
       "name": "rome_cost_calibration",
       "purpose": "Assess feasibility of honest inner predictions and calibration for downstream squared error; avoid repeating failed cost-weighted classifier or unweighted Platt tests",
       "machine": "laptop",
-      "status": "feasibility; no fit yet"
+      "status": "deferred; laptop allocated to required legacy-fold fits"
     }
-  ]
+  ],
+  "validation_reconstruction": {
+    "basic": "four fits complete on laptop; returned prediction hashes verified",
+    "raw": "running on laptop",
+    "hybrid": "running on desktop",
+    "modern": "saved predictions replayed; v64 errors exact",
+    "basis": "geometry/validation_ready_basis.json",
+    "projected_rmse": 225.89945650938415,
+    "official_score": false
+  }
 }

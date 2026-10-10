@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "reviewer": "root; separate reload and arithmetic, not independent development data",
+  "heldout_rows": 344419,
+  "checks": [
+    {
+      "month": "2025-01",
+      "reload_rows": 548,
+      "raw_scalar_checks": 32,
+      "max_prediction_difference_sec": 0.0024909927892622363
+    },
+    {
+      "month": "2025-07",
+      "reload_rows": 546,
+      "raw_scalar_checks": 32,
+      "max_prediction_difference_sec": 0.0004052703375236888
+    }
+  ],
+  "score": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/score.json",
+    "sha256": "815120744c2a05e1a0f76fbeebfbbc9ff2cfda2c1ece5acbd9743e215dbef466"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_track_physical_scales.py",
+    "sha256": "439c917d3c6f009c2eef12c04d53c705d3c5c6a8aa7173d41e3155fba3ea5c99"
+  },
+  "finite_saved_predictions": true
+}

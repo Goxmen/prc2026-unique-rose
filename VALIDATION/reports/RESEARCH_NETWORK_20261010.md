@@ -6,6 +6,31 @@ That requires another **7.7751 seconds** from v64. The original objective and
 approval statements below describe the earlier phase; the new instructions take
 precedence. New experiment records live in `../runs/v3_20261011_target225/`.
 
+The first October 11 screen adds fourteen fixed local-distance/motion transforms
+to the sparse-track encoder through a zero-initialized parallel stem. Original
+weights, preprocessing, dropout RNG, epochs and missing-track gates are preserved.
+On the selected stack, the single physical-scale member scores **293.3477** versus
+**293.9425** for the matched original single member (−0.5947; paired-day interval
+[−0.8729, −0.3590]) and **293.6566** for actual v64 (−0.3089; interval
+[−0.5841, −0.0965]). Both months improve. The latter comparison has different
+track-pool sizes; a fixed three-member continuation is prepared. These are reused
+development months. The scalar transform audit checks 29,624 values; saved-model
+reload checks cover 1,094 held rows, and all v64 row errors reproduce exactly.
+Results: `../runs/v3_20261011_nn_track_physical_scales_jan_jul/`.
+
+A separate algebraic diagnostic uses our own already-scored integer predictions
+and aggregate RMSE values. Squared-error geometry identifies the score of any
+affine combination before final rounding. This is explicit **leaderboard-based
+selection**, not independent validation or hidden-label access. A basis excluding
+the date-specific probes, nearest-row experiment and unavailable completed
+v39–v42 validation artifacts projects **225.8995**. It has not been submitted.
+Current-fold legacy fits run sequentially on the laptop/desktop; saved modern
+predictions are replayed. No old ledger rows are backfilled. The exact v3–v9
+historical source blob is absent; an archived original27 implementation and the
+recorded feature/parameter contracts are used, with that limitation retained in
+the reconstruction identity. The three research subagents remain unavailable
+because their account allowance is exhausted; root performs these checks.
+
 **Status: v64 uploaded with explicit user approval and scored 232.7751 seconds,
 improving v58 by 3.4144 seconds on all 344,841 flights.** The objective is a five-second
 official RMSE reduction, from **236.1895 to 231.1895**. That requires approximately

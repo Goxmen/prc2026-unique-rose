@@ -1,0 +1,87 @@
+{
+  "source": {
+    "path": "VALIDATION/legacy_hybrid_jan_jul.py",
+    "sha256": "4540544805d40ce2c991728b949e4ee843b6de59d91c716464ea05c11415b8a4"
+  },
+  "helpers": {
+    "VALIDATION/tuning_seasonal.py": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3",
+    "VALIDATION/hpo_jan_jul.py": "89638bacf1033b3fb796d0ddee94bbd35b3ac28d3e501d07a2e4a37a7371ed49",
+    "VALIDATION/rome_signals.py": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7",
+    "VALIDATION/rome_hybrid.py": "27bfe7e0b16cd1b64e4571f063fd6fa0b4fb74ea99c335012c4723947db2fb23",
+    "VALIDATION/rome_hybrid_submit.py": "f11fdb2e2a49be839e1d0c664fc327124de87c36668c3aadaf5d911d50596db0",
+    "VALIDATION/stand_day_run.py": "90c57bb9fc420439e84fc33916bf57183fe25c99c7a405b04834466cb8d7a1f7",
+    "VALIDATION/artifact_submit.py": "c902b469c386335f30f83de59a10447d3fc82397f70b2d5b6caad60c37b3ad8c",
+    "VALIDATION/dayshift_hedge.py": "6fcad559a74b522a61ae5b1c1793c8d757fe82cc2839cd1c21b978f685c173f2"
+  },
+  "inputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-01/before_drop.pkl",
+      "sha256": "d14ad5ed20598d28021865442c9118270b80cfc7bb950e68d1bc0183e07f0233"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-01/heldout.pkl",
+      "sha256": "b752b58bc34ff04fc4dd22be6c0b1e2540753abe73bb631f61100bba3b96e961"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-01/meta.json",
+      "sha256": "30535016524deb215ce932d45ac850c8f3ab2110d189b6bf141f4723f396e3ec"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-01/control.parquet",
+      "sha256": "b5748e34e7b8a201ae6c70dd489185f6d93bca089b4e75f576076ec6ff7a62f4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-07/before_drop.pkl",
+      "sha256": "e705c4fdf40f82e18bd64862bcd61fc71eb047a3e330514dcd2f9286bede2b8c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-07/heldout.pkl",
+      "sha256": "b6a9db11204eb302d4f66bddb1e1d62d9268f63625d0d858c880355d88bef70a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-07/meta.json",
+      "sha256": "96b3f254aa64241167601fcd54f83c114f46382bba21e2c775be86cd5f78f527"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_jan_jul/splits/2025-07/control.parquet",
+      "sha256": "acd633fa0aa8da02d2424f9b7b21e84ae4ce5d9e47621cb46ccce87e34ec7fcc"
+    }
+  ],
+  "folds": {
+    "2025-01": [
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11"
+    ],
+    "2025-07": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ]
+  },
+  "versions": [
+    26,
+    27,
+    28,
+    29,
+    30,
+    33,
+    34,
+    37,
+    38,
+    43
+  ],
+  "seed": 42,
+  "threads": 6,
+  "host": "GPC"
+}
