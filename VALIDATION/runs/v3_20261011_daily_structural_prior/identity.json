@@ -1,0 +1,94 @@
+{
+  "design": {
+    "parent": "serialized v70",
+    "matched_control": "retained full daily posterior on serialized v70",
+    "change": "Rome long-flight conditional support from saved ordinary/copy endpoints",
+    "fixed_copy": "equal endpoints at schedule gap use a point mass at the unchanged incoming prediction",
+    "long_threshold": 3600,
+    "copy_tolerance": 60,
+    "denominator_floor": 1e-08,
+    "likelihood": {
+      "parent": "v71",
+      "ordinary_sigma": 150.0,
+      "common_day_sigma": 15.0,
+      "long_threshold": 3600.0,
+      "copy_airport": "LIRF",
+      "copy_threshold": 3600.0,
+      "copy_max_gap": 50400.0,
+      "noise_floor": 60.0,
+      "mismatch_scale_floor": 600.0,
+      "negative_output": "clip zero",
+      "calibration": "allowed outer training labels only",
+      "screen": "fixed analytic Gaussian moments; no hyperparameter scan",
+      "method": "60-second discrete messages; t3 measurement likelihood; Gaussian ordinary sum",
+      "grid_sec": 60.0,
+      "held_quantiles": 15,
+      "ordinary_grid_points": 41,
+      "ordinary_grid_sd": 6.0,
+      "copy_broad_share": 0.05,
+      "long_prior": "held quantiles centered at incoming mean; Rome adds copy and broad components",
+      "max_correction": null
+    },
+    "population": "same all-departure population as matched retained posterior",
+    "public_in_prior": false,
+    "no_new_fit_or_hyperparameter_search": true,
+    "non_rome": "exact retained daily posterior",
+    "held_labels": "final reused development scoring only"
+  },
+  "source": {
+    "path": "VALIDATION/daily_structural_prior.py",
+    "sha256": "9e44ebdf6b20d24facf24c8c1ee2346ded4a66ac0bbd252487365335c8817a6a"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+    },
+    {
+      "path": "VALIDATION/daily_delay_reconcile.py",
+      "sha256": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_cat.py",
+      "sha256": "d63b80be80105158c04e4cbd2442bafdeecc5a25767cbc549ac537d803093fff"
+    },
+    {
+      "path": "VALIDATION/physical_candidate.py",
+      "sha256": "7cbf2c4674ff1d88a2f59115b1e7032e0d03aace0ac4a5203c2893855ce78b59"
+    }
+  ],
+  "old_result": {
+    "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/v70/result.json",
+    "sha256": "f89ddada6ada45e0798a3dcfb87ebecab4859fcf456b8e4b98faa5c868bf78c6"
+  },
+  "old_predictions": {
+    "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/v70/predictions.parquet",
+    "sha256": "944d6760a978f77b9ad741d3bd6944fb17e6ef48cd212703d2156d142c8cf2cf"
+  },
+  "parameters": {
+    "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/screen.json",
+    "sha256": "1b10b8eb811a42e5caa451c2e5baac8ea8e9ae951256a50e6d71ba4d4f09dbd8"
+  },
+  "prior_predictions": {
+    "path": "VALIDATION/runs/v3_20261011_physical_candidate/pool3/cv/predictions.parquet",
+    "sha256": "d037778ff0c95be7dc7980dfadc67c64dc34bd441b3d016e77c67c07d124c9ad"
+  },
+  "prior_identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/identity.json",
+    "sha256": "ba195b24909efeba2890b354c21e45010b64ea8c0305111702041924ab2ef82a"
+  },
+  "raw_rows": {
+    "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+    "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+  },
+  "public": {
+    "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2025.csv",
+    "sha256": "d742eeb626e5f9f7e0c756e2ae3cf90078f4627e989a2e31b8ed21ba8f5510be"
+  },
+  "checks": {
+    "exact_prior_mean_max_error": 8.640199666842818e-12,
+    "fallback_exact": true,
+    "fixed_copy_unchanged": true,
+    "message_bytecode_unchanged": true
+  }
+}

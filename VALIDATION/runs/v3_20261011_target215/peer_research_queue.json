@@ -1,5 +1,5 @@
 {
-  "state": "running",
+  "state": "complete",
   "predecessor_pid": 659112,
   "predecessor_start": "6824788",
   "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/score.json",
@@ -43,14 +43,15 @@
         "VALIDATION/rome_public_peer_features.py": "80b5ff1bfe48f8826af0c1159e3c8f42248edacb6d120b5eab66e21adeb291bc"
       },
       "log": "tmp/research_20261011/rome_public_peers.log",
-      "result": "VALIDATION/runs/v3_20261011_rome_public_peers/result.json"
+      "result": "VALIDATION/runs/v3_20261011_rome_public_peers/result.json",
+      "completed_result_sha256": "1ad29ff553919d0874012660d116204712efdb6077712f8af0edc752e11ab295"
     }
   ],
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
-  "updated_at": "2026-10-11T06:59:40.881501+00:00",
+  "updated_at": "2026-10-11T07:09:25.974360+00:00",
   "revision_reason": "Audit replay now applies the retained zero-floor inference; no fits rerun",
   "pid": 679987,
   "job": 1,
-  "stage": 0,
-  "child_pid": 683277
+  "stage": 1,
+  "child_pid": null
 }

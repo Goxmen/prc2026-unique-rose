@@ -1,0 +1,104 @@
+{
+  "design": {
+    "parent": "selected public Cat3/R20 recipe, prepared v75",
+    "features": [
+      "peer_copy_probability",
+      "peer_missing_count",
+      "peer_resid900_mean",
+      "peer_own900_left",
+      "peer_own900_fraction",
+      "peer_resid1800_mean",
+      "peer_own1800_left",
+      "peer_own1800_fraction",
+      "peer_uncertainty900",
+      "peer_uncertainty1800"
+    ],
+    "inner": "three interleaved groups of allowed months",
+    "inner_drop": [
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d"
+    ],
+    "inner_columns": 63,
+    "inner_rounds": 1700,
+    "inner_trial": "R20",
+    "seed": 42,
+    "final_columns": 90,
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "final_rounds": {
+      "2025-01": 1182,
+      "2025-07": 1401
+    },
+    "missing_peer": "no-ID gap>=4h uses zero-delay copy mode; other missing probability .5 with count flag",
+    "public_in_inner_classifier": false,
+    "departure_label_history_in_inner_classifier": false,
+    "target_usage": "only permitted inner training labels; held labels for final score only",
+    "selection": "fixed new features; no stopping/weight/parameter search; reused development months"
+  },
+  "source": {
+    "path": "VALIDATION/rome_public_peers_jan_jul.py",
+    "sha256": "c25c11298ba930ea1ec6bbace973826d2509175154486405cc1599c964e7c974"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/rome_public_delay_cat.py",
+      "sha256": "d63b80be80105158c04e4cbd2442bafdeecc5a25767cbc549ac537d803093fff"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_jan_jul.py",
+      "sha256": "3e5968639ccbf6b532c505eeba7817832a4cada5113fa655f999288635365dc4"
+    },
+    {
+      "path": "VALIDATION/rome_public_peer_features.py",
+      "sha256": "80b5ff1bfe48f8826af0c1159e3c8f42248edacb6d120b5eab66e21adeb291bc"
+    },
+    {
+      "path": "VALIDATION/rome_catboost_bagging_jan_jul.py",
+      "sha256": "7b2ad4de4ce5be9fe9dfe7bfa159870d67fb7f17a7fac9642cae1a252f20b5a0"
+    },
+    {
+      "path": "VALIDATION/rome_adsblol_jan_jul.py",
+      "sha256": "7e3d8995baaf95615a49bb53a64dae4a421e1f28825d7b47a7f6dbe1a02b420f"
+    }
+  ],
+  "inputs": {
+    "2025-01": {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-01.pkl",
+      "sha256": "fb05a7f13c11573a43962671138ccd8f52e46666112e3f00328159b459870810"
+    },
+    "2025-07": {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-07.pkl",
+      "sha256": "aad64884a10a8cb677ee9026a53e06d38d01ff64eed114be06b06c25a21a62a2"
+    }
+  },
+  "parent_result": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/result.json",
+    "sha256": "a1d6fea26fb3be8eb69efc3ce0ce850a42a7dd4c6b451eca3c5bd1913381167a"
+  },
+  "parent_predictions": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+    "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+  },
+  "raw_metadata": {
+    "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+    "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+  },
+  "raw_rules": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_features/inputs2025.parquet",
+    "sha256": "637e7c54b1c7e0eb4b91e3dc826edff8e71c69c162158859f19b74e3ad4a769c"
+  },
+  "public_totals": {
+    "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2025.csv",
+    "sha256": "d742eeb626e5f9f7e0c756e2ae3cf90078f4627e989a2e31b8ed21ba8f5510be"
+  },
+  "public_features": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_features/manifest.json",
+    "sha256": "b10ac9d0ccc276e405aefa0cd13db22702a46c8ad034bfff0905ad87dd8f591d"
+  }
+}

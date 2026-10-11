@@ -359,6 +359,21 @@ preflight results, not evidence of predictive gain. Runners
 `rome_public_peer_features.py` and `rome_public_peers_jan_jul.py` are queued
 after the neural run and main-LightGBM audit via `peer_research_queue.json`.
 
+**Completed: no production selection.** The cross-fitted peer inputs improve
+the primary stack 292.2010 → 291.9126 (−0.2884), but its paired interval
+[−0.7870, +0.1841] includes a loss. The v75 transfer changes 292.9415 →
+292.8009 (−0.1407), interval [−0.5469, +0.2545], also inconclusive. Retain
+all eight inner models and six CatBoost fits; do not expand or upload this arm.
+The queued all-model reload audit still runs.
+
+The separate SQL auditor reconstructs every inner training/prediction ID and
+checks all **2,399,130** peer-feature values across the two outer populations.
+Maximum floating-point discrepancy is **1.63e−9**. All inner fitting months
+exclude their predicted months; the five departure-label history columns and
+public inputs are absent. See `tools/audit_rome_peer_features.py` and the run's
+`feature_audit.json`. These are implementation checks, not independent evidence
+of predictive gain.
+
 ## Independent public daily punctuality inputs
 
 EUROCONTROL's [daily airport punctuality dashboard](https://www.eurocontrol.int/Economics/DailyPunctuality-Airports.html)
@@ -440,7 +455,7 @@ interaction directly rather than summing separately projected changes.
 The full-year main fit is queued once; no production prediction or official
 score for this combination exists yet.
 
-## Further lead: preserve the recording-mode distribution
+## Queued follow-up: preserve the recording-mode distribution
 
 The retained daily posterior infers Rome's copy probability from the incoming
 mean and a single airport-level ordinary taxi mean. Its v71 input was already
@@ -448,12 +463,22 @@ a signed ensemble, so this inversion need not recover the actual classifier
 probability or the per-flight ordinary mean. This is a concrete limitation of
 the failed full-strength posterior, distinct from adding daily totals as inputs.
 
-After the queued screens, a possible fixed follow-up is to construct the two
+After the earlier queued screens, a fixed follow-up constructs the two
 conditional means directly from v70's saved ordinary prediction and its original
 Rome classifier, then condition that distribution on the public total. The
 zero/one classifier endpoints of the existing correction function provide a
 check that the mixture reconstructs the original prediction. The prior must
 exclude the new public-data models to avoid treating the same daily measurement
-as independent evidence twice. No implementation, fit or validation result is
-claimed for this lead; its measurement uncertainty and final constraints would
-still need the existing audits.
+as independent evidence twice. The new screen retains the incoming serialized
+v70 means, all likelihood/noise/spread settings, the original all-departure
+population and every non-Rome posterior prediction. It changes only Rome's
+long-flight prior support. Equal correction endpoints at the schedule gap give
+a fixed-copy point mass; otherwise identifiable copy modes use the saved
+per-flight ordinary endpoint. Nonidentifiable cases retain the original support.
+
+The existing discrete message algorithm is reused unchanged. Numerical checks
+preserve prior means within 8.64e−12 seconds, reproduce the fallback exactly and
+keep a fixed-copy state unchanged even under conflicting public totals. These
+are preflight checks, not a validation result. `daily_structural_prior.py` is
+queued after the current expansion work via `structural_research_queue.json`;
+it needs no new model fits. No production or v74/v75 transfer is selected.

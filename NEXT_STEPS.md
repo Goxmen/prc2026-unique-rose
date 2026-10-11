@@ -11,10 +11,12 @@ reaching CV 292.7707; its full-year fit is queued. Retained TabM blending
 failed; no expansion.
 XGBoost as a fourth tree member failed (+0.2433 CV). Full-schedule public neural
 training passed its matched single-seed screen (−0.2513 CV); a fixed three-seed
-expansion is queued. Cross-fitted Rome peer-budget scores remain pending.
-An additional fixed Rome test of public daily punctuality is queued after those
-jobs. All 18,765,423 new input values passed independent arithmetic checks;
+expansion is queued. Cross-fitted Rome peer budgets were inconclusive
+(−0.1407 on v75); no production expansion. The fixed Rome punctuality test
+is training. All 18,765,423 new input values passed independent arithmetic checks;
 predictive value remains untested.
+A structural Rome prior for the daily-total method is also queued, using
+retained conditional predictions and no new fits.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

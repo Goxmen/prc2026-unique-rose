@@ -1,0 +1,30 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 680356,
+  "predecessor_start": "7036869",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_public_delay_lgb_submit/predictions/old.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T07:06:38.373539+00:00",
+  "jobs": [
+    {
+      "name": "structural_daily_prior",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_structural_prior.py",
+          "screen"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/daily_structural_prior.py": "9e44ebdf6b20d24facf24c8c1ee2346ded4a66ac0bbd252487365335c8817a6a"
+      },
+      "log": "tmp/research_20261011/structural_daily_prior.log",
+      "result": "VALIDATION/runs/v3_20261011_daily_structural_prior/result.json"
+    }
+  ],
+  "updated_at": "2026-10-11T07:06:38.539744+00:00",
+  "pid": 687769
+}

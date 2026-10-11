@@ -167,6 +167,9 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   `cancel_research_queue` in that run folder. These pending experiments are
   not selected candidates. Peer probabilities exclude their own training
   months and all five departure-label history inputs; see the research report.
+  Peer-budget CV is complete and inconclusive: −0.2884 primary/−0.1407 on v75,
+  both intervals include a loss. No production/expansion. All 2,399,130 feature
+  values and every inner fold's ID separation pass independent SQL/ID checks.
   A third `punctuality_research_queue.json` waits for the peer queue, then
   tests nine public daily punctuality inputs in the original three Rome
   CatBoosts. All 18,765,423 input values independently reproduce exactly;
@@ -181,9 +184,16 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   The main reload audit initially missed the existing zero floor on 44 January
   raw negative predictions; the auditor is corrected and both stopped queues
   were resumed without retraining. Consult queue JSONs for current PIDs.
+  A fifth `structural_research_queue.json` follows the expansion queue and
+  tests the daily posterior with saved conditional Rome endpoints. It preserves
+  the serialized v70 prior means, likelihood/settings and non-Rome predictions;
+  no new fit or production is selected. Same cancellation file. Runner
+  `daily_structural_prior.py`; preflight mean/fallback/fixed-copy checks pass.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
-  Laptop WSL currently shows offline on Tailscale.
+  Laptop WSL is offline on Tailscale; its Windows host is online but Windows
+  SSH also times out. An asynchronous request asks the user to open WSL;
+  desktop work continues and no laptop job was started.
 
 - **October 11, 02:04: goal achieved — v71 officially 224.3602, best/latest, rank 15/242.** This is 0.6398 below the 225.00 target, 1.0392 better than v69 and 11.8293 better than v58, on the accepted 344,841-flight population. v70 physical pool scored 231.9066 (−0.8685 versus v64); adding it to the existing scored basis produced v71. Jan/Jul CV 296.3160 improves v69 but remains worse than v64/v70; weights use leaderboard scores, not independent validation. `physical_affine_clipped.py` accounts for one negative raw value and integer serialization; official score matches the 224.3602 projection. Records: `v3_20261011_physical_affine/submission_v71/` and `v3_20261011_target225/leaderboard_v71.json`. All fits and audits are complete and retained on desktop/laptop; no training job remains. Ground-only pooling failed its matched screen (+0.1272, inconclusive), as did Rome cost calibration and airport offsets; do not repeat. Two uploads used UTC October 11 (v70/v71). Autonomous uploads remain authorized, but this requested goal is complete; do not start more work for it. Historical active-goal/progress notes below are superseded.
 

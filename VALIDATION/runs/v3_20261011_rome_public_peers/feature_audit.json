@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_rome_peer_features.py",
+    "sha256": "0227b272b830f09f700b5d7e0b6f2933f42d25c5ca0957b8902faf4c06b4be82"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_peers/identity.json",
+    "sha256": "d28a7d9f882ae6bba5b659e7548798b161f720c1811b8d05c3fd389a771006c8"
+  },
+  "checks": [
+    {
+      "month": "2025-01",
+      "rows": 137933,
+      "values": 1379330,
+      "all_inner_training_months_disjoint": true,
+      "history_columns_absent": true,
+      "maximum_absolute_difference": 1.3969838619232178e-09
+    },
+    {
+      "month": "2025-07",
+      "rows": 101980,
+      "values": 1019800,
+      "all_inner_training_months_disjoint": true,
+      "history_columns_absent": true,
+      "maximum_absolute_difference": 1.6298145055770874e-09
+    }
+  ],
+  "independent_sql_arithmetic": true,
+  "independently_reconstructed_inner_ids": true
+}
