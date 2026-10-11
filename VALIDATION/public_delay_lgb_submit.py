@@ -127,7 +127,7 @@ def fit():
     values = cv.parent.modeling.predict(model, V, threads=4).astype(np.float32)
     assert np.isfinite(values).all() and (values >= 0).all()
     restored = lgb.Booster(model_file=str(verify(rec['model'])))
-    np.testing.assert_array_equal(values, restored.predict(V, num_threads=4).astype(np.float32))
+    np.testing.assert_array_equal(values, np.maximum(restored.predict(V, num_threads=4), 0).astype(np.float32))
     out.parent.mkdir(exist_ok=True)
     pd.DataFrame(dict(mvt_id=ids, pred=values)).to_parquet(out, index=False)
     write_json(out.with_suffix('.json'), dict(identity=artifact(OUT / 'identity.json'),

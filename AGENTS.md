@@ -151,7 +151,9 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   small/inconclusive versus its original parent; no expansion. The retained
   three-seed TabM blend failed (+0.2828 primary CV); no new fit or production.
   A finite detached research queue in `v3_20261011_target215/research_queue.json`
-  now runs full-schedule public neural CV. XGBoost fourth-tree CV completed
+  completed full-schedule public neural CV: −0.2513 versus the same-desktop
+  physical seed-42 control, both months improve, interval [−0.5010, −0.0369].
+  No full-year public network is selected. XGBoost fourth-tree CV completed
   and failed: +0.2433 primary, +0.1631 on v74, both months worse and both
   intervals exclude zero. No production or weight search. Read the queue for
   current PIDs. Its
@@ -163,6 +165,20 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   `cancel_research_queue` in that run folder. These pending experiments are
   not selected candidates. Peer probabilities exclude their own training
   months and all five departure-label history inputs; see the research report.
+  A third `punctuality_research_queue.json` waits for the peer queue, then
+  tests nine public daily punctuality inputs in the original three Rome
+  CatBoosts. All 18,765,423 input values independently reproduce exactly;
+  predictive gain is untested. Raw public JSON is cached and hashed under
+  `data/external/eurocontrol_performance_20261011/`; do not redownload.
+  This queue uses the same `cancel_research_queue` file. Runner
+  `public_delay_lgb_submit.py` is prepared for a single full-year main fit
+  after its combined CV audit passes. A fourth `expansion_research_queue.json`
+  waits for the punctuality queue, audits both Rome screens and the neural
+  single, then fits/audits the public neural pool (only seeds 1042/2042 are new),
+  and finally fits the public main tree. All use the same cancellation file.
+  The main reload audit initially missed the existing zero floor on 44 January
+  raw negative predictions; the auditor is corrected and both stopped queues
+  were resumed without retraining. Consult queue JSONs for current PIDs.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL currently shows offline on Tailscale.

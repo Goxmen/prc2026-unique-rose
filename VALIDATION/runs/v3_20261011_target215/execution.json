@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "full public neural CV",
-    "queue": "VALIDATION/runs/v3_20261011_target215/research_queue.json",
-    "pid": 659112,
-    "log": "tmp/research_20261011/public_neural_full.log"
+    "task": "public main reload/combined CV, then queued research",
+    "queue": "VALIDATION/runs/v3_20261011_target215/peer_research_queue.json",
+    "pid": 679987,
+    "log": "tmp/research_20261011/public_main_audit.log"
   },
   "laptop": "offline; no job",
   "utc_uploads_used": [
@@ -40,9 +40,11 @@
     "XGBoost categorical strings corrected and real-input preflight passed before fitting",
     "peer arithmetic and actual outer-fold population checks passed",
     "XGBoost fourth-tree CV failed+0.2433 primary/+0.1631 on v74; no expansion",
-    "independent daily punctuality audit: all18,765,423 input values exact; complete2025/all-four-ranking-month coverage"
+    "independent daily punctuality audit: all18,765,423 input values exact; complete2025/all-four-ranking-month coverage",
+    "full public neural single passed-0.2513 versus matched physical control; both months improve",
+    "main auditor zero-floor omission corrected; stopped queues rebound without repeating fits"
   ],
-  "next": "review full neural, main combined audit, peer budgets, then independent daily punctuality; preserve v75 queued upload",
+  "next": "review peer/punctuality and fixed neural pool scores; harvest public main tree after combination audit; preserve v75 upload",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -53,7 +55,7 @@
   "research_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/research_queue.json",
     "pid": 659112,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "XGBoost fourth tree, fixed162 inputs/4000 rounds",
       "public neural head, full original21/17 epochs"
@@ -61,8 +63,8 @@
   },
   "peer_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/peer_research_queue.json",
-    "pid": 664608,
-    "state": "waiting",
+    "pid": 679987,
+    "state": "running",
     "jobs": [
       "main public LightGBM all-row reload and selected-Cat combination",
       "Rome cross-fitted peer daily budgets"
@@ -70,10 +72,27 @@
   },
   "punctuality_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/punctuality_research_queue.json",
-    "pid": 673747,
+    "pid": 679988,
     "state": "waiting",
     "jobs": [
       "fixed Rome public daily punctuality,9 inputs/3 seeds"
     ]
+  },
+  "expansion_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/expansion_research_queue.json",
+    "pid": 680356,
+    "state": "waiting",
+    "jobs": [
+      "Rome model audits",
+      "public neural single audit",
+      "public three-seed pool CV and audit",
+      "public main full-year fit after combined CV pass"
+    ]
+  },
+  "last_live_check": {
+    "at": "2026-10-11T06:47:26+00:00",
+    "best": 221.6881,
+    "rank": 12,
+    "scoring_teams": 242
   }
 }

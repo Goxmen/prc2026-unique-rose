@@ -33,11 +33,13 @@ def main():
         assert rec['prediction'] == run.features.base.artifact(path)
         model = lgb.Booster(model_file=str(mp))
         assert model.feature_name() == list(V) == rec['columns']
-        actual = model.predict(V, num_threads=2).astype('float32')
+        raw_prediction = model.predict(V, num_threads=2)
+        actual = np.maximum(raw_prediction, 0).astype('float32')
         stored = pd.read_parquet(path)
         np.testing.assert_array_equal(stored.mvt_id, ids)
         np.testing.assert_array_equal(actual, stored.pred)
-        checks.append(dict(month=month, rows=len(ids), all_predictions_exact=True))
+        checks.append(dict(month=month, rows=len(ids), all_predictions_exact=True,
+            original_prediction_zero_floor=True, negative_raw_rows=int((raw_prediction < 0).sum())))
         del V, clocks, model, actual
         gc.collect()
     with duckdb.connect(config={'threads': 1}) as con:

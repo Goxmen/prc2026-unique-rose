@@ -1,5 +1,5 @@
 {
-  "state": "running",
+  "state": "complete",
   "predecessor_pid": 644296,
   "predecessor_start": "6670472",
   "predecessor_result": "VALIDATION/runs/v3_20261011_public_delay_lgb/result.json",
@@ -55,14 +55,15 @@
         "VALIDATION/nn_public_delay.py": "af53e6d86062292bbd166e6282bafabbeb7c403297753ef424a91e1365f57194"
       },
       "log": "tmp/research_20261011/public_neural_full.log",
-      "result": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/score.json"
+      "result": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/score.json",
+      "completed_result_sha256": "0f95b0acac5d4950b0b3201ef108ca2cbeb2976eb30511e2a351f64f8c50f7ce"
     }
   ],
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
-  "updated_at": "2026-10-11T06:30:52.053183+00:00",
+  "updated_at": "2026-10-11T06:49:42.174732+00:00",
   "revision_reason": "Before any fit: encode categorical strings with shared training vocabulary; real input preflight passed",
   "pid": 659112,
   "job": 1,
-  "stage": 0,
-  "child_pid": 665913
+  "stage": 1,
+  "child_pid": null
 }
