@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target: 215.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
-leaving **6.6881 seconds**. Live check: **11 October 18:38 Amsterdam**,
+leaving **6.6881 seconds**. Live check: **11 October 19:00 Amsterdam**,
 rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
 are used. Autonomous submissions and both machines remain authorized.
 
@@ -42,6 +42,19 @@ v78, new version reservation or blend upload exists yet. Preserve the source
 diagnosis's integer vectors, because recomputing half-integer ties can differ
 with floating reduction order. Run the separate audit before any later upload.
 
+A fixed recurrent track screen is training on the desktop. One forward GRU of width 32
+summarizes the existing local physical states through a zero-initialized
+projection; all inputs, original weights, seed 42 and 21/17 epochs are retained.
+CPU and both GPUs pass initialization, padding, gate-equation and gradient
+checks. All sequence-index bounds and 2,096 raw examples pass the input audit.
+Actual training uses 4.754 GiB. Queue 1046322 includes both fits and audits;
+queue 1047695 then evaluates the fixed matched and one-of-three comparisons
+through exact v77. No new candidate is selected. The laptop check is complete.
+
+Increasing the physical pool's internal neural share from 0.5 to 0.75 loses
+0.1683 seconds on exact-v77 CV, interval [+0.0617, +0.3186]. The all-row audit
+passes; retain the fixed 0.5 share without a new submission or weight search.
+
 Time-weighted pooling is complete and closed: matched CV+0.1153 and
 one-of-three replacement+0.0286 are inconclusive, with both months worse.
 All original/new model reloads and independent model/SQL checks pass.
@@ -51,7 +64,7 @@ The continuous Rome mixture-coefficient screen is complete and closed. Six
 same-laptop fits retain the original inputs and population; all six models
 reload exactly on the desktop. The continuous target worsens v77 CV by0.1588
 and the matched Logloss control by0.1711, with both months worse. Full-stack
-replays and independent SQL audits pass. Both hosts are idle after completion.
+replays and independent SQL audits pass. No production or upload follows.
 
 Removing coefficient limits while accounting for official-score uncertainty
 adds only0.0061 seconds of projected gain over the bounded recipe on the same

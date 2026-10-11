@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-11T17:05:19.835900+00:00",
+  "cause": "Retained single.fit writes preflight.json with same checks plus two training provenance flags; this collided with the queue-frozen preflight receipt",
+  "resolution": "Preserved the complete automatic fit receipt as fit_preflight.json and restored byte-identical queued input preflight.json; no code, model, check values, input, schedule or fit changed",
+  "initial_sha256": "8fdf379aba828224f76d2d6d5c2206098126667d90c4df5d7f02851f75a19c74",
+  "fit_sha256": "6dc01d2fd3f0544b7bdf7457fba65dec19e538c63579458c519820c75a517ff5"
+}

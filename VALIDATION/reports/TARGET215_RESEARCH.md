@@ -1,5 +1,60 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Fixed recurrent track screen running, 19:03 Amsterdam
+
+A single forward GRU reads the existing width 32 physical convolution states.
+Its last observed state enters the unchanged mean/max representation through
+one zero-initialized 32-to-64 projection. This adds 8,384 parameters, retains all
+168 inputs and the original MSE/AdamW/OneCycle update, and fixes seed 42 and
+21/17 epochs. It tests longer sequence order; there is no new source, wider
+hyperparameter search, epoch selection or production fit. The implementation
+uses [PyTorch's GRU](https://docs.pytorch.org/docs/2.14/generated/torch.nn.GRU.html).
+
+CPU and both desktop/laptop GPU preflights preserve original weights, outputs,
+RNG, padding and missing-track fallback. Independent gate equations agree
+within 1.11e-16; reversing valid sequence order changes the summary. Initial
+track-gradient differences stay within the retained float-reduction tolerance;
+other gradients are exact. The input audit checks all 2,085,047 index bounds
+and 2,096 sampled raw chronological sequences against scalar tensor encoding.
+The full-dimension 2,048-row synthetic benchmark uses 1.818 GiB; actual training
+starts at 50.27 ms per batch and 4.754 GiB peak allocated memory.
+
+Runner `nn_public_recurrent_jan_jul.py` reuses the exact retained training and
+model/score audit bodies. Queue 1046322 runs both fits sequentially. A separate
+fixed `recurrent_selected_stack.py` comparison was declared before any new
+held-prediction file existed: matched seed 42 and one-of-three replacement,
+through every v77 boundary, daily shift and quality gate. Queue 1047695 waits
+for the first queue's completed audit, then runs this comparison and its
+independent SQL/raw-truth/final-correction audit. No new candidate or upload.
+
+The retained fit runner rewrote its standard preflight receipt with identical
+checks plus two training-provenance flags. The complete automatic receipt is
+preserved as `fit_preflight.json`; the queue-bound `preflight.json` was restored
+byte for byte. Both hashes and the recovery are recorded. Model code, inputs,
+checks, fitting and schedule are unchanged; all queue source hashes pass.
+
+## Internal track-pool share screen closed, 18:55 Amsterdam
+
+Changing only the public physical pool's neural share from 0.50 to 0.75 worsens
+exact-v77 Jan/Jul CV 291.549710 →291.718041 (**+0.168330**), paired-day interval
+[+0.061670,+0.318593]. The total neural share remains 0.71. All original v77
+constraint/rounding stages reproduce exactly; independent SQL checks all
+344,419 labels, dates, controls and scores. Retain
+`v3_20261011_physical_pool_share/`; no search in the opposite direction,
+production, ledger row or upload follows this result.
+
+A fresh read-only public-code review found two newly published solutions:
+[gracious-tornado](https://github.com/il-miscusi/prc-2026-gracious-tornado)
+and [fearless-barn](https://github.com/e-seet/fearless-barn). Their README
+self-reported scores, 233.1717 and 269.9888 respectively, do not establish a
+better solution than our live best. Their described tree/network blends,
+public aggregate corrections and ADS-B adjustments overlap retained work.
+No external code was copied or executed, and no new signal was established.
+
+Live 19:00 Amsterdam still reports v74 **221.6881**, rank 12/242 on 344,841
+flights. The target 215 remains active. The unchanged v75/v76/v77 upload
+watchers remain scheduled for 02:00/02:10/02:20 Amsterdam on 12 October.
+
 ## Current scored directions leave no material blend-limit gain, 18:46 Amsterdam
 
 The fixed convex follow-up minimizes the worst-case affine MSE allowed by

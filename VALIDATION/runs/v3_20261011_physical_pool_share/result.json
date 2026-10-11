@@ -1,0 +1,102 @@
+{
+  "design": {
+    "parent": "exact selected v77",
+    "change": "public physical3 share of neural blend .5 to .75",
+    "retained": "calls15 complement; total neural.71/tree.29; all three trees,Rome and final corrections",
+    "fixed_share": 0.75,
+    "no_fit": true,
+    "no_weight_scan": true,
+    "no_new_gate": true,
+    "no_upload": true,
+    "evidence": "reused Jan/Jul development; comparison is not independent confirmation"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_physical_pool_share/identity.json",
+    "sha256": "b9d69a07ae1e2de400ee6a2cccea1edd329f5a0ce9f4fc199595f9e08de29d7a"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_physical_pool_share/scored.parquet",
+    "sha256": "007c9ddf7456f4ebb6ed7cb5c322dcac0cf8777cac2e806fa70ea1f875e5b7ef"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/scored_g42_142_242_k0_1_2_3_4.parquet",
+      "sha256": "d728e72082513c35a98a12d4ee4ac7b60a2c16912eccb514f8e345c16bbd5245"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-01_s42.parquet",
+      "sha256": "539845eb72be933a7c89b06e2c3de2aa2becf170d8542124d1aa1d3a41d8e9dd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-01_k1.parquet",
+      "sha256": "d31236f5b2fdd637592fcaf17d7fbd9dc2a67a41ac687540acb7b5a20b77f016"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-01_k2.parquet",
+      "sha256": "b7e71c0fae892936ed60562fd0f8f449b31e39425778a4bfca000d1ed7cb72bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-01_s42.parquet",
+      "sha256": "7025bf609c20aeefc7fca9691759dfafebb848c9630b76849e67f680be74ba7e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-01_s42.parquet",
+      "sha256": "76acf53b0e5092ceea257f809188e97e18c968ca376d116c6e52c871c20d2b40"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-01_s42.parquet",
+      "sha256": "5cf4cd372eaa407bb7bdcf5ada2c5b597aedab5084f87a8088382448dee9943f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/scored_g42_142_242_k0_1_2_3_4.parquet",
+      "sha256": "d728e72082513c35a98a12d4ee4ac7b60a2c16912eccb514f8e345c16bbd5245"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.parquet",
+      "sha256": "50a011cdb0998e2b50c86ab97c35c1640be7d01dbd97c8d298976982d5165278"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-07_k1.parquet",
+      "sha256": "05d34a32df574b5bf3392130646f517110cace2b71a64ac3952da445ddc1e109"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-07_k2.parquet",
+      "sha256": "013820082aa68965017781982e54a010b5d3d4df3cfa3032dfd20a79cfdae816"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-07_s42.parquet",
+      "sha256": "a0068d91df286ab73d49e89d14166c5514354e6e796e9c49703a47b571035704"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-07_s42.parquet",
+      "sha256": "9dd2b443c5f58806f0d0d4a23868d00a99b9a1edcd7a1724786eed4b4bb5e32a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-07_s42.parquet",
+      "sha256": "8425c6890168e6f31d5b86c278c3ffda0f7a0420ec2a2b34ec05ce3331a71ac9"
+    }
+  ],
+  "scores": {
+    "2025-01": {
+      "control": 325.826575649057,
+      "candidate": 325.9465985704468
+    },
+    "2025-07": {
+      "control": 257.2728446739547,
+      "candidate": 257.4894825407497
+    }
+  },
+  "cv": {
+    "control": 291.54971016150586,
+    "candidate": 291.71804055559824
+  },
+  "paired": {
+    "change": 0.16833039409237927,
+    "ci95": [
+      0.06166968979675467,
+      0.3185925097773811
+    ],
+    "decision": "regression"
+  },
+  "all_parent_stages_exact": true
+}

@@ -332,7 +332,7 @@
       "not_before_utc": "2026-10-12T00:20:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T16:16:17.049980+00:00",
+  "updated_at": "2026-10-11T17:03:36.861757+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -469,7 +469,7 @@
   },
   "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1736.json",
   "last_live_leaderboard_check": {
-    "updatedAt": "2026-10-11T16:13:57+00:00",
+    "updatedAt": "2026-10-11T17:00:05+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -540,7 +540,7 @@
       "fixed_public_gaussian_observation_likelihood"
     ]
   },
-  "new_hypothesis": "Fixed time-weighted track pooling;2048zero-initialized projection weights, no new inputs or training recipe; raw-integer timestamp audit and CPU/laptopCUDA preflight pass; queued after Gaussian resource barrier",
+  "new_hypothesis": "Forward GRU32 summary of existing physical local track states, zero32to64 projection;8384new parameters; original inputs/weights/update/epochs retained",
   "candidate_packaging": "v77 built, component/package/final review pass; upload990172 queued Oct12 00:20:05UTC; exact component bytes retained",
   "daily_models_geometry_prepare_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/daily_models_geometry_prepare_queue.json",
@@ -552,14 +552,14 @@
     ]
   },
   "daily_geometry_note": "51-vector preparation/audit complete; evaluator992976 waits actual successful v75/v76/v77 scores after v77watcher. No upload.",
-  "previous_goal_turn_classification": "progress: prepare full scored-basis packaging and independent SQL auditor; full-shape isolated laptop workflow passes missing-score, corruption, overwrite, clipping and rounding checks; no actual version reserved",
+  "previous_goal_turn_classification": "progress: audited and closed physical pool-share screen; fixed recurrent model prepared, independently checked on both GPUs, training started; exact-v77 scorer declared before held predictions exist",
   "inverse_reference_january": {
     "state": "complete; all153706 old/new held predictions reload exactly",
     "record": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/predictions/2025-01_s42.json",
     "minutes": 19.573394281150104,
     "remaining": "none; July and full audit complete"
   },
-  "production_priority": "Selected production complete. Desktop time-weighted pooling1002895; laptop full-shape synthetic candidate workflow check complete and idle.",
+  "production_priority": "All selected production complete. Desktop recurrent Jan/Jul fits1046322; exact-v77 evaluator1047695 follows. Laptop GPU preflight complete and idle.",
   "inverse_reference_result": {
     "state": "closed: CV inconclusive; final full model/SQL audit pass",
     "cv_v76": 292.449362934613,
@@ -592,8 +592,8 @@
   "nn_public_duration_pool_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/nn_public_duration_pool_queue.json",
     "pid": 1002895,
-    "state": "running",
-    "process_live": true,
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "fixed_time_weighted_track_pool"
     ]
@@ -630,10 +630,10 @@
     "july_change": -0.22726772500061543
   },
   "latest_verified_wait": {
-    "at": "2026-10-11T16:16:17.049980+00:00",
-    "pid": 1016455,
-    "start": "10387625",
-    "task": "time_weighted_pooling_cv"
+    "at": "2026-10-11T17:03:36.861757+00:00",
+    "pid": 1046322,
+    "start": "10673708",
+    "task": "recurrent_track_cv"
   },
   "scored_candidate_readiness": "VALIDATION/runs/v3_20261011_target215/scored_candidate_readiness.json",
   "gaussian_result": {
@@ -665,6 +665,39 @@
     "result": "VALIDATION/runs/v3_20261011_nn_public_gaussian/result.json",
     "audit": "VALIDATION/runs/v3_20261011_nn_public_gaussian/score_audit.json"
   },
-  "latest_live_snapshot": "VALIDATION/runs/v3_20261011_target215/leaderboard_1838.json",
-  "last_checked": "2026-10-11T16:38:38+00:00"
+  "latest_live_snapshot": "VALIDATION/runs/v3_20261011_target215/leaderboard_1900.json",
+  "last_checked": "2026-10-11T17:00:05+00:00",
+  "nn_public_recurrent_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/nn_public_recurrent_queue.json",
+    "pid": 1046322,
+    "state": "running",
+    "process_live": true,
+    "jobs": [
+      "fixed_recurrent_track_summary"
+    ]
+  },
+  "recurrent_selected_stack_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/recurrent_selected_stack_queue.json",
+    "pid": 1047695,
+    "state": "waiting",
+    "process_live": true,
+    "jobs": [
+      "recurrent_exact_v77_stack"
+    ]
+  },
+  "physical_pool_share_result": {
+    "state": "closed; no candidate or upload",
+    "result": "VALIDATION/runs/v3_20261011_physical_pool_share/result.json",
+    "audit": "VALIDATION/runs/v3_20261011_physical_pool_share/audit.json",
+    "change": 0.16833039409237927,
+    "ci95": [
+      0.06166968979675467,
+      0.3185925097773811
+    ]
+  },
+  "continuous_rome_result": {
+    "state": "closed; six fits returned and exact reloads/SQL audits pass",
+    "result": "VALIDATION/runs/v3_20261011_rome_continuous_mixture/result.json",
+    "production": "none"
+  }
 }

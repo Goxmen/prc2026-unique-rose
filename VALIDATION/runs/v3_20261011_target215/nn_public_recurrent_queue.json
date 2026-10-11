@@ -1,0 +1,62 @@
+{
+  "state": "running",
+  "predecessor_pid": 992975,
+  "predecessor_start": "10155249",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_recurrent/input_benchmark.json",
+  "barrier": "Completed Gaussian queue is an already-released historical resource barrier; desktop checked idle; current independent input/benchmark audit required",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T17:00:26.166558+00:00",
+  "jobs": [
+    {
+      "name": "fixed_recurrent_track_summary",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_recurrent_jan_jul.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_recurrent_jan_jul.py",
+          "audit_models"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_recurrent_jan_jul.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_recurrent_jan_jul.py",
+          "audit_scores"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/nn_public_recurrent.py": "2fb373145886bd5bdf7a42f3ba36fe84c56e5d828786d32db4c2cdff9dc820b5",
+        "VALIDATION/nn_public_recurrent_jan_jul.py": "d26f0ac1735c00d07cf7229196806bbd6e7a174b0964e12c3a8aba3a8b462b50",
+        "VALIDATION/nn_public_early_jan_jul.py": "071a6f95d2c9303ab2aa8295043187dfcb7fb3cbe98f5a528c8f3b34952a4bff",
+        "VALIDATION/nn_public_scratch.py": "3b3f3d087b69bbef95a023edf85d5c5ab7c99c396449320806961c50f5e75a3a",
+        "VALIDATION/nn_public_scratch_jan_jul.py": "4a3bb76c028152b4840980db0bc34a235496c21685b76a506baf3e995ea1440b",
+        "VALIDATION/nn_sparse_track_jan_jul.py": "b1225096a7f259020823c46d9a53f0acae942cd58f70dd35a535a54a575d9884",
+        "VALIDATION/tools/audit_recurrent_inputs.py": "24a132f5e4857bb5c7330499ea4e7c03c872d23cd53430a899799cdb70502e22",
+        "VALIDATION/runs/v3_20261011_nn_public_recurrent/identity.json": "a2d8e727adbb6b3d44c16d71967b117cdc4315ecfa0f2a1840d8a8c629f5aba9",
+        "VALIDATION/runs/v3_20261011_nn_public_recurrent/preflight.json": "8fdf379aba828224f76d2d6d5c2206098126667d90c4df5d7f02851f75a19c74",
+        "VALIDATION/runs/v3_20261011_nn_public_recurrent/input_benchmark.json": "5f442d2e3f8148bc9e219ec7bceeb21b321e331e3503e200b5658c42e9ae9ba8",
+        "VALIDATION/runs/v3_20261011_nn_public_recurrent/laptop_gpu_preflight.json": "cb5251a62ac31a3d7b29527ee6f98e5ab198d45d49d50ddfd2d6c0b53c64c4e3"
+      },
+      "log": "tmp/research_20261011/nn_public_recurrent.log",
+      "result": "VALIDATION/runs/v3_20261011_nn_public_recurrent/score_audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T17:00:26.194824+00:00",
+  "pid": 1046322,
+  "job": 0,
+  "stage": 0,
+  "child_pid": 1046324
+}

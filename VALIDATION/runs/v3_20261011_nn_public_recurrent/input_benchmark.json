@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_recurrent/identity.json",
+    "sha256": "a2d8e727adbb6b3d44c16d71967b117cdc4315ecfa0f2a1840d8a8c629f5aba9"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_recurrent_inputs.py",
+    "sha256": "24a132f5e4857bb5c7330499ea4e7c03c872d23cd53430a899799cdb70502e22"
+  },
+  "all_index_rows": 2085047,
+  "sampled_rows": 2096,
+  "all_count_start_bounds_checked": true,
+  "independent_prefix_mask": true,
+  "chronological_raw_integer_times": true,
+  "scalar_tensor_inputs_agree": true,
+  "last_observed_index_checked": true,
+  "labels_used": false,
+  "benchmark": {
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "batch": 2048,
+    "milliseconds_per_update": 37.88740339805372,
+    "peak_allocated_gib": 1.8182501792907715,
+    "full_original_tabular_dimensions": true,
+    "synthetic_rows": true
+  }
+}
