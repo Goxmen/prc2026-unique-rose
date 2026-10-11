@@ -48,9 +48,11 @@
     "all2,399,130 peer feature values independently audited; inner month IDs verified",
     "Rome punctuality no gain+0.0128 on v75; no production",
     "both Rome screens all six model reloads exact; independent SQL scores pass",
-    "public neural single audit passed1094 rows; max0.00147 seconds"
+    "public neural single audit passed1094 rows; max0.00147 seconds",
+    "public daily source aligns with recorded off-block dates: all2085047 clock identities exact; 7301 SQL source-day aggregates pass",
+    "estimated v70 off-block dates wrong on24 of344419 held rows; descriptive diagnostic, no CV gain claimed"
   ],
-  "next": "finish neural pool and public main production; structural prior and ordinary punctuality screens queued; assemble/audit main candidate after production; preserve v75 upload",
+  "next": "finish neural pool and public main production; structural prior, off-block-date alignment and ordinary punctuality screens queued sequentially; preserve v75 upload",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -96,7 +98,7 @@
     ]
   },
   "last_live_check": {
-    "at": "2026-10-11T06:47:26+00:00",
+    "at": "2026-10-11T07:26:36+00:00",
     "best": 221.6881,
     "rank": 12,
     "scoring_teams": 242
@@ -111,10 +113,18 @@
   },
   "punctuality_main_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/punctuality_main_queue.json",
-    "pid": 697022,
+    "pid": 707786,
     "state": "waiting",
     "jobs": [
       "punctuality inputs in ordinary main regressor:183 versus174 inputs"
+    ]
+  },
+  "offblock_alignment_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/offblock_alignment_queue.json",
+    "pid": 707785,
+    "state": "waiting",
+    "jobs": [
+      "input-only estimated off-block-date posterior and independent audit"
     ]
   }
 }

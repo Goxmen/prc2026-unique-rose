@@ -1,0 +1,264 @@
+{
+  "status": "pass",
+  "rows": 2085047,
+  "all_recorded_blocks_equal_takeoff_minus_target": true,
+  "checks": {
+    "utc_midnight": true,
+    "target_isolation": true,
+    "row_order": true,
+    "edge_guard": true
+  },
+  "source": {
+    "path": "VALIDATION/daily_offblock_alignment.py",
+    "sha256": "08f48001e826e1442a4fe188d05a88a2e69a1ce1d3ad87b1b144158243a9afec"
+  },
+  "inputs": [
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "cached_rows": {
+    "path": "VALIDATION/runs/v3_20261011_daily_ifr/rows2025.parquet",
+    "sha256": "7b0aa7441d36c15da1e7c6b53c6a144afe83d384194f1bb6db58982b544cfb51"
+  },
+  "prepared_rows": {
+    "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/rows2025.parquet",
+    "sha256": "bc2fd953c3f911bdaa70c6f0a1ab6d9b96d23ef31e07333853175fae9a5c4437"
+  },
+  "public": {
+    "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2025.csv",
+    "sha256": "d742eeb626e5f9f7e0c756e2ae3cf90078f4627e989a2e31b8ed21ba8f5510be"
+  },
+  "aggregates": {
+    "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/daily_source_identity.parquet",
+    "sha256": "acf357ec9c491b72ca363d27f6cfb5c2a52698a0af6e670e176b039226ffc1a4"
+  },
+  "statistics": [
+    {
+      "assignment": "takeoff",
+      "airport": "EDDF",
+      "days": 365,
+      "equal_count_days": 346,
+      "median_abs_seconds": 124.60000000003492,
+      "p95_abs_seconds": 289.11999999992554,
+      "lag1_correlation": -0.10678465561935131
+    },
+    {
+      "assignment": "takeoff",
+      "airport": "EDDM",
+      "days": 365,
+      "equal_count_days": 360,
+      "median_abs_seconds": 56.0,
+      "p95_abs_seconds": 171.60000000000002,
+      "lag1_correlation": 0.02275232507216663
+    },
+    {
+      "assignment": "takeoff",
+      "airport": "EGLL",
+      "days": 365,
+      "equal_count_days": 363,
+      "median_abs_seconds": 58.0,
+      "p95_abs_seconds": 192.8,
+      "lag1_correlation": -0.4848051347515007
+    },
+    {
+      "assignment": "takeoff",
+      "airport": "EHAM",
+      "days": 365,
+      "equal_count_days": 303,
+      "median_abs_seconds": 156.0,
+      "p95_abs_seconds": 8245.039999999992,
+      "lag1_correlation": -0.4011196990028286
+    },
+    {
+      "assignment": "takeoff",
+      "airport": "LEBL",
+      "days": 365,
+      "equal_count_days": 253,
+      "median_abs_seconds": 73.0,
+      "p95_abs_seconds": 13170.6,
+      "lag1_correlation": -0.4984895689751977
+    },
+    {
+      "assignment": "takeoff",
+      "airport": "LEMD",
+      "days": 365,
+      "equal_count_days": 140,
+      "median_abs_seconds": 895.0,
+      "p95_abs_seconds": 15620.600000000002,
+      "lag1_correlation": -0.6000430412093108
+    },
+    {
+      "assignment": "takeoff",
+      "airport": "LFPG",
+      "days": 365,
+      "equal_count_days": 52,
+      "median_abs_seconds": 2806.0,
+      "p95_abs_seconds": 16690.600000000006,
+      "lag1_correlation": -0.13618415784502969
+    },
+    {
+      "assignment": "takeoff",
+      "airport": "LIRF",
+      "days": 365,
+      "equal_count_days": 244,
+      "median_abs_seconds": 53.0,
+      "p95_abs_seconds": 7230.600000000002,
+      "lag1_correlation": -0.4814286801930738
+    },
+    {
+      "assignment": "takeoff",
+      "airport": "LSZH",
+      "days": 365,
+      "equal_count_days": 349,
+      "median_abs_seconds": 74.40000000002328,
+      "p95_abs_seconds": 206.40000000000003,
+      "lag1_correlation": 0.011473189870105944
+    },
+    {
+      "assignment": "takeoff",
+      "airport": "LTFM",
+      "days": 365,
+      "equal_count_days": 70,
+      "median_abs_seconds": 3273.0,
+      "p95_abs_seconds": 25988.4,
+      "lag1_correlation": -0.465689072485839
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "EDDF",
+      "days": 365,
+      "equal_count_days": 350,
+      "median_abs_seconds": 123.59999999997672,
+      "p95_abs_seconds": 282.16000000000935,
+      "lag1_correlation": -0.006200296519386508
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "EDDM",
+      "days": 365,
+      "equal_count_days": 360,
+      "median_abs_seconds": 56.0,
+      "p95_abs_seconds": 171.60000000000002,
+      "lag1_correlation": 0.02275232507216663
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "EGLL",
+      "days": 365,
+      "equal_count_days": 365,
+      "median_abs_seconds": 58.0,
+      "p95_abs_seconds": 189.60000000000002,
+      "lag1_correlation": 0.1203313756801055
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "EHAM",
+      "days": 365,
+      "equal_count_days": 321,
+      "median_abs_seconds": 150.20000000001164,
+      "p95_abs_seconds": 603.7200000000424,
+      "lag1_correlation": -0.0024166774937843397
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "LEBL",
+      "days": 365,
+      "equal_count_days": 359,
+      "median_abs_seconds": 54.0,
+      "p95_abs_seconds": 179.40000000000003,
+      "lag1_correlation": -0.4242902970329957
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "LEMD",
+      "days": 365,
+      "equal_count_days": 354,
+      "median_abs_seconds": 86.0,
+      "p95_abs_seconds": 233.8,
+      "lag1_correlation": -0.4754794816794268
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "LFPG",
+      "days": 365,
+      "equal_count_days": 44,
+      "median_abs_seconds": 2043.0,
+      "p95_abs_seconds": 14570.800000000003,
+      "lag1_correlation": -0.04401207723887535
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "LIRF",
+      "days": 365,
+      "equal_count_days": 358,
+      "median_abs_seconds": 50.0,
+      "p95_abs_seconds": 141.60000000000002,
+      "lag1_correlation": -0.49921198953473234
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "LSZH",
+      "days": 365,
+      "equal_count_days": 351,
+      "median_abs_seconds": 74.40000000002328,
+      "p95_abs_seconds": 206.40000000000003,
+      "lag1_correlation": 0.011473189870105944
+    },
+    {
+      "assignment": "recorded_offblock",
+      "airport": "LTFM",
+      "days": 365,
+      "equal_count_days": 334,
+      "median_abs_seconds": 79.0,
+      "p95_abs_seconds": 1510.0000000000005,
+      "lag1_correlation": -0.019761314282776773
+    }
+  ],
+  "interpretation": "Descriptive source alignment only; recorded dates cannot be used at ranking inference"
+}

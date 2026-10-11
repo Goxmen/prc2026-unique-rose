@@ -196,6 +196,18 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   Same cancellation file, no production selection. `public_main_candidate.py`
   and its independent final auditor are prepared for the passing 174-column
   model once its full-year fit is ready; no version/file has been built yet.
+  A new source audit finds that daily public totals align with **off-block**
+  dates: Rome's source-error p95 falls 7,230.6 → 141.6 seconds. All2,085,047
+  raw block/target identities and7,301 independent SQL day aggregates pass.
+  Estimated off-block dates from the retained v70 prior are wrong on only24
+  of344,419 Jan/Jul rows; this is descriptive, not a prediction gain.
+  `daily_offblock_alignment.py` tests input-only estimated dates in the fixed
+  posterior. `offblock_alignment_queue.json` (PID707785) waits for the structural
+  queue, then runs this screen/audit. The waiting ordinary-punctuality queue
+  was safely stopped and rebound (new PID707786) to follow it; original job
+  sources/fits are unchanged. All use `cancel_research_queue`. No date-aligned
+  production or score yet; preserve source/calendars audits under
+  `v3_20261011_daily_offblock_alignment/` and never infer dates from hidden labels.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL is offline on Tailscale; its Windows host is online but Windows

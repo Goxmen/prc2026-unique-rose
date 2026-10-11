@@ -505,3 +505,58 @@ keep a fixed-copy state unchanged even under conflicting public totals. These
 are preflight checks, not a validation result. `daily_structural_prior.py` is
 queued after the current expansion work via `structural_research_queue.json`;
 it needs no new model fits. No production or v74/v75 transfer is selected.
+
+## New source-identity finding: the daily total follows off-block dates
+
+The existing daily method groups flights by UTC takeoff date. Large source
+discrepancies often cancel on adjacent days: Rome's daily residual has lag-one
+correlation −0.481. Replacing the training grouping with the recorded off-block
+date sharply improves the source identity. This is an empirical finding; the
+[official column description](https://ansperformance.eu/reference/dataset/all-pre-departure-delay/)
+only calls `FLT_DATE` the flight date and does not specify that boundary.
+
+| Airport | Equal-count days, takeoff → off-block | 95th-percentile absolute total error, seconds |
+|---|---:|---:|
+| Rome | 244 → 358 | 7,230.6 → 141.6 |
+| Barcelona | 253 → 359 | 13,170.6 → 179.4 |
+| Madrid | 140 → 354 | 15,620.6 → 233.8 |
+| Amsterdam | 303 → 321 | 8,245.0 → 603.7 |
+| Istanbul | 70 → 334 | 25,988.4 → 1,510.0 |
+
+These are 2025 source-reconciliation diagnostics with explicit VFR departures
+excluded, not prediction scores. Paris still has substantial population mismatch.
+Every one of the 2,085,047 training off-block timestamps equals takeoff minus
+the supplied taxi label. An independent SQL calculation using the raw block
+timestamps reproduces all 7,301 airport-date aggregates across the two groupings.
+Counts and computed truth sums match exactly; independent CSV parsing agrees
+on public totals within 1e−8 seconds.
+
+The true off-block timestamp is unavailable at ranking inference. A first
+input-only approximation subtracts the retained v70 prediction from takeoff.
+On the reused Jan/Jul development rows this assigns the wrong date on only
+24 of 344,419 flights; Rome's source-error 95th percentile is then 137.7 seconds.
+This uses labels for the diagnostic comparison after assignment, not for
+inference. It does not establish a taxi-prediction improvement. Independent
+SQL reproduces every assigned date and inference-scope flag.
+
+A fixed one-pass posterior screen is now queued before ordinary punctuality.
+It compares against a matched v70 IFR-population posterior, retaining the
+original message algorithm/settings. It assigns dates once from the original
+v70 prior, with no public-input models in that prior. All nuisance and support
+distribution estimates use allowed training months only; the off-block fit
+excludes first/last calendar days to reduce partial source-day coverage. Thus
+the comparison changes both grouping and its associated calibration population.
+At inference, first/last/missing held off-block dates retain the matched control.
+Only explicitly whitelisted input columns enter date assignment and conditioning.
+
+Hard date assignment does not marginalize boundary uncertainty, and the
+posterior may cross its initially assigned date; the result will report those
+cases. No weight/parameter search or production is selected. Numerical checks
+cover midnight, month edges, target isolation and row order. The waiting
+punctuality queue was stopped and rebound, without touching its model sources
+or starting any fit, so all heavy jobs remain sequential.
+
+Runners: `daily_offblock_alignment.py`, `tools/audit_offblock_alignment.py`.
+Run: `v3_20261011_daily_offblock_alignment/`; queue:
+`v3_20261011_target215/offblock_alignment_queue.json`. Source audit, calendar
+preflight and the descriptive prior-date diagnostic are retained there.

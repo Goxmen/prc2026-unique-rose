@@ -1,0 +1,71 @@
+{
+  "design": {
+    "parent": "serialized original v70; no new public-input models",
+    "control": "same retained daily posterior, explicit VFR excluded",
+    "change": "group public totals by takeoff minus incoming prediction, once",
+    "noise": "true off-block dates in allowed training months; exclude calendar edge days",
+    "population": "explicit VFR excluded; unknown included",
+    "edge": "retain matched control on first/last/missing held off-block dates",
+    "settings": {
+      "parent": "v71",
+      "ordinary_sigma": 150.0,
+      "common_day_sigma": 15.0,
+      "long_threshold": 3600.0,
+      "copy_airport": "LIRF",
+      "copy_threshold": 3600.0,
+      "copy_max_gap": 50400.0,
+      "noise_floor": 60.0,
+      "mismatch_scale_floor": 600.0,
+      "negative_output": "clip zero",
+      "calibration": "allowed outer training labels only",
+      "screen": "fixed analytic Gaussian moments; no hyperparameter scan",
+      "method": "60-second discrete messages; t3 measurement likelihood; Gaussian ordinary sum",
+      "grid_sec": 60.0,
+      "held_quantiles": 15,
+      "ordinary_grid_points": 41,
+      "ordinary_grid_sd": 6.0,
+      "copy_broad_share": 0.05,
+      "long_prior": "held quantiles centered at incoming mean; Rome adds copy and broad components",
+      "max_correction": null
+    },
+    "no_parameter_or_weight_search": true,
+    "limitation": "hard prior date assignment, without marginalizing boundary uncertainty",
+    "selection": "motivated by source-identity diagnostics across reused 2025 data"
+  },
+  "source": {
+    "path": "VALIDATION/daily_offblock_alignment.py",
+    "sha256": "08f48001e826e1442a4fe188d05a88a2e69a1ce1d3ad87b1b144158243a9afec"
+  },
+  "checks": {
+    "utc_midnight": true,
+    "target_isolation": true,
+    "row_order": true,
+    "edge_guard": true
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+    },
+    {
+      "path": "VALIDATION/daily_delay_reconcile.py",
+      "sha256": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06"
+    },
+    {
+      "path": "VALIDATION/daily_delay_ifr.py",
+      "sha256": "48abe417d1a517af20cfc2d9583732ba8fb16b51ecbe8ad993a08537cfdc66b3"
+    }
+  ],
+  "source_audit": {
+    "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/source_audit.json",
+    "sha256": "2733a69e551fea96186231d55249a391e40f36e924cc94cb26136d7b45ec2284"
+  },
+  "prior": {
+    "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/v70/predictions.parquet",
+    "sha256": "944d6760a978f77b9ad741d3bd6944fb17e6ef48cd212703d2156d142c8cf2cf"
+  },
+  "prior_result": {
+    "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/v70/result.json",
+    "sha256": "f89ddada6ada45e0798a3dcfb87ebecab4859fcf456b8e4b98faa5c868bf78c6"
+  }
+}

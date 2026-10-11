@@ -17,6 +17,11 @@ no gain (+0.0128 on v75). Their ordinary main-regressor test is queued;
 all 18,765,423 input values passed independent arithmetic checks.
 A structural Rome prior for the daily-total method is also queued, using
 retained conditional predictions and no new fits.
+The daily totals empirically align with off-block dates rather than takeoff
+dates: Rome's source-error p95 falls from7,231 to142 seconds. A fixed screen
+using dates estimated from v70 predictions is queued after the structural
+prior and before ordinary punctuality. Source/calendar audits pass; no model
+gain or production is claimed for this new lead.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 
