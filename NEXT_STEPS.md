@@ -26,6 +26,12 @@ fits the full-year184-input tree after CatBoost; collector935144 verifies the
 return. Desktop finish queue943880 follows943879 and performs the full original
 ranking audit plus combined-file build/audit. All completed fits are reused.
 
+A 51-vector score-geometry extension will add the selected v77 file to the
+existing basis after its package audit, reusing all 50 old vectors. Queue965724
+runs its preparation/audit after Gaussian959021. Evaluation requires actual
+successful v75/v76/v77 scores and a fresh leaderboard check; no score is imputed
+and no blend or upload is selected yet.
+
 V75 and V76 are prepared, fully audited and queued for12 October02:00/02:10
 Amsterdam. V75 adds public daily inputs to the Rome CatBoost pool: Jan/Jul
 CV292.9415,−0.7758 versus v74. V76 also adds public inputs to the main tree

@@ -1,5 +1,35 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Daily-candidate score geometry prepared for the next window, 16:51 Amsterdam
+
+`daily_models_geometry.py` will append the selected v77 vector to the retained,
+audited 50-column ranking and Jan/Jul basis. It reuses every existing vector;
+no model refit or reconstructed leaderboard score is introduced. Preparation
+requires the completed package audit and immutable v77 file/CV hashes. Its
+all-row SQL audit also checks every old column against the saved original basis.
+
+Evaluation reuses the frozen solver, expanded-MSE identity, official-score
+rounding interval and exact output-serialization bound. It requires successful
+**actual v75, v76 and v77 scores**, exact remote file hashes and a fresh check of
+all scored rows against the public leaderboard. Weights retain the same fixed
+[−3, 4] bounds, sum-to-one constraint and ridge1. Jan/Jul CV is reported as reused
+development evidence, separately from this explicit leaderboard-based selection.
+The result stays a diagnosis; a chosen blend would need its own final file audit.
+No score is projected or imputed before those official results exist.
+
+The synthetic hidden-target/rounding/expanded-identity checks pass, and the
+parent audit/evaluation functions are reused with identical bytecode. Queue965724
+prepares and audits the 51-column matrices after Gaussian959021 releases the
+desktop. Its required result is the selected v77 package audit, so an unrelated
+Gaussian failure does not invalidate the selected candidate. No upload is queued
+by this diagnostic. Existing v75/v76 upload and evaluation watchers are unchanged.
+
+The inverse-reference January fit is complete, with 10,000 rounds and exact
+original/new held prediction reloads on153,706 rows. Its elapsed fit/inference
+receipt is19.57minutes; July and the combined score/audit are still outstanding.
+The laptop's daily main fit remains complete at17.66minutes, with ranking checks
+still running; do not infer a stall or refit from the absence of a final receipt.
+
 ## Fixed observation-variance screen prepared, 16:43 Amsterdam
 
 The public physical network uses one squared-error objective for both reliable

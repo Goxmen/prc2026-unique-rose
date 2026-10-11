@@ -127,6 +127,11 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   waits. One heavy job per host. All queue source hashes pass. The previous idle
   Gaussian waiter957091 was replaced before any child/fit to package production
   first; its queue is archived. V75/V76 upload watchers are unchanged.
+  `daily_models_geometry.py` adds selected v77 to the retained50-vector basis;
+  queue965724 prepares/audits after Gaussian959021, requiring v77's package audit
+  independently of Gaussian outcome. Evaluation needs actual successful75/76/77
+  scores and a fresh public check. Synthetic score/rounding identities pass;
+  no imputed score, diagnosis or new upload exists yet.
 
 - **October 11, 16:28 Amsterdam: Rome daily features closed; selected CatBoost production audited.**
   All six Rome daily-taxi classifier fits/audits pass, but CV worsens **+0.1190**
