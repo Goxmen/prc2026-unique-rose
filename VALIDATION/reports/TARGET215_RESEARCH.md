@@ -429,6 +429,17 @@ The stopped queues were rebound to the corrected auditor and resumed; their
 failure records are retained. This was an audit implementation error, not a
 change to model validation results.
 
+The corrected main audit is **complete and passes**: all 344,419 predictions
+reproduce exactly, including the 44 January and 19 July zero-floored values.
+Independent SQL reproduces the CV arithmetic. The explicit combination with
+the selected public Rome CatBoost pool scores **292.7707**, versus v75's
+**292.9415**: another **−0.1709 seconds**, interval **[−0.2306, −0.1230]**.
+January improves 0.1438 seconds and July 0.1979. The primary underlying stack
+also improves 292.2010 → 291.9697 (−0.2313). This computes the Rome/ordinary
+interaction directly rather than summing separately projected changes.
+The full-year main fit is queued once; no production prediction or official
+score for this combination exists yet.
+
 ## Further lead: preserve the recording-mode distribution
 
 The retained daily posterior infers Rome's copy probability from the incoming

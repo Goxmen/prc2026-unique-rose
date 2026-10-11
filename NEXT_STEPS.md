@@ -6,8 +6,9 @@ All five UTC October11 upload slots are used; continue offline validation.
 V75 is fully prepared and audited: public daily inputs in the Rome CatBoost
 pool give Jan/Jul CV292.9415, a0.7758-second gain over v74. It is queued for
 12 October02:00 Amsterdam; no official result yet. The main-LightGBM version
-completed with another0.1703-second CV gain on v74; its audit and combination
-with v75 are queued. Retained TabM blending failed; no expansion.
+passed its complete reload audit and adds another 0.1709 seconds to v75,
+reaching CV 292.7707; its full-year fit is queued. Retained TabM blending
+failed; no expansion.
 XGBoost as a fourth tree member failed (+0.2433 CV). Full-schedule public neural
 training passed its matched single-seed screen (−0.2513 CV); a fixed three-seed
 expansion is queued. Cross-fitted Rome peer-budget scores remain pending.

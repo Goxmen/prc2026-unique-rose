@@ -146,7 +146,9 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   if the user pauses/stops; never silently leave a queued upload active then.
   Main-LightGBM public-feature CV is complete: primary −0.2308, fixed v74
   transfer −0.1703, both months improve; saved controls used the laptop, new
-  fits the desktop. Its reload audit and combination with v75 are queued.
+  fits the desktop. All 344,419 held predictions reload exactly with the
+  original zero floor. Combining it with v75 gives CV 292.7707, another
+  −0.1709, interval [−0.2306, −0.1230], both months improve; full-year fit queued.
   Log `tmp/research_20261011/public_delay_lgb.log`. Public neural continuation was
   small/inconclusive versus its original parent; no expansion. The retained
   three-seed TabM blend failed (+0.2828 primary CV); no new fit or production.
