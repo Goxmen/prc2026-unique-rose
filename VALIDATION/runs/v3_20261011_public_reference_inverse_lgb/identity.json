@@ -1,0 +1,150 @@
+{
+  "design": {
+    "parent": "v76 with production rounding; selected refinements checked separately",
+    "change": "two public stand/runway reference inverse estimates in main LightGBM",
+    "added": [
+      "pub_ref_inverse_stand_sec",
+      "pub_ref_inverse_contrast_sec"
+    ],
+    "original_columns": 174,
+    "columns": 176,
+    "seed": 42,
+    "trial": "LB1",
+    "rounds": 10000,
+    "threads": 4,
+    "labels_rows_parameters": "original public main-tree inputs, labels and settings retained",
+    "comparison": "same-machine retained174-column main model; every other component fixed",
+    "primary": "production-rounded v76; refined-parent substitution secondary",
+    "limitation": "reused Jan/Jul development; external source cohort differs from competition",
+    "no_parameter_search": true,
+    "no_new_stopping": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/public_reference_inverse_lgb.py",
+      "sha256": "2f7475b941532a6b7b540e06595f7ecdca02808f1c385031af12cdd3e80526d5"
+    },
+    {
+      "path": "VALIDATION/public_reference_inverse_features.py",
+      "sha256": "f3efedcbcbbf0e14ae4d5dcf1c1f2a6d005e5008f3b43993ec266044509e98cd"
+    },
+    {
+      "path": "VALIDATION/public_refinements_submission_cv.py",
+      "sha256": "fe9cac8a8f35dab31d2580ef54de8dffccfc12b016f19d5bb0d3367bde55d6fb"
+    },
+    {
+      "path": "VALIDATION/public_stack_cv.py",
+      "sha256": "7a07755c65281de72d0d2cb3bd62b4d33c7591f4e9922aa8960bfc546421044a"
+    },
+    {
+      "path": "VALIDATION/public_delay_lgb_jan_jul.py",
+      "sha256": "e3288a72e1c2fd7e88d37fe688a28c3f463664ab9612c2f5c919dc6e24c540bc"
+    },
+    {
+      "path": "VALIDATION/callsign_lgb_jan_jul.py",
+      "sha256": "e4089d4f3eee2e2129e260a3b278b26bb36673f72daea1906a43b4949575cbbc"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_features/manifest.json",
+      "sha256": "b497da56a148ef1f5c50415a1b992bb297e2855a5517faaa1fa7fc8ef1da9f0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_features/audit.json",
+      "sha256": "504ce305ba531e8a2267e72638d48ba4544f848cd6cc62f61175d4535d7da86d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_features/features2025.parquet",
+      "sha256": "354289b60c46ef6aba340c8be83e3bf1959a2e2e3d8ca354151877bcddfd23dd"
+    },
+    {
+      "path": "VALIDATION/tools/probe_public_reference_inverse.py",
+      "sha256": "f65eea072feacf22216d00887598f5f618e20ac47013510e58e43de6beff85c5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_pilot/audit.json",
+      "sha256": "eab3a597aac8dc107cce8b675ff31293149d7fc4048ec83fcdfae83ebe4a9ee9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_features/features2025.parquet",
+      "sha256": "28fc54ff31c5ccb41817c649eea963a9a3cd3e037d2adb400e3fd00cfaa7be0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/result.json",
+      "sha256": "9e286eaeb0802c6f2a5315797833a266446990263ff05b59b249e8688fb85ea0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/audit.json",
+      "sha256": "09bc5fa3a4d2748f20e48907fae8424c069545346f5f59a19b75eed384ca036f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_submission_cv/scored.parquet",
+      "sha256": "251492e2dc2c5ac55e70ee6cdfaa4d9ad403f82bcce202cdf52af034baafd2ee"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_submission_cv/audit.json",
+      "sha256": "35fc6cb406a45d9dfb19eb43d1182acff2a795fab271d936aeebe343b4fc5e1e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/scored.parquet",
+      "sha256": "04d0886b113ce081bbba97bf880e8f33c06366a5a98ac64084abab186ca01e92"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+      "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/scored.parquet",
+      "sha256": "9150cf74514efa76d0ad7b9a75fc1bb744f45fd240830e7e7da5214d2001fee8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+      "sha256": "ee1239362fd6b4a32c412931465be86a928b9c0904f7ec64b5b74291435ab2c7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/predictions/2025-01_s42.json",
+      "sha256": "a322a3ba0934e09dd5d74218ff6b5f8725100237e736e965051c7df4e3f09a57"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/predictions/2025-01_s42.parquet",
+      "sha256": "6e621a98f8152e664d1488a17bc2103d7f7f695289bee3099ea64ec3ebe7bea5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/models/2025-01_s42.txt",
+      "sha256": "eeedc984394be7dba892fd55b15535511086820781f5414442085649e8f797cf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-07.pkl",
+      "sha256": "1c44b5007b1cfe70db2387ce37089e55cad7540f8ebb5e9c043f2ee77c3d0f28"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/predictions/2025-07_s42.json",
+      "sha256": "a761e25d1f29f4e45f7fc0f19adf70f90f2def91d8fba230715a027db662a785"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/predictions/2025-07_s42.parquet",
+      "sha256": "2df421ba5260997c5a03ca093911c9c2db0f6499f01b6517f116e2bf7a753144"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/models/2025-07_s42.txt",
+      "sha256": "8b958507fa20d4ff12e2da9296b135258ca8263624331307841b3cb26885f031"
+    }
+  ]
+}

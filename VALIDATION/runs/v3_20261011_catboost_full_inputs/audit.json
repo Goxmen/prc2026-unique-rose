@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/identity.json",
+    "sha256": "87968d900eaca7b1cb9e550b327b89648531315f307abf3d7434251f3b889fa8"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/result.json",
+    "sha256": "0f50808183f4c45dd4d70219e6dac8d4396dc12a33b7529a3181d536d1fa7080"
+  },
+  "model_reloads": [
+    {
+      "month": "2025-01",
+      "rows": 153706,
+      "all_predictions_exact": true,
+      "all_original134_values_exact": true
+    },
+    {
+      "month": "2025-07",
+      "rows": 190713,
+      "all_predictions_exact": true,
+      "all_original134_values_exact": true
+    }
+  ],
+  "independent_sql_truth_calendar_selected_scores": true,
+  "all_rows": 344419,
+  "source": {
+    "path": "VALIDATION/catboost_full_inputs.py",
+    "sha256": "49c99b455a12854333a1ea8ede9cbd4fef7574805553219c61ba285bad0a2679"
+  }
+}

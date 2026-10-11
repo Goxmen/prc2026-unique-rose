@@ -1,0 +1,49 @@
+{
+  "design": {
+    "hypothesis": "monthly stand/runway reference contrasts can be recovered from public daily aggregate compositions",
+    "views": [
+      "2025 Jan/Jul metadata",
+      "original2026 Jan/Jul ranking metadata"
+    ],
+    "source": "published daily reference taxi total divided by source count, minutes to seconds",
+    "metadata": "stand/runway present; UTC and local month bothJan/Jul; first local day excluded as incomplete",
+    "observation": "day/runway with20 metadata rows and20 source rows; same0.5..1.2 count-ratio range",
+    "model": "stand fractional composition plus separate local-month intercepts; zero-centered stand ridge",
+    "ridge": 0.0011111111111111111,
+    "rationale": "fixed10s aggregate-noise versus300s stand prior; no tuning",
+    "public_holdout": "calendar day divisible by4; fit all other days; month intercepts fitted on source-training days only",
+    "comparison": "monthly runway mean from the same source-training days",
+    "no_departure_label_access": true,
+    "no_taxi_model_fit": true,
+    "no_taxi_cv_claim": true,
+    "no_production": true,
+    "limitation": "source cohort differs; stand coefficients underidentified; monthly drift beyond intercept remains"
+  },
+  "checks": {
+    "independent_primal_dual_equivalence": true,
+    "held_source_targets_cannot_affect_fit": true,
+    "permutation": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tools/probe_public_reference_inverse.py",
+      "sha256": "f65eea072feacf22216d00887598f5f618e20ac47013510e58e43de6beff85c5"
+    },
+    {
+      "path": "tmp/research_20261011/daily_taxi_source/training_rows.parquet",
+      "sha256": "f4c5e9ca9cc863d0540bc17238f299acc6bcd4a2eb4eddf3c7417d331659feea"
+    },
+    {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+    },
+    {
+      "path": "tmp/research_20261011/daily_taxi_methodology.pdf",
+      "sha256": "20082becb3e2b1f90903c2097136af65d08627793cc646517faec365bc52fb0a"
+    }
+  ]
+}

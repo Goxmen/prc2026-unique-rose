@@ -1,5 +1,77 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Full-input CatBoost passes narrowly; stand-reference inverse pilot, 15:18 Amsterdam
+
+The ordinary CatBoost screen is complete. Its fixed134→174 input expansion
+adds the22 retained combo,6 callsign and12 public departure inputs, keeping
+K07/10,000 rounds, seed42, original populations and uncapped labels. The
+matched direct CV changes291.7234→291.5770 (−0.1464). Transfer to v76 changes
+292.4494→292.3274 (−0.1220, paired-day interval[−0.2170,−0.0328]); both months
+improve. Both models save/reload all344,419 held predictions exactly, and the
+independent SQL score audit passes. Historical control CatBoost models used
+the laptop GPU, while this expansion used the desktop; retain that caveat.
+Run`v3_20261011_catboost_full_inputs/`.
+
+The actual selected daily-quality combination is separately replayed, including
+its direct and rounded controls and recalculated fixed daily shifts. It changes
+**291.6660→291.5895 (−0.0765)**, interval[−0.1531,−0.0035]. January changes
+only−0.0076 and July−0.1455. The interval barely excludes zero and all evidence
+reuses development data. Retain this as a small component of the combined
+recipe, not a distinct submission or an independent confirmation. The cumulative
+CV difference versus rounded v76 is−0.8599. Run
+`v3_20261011_catboost_refinements_cv/`; all-row source-shift, constraint and SQL
+audits pass. One full-year174-input CatBoost is queued under897098 after Rome's
+daily-taxi screen. Queue907102 then assembles/audits its combined component,
+reusing the daily calibration without fitting it again. No version or upload.
+
+Uncertainty-weighted daily allocation **fails**. One fixed screen allocates the
+same daily shift in proportion to retained seven-member prediction disagreement,
+normalizing each cell's average individual variance to200² and retaining15²
+common variance. All cell totals are preserved before bounds and rounding.
+CV291.6660→292.3252 (**+0.6591**), interval[+0.1688,+1.2994]; January+1.2617,
+July+0.0566. Independent SQL member variance, cell conservation, controls and
+scores pass. Run`v3_20261011_daily_taxi_uncertainty/`. Close this direction;
+no production and no new submission row.
+
+A new public-only pilot reconstructs stand/runway reference contrasts from
+changes in daily stand composition. The [official methodology](https://ansperformance.eu/library/ATXOT_indicator_documentation_mar23.pdf)
+defines stand/runway reference times with monthly rolling-year recalculation.
+The published dashboard supplies runway/day reference means. A fixed ridge
+model combines stand fractions with separate month intercepts; it does not
+access departure labels. Held public calendar days divisible by4 give source
+RMSE **13.9872→10.3799 seconds in2025** and **13.3828→10.0593 in2026**,
+across264/296 source cells. This is reconstruction of public totals, **not a
+taxi-out CV score or leaderboard gain**. Source cohorts differ and individual
+stand coefficients are underidentified; month intercepts cannot capture all
+stand-specific changes.
+
+`tools/probe_public_reference_inverse.py` and its separate auditor retain55
+groups in`v3_20261011_public_reference_inverse_pilot/`. Independent raw metadata,
+UTC/local calendars, stand counts, public targets and scores pass; all full
+coefficient reconstructions agree within3.5e−13. The first auditor attempt
+used a nonexistent abbreviated training filename; correcting that path was
+the only fix and the completed pilot was not repeated.
+
+`public_reference_inverse_features.py` extends the same fixed construction to
+all2025 inputs using month pairs six months apart. Jan/Jul2025 and2026 reuse
+the completed pilot coefficients. Two inputs are estimated stand reference and
+its contrast against that month's published runway mean. Missing values stay
+missing:232,291 of2,085,047 training rows and25,560 of344,841 ranking rows.
+An independent all-row audit passes4,859,776 feature entries and8,305 public
+source-cell reconstructions, including metadata, local calendar, missing joins
+and row permutation. A fixed174→176-input main-LightGBM screen is queued under
+909597 after component builder907102; it must preserve/replay every
+original input and model before fitting, with originalLB1/10,000/seed42 settings.
+No taxi CV result or selection exists for these inputs yet.
+
+All ten public airport production models are complete; all344,841 predictions
+reload exactly and the separate production audit passes. The daily-taxi main
+LightGBM is now the only heavy desktop job. The neural and Rome daily-taxi
+screens follow in sequence. V75/V76 upload watchers remain unchanged.
+Live check at15:18:04 Amsterdam still reports v74 best/latest221.6881,
+rank12/242,344,841 scored flights. Queue/source/file integrity passes at15:21,
+with exactly one heavy desktop job. The goal remains active.
+
 ## Rome daily-taxi inputs queued; count/sum inference remains exploratory, 14:42 Amsterdam
 
 `rome_daily_taxi_jan_jul.py` adds the ten audited runway/day and airport/day

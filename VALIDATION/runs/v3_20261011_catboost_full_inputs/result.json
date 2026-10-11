@@ -1,0 +1,111 @@
+{
+  "design": {
+    "parent": "v76",
+    "change": "all174 main-model inputs in the ordinary CatBoost",
+    "original_inputs": 134,
+    "combined_inputs": [
+      "sa_last_taxiin_sec",
+      "sa_prev_taxiin_sec",
+      "ra_last_taxiin_sec",
+      "ra_last_land_age_sec",
+      "pc_apt_mean_pm30",
+      "pc_apt_std_pm30",
+      "pc_apt_n_pm30",
+      "pc_apt_mean_next30",
+      "pc_rwy_mean_pm30",
+      "pc_rwy_n_pm30",
+      "pc_zone_mean_pm60",
+      "pc_zone_n_pm60",
+      "pc_rwy_prev_proxy",
+      "pc_rwy_next_proxy",
+      "pc_own_minus_apt",
+      "rc_burst_prev",
+      "rc_burst_next",
+      "rc_rwy_streak_sec",
+      "rc_dep_rwys_60",
+      "rc_arr_rwys_60",
+      "rc_dep_set_60",
+      "rc_arr_set_60"
+    ],
+    "callsign_inputs": [
+      "cc_call_start_sec",
+      "cc_squawk_start_sec",
+      "cc_previous_call_end_sec",
+      "cc_before_own_arrival",
+      "cc_ambiguous",
+      "cc_censored"
+    ],
+    "public_inputs": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "seed": 42,
+    "trial": "K07",
+    "rounds": 10000,
+    "original_training_rows": true,
+    "original_uncapped_labels": true,
+    "no_new_stopping": true,
+    "no_parameter_search": true,
+    "comparison": "same selected stack; only ordinary CatBoost changes",
+    "caveat": "Saved K07 control was fitted on laptop; desktop GPU and thread-count variation can affect small differences",
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/identity.json",
+    "sha256": "87968d900eaca7b1cb9e550b327b89648531315f307abf3d7434251f3b889fa8"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/scored.parquet",
+    "sha256": "23d1af6ca1eb2b82704f28d35d0a132cffe56df5984d59af5e1bb9a89e6bfe5a"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.28558057775336,
+      "control_transfer": 326.1740758752955,
+      "candidate": 326.2293196102262,
+      "candidate_transfer": 326.1425841531961
+    },
+    "2025-07": {
+      "control": 257.1611804522669,
+      "control_transfer": 258.72474053760806,
+      "candidate": 256.92462211442273,
+      "candidate_transfer": 258.51231005976007
+    }
+  },
+  "cv": {
+    "control": 291.72338051501015,
+    "control_transfer": 292.4494082064518,
+    "candidate": 291.57697086232446,
+    "candidate_transfer": 292.3274471064781
+  },
+  "paired": {
+    "candidate_vs_control": {
+      "change": -0.1464096526856622,
+      "ci95": [
+        -0.2512086866466543,
+        -0.04984149211218819
+      ],
+      "decision": "improvement"
+    },
+    "candidate_transfer_vs_control_transfer": {
+      "change": -0.12196109997370286,
+      "ci95": [
+        -0.21702988388890213,
+        -0.03284300141279764
+      ],
+      "decision": "improvement"
+    }
+  },
+  "selected_control_exact": true
+}

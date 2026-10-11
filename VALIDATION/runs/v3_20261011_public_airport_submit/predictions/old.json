@@ -1,0 +1,115 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_airport_submit/identity.json",
+    "sha256": "b3bdf19d3ea41aa2c29a22dcc3934e569706f1807f81fc324499af92c7214afd"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_public_airport_submit/predictions/old.parquet",
+    "sha256": "902bc1398a9de02b923e8f42ba43b2c51b72f995ce50ecd0975b3af310ef3dab"
+  },
+  "rows": 344841,
+  "checks": [
+    {
+      "airport": "EDDF",
+      "rows": 36317,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/EDDF.json",
+        "sha256": "00b424ca675f8fead5276a527e28e8b39e4cf678c1df62904c59cff162f91e46"
+      },
+      "all_reload_exact": true
+    },
+    {
+      "airport": "EDDM",
+      "rows": 25966,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/EDDM.json",
+        "sha256": "c860e9c2917c63b4ff380ab6ac178c4668389ccc0d0d2114aa97eec1fb791a8a"
+      },
+      "all_reload_exact": true
+    },
+    {
+      "airport": "EGLL",
+      "rows": 39840,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/EGLL.json",
+        "sha256": "48671ba61545385f0d87e1f14f6abbb02cbdb7617d5b98d2f46e982902d10afc"
+      },
+      "all_reload_exact": true
+    },
+    {
+      "airport": "EHAM",
+      "rows": 38182,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/EHAM.json",
+        "sha256": "114577f9669c88488a9e363a60f1323d9615739d7331a7be82b2555445e67ecd"
+      },
+      "all_reload_exact": true
+    },
+    {
+      "airport": "LEBL",
+      "rows": 30080,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/LEBL.json",
+        "sha256": "5c0421d9929edc66f656ce4a56f3bb3443ac08c6abd94df507bc513f83ea3021"
+      },
+      "all_reload_exact": true
+    },
+    {
+      "airport": "LEMD",
+      "rows": 36954,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/LEMD.json",
+        "sha256": "031971d99dfded3d2e10524f86c9e77420bc1dc4dc3c2d276040bdbe8b6441a8"
+      },
+      "all_reload_exact": true
+    },
+    {
+      "airport": "LFPG",
+      "rows": 39872,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/LFPG.json",
+        "sha256": "d715701470bfb72e1fb60e07b73f598b890ad4a77753119db813376120bc246a"
+      },
+      "all_reload_exact": true
+    },
+    {
+      "airport": "LIRF",
+      "rows": 26899,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/LIRF.json",
+        "sha256": "c2e18da369367626cf7f07dd30dc07bda548b148d312fc0f4419ddfd365e9c18"
+      },
+      "all_reload_exact": true
+    },
+    {
+      "airport": "LSZH",
+      "rows": 23150,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/LSZH.json",
+        "sha256": "1fac03597d72a6588b32766a3badfb50e39f06a9aba0d892645b5166c11b105b"
+      },
+      "all_reload_exact": true
+    },
+    {
+      "airport": "LTFM",
+      "rows": 47581,
+      "member": {
+        "path": "VALIDATION/runs/v3_20261011_public_airport_submit/members/LTFM.json",
+        "sha256": "1320aeb24ebf000f5b8d9732e8f315c508bcb5aa9e37910a65f1f70dd539081f"
+      },
+      "all_reload_exact": true
+    }
+  ],
+  "ranking_packet": {
+    "kind": "shared stripped ranking packet",
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/manifest.json",
+      "sha256": "279580a52250cdc230020e3c1d9f715dffa86f8e12baa6b8e3e2f380e7f4a614"
+    },
+    "source": {
+      "path": "VALIDATION/callsign_submit_portable.py",
+      "sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c"
+    }
+  },
+  "all_ranking_reload_exact": true
+}

@@ -114,6 +114,30 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,15:18 Amsterdam: full174 CatBoost passes narrowly; new reference inverse pilot.**
+  Both CatBoost CV fits completed and audited; direct−0.1464, v76 transfer−0.1220,
+  both months. In the actual selected daily-quality stack:291.6660→291.5895,
+  −0.0765 interval[−0.1531,−0.0035], January only−0.0076. Old control used laptop
+  GPU. Selected as a small combined component, not a distinct submission.
+  `catboost_refinements_cv.py`; run`v3_20261011_catboost_refinements_cv/`.
+  Full-year CatBoost queue897098 follows Rome877491; combined component builder
+  queue907102 follows CatBoost and reuses the existing full2025 calibration.
+  No version/upload. All ten airport production models are complete, all ranking
+  reloads exact, separate audit passes. Current heavy job daily-tree859814,
+  child900411; then dailyNN863590→quality-builder870127→Rome877491.
+  `daily_taxi_uncertainty.py` fails CV+0.6591 and is closed; audits pass.
+  Public stand-reference inverse pilot improves held public totals13.9872→10.3799
+  (2025),13.3828→10.0593(2026), no departure labels and no taxi-CV claim.
+  Raw-calendar/count/coefficient/source-score audit passes; runs
+  `v3_20261011_public_reference_inverse_pilot/`. Fixed two-feature builder uses
+  paired months six apart, reuses completed Jan/Jul coefficients, preserves
+  missing values. Its4,859,776 all-row feature entries and8,305 source-cell
+  reconstructions pass audit; fixed174→176 main-LightGBM screen is queued909597
+  after combined builder907102, not fitted or selected. All artifacts retained.
+  V75/V76 autonomous watchers unchanged; official best still221.6881 at last
+  live check15:18Amsterdam. Queue/source integrity passes at15:21, exactly one
+  heavy desktop job. Target215 remains active, no new submission row.
+
 - **October11,14:42 Amsterdam: Rome daily-taxi classifier queued; count/sum screens inconclusive.**
   `rome_daily_taxi_jan_jul.py` prepares80→90 inputs, original three seeds,
   1182/1401 rounds and exact original rows/targets/masks. Run

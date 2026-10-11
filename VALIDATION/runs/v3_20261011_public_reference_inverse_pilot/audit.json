@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_public_reference_inverse.py",
+    "sha256": "3c5353e9d7afe16d980e68b88118ac9be7478a0e03ff2d5496099617ca541d8c"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_pilot/result.json",
+    "sha256": "b32e9bf894829502556cbb0e7b3a2d5e7a66eed9602ca2ca77a6fe670ba1a8a3"
+  },
+  "checks": [
+    {
+      "view": "2025",
+      "raw_metadata_rows": 344345,
+      "cells": 1142,
+      "independent_sql_raw_calendar_stand_counts_exact": true,
+      "held_prediction_replay_max_error": 0.0,
+      "full_coefficient_replay_max_error": 3.410605131648481e-13
+    },
+    {
+      "view": "2026",
+      "raw_metadata_rows": 344774,
+      "cells": 1224,
+      "independent_sql_raw_calendar_stand_counts_exact": true,
+      "held_prediction_replay_max_error": 0.0,
+      "full_coefficient_replay_max_error": 3.410605131648481e-13
+    }
+  ],
+  "independent_sql_public_targets_scores": true,
+  "only_public_reference_targets": true,
+  "not_competition_validation": true
+}

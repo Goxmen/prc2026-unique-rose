@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/public_reference_inverse_features.py",
+    "sha256": "f3efedcbcbbf0e14ae4d5dcf1c1f2a6d005e5008f3b43993ec266044509e98cd"
+  },
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_features/manifest.json",
+    "sha256": "b497da56a148ef1f5c50415a1b992bb297e2855a5517faaa1fa7fc8ef1da9f0d"
+  },
+  "checks": [
+    {
+      "name": "2025",
+      "rows": 2085047,
+      "sql_feature_entries": 4170094,
+      "public_cells": 7081,
+      "full_estimate_reconstruction_max_error": 1.3642420526593924e-12,
+      "permuted_rows": 2000
+    },
+    {
+      "name": "ranking",
+      "rows": 344841,
+      "sql_feature_entries": 689682,
+      "public_cells": 1224,
+      "full_estimate_reconstruction_max_error": 1.0231815394945443e-12,
+      "permuted_rows": 2000
+    }
+  ],
+  "metadata_calendar_every_feature_public_targets_coefficient_reconstruction_sql": true,
+  "no_departure_labels_read": true,
+  "not_taxi_cv": true
+}

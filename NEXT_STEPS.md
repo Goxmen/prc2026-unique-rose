@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
-v74 at **221.6881**, leaving6.6881 seconds. Live check at14:41 Amsterdam:
+v74 at **221.6881**, leaving6.6881 seconds. Live check at15:18 Amsterdam:
 rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
 Autonomous submissions and both machines remain authorized; laptop WSL is
 currently offline, while Windows is online. Desktop jobs run one at a time.
@@ -29,8 +29,8 @@ All model/SQL audits pass. Stop expansion and retain the six completed fits.
 Public airport inputs plus the retained t5/full-monthly corrections improve
 production-rounded CV292.4494→292.2029 (−0.2465), both months,
 interval[−0.3874,−0.1492]. All boundaries and SQL scores pass. The ranking
-aggregate component is prepared/audited; ten airport production fits and final
-candidate assembly remain. No new version is reserved.
+aggregate component and all ten airport production models are now complete
+and audited; final candidate assembly remains. No new version is reserved.
 
 New public daily taxi-out totals by runway cover all ten airports and both
 years. Source totals are independently audited but the cohort differs from the
@@ -48,8 +48,8 @@ Parameter averaging is complete and closed: same-trajectory transferred+0.5437,
 interval[+0.2463,+0.8308]. Its Boolean-buffer post-training failure was repaired,
 archived and retried only because no checkpoint had been saved. Real-buffer and
 recovery checks pass; models now save before diagnostics. Keep all completed
-fits. Current desktop sequence: full174-input CatBoost847447, then public airport
-production847448, then daily-taxi-input main LightGBM859814. One heavy job at a
+fits. Full174-input CatBoost CV and airport production have finished. The current
+heavy desktop job is daily-taxi-input main LightGBM859814. One heavy job at a
 time; sources and queue identities are frozen. V75/V76 watchers are unchanged.
 A fixed neural daily-taxi test follows under queue863590: identical original
 network plus ten zero-initialized public input columns, seed42 and21/17epochs.
@@ -68,6 +68,20 @@ broad supports gains0.3879. Both improve both months, but both day intervals
 include losses and a few large July mistakes dominate. All audits pass; no
 production, upload or new submission row. Do not retry these completed screens
 or turn the exploratory point estimates into claimed confirmed improvements.
+
+Full174-input CatBoost improves v76 CV by0.1220 and the selected daily-quality
+combination by0.0765 to291.5895, both intervals narrowly below zero. January's
+combined change is only−0.0076; historical control used the laptop GPU. Its
+full-year model is queued after Rome under897098; component assembly/audit
+under907102 reuses all calibrations and reserves no submission version.
+
+Disagreement-weighted daily correction failed by0.6591; close that direction.
+An independently audited public-reference inverse pilot reduces held public
+source error in both years, without reading departure labels. Two stand/runway
+features are prepared for all training/ranking inputs;4,859,776 feature values
+pass the independent SQL audit. One fixed main-tree test is queued under909597
+after combined-component builder907102. Public-source reconstruction is not
+taxi-out validation; no gain or promotion is claimed yet.
 
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 The earlier225.00 goal is complete; its result remains the baseline below.

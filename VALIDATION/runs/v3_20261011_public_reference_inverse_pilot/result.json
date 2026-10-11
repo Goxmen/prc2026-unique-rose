@@ -1,0 +1,55 @@
+{
+  "design": {
+    "hypothesis": "monthly stand/runway reference contrasts can be recovered from public daily aggregate compositions",
+    "views": [
+      "2025 Jan/Jul metadata",
+      "original2026 Jan/Jul ranking metadata"
+    ],
+    "source": "published daily reference taxi total divided by source count, minutes to seconds",
+    "metadata": "stand/runway present; UTC and local month bothJan/Jul; first local day excluded as incomplete",
+    "observation": "day/runway with20 metadata rows and20 source rows; same0.5..1.2 count-ratio range",
+    "model": "stand fractional composition plus separate local-month intercepts; zero-centered stand ridge",
+    "ridge": 0.0011111111111111111,
+    "rationale": "fixed10s aggregate-noise versus300s stand prior; no tuning",
+    "public_holdout": "calendar day divisible by4; fit all other days; month intercepts fitted on source-training days only",
+    "comparison": "monthly runway mean from the same source-training days",
+    "no_departure_label_access": true,
+    "no_taxi_model_fit": true,
+    "no_taxi_cv_claim": true,
+    "no_production": true,
+    "limitation": "source cohort differs; stand coefficients underidentified; monthly drift beyond intercept remains"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_pilot/identity.json",
+    "sha256": "1955189584b4876ed023739a7b4eb7eac94a956380161f176a82d094b1e95b83"
+  },
+  "public_holdout": {
+    "2025": {
+      "cells": 264,
+      "baseline_rmse": 13.987199194304512,
+      "candidate_rmse": 10.379909005572028
+    },
+    "2026": {
+      "cells": 296,
+      "baseline_rmse": 13.382770072367215,
+      "candidate_rmse": 10.059336603932621
+    }
+  },
+  "total_groups": 55,
+  "only_external_reference_targets": true,
+  "no_competition_score": true,
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_pilot/observations.parquet",
+      "sha256": "59f500ddd23d9c32eb5544fd57fcd79b9de48fc5ef0d61b43681c7f7e1b481f8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_pilot/reference_estimates.parquet",
+      "sha256": "0081ca705177a010f877292886cbaf5b07a3b40beff24ca7ca5000b94723773f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_pilot/groups.csv",
+      "sha256": "07d00a7314e5720788cae5caffee0d160a76201b3cb12bd791b1fb3d70ec7f3b"
+    }
+  ]
+}

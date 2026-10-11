@@ -4,12 +4,12 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "ordinary_catboost_full174_inputs",
-    "queue": "VALIDATION/runs/v3_20261011_target215/catboost_full_inputs_queue.json",
-    "pid": 858973,
-    "queue_pid": 847447,
-    "stage": 0,
-    "log": "tmp/research_20261011/catboost_full_inputs.log",
+    "task": "public_runway_daily_taxi_main_tree",
+    "queue": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_lgb_queue.json",
+    "pid": 900411,
+    "queue_pid": 859814,
+    "stage": 1,
+    "log": "tmp/research_20261011/public_daily_taxi_lgb.log",
     "training_started": true
   },
   "laptop": "Windows online but SSH timed out at12:40UTC; WSL Tailscale offline since04:00UTC; no remote job",
@@ -103,9 +103,16 @@
     "Rome daily-taxi Cat3 original80 features, IDs, targets and folds exact; six90-input fits queued after selected production component",
     "joint source-count/sum posterior CV-0.2952, both months but wide interval inconclusive; audits pass; no selection",
     "retained broad-support count/sum follow-up CV-0.3879, both months but wide interval inconclusive; no refit; audits pass; no selection",
-    "full174 CatBoost January10000 rounds saved, all held predictions reload exactly; July running"
+    "full174 CatBoost January10000 rounds saved, all held predictions reload exactly; July running",
+    "Full174 ordinary CatBoost CV completes: v76 transfer-0.1220, both months; both models all-row reload exact and SQL audit pass; historical laptop GPU control caveat",
+    "CatBoost selected daily-quality combination291.6660 to291.5895 (-0.0765), CI[-0.1531,-0.0035]; January-0.0076; all controls/shifts/bounds/SQL audited",
+    "All ten airport full-year models completed; all344841 ranking reloads and independent production audit pass",
+    "Disagreement-weighted daily allocation fails+0.6591, CI[+0.1688,+1.2994]; independent SQL variance and cell conservation audit passes; direction closed",
+    "Public stand-reference inverse pilot passes metadata/source audit; held public-source RMSE13.9872 to10.3799 in2025 and13.3828 to10.0593 in2026; no departure labels and no taxi-CV claim",
+    "Two inverse-reference features prepared for all2429888 training/ranking rows; all4859776 SQL feature values and8305 public-cell coefficient reconstructions pass; completed Jan/Jul coefficients reused",
+    "Full174 CatBoost production and no-refit combined component queued897098 then907102; fixed176-input inverse-reference tree queued909597; no new versions or uploads"
   ],
-  "next": "Finish CatBoost CV, airport production, daily-taxi main tree and neural screens sequentially, then prepare/audit selected quality-gated daily combined component. Review outcomes for candidate assembly/versioning; preserve v75/v76 scheduled uploads and live-score geometry evaluation.",
+  "next": "Finish daily-taxi main/NN and Rome screens; prepare/audit selected daily-quality and full174 CatBoost components; then test two inverse-reference inputs with fixed Jan/Jul main-tree settings. Review joint gains for final candidate assembly, preserve v75/v76 scheduled uploads and official-score geometry evaluation.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -151,7 +158,7 @@
     ]
   },
   "last_live_check": {
-    "at": "2026-10-11T12:17:16+00:00",
+    "at": "2026-10-11T13:18:04+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -236,7 +243,7 @@
       "Train-only inner stopping and preprocessing; full-model disk reloads and independent score audit"
     ]
   },
-  "queue_integrity_audit": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1130.json",
+  "queue_integrity_audit": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1522.json",
   "rome_public_monthly_shift_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/rome_public_monthly_shift_queue.json",
     "pid": 777889,
@@ -271,7 +278,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T12:44:39.677622+00:00",
+  "updated_at": "2026-10-11T13:21:03.000783+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -352,26 +359,26 @@
   "catboost_full_inputs_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/catboost_full_inputs_queue.json",
     "pid": 847447,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "ordinary_catboost_full174_inputs"
     ],
-    "process_live": true
+    "process_live": false
   },
   "public_airport_production_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_airport_production_queue.json",
     "pid": 847448,
-    "state": "waiting",
+    "state": "complete",
     "jobs": [
       "public_airport_full_year_component"
     ],
-    "process_live": true
+    "process_live": false
   },
   "subagents": "All three retained agents errored on account usage allowance untilOct17; no new agent work available",
   "public_daily_taxi_lgb_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_lgb_queue.json",
     "pid": 859814,
-    "state": "waiting",
+    "state": "running",
     "jobs": [
       "public_runway_daily_taxi_main_tree"
     ],
@@ -404,12 +411,39 @@
     ],
     "process_live": true
   },
-  "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1444.json",
+  "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1522.json",
   "last_live_leaderboard_check": {
-    "updatedAt": "2026-10-11T12:41:41+00:00",
+    "updatedAt": "2026-10-11T13:18:04+00:00",
     "best": 221.6881,
     "rank": 12,
     "scoringTeamCount": 242,
     "usedPairs": 344841
+  },
+  "catboost_full_production_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/catboost_full_production_queue.json",
+    "pid": 897098,
+    "state": "waiting",
+    "jobs": [
+      "full174_catboost_production_component"
+    ],
+    "process_live": true
+  },
+  "catboost_refinements_production_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/catboost_refinements_production_queue.json",
+    "pid": 907102,
+    "state": "waiting",
+    "jobs": [
+      "selected_catboost_daily_refinements_component"
+    ],
+    "process_live": true
+  },
+  "public_reference_inverse_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/public_reference_inverse_queue.json",
+    "pid": 909597,
+    "state": "waiting",
+    "jobs": [
+      "fixed_public_reference_inverse_main_tree"
+    ],
+    "process_live": true
   }
 }

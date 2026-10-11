@@ -1,0 +1,65 @@
+{
+  "design": {
+    "parent": "selected airport/t5/full-monthly/daily-quality refinement",
+    "change": "replace only ordinary CatBoost with retained full174-input K07/10000 seed42",
+    "method": "rebuild ordinary blend and both serialized boundaries; recompute unchanged daily source correction",
+    "comparison": "old/new CatBoost before and after fixed daily-quality correction",
+    "no_fits": true,
+    "no_weight_or_parameter_search": true,
+    "no_upload": true,
+    "limitation": "reused Jan/Jul development; old CatBoost fitted on laptop, new on desktop"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_catboost_refinements_cv/identity.json",
+    "sha256": "8bbbb539abfdef03a1e2954b6aba61a5ca092fbff670c4c7a0b1a5d2a9dd5a19"
+  },
+  "scores": {
+    "2025-01": {
+      "control_refined": 325.94319178263174,
+      "candidate_refined": 325.9425714555512,
+      "control": 325.8606946460391,
+      "candidate": 325.85312353289453
+    },
+    "2025-07": {
+      "control_refined": 258.46250828577354,
+      "candidate_refined": 258.285865594237,
+      "control": 257.47132254599944,
+      "candidate": 257.3258332224739
+    }
+  },
+  "cv": {
+    "control_refined": 292.20285003420264,
+    "candidate_refined": 292.1142185248941,
+    "control": 291.6660085960193,
+    "candidate": 291.5894783776842
+  },
+  "paired": {
+    "_refined": {
+      "change": -0.08863150930852726,
+      "ci95": [
+        -0.17505987445959761,
+        -0.001276883314377801
+      ],
+      "decision": "improvement"
+    },
+    "quality": {
+      "change": -0.07653021833507978,
+      "ci95": [
+        -0.15314165757830694,
+        -0.0034746064131184174
+      ],
+      "decision": "improvement"
+    }
+  },
+  "all_direct_serialized_quality_controls_exact": true,
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_cv/scored.parquet",
+      "sha256": "1036c3341dc6afd83b98adc0c90963de4447be0e4f805921e07e61f672425225"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_cv/cells.parquet",
+      "sha256": "c157c2ecfd31da73bef0a98f6ed5ffeb41e4eda2634f46fe5bcd55db14d1fe4c"
+    }
+  ]
+}

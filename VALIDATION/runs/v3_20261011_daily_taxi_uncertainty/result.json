@@ -1,0 +1,80 @@
+{
+  "design": {
+    "parent": "selected production-rounded daily-quality refinement",
+    "change": "allocate each unchanged daily taxi mean shift using relative ensemble disagreement",
+    "members": [
+      "callsign",
+      "physical0",
+      "physical1",
+      "physical2",
+      "main",
+      "airport",
+      "catboost"
+    ],
+    "member_weights": [
+      0.355,
+      0.11833333333333333,
+      0.11833333333333333,
+      0.11833333333333333,
+      0.09666666666666666,
+      0.09666666666666666,
+      0.09666666666666666
+    ],
+    "disagreement": "weighted variance of each stand-alone ordinary member through the fixed classifier/corrections/serialized bounds",
+    "independent_variance": "rescale disagreements within eligible runway-day to mean200^2; zero variance falls back to200^2",
+    "shared_variance": "unchanged15^2 common component",
+    "allocation": "uniform shift*(individual_variance+n*15^2)/(200^2+n*15^2)",
+    "invariant": "same group total before final constraints and rounding; same source/gain/cap/quality gate",
+    "parameters": "all retained; no fitted error model, no outcome gate, no new scale or blend search",
+    "limitation": "disagreement is a proxy for relative uncertainty; reused Jan/Jul development",
+    "no_new_fit": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_daily_taxi_uncertainty/identity.json",
+    "sha256": "d7138aaedac3605ccdfdd25f8583b950144a9292eee52ec6c0481e84539cc848"
+  },
+  "scores": {
+    "2025-01": {
+      "refined": 325.94319178263174,
+      "refined_quality": 325.8606946460391,
+      "candidate": 327.12242860339325
+    },
+    "2025-07": {
+      "refined": 258.46250828577354,
+      "refined_quality": 257.47132254599944,
+      "candidate": 257.52788688311296
+    }
+  },
+  "cv": {
+    "refined": 292.20285003420264,
+    "refined_quality": 291.6660085960193,
+    "candidate": 292.3251577432531
+  },
+  "paired": {
+    "change": 0.6591491472338191,
+    "ci95": [
+      0.16884960928992926,
+      1.2993827008118317
+    ],
+    "decision": "regression"
+  },
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_taxi_uncertainty/scored.parquet",
+      "sha256": "ba7e0991bfc2201f47f84534b33841728a1f0016e44f26e1a581a2127761c038"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_taxi_uncertainty/cells.parquet",
+      "sha256": "cf17fd37de1805c29f2e60352c4e20d7833e8457f9a7b16fd4f09fba76e82f5c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_taxi_uncertainty/members.parquet",
+      "sha256": "489de88c8c2e43479cc01686381e033555ea14b54737350af9a7c70164607697"
+    }
+  ],
+  "uniform_control_exact": true,
+  "every_preconstraint_cell_sum_preserved": true,
+  "changed": 241180
+}

@@ -1,5 +1,5 @@
 {
-  "state": "running",
+  "state": "complete",
   "predecessor_pid": 847446,
   "predecessor_start": "8729849",
   "predecessor_result": "VALIDATION/runs/v3_20261011_nn_weight_average/score_audit.json",
@@ -36,7 +36,8 @@
         "VALIDATION/runs/v3_20261011_catboost_full_inputs/preflight.json": "14205d69ea711c3d9bb3ca3968fe6c04121f93b9354a70516e869081347e5386"
       },
       "log": "tmp/research_20261011/catboost_full_inputs.log",
-      "result": "VALIDATION/runs/v3_20261011_catboost_full_inputs/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_catboost_full_inputs/audit.json",
+      "completed_result_sha256": "9c52935358b9fdc1c240001ba305b2d54a83fbac46d54fde27c036dbeb228b83"
     }
   ],
   "rebindings": [
@@ -47,9 +48,9 @@
       "reason": "Recover failed EMA post-training Boolean diagnostic; evidence archived, no new checkpoint was retained"
     }
   ],
-  "updated_at": "2026-10-11T11:56:07.658542+00:00",
+  "updated_at": "2026-10-11T12:49:57.912410+00:00",
   "pid": 847447,
   "job": 0,
-  "stage": 0,
-  "child_pid": 858973
+  "stage": 2,
+  "child_pid": null
 }
