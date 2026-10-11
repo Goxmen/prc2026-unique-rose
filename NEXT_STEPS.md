@@ -48,10 +48,20 @@ Source membership remains approximated, not observed.
 The fixed neural Rome classifier failed to improve: selected CV+0.8528;
 January slightly improves but July worsens1.7855. Saved probabilities and
 independent training/stopping/score audits pass; no expansion.
-A public-only Rome adaptation screen follows it: one regularized airline/month
-probability shift is inferred jointly from that month's daily delay totals.
-This shares evidence across days, with fixed prior strength and retained
-training-only source-noise estimates. Numerical checks pass; CV is pending.
+Public-only Rome airline/month adaptation is inconclusive (−0.0507 on
+v76, July worse); no expansion. The direct t5 replacement gains0.0734 on
+v76 with both months better. Full monthly correction instead of half gains
+0.0938, also both months. These small effects are retained without distinct
+submissions. Mean-preserving minute-grid interpolation gives no gain (+0.0011).
+Every original control and independent SQL audit passes.
+The desktop now trains a fixed width64 physical track encoder versus the
+current width32 single-network control. Original inputs, public/tabular branches,
+optimizer, batches and21/17epochs stay fixed. CPU/CUDA checks and a2048-row
+capacity test pass; CV is pending. The laptop WSL remains offline.
+Live12:12 Amsterdam: v74 remains best/latest221.6881, rank12/242. V75/v76
+uploads are queued for12 October02:00/02:10 Amsterdam. Their official scores
+will determine whether adding their separately scored directions improves the
+existing affine basis; no re-upload of a duplicate file.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

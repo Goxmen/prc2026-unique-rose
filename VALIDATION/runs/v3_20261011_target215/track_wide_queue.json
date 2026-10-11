@@ -1,0 +1,54 @@
+{
+  "state": "running",
+  "predecessor_pid": 801448,
+  "predecessor_start": "already_complete",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_monthly_strength/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T10:21:13.202150+00:00",
+  "jobs": [
+    {
+      "name": "fixed_track_encoder_width64",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_track_wide_jan_jul.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_track_wide_jan_jul.py",
+          "audit_models"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_track_wide_jan_jul.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_track_wide_jan_jul.py",
+          "audit_scores"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/nn_track_wide.py": "930c2b94921e693cc432ad3d350a0fdc193e75373e792dbc940dfdcb7f926b69",
+        "VALIDATION/nn_track_wide_jan_jul.py": "6997c87616dd7ed25d11621986739f4daddfc928e4332c0f41c7facaad6e0a95",
+        "VALIDATION/runs/v3_20261011_nn_track_wide/identity.json": "1b91d17b098cc62de323bdb303c6935b07947f8cc685e8be53925ddb6a1c31e2",
+        "VALIDATION/runs/v3_20261011_nn_track_wide/gpu_capacity.json": "40d5126af0ecddde5aef95bbf5724e7963eea3620ff42cf07d2e25d6317d27fb"
+      },
+      "log": "tmp/research_20261011/track_wide.log",
+      "result": "VALIDATION/runs/v3_20261011_nn_track_wide/score_audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T10:21:13.230938+00:00",
+  "pid": 803581,
+  "job": 0,
+  "stage": 0,
+  "child_pid": 803582
+}

@@ -1,5 +1,58 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Completed aggregate tests; wider track encoder started
+
+The exact selected-stack t5 replacement improves v76 CV292.4494→292.3760
+(−0.0734), interval[−0.1520,−0.0232]. January improves0.0942 and July0.0527.
+The isolated daily component gains0.2632; the fixed ensemble attenuates it.
+All original v72/v73/v74/v76 stages replay, and all344,419 SQL labels, calendars,
+weights, serialization and scores pass. Retain `v3_20261011_daily_heavy_tail_stack/`;
+the small effect does not receive its own candidate or upload.
+
+Public-only airline/month adaptation is inconclusive on v76:−0.0507,
+interval[−0.3466,+0.2002]. January improves0.1913 while July worsens0.0900.
+Direct row-loop aggregates, source totals/counts, shared airline shifts and all
+SQL scores pass; no production expansion. Restoring excluded long Rome training
+rows was already tested by the error-mechanisms agent on October10 and failed
+(+0.6193); it was reviewed, not repeated.
+
+A new numerical screen interpolates each possible positive delay between
+adjacent minute nodes, preserving its expected delay and physical taxi-state
+mass. It retains Gaussian ordinary weights, all source/noise parameters, the
+actual v71 prior, original v73 blend and all later corrections. Checks include
+physical mass/first moments, bounded grid variance, row permutation, exact old
+control replay and an independent24,600-state enumeration (max1.14e−10s).
+Actual v76 CV changes **+0.0011**, interval[−0.0032,+0.0058]: no useful gain.
+The daily component alone regresses0.0156. Full control/SQL audits pass; retain
+`v3_20261011_daily_grid_interpolation/` without promotion.
+
+A second fixed screen applies the existing monthly correction fully instead
+of at half strength. Training-only coefficients, eligibility rules,120-second
+raw-shift cap, previous predictions and later constraints stay fixed. CV
+292.4494→292.3556 (−0.0938), interval[−0.1615,−0.0326]; January gains0.0704,
+July0.1171. Independent SQL verifies every multiplier/zero-floor operation and
+score; original controls replay. Retain `v3_20261011_monthly_strength/` as a small
+research effect; no distinct submission. All intervals reuse development data.
+
+The next larger model test doubles the physical track encoder width32→64.
+The successful physical transforms and public head stay; the same three temporal
+blocks, dilations[1,4,16], mean/max pooling,128-wide fusion hidden layer,
+preprocessing, optimizer,2048-row batches and21/17 epochs are retained. Only
+the track channel count and corresponding fusion input dimension increase.
+Fresh branch initialization is isolated from the original RNG. CPU/CUDA checks
+verify identical tabular/public weights, initial outputs and dropout RNG,
+missing/single-track gates, masked-padding invariance and nonzero gradients.
+A three-step2048-row synthetic GPU check peaks at1.72GB, leaving room for the
+original encoded data. This capacity check is not an accuracy result.
+
+`nn_track_wide_jan_jul.py` runs fit→model audit→score→score audit sequentially,
+queue PID803581, child803582. January training started at12:22 Amsterdam;
+first20 real steps take59.81ms each, allocated peak4.625GiB. Compare one new network against the retained public seed42 on
+the same machine; the selected three-member pool is a different-size diagnostic.
+No width, epoch or blend sweep is planned, and no production candidate is selected.
+V75/v76 remain queued for12 October02:00/02:10 Amsterdam. Latest live check
+**11 October12:12 Amsterdam: v74 best/latest221.6881, rank12/242**,344,841 flights.
+
 ## V76 prepared and two completed screens, 12:05 Amsterdam
 
 **V76 is built, independently audited and queued for12 October02:10 Amsterdam.**

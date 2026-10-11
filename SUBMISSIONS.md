@@ -12,7 +12,7 @@ On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
 **Active target: 215.00 seconds or lower. Best/latest: v74, 221.6881 s.**
 V74 improves v73 by **1.4969 seconds**; **6.6881 seconds** remain to the target.
-Live 11 October 07:12 Amsterdam: **rank 12/242**, all **344,841** original
+Live 11 October 12:12 Amsterdam: **rank 12/242**, all **344,841** original
 January/July flights scored. Monthly public aggregates and recovered-plan
 constraints improved both CV and the leaderboard. V74 Jan/Jul CV is **293.7173**;
 its parent uses own leaderboard feedback, not independent validation.

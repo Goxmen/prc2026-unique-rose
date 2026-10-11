@@ -1,0 +1,67 @@
+{
+  "design": {
+    "parent": "selected v76 combined public recipe",
+    "change": "replace Gaussian ordinary aggregate weights with variance-matched t5 in the existing daily posterior",
+    "source_dates": "original takeoff dates; original all-departure population",
+    "prior": "original serialized v71, as actually used by v72",
+    "noise": "reuse original v72 permitted-training parameters",
+    "daily_weight": "unchanged v73 stored weight on v72",
+    "monthly": "original v74 fitted composition coefficients; recompute shift from changed incoming predictions",
+    "retained": "v73 serialization, v74 plan corrections, v76 public-model delta and plan corrections",
+    "no_new_taxi_fit": true,
+    "no_new_parameter_fit": true,
+    "no_weight_or_scale_search": true,
+    "evaluation": "follow-up after t5 beat Gaussian in the off-block-date screen; reused development",
+    "production": false
+  },
+  "scores": {
+    "2025-01": {
+      "old_posterior": 327.23389090155456,
+      "new_posterior": 326.8771797308103,
+      "control": 326.1740758752955,
+      "candidate": 326.0798882204517
+    },
+    "2025-07": {
+      "old_posterior": 263.63690136445587,
+      "new_posterior": 263.46713611366084,
+      "control": 258.72474053760806,
+      "candidate": 258.6720437232475
+    }
+  },
+  "cv": {
+    "old_posterior": 295.4353961330052,
+    "new_posterior": 295.17215792223556,
+    "control": 292.4494082064518,
+    "candidate": 292.3759659718496
+  },
+  "paired": {
+    "new_posterior_vs_old_posterior": {
+      "change": -0.2632382107696287,
+      "ci95": [
+        -0.5375612181243955,
+        -0.10037629684163464
+      ],
+      "decision": "improvement"
+    },
+    "candidate_vs_control": {
+      "change": -0.07344223460216881,
+      "ci95": [
+        -0.15195920157583273,
+        -0.023195319282854857
+      ],
+      "decision": "improvement"
+    }
+  },
+  "daily_weight": 0.4032872515123992,
+  "all_v73_v74_v76_controls_exact": true,
+  "gaussian_replay_max_error": 1.4551915228366852e-11,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail_stack/identity.json",
+    "sha256": "1904d90c93c811d46c16edc7edf7cf119f35ab727a2c354dcc558c956273ca91"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail_stack/scored.parquet",
+    "sha256": "b5d15cf69f5d28179f30c6f637838b8882e2923b3a079e26752688e9d23ba402"
+  },
+  "interpretation": "Only t5 likelihood-prior shape replaces the actual selected stack component; no date/weight/parameter changes or production"
+}

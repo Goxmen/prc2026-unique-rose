@@ -1,0 +1,51 @@
+{
+  "design": {
+    "parent": "selected v76 combined public recipe",
+    "change": "monthly correction multiplier0.5 to1.0",
+    "unchanged": "all earlier predictions, population gates, raw120-second cap, training coefficients and later constraints",
+    "no_new_taxi_fit": true,
+    "no_parameter_refit": true,
+    "no_airport_gate": true,
+    "no_weight_search": true,
+    "previous_weight": 0.5,
+    "candidate_weight": 1.0,
+    "evaluation": "one natural full-reconciliation endpoint on reused Jan/Jul development",
+    "production": false
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.1740758752955,
+      "candidate": 326.1036266919439
+    },
+    "2025-07": {
+      "control": 258.72474053760806,
+      "candidate": 258.60759105779505
+    }
+  },
+  "cv": {
+    "control": 292.4494082064518,
+    "candidate": 292.35560887486946
+  },
+  "paired": {
+    "candidate_vs_control": {
+      "change": -0.09379933158231779,
+      "ci95": [
+        -0.16149842079108864,
+        -0.032625903740365246
+      ],
+      "decision": "improvement"
+    }
+  },
+  "daily_weight": 0.4032872515123992,
+  "all_v73_v74_v76_controls_exact": true,
+  "monthly_multiplier": 1.0,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_monthly_strength/identity.json",
+    "sha256": "6ec97da2381ea7f5e859b19e6478dfe2ada6aac5801e367e134c2882814ac56b"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_monthly_strength/scored.parquet",
+    "sha256": "ec9182c4b7d77aa8ab33c4ae3abeabbfb67c8b2cdba919a6c17eaf2e56ae6e4e"
+  },
+  "interpretation": "Only the monthly correction multiplier changes; no refits or production"
+}

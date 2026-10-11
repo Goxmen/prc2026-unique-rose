@@ -4,12 +4,15 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "Public-only airline/month adaptation; neural Rome finished without gain",
-    "queue": "VALIDATION/runs/v3_20261011_target215/rome_public_monthly_shift_queue.json",
-    "pid": null,
-    "log": "tmp/research_20261011/rome_public_monthly_shift.log"
+    "task": "Width64 physical track encoder; original public/tabular branches, fixed21/17epochs; fits/audits pending",
+    "queue": "VALIDATION/runs/v3_20261011_target215/track_wide_queue.json",
+    "pid": 803582,
+    "log": "tmp/research_20261011/track_wide.log",
+    "training_started": true,
+    "first20_steps_ms": 59.81,
+    "peak_allocated_gib": 4.625
   },
-  "laptop": "Windows online; WSL still offline at09:55UTC; pending optional request to open WSL",
+  "laptop": "Windows online; WSL offline in latest check at approximately10:15UTC; prior optional request to open WSL unanswered",
   "utc_uploads_used": [
     70,
     71,
@@ -70,9 +73,14 @@
     "Raw-track withholding failed: matched CV+0.3534, transferred+0.3348; both months worse; model and score audits pass",
     "Monthly reference proxy improves v75 by0.0519; both months; independently audited, retained as small research effect without submission",
     "V76 built and fully audited; all344841 predictions/constraints/schema and all344419 SQL CV labels/scores pass; all96 frozen dependencies verified",
-    "Neural Rome fixed one-third classifier failed to improve: selected CV+0.8528, July+1.7855; train-only membership/vocabulary/stopping and scores audited"
+    "Neural Rome fixed one-third classifier failed to improve: selected CV+0.8528, July+1.7855; train-only membership/vocabulary/stopping and scores audited",
+    "Public-only Rome airline/month adaptation inconclusive: selected CV-0.0507 CI[-0.3466,+0.2002]; July worse; all aggregate/probability/SQL audits pass",
+    "Exact selected-stack t5 replacement improves v76 CV0.0734, both months; all original stages replay and SQL score audit pass; small effect retained without upload",
+    "Grid interpolation first moments and24600-state enumeration pass; actual-stack CV+0.0011 inconclusive; all control/SQL audits pass; no promotion",
+    "Full monthly correction, fixed multiplier1 instead0.5, improves v76 CV0.0938; both months; independent SQL arithmetic and scores pass; no distinct submission",
+    "Width64 track encoder CPU/CUDA initialization, tabular/public weights, dropout RNG, missing-track gates, padding and gradient checks pass; 2048row synthetic capacity test1.72GB peak"
   ],
-  "next": "Public-only monthly-airline adaptation, then exact selected-stack t5 comparison; preserve v75/v76 queued uploads.",
+  "next": "Complete width64 Jan/Jul fits and audits; inspect joint refinements only if meaningful. Preserve v75/v76 midnight queues. Once official scores arrive, evaluate new scored model directions in the retained affine basis; no duplicate uploads.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -118,7 +126,7 @@
     ]
   },
   "last_live_check": {
-    "at": "2026-10-11T09:30:25+00:00",
+    "at": "2026-10-11T10:12:09+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -216,7 +224,7 @@
   "heavy_tail_stack_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/heavy_tail_stack_queue.json",
     "pid": 782369,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "Replace only actual v76 daily Gaussian aggregate with variance-matched t5",
       "Exact v72/v73/v74/v76 control replay; independent SQL score and fixed-weight serialization audit"
@@ -238,5 +246,30 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T10:05:52.959626+00:00"
+  "updated_at": "2026-10-11T10:22:17.919557+00:00",
+  "grid_interpolation_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
+    "pid": 799019,
+    "state": "complete",
+    "jobs": [
+      "fixed_mean_preserving_delay_grid"
+    ]
+  },
+  "monthly_strength_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/monthly_strength_queue.json",
+    "pid": 801448,
+    "state": "complete",
+    "jobs": [
+      "fixed_full_monthly_reconciliation"
+    ]
+  },
+  "track_wide_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/track_wide_queue.json",
+    "pid": 803581,
+    "state": "running",
+    "jobs": [
+      "fixed_track_encoder_width64"
+    ]
+  },
+  "queued_upload_integrity": "VALIDATION/runs/v3_20261011_target215/upload_integrity_after_v76.json"
 }

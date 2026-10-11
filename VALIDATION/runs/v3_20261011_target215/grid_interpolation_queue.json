@@ -1,0 +1,43 @@
+{
+  "state": "complete",
+  "predecessor_pid": 782369,
+  "predecessor_start": "already_complete",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_daily_heavy_tail_stack/audit.json",
+  "predecessor_completed_before_queue": true,
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T10:13:17.475105+00:00",
+  "jobs": [
+    {
+      "name": "fixed_mean_preserving_delay_grid",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_grid_interpolation_stack.py",
+          "screen"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_grid_interpolation_stack.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/daily_grid_interpolation.py": "c13d5288a7af50d01fdb3beddd47f00a2895d20037ddf67bdcfb3f322a190ae3",
+        "VALIDATION/daily_grid_interpolation_stack.py": "c19023e20486fa1e8013d54144efa36faac0ba324ba5fce2b2e15fb323276327",
+        "VALIDATION/runs/v3_20261011_daily_grid_interpolation/identity.json": "53c3d566bbbeb6d739b391c235442dfa0a61c4e909bd9f265adcef54e0210276"
+      },
+      "log": "tmp/research_20261011/daily_grid_interpolation.log",
+      "result": "VALIDATION/runs/v3_20261011_daily_grid_interpolation/audit.json",
+      "completed_result_sha256": "cecbb5fcc98e3f2ed7907c83fae21cad1eadec572e865751187dd737239e4071"
+    }
+  ],
+  "updated_at": "2026-10-11T10:17:07.528719+00:00",
+  "pid": 799019,
+  "job": 0,
+  "stage": 1,
+  "child_pid": null
+}

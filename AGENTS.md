@@ -114,6 +114,22 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11: aggregate follow-ups audited; width64 track screen running.**
+  Direct t5 on actual v76: CV−0.0734; full monthly correction:−0.0938, both
+  months improve in each. Effects retained without distinct submissions.
+  Public airline/month adaptation is inconclusive−0.0507 (July worse);
+  mean-preserving minute-grid interpolation has no gain(+0.0011). All original
+  controls and independent SQL audits pass; do not repeat. New fixed width64
+  physical track encoder keeps inputs/public/tabular branches, optimizer,
+  batch2048 and21/17epochs; CPU/CUDA tests pass,2048-row GPU capacity1.72GB.
+  Runner `nn_track_wide_jan_jul.py`, run`v3_20261011_nn_track_wide`, queue
+  `target215/track_wide_queue.json` PID803581; one heavy desktop job, no CV yet.
+  Laptop WSL still offline. V75/v76 upload watchers remain healthy for12 October
+  02:00/02:10 Amsterdam. Fresh live12:12: v74 best/latest221.6881,rank12/242.
+  Once the new official scores arrive, evaluate their directions in the retained
+  scored basis before selecting another upload. Goal215 remains active.
+
+
 - **October11,12:05 Amsterdam: v76 built and audited; autonomous upload queued.**
   Public daily inputs in the main tree and three physical networks improve v75
   Jan/Jul CV292.9415→292.4494 (−0.4921); both months and individual-component
