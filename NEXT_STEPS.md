@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
-v74 at **221.6881**, leaving6.6881 seconds. Live check at16:41 Amsterdam:
+v74 at **221.6881**, leaving6.6881 seconds. Live check at16:53 Amsterdam:
 rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
 Autonomous submissions and both machines remain authorized. The laptop's
 full174 CatBoost fit is complete (10,000 rounds,28.07minutes); its328.53MB
