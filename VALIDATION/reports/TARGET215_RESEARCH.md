@@ -1,5 +1,76 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Width result, callsign result and next fixed screens, 12:57 Amsterdam
+
+The width64 physical encoder does **not** improve the recipe: matched single
+CV292.4340→292.4192 (−0.0148), interval[−0.2605,+0.2773]. January worsens0.1041
+and July improves0.1337. The transferred change is+0.0140, also inconclusive.
+A separate comparison with the existing three-member pool regresses0.4000,
+but that comparison has unequal pool sizes. Both checkpoints are retained;
+1,094 sampled model reloads pass (maximum0.0040s), and independent SQL checks
+all344,419 truths, calendars and complete scores. No width expansion or upload.
+
+The public-input callsign single has a useful primary signal: matched
+CV292.6074→292.2710 (−0.3364), interval[−0.6174,−0.0581]. January gains0.1775
+and July0.4952. In the transferred stack it gains0.1588, interval
+[−0.4478,+0.1336], so the selected-stack effect remains inconclusive. The new
+single still trails the selected original callsign15 pool by0.6984; that is a
+pool-size comparison, not evidence against the inputs. Every old/new held
+prediction reloads exactly, original162-column preprocessing matches, and all
+344,419 SQL truths, selected controls and scores pass. Retain the completed
+`v3_20261011_nn_calls_public/` run without a submission entry.
+
+A fixed matched-three-member check now reuses both seed42 fits and adds only
+1042/2042. Original models for all three seeds are already retained. Each
+additional control must reload on its entire held month before a new fit;
+all new predictions reload too. Inputs, encoders, optimizer,21/17epochs and
+blend stay fixed. `nn_calls_public_pool3.py` passed its source/parent/seed guards;
+queuePID824857 waits for the active airport-tree queuePID816876. These are
+reused development months, not independent confirmation. No production yet.
+
+Parameter averaging is untested in the retained experiment inventory. The
+new fixed decay0.999 screen keeps the original public physical model and
+optimizer trajectory, while collecting an exponential average of its parameters
+after each update. It saves both the last iterate and averaged result. Their
+same-trajectory comparison is primary; the previous seed42 checkpoint and
+three-member pool are separate references. There is no new stopping, blend or
+decay search. The average starts at the original initialization and includes
+every update; model buffers stay unchanged. A twelve-step CPU oracle verifies
+identical original weights, gradients, optimizer moments, dropout RNG and
+learning rates, and independently checks the recurrence within1.49e−7.
+All held predictions for both final states must reload. Original21/17epochs
+and all other settings remain fixed. `nn_weight_average_jan_jul.py` is queued
+asPID824858 after callsign3. Its earlier idle watcher was safely rebound before
+any fit started; no active training was interrupted.
+
+The50-vector geometry dataset is complete and independently audited across
+all344,841 ranking and344,419 CV rows. Evaluation still requires the actual
+successful v75/v76 scores; none are imputed. QueuePID826430 waits for the v76
+upload watcher to exit, then runs that guarded diagnosis without uploading. Live leaderboard at12:46 Amsterdam
+remains v74 best/latest221.6881, rank12/242. V75/v76 upload watchers still wait
+for12 October02:00/02:10 Amsterdam. No failed or inconclusive screen enters
+the submission ledger.
+
+## Public inputs in the airport models
+
+The ten airport LightGBMs are another component that still lacks the twelve
+public daily inputs. A fixed screen adds those inputs to their original 156
+columns, retaining all ordinary training rows and labels, P04 settings, seed42
+and 5,000 rounds. It changes no airport-specific settings or ensemble weights.
+The already audited source features are reused. This is distinct from the
+failed per-airport tailoring search: it supplies new information to the
+existing models.
+
+`public_airport_trees.py` passed syntax, source, selected-parameter and artifact
+checks. Queue PID816876 waits for the public callsign experiment to finish.
+The twenty fits run sequentially with four CPU threads. Each saved airport
+model must reproduce every held prediction immediately and again in the final
+audit; individual completed fits are resumable. The scoring path must exactly
+reconstruct v76 before substituting the new airport component. Independent SQL
+checks all labels, dates, control predictions and scores. Historical and new
+thread counts can differ, so tiny changes are not reliable feature evidence.
+No fit, production selection or submission has occurred for this direction.
+
 ## Public callsign network and preparation for the next official scores
 
 V76 adds public daily information to the physical networks, main LightGBM and

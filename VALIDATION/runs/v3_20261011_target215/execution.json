@@ -4,15 +4,13 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "Width64 physical track encoder; original public/tabular branches, fixed21/17epochs; fits/audits pending",
-    "queue": "VALIDATION/runs/v3_20261011_target215/track_wide_queue.json",
-    "pid": 803582,
-    "log": "tmp/research_20261011/track_wide.log",
-    "training_started": true,
-    "first20_steps_ms": 59.81,
-    "peak_allocated_gib": 4.625
+    "task": "Public inputs in ten airport LightGBMs; original156 inputs/P04/5000; sequential4-thread fits",
+    "queue": "VALIDATION/runs/v3_20261011_target215/public_airport_queue.json",
+    "pid": 822831,
+    "log": "tmp/research_20261011/public_airport.log",
+    "training_started": true
   },
-  "laptop": "Windows online; WSL offline in latest check at approximately10:15UTC; prior optional request to open WSL unanswered",
+  "laptop": "Windows online; WSL offline in check at10:42UTC, LastSeen04:00UTC; prior optional request unanswered",
   "utc_uploads_used": [
     70,
     71,
@@ -80,9 +78,15 @@
     "Full monthly correction, fixed multiplier1 instead0.5, improves v76 CV0.0938; both months; independent SQL arithmetic and scores pass; no distinct submission",
     "Width64 track encoder CPU/CUDA initialization, tabular/public weights, dropout RNG, missing-track gates, padding and gradient checks pass; 2048row synthetic capacity test1.72GB peak",
     "Prepared scored-public-model geometry tool; synthetic hidden-target oracle, score-rounding interval, serialization bound and expanded-MSE identity pass; actual50-vector preparation queued after width64",
-    "Public-input callsign single-network CPU initialization/weights/dropout RNG/output/gradient checks and original artifact/source guard pass; Jan/Jul fits queued after geometry preparation"
+    "Public-input callsign single-network CPU initialization/weights/dropout RNG/output/gradient checks and original artifact/source guard pass; Jan/Jul fits queued after geometry preparation",
+    "Public airport-tree source/parameter/artifact guard passes; exact original156 inputs and permitted training membership checked before each fit; twenty fits queued after public callsign",
+    "Width64 track encoder gives no gain: matched CV-0.0148 CI[-0.2605,+0.2773], transferred+0.0140; January worse/July better; sampled model reload and all344419 SQL audits pass; stop this direction",
+    "Scored-public basis prepared and audited:50 ranking/CV vectors, all344841 ranking rows/all344419 CV rows, independent SQL replay, scalar geometry and serialization-bound checks pass; official v75/v76 scores still required for evaluation",
+    "Public callsign seed42 passes direct matched CV-0.3364 CI[-0.6174,-0.0581], both months; transferred-0.1588 CI[-0.4478,+0.1336] remains inconclusive; every old/new held prediction reloads exactly and all344419 SQL scores pass",
+    "Public callsign matched3 expansion guard passes; reuse seed42, fit only1042/2042 with original162 preprocessing and all-row old/new reloads; queued after airport screen",
+    "Exponential parameter average decay0.999 has exact original optimizer/gradient/moment/RNG/schedule CPU checks and independent scalar recurrence max1.49e-7; source guard passes; same-trajectory last and average retained; queued after callsign3, no fits yet"
   ],
-  "next": "Finish width64 Jan/Jul and audits; prepare/audit 50-vector scored basis; fit/audit public callsign single with exact old/new held-prediction reloads. Preserve v75/v76 uploads. Run public_models_geometry.py evaluate after both official results arrive.",
+  "next": "Finish public airport, matched callsign3, then EMA sequentially. Preserve v75/v76 uploads. Queued geometry evaluation runs after v76 watcher exits and requires both official successes; inspect its diagnosis before any new submission. Width64 is closed.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -128,7 +132,7 @@
     ]
   },
   "last_live_check": {
-    "at": "2026-10-11T10:12:09+00:00",
+    "at": "2026-10-11T10:46:10+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -268,7 +272,7 @@
   "track_wide_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/track_wide_queue.json",
     "pid": 803581,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "fixed_track_encoder_width64"
     ]
@@ -277,7 +281,7 @@
   "public_geometry_prepare_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_geometry_prepare_queue.json",
     "pid": 808050,
-    "state": "waiting",
+    "state": "complete",
     "jobs": [
       "prepare_audit_public_model_scored_basis"
     ]
@@ -285,9 +289,39 @@
   "calls_public_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/calls_public_queue.json",
     "pid": 811666,
-    "state": "waiting",
+    "state": "complete",
     "jobs": [
       "fixed_public_inputs_callsign_network"
     ]
+  },
+  "public_airport_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/public_airport_queue.json",
+    "pid": 816876,
+    "state": "running",
+    "jobs": [
+      "fixed_public_inputs_airport_trees"
+    ]
+  },
+  "calls_public_pool3_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/calls_public_pool3_queue.json",
+    "pid": 824857,
+    "state": "waiting",
+    "jobs": [
+      "public_callsign_matched_three_seed_check"
+    ]
+  },
+  "weight_average_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/weight_average_queue.json",
+    "pid": 824858,
+    "state": "waiting",
+    "jobs": [
+      "fixed_neural_parameter_average"
+    ]
+  },
+  "public_geometry_evaluate_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/public_geometry_evaluate_queue.json",
+    "pid": 826430,
+    "state": "waiting",
+    "predecessor": "v76 upload watcher792755; evaluator requires both actual successful official scores"
   }
 }

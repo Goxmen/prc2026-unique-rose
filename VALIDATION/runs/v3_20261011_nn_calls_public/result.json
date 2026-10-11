@@ -1,0 +1,131 @@
+{
+  "design": {
+    "parent": "selected public physical pool and main tree, original callsign network",
+    "change": "twelve public daily inputs through a zero-initialized head on the callsign network",
+    "original_inputs": 162,
+    "public_inputs": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "model": {
+      "original_inputs": 162,
+      "public_inputs": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "scales": [
+        5.0,
+        600.0,
+        20.0,
+        72000.0,
+        100.0,
+        100.0,
+        100.0,
+        3600.0,
+        3600.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+      "head": "256 hidden plus12 public inputs ->32 SiLU ->1",
+      "initialization": "original callsign seed42 plus zero public output; original RNG unchanged",
+      "training": "original direct target, optimizer, batches and fixed21/17 epochs"
+    },
+    "seed": 42,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "training": "original shared.train bytecode; model factory only",
+    "preprocessing": "original162-column encoder and bins must match retained callsign state exactly",
+    "primary": "matched original callsign seed42 versus public callsign seed42 in selected ordinary stack",
+    "selected_reference": "original callsign15 pool; different-size reference only",
+    "no_new_stopping": true,
+    "no_blend_search": true,
+    "no_production": true,
+    "evaluation": "reused Jan/Jul development; all fits on desktop RTX3080"
+  },
+  "scores": {
+    "2025-01": {
+      "selected": 326.28558057775336,
+      "selected_transfer": 326.1740758752955,
+      "control": 326.8631253342734,
+      "control_transfer": 326.8539281228969,
+      "candidate": 326.68561312949026,
+      "candidate_transfer": 326.78979315473157
+    },
+    "2025-07": {
+      "selected": 257.1611804522669,
+      "selected_transfer": 258.72474053760806,
+      "control": 258.3516398642548,
+      "control_transfer": 259.7592726770312,
+      "candidate": 257.85640136282865,
+      "candidate_transfer": 259.5058851193113
+    }
+  },
+  "cv": {
+    "selected": 291.72338051501015,
+    "selected_transfer": 292.4494082064518,
+    "control": 292.6073825992641,
+    "control_transfer": 293.30660039996405,
+    "candidate": 292.27100724615946,
+    "candidate_transfer": 293.14783913702144
+  },
+  "paired": {
+    "candidate_vs_control": {
+      "change": -0.3363753531046427,
+      "ci95": [
+        -0.6173761873387598,
+        -0.058106085286771275
+      ],
+      "decision": "improvement"
+    },
+    "candidate_transfer_vs_control_transfer": {
+      "change": -0.15876126294261894,
+      "ci95": [
+        -0.44783613862944344,
+        0.13357352423428706
+      ],
+      "decision": "inconclusive"
+    },
+    "candidate_transfer_vs_selected_transfer": {
+      "change": 0.698430930569657,
+      "ci95": [
+        0.44663327448849516,
+        1.0771330522007678
+      ],
+      "decision": "regression"
+    }
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_calls_public/identity.json",
+    "sha256": "47cc668c06a0df9872f91b34d650fc9941ea3f84f1954ca23c5365becf7c47be"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_nn_calls_public/scored.parquet",
+    "sha256": "c454b958e6ae5b689f61feae472610d5cf1c31dd6186c340049fa6e5c0b2a10e"
+  },
+  "selected_replay_exact": true,
+  "interpretation": "Matched single is primary; callsign15 reference has different pool size; no production selected"
+}

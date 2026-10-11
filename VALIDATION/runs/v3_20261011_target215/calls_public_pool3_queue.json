@@ -1,0 +1,43 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 816876,
+  "predecessor_start": "8422350",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_public_airport_trees/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T10:56:58.583710+00:00",
+  "jobs": [
+    {
+      "name": "public_callsign_matched_three_seed_check",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_calls_public_pool3.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_calls_public_pool3.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_calls_public_pool3.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/nn_calls_public_pool3.py": "fa39c6a41d7352cacc3ebae495d5b9de4d9dd3ee11926a8b2c6465115eefe3a0",
+        "VALIDATION/runs/v3_20261011_nn_calls_public_pool3/identity.json": "d63f4696173e12c6df68dff3e06de77a873286ee40d4c1390b4ed69efbdcdd3d"
+      },
+      "log": "tmp/research_20261011/calls_public_pool3.log",
+      "result": "VALIDATION/runs/v3_20261011_nn_calls_public_pool3/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T10:56:58.612769+00:00",
+  "pid": 824857
+}

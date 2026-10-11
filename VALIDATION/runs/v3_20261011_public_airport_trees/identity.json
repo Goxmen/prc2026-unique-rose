@@ -1,0 +1,118 @@
+{
+  "design": {
+    "parent": "v76",
+    "change": "12 public daily inputs in every airport LightGBM",
+    "original_inputs": 156,
+    "added_inputs": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "seed": 42,
+    "trial": "P04",
+    "rounds": 5000,
+    "threads": 4,
+    "original_training_rows": true,
+    "original_labels": true,
+    "no_callsign_inputs": true,
+    "no_new_stopping": true,
+    "no_parameter_search": true,
+    "all_other_parts": "selected public main/physical/Rome and original callsign15/CatBoost",
+    "comparison": "original saved airport models versus public airport models in selected stack",
+    "caveat": "Reused Jan/Jul development; historical and new tree thread counts can differ",
+    "no_production": true,
+    "no_upload": true
+  },
+  "params": {
+    "objective": "regression",
+    "metric": "rmse",
+    "learning_rate": 0.02,
+    "num_leaves": 63,
+    "min_data_in_leaf": 50,
+    "feature_fraction": 0.7,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "verbosity": -1,
+    "seed": 42,
+    "bagging_seed": 43,
+    "feature_fraction_seed": 44,
+    "num_threads": 4,
+    "lambda_l2": 10.0,
+    "path_smooth": 0.0,
+    "cat_smooth": 100.0,
+    "cat_l2": 10.0,
+    "min_data_per_group": 100,
+    "max_cat_threshold": 16
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/public_airport_trees.py",
+      "sha256": "38bd9e0f5994d4e9ba2bb7dbcfa7aaa7beb31fb6edf21e5ad94ef713920e3fb7"
+    },
+    {
+      "path": "VALIDATION/public_stack_cv.py",
+      "sha256": "7a07755c65281de72d0d2cb3bd62b4d33c7591f4e9922aa8960bfc546421044a"
+    },
+    {
+      "path": "VALIDATION/public_delay_features.py",
+      "sha256": "9f7407e5d291ae2c9b1010abe74fadee7f648695c25cca08ac735d90b3ef04df"
+    },
+    {
+      "path": "VALIDATION/hpo_jan_jul.py",
+      "sha256": "89638bacf1033b3fb796d0ddee94bbd35b3ac28d3e501d07a2e4a37a7371ed49"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "VALIDATION/modeling.py",
+      "sha256": "777b2d45fd97565dc83ecabce248734bfb811fbadce5616d8959cad03016c43b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/scored.parquet",
+      "sha256": "04d0886b113ce081bbba97bf880e8f33c06366a5a98ac64084abab186ca01e92"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/audit.json",
+      "sha256": "3e526a98b44060135051dcaf62a83c3cf50142aa6c5421c35bc7bfab9ccc06ff"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_features/features2025.parquet",
+      "sha256": "28fc54ff31c5ccb41817c649eea963a9a3cd3e037d2adb400e3fd00cfaa7be0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_features/audit.json",
+      "sha256": "ad26576b5ab7e7a95f1e282e8f76b40b04f430e239808b270198e0afd5b01b19"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261005_hpo_jan_jul/predictions/airport/P04_s42.parquet",
+      "sha256": "75145ce4b6828e82aec481bb9938232289cc5f42f86a581e195ee6f8ad024f99"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261005_hpo_jan_jul/airport.json",
+      "sha256": "90955d6616768f718f415b627649d0b77aa2dd9a8902a0994765e0fd12287442"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+      "sha256": "ee1239362fd6b4a32c412931465be86a928b9c0904f7ec64b5b74291435ab2c7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-07.pkl",
+      "sha256": "1c44b5007b1cfe70db2387ce37089e55cad7540f8ebb5e9c043f2ee77c3d0f28"
+    }
+  ]
+}

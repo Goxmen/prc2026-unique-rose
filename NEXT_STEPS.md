@@ -1,76 +1,42 @@
 # Next steps
 
-**Active target, 11 October 2026: 215.00 seconds or lower.** Continue autonomous
-uploads and Jan/Jul validation. Best/latest is v74 at 221.6881; the remaining gap is 6.6881 seconds.
-All five UTC October11 upload slots are used; continue offline validation.
-V75 is fully prepared and audited: public daily inputs in the Rome CatBoost
-pool give Jan/Jul CV292.9415, a0.7758-second gain over v74. It is queued for
-12 October02:00 Amsterdam; no official result yet. The main-LightGBM version
-passed its complete reload audit and adds another 0.1709 seconds to v75,
-reaching CV 292.7707; full-year production and all344,841 reloads are complete. Retained TabM blending
-failed; no expansion.
-XGBoost as a fourth tree member failed (+0.2433 CV). Full-schedule public neural
-training passed its matched single-seed screen (−0.2513 CV); the three-seed
-expansion also passes (−0.3536 on v75, both months), with model and score audits
-complete. All three full-year networks and production audits are complete;
-the fixed track-withholding screen has finished and regresses both months.
-Its combination with the new main tree passes joint CV292.4494 (−0.4921
-versus v75), improving both individual changes and both months. All control
-replays and the independent SQL audit pass. V76 is now built and independently audited on all344,841 ranking rows.
-Its file and96 frozen dependencies are verified; it is queued for upload
-on12 October02:10 Amsterdam, after v75. No official v76 result yet.
-Cross-fitted Rome peer budgets were inconclusive
-(−0.1407 on v75); no production expansion. Rome punctuality inputs also gave
-no gain (+0.0128 on v75). Their ordinary main-regressor test also gives no
-gain (+0.0137 on the public-main/v75 combination). All18,765,423 input values,
-all344,419 model reloads and independent SQL scores pass; no expansion.
-A structural Rome prior for the daily-total method failed (+0.5626 versus
-the old posterior, largely July); no production expansion.
-The daily totals empirically align with off-block dates rather than takeoff
-dates: Rome's source-error p95 falls from7,231 to142 seconds. A fixed screen
-using dates estimated from v70 predictions failed to improve (+0.1506 versus
-matched IFR control), despite passing source/calendar/scoring audits. Ordinary
-flights generally improve, but long Rome flights worsen in July. A fixed t5
-ordinary-aggregate prior improves this matched Gaussian version by0.5591,
-both months, interval[−0.9126,−0.3181]. Its gain against the original daily
-method is inconclusive. A direct replacement inside v76 is queued: keep the
-actual original dates, prior, noise, weight and all later corrections. No
-date-aligned production candidate is selected.
-Withholding the raw-track branch on25% of training rows failed: matched
-single-network CV worsens0.3534, with transferred change+0.3348 and both
-months worse. Model/input reloads and independent scores pass; no expansion.
-This tested branch robustness, not complete ADS-B or ground-only missingness. Live check at 11:30 Amsterdam still gives v74 as
-best/latest, 221.6881 and rank12/242.
-The frequency-weighted monthly-reference comparison is complete and audited.
-It improves v75 CV by0.0519, interval[−0.0795,−0.0330], with both months better.
-The effect is too small for a distinct submission; retain it as research.
-Source membership remains approximated, not observed.
-The fixed neural Rome classifier failed to improve: selected CV+0.8528;
-January slightly improves but July worsens1.7855. Saved probabilities and
-independent training/stopping/score audits pass; no expansion.
-Public-only Rome airline/month adaptation is inconclusive (−0.0507 on
-v76, July worse); no expansion. The direct t5 replacement gains0.0734 on
-v76 with both months better. Full monthly correction instead of half gains
-0.0938, also both months. These small effects are retained without distinct
-submissions. Mean-preserving minute-grid interpolation gives no gain (+0.0011).
-Every original control and independent SQL audit passes.
-The desktop now trains a fixed width64 physical track encoder versus the
-current width32 single-network control. Original inputs, public/tabular branches,
-optimizer, batches and21/17epochs stay fixed. CPU/CUDA checks and a2048-row
-capacity test pass; CV is pending. The laptop WSL remains offline.
-Live12:12 Amsterdam: v74 remains best/latest221.6881, rank12/242. V75/v76
-uploads are queued for12 October02:00/02:10 Amsterdam. Their official scores
-will determine whether adding their separately scored directions improves the
-existing affine basis; no re-upload of a duplicate file.
-After width64, prepare/audit the50-vector scored basis, then test public daily
-inputs in the callsign network—the remaining neural component without them.
-The callsign screen preserves all162 original inputs/encoding and fixed21/17
-epochs; the saved original and new models must reproduce every held prediction.
-CPU/source checks pass; no fit yet. Geometry evaluation requires actual official
-v75/v76 scores, checks the basis live, and reports rounding/clipping bounds;
-no score imputation, candidate version or upload occurs in that diagnostic.
-The earlier 225.00 target is complete; the result below remains the baseline.
+**Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
+v74 at **221.6881**, leaving6.6881 seconds. Live check at12:46 Amsterdam:
+rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
+Autonomous submissions and both machines remain authorized; laptop WSL is
+currently offline, while Windows is online. Desktop jobs run one at a time.
+
+V75 and V76 are prepared, fully audited and queued for12 October02:00/02:10
+Amsterdam. V75 adds public daily inputs to the Rome CatBoost pool: Jan/Jul
+CV292.9415,−0.7758 versus v74. V76 also adds public inputs to the main tree
+and physical neural pool: CV292.4494,−0.4921 versus v75, both months and both
+single-change comparisons better. Neither has an official score yet.
+The50-vector ranking/CV basis is prepared and independently audited; evaluate
+it only after their successful official scores arrive, with fresh score checks
+and explicit rounding/clipping bounds. That guarded diagnosis is queued after
+the v76 watcher, without an upload. Do not upload duplicate predictions.
+
+The wider physical encoder is closed: matched−0.0148 and transferred+0.0140,
+both inconclusive. Track withholding, neural Rome, punctuality and fourth-tree
+screens also failed or were inconclusive. Small t5/monthly-strength/reference
+effects remain research without distinct submissions. All completed fits are
+retained; do not repeat them. Details are in the research report below.
+
+Public inputs in the callsign network improve its matched single by0.3364
+in both months, but the transferred0.1588 gain remains inconclusive. All old/new
+held predictions and original162-column preprocessing reproduce exactly; SQL
+scores pass. A matched-three-member check will reuse seed42 and fit only
+1042/2042 before considering any production expansion.
+
+The current desktop sequence is: public inputs in the ten airport LightGBMs
+(original156 inputs/P04/5000), then callsign3, then fixed exponential parameter
+averaging (decay0.999) in the public physical network. All guards pass. The
+averaging screen preserves original updates and saves both last and averaged
+states; CPU optimizer/RNG/schedule checks and a scalar recurrence oracle pass.
+No new production candidate or submission version is reserved for these screens.
+
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
+The earlier225.00 goal is complete; its result remains the baseline below.
 
 **Previous goal achieved, 11 October 2026:** v71 is best/latest at **224.3602 seconds**,
 **0.6398 below** the requested 225.00 target. It improves v69 by 1.0392 and

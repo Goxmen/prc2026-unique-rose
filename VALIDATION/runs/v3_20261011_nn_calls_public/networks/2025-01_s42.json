@@ -1,0 +1,249 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_calls_public/identity.json",
+    "sha256": "47cc668c06a0df9872f91b34d650fc9941ea3f84f1954ca23c5365becf7c47be"
+  },
+  "design": {
+    "parent": "selected public physical pool and main tree, original callsign network",
+    "change": "twelve public daily inputs through a zero-initialized head on the callsign network",
+    "original_inputs": 162,
+    "public_inputs": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "model": {
+      "original_inputs": 162,
+      "public_inputs": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "scales": [
+        5.0,
+        600.0,
+        20.0,
+        72000.0,
+        100.0,
+        100.0,
+        100.0,
+        3600.0,
+        3600.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+      "head": "256 hidden plus12 public inputs ->32 SiLU ->1",
+      "initialization": "original callsign seed42 plus zero public output; original RNG unchanged",
+      "training": "original direct target, optimizer, batches and fixed21/17 epochs"
+    },
+    "seed": 42,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "training": "original shared.train bytecode; model factory only",
+    "preprocessing": "original162-column encoder and bins must match retained callsign state exactly",
+    "primary": "matched original callsign seed42 versus public callsign seed42 in selected ordinary stack",
+    "selected_reference": "original callsign15 pool; different-size reference only",
+    "no_new_stopping": true,
+    "no_blend_search": true,
+    "no_production": true,
+    "evaluation": "reused Jan/Jul development; all fits on desktop RTX3080"
+  },
+  "seed": 42,
+  "epochs": 21,
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_nn_calls_public/models/2025-01_s42.pt",
+    "sha256": "e71b0c268448f6d89241377c4493b572d17eb99538bd9b69be1d013d91d0f833"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_nn_calls_public/networks/2025-01_s42.parquet",
+    "sha256": "47e20b5058222e5a388933cec2f988b8fd3cd13dcee4a6b42a1a32cf3d156c3f"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/preprocessing/2025-01.pkl",
+    "sha256": "1190a61072db72195aa2158ab185828471ac78cc21aa43ae18396616b1099f81"
+  },
+  "train_rows": 1596201,
+  "held_rows": 153706,
+  "original_preprocessing_exact": true,
+  "all_control_predictions_reloaded_exact": true,
+  "all_new_predictions_reloaded_exact": true,
+  "public_transform_audit": {
+    "train": {
+      "rows": 1596201,
+      "checked_values": 576,
+      "maximum_float32_error": 5.742939901409727e-08
+    },
+    "held": {
+      "rows": 153706,
+      "checked_values": 576,
+      "maximum_float32_error": 5.957799453781831e-08
+    }
+  },
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.34801330963196236,
+      "rmse": 473.31874142539255,
+      "seconds": 4.81210146099329
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.266199017745889,
+      "rmse": 466.28002231558094,
+      "seconds": 4.299238275008975
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.24457018574014464,
+      "rmse": 460.3283734253461,
+      "seconds": 4.602840735999052
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.22812481266127,
+      "rmse": 460.959401402869,
+      "seconds": 5.043003487997339
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.2201260506220367,
+      "rmse": 459.40267749235295,
+      "seconds": 4.834663173998706
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.21219560014686187,
+      "rmse": 453.4687060185523,
+      "seconds": 4.251933603009093
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.20601568742784865,
+      "rmse": 452.506922350156,
+      "seconds": 4.382083115997375
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.2098918713191411,
+      "rmse": 458.73161165483174,
+      "seconds": 4.9835565500106895
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.19869413527527904,
+      "rmse": 458.28230350394153,
+      "seconds": 4.595101301994873
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.18987208937710814,
+      "rmse": 458.98293984675684,
+      "seconds": 4.808641630996135
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.18386931128351253,
+      "rmse": 458.47735678371697,
+      "seconds": 5.0534652399946935
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.17752253256207473,
+      "rmse": 458.1121459226518,
+      "seconds": 5.019965917002992
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.17122038598525738,
+      "rmse": 455.1141421987669,
+      "seconds": 4.488338693990954
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.16275393368167665,
+      "rmse": 457.311052509629,
+      "seconds": 4.319637866006815
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.1557317022335432,
+      "rmse": 460.4313037847176,
+      "seconds": 4.888582325002062
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.15015391719955165,
+      "rmse": 458.4473701212424,
+      "seconds": 5.082795100010117
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.14265864344456805,
+      "rmse": 458.90487730128035,
+      "seconds": 4.408345948992064
+    },
+    {
+      "epoch": 18,
+      "train_mse_std": 0.13725358154668169,
+      "rmse": 458.80296673789474,
+      "seconds": 4.5160787670029094
+    },
+    {
+      "epoch": 19,
+      "train_mse_std": 0.13112243856631745,
+      "rmse": 458.5190745708533,
+      "seconds": 4.471819643993513
+    },
+    {
+      "epoch": 20,
+      "train_mse_std": 0.12697302169294755,
+      "rmse": 458.6345905470531,
+      "seconds": 4.925081021996448
+    },
+    {
+      "epoch": 21,
+      "train_mse_std": 0.12318451400918781,
+      "rmse": 459.1037843525008,
+      "seconds": 4.82255370898929
+    }
+  ],
+  "minutes": 2.399819084716728,
+  "machine": "NVIDIA GeForce RTX 3080"
+}

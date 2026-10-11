@@ -1,0 +1,46 @@
+{
+  "state": "running",
+  "predecessor_pid": 811666,
+  "predecessor_start": "8366136",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_nn_calls_public/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T10:45:12.591449+00:00",
+  "jobs": [
+    {
+      "name": "fixed_public_inputs_airport_trees",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_airport_trees.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_airport_trees.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_airport_trees.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/public_airport_trees.py": "38bd9e0f5994d4e9ba2bb7dbcfa7aaa7beb31fb6edf21e5ad94ef713920e3fb7",
+        "VALIDATION/runs/v3_20261011_public_airport_trees/identity.json": "e9c22eb4127841ec82767ac2f778eee2ac8bc62edf48ca568963b8608be5674f"
+      },
+      "log": "tmp/research_20261011/public_airport.log",
+      "result": "VALIDATION/runs/v3_20261011_public_airport_trees/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T10:53:32.663034+00:00",
+  "pid": 816876,
+  "job": 0,
+  "stage": 0,
+  "child_pid": 822831
+}

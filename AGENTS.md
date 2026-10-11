@@ -114,6 +114,31 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,12:57 Amsterdam: width64 closed; public callsign expands to3; airport models train.**
+  Width64 matched−0.0148/transferred+0.0140 is inconclusive; model and SQL audits
+  pass, no expansion. Public callsign single matched−0.3364 (both months),
+  transferred−0.1588 inconclusive; all old/new held predictions reload exactly,
+  original162 preprocessing and SQL scores pass. Active desktop queue816876
+  trains `public_airport_trees.py`; then queue824857 fits only callsign seeds1042/2042
+  (reuse42), then queue824858 tests parameter averaging with fixed decay0.999.
+  Same-trajectory last/average models retained; original updates/RNG/schedule
+  CPU oracle passes. All three are guarded sequential queues; one heavy job.
+  No new production selection/version.50-vector geometry preparation/audit
+  complete; evaluator queue826430 waits for v76 watcher and needs actual
+  successful v75/v76 scores. It only writes a diagnosis, not an upload.
+  Upload watchers649782/792755 still wait forOct12 00:00/00:10UTC. Live12:46:
+  v74 best/latest221.6881,rank12/242. Updated report/state under target215.
+
+- **October11: public daily inputs in airport trees are queued after public callsign.**
+  `VALIDATION/public_airport_trees.py` preserves original156 inputs, ordinary
+  rows/labels, P04,seed42 and5000 rounds; only the12 audited public inputs are
+  added. Source/parameter guard passes; no fits yet. QueuePID816876 waits for
+  callsign queue811666 plus `nn_calls_public/audit.json`; run
+  `v3_20261011_public_airport_trees`, log `tmp/research_20261011/public_airport.log`.
+  Twenty airport fits run sequentially and save individually; all held model
+  outputs reload twice and SQL checks selected-v76 controls/truth/scores.
+  No production or submission is selected. Do not overlap heavy desktop jobs.
+
 - **October11: new public-callsign screen prepared; width64 still training.**
   The callsign15 component has no public daily inputs yet. New single seed42
   adds the same12 public transforms through a zero head, keeping all162 original
