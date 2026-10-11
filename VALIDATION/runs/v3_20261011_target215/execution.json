@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "XGBoost fourth-tree CV, then full public neural CV",
+    "task": "full public neural CV",
     "queue": "VALIDATION/runs/v3_20261011_target215/research_queue.json",
     "pid": 659112,
-    "log": "tmp/research_20261011/xgboost_diversity.log"
+    "log": "tmp/research_20261011/public_neural_full.log"
   },
   "laptop": "offline; no job",
   "utc_uploads_used": [
@@ -38,7 +38,8 @@
     "retained TabM3 fixed blend failed+0.2828 primary CV",
     "main public LightGBM CV passed-0.2308 primary/-0.1703 on v74",
     "XGBoost categorical strings corrected and real-input preflight passed before fitting",
-    "peer arithmetic and actual outer-fold population checks passed"
+    "peer arithmetic and actual outer-fold population checks passed",
+    "XGBoost fourth-tree CV failed+0.2433 primary/+0.1631 on v74; no expansion"
   ],
   "next": "review XGBoost, full public neural and peer-feature scores as queues finish; main-LightGBM audit/combined CV queued; preserve v75 queued upload",
   "queued_upload": {

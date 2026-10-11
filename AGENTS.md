@@ -151,8 +151,10 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   small/inconclusive versus its original parent; no expansion. The retained
   three-seed TabM blend failed (+0.2828 primary CV); no new fit or production.
   A finite detached research queue in `v3_20261011_target215/research_queue.json`
-  now runs XGBoost fourth-tree CV then full-schedule public neural CV. Read the
-  queue for current PIDs; XGBoost's first fold completed in1.8 minutes. Its
+  now runs full-schedule public neural CV. XGBoost fourth-tree CV completed
+  and failed: +0.2433 primary, +0.1631 on v74, both months worse and both
+  intervals exclude zero. No production or weight search. Read the queue for
+  current PIDs. Its
   categorical-string conversion passed real-input checks before any fit.
   A second `peer_research_queue.json` waits for the first queue to finish,
   then audits main LightGBM and fits cross-fitted Rome peer-budget features.

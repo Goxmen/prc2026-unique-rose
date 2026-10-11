@@ -8,9 +8,9 @@ pool give Jan/Jul CV292.9415, a0.7758-second gain over v74. It is queued for
 12 October02:00 Amsterdam; no official result yet. The main-LightGBM version
 completed with another0.1703-second CV gain on v74; its audit and combination
 with v75 are queued. Retained TabM blending failed; no expansion.
-XGBoost as a fourth tree member is running, followed by public neural inputs
-trained for the full original schedule, then a cross-fitted Rome peer-budget
-test. Their scores are pending; none is a selected submission.
+XGBoost as a fourth tree member failed (+0.2433 CV). Public neural inputs
+trained for the full original schedule are running, followed by a cross-fitted
+Rome peer-budget test. Their scores are pending; neither is a selected submission.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

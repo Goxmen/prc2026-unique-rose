@@ -323,6 +323,14 @@ These are unscored experiments, not selected candidates. Queue/source bindings
 and status live in `v3_20261011_target215/research_queue.json`. Its cancellation
 file or an inactive objective stops further jobs and any active child.
 
+**XGBoost is complete and rejected.** The fixed fourth-tree blend scores
+293.1108 versus292.8675, **+0.2433**, interval[+0.1736,+0.3524]. The fixed v74
+transfer also worsens **+0.1631**, interval[+0.1025,+0.2557]. Both months worsen.
+All held predictions from both saved models reload exactly on CUDA. No weight
+search, production model or upload follows. The full public neural run started
+after its scoring completed; models and results remain in
+`v3_20261011_xgboost_diversity/`.
+
 ## Cross-fitted recording-mode peer budgets
 
 The selected public inputs subtract fixed ordinary taxi references for every
