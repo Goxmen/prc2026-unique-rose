@@ -1,5 +1,35 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Conditional fifth-slot submission automated, 20:02 Amsterdam
+
+Queue1082968 waits for evaluator1068545 to finish with actual successful
+v75–v78 scores. `joint_scored_followup.py` then checks the existing52-vector
+diagnosis against the fresh official best. It builds v79 only when the
+conservative upper bound improves the best by at least0.25seconds or reaches215,
+runs `audit_joint_scored_candidate.py`, and rechecks that the gain is still
+useful before calling the retained conditional uploader. Jan/Jul CV is always
+reported; this selection explicitly uses leaderboard feedback. No new model,
+coefficient search or imputed score is added. No actual v79 exists yet.
+
+All coordinator, builder, audit, geometry and upload sources, the prepared
+matrix/audit and test receipts are frozen in `joint_scored_followup_spec.json`.
+The uploader retains fresh quota/population/source/ID checks, conditional PUT
+and remote hash verification. The coordinator stops on cancellation, expiry,
+an already-achieved target, insufficient gain, exhausted quota or audit failure.
+It waits for another desktop queue's verified live child command, skipping
+its own process and stale/reused PIDs. An existing execution receipt prevents
+automatic restart; an ambiguous upload error is recorded without retry.
+Scoring success only marks evidence ready for the root's completion audit.
+
+The isolated laptop test passes13 cases: a real-process resource check plus
+successful order, goal met, insufficient gain, exhausted quota, failed audit,
+ambiguous upload, cancellation before/after preparation, a better intervening
+score, expiry, occupied output and changed source. No live API or real candidate
+is used. The exact52-vector builder/SQL auditor already passed the separate
+full-size synthetic test. Laptop code imports initially lacked new dependency
+files; only Python sources were synchronized, preserving all data/model caches.
+The final test receipt and source hashes match the desktop.
+
 ## Fixed learned track-pooling screen started, 19:52 Amsterdam
 
 `nn_public_attention_pool.py` adds one32-to-1 scalar score over the existing

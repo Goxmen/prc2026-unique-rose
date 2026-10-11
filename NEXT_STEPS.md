@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target: 215.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
-leaving **6.6881 seconds**. Live check: **11 October 19:24 Amsterdam**,
+leaving **6.6881 seconds**. Live check: **11 October 20:03 Amsterdam**,
 rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
 are used. Autonomous submissions and both machines remain authorized.
 
@@ -61,6 +61,17 @@ rejection and preservation of an existing candidate. No v79 or later blend
 submission exists. Preserve the source
 diagnosis's integer vectors, because recomputing half-integer ties can differ
 with floating reduction order. Run the separate audit before any later upload.
+
+The fifth-slot follow-up is now automated. Queue1082968 waits for the actual
+52-vector diagnosis, then `joint_scored_followup.py` conditionally builds v79,
+runs the separate full SQL audit and uploads only if the existing conservative
+gain rule still passes against the fresh official best. It checks quota,
+cancellation, expiry and verified live desktop jobs; the retained uploader
+rechecks sources, population, file and remote uniqueness. Upload is attempted
+once, with no automatic retry after an ambiguous result. No v79 file exists
+yet. The isolated laptop check passes13 resource/decision/failure cases without
+calling a live API or creating a real submission. Keep the fifth next-window
+slot for this conditional follow-up unless new evidence justifies changing it.
 
 A fixed learned attention-pooling screen is training on the desktop. One
 zero-initialized scalar score replaces uniform mean weights over the existing

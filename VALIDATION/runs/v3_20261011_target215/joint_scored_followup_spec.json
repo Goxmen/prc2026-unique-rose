@@ -1,0 +1,37 @@
+{
+  "version": 79,
+  "authorization": "User authorized autonomous leaderboard uploads",
+  "selection": {
+    "target": 215.0,
+    "minimum_conservative_gain": 0.25,
+    "rule": "conservative upper bound improves current official best by0.25s or reaches215",
+    "cv": "report fixed Jan/Jul replay regardless of change; leaderboard selection is explicit",
+    "serialization": "preserve frozen diagnosis vectors; do not reround floating half-integer ties",
+    "no_new_fit": true,
+    "no_new_weight_search": true,
+    "no_score_imputation": true
+  },
+  "sources": {
+    "VALIDATION/joint_scored_followup.py": "da6ab8e9d7d2fe398f62e34dc1be72f34b5cc66ab124138ef5c4d1be12fb0096",
+    "VALIDATION/joint_scored_candidate.py": "f20ea37ded6f5aa10dcc718ad13a0be6994e112f45da1c7e98511db21fe15264",
+    "VALIDATION/tools/audit_joint_scored_candidate.py": "33843c8171e949df0f854dd857671aed26fbeb4454ef9a7c340423d84d37fa76",
+    "VALIDATION/audited_candidate_upload.py": "25b5e3408607a532817abbeed667503b8a9c98391e5c9d667e7d578ca55c0a77",
+    "VALIDATION/scored_blend_submit.py": "dad8a2fc685bb203479196e8e945163505f8025ca651441773b5c03efe70875f",
+    "VALIDATION/joint_models_geometry.py": "be0574f679e780bcd971d2801b7d79a403d4f892fb8236c4bca0f9082b2f0ada",
+    "VALIDATION/public_models_geometry.py": "dfc25e6af1c7d17d9308d0e2da322a54f56a992b5a7ff83a0263d3b9c182c438",
+    "VALIDATION/daily_models_geometry.py": "637f4174d5d535b0bb2910494e86ac13f49e61c10c448b71eef8f481f3fff0b9",
+    "VALIDATION/scored_submission_geometry.py": "2c75fe0d036f7f07b31463cfbd9e1cd0b9e7d3e1aa0ee9345f62ab6ba378f692",
+    "VALIDATION/submit.py": "09fe62fe3840d457bdbf25d961b7b20f909b78f2521d05ea61a2369bb0f6aee4",
+    "VALIDATION/records.py": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056",
+    "VALIDATION/runs/v3_20261011_joint_models_geometry/prepared.json": "8234702f7c4dffbab36670c99c0e929af15983c968c859c13f8f53034ba11c43",
+    "VALIDATION/runs/v3_20261011_joint_models_geometry/audit.json": "c053fb742b594fbbd0cd99ff7e0b3b4dadccb566495e968e12d01e3e7d72cb8a",
+    "VALIDATION/runs/v3_20261011_target215/joint_scored_workflow_check.json": "14f6582e9ea59e2767f058c677d7a934c6374103aa37fb28db3dd0588e1ccc86",
+    "VALIDATION/runs/v3_20261011_target215/joint_scored_followup_check.json": "d09e3975495b347350cab214871f620191e526833f683a8372c6fee81df3b4c5"
+  },
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_joint_scored_followup",
+  "expires_utc": "2026-10-14T09:30:00+00:00",
+  "receipt": "VALIDATION/runs/v3_20261011_target215/joint_scored_followup_execution.json",
+  "candidate_version_note": "Conditional follow-up only; no v79 file or selected row exists before the official-score decision",
+  "created_at": "2026-10-11T18:02:06.403750+00:00"
+}
