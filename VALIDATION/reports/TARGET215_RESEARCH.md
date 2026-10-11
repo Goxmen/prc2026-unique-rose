@@ -625,3 +625,17 @@ the original neural pool, v70 and v75, then independently check all final
 predictions, constraints, template IDs and SQL scores. Compilation and CLI
 import checks pass. Full execution awaits production and joint CV; no file,
 version or upload has been created by these builders yet.
+
+## Source precision check
+
+The [official daily-data schema](https://ansperformance.eu/reference/dataset/all-pre-departure-delay/)
+describes the delay field in minutes; it does not guarantee an exact match to
+this challenge's flight-level sum. A follow-up on the already audited 2025
+off-block aggregates finds that equal counts still leave material residuals.
+At Rome, 358 equal-count days have median signed error −41.5 seconds, robust
+standard deviation 58.6 seconds and 95th-percentile absolute error 132.9 seconds.
+Across airports the robust scale divided by square root of the count is roughly
+2.7–3.4 seconds. This is descriptive evidence, not a fitted inference rule or
+proof of the source's noise mechanism. Retain uncertainty; CSV precision does
+not justify an exact or rounding-only constraint. Full statistics and the
+audited input hash are in `v3_20261011_daily_offblock_alignment/source_noise_diagnostic.json`.
