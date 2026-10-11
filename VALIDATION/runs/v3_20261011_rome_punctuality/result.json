@@ -1,0 +1,70 @@
+{
+  "design": {
+    "parent": "prepared v75 public Cat3/R20",
+    "change": "nine public airport-day punctuality inputs",
+    "features": [
+      "pun_dep_otp15",
+      "pun_arr_otp15",
+      "pun_dep_mean",
+      "pun_arr_mean",
+      "pun_operated",
+      "pun_otp900_resid",
+      "pun_otp1800_resid",
+      "pun_mean900_resid",
+      "pun_clock_mean_resid"
+    ],
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "rounds": {
+      "2025-01": 1182,
+      "2025-07": 1401
+    },
+    "columns": 89,
+    "no_parameter_or_weight_search": true,
+    "no_new_early_stopping": true,
+    "source_population": "airline schedules; not an exact challenge-population identity",
+    "held_labels": "final reused development scoring only",
+    "production_or_upload": false
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.6213827655868,
+      "pred": 326.69283984367263,
+      "v75": 326.47717924134565,
+      "transferred": 326.5415480147198
+    },
+    "2025-07": {
+      "control": 257.7805353413711,
+      "pred": 257.7726951423917,
+      "v75": 259.4059186106082,
+      "transferred": 259.367185816826
+    }
+  },
+  "cv": {
+    "control": 292.200959053479,
+    "pred": 292.23276749303216,
+    "v75": 292.9415489259769,
+    "transferred": 292.9543669157729
+  },
+  "paired": {
+    "pred_vs_control": {
+      "change": 0.03180843955320256,
+      "ci95": [
+        -0.1416876135031096,
+        0.22451943311145955
+      ],
+      "decision": "inconclusive"
+    },
+    "transferred_vs_v75": {
+      "change": 0.012817989795991025,
+      "ci95": [
+        -0.1415906953384738,
+        0.17931353233765812
+      ],
+      "decision": "inconclusive"
+    }
+  }
+}

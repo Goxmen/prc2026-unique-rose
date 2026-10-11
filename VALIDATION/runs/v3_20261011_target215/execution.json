@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "Rome punctuality CV",
-    "queue": "VALIDATION/runs/v3_20261011_target215/punctuality_research_queue.json",
-    "pid": 679988,
-    "log": "tmp/research_20261011/rome_punctuality.log"
+    "task": "public neural three-seed CV expansion",
+    "queue": "VALIDATION/runs/v3_20261011_target215/expansion_research_queue.json",
+    "pid": 680356,
+    "log": "tmp/research_20261011/public_neural_pool.log"
   },
   "laptop": "Windows online, WSL offline; both SSH paths time out; optional user request to open WSL pending",
   "utc_uploads_used": [
@@ -45,9 +45,12 @@
     "main auditor zero-floor omission corrected; stopped queues rebound without repeating fits",
     "main LightGBM audit passed all344,419 predictions; explicit v75 combination CV292.7707 (-0.1709)",
     "peer budgets inconclusive-0.1407 on v75; no expansion",
-    "all2,399,130 peer feature values independently audited; inner month IDs verified"
+    "all2,399,130 peer feature values independently audited; inner month IDs verified",
+    "Rome punctuality no gain+0.0128 on v75; no production",
+    "both Rome screens all six model reloads exact; independent SQL scores pass",
+    "public neural single audit passed1094 rows; max0.00147 seconds"
   ],
-  "next": "review punctuality and fixed neural pool; fit passing public main once; screen structural prior; preserve v75 upload",
+  "next": "finish neural pool and public main production; structural prior and ordinary punctuality screens queued; assemble/audit main candidate after production; preserve v75 upload",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -76,7 +79,7 @@
   "punctuality_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/punctuality_research_queue.json",
     "pid": 679988,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "fixed Rome public daily punctuality,9 inputs/3 seeds"
     ]
@@ -84,7 +87,7 @@
   "expansion_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/expansion_research_queue.json",
     "pid": 680356,
-    "state": "waiting",
+    "state": "running",
     "jobs": [
       "Rome model audits",
       "public neural single audit",
@@ -104,6 +107,14 @@
     "state": "waiting",
     "jobs": [
       "structural Rome prior in daily posterior, no new model fits"
+    ]
+  },
+  "punctuality_main_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/punctuality_main_queue.json",
+    "pid": 697022,
+    "state": "waiting",
+    "jobs": [
+      "punctuality inputs in ordinary main regressor:183 versus174 inputs"
     ]
   }
 }

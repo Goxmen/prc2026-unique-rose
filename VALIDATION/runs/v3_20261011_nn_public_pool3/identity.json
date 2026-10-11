@@ -1,0 +1,121 @@
+{
+  "design": {
+    "parent": "prepared v75",
+    "change": "public daily head in physical three-seed pool",
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "reused_seed": 42,
+    "new_seeds": [
+      1042,
+      2042
+    ],
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "model": {
+      "features": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "scales": [
+        5.0,
+        600.0,
+        20.0,
+        72000.0,
+        100.0,
+        100.0,
+        100.0,
+        3600.0,
+        3600.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+      "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+      "initialization": "original physical seed42; zero new final head; no pretrained weights",
+      "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+    },
+    "network_share": 0.71,
+    "physical_share_of_neural": 0.5,
+    "main_tree": "retained callsign LB1",
+    "rome": "selected public Cat3/original R20",
+    "machine": "all public and original physical seeds on desktop RTX3080",
+    "no_stopping_or_weight_search": true,
+    "selection": "declared after seed42 passed; reused development months"
+  },
+  "source": {
+    "path": "VALIDATION/nn_public_pool3.py",
+    "sha256": "327086dc1e039f6f4e573e4d7058ab74b8a19cdb439b3892686dd0081b290b05"
+  },
+  "single_identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/identity.json",
+    "sha256": "42566e584e329291bff122096c0d983a7f096afdedad2eda56240a17bad71013"
+  },
+  "single_score": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/score.json",
+    "sha256": "0f95b0acac5d4950b0b3201ef108ca2cbeb2976eb30511e2a351f64f8c50f7ce"
+  },
+  "single_audit": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/audit.json",
+    "sha256": "c269b8740f74067315100bc156dbe45303a25b6058f3b768b54a5c0f8eaa348e"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/nn_public_scratch_jan_jul.py",
+      "sha256": "4a3bb76c028152b4840980db0bc34a235496c21685b76a506baf3e995ea1440b"
+    },
+    {
+      "path": "VALIDATION/nn_sparse_track_pool3.py",
+      "sha256": "da511cea5e67595cc764f656c0d2079c784cc69627a85f5c46fab4716a8bfe19"
+    },
+    {
+      "path": "VALIDATION/nn_track_physical_pool3.py",
+      "sha256": "9e388ddb17d7c018e0cbb3a8bf09fa7633d4e39463b271b833190687a39181bc"
+    },
+    {
+      "path": "VALIDATION/nn_public_scratch.py",
+      "sha256": "3b3f3d087b69bbef95a023edf85d5c5ab7c99c396449320806961c50f5e75a3a"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_cat.py",
+      "sha256": "d63b80be80105158c04e4cbd2442bafdeecc5a25767cbc549ac537d803093fff"
+    }
+  ],
+  "control_identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/identity.json",
+    "sha256": "4308fe0e70b2bc6c3ad226fd619465b00feaf312aac11b4f3d28f7615365ff62"
+  },
+  "control_audit": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_physical_pool3/audit.json",
+    "sha256": "a165981e5986f306ab50cd3f89a5dd503e932603cfb0b7ac0698d028c62fa6a4"
+  },
+  "rome_result": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/result.json",
+    "sha256": "a1d6fea26fb3be8eb69efc3ce0ce850a42a7dd4c6b451eca3c5bd1913381167a"
+  },
+  "rome_predictions": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+    "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+  },
+  "seed_specialization": {
+    "seed_substitutions": 3,
+    "all_other_training_ast_exact": true,
+    "original_globals_unchanged": true,
+    "ast_sha256": "f2c7a095200841e3be7f1af89e319ae43f481a6d8f668576e2f71ddd620ac75a"
+  }
+}

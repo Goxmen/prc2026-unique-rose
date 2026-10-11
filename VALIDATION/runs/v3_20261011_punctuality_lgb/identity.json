@@ -1,0 +1,96 @@
+{
+  "design": {
+    "parent": "passing public main and public Rome Cat3 combination",
+    "change": "nine public punctuality inputs in ordinary main LightGBM only",
+    "original_columns": 174,
+    "added": [
+      "pun_dep_otp15",
+      "pun_arr_otp15",
+      "pun_dep_mean",
+      "pun_arr_mean",
+      "pun_operated",
+      "pun_otp900_resid",
+      "pun_otp1800_resid",
+      "pun_mean900_resid",
+      "pun_clock_mean_resid"
+    ],
+    "columns": 183,
+    "rounds": 10000,
+    "seed": 42,
+    "trial": "LB1",
+    "threads": 4,
+    "rows": "unchanged original ordinary population",
+    "machine": "desktop; same-machine174-column controls",
+    "no_parameter_or_weight_search": true,
+    "no_stopping_selection": true,
+    "production_or_upload": false
+  },
+  "source": {
+    "path": "VALIDATION/punctuality_lgb_jan_jul.py",
+    "sha256": "de9c8a6037629a8651e4480c1650973afd20f4a978918dbb299dafe81815d748"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/public_delay_lgb_jan_jul.py",
+      "sha256": "e3288a72e1c2fd7e88d37fe688a28c3f463664ab9612c2f5c919dc6e24c540bc"
+    },
+    {
+      "path": "VALIDATION/callsign_lgb_jan_jul.py",
+      "sha256": "e4089d4f3eee2e2129e260a3b278b26bb36673f72daea1906a43b4949575cbbc"
+    },
+    {
+      "path": "VALIDATION/public_punctuality_features.py",
+      "sha256": "ee3c4f306bac7d97de8d17a2ce0554fc20a4cba5c467c90d72929a682186b5a4"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_cat.py",
+      "sha256": "d63b80be80105158c04e4cbd2442bafdeecc5a25767cbc549ac537d803093fff"
+    }
+  ],
+  "main_result": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/result.json",
+    "sha256": "9e286eaeb0802c6f2a5315797833a266446990263ff05b59b249e8688fb85ea0"
+  },
+  "main_audit": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/audit.json",
+    "sha256": "09bc5fa3a4d2748f20e48907fae8424c069545346f5f59a19b75eed384ca036f"
+  },
+  "main_predictions": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/combined_public_cat.parquet",
+    "sha256": "0efbab1f2d585a74862444c3b54f76e2a106aa3443e626a4b77da3635f000056"
+  },
+  "public_features": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_features/features2025.parquet",
+    "sha256": "28fc54ff31c5ccb41817c649eea963a9a3cd3e037d2adb400e3fd00cfaa7be0d"
+  },
+  "punctuality_features": {
+    "path": "VALIDATION/runs/v3_20261011_public_punctuality/features2025.parquet",
+    "sha256": "a7d8561d6c540ed3ae97d3ff5b4a7a5cfbcdac86722d7592ec9198bf85715a96"
+  },
+  "punctuality_audit": {
+    "path": "VALIDATION/runs/v3_20261011_public_punctuality/audit.json",
+    "sha256": "a2ee1fd05aa99ae9288dd57ffc0545862d28739c9b995cbca7f453851a7fa56e"
+  },
+  "folds": {
+    "2025-01": {
+      "matrix": {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+        "sha256": "ee1239362fd6b4a32c412931465be86a928b9c0904f7ec64b5b74291435ab2c7"
+      },
+      "control": {
+        "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/predictions/2025-01_s42.json",
+        "sha256": "a322a3ba0934e09dd5d74218ff6b5f8725100237e736e965051c7df4e3f09a57"
+      }
+    },
+    "2025-07": {
+      "matrix": {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-07.pkl",
+        "sha256": "1c44b5007b1cfe70db2387ce37089e55cad7540f8ebb5e9c043f2ee77c3d0f28"
+      },
+      "control": {
+        "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/predictions/2025-07_s42.json",
+        "sha256": "a761e25d1f29f4e45f7fc0f19adf70f90f2def91d8fba230715a027db662a785"
+      }
+    }
+  }
+}

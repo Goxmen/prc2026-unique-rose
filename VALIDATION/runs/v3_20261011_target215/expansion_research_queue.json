@@ -1,5 +1,5 @@
 {
-  "state": "waiting",
+  "state": "running",
   "predecessor_pid": 679988,
   "predecessor_start": "7033174",
   "predecessor_result": "VALIDATION/runs/v3_20261011_rome_punctuality/result.json",
@@ -23,7 +23,8 @@
         "VALIDATION/tools/audit_public_rome_cv.py": "4c1a0221168f5cf814e7be013e79894149388a6a3259d9b0177417ba47d3dfce"
       },
       "log": "tmp/research_20261011/audit_peers.log",
-      "result": "VALIDATION/runs/v3_20261011_rome_public_peers/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_rome_public_peers/audit.json",
+      "completed_result_sha256": "fb56cad18cb9350e6920fead8fe5ab9cdd0ce1354ab16c4be6025ff42243c812"
     },
     {
       "name": "audit_punctuality",
@@ -40,7 +41,8 @@
         "VALIDATION/tools/audit_public_rome_cv.py": "4c1a0221168f5cf814e7be013e79894149388a6a3259d9b0177417ba47d3dfce"
       },
       "log": "tmp/research_20261011/audit_punctuality.log",
-      "result": "VALIDATION/runs/v3_20261011_rome_punctuality/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_rome_punctuality/audit.json",
+      "completed_result_sha256": "df095793611fc8da84a9e4115c98c120f88484752c63c9da2af48745af6f6177"
     },
     {
       "name": "audit_public_neural",
@@ -55,7 +57,8 @@
         "VALIDATION/tools/audit_public_neural.py": "bd5a1d6f2bce1c277147743aabdf27d80e78db2da0ce798248cd007840d008a4"
       },
       "log": "tmp/research_20261011/audit_public_neural.log",
-      "result": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/audit.json",
+      "completed_result_sha256": "c269b8740f74067315100bc156dbe45303a25b6058f3b768b54a5c0f8eaa348e"
     },
     {
       "name": "public_neural_pool",
@@ -114,6 +117,9 @@
       "result": "VALIDATION/runs/v3_20261011_public_delay_lgb_submit/predictions/old.json"
     }
   ],
-  "updated_at": "2026-10-11T06:54:17.807336+00:00",
-  "pid": 680356
+  "updated_at": "2026-10-11T07:17:07.896925+00:00",
+  "pid": 680356,
+  "job": 3,
+  "stage": 0,
+  "child_pid": 694396
 }

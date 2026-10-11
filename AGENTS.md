@@ -170,16 +170,17 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   Peer-budget CV is complete and inconclusive: −0.2884 primary/−0.1407 on v75,
   both intervals include a loss. No production/expansion. All 2,399,130 feature
   values and every inner fold's ID separation pass independent SQL/ID checks.
-  A third `punctuality_research_queue.json` waits for the peer queue, then
-  tests nine public daily punctuality inputs in the original three Rome
-  CatBoosts. All 18,765,423 input values independently reproduce exactly;
-  predictive gain is untested. Raw public JSON is cached and hashed under
+  The third `punctuality_research_queue.json` is complete: nine public daily
+  inputs in Rome CatBoost gave no gain (+0.0128 on v75, inconclusive).
+  All 18,765,423 inputs and all held probabilities from both new Rome screens
+  pass independent checks. No Rome production fit. Raw JSON is cached under
   `data/external/eurocontrol_performance_20261011/`; do not redownload.
   This queue uses the same `cancel_research_queue` file. Runner
   `public_delay_lgb_submit.py` is prepared for a single full-year main fit
   after its combined CV audit passes. A fourth `expansion_research_queue.json`
-  waits for the punctuality queue, audits both Rome screens and the neural
-  single, then fits/audits the public neural pool (only seeds 1042/2042 are new),
+  completed both Rome audits and the neural single audit (1,094 reload rows,
+  max difference 0.00147 seconds), and now trains the public neural pool
+  (only seeds 1042/2042 are new),
   and finally fits the public main tree. All use the same cancellation file.
   The main reload audit initially missed the existing zero floor on 44 January
   raw negative predictions; the auditor is corrected and both stopped queues
@@ -189,6 +190,12 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   the serialized v70 prior means, likelihood/settings and non-Rome predictions;
   no new fit or production is selected. Same cancellation file. Runner
   `daily_structural_prior.py`; preflight mean/fallback/fixed-copy checks pass.
+  A sixth `punctuality_main_queue.json` then tests the same nine punctuality
+  inputs in the ordinary main LightGBM, against the passing 174-column model
+  and actual public-Cat combination. Both controls/new fits are on desktop.
+  Same cancellation file, no production selection. `public_main_candidate.py`
+  and its independent final auditor are prepared for the passing 174-column
+  model once its full-year fit is ready; no version/file has been built yet.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL is offline on Tailscale; its Windows host is online but Windows

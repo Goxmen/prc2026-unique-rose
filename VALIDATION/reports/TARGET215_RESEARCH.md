@@ -404,6 +404,22 @@ Runners: `public_punctuality_features.py`, `tools/audit_public_punctuality.py`,
 `rome_punctuality_jan_jul.py`. Runs: `v3_20261011_public_punctuality/`,
 `v3_20261011_rome_punctuality/`; queue `punctuality_research_queue.json`.
 
+**Rome result: no gain, no production.** The primary score changes
+292.2010 → 292.2328 (+0.0318), interval [−0.1417, +0.2245]. The v75 transfer
+changes 292.9415 → 292.9544 (+0.0128), interval [−0.1416, +0.1793]. Both
+comparisons are inconclusive. All six saved models reproduce every held
+probability exactly; independent SQL reproduces the scores. The peer models'
+six probability reloads also pass. Retain both completed Rome screens without
+more fits or uploads.
+
+This tests the recording classifier only. A separate fixed ordinary-regressor
+screen is now queued: append the same nine inputs to the passing 174-column
+main LightGBM, retain LB1/10,000/seed42, and compare against its actual
+public-main/public-Cat baseline, CV 292.7707. Both controls and new fits use the
+desktop. All original 174 inputs and training rows remain unchanged. Runner
+`punctuality_lgb_jan_jul.py`, queue `punctuality_main_queue.json`, after the
+structural-posterior screen. No score or production selection is claimed yet.
+
 A separate v75 residual grouping reconfirms that two previously investigated
 January LFPG labels dominate one small group's CV error. No defensible new
 recording rule was found in the earlier investigation; no clipping, removal or
@@ -454,6 +470,13 @@ also improves 292.2010 → 291.9697 (−0.2313). This computes the Rome/ordinary
 interaction directly rather than summing separately projected changes.
 The full-year main fit is queued once; no production prediction or official
 score for this combination exists yet.
+
+The eventual main-tree combination builder and independent final auditor are
+prepared as `public_main_candidate.py` and `tools/audit_public_main_candidate.py`.
+They must reproduce v70's tree mean and v75's entire file before changing the
+main tree. A snapshot of v75's reviewed manifest keeps its later upload-status
+changes separate from immutable prediction provenance. These tools have not
+been run; no new version has been reserved or assembled.
 
 ## Queued follow-up: preserve the recording-mode distribution
 
