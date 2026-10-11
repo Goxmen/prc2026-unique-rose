@@ -1,5 +1,74 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Joint public-source increment selected as v78, 19:40 Amsterdam
+
+The fixed three-moment screen improves exact-v77 Jan/Jul CV
+**291.549710 →290.930119 (−0.619591)**, paired-day95% interval
+**[−1.027944,−0.213817]**. January changes **+0.034032** and July
+**−1.273215**. This is reused development evidence, with a January regression.
+It changes2,312 validation predictions; no taxi model or blend-weight search
+was fitted. Read `v3_20261011_joint_public_moments/result.json`.
+
+Each flight contributes valid taxi count, truncated taxi sum and positive
+departure delay. Taxi moments retain local takeoff date/runway and source
+eligibility; departure moments retain once-estimated UTC off-block date and
+the original interior-day/non-VFR scope. Shared flights supply cross-covariance.
+The prior is serialized v70 with the retained training quantile/copy/broad
+supports. A variance-matched t5 update jointly conditions on both sources;
+the fixed half difference from its matched departure-only update is added to
+v77, retaining every final bound and rounding stage. Approximate Gaussian peer
+moments and transfer to an already public-informed parent remain limitations.
+
+A preceding training-only source study checked160,704 Rome flights and365
+paired calendar cells. Count/sum omission errors are strongly correlated
+(.934/.956 across the two training folds), while correlations with departure
+source error are small (about−.047 and+.105). These are source diagnostics,
+not validation gains. Of those flights,1,188 have different UTC off-block and
+local takeoff dates, affecting313days; the two memberships must stay separate.
+Portable source study and CV inference ran on the laptop with matching hashes.
+
+Every one of26,528 CV Rome input rows,1,248 taxi source cells and365 departure
+source days passes independent SQL/raw-source checks. Inference contains no
+labels or true off-block date; shuffled rows with poisoned extraneous label
+columns reproduce the increment within3.94e-10seconds. Analytic joint moments
+agree with numerical quadrature and the t5 density agrees with SciPy.
+All344,419 validation labels, controls, dates, increments and scores pass the
+separate SQL and constraint audit.
+
+Production reuses v77 and v70, calibrates the same source functions on2025
+(600 taxi cells and150,093 delay rows), and applies the frozen posterior to
+26,899 Rome ranking rows. All344,841 final rows pass raw-input, source, parent,
+scope, arithmetic, schema and non-target-column checks. The separate scalar
+message audit checks154flights. Its first SciPy eigen decomposition on mixed
+count/second units produced a3.9e-6second discrepancy; standardizing covariance
+units in the auditor reduces the largest difference to2.35e-10seconds.
+Production code and predictions did not change; the failure log is retained.
+
+V78 changes1,734 ranking predictions. Component and package audits pass;
+fileSHA256 `ef806d537d1317bb224a0be2c44451486b4bed309c72a0096babf80a16ebd6c4`.
+Watcher1067877 queues its authorized upload for12October00:30:05UTC,
+subject to fresh quota, population, source and exact-file checks. No score yet.
+The52-vector prepared basis preserves all51 preceding vectors exactly and
+passes the full SQL audit. Evaluator1068545 waits for actual successful
+v75/v76/v77/v78 scores; no imputed score or additional submission is created.
+The matching52-vector blend packager and separate SQL auditor pass a full-size
+synthetic laptop test. It checks344,841ranking and344,419CVrows, actual synthetic
+error within the conservative bound, missing-score rejection, corrupt-output
+rejection and preservation of existing candidates. Source and returned-report
+hashes match. No live API, official score or real v79 file is created by the test.
+
+## Recurrent track screen closed, 19:24 Amsterdam
+
+Both fixed GRU fits, original/new saved-model reloads and the separate model
+and SQL audits are complete. The sampled model audit checks1,094rows with
+maximum difference0.002649seconds. Through exact v77, matched single-seed CV
+changes **+0.062774**, interval[−0.170333,+0.289148]; replacing one of three
+members changes **+0.001426**, interval[−0.077822,+0.074579]. There is no useful
+gain. Retain both models without further seeds, production or submission.
+Queues1046322 and1047695 are complete; the original design below remains the
+pre-fit record. Current live score at19:24Amsterdam remains v74 **221.6881**,
+rank12/242 on344,841rows; the215target is still active.
+
 ## Fixed recurrent track screen running, 19:03 Amsterdam
 
 A single forward GRU reads the existing width 32 physical convolution states.

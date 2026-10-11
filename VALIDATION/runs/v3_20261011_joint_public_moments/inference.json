@@ -1,0 +1,34 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments/identity.json",
+    "sha256": "b1ce9cc59fdd8aae55d47097992e5756d4e228bb14e662645047e1a7523ec5fd"
+  },
+  "host": "GLAPTOP",
+  "seconds": 25.440997977000734,
+  "checks": [
+    {
+      "month": "2025-01",
+      "rows": 11317,
+      "touched": 275,
+      "permutation_max_difference": 1.000444171950221e-10,
+      "label_poison_invariant": true
+    },
+    {
+      "month": "2025-07",
+      "rows": 15211,
+      "touched": 2061,
+      "permutation_max_difference": 3.9381120586767793e-10,
+      "label_poison_invariant": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/predictions.parquet",
+      "sha256": "d1a99ca1e558432a5650a14dcd6f8edda427dbeeeefb9575b5aa3ec1554397e9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/cells.parquet",
+      "sha256": "dbdb20e8f0084e2fb5c06f532137596bba4526cd20b1d4dd812b3e3662395c34"
+    }
+  ]
+}

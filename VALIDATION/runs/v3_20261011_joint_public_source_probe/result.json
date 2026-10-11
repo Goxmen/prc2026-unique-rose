@@ -1,0 +1,199 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_source_probe/identity.json",
+    "sha256": "7f751698c4b6e8238b88c892af3d7fbff18755b45ea7e2a5bfda4bb5dff8037e"
+  },
+  "host": "GLAPTOP",
+  "folds": {
+    "2025-01": {
+      "allowed": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "days": 257,
+      "robust_days": 225,
+      "error_order": [
+        "taxi_count",
+        "taxi_sum",
+        "departure_delay_sum"
+      ],
+      "coefficients": [
+        [
+          9.314027076186674,
+          8986.84320685229,
+          109.4027741832986
+        ],
+        [
+          -5.938738941994509,
+          -8060.9797622429705,
+          40.7615920389332
+        ],
+        [
+          5.3221158846079675,
+          8199.362060736621,
+          -55.85025350803008
+        ]
+      ],
+      "covariance": [
+        [
+          11.09294239809326,
+          18095.383222118588,
+          -8.338676692940743
+        ],
+        [
+          18095.383222118588,
+          33823617.36896213,
+          -15232.411337363053
+        ],
+        [
+          -8.338676692940743,
+          -15232.411337363053,
+          2995.16345292095
+        ]
+      ],
+      "correlation": [
+        [
+          1.0,
+          0.9341882052289057,
+          -0.0457470920354826
+        ],
+        [
+          0.9341882052289057,
+          1.0,
+          -0.047857319351948965
+        ],
+        [
+          -0.0457470920354826,
+          -0.047857319351948965,
+          1.0
+        ]
+      ],
+      "residual_sd": [
+        3.3306069113741508,
+        5815.807542290419,
+        54.72808650885713
+      ],
+      "conditional_taxi_sd_ratio": [
+        0.9989530537369097,
+        0.9988541820428274
+      ],
+      "interpretation": "Training source-error covariance; conditioning on unknown true error is a mathematical noise diagnostic, not deployable correction or CV."
+    },
+    "2025-07": {
+      "allowed": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "days": 198,
+      "robust_days": 175,
+      "error_order": [
+        "taxi_count",
+        "taxi_sum",
+        "departure_delay_sum"
+      ],
+      "coefficients": [
+        [
+          8.508384837468805,
+          9895.126877367695,
+          110.54030326685341
+        ],
+        [
+          16.13035673634992,
+          22614.642361459773,
+          -187.95325253692522
+        ],
+        [
+          -16.55996939962135,
+          -22712.32276135315,
+          172.64598090725573
+        ]
+      ],
+      "covariance": [
+        [
+          21.141303895865843,
+          32657.512993448825,
+          27.52090058798192
+        ],
+        [
+          32657.512993448825,
+          55219124.54024417,
+          43590.19622363987
+        ],
+        [
+          27.52090058798192,
+          43590.19622363987,
+          3157.6813935661316
+        ]
+      ],
+      "correlation": [
+        [
+          1.0000000000000002,
+          0.9558119706125756,
+          0.1065154491454283
+        ],
+        [
+          0.9558119706125756,
+          1.0,
+          0.10439024371751036
+        ],
+        [
+          0.1065154491454283,
+          0.10439024371751036,
+          0.9999999999999999
+        ]
+      ],
+      "residual_sd": [
+        4.597967365680822,
+        7430.957175239551,
+        56.193250427129875
+      ],
+      "conditional_taxi_sd_ratio": [
+        0.9943110474561507,
+        0.9945364131174881
+      ],
+      "interpretation": "Training source-error covariance; conditioning on unknown true error is a mathematical noise diagnostic, not deployable correction or CV."
+    }
+  },
+  "calendars": {
+    "rows": 160704,
+    "different_dates": 1188,
+    "affected_offblock_dates": 313,
+    "affected_local_dates": 313,
+    "note": "UTC off-block and local takeoff groupings; dates cannot be equated in a joint posterior"
+  },
+  "complexity": {
+    "long_flights": {
+      "quantiles": [
+        4.0,
+        39.0,
+        94.60000000000002,
+        112.0,
+        293.0
+      ],
+      "days_over12": 327
+    },
+    "mixture_gap_flights": {
+      "quantiles": [
+        4.0,
+        39.0,
+        94.60000000000002,
+        112.0,
+        291.0
+      ],
+      "days_over12": 327
+    }
+  },
+  "no_prediction_or_candidate": true
+}

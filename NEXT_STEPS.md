@@ -1,17 +1,18 @@
 # Next steps
 
 **Active target: 215.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
-leaving **6.6881 seconds**. Live check: **11 October 19:00 Amsterdam**,
+leaving **6.6881 seconds**. Live check: **11 October 19:24 Amsterdam**,
 rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
 are used. Autonomous submissions and both machines remain authorized.
 
-Three selected candidates are prepared and audited for the next UTC window:
+Four selected candidates are prepared and audited for the next UTC window:
 
 | Candidate | Change | Jan/Jul CV | Earliest upload, Amsterdam |
 | --- | --- | ---: | --- |
 | v75 | v74 adds public daily inputs to the Rome CatBoost pool. | 292.9415 | 12 October 02:00 |
 | v76 | v75 adds public daily inputs to the main tree and physical networks. | 292.4494 | 12 October 02:10 |
 | v77 | v76 adds the selected daily and tree refinements. | 291.5497 | 12 October 02:20 |
+| v78 | v77 adds a joint public taxi-count, taxi-sum and departure-delay correction. | 290.9301 | 12 October 02:30 |
 
 None has an official score yet. All uploads require unchanged audited sources,
 exact file/schema/IDs, available quota and the same accepted population. Do not
@@ -31,25 +32,45 @@ waits for actual successful v75/v76/v77 scores and fresh leaderboard/file checks
 no score is imputed. A subsequently selected blend still needs its own final
 file audit. Existing 50-vector evaluation remains separately queued after v76.
 
-The follow-up blend packager is ready: `scored_basis_candidate.py` consumes the
+V78 improves v77 CV by **0.6196 seconds**, paired-day interval
+**[−1.0279, −0.2138]**. July improves1.2732; January worsens0.0340.
+It uses one simultaneous leave-one-out update from the two public source
+populations, preserving each calendar and accounting for shared flights.
+CV inference ran on the laptop. All raw inputs, calibration rows, prediction
+arithmetic, final constraints and CV scores pass the separate audits.
+The production auditor's first SciPy density check differed by four microseconds
+because counts and sums have different units; standardizing its covariance
+removes the discrepancy without changing production predictions. All154 scalar
+checks then agree within2.4e-10 seconds. Retain the original failure log.
+V78 changes1,734 ranking rows. These are reused development months, and the
+moment approximation and transfer onto v77 remain limitations.
+
+The retained follow-up blend packager `scored_basis_candidate.py` consumes the
 actual 51-vector diagnosis only after successful v75–v77 scores. It creates a
 candidate only when the conservative score bound improves the current official
 best by at least0.25 seconds or reaches215. It reports Jan/Jul CV even if it
 regresses, because selection explicitly uses leaderboard feedback. The separate
 SQL auditor checks the weighted predictions, raw historical truth, score identity,
-and clipping/rounding bound. A full-size synthetic laptop test passes; no actual
-v78, new version reservation or blend upload exists yet. Preserve the source
+and clipping/rounding bound. A full-size synthetic laptop test passes. A separate
+52-vector basis now includes v78, preserves all51 prior vectors exactly and
+passes the all-row SQL audit. Its evaluator waits for actual successful
+v75–v78 scores. The matching `joint_scored_candidate.py` and separate auditor
+retain the same selection rule; the full-size52-vector synthetic build and
+separate SQL audit pass on the laptop, including missing-score/corrupt-file
+rejection and preservation of an existing candidate. No v79 or later blend
+submission exists. Preserve the source
 diagnosis's integer vectors, because recomputing half-integer ties can differ
 with floating reduction order. Run the separate audit before any later upload.
 
-A fixed recurrent track screen is training on the desktop. One forward GRU of width 32
+A fixed recurrent track screen is complete and closed. One forward GRU of width 32
 summarizes the existing local physical states through a zero-initialized
 projection; all inputs, original weights, seed 42 and 21/17 epochs are retained.
 CPU and both GPUs pass initialization, padding, gate-equation and gradient
 checks. All sequence-index bounds and 2,096 raw examples pass the input audit.
-Actual training uses 4.754 GiB. Queue 1046322 includes both fits and audits;
-queue 1047695 then evaluates the fixed matched and one-of-three comparisons
-through exact v77. No new candidate is selected. The laptop check is complete.
+Actual training used 4.754 GiB. Both fits, full saved-model reloads and independent
+model/SQL checks pass. Through exact v77, matched CV worsens0.0628 and replacing
+one of three pool members worsens0.0014, interval[−0.0778,+0.0746]. There is no
+useful gain; retain the models without further seeds, production or upload.
 
 Increasing the physical pool's internal neural share from 0.5 to 0.75 loses
 0.1683 seconds on exact-v77 CV, interval [+0.0617, +0.3186]. The all-row audit

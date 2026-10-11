@@ -1,0 +1,85 @@
+{
+  "design": {
+    "parent": "v77",
+    "change": {
+      "settings": {
+        "ordinary_sigma": 200.0,
+        "common_day_sigma": 15.0,
+        "cutoff": 7200.0,
+        "df": 5,
+        "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+        "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+        "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+        "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+        "comparison": "joint posterior mean minus matched departure-only moment posterior mean",
+        "transfer": "one fixed half incremental correction through current v77 constraints",
+        "common_error": "one shared15-second mean perturbation across the selected two cohorts",
+        "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+        "no_iteration": true,
+        "no_parameter_search": true,
+        "no_new_fit": true
+      },
+      "parent": "selected v77",
+      "prior": "serialized v70 means, with retained one-pass off-block date assignment",
+      "primary": "v77 plus0.5 times joint-minus-departure-only posterior means, within input-defined scope",
+      "retained": "all other rows, original monthly quality gate, final matched/recovered bounds and rounding",
+      "calibration": "all completed fold-specific source/noise/quantile parameters reused, no fits",
+      "limitations": [
+        "moment approximation to multimodal peers",
+        "same ordinary perturbation shared across overlapping cohorts",
+        "v77 already uses public inputs; incremental transfer is an exploratory comparison",
+        "extensively reused Jan/Jul development data"
+      ],
+      "no_new_model_fit": true,
+      "no_weight_scan": true,
+      "no_production": true,
+      "no_upload": true
+    },
+    "rows": 344841,
+    "source_calibration": "same functions and settings, all2025 labels; preserve full source calibration rows",
+    "support": "reuse v72 full2025 all-departure quantiles and mean, matching the CV support lineage",
+    "prior": "exact serialized v70 in original submitting order",
+    "dates": "once estimated from takeoff minus v70; retain original interior-day and IFR scope",
+    "no_taxi_fit": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/identity.json",
+    "sha256": "cb028883d966db2e3a4ae58154a92d7609910ae9aa2169ac53cc326c6d42c5be"
+  },
+  "rows": 344841,
+  "jan_jul_cv": 290.93011885776303,
+  "cv_months": {
+    "2025-01": 325.860607626995,
+    "2025-07": 255.9996300885311
+  },
+  "paired": {
+    "change": -0.6195913037428227,
+    "ci95": [
+      -1.0279440515992124,
+      -0.21381731108667712
+    ],
+    "decision": "improvement"
+  },
+  "changed": 1734,
+  "touched": 1765,
+  "rms_change": 12.984489288307614,
+  "parent_and_unchanged_rows_exact": true,
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/candidate.parquet",
+      "sha256": "ef806d537d1317bb224a0be2c44451486b4bed309c72a0096babf80a16ebd6c4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/predictions.parquet",
+      "sha256": "4291e6348c938224af5cc5d9d421ca5a4073f0583c4d611a2feb4a8ec47eb792"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/cv.parquet",
+      "sha256": "9ea84fcbe7bf3a687a65cc71c4c2bed7c3b19f3bf8ef6bdf01f84da5caafa1a9"
+    }
+  ],
+  "no_version": true,
+  "no_upload": true
+}

@@ -1,0 +1,49 @@
+{
+  "state": "complete",
+  "predecessor_pid": 1047695,
+  "predecessor_start": "10686414",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_joint_public_moments/return_verification.json",
+  "barrier": "Recurrent-stack process is a resource barrier; independent joint inference is complete and verified, so it does not require recurrent CV success",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T17:22:39.564327+00:00",
+  "jobs": [
+    {
+      "name": "joint_public_moment_increment_v77",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/joint_public_moments_cv.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/joint_public_moments_cv.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/joint_public_moments.py": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d",
+        "VALIDATION/joint_public_moments_cv.py": "4a790c670c852d54ec8c0df647504d723b45874870dacddff305f1137f3842c0",
+        "VALIDATION/daily_main_refinements_cv.py": "f4db783eb6a7b27f38194f786173ab30d0f655afba7e903ca4ca071a1382de03",
+        "VALIDATION/tools/audit_joint_public_inputs.py": "75416f34d51fa89cd7b3338759810425e11569457c13274511baa8f71813d1ed",
+        "VALIDATION/runs/v3_20261011_joint_public_moments/identity.json": "b1ce9cc59fdd8aae55d47097992e5756d4e228bb14e662645047e1a7523ec5fd",
+        "VALIDATION/runs/v3_20261011_joint_public_moments/inference.json": "4e7c70b7d841e9b586beb7a4fc0bb21a43290185b1b0c757316a12f4a4084b27",
+        "VALIDATION/runs/v3_20261011_joint_public_moments/return_verification.json": "b375f44a8b66ab85e4dc631a4bc8c40fdc45f80c7f4d889a8f3c3aef7d042887",
+        "VALIDATION/runs/v3_20261011_joint_public_moments/input_audit.json": "e3ef90bbadfad80a07185aa04ee1610642c296eb417f16c55a2e41803da516a3",
+        "VALIDATION/runs/v3_20261011_joint_public_moments/predictions.parquet": "d1a99ca1e558432a5650a14dcd6f8edda427dbeeeefb9575b5aa3ec1554397e9"
+      },
+      "log": "tmp/research_20261011/joint_public_moments_score.log",
+      "result": "VALIDATION/runs/v3_20261011_joint_public_moments/audit.json",
+      "completed_result_sha256": "3d065bb05dc4a868fd7ad5634b8907575a640db56b5b612d2904d98be288fff5"
+    }
+  ],
+  "updated_at": "2026-10-11T17:24:09.601709+00:00",
+  "pid": 1059034,
+  "job": 0,
+  "stage": 1,
+  "child_pid": null
+}

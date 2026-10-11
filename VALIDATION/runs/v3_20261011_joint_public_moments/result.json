@@ -1,0 +1,73 @@
+{
+  "design": {
+    "settings": {
+      "ordinary_sigma": 200.0,
+      "common_day_sigma": 15.0,
+      "cutoff": 7200.0,
+      "df": 5,
+      "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+      "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+      "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+      "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+      "comparison": "joint posterior mean minus matched departure-only moment posterior mean",
+      "transfer": "one fixed half incremental correction through current v77 constraints",
+      "common_error": "one shared15-second mean perturbation across the selected two cohorts",
+      "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+      "no_iteration": true,
+      "no_parameter_search": true,
+      "no_new_fit": true
+    },
+    "parent": "selected v77",
+    "prior": "serialized v70 means, with retained one-pass off-block date assignment",
+    "primary": "v77 plus0.5 times joint-minus-departure-only posterior means, within input-defined scope",
+    "retained": "all other rows, original monthly quality gate, final matched/recovered bounds and rounding",
+    "calibration": "all completed fold-specific source/noise/quantile parameters reused, no fits",
+    "limitations": [
+      "moment approximation to multimodal peers",
+      "same ordinary perturbation shared across overlapping cohorts",
+      "v77 already uses public inputs; incremental transfer is an exploratory comparison",
+      "extensively reused Jan/Jul development data"
+    ],
+    "no_new_model_fit": true,
+    "no_weight_scan": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments/identity.json",
+    "sha256": "b1ce9cc59fdd8aae55d47097992e5756d4e228bb14e662645047e1a7523ec5fd"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments/inference.json",
+    "sha256": "4e7c70b7d841e9b586beb7a4fc0bb21a43290185b1b0c757316a12f4a4084b27"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+    "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.826575649057,
+      "candidate": 325.860607626995
+    },
+    "2025-07": {
+      "control": 257.2728446739547,
+      "candidate": 255.9996300885311
+    }
+  },
+  "cv": {
+    "control": 291.54971016150586,
+    "candidate": 290.93011885776303
+  },
+  "paired": {
+    "change": -0.6195913037428227,
+    "ci95": [
+      -1.0279440515992124,
+      -0.21381731108667712
+    ],
+    "decision": "improvement"
+  },
+  "touched": 2336,
+  "changed": 2312,
+  "original_control_and_unchanged_rows_exact": true
+}

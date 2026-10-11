@@ -4,31 +4,16 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "idle_after_completed_duration_Rome_and_robust_geometry_audits",
+    "state": "idle",
     "pid": null,
-    "state": "idle"
+    "task": "joint_public_CV_and_production_audits_complete"
   },
   "laptop": {
     "host": "GLAPTOP",
     "ssh": "glaptop-wsl",
-    "task": "idle_after_six_Rome_control_and_continuous_fits",
+    "state": "idle",
     "pid": null,
-    "live_start": "1023117",
-    "state": "complete; all models returned and exactly reloaded on desktop",
-    "log": "tmp/research_20261011/rome_continuous_mixture.log",
-    "identity": {
-      "path": "VALIDATION/runs/v3_20261011_rome_continuous_mixture/identity.json",
-      "sha256": "548008ee51ecc447f100848d9a7d840c9af65455854aae94227fcc2c601c4fdc"
-    },
-    "preflight": {
-      "path": "VALIDATION/runs/v3_20261011_rome_continuous_mixture/gpu_preflight.json",
-      "sha256": "4eb58db825c7ad46f70ff306b22d5a8b21818ebbc90ebf82fb16ecb0e00347b7"
-    },
-    "cache": "129752260bytes; both prepared packets verified before any fit",
-    "return_verification": {
-      "path": "VALIDATION/runs/v3_20261011_rome_continuous_mixture/return_verification.json",
-      "sha256": "2c5c7704e9a40ed5494a63f0dff2dbcd655efcd0a36689559627e8435c6d39cc"
-    }
+    "task": "joint_public_inference_and_full_shape_blend_test_complete"
   },
   "utc_uploads_used": [
     70,
@@ -157,7 +142,12 @@
     "Updated v77 error concentration: descriptive held-label result, January extreme LFPG dominates; July LIRF44.64%SSE; no rule/candidate",
     "Continuous Rome coefficient portable screen prepared:126507/86723 original rows,1085/502 fractional targets,48/282 input-gated held cases; all original inputs and SQL targets exact; laptopGPU preflight passes",
     "Continuous Rome coefficients closed: selected v77+0.1588, matched laptop Logloss+0.1711 CI[+0.0267,+0.3052], both months worse; all six models and all344419 scores independently audited",
-    "Robust unbounded scored geometry completed on48 actually scored vectors; projected221.5372 versus bounded221.5432 only0.0061 difference; serialization upper221.8268 does not improve currentbest; independent SQL ranking/CV/score identity audit passes; no candidate"
+    "Robust unbounded scored geometry completed on48 actually scored vectors; projected221.5372 versus bounded221.5432 only0.0061 difference; serialization upper221.8268 does not improve currentbest; independent SQL ranking/CV/score identity audit passes; no candidate",
+    "recurrent both fits/model/SQL audits complete; exact-v77 pool change+0.0014 inconclusive; closed",
+    "native public source covariance probe complete on laptop; no source-calendar collapse",
+    "joint public moments CV passes-0.6196; January+0.0340/July-1.2732; all audits pass",
+    "v78 full2025 source calibration and all344841 production rows audited; serialized candidate queued",
+    "52-vector basis and follow-up blend workflow prepared and audited; synthetic-only laptop test pass"
   ],
   "next": "Finish returned CatBoost audit and combined component, then fixed inverse-reference and early-public screens; laptop continues selected daily-main production. Preserve all completed fits and original v75/v76 upload schedule.",
   "queued_upload": {
@@ -205,7 +195,7 @@
     ]
   },
   "last_live_check": {
-    "at": "2026-10-11T13:18:04+00:00",
+    "at": "2026-10-11T17:24:39+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -330,9 +320,16 @@
       "manifest": "VALIDATION/runs/v3_20261011_daily_refinements_candidate/submission_v77/manifest.json",
       "manifest_sha256": "dbf7ed321006ecb07d09814775c040b771d1b0dda811de50d2e4ac4603e2776b",
       "not_before_utc": "2026-10-12T00:20:05+00:00"
+    },
+    {
+      "state": "waiting",
+      "pid": 1067877,
+      "manifest": "VALIDATION/runs/v3_20261011_joint_public_candidate/submission_v78/manifest.json",
+      "manifest_sha256": "9826d32052cff5d1b56ebc01d2ad6a6b006cec763716a3c51c2fa283a4b24172",
+      "not_before_utc": "2026-10-12T00:30:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T17:03:36.861757+00:00",
+  "updated_at": "2026-10-11T17:39:48.905795+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -469,7 +466,7 @@
   },
   "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1736.json",
   "last_live_leaderboard_check": {
-    "updatedAt": "2026-10-11T17:00:05+00:00",
+    "updatedAt": "2026-10-11T17:24:39+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -540,8 +537,8 @@
       "fixed_public_gaussian_observation_likelihood"
     ]
   },
-  "new_hypothesis": "Forward GRU32 summary of existing physical local track states, zero32to64 projection;8384new parameters; original inputs/weights/update/epochs retained",
-  "candidate_packaging": "v77 built, component/package/final review pass; upload990172 queued Oct12 00:20:05UTC; exact component bytes retained",
+  "new_hypothesis": "Joint public taxi count/sum and departure delay moments selected by fixed Jan/Jul comparison",
+  "candidate_packaging": "v78 component/package audits pass; upload1067877 queued Oct12 00:30:05UTC; v75-v77 unchanged",
   "daily_models_geometry_prepare_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/daily_models_geometry_prepare_queue.json",
     "pid": 987904,
@@ -552,14 +549,14 @@
     ]
   },
   "daily_geometry_note": "51-vector preparation/audit complete; evaluator992976 waits actual successful v75/v76/v77 scores after v77watcher. No upload.",
-  "previous_goal_turn_classification": "progress: audited and closed physical pool-share screen; fixed recurrent model prepared, independently checked on both GPUs, training started; exact-v77 scorer declared before held predictions exist",
+  "previous_goal_turn_classification": "progress: recurrent screen closed; new joint-source increment passes CV and full production audit, v78 queued, expanded score basis audited",
   "inverse_reference_january": {
     "state": "complete; all153706 old/new held predictions reload exactly",
     "record": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/predictions/2025-01_s42.json",
     "minutes": 19.573394281150104,
     "remaining": "none; July and full audit complete"
   },
-  "production_priority": "All selected production complete. Desktop recurrent Jan/Jul fits1046322; exact-v77 evaluator1047695 follows. Laptop GPU preflight complete and idle.",
+  "production_priority": "All selected production complete; four uploads wait next UTC window; no duplicate fits",
   "inverse_reference_result": {
     "state": "closed: CV inconclusive; final full model/SQL audit pass",
     "cv_v76": 292.449362934613,
@@ -665,13 +662,13 @@
     "result": "VALIDATION/runs/v3_20261011_nn_public_gaussian/result.json",
     "audit": "VALIDATION/runs/v3_20261011_nn_public_gaussian/score_audit.json"
   },
-  "latest_live_snapshot": "VALIDATION/runs/v3_20261011_target215/leaderboard_1900.json",
-  "last_checked": "2026-10-11T17:00:05+00:00",
+  "latest_live_snapshot": "VALIDATION/runs/v3_20261011_target215/leaderboard_1925.json",
+  "last_checked": "2026-10-11T17:24:39+00:00",
   "nn_public_recurrent_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/nn_public_recurrent_queue.json",
     "pid": 1046322,
-    "state": "running",
-    "process_live": true,
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "fixed_recurrent_track_summary"
     ]
@@ -679,8 +676,8 @@
   "recurrent_selected_stack_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/recurrent_selected_stack_queue.json",
     "pid": 1047695,
-    "state": "waiting",
-    "process_live": true,
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "recurrent_exact_v77_stack"
     ]
@@ -699,5 +696,48 @@
     "state": "closed; six fits returned and exact reloads/SQL audits pass",
     "result": "VALIDATION/runs/v3_20261011_rome_continuous_mixture/result.json",
     "production": "none"
+  },
+  "joint_public_moments_score_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/joint_public_moments_score_queue.json",
+    "pid": 1059034,
+    "state": "complete",
+    "process_live": false,
+    "jobs": [
+      "joint_public_moment_increment_v77"
+    ]
+  },
+  "joint_models_geometry_evaluate_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/joint_models_geometry_evaluate_queue.json",
+    "pid": 1068545,
+    "state": "waiting",
+    "process_live": true,
+    "jobs": [
+      "actual_official_joint_model_geometry"
+    ]
+  },
+  "recurrent_result": {
+    "state": "closed; no useful gain, no production or upload",
+    "result": "VALIDATION/runs/v3_20261011_recurrent_selected_stack/result.json",
+    "matched_change": 0.06277417922166251,
+    "pool_change": 0.0014263204439828314
+  },
+  "joint_public_result": {
+    "state": "selected as v78; official score pending",
+    "result": "VALIDATION/runs/v3_20261011_joint_public_moments/result.json",
+    "cv": 290.93011885776303,
+    "change": -0.6195913037428227,
+    "ci95": [
+      -1.0279440515992124,
+      -0.21381731108667712
+    ],
+    "january_change": 0.034031977938,
+    "production": "VALIDATION/runs/v3_20261011_joint_public_candidate/submission_v78/manifest.json"
+  },
+  "joint_geometry_note": "52-vector basis prepared and all-row audited; evaluator1068545 waits actual successful v75-v78; no imputed scores",
+  "joint_scored_candidate_readiness": {
+    "status": "full-shape synthetic laptop check pass",
+    "report": "VALIDATION/runs/v3_20261011_target215/joint_scored_workflow_check.json",
+    "sha256": "14f6582e9ea59e2767f058c677d7a934c6374103aa37fb28db3dd0588e1ccc86",
+    "no_v79_candidate": true
   }
 }

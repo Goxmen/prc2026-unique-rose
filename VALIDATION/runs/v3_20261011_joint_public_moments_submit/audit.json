@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/identity.json",
+    "sha256": "cb028883d966db2e3a4ae58154a92d7609910ae9aa2169ac53cc326c6d42c5be"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/result.json",
+    "sha256": "1ccec5a9f08f715ccb0d6f9330c52f4f2e56d4611ad18bb14f9642ce78956f32"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_joint_public_submit.py",
+    "sha256": "88a129b85c45d247f077d358bbfa1592cc477b114f3f25a1961d49542d790787"
+  },
+  "rows": 344841,
+  "rome_rows": 26899,
+  "cv_rows": 344419,
+  "independent_sql_raw_inputs_calibration_parent_increment_and_cv": true,
+  "independent_scalar_message_checks": [
+    {
+      "month": "2026-01",
+      "sampled_rows": 75,
+      "max_mean_error": 2.346496330574155e-10
+    },
+    {
+      "month": "2026-07",
+      "sampled_rows": 79,
+      "max_mean_error": 1.1823431123048067e-10
+    }
+  ],
+  "independent_final_bounds_and_serialization": true,
+  "all_template_non_target_columns_exact": true,
+  "reviewer": "root; retained subagents unavailable on account quota"
+}
