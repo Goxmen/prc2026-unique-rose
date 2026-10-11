@@ -114,6 +114,24 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,15:50 Amsterdam: laptop WSL restored and training allocated.**
+  The user reopened WSL. Laptop main updated to5b7ac28; original2.55GB training
+  cache hash matches, only62.5MB transferred. Selected full174-input ordinary
+  CatBoost production now trains onGLAPTOP (supervisor1600, worker1601;
+  `tmp/research_20261011/catboost_full_inputs_laptop.log`). Portable runner
+  `catboost_full_inputs_portable.py` verifies154 source/input files and all
+  2,051,327 original rows/labels/categories before the fixed10,000-round fit.
+  Input audit passes; preserve this fit. Desktop waiter897098 is SIGSTOP'ed
+  **while idle**, so it cannot start a duplicate. Collector925705
+  (`catboost_portable_dispatch.py collect`) imports and verifies the completed
+  model/receipt and then SIGCONT's that waiter; original desktop fit/audit
+  reuse the returned model. Migration, manifest and live collector state are
+  under `v3_20261011_catboost_full_inputs_submit/portable_worker/`. Desktop
+  research continues one heavy job at a time; upload watchers are unchanged.
+  The daily-taxi main tree completed both months, CV−0.0852 vs roundedv76;
+  independent audit pending. Do not claim an official score change or select
+  its joint daily-quality/CatBoost effect before checking that combination.
+
 - **October11,15:30 Amsterdam: early-public neural projection queued.**
   `nn_public_early.py` adds a zero-initialized12→512 projection before the first
   tabular activation, retaining the existing public late head. Same inputs,

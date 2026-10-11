@@ -1,0 +1,88 @@
+{
+  "checked_at": "2026-10-11T13:49:53.759756+00:00",
+  "desktop_queue": {
+    "state": "running",
+    "predecessor_pid": 847448,
+    "predecessor_start": "8729849",
+    "predecessor_result": "VALIDATION/runs/v3_20261011_public_airport_submit/audit.json",
+    "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+    "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+    "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+    "created_at": "2026-10-11T11:57:26.131322+00:00",
+    "jobs": [
+      {
+        "name": "public_runway_daily_taxi_main_tree",
+        "commands": [
+          [
+            "/home/gunes/PRC/.venv/bin/python",
+            "-u",
+            "VALIDATION/public_daily_taxi_lgb.py",
+            "preflight"
+          ],
+          [
+            "/home/gunes/PRC/.venv/bin/python",
+            "-u",
+            "VALIDATION/public_daily_taxi_lgb.py",
+            "fit"
+          ],
+          [
+            "/home/gunes/PRC/.venv/bin/python",
+            "-u",
+            "VALIDATION/public_daily_taxi_lgb.py",
+            "score"
+          ],
+          [
+            "/home/gunes/PRC/.venv/bin/python",
+            "-u",
+            "VALIDATION/public_daily_taxi_lgb.py",
+            "audit"
+          ]
+        ],
+        "sources": {
+          "VALIDATION/public_daily_taxi_lgb.py": "8d2c98eaf65b2499da867d6cb47b04292e42e3f74062943051be60599c8ed60c",
+          "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/identity.json": "3d1767dfe602ba82ad8f7d4afc337ba49bbdd1fc3acda59ecbe8b784cc3d1471",
+          "VALIDATION/public_daily_taxi_features.py": "dccb3a14c6c3feb18d8237a2df3317732f21d84ec06d9a7d533e8f228668561d",
+          "VALIDATION/runs/v3_20261011_public_daily_taxi_features/audit.json": "7bb7a076d933153c0732f55733fead8e1b519997e140b7ae22de862b3f8e2cd7"
+        },
+        "log": "tmp/research_20261011/public_daily_taxi_lgb.log",
+        "result": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/audit.json"
+      }
+    ],
+    "updated_at": "2026-10-11T13:45:31.558514+00:00",
+    "pid": 859814,
+    "job": 0,
+    "stage": 3,
+    "child_pid": 923939
+  },
+  "catboost_waiter_pid": 897098,
+  "catboost_waiter_start": "9230584",
+  "catboost_waiter_process_state": "T (stopped)",
+  "collector_pid": 925705,
+  "collector_start": "9521507",
+  "laptop": {
+    "host": "GLAPTOP",
+    "ssh": "glaptop-wsl",
+    "task": "selected_full174_catboost_full_year",
+    "supervisor_pid": 1600,
+    "supervisor_start": "59445",
+    "pid": 1601,
+    "process_start": "59447",
+    "training_started": true,
+    "started_at": "2026-10-11T13:48:23.775434+00:00",
+    "log": "tmp/research_20261011/catboost_full_inputs_laptop.log",
+    "manifest": "VALIDATION/runs/v3_20261011_catboost_full_inputs_submit/portable_worker/manifest.json",
+    "manifest_sha256": "16c1263b1c707ff1669cfd2b9d5eba91b62902b8e1597279e242a101953ff2dc",
+    "cache_reused_bytes": 2552204749,
+    "transferred_bytes": 62464715,
+    "desktop_collector_pid": 925705,
+    "desktop_fit_waiter_pid": 897098,
+    "desktop_fit_waiter_state": "stopped while laptop fits; collector resumes only after verified model import"
+  },
+  "input_audit_sha256": "fea714e76b521363d1656d87c334c32d26412b60c11a3709fc8559b8997a5f05",
+  "upload_watchers": {
+    "649782": "6729742",
+    "792755": "8175927"
+  },
+  "no_active_fit_interrupted": true,
+  "no_duplicate_fit": true
+}

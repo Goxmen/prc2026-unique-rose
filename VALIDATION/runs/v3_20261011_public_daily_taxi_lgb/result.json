@@ -1,0 +1,79 @@
+{
+  "design": {
+    "parent": "v76 with production rounding; selected refinements checked separately",
+    "change": "ten public runway/day and airport/day taxi-out inputs in main LightGBM",
+    "added": [
+      "pub_taxi_runway_mean",
+      "pub_taxi_runway_reference",
+      "pub_taxi_runway_additional",
+      "pub_taxi_runway_count",
+      "pub_taxi_airport_mean",
+      "pub_taxi_airport_reference",
+      "pub_taxi_airport_additional",
+      "pub_taxi_airport_count",
+      "pub_taxi_runway_share",
+      "pub_taxi_runway_minus_airport"
+    ],
+    "original_columns": 174,
+    "columns": 184,
+    "seed": 42,
+    "trial": "LB1",
+    "rounds": 10000,
+    "threads": 4,
+    "labels_rows_parameters": "original public main-tree inputs, labels and settings retained",
+    "comparison": "same-machine retained174-column main model; every other component fixed",
+    "primary": "production-rounded v76; refined-parent substitution secondary",
+    "limitation": "reused Jan/Jul development; external source cohort differs from competition",
+    "no_parameter_search": true,
+    "no_new_stopping": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/identity.json",
+    "sha256": "3d1767dfe602ba82ad8f7d4afc337ba49bbdd1fc3acda59ecbe8b784cc3d1471"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/scored.parquet",
+    "sha256": "05bc3f3e3ad5488ed3c7624a10ae9bad2260bee940375e90caf21c462f05e15b"
+  },
+  "scores": {
+    "2025-01": {
+      "v76": 326.17391214810544,
+      "v76_daily": 326.1082041553151,
+      "refined": 325.94319178263174,
+      "refined_daily": 325.8817523119733
+    },
+    "2025-07": {
+      "v76": 258.7248137211206,
+      "v76_daily": 258.6200410663231,
+      "refined": 258.46250828577354,
+      "refined_daily": 258.3708752321488
+    }
+  },
+  "cv": {
+    "v76": 292.449362934613,
+    "v76_daily": 292.3641226108191,
+    "refined": 292.20285003420264,
+    "refined_daily": 292.12631377206105
+  },
+  "paired": {
+    "v76": {
+      "change": -0.08524032379392565,
+      "ci95": [
+        -0.14118633301707142,
+        -0.05115294232957838
+      ],
+      "decision": "improvement"
+    },
+    "refined": {
+      "change": -0.07653626214158749,
+      "ci95": [
+        -0.13200234655658144,
+        -0.043786561175914
+      ],
+      "decision": "improvement"
+    }
+  },
+  "both_serialized_and_unserialized_controls_exact": true
+}

@@ -4,15 +4,34 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "public_runway_daily_taxi_main_tree",
+    "task": "public_runway_daily_taxi_main_tree_audit",
     "queue": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_lgb_queue.json",
-    "pid": 900411,
+    "pid": 923939,
     "queue_pid": 859814,
-    "stage": 1,
+    "stage": 3,
     "log": "tmp/research_20261011/public_daily_taxi_lgb.log",
-    "training_started": true
+    "training_started": true,
+    "training_complete": true
   },
-  "laptop": "Windows online but SSH timed out at12:40UTC; WSL Tailscale offline since04:00UTC; no remote job",
+  "laptop": {
+    "host": "GLAPTOP",
+    "ssh": "glaptop-wsl",
+    "task": "selected_full174_catboost_full_year",
+    "supervisor_pid": 1600,
+    "supervisor_start": "59445",
+    "pid": 1601,
+    "process_start": "59447",
+    "training_started": true,
+    "started_at": "2026-10-11T13:48:23.775434+00:00",
+    "log": "tmp/research_20261011/catboost_full_inputs_laptop.log",
+    "manifest": "VALIDATION/runs/v3_20261011_catboost_full_inputs_submit/portable_worker/manifest.json",
+    "manifest_sha256": "16c1263b1c707ff1669cfd2b9d5eba91b62902b8e1597279e242a101953ff2dc",
+    "cache_reused_bytes": 2552204749,
+    "transferred_bytes": 62464715,
+    "desktop_collector_pid": 925705,
+    "desktop_fit_waiter_pid": 897098,
+    "desktop_fit_waiter_state": "stopped while laptop fits; collector resumes only after verified model import"
+  },
   "utc_uploads_used": [
     70,
     71,
@@ -113,7 +132,8 @@
     "Full174 CatBoost production and no-refit combined component queued897098 then907102; fixed176-input inverse-reference tree queued909597; no new versions or uploads",
     "Daily-taxi main tree January10000 rounds complete; all153706 old/new held predictions reload exactly; July now fitting",
     "Early access of existing twelve public neural inputs passes CPU original weights/outputs/gradients/RNG and track-padding checks; fixed same-input same-update Jan21/Jul17 seed42 screen queued917136 after reference inverse909597; no score yet",
-    "Early-public idle queue safely rebound after moving recovery checkpoint guard before training; injected partial-checkpoint test rejects before model construction, no fit interrupted or repeated"
+    "Early-public idle queue safely rebound after moving recovery checkpoint guard before training; injected partial-checkpoint test rejects before model construction, no fit interrupted or repeated",
+    "Laptop WSL restored: original2.55GB matrix hash matches; only62.5MB transferred; all154 portable files and2051327 labels/original134 columns audited; selected174-input production CatBoost training on5060, duplicate desktop waiter stopped before fit"
   ],
   "next": "Finish current daily-taxi main/NN and Rome screens and selected production components; evaluate fixed inverse-reference main-tree and early-public neural tests sequentially. Review joint gains for final candidate assembly; preserve v75/v76 scheduled uploads and official-score geometry evaluation.",
   "queued_upload": {
@@ -281,7 +301,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T13:34:02.214465+00:00",
+  "updated_at": "2026-10-11T13:49:53.759756+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -425,11 +445,13 @@
   "catboost_full_production_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/catboost_full_production_queue.json",
     "pid": 897098,
-    "state": "waiting",
+    "state": "waiting_for_laptop_model_import",
     "jobs": [
       "full174_catboost_production_component"
     ],
-    "process_live": true
+    "process_live": true,
+    "process_state": "T",
+    "remote_training": true
   },
   "catboost_refinements_production_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/catboost_refinements_production_queue.json",

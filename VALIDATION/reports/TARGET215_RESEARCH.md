@@ -1,5 +1,36 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Laptop training restored, 15:50 Amsterdam
+
+The user reopened laptop WSL and authorized distributing the current work.
+SSH succeeds, the checkout fast-forwarded to main5b7ac28, and the5060 GPU was
+idle. Its original2,552,204,749-byte input cache has the same SHA-256 as the
+desktop. Only62,464,715 bytes needed transfer; no raw data was downloaded.
+
+`catboost_full_inputs_portable.py` exports a manifest after the complete original
+production guard, then verifies154 files on the laptop. It reuses the unchanged
+2,051,327 ordinary training rows, all uncapped labels, original134 categorical
+conversions, all156 original inputs, and the same18 appended inputs and K07
+10,000-round seed42 settings. The all-row input audit passes. Training started
+at13:48UTC onGLAPTOP, supervisor1600/worker1601, with about6.4GB GPU memory;
+no score or completed fit is claimed yet.
+
+The unstarted desktop waiter897098 was stopped before the remote launch,
+with its process start and predecessor retained in `portable_worker/migration.json`.
+No active fit was interrupted. `catboost_portable_dispatch.py collect` (925705)
+waits for a completed remote receipt, copies back only model/receipt/audit/log,
+checks their hashes and identity, then resumes that same waiter. The frozen
+desktop fit runner will reuse the model and perform ranking predictions and
+the original full-row audit. Downstream scheduling and upload watchers remain
+intact; one heavy job runs per host.
+
+The daily-taxi main tree has now completed both months: rounded-v76 CV
+292.449363→292.364123 (−0.085240), with month changes−0.065708/−0.104773.
+Inside airport/t5/full-monthly refinements the change is−0.076536. These are
+small gains on reused development data; the independent all-row model/SQL
+audit is still running. Combination with the selected daily-quality correction
+and new CatBoost must be checked before expanding production.
+
 ## Early access to public neural inputs, 15:30 Amsterdam
 
 The selected public neural model supplies its twelve daily departure inputs

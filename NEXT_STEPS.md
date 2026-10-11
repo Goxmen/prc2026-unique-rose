@@ -3,8 +3,14 @@
 **Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
 v74 at **221.6881**, leaving6.6881 seconds. Live check at15:18 Amsterdam:
 rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
-Autonomous submissions and both machines remain authorized; laptop WSL is
-currently offline, while Windows is online. Desktop jobs run one at a time.
+Autonomous submissions and both machines remain authorized. Laptop WSL returned
+at15:40 Amsterdam and is training the selected full174 CatBoost production
+component (worker1601). Desktop Jan/Jul experiments continue independently;
+one heavy job runs per host. Only62.5MB needed transfer; the original2.55GB
+training matrix matched its cached hash. Desktop collector925705 verifies the
+returned model before resuming idle waiter897098 for predictions/audit; that
+waiter is stopped to prevent duplicate training. See the portable-worker
+manifest and migration record in `v3_20261011_catboost_full_inputs_submit/`.
 
 V75 and V76 are prepared, fully audited and queued for12 October02:00/02:10
 Amsterdam. V75 adds public daily inputs to the Rome CatBoost pool: Jan/Jul
