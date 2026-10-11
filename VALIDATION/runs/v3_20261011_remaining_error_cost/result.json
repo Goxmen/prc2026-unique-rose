@@ -1,0 +1,1402 @@
+{
+  "design": {
+    "sources": [
+      {
+        "path": "VALIDATION/tools/describe_remaining_error_cost.py",
+        "sha256": "962c224b6d5a86019dc27117484d7adbb986d5a1e12fc9383391f6d4b434ae6b"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/scored.parquet",
+        "sha256": "ebcb2e5a3456a9615b649dbb49eb4843e076f03360e4706461c0b9c1d6b0ed7c"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261011_daily_ifr/rows2025.parquet",
+        "sha256": "7b0aa7441d36c15da1e7c6b53c6a144afe83d384194f1bb6db58982b544cfb51"
+      },
+      {
+        "path": "data/derived/sparse_track_sequence_20261010/full_index.parquet",
+        "sha256": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684"
+      }
+    ],
+    "groups": [
+      "airport",
+      "id_group",
+      "track_group",
+      "label_group",
+      "airport_id",
+      "airport_track"
+    ],
+    "label_use": "descriptive errors and optimistic perfect-prediction ceilings only",
+    "no_fit": true,
+    "no_candidate": true,
+    "no_upload": true
+  },
+  "cv": 291.54971016150586,
+  "months": {
+    "2025-01": {
+      "n": 153706,
+      "rmse": 325.826575649057,
+      "groups": {
+        "airport": [
+          {
+            "group": "LFPG",
+            "n": 17900,
+            "sse_share": 0.7006863475265901,
+            "rmse": 799.2216258726799,
+            "bias": 31.245698324022346,
+            "mean_abs_error": 174.97642458100557,
+            "perfect_group_ceiling": 147.56827279465762
+          },
+          {
+            "group": "LIRF",
+            "n": 11317,
+            "sse_share": 0.08751861430892319,
+            "rmse": 355.2355924545079,
+            "bias": -4.183175753291509,
+            "mean_abs_error": 176.9218874259963,
+            "perfect_group_ceiling": 14.584350884041783
+          },
+          {
+            "group": "LTFM",
+            "n": 21368,
+            "sse_share": 0.05955081387935363,
+            "rmse": 213.25235096228064,
+            "bias": 1.3122894047173344,
+            "mean_abs_error": 143.70671096967428,
+            "perfect_group_ceiling": 9.850521362929669
+          },
+          {
+            "group": "EGLL",
+            "n": 19420,
+            "sse_share": 0.04908667472269916,
+            "rmse": 203.09026583322523,
+            "bias": -3.171318228630278,
+            "mean_abs_error": 134.71446961894955,
+            "perfect_group_ceiling": 8.097491614030673
+          },
+          {
+            "group": "EHAM",
+            "n": 18460,
+            "sse_share": 0.029267063962185296,
+            "rmse": 160.844288711995,
+            "bias": -2.9329902491874322,
+            "mean_abs_error": 73.66668472372697,
+            "perfect_group_ceiling": 4.803399952077484
+          },
+          {
+            "group": "LEMD",
+            "n": 16510,
+            "sse_share": 0.027644865350990772,
+            "rmse": 165.29724579372066,
+            "bias": -4.816172016959419,
+            "mean_abs_error": 114.47443973349485,
+            "perfect_group_ceiling": 4.535279880517635
+          },
+          {
+            "group": "EDDF",
+            "n": 15496,
+            "sse_share": 0.020352859633384086,
+            "rmse": 146.39789403859777,
+            "bias": -26.202439339184306,
+            "mean_abs_error": 89.4182369643779,
+            "perfect_group_ceiling": 3.3327964393178604
+          },
+          {
+            "group": "LSZH",
+            "n": 9735,
+            "sse_share": 0.011883050007282408,
+            "rmse": 141.13278087930615,
+            "bias": 13.750590652285567,
+            "mean_abs_error": 60.92203389830509,
+            "perfect_group_ceiling": 1.94169229156671
+          },
+          {
+            "group": "LEBL",
+            "n": 12234,
+            "sse_share": 0.008368309943440318,
+            "rmse": 105.64928323419566,
+            "bias": 0.8544221023377473,
+            "mean_abs_error": 68.10650645741376,
+            "perfect_group_ceiling": 1.366173030860807
+          },
+          {
+            "group": "EDDM",
+            "n": 11266,
+            "sse_share": 0.005641400665151089,
+            "rmse": 90.39418921781322,
+            "bias": 11.188620628439553,
+            "mean_abs_error": 49.81333214983135,
+            "perfect_group_ceiling": 0.9203589946130819
+          }
+        ],
+        "id_group": [
+          {
+            "group": "other_noid",
+            "n": 1378,
+            "sse_share": 0.6599579562632164,
+            "rmse": 2795.5382584704225,
+            "bias": -109.00507982583454,
+            "mean_abs_error": 377.311320754717,
+            "perfect_group_ceiling": 135.8269203778911
+          },
+          {
+            "group": "has_id",
+            "n": 152274,
+            "sse_share": 0.30502357385069534,
+            "rmse": 180.79471835136036,
+            "bias": 2.4305790876971773,
+            "mean_abs_error": 110.56729316889292,
+            "perfect_group_ceiling": 54.20044891834209
+          },
+          {
+            "group": "noid_rome_4h_plus",
+            "n": 6,
+            "sse_share": 0.027087231514269793,
+            "rmse": 8582.989853968915,
+            "bias": -1110.5,
+            "mean_abs_error": 5549.833333333333,
+            "perfect_group_ceiling": 4.443164761252774
+          },
+          {
+            "group": "noid_rome_1_4h",
+            "n": 48,
+            "sse_share": 0.007931238371818432,
+            "rmse": 1642.0326833937665,
+            "bias": -86.58333333333333,
+            "mean_abs_error": 1133.2916666666667,
+            "perfect_group_ceiling": 1.2946763266630228
+          }
+        ],
+        "track_group": [
+          {
+            "group": "unusable",
+            "n": 35079,
+            "sse_share": 0.787243726392745,
+            "rmse": 605.1498312191608,
+            "bias": -0.1248895350494598,
+            "mean_abs_error": 156.99515379571824,
+            "perfect_group_ceiling": 175.53740367922558
+          },
+          {
+            "group": "airborne_only",
+            "n": 46822,
+            "sse_share": 0.14280481906344383,
+            "rmse": 223.08910739840906,
+            "bias": 11.048246550766734,
+            "mean_abs_error": 145.30718465678527,
+            "perfect_group_ceiling": 24.160575780727243
+          },
+          {
+            "group": "ground_available",
+            "n": 71805,
+            "sse_share": 0.06995145454381117,
+            "rmse": 126.08195839442824,
+            "bias": -4.231376645080426,
+            "mean_abs_error": 71.49014692570155,
+            "perfect_group_ceiling": 11.602604395359378
+          }
+        ],
+        "label_group": [
+          {
+            "group": "over12h",
+            "n": 4,
+            "sse_share": 0.6554443413164869,
+            "rmse": 51709.43923018311,
+            "bias": -36862.0,
+            "mean_abs_error": 42384.5,
+            "perfect_group_ceiling": 134.5700784666923
+          },
+          {
+            "group": "under1h",
+            "n": 153381,
+            "sse_share": 0.2892023256155696,
+            "rmse": 175.40704107441587,
+            "bias": 4.762154373749031,
+            "mean_abs_error": 110.09676557070303,
+            "perfect_group_ceiling": 51.12604193075845
+          },
+          {
+            "group": "1_3h",
+            "n": 315,
+            "sse_share": 0.04714690312537118,
+            "rmse": 1562.7993544349263,
+            "bias": -1143.1746031746031,
+            "mean_abs_error": 1173.111111111111,
+            "perfect_group_ceiling": 7.773588347902887
+          },
+          {
+            "group": "3_12h",
+            "n": 6,
+            "sse_share": 0.008206429942572337,
+            "rmse": 4724.25599080603,
+            "bias": -2298.3333333333335,
+            "mean_abs_error": 3056.0,
+            "perfect_group_ceiling": 1.3396906647823243
+          }
+        ],
+        "airport_id": [
+          {
+            "group": "LFPG:other_noid",
+            "n": 216,
+            "sse_share": 0.6334672284549637,
+            "rmse": 6917.785871296618,
+            "bias": -578.2129629629629,
+            "mean_abs_error": 1025.4537037037037,
+            "perfect_group_ceiling": 128.56481298091353
+          },
+          {
+            "group": "LFPG:has_id",
+            "n": 17684,
+            "sse_share": 0.06721911907162632,
+            "rmse": 249.05087373145525,
+            "bias": 38.6898891653472,
+            "mean_abs_error": 164.58832843248135,
+            "perfect_group_ceiling": 11.141372748160393
+          },
+          {
+            "group": "LTFM:has_id",
+            "n": 21139,
+            "sse_share": 0.05579302091023075,
+            "rmse": 207.52940148614098,
+            "bias": 1.1491082832678934,
+            "mean_abs_error": 142.84767491366668,
+            "perfect_group_ceiling": 9.21987120784388
+          },
+          {
+            "group": "LIRF:has_id",
+            "n": 11257,
+            "sse_share": 0.05202873782247176,
+            "rmse": 274.6263637942632,
+            "bias": -2.994758816736253,
+            "mean_abs_error": 169.7072044061473,
+            "perfect_group_ceiling": 8.589388796364858
+          },
+          {
+            "group": "EGLL:has_id",
+            "n": 19292,
+            "sse_share": 0.04736263980430555,
+            "rmse": 200.1526009157208,
+            "bias": -3.2820858386896123,
+            "mean_abs_error": 133.76964544889074,
+            "perfect_group_ceiling": 7.80959577638896
+          },
+          {
+            "group": "LEMD:has_id",
+            "n": 16478,
+            "sse_share": 0.027577571391085912,
+            "rmse": 165.2561664759297,
+            "bias": -4.880325282194441,
+            "mean_abs_error": 114.4377958490108,
+            "perfect_group_ceiling": 4.524162240091698
+          },
+          {
+            "group": "LIRF:noid_rome_4h_plus",
+            "n": 6,
+            "sse_share": 0.027087231514269793,
+            "rmse": 8582.989853968915,
+            "bias": -1110.5,
+            "mean_abs_error": 5549.833333333333,
+            "perfect_group_ceiling": 4.443164761252774
+          },
+          {
+            "group": "EDDF:has_id",
+            "n": 15332,
+            "sse_share": 0.019532651058209876,
+            "rmse": 144.18268375685767,
+            "bias": -26.592812418471173,
+            "mean_abs_error": 88.22012783720324,
+            "perfect_group_ceiling": 3.1978208905812835
+          },
+          {
+            "group": "EHAM:has_id",
+            "n": 18167,
+            "sse_share": 0.015407719912804157,
+            "rmse": 117.64121302003679,
+            "bias": -0.8335443386359883,
+            "mean_abs_error": 68.97589035063577,
+            "perfect_group_ceiling": 2.5198663365700327
+          },
+          {
+            "group": "EHAM:other_noid",
+            "n": 293,
+            "sse_share": 0.013859344049381139,
+            "rmse": 878.5559863551152,
+            "bias": -133.10580204778157,
+            "mean_abs_error": 364.51194539249144,
+            "perfect_group_ceiling": 2.2657491460709025
+          },
+          {
+            "group": "LEBL:has_id",
+            "n": 12168,
+            "sse_share": 0.008223476393448679,
+            "rmse": 105.01468620877095,
+            "bias": 0.7754766600920447,
+            "mean_abs_error": 67.83168967784353,
+            "perfect_group_ceiling": 1.3424792357509432
+          },
+          {
+            "group": "LIRF:noid_rome_1_4h",
+            "n": 48,
+            "sse_share": 0.007931238371818432,
+            "rmse": 1642.0326833937665,
+            "bias": -86.58333333333333,
+            "mean_abs_error": 1133.2916666666667,
+            "perfect_group_ceiling": 1.2946763266630228
+          },
+          {
+            "group": "LSZH:has_id",
+            "n": 9556,
+            "sse_share": 0.006489326253942199,
+            "rmse": 105.26733990447887,
+            "bias": 13.58183340309753,
+            "mean_abs_error": 57.172457095018835,
+            "perfect_group_ceiling": 1.058918188305654
+          },
+          {
+            "group": "LSZH:other_noid",
+            "n": 179,
+            "sse_share": 0.00539372375334021,
+            "rmse": 701.2126607033891,
+            "bias": 22.75977653631285,
+            "mean_abs_error": 261.0949720670391,
+            "perfect_group_ceiling": 0.8798973553070937
+          },
+          {
+            "group": "EDDM:has_id",
+            "n": 11201,
+            "sse_share": 0.005389311232570123,
+            "rmse": 88.60743162714382,
+            "bias": 10.95607535041514,
+            "mean_abs_error": 49.29122399785734,
+            "perfect_group_ceiling": 0.8791765513009864
+          },
+          {
+            "group": "LTFM:other_noid",
+            "n": 229,
+            "sse_share": 0.0037577929691228773,
+            "rmse": 517.464544278304,
+            "bias": 16.375545851528383,
+            "mean_abs_error": 223.00436681222706,
+            "perfect_group_ceiling": 0.6127706156687509
+          },
+          {
+            "group": "EGLL:other_noid",
+            "n": 128,
+            "sse_share": 0.001724034918393611,
+            "rmse": 468.81333738760037,
+            "bias": 13.5234375,
+            "mean_abs_error": 277.1171875,
+            "perfect_group_ceiling": 0.28098935799005176
+          },
+          {
+            "group": "EDDF:other_noid",
+            "n": 164,
+            "sse_share": 0.0008202085751742095,
+            "rmse": 285.6749389283339,
+            "bias": 10.292682926829269,
+            "mean_abs_error": 201.4268292682927,
+            "perfect_group_ceiling": 0.1336502865831335
+          },
+          {
+            "group": "LIRF:other_noid",
+            "n": 6,
+            "sse_share": 0.00047140660036320284,
+            "rmse": 1132.2807366844438,
+            "bias": -468.3333333333333,
+            "mean_abs_error": 689.0,
+            "perfect_group_ceiling": 0.07680745211939666
+          },
+          {
+            "group": "EDDM:other_noid",
+            "n": 65,
+            "sse_share": 0.0002520894325809666,
+            "rmse": 251.56635460496454,
+            "bias": 51.261538461538464,
+            "mean_abs_error": 139.7846153846154,
+            "perfect_group_ceiling": 0.04107130686134042
+          },
+          {
+            "group": "LEBL:other_noid",
+            "n": 66,
+            "sse_share": 0.00014483354999163915,
+            "rmse": 189.2319804479212,
+            "bias": 15.409090909090908,
+            "mean_abs_error": 118.77272727272727,
+            "perfect_group_ceiling": 0.023596164226432847
+          },
+          {
+            "group": "LEMD:other_noid",
+            "n": 32,
+            "sse_share": 6.729395990486029e-05,
+            "rmse": 185.24434876670327,
+            "bias": 28.21875,
+            "mean_abs_error": 133.34375,
+            "perfect_group_ceiling": 0.010963264702297693
+          }
+        ],
+        "airport_track": [
+          {
+            "group": "LFPG:unusable",
+            "n": 4310,
+            "sse_share": 0.655889772611951,
+            "rmse": 1575.8276224231022,
+            "bias": -3.5299303944315543,
+            "mean_abs_error": 232.3461716937355,
+            "perfect_group_ceiling": 134.69374379952035
+          },
+          {
+            "group": "LTFM:unusable",
+            "n": 21368,
+            "sse_share": 0.05955081387935363,
+            "rmse": 213.25235096228064,
+            "bias": 1.3122894047173344,
+            "mean_abs_error": 143.70671096967428,
+            "perfect_group_ceiling": 9.850521362929669
+          },
+          {
+            "group": "LFPG:airborne_only",
+            "n": 13588,
+            "sse_share": 0.044796374827416115,
+            "rmse": 231.93996129001704,
+            "bias": 42.27502207830439,
+            "mean_abs_error": 156.79916102443332,
+            "perfect_group_ceiling": 7.381538371429599
+          },
+          {
+            "group": "LIRF:airborne_only",
+            "n": 8821,
+            "sse_share": 0.04472629067723221,
+            "rmse": 287.64342045555,
+            "bias": -4.443260401315044,
+            "mean_abs_error": 172.09023920190455,
+            "perfect_group_ceiling": 7.369856286127174
+          },
+          {
+            "group": "LIRF:unusable",
+            "n": 2495,
+            "sse_share": 0.042792110307457255,
+            "rmse": 529.0277966413848,
+            "bias": -3.2889779559118235,
+            "mean_abs_error": 194.05130260521042,
+            "perfect_group_ceiling": 7.047623370838664
+          },
+          {
+            "group": "EGLL:airborne_only",
+            "n": 9332,
+            "sse_share": 0.02658592685763581,
+            "rmse": 215.61077083634515,
+            "bias": 12.334762108872695,
+            "mean_abs_error": 150.18388341191599,
+            "perfect_group_ceiling": 4.360377147899726
+          },
+          {
+            "group": "LEMD:airborne_only",
+            "n": 11565,
+            "sse_share": 0.018915108594355804,
+            "rmse": 163.36669211211893,
+            "bias": -7.905490704712495,
+            "mean_abs_error": 114.06407263294423,
+            "perfect_group_ceiling": 3.0962338290059392
+          },
+          {
+            "group": "EGLL:ground_available",
+            "n": 9015,
+            "sse_share": 0.01820748624990339,
+            "rmse": 181.54071613270864,
+            "bias": -20.762728785357737,
+            "mean_abs_error": 115.3883527454243,
+            "perfect_group_ceiling": 2.9798677332168495
+          },
+          {
+            "group": "EDDF:ground_available",
+            "n": 13204,
+            "sse_share": 0.014513548498161145,
+            "rmse": 133.92632782414088,
+            "bias": -27.968342926385944,
+            "mean_abs_error": 81.21372311420781,
+            "perfect_group_ceiling": 2.373091870833832
+          },
+          {
+            "group": "EHAM:ground_available",
+            "n": 17573,
+            "sse_share": 0.014114674098302011,
+            "rmse": 114.48389256610547,
+            "bias": 0.007852956239685882,
+            "mean_abs_error": 67.09326808171627,
+            "perfect_group_ceiling": 2.3076397980173056
+          },
+          {
+            "group": "EHAM:unusable",
+            "n": 349,
+            "sse_share": 0.013965894387040033,
+            "rmse": 808.0785480558683,
+            "bias": -115.07163323782235,
+            "mean_abs_error": 327.4040114613181,
+            "perfect_group_ceiling": 2.2832296375253236
+          },
+          {
+            "group": "LSZH:ground_available",
+            "n": 9071,
+            "sse_share": 0.010025206865782796,
+            "rmse": 134.2922661358768,
+            "bias": 14.150148825928785,
+            "mean_abs_error": 56.39951493771359,
+            "perfect_group_ceiling": 1.6373534503841256
+          },
+          {
+            "group": "LEMD:unusable",
+            "n": 4943,
+            "sse_share": 0.008728990725919221,
+            "rmse": 169.75345619202028,
+            "bias": 2.4361723649605502,
+            "mean_abs_error": 115.45458223750758,
+            "perfect_group_ceiling": 1.4251855031192235
+          },
+          {
+            "group": "LEBL:ground_available",
+            "n": 11978,
+            "sse_share": 0.007991732675395557,
+            "rmse": 104.34225883822118,
+            "bias": 0.6085323092335949,
+            "mean_abs_error": 67.29929871430957,
+            "perfect_group_ceiling": 1.304571119892728
+          },
+          {
+            "group": "EDDM:ground_available",
+            "n": 10959,
+            "sse_share": 0.005097626714093847,
+            "rmse": 87.12252747321187,
+            "bias": 10.662012957386622,
+            "mean_abs_error": 47.79350305684825,
+            "perfect_group_ceiling": 0.8315321922293037
+          },
+          {
+            "group": "EDDF:airborne_only",
+            "n": 2042,
+            "sse_share": 0.004841283114612352,
+            "rmse": 196.6909083262809,
+            "bias": -16.943192948090108,
+            "mean_abs_error": 131.75122428991185,
+            "perfect_group_ceiling": 0.7896662585438889
+          },
+          {
+            "group": "EGLL:unusable",
+            "n": 1073,
+            "sse_share": 0.004293261615159965,
+            "rmse": 255.52048921772445,
+            "bias": 9.767940354147251,
+            "mean_abs_error": 162.54706430568498,
+            "perfect_group_ceiling": 0.7001816893588853
+          },
+          {
+            "group": "EHAM:airborne_only",
+            "n": 538,
+            "sse_share": 0.001186495476843252,
+            "rmse": 189.702834526818,
+            "bias": -26.24721189591078,
+            "mean_abs_error": 123.77881040892193,
+            "perfect_group_ceiling": 0.19335324933285847
+          },
+          {
+            "group": "LSZH:airborne_only",
+            "n": 499,
+            "sse_share": 0.0011681649133574862,
+            "rmse": 195.4491205337974,
+            "bias": -2.93186372745491,
+            "mean_abs_error": 104.83166332665331,
+            "perfect_group_ceiling": 0.19036519748783576
+          },
+          {
+            "group": "EDDF:unusable",
+            "n": 250,
+            "sse_share": 0.0009980280206105872,
+            "rmse": 255.23091505536706,
+            "bias": -8.564,
+            "mean_abs_error": 176.972,
+            "perfect_group_ceiling": 0.1626326142848029
+          },
+          {
+            "group": "LSZH:unusable",
+            "n": 165,
+            "sse_share": 0.0006896782281421273,
+            "rmse": 261.1639331913961,
+            "bias": 42.236363636363635,
+            "mean_abs_error": 176.75757575757575,
+            "perfect_group_ceiling": 0.11237712704405567
+          },
+          {
+            "group": "EDDM:airborne_only",
+            "n": 245,
+            "sse_share": 0.000361875851677929,
+            "rmse": 155.24895083282811,
+            "bias": 25.64081632653061,
+            "mean_abs_error": 113.6,
+            "perfect_group_ceiling": 0.058959719288509405
+          },
+          {
+            "group": "LEBL:airborne_only",
+            "n": 192,
+            "sse_share": 0.00022329875031287222,
+            "rmse": 137.76041627284184,
+            "bias": 11.880208333333334,
+            "mean_abs_error": 96.55729166666667,
+            "perfect_group_ceiling": 0.03638036461649108
+          },
+          {
+            "group": "EDDM:unusable",
+            "n": 62,
+            "sse_share": 0.00018189809937931332,
+            "rmse": 218.80142713458025,
+            "bias": 47.16129032258065,
+            "mean_abs_error": 154.7741935483871,
+            "perfect_group_ceiling": 0.029634965116201784
+          },
+          {
+            "group": "LEBL:unusable",
+            "n": 64,
+            "sse_share": 0.00015327851773188874,
+            "rmse": 197.68903137250686,
+            "bias": 13.796875,
+            "mean_abs_error": 133.828125,
+            "perfect_group_ceiling": 0.024972064233509172
+          },
+          {
+            "group": "LEMD:ground_available",
+            "n": 2,
+            "sse_share": 7.660307157493237e-07,
+            "rmse": 79.05694150420949,
+            "bias": -65.0,
+            "mean_abs_error": 65.0,
+            "perfect_group_ceiling": 0.00012479660642839008
+          },
+          {
+            "group": "LIRF:ground_available",
+            "n": 1,
+            "sse_share": 2.1332423372187166e-07,
+            "rmse": 59.0,
+            "bias": 59.0,
+            "mean_abs_error": 59.0,
+            "perfect_group_ceiling": 3.475335415714653e-05
+          },
+          {
+            "group": "LFPG:ground_available",
+            "n": 2,
+            "sse_share": 2.0008722295372333e-07,
+            "rmse": 40.40420770167385,
+            "bias": 39.5,
+            "mean_abs_error": 39.5,
+            "perfect_group_ceiling": 3.2596869004919427e-05
+          }
+        ]
+      },
+      "top_k": {
+        "1": {
+          "sse_share": 0.4280752507613958,
+          "perfect_rows_ceiling": 79.4179256609514
+        },
+        "10": {
+          "sse_share": 0.6734078756474615,
+          "perfect_rows_ceiling": 139.62242482381433
+        },
+        "100": {
+          "sse_share": 0.709509536375518,
+          "perfect_rows_ceiling": 150.21528126672797
+        },
+        "1000": {
+          "sse_share": 0.7796015172930947,
+          "perfect_rows_ceiling": 172.8620218123611
+        }
+      }
+    },
+    "2025-07": {
+      "n": 190713,
+      "rmse": 257.2728446739547,
+      "groups": {
+        "airport": [
+          {
+            "group": "LIRF",
+            "n": 15211,
+            "sse_share": 0.4463831610507702,
+            "rmse": 608.6380730701401,
+            "bias": -22.4991124843863,
+            "mean_abs_error": 260.1485766879232,
+            "perfect_group_ceiling": 65.84787182043277
+          },
+          {
+            "group": "LTFM",
+            "n": 25171,
+            "sse_share": 0.1446283561450713,
+            "rmse": 269.3150277357654,
+            "bias": -0.860911366254817,
+            "mean_abs_error": 180.8635334313297,
+            "perfect_group_ceiling": 19.330699286790434
+          },
+          {
+            "group": "EGLL",
+            "n": 20790,
+            "sse_share": 0.1193665242639598,
+            "rmse": 269.21430129032893,
+            "bias": -2.411111111111111,
+            "mean_abs_error": 155.98311688311688,
+            "perfect_group_ceiling": 15.842672698932603
+          },
+          {
+            "group": "LFPG",
+            "n": 21712,
+            "sse_share": 0.09903669994065159,
+            "rmse": 239.95635848913494,
+            "bias": -1.3609985261606485,
+            "mean_abs_error": 152.83889093588797,
+            "perfect_group_ceiling": 13.07181044481527
+          },
+          {
+            "group": "LEBL",
+            "n": 16752,
+            "sse_share": 0.0646323422331421,
+            "rmse": 220.68647240417062,
+            "bias": -2.2249283667621778,
+            "mean_abs_error": 114.23197230181471,
+            "perfect_group_ceiling": 8.452937826589732
+          },
+          {
+            "group": "LEMD",
+            "n": 18818,
+            "sse_share": 0.03998809200844854,
+            "rmse": 163.78069387784413,
+            "bias": 2.6633542353066213,
+            "mean_abs_error": 110.43240514401106,
+            "perfect_group_ceiling": 5.196403640313861
+          },
+          {
+            "group": "EDDM",
+            "n": 15825,
+            "sse_share": 0.02680916259263511,
+            "rmse": 146.23585290941938,
+            "bias": -2.4801895734597155,
+            "mean_abs_error": 85.26085308056872,
+            "perfect_group_ceiling": 3.472063635309553
+          },
+          {
+            "group": "EDDF",
+            "n": 21334,
+            "sse_share": 0.02419370039516002,
+            "rmse": 119.64625271950253,
+            "bias": -0.21641511202774913,
+            "mean_abs_error": 63.80767788506609,
+            "perfect_group_ceiling": 3.1312461284044275
+          },
+          {
+            "group": "EHAM",
+            "n": 22489,
+            "sse_share": 0.019887421896994897,
+            "rmse": 105.65456560773286,
+            "bias": 0.5326604117568589,
+            "mean_abs_error": 45.277913646671706,
+            "perfect_group_ceiling": 2.5710941063564974
+          },
+          {
+            "group": "LSZH",
+            "n": 12611,
+            "sse_share": 0.015074539473166396,
+            "rmse": 122.83761094015955,
+            "bias": 7.837522797557687,
+            "mean_abs_error": 47.68194433431132,
+            "perfect_group_ceiling": 1.9464983233669955
+          }
+        ],
+        "id_group": [
+          {
+            "group": "has_id",
+            "n": 186779,
+            "sse_share": 0.6848173992124794,
+            "rmse": 215.1332150204965,
+            "bias": -0.8809020286006457,
+            "mean_abs_error": 117.73091193335439,
+            "perfect_group_ceiling": 112.83697325543935
+          },
+          {
+            "group": "noid_rome_4h_plus",
+            "n": 39,
+            "sse_share": 0.12171306583014074,
+            "rmse": 6276.541359371213,
+            "bias": -1572.7179487179487,
+            "mean_abs_error": 4255.076923076923,
+            "perfect_group_ceiling": 16.164545444678538
+          },
+          {
+            "group": "noid_rome_1_4h",
+            "n": 282,
+            "sse_share": 0.11347941457619147,
+            "rmse": 2253.814074625217,
+            "bias": 89.33687943262412,
+            "mean_abs_error": 1500.1524822695035,
+            "perfect_group_ceiling": 15.037026292546898
+          },
+          {
+            "group": "other_noid",
+            "n": 3613,
+            "sse_share": 0.07999012038118841,
+            "rmse": 528.6500673575409,
+            "bias": -45.143924716302244,
+            "mean_abs_error": 225.3360088569056,
+            "perfect_group_ceiling": 10.504075978813745
+          }
+        ],
+        "track_group": [
+          {
+            "group": "ground_available",
+            "n": 110991,
+            "sse_share": 0.5525187673447939,
+            "rmse": 250.67656354436238,
+            "bias": -4.072122964925084,
+            "mean_abs_error": 96.52124046093827,
+            "perfect_group_ceiling": 85.17265006703403
+          },
+          {
+            "group": "unusable",
+            "n": 34024,
+            "sse_share": 0.2710335476613405,
+            "rmse": 317.1048887406223,
+            "bias": -0.9751939807194921,
+            "mean_abs_error": 181.41035739478016,
+            "perfect_group_ceiling": 37.614493342951306
+          },
+          {
+            "group": "airborne_only",
+            "n": 45698,
+            "sse_share": 0.1764476849938656,
+            "rmse": 220.7717413518065,
+            "bias": 2.655849271302902,
+            "mean_abs_error": 142.40222766860694,
+            "perfect_group_ceiling": 23.798295911004658
+          }
+        ],
+        "label_group": [
+          {
+            "group": "under1h",
+            "n": 190057,
+            "sse_share": 0.6538064709910429,
+            "rmse": 208.38515144133763,
+            "bias": 4.195109888086206,
+            "mean_abs_error": 116.71562741703805,
+            "perfect_group_ceiling": 105.89810074769733
+          },
+          {
+            "group": "1_3h",
+            "n": 606,
+            "sse_share": 0.24294356394461422,
+            "rmse": 2249.575039076413,
+            "bias": -1671.3613861386139,
+            "mean_abs_error": 1706.2689768976898,
+            "perfect_group_ceiling": 33.42234068712878
+          },
+          {
+            "group": "3_12h",
+            "n": 40,
+            "sse_share": 0.06144269598046923,
+            "rmse": 4403.411106744406,
+            "bias": -3146.775,
+            "mean_abs_error": 3216.025,
+            "perfect_group_ceiling": 8.029055284504324
+          },
+          {
+            "group": "over12h",
+            "n": 10,
+            "sse_share": 0.04180726908387358,
+            "rmse": 7264.571411996719,
+            "bias": -2237.6,
+            "mean_abs_error": 4753.0,
+            "perfect_group_ceiling": 5.4353533491367045
+          }
+        ],
+        "airport_id": [
+          {
+            "group": "LIRF:has_id",
+            "n": 14874,
+            "sse_share": 0.2040029216011547,
+            "rmse": 416.0910769550761,
+            "bias": -18.73793196181256,
+            "mean_abs_error": 224.42086862982384,
+            "perfect_group_ceiling": 27.73743860314238
+          },
+          {
+            "group": "LTFM:has_id",
+            "n": 24747,
+            "sse_share": 0.13508230840072663,
+            "rmse": 262.49561634402636,
+            "bias": 0.08477795288317776,
+            "mean_abs_error": 179.38408696003555,
+            "perfect_group_ceiling": 18.00665206008199
+          },
+          {
+            "group": "LIRF:noid_rome_4h_plus",
+            "n": 39,
+            "sse_share": 0.12171306583014074,
+            "rmse": 6276.541359371213,
+            "bias": -1572.7179487179487,
+            "mean_abs_error": 4255.076923076923,
+            "perfect_group_ceiling": 16.164545444678538
+          },
+          {
+            "group": "LIRF:noid_rome_1_4h",
+            "n": 282,
+            "sse_share": 0.11347941457619147,
+            "rmse": 2253.814074625217,
+            "bias": 89.33687943262412,
+            "mean_abs_error": 1500.1524822695035,
+            "perfect_group_ceiling": 15.037026292546898
+          },
+          {
+            "group": "LFPG:has_id",
+            "n": 21049,
+            "sse_share": 0.08885612478725458,
+            "rmse": 230.84052204886368,
+            "bias": 0.9050786260629958,
+            "mean_abs_error": 150.26172264715663,
+            "perfect_group_ceiling": 11.69599228218894
+          },
+          {
+            "group": "EGLL:has_id",
+            "n": 20452,
+            "sse_share": 0.08637561941330905,
+            "rmse": 230.89354561233867,
+            "bias": 0.267797770389204,
+            "mean_abs_error": 150.94978486211616,
+            "perfect_group_ceiling": 11.361939291156318
+          },
+          {
+            "group": "LEBL:has_id",
+            "n": 16324,
+            "sse_share": 0.06282438540405719,
+            "rmse": 220.41184441081944,
+            "bias": -2.386179857877971,
+            "mean_abs_error": 113.83851997059544,
+            "perfect_group_ceiling": 8.2125839527734
+          },
+          {
+            "group": "LEMD:has_id",
+            "n": 18541,
+            "sse_share": 0.03908444330524345,
+            "rmse": 163.12460977757306,
+            "bias": 3.230785826007227,
+            "mean_abs_error": 109.93409201229707,
+            "perfect_group_ceiling": 5.077793147751635
+          },
+          {
+            "group": "EGLL:other_noid",
+            "n": 338,
+            "sse_share": 0.03299090485065075,
+            "rmse": 1109.9996988111964,
+            "bias": -164.50887573964496,
+            "mean_abs_error": 460.5443786982249,
+            "perfect_group_ceiling": 4.279423494015873
+          },
+          {
+            "group": "EDDM:has_id",
+            "n": 15653,
+            "sse_share": 0.023098980961613235,
+            "rmse": 136.48399158550893,
+            "bias": -1.7610042803296493,
+            "mean_abs_error": 84.30185906854916,
+            "perfect_group_ceiling": 2.9887302616106126
+          },
+          {
+            "group": "EDDF:has_id",
+            "n": 20899,
+            "sse_share": 0.02047423876048777,
+            "rmse": 111.20523347550787,
+            "bias": 0.7680750275132782,
+            "mean_abs_error": 61.02655629455955,
+            "perfect_group_ceiling": 2.647353540346529
+          },
+          {
+            "group": "EHAM:has_id",
+            "n": 21974,
+            "sse_share": 0.017686219655034297,
+            "rmse": 100.79686959242481,
+            "bias": -0.557659051606444,
+            "mean_abs_error": 42.77555292618549,
+            "perfect_group_ceiling": 2.285241417821169
+          },
+          {
+            "group": "LFPG:other_noid",
+            "n": 663,
+            "sse_share": 0.010180575153397023,
+            "rmse": 440.26431968938107,
+            "bias": -73.30467571644043,
+            "mean_abs_error": 234.65912518853696,
+            "perfect_group_ceiling": 1.3129429421345264
+          },
+          {
+            "group": "LTFM:other_noid",
+            "n": 424,
+            "sse_share": 0.009546047744344695,
+            "rmse": 533.1052632436798,
+            "bias": -56.056603773584904,
+            "mean_abs_error": 267.2122641509434,
+            "perfect_group_ceiling": 1.2309140646570427
+          },
+          {
+            "group": "LSZH:other_noid",
+            "n": 345,
+            "sse_share": 0.007742382549567902,
+            "rmse": 532.2453340821072,
+            "bias": 24.56231884057971,
+            "mean_abs_error": 204.3536231884058,
+            "perfect_group_ceiling": 0.9978876516856872
+          },
+          {
+            "group": "LSZH:has_id",
+            "n": 12266,
+            "sse_share": 0.007332156923598495,
+            "rmse": 86.86573383667756,
+            "bias": 7.367112343062123,
+            "mean_abs_error": 43.275313875754115,
+            "perfect_group_ceiling": 0.9449176925130587
+          },
+          {
+            "group": "LIRF:other_noid",
+            "n": 16,
+            "sse_share": 0.007187759043283308,
+            "rmse": 2381.3370062844947,
+            "bias": -1711.4375,
+            "mean_abs_error": 1880.8125,
+            "perfect_group_ceiling": 0.9262750701841469
+          },
+          {
+            "group": "EDDF:other_noid",
+            "n": 435,
+            "sse_share": 0.0037194616346722525,
+            "rmse": 328.5333867461518,
+            "bias": -47.51494252873563,
+            "mean_abs_error": 197.42298850574713,
+            "perfect_group_ceiling": 0.4789039687946115
+          },
+          {
+            "group": "EDDM:other_noid",
+            "n": 172,
+            "sse_share": 0.003710181631021871,
+            "rmse": 521.8160818294257,
+            "bias": -67.93023255813954,
+            "mean_abs_error": 172.53488372093022,
+            "perfect_group_ceiling": 0.47770799885137194
+          },
+          {
+            "group": "EHAM:other_noid",
+            "n": 515,
+            "sse_share": 0.0022012022419605998,
+            "rmse": 232.27927198563103,
+            "bias": 47.054368932038834,
+            "mean_abs_error": 152.04854368932038,
+            "perfect_group_ceiling": 0.28331077321303155
+          },
+          {
+            "group": "LEBL:other_noid",
+            "n": 428,
+            "sse_share": 0.0018079568290849098,
+            "rmse": 230.91717777301497,
+            "bias": 3.925233644859813,
+            "mean_abs_error": 129.23831775700936,
+            "perfect_group_ceiling": 0.23267431208813605
+          },
+          {
+            "group": "LEMD:other_noid",
+            "n": 277,
+            "sse_share": 0.0009036487032050905,
+            "rmse": 202.9289591331746,
+            "bias": -35.31768953068592,
+            "mean_abs_error": 143.78700361010831,
+            "perfect_group_ceiling": 0.11626840861549681
+          }
+        ],
+        "airport_track": [
+          {
+            "group": "LIRF:ground_available",
+            "n": 14803,
+            "sse_share": 0.3744291865144079,
+            "rmse": 565.0593623892196,
+            "bias": -22.768830642437344,
+            "mean_abs_error": 251.74390326285211,
+            "perfect_group_ceiling": 53.7879444143428
+          },
+          {
+            "group": "LTFM:unusable",
+            "n": 25158,
+            "sse_share": 0.14436172875832162,
+            "rmse": 269.13617642592277,
+            "bias": -0.7605930519119167,
+            "mean_abs_error": 180.83245886000478,
+            "perfect_group_ceiling": 19.293617773865805
+          },
+          {
+            "group": "LEBL:ground_available",
+            "n": 16232,
+            "sse_share": 0.06234063304078325,
+            "rmse": 220.18294918404766,
+            "bias": -3.1195786101527845,
+            "mean_abs_error": 112.67970675209463,
+            "perfect_group_ceiling": 8.14831214286346
+          },
+          {
+            "group": "LIRF:unusable",
+            "n": 86,
+            "sse_share": 0.06184178961056219,
+            "rmse": 3012.8388046476525,
+            "bias": -490.2906976744186,
+            "mean_abs_error": 1436.0581395348838,
+            "perfect_group_ceiling": 8.082052679999236
+          },
+          {
+            "group": "LFPG:airborne_only",
+            "n": 13791,
+            "sse_share": 0.06007208246538943,
+            "rmse": 234.4890472117461,
+            "bias": 0.29272714088898555,
+            "mean_abs_error": 152.32869262562542,
+            "perfect_group_ceiling": 7.847131241863593
+          },
+          {
+            "group": "EGLL:airborne_only",
+            "n": 11468,
+            "sse_share": 0.05516553904810986,
+            "rmse": 246.41899865574524,
+            "bias": 0.8103418207185211,
+            "mean_abs_error": 161.62722357865366,
+            "perfect_group_ceiling": 7.196961636829087
+          },
+          {
+            "group": "EGLL:ground_available",
+            "n": 7038,
+            "sse_share": 0.04539118410623523,
+            "rmse": 285.32854536620704,
+            "bias": -8.301221938050583,
+            "mean_abs_error": 140.17504973003693,
+            "perfect_group_ceiling": 5.9067667106156705
+          },
+          {
+            "group": "LEMD:airborne_only",
+            "n": 9938,
+            "sse_share": 0.026533725528090375,
+            "rmse": 183.58353046633184,
+            "bias": 5.767558864962769,
+            "mean_abs_error": 128.24632722881867,
+            "perfect_group_ceiling": 3.4361502286940038
+          },
+          {
+            "group": "LFPG:unusable",
+            "n": 3509,
+            "sse_share": 0.023461113412095395,
+            "rmse": 290.51377038567216,
+            "bias": 2.950128241664292,
+            "mean_abs_error": 181.506982046167,
+            "perfect_group_ceiling": 3.0358655716777605
+          },
+          {
+            "group": "EDDM:airborne_only",
+            "n": 8889,
+            "sse_share": 0.01903220796353143,
+            "rmse": 164.40015840122834,
+            "bias": -1.3018337270784115,
+            "mean_abs_error": 112.98616267296659,
+            "perfect_group_ceiling": 2.459996159584392
+          },
+          {
+            "group": "EGLL:unusable",
+            "n": 2284,
+            "sse_share": 0.018809801109614718,
+            "rmse": 322.4245849182717,
+            "bias": -0.436077057793345,
+            "mean_abs_error": 176.3555166374781,
+            "perfect_group_ceiling": 2.431111973682846
+          },
+          {
+            "group": "EDDF:ground_available",
+            "n": 20469,
+            "sse_share": 0.016349846290008394,
+            "rmse": 100.4136194104911,
+            "bias": 1.245835165372026,
+            "mean_abs_error": 58.988861204748645,
+            "perfect_group_ceiling": 2.111853427115136
+          },
+          {
+            "group": "LFPG:ground_available",
+            "n": 4412,
+            "sse_share": 0.01550350406316677,
+            "rmse": 210.611111097825,
+            "bias": -9.95897552130553,
+            "mean_abs_error": 131.633046237534,
+            "perfect_group_ceiling": 2.002105521031581
+          },
+          {
+            "group": "EHAM:ground_available",
+            "n": 21900,
+            "sse_share": 0.014933730313008334,
+            "rmse": 92.77825333685391,
+            "bias": -0.24127853881278538,
+            "mean_abs_error": 42.23415525114155,
+            "perfect_group_ceiling": 1.928247701895998
+          },
+          {
+            "group": "LEMD:ground_available",
+            "n": 8180,
+            "sse_share": 0.01132186350105618,
+            "rmse": 132.1801994796283,
+            "bias": -1.823960880195599,
+            "mean_abs_error": 87.05672371638141,
+            "perfect_group_ceiling": 1.4605498193477615
+          },
+          {
+            "group": "LIRF:airborne_only",
+            "n": 322,
+            "sse_share": 0.010112184925800172,
+            "rmse": 629.620214817498,
+            "bias": 114.83850931677019,
+            "mean_abs_error": 332.46583850931677,
+            "perfect_group_ceiling": 1.3041004941422898
+          },
+          {
+            "group": "LSZH:unusable",
+            "n": 278,
+            "sse_share": 0.007461925823999439,
+            "rmse": 582.0860124580221,
+            "bias": -4.910071942446043,
+            "mean_abs_error": 215.77338129496403,
+            "perfect_group_ceiling": 0.9616727836741461
+          },
+          {
+            "group": "LSZH:ground_available",
+            "n": 11860,
+            "sse_share": 0.006595322669115932,
+            "rmse": 83.78374656739905,
+            "bias": 6.504384485666105,
+            "mean_abs_error": 42.1787521079258,
+            "perfect_group_ceiling": 0.8498022102170353
+          },
+          {
+            "group": "EDDM:ground_available",
+            "n": 6097,
+            "sse_share": 0.005653496847011913,
+            "rmse": 108.18936632768836,
+            "bias": -7.275873380350992,
+            "mean_abs_error": 40.24192225684763,
+            "perfect_group_ceiling": 0.7282763941188364
+          },
+          {
+            "group": "EDDF:unusable",
+            "n": 517,
+            "sse_share": 0.005539959456713471,
+            "rmse": 367.78339643390166,
+            "bias": -54.38297872340426,
+            "mean_abs_error": 197.7872340425532,
+            "perfect_group_ceiling": 0.7136303078351034
+          },
+          {
+            "group": "EHAM:unusable",
+            "n": 583,
+            "sse_share": 0.004941349114963803,
+            "rmse": 327.0940087590076,
+            "bias": 29.77358490566038,
+            "mean_abs_error": 158.89536878216123,
+            "perfect_group_ceiling": 0.6364246443832826
+          },
+          {
+            "group": "EDDF:airborne_only",
+            "n": 348,
+            "sse_share": 0.002303894648438156,
+            "rmse": 289.0851503241407,
+            "bias": -5.752873563218391,
+            "mean_abs_error": 148.20114942528735,
+            "perfect_group_ceiling": 0.29653566023449685
+          },
+          {
+            "group": "LEMD:unusable",
+            "n": 700,
+            "sse_share": 0.0021325029793019855,
+            "rmse": 196.10104173978416,
+            "bias": 11.03,
+            "mean_abs_error": 130.68714285714285,
+            "perfect_group_ceiling": 0.27446395577345584
+          },
+          {
+            "group": "EDDM:unusable",
+            "n": 839,
+            "sse_share": 0.0021234577820917646,
+            "rmse": 178.74130833115566,
+            "bias": 19.885578069129917,
+            "mean_abs_error": 118.66984505363529,
+            "perfect_group_ceiling": 0.2732991739886188
+          },
+          {
+            "group": "LEBL:airborne_only",
+            "n": 450,
+            "sse_share": 0.0019317895786826994,
+            "rmse": 232.7864782250989,
+            "bias": 15.295555555555556,
+            "mean_abs_error": 157.33555555555554,
+            "perfect_group_ceiling": 0.24861862787167865
+          },
+          {
+            "group": "LSZH:airborne_only",
+            "n": 473,
+            "sse_share": 0.0010172909800510257,
+            "rmse": 164.76923448948068,
+            "bias": 48.756871035940804,
+            "mean_abs_error": 86.8752642706131,
+            "perfect_group_ceiling": 0.13089396993376567
+          },
+          {
+            "group": "LEBL:unusable",
+            "n": 70,
+            "sse_share": 0.00035991961367615177,
+            "rmse": 254.7638682612363,
+            "bias": 92.6,
+            "mean_abs_error": 197.0857142857143,
+            "perfect_group_ceiling": 0.046302938141081995
+          },
+          {
+            "group": "LTFM:airborne_only",
+            "n": 13,
+            "sse_share": 0.00026662738674969344,
+            "rmse": 508.8207331286123,
+            "bias": -195.0,
+            "mean_abs_error": 241.0,
+            "perfect_group_ceiling": 0.03430027962946269
+          },
+          {
+            "group": "EHAM:airborne_only",
+            "n": 6,
+            "sse_share": 1.2342469022759136e-05,
+            "rmse": 161.14227667913016,
+            "bias": -15.833333333333334,
+            "mean_abs_error": 115.16666666666667,
+            "perfect_group_ceiling": 0.001587695956970947
+          }
+        ]
+      },
+      "top_k": {
+        "1": {
+          "sse_share": 0.02316726780783208,
+          "perfect_rows_ceiling": 2.997617837391516
+        },
+        "10": {
+          "sse_share": 0.11087347693279886,
+          "perfect_rows_ceiling": 14.681260032924683
+        },
+        "100": {
+          "sse_share": 0.28535368786897475,
+          "perfect_rows_ceiling": 39.78272762170769
+        },
+        "1000": {
+          "sse_share": 0.5389721361137335,
+          "perfect_rows_ceiling": 82.58707179234347
+        }
+      }
+    }
+  },
+  "audits": {
+    "truth_calendar_airport_ids_exact": true,
+    "sql_scores_exact": true,
+    "groups_exhaustive": true
+  },
+  "interpretation": "Held-label diagnostic only; ceilings are not achievable gains or a 2026 forecast."
+}

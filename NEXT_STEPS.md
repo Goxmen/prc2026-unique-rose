@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target: 215.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
-leaving **6.6881 seconds**. Live check: **11 October 18:13 Amsterdam**,
+leaving **6.6881 seconds**. Live check: **11 October 18:38 Amsterdam**,
 rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
 are used. Autonomous submissions and both machines remain authorized.
 
@@ -42,10 +42,22 @@ v78, new version reservation or blend upload exists yet. Preserve the source
 diagnosis's integer vectors, because recomputing half-integer ties can differ
 with floating reduction order. Run the separate audit before any later upload.
 
-Desktop research: time-weighted pooling is training under1002895. The original
-inputs, epochs and optimizer are fixed, and one heavy job runs per host. Its
-first real training benchmark uses4.626GiB allocated GPU memory. The laptop is
-idle after the selected production fits and separate full-size synthetic check.
+Time-weighted pooling is complete and closed: matched CV+0.1153 and
+one-of-three replacement+0.0286 are inconclusive, with both months worse.
+All original/new model reloads and independent model/SQL checks pass.
+No production or upload follows.
+
+The continuous Rome mixture-coefficient screen is complete and closed. Six
+same-laptop fits retain the original inputs and population; all six models
+reload exactly on the desktop. The continuous target worsens v77 CV by0.1588
+and the matched Logloss control by0.1711, with both months worse. Full-stack
+replays and independent SQL audits pass. Both hosts are idle after completion.
+
+Removing coefficient limits while accounting for official-score uncertainty
+adds only0.0061 seconds of projected gain over the bounded recipe on the same
+48 scored vectors. Its serialized upper bound is221.8268, above current best.
+No candidate or upload is selected. V75–v77 remain explicitly excluded until
+scored; existing next-window evaluation/upload watchers are unchanged.
 
 The Gaussian observation-variance screen is complete and closed: matched CV
 worsens4.6579 seconds and one-of-three replacement worsens0.6469 seconds,
@@ -59,17 +71,6 @@ CV−0.1786 and one-of-three replacement−0.0739 are inconclusive; January wors
 reloads and the independent model/SQL audits pass. Retain both models, without
 production expansion or a submission row. Its corrected pre-fit CUDA check
 and untouched training implementation are recorded in the research report.
-
-A fixed time-weighted track-pooling screen is now prepared. It supplements the
-existing observation mean/max with a centered pool weighted by adjacent retained
-time intervals, each capped at 60 seconds. A zero-initialized 2,048-weight
-projection preserves initial outputs, weights and RNG. It adds no inputs,
-labels, dropout, epochs or optimizer changes. Independent raw integer timestamp
-checks pass on 2,107 cached flights; 1,648 of 1,698 usable samples have nonuniform
-weights. This shows an active input transformation, not predictive value. CPU
-and laptop RTX5060 synthetic checks pass; the returned report and all 66 code
-dependencies have verified hashes. Desktop checks now pass and matched Jan/Jul fits are running; no CV result,
-candidate or upload yet.
 
 Closed directions: inverse public-reference inputs give only −0.0025 versus
 v76 and −0.0004 in the refined recipe, both inconclusive; both months/models

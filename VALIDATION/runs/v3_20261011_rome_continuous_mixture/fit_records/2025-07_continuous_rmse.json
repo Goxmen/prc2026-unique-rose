@@ -1,0 +1,30 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_rome_continuous_mixture/identity.json",
+    "sha256": "548008ee51ecc447f100848d9a7d840c9af65455854aae94227fcc2c601c4fdc"
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_rome_continuous_mixture/models/2025-07_continuous_rmse.cbm",
+    "sha256": "c8d3dea84c029209d506fb5a0f020f027d85c29fe9e460a142b6bd89bb0ef686"
+  },
+  "arm": "continuous_rmse",
+  "month": "2025-07",
+  "params": {
+    "loss_function": "RMSE",
+    "eval_metric": "RMSE",
+    "depth": 6,
+    "learning_rate": 0.05,
+    "l2_leaf_reg": 10.0,
+    "random_seed": 42,
+    "task_type": "GPU",
+    "devices": "0",
+    "thread_count": 2,
+    "gpu_ram_part": 0.65,
+    "allow_writing_files": false,
+    "verbose": 500
+  },
+  "rounds": 1401,
+  "host": "GLAPTOP",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "minutes": 0.574680388500019
+}

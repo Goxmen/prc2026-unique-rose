@@ -1,5 +1,93 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Current scored directions leave no material blend-limit gain, 18:46 Amsterdam
+
+The fixed convex follow-up minimizes the worst-case affine MSE allowed by
+four-decimal official score rounding, with coefficients summing to one. It
+replaces the arbitrary coefficient box and ridge with the actual uncertainty
+cost of each absolute coefficient. It uses only the 48 already scored vectors;
+v75–v77 are explicitly excluded until scored. No new prediction direction,
+hidden label, model fit or candidate is created.
+
+On this same basis, the original bounded recipe projects 221.543213 and the
+robust unbounded recipe projects 221.537157: only **0.006056 seconds** apart.
+After measured output rounding, the latter's conservative score interval is
+[221.247527, 221.826786], which does not establish an improvement over v74.
+Jan/Jul CV is 293.540630; the historical reconstruction caveat remains.
+There is no selected candidate, version reservation or upload. The current
+coefficient limits do not explain the 6.6881-second target gap.
+
+The synthetic known-label case requires a coefficient beyond the old box and
+checks the score/serialization bounds. Independent SQL reconstructs all
+344,841 ranking rows and 344,419 CV rows, official scores, raw truth and both
+affine score identities. Maximum raw reconstruction difference is 1.75e-10
+seconds. Retain `robust_scored_geometry.py`, its separate auditor and run
+`v3_20261011_robust_scored_geometry/`. The existing next-window evaluations and
+upload watchers remain unchanged. Live 18:38 Amsterdam still reports v74 at
+**221.6881**, rank 12/242 on 344,841 flights; the 215 goal remains active.
+
+## Continuous Rome targets closed after regression, 18:42 Amsterdam
+
+All six laptop fits are complete and every prediction reloads exactly on the
+desktop. Through the exact v77 stack, the continuous coefficient screen scores
+291.708557 versus the same-laptop Logloss control's 291.537477: **+0.171080**,
+interval [+0.026738,+0.305197]. It also loses 0.158847 against unchanged v77;
+both months worsen. Binary RMSE alone loses 0.106427 against Logloss, and the
+continuous target adds a further inconclusive 0.064653. No seed expansion,
+production fit, model tuning, candidate or upload follows.
+
+Independent SQL verifies all 344,419 labels, dates, gates, unchanged v77
+stages and scores. The source packets, all six models, target/input audit,
+cross-machine reload receipts and final score audit are retained. Both hosts
+are idle after these completed experiments.
+
+## Continuous Rome mixture screen on the laptop, 18:36 Amsterdam
+
+`rome_continuous_mixture.py` tests a different training target for the existing
+Rome mixture. On original training no-ID rows with schedule gaps strictly
+between one and four hours, the target is `(y-other)/(gap-other)`, where `other`
+is the retained training-only late mean capped by `max(gap-3600,60)`. This is a
+continuous mixture coefficient, not a calibrated copy probability. It remains
+unclipped during RMSE training; inference clips it to [0,1] and changes only the
+same input-defined gate. Other training rows retain their original binary label.
+Same-laptop Logloss and binary-RMSE controls separate the target and objective
+changes. [CatBoost documents the RMSE objective](https://catboost.ai/docs/en/concepts/loss-functions-regression).
+
+All80 inputs, original126,507/86,723 training rows, seed42 and1182/1401 rounds
+stay fixed. Continuous targets affect1,085/502 training rows; the held gate
+contains48 January and282 July rows. Original inputs/membership match and an
+independent SQL calculation reproduces every target and gate exactly. Only the
+two129.75MB prepared packets and the portable runner were transferred; both
+hashes pass before fitting. The first preflight reached the still-incomplete
+transfer and stopped before any fit; the completed transfer was then verified.
+RTX5060 GPU checks support finite negative and above-one regression targets.
+The first three January fits are retained; July follows sequentially.
+
+The frozen scorer replaces just one of the three public Cat members inside
+the gate, keeps R20's half unchanged, and recomputes all v77 corrections. It
+must replay v77 exactly and independently reload all six models on the desktop.
+No gate, round, weight, production fit or upload is selected by this screen.
+Run `v3_20261011_rome_continuous_mixture/`; laptop worker10609.
+
+## Time-weighted pooling closed; remaining error cost described, 18:33 Amsterdam
+
+The fixed pooling screen worsens matched CV by0.115265 seconds, interval
+[-0.109047,+0.362242]. One-of-three replacement worsens by0.028603,
+interval[-0.045310,+0.110144]. Both months worsen. All full original/new reloads,
+the separate1,094-row model check and all344,419 SQL truth/control/score checks
+pass. Retain both models; no expansion, production or upload. Result SHA-256:
+`56d558e62a29be7a807fbc02c1eb7b2a0588e596dbb4fa968a71630474bd6958`.
+
+`tools/describe_remaining_error_cost.py` describes the actual v77 CV errors.
+Rome accounts for44.64% of July SSE; its no-ID one-to-four-hour group accounts
+for11.35% across282 rows. January remains dominated by extreme Paris labels:
+its worst row alone carries42.81% of that month's SSE. Raw truth, calendar,
+airport/track identity, exhaustive group totals and independent SQL scores all
+agree. These are held-label diagnostics and optimistic perfect-prediction
+ceilings, not attainable gains or 2026 forecasts. No new deployment rule follows.
+Existing frozen-track Rome and short-window arrival-copy screens were reviewed;
+their earlier inconclusive/negative results are retained without repeating fits.
+
 ## Gaussian likelihood closed after regression, 18:14 Amsterdam
 
 The fixed observation-variance objective worsens matched seed42 CV

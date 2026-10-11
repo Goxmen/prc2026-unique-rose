@@ -1,0 +1,32 @@
+{
+  "sources": [
+    {
+      "path": "VALIDATION/tools/describe_remaining_error_cost.py",
+      "sha256": "962c224b6d5a86019dc27117484d7adbb986d5a1e12fc9383391f6d4b434ae6b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/scored.parquet",
+      "sha256": "ebcb2e5a3456a9615b649dbb49eb4843e076f03360e4706461c0b9c1d6b0ed7c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_ifr/rows2025.parquet",
+      "sha256": "7b0aa7441d36c15da1e7c6b53c6a144afe83d384194f1bb6db58982b544cfb51"
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_index.parquet",
+      "sha256": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684"
+    }
+  ],
+  "groups": [
+    "airport",
+    "id_group",
+    "track_group",
+    "label_group",
+    "airport_id",
+    "airport_track"
+  ],
+  "label_use": "descriptive errors and optimistic perfect-prediction ceilings only",
+  "no_fit": true,
+  "no_candidate": true,
+  "no_upload": true
+}

@@ -1,0 +1,424 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_duration_pool/identity.json",
+    "sha256": "36f8ad24b8f58e2bf1c026735110acef6ef631bc9fb74163900c6412e75f44f7"
+  },
+  "design": {
+    "parent": "selected half sparse3/half calls15 combination",
+    "change": "add centered time-weighted track pool through zero linear projection",
+    "original_columns": 156,
+    "added_columns": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "model": {
+      "parent": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "change": "add centered time-weighted track pool through zero linear projection",
+      "weights": "half adjacent positive retained intervals, each capped at60seconds",
+      "missing": "only pairs with both points present; no usable interval falls back to ordinary mean",
+      "projection": "Linear(width32,pooled64,bias=False), zero initialization,2048weights",
+      "interpretation": "sampling-time pooling, not observed taxi or dwell duration",
+      "inputs": "unchanged168 tabular/public inputs and cached128-point sequences",
+      "training": "same original sparse update,21/17 epochs,seed42,original batch and schedule"
+    },
+    "original_model": {
+      "sequence_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "width": 32,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "kernel": 3,
+      "dilations": [
+        1,
+        4,
+        16
+      ],
+      "activation": "SiLU",
+      "normalization": "LayerNorm over channels independently per point",
+      "pooling": "masked mean and max",
+      "fusion_hidden": 128,
+      "final_residual_initialization": "zero",
+      "usable": "at least two distinct timestamps",
+      "original_inputs": 156,
+      "extra_dropout": 0
+    },
+    "sequence": {
+      "window_before_sec": 7200,
+      "window_after_sec": 60,
+      "max_points": 128,
+      "minimum_distinct_timestamps": 2,
+      "labels_used": false,
+      "identity": "audited unique near-takeoff identity; missing and ambiguous remain absent",
+      "sort": [
+        "airport",
+        "hex",
+        "ts_ms",
+        "lat",
+        "lon",
+        "alt",
+        "gs"
+      ],
+      "duplicate_timestamp": "retain lexicographically first lat/lon/alt/gs per airport/hex/time",
+      "selection": "floor(linspace(0,n-1,128)); first and last always retained",
+      "gap": "previous raw observation within query window; first=-1; never interpolated",
+      "ground_alt_code": -123,
+      "other_negative_alt": "unknown",
+      "negative_speed": "unknown",
+      "origin": "mean of the airport X-Plane runway ends",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "point_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "bounds": {
+        "time": [
+          -0.008333333333333333,
+          1
+        ],
+        "gap": [
+          0,
+          1
+        ],
+        "east_north": [
+          -2,
+          2
+        ],
+        "speed": [
+          0,
+          1
+        ],
+        "altitude": [
+          0,
+          1
+        ],
+        "distance": [
+          0,
+          1
+        ],
+        "clock": [
+          -1,
+          1
+        ]
+      },
+      "scales": {
+        "time_sec": 7200,
+        "gap_log_sec": 7260,
+        "east_north_m": 20000,
+        "speed_kt": 300,
+        "altitude_ft": 10000,
+        "distance_m": 40000,
+        "clock": "clip(asinh((point-originalAOBT)/1800),-8,8)/8",
+        "raw_count_cap": 4096
+      },
+      "padding": "right padding, independent boolean point mask, all padded channels zero",
+      "absent_sequence": "0 or 1 points cached honestly; model residual hard-gated off"
+    },
+    "seed": 42,
+    "fixed_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "target": "original direct min(y,10800), standardized with ordinary training population",
+    "training": "exact original sparse train bytecode; only public model constructor differs",
+    "preprocessing": "exact original156 preprocessing, checked against saved control",
+    "machine": "desktop RTX3080; same-machine saved physical-scale seed42 controls",
+    "primary": "matched seed42 physical network inside production-rounded public stack",
+    "selected_reference": "actual three-sparse-member v64; pool-size difference explicit",
+    "tree": "selected callsign main LightGBM plus original airport and CatBoost, seed42",
+    "rome": "selected half Cat3/half R20",
+    "network_share": 0.71,
+    "rules": "unchanged",
+    "no_inner_stopping": true,
+    "no_weight_search": true,
+    "no_new_gate": true,
+    "held_labels": "fixed-epoch monitoring and final development score only",
+    "exploratory_reused_development_months": true,
+    "production_or_upload": false,
+    "variant": "public",
+    "no_new_inputs": true,
+    "secondary": "replace only seed42 of selected three-member pool; unchanged1042/2042",
+    "no_production": true,
+    "no_upload": true,
+    "shared_runner": {
+      "path": "VALIDATION/nn_public_early_jan_jul.py",
+      "sha256": "071a6f95d2c9303ab2aa8295043187dfcb7fb3cbe98f5a528c8f3b34952a4bff"
+    }
+  },
+  "month": "2025-01",
+  "seed": 42,
+  "stop_epoch": 21,
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+      "sha256": "ee1239362fd6b4a32c412931465be86a928b9c0904f7ec64b5b74291435ab2c7"
+    },
+    "control_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-01_s42.json",
+      "sha256": "618dc1053b75db5270046d8c99d26304b45867fd846758dfde4646bb3238811b"
+    },
+    "control_prediction": {
+      "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-01_s42.parquet",
+      "sha256": "325e16a9d3ce4272fa27424d7a60fc96ba2db7545c2a1572eabadd587d999c2f"
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+      "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_duration_pool/models/2025-01_s42.pt",
+    "sha256": "b895fb947bf33a5e8573427a635caf19fd55af021eaccb51d89f88c1359b7297"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_duration_pool/networks/2025-01_s42.parquet",
+    "sha256": "c76b54ef6884d04a98d37f50aa53f4a4ff2335f5f9a012c884ff71ed82e1bc05"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+    "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+  },
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.34824439810798813,
+      "rmse": 474.6204041424501,
+      "seconds": 30.687481383007253
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.2593656749067999,
+      "rmse": 466.0413530691845,
+      "seconds": 31.959847314996296
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.23938147227081424,
+      "rmse": 459.99059764501425,
+      "seconds": 31.840406910996535
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.2232792022518402,
+      "rmse": 455.7280742027182,
+      "seconds": 31.959872823004844
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.21407955406538534,
+      "rmse": 458.9564436689296,
+      "seconds": 31.58697922200372
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.20852661112513624,
+      "rmse": 453.82407882378357,
+      "seconds": 31.705123859996093
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.24961008830014456,
+      "rmse": 454.6607901549606,
+      "seconds": 31.2196075690008
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.20720709107472216,
+      "rmse": 457.83561735645003,
+      "seconds": 31.95030872800271
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.19306726386559156,
+      "rmse": 454.95115664784146,
+      "seconds": 31.357962804991985
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.1883139109859213,
+      "rmse": 459.3588215304863,
+      "seconds": 31.36497327199322
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.18284800871654827,
+      "rmse": 457.5438268185737,
+      "seconds": 31.92410370700236
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.17542558055448598,
+      "rmse": 456.6591277890687,
+      "seconds": 31.634471006997046
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.16754179579561757,
+      "rmse": 458.3634734272972,
+      "seconds": 31.46115687499696
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.16518158031427796,
+      "rmse": 455.5247902448276,
+      "seconds": 31.548130298993783
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.15750478696010076,
+      "rmse": 456.1676153399573,
+      "seconds": 31.998826732000452
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.1515102004085679,
+      "rmse": 457.0624526566574,
+      "seconds": 31.782759622001322
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.14766792636943224,
+      "rmse": 459.20461319796584,
+      "seconds": 31.921770045999438
+    },
+    {
+      "epoch": 18,
+      "train_mse_std": 0.14285401616029633,
+      "rmse": 456.5367320106573,
+      "seconds": 31.640983355013304
+    },
+    {
+      "epoch": 19,
+      "train_mse_std": 0.13639584432017612,
+      "rmse": 457.0199206255061,
+      "seconds": 31.63323724899965
+    },
+    {
+      "epoch": 20,
+      "train_mse_std": 0.1321580360608052,
+      "rmse": 456.9580584227037,
+      "seconds": 31.034802756999852
+    },
+    {
+      "epoch": 21,
+      "train_mse_std": 0.1290368536370981,
+      "rmse": 456.5731801613619,
+      "seconds": 31.586296198991477
+    }
+  ],
+  "minutes": 11.126910864766735,
+  "train_rows": 1596201,
+  "held_rows": 153706,
+  "host": "GPC",
+  "gpu": "NVIDIA GeForce RTX 3080",
+  "torch": "2.14.1+cu130"
+}
