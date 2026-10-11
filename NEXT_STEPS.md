@@ -33,13 +33,16 @@ aggregate component is prepared/audited; ten airport production fits and final
 candidate assembly remain. No new version is reserved.
 
 New public daily taxi-out totals by runway cover all ten airports and both
-years. The source extraction and all totals are audited, but its cohort differs
-from the competition. A fixed training-calibrated correction improves the
-refined recipe by0.3572 to291.8456, interval[−0.6706,−0.0882], with January
-worse0.2768 and July better0.9912. No winter-fix claim or production selection.
-Ten raw runway/day and airport/day source inputs are prepared and independently
-audited for all training/ranking rows. A fixed174→184 main-tree comparison is
-queued after airport production, with original rows/settings and exact controls.
+years. Source totals are independently audited but the cohort differs from the
+competition. The fixed original calibration gains0.3572 and worsens January.
+Applying the existing monthly invalid-share<5% rule improves the refined
+recipe by**0.5368 to291.6660**, interval[−0.7420,−0.3577], with **both months
+better**. The threshold is inherited; no airport selection or threshold scan.
+Cumulative improvement versus production-rounded v76 is0.7834. This is still
+reused-development evidence. Source-quality and all-row score audits pass.
+The selected combined component's prepare/audit queue870127 follows the neural
+screen; no new submission version is reserved. The original result is retained.
+Ten raw source inputs are prepared/audited for tree and neural tests as well.
 
 Parameter averaging is complete and closed: same-trajectory transferred+0.5437,
 interval[+0.2463,+0.8308]. Its Boolean-buffer post-training failure was repaired,
@@ -48,6 +51,10 @@ recovery checks pass; models now save before diagnostics. Keep all completed
 fits. Current desktop sequence: full174-input CatBoost847447, then public airport
 production847448, then daily-taxi-input main LightGBM859814. One heavy job at a
 time; sources and queue identities are frozen. V75/V76 watchers are unchanged.
+A fixed neural daily-taxi test follows under queue863590: identical original
+network plus ten zero-initialized public input columns, seed42 and21/17epochs.
+CPU initialization/gradient checks and exact original feature transforms pass;
+CUDA/model/score audits run in sequence. No new production selection yet.
 
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 The earlier225.00 goal is complete; its result remains the baseline below.

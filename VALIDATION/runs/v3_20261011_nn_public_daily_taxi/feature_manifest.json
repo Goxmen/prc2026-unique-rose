@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "rows": 2085047,
+  "original12_raw_and_transformed_exact": true,
+  "columns": [
+    "pub_dep_count_gap",
+    "pub_dep_mean",
+    "pub_dep_long_count",
+    "pub_dep_long_gap_sum",
+    "pub_dep_resid900_mean",
+    "pub_dep_resid1800_mean",
+    "pub_dep_resid_clock_mean",
+    "pub_dep_own900_left",
+    "pub_dep_own1800_left",
+    "pub_dep_own900_fraction",
+    "pub_dep_own1800_fraction",
+    "pub_dep_long900_fraction",
+    "pub_taxi_runway_mean",
+    "pub_taxi_runway_reference",
+    "pub_taxi_runway_additional",
+    "pub_taxi_runway_count",
+    "pub_taxi_airport_mean",
+    "pub_taxi_airport_reference",
+    "pub_taxi_airport_additional",
+    "pub_taxi_airport_count",
+    "pub_taxi_runway_share",
+    "pub_taxi_runway_minus_airport"
+  ],
+  "source": {
+    "path": "VALIDATION/nn_public_daily_taxi_jan_jul.py",
+    "sha256": "035eff67079d4c31a9b27b3d4b049b795845b6a04257acaf36c2d2e62bbb0063"
+  },
+  "original": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_features/features2025.parquet",
+    "sha256": "28fc54ff31c5ccb41817c649eea963a9a3cd3e037d2adb400e3fd00cfaa7be0d"
+  },
+  "added": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_features/features2025.parquet",
+    "sha256": "71d3c36d83a3d4f0a4277a04b2488a2cbbda66fc2d8db21a962aad0e947d1aef"
+  },
+  "added_audit": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_features/audit.json",
+    "sha256": "7bb7a076d933153c0732f55733fead8e1b519997e140b7ae22de862b3f8e2cd7"
+  },
+  "output": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_daily_taxi/features2025.parquet",
+    "sha256": "e075efce225df05eb3d62cba82b40108a8d59c690fa1f575cd9bc9786b87e39b"
+  }
+}

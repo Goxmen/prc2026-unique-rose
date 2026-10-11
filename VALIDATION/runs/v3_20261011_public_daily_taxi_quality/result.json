@@ -1,0 +1,85 @@
+{
+  "design": {
+    "parent": "production-rounded v76 and selected refined parent",
+    "change": "existing monthly invalid-share<0.05 gate also limits daily runway taxi corrections",
+    "threshold_provenance": "unchanged monthly_taxi_reconcile.DESIGN maximum_invalid_share",
+    "parameters": "all original daily fit coefficients/noise and shifts unchanged",
+    "calendar": "airport local takeoff month; unknown source quality leaves parent unchanged",
+    "interpretation": "follow-up after winter source-population failure diagnosis; reused Jan/Jul development",
+    "no_new_threshold_search": true,
+    "no_airport_selection": true,
+    "no_new_fit": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "scores": {
+    "2025-01": {
+      "v76": 326.17391214810544,
+      "v76_daily": 326.30554240110376,
+      "v76_quality": 326.00874863800163,
+      "refined": 325.94319178263174,
+      "refined_daily": 326.2199514477529,
+      "refined_quality": 325.8606946460391
+    },
+    "2025-07": {
+      "v76": 258.7248137211206,
+      "v76_daily": 257.5722313616245,
+      "v76_quality": 257.5722313616245,
+      "refined": 258.46250828577354,
+      "refined_daily": 257.47132254599944,
+      "refined_quality": 257.47132254599944
+    }
+  },
+  "cv": {
+    "v76": 292.449362934613,
+    "v76_daily": 291.93888688136417,
+    "v76_quality": 291.7904899998131,
+    "refined": 292.20285003420264,
+    "refined_daily": 291.8456369968762,
+    "refined_quality": 291.6660085960193
+  },
+  "paired": {
+    "v76_quality_vs_v76": {
+      "change": -0.6588729347999447,
+      "ci95": [
+        -0.9015312583053035,
+        -0.44911038552511046
+      ],
+      "decision": "improvement"
+    },
+    "v76_quality_vs_v76_daily": {
+      "change": -0.148396881551065,
+      "ci95": [
+        -0.3082007532617439,
+        0.05042321313573506
+      ],
+      "decision": "inconclusive"
+    },
+    "refined_quality_vs_refined": {
+      "change": -0.5368414381833588,
+      "ci95": [
+        -0.7420419207269994,
+        -0.35767692116610383
+      ],
+      "decision": "improvement"
+    },
+    "refined_quality_vs_refined_daily": {
+      "change": -0.1796284008568989,
+      "ci95": [
+        -0.3356862255294512,
+        -0.005368108188882666
+      ],
+      "decision": "improvement"
+    }
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/identity.json",
+    "sha256": "860c91f3d93cc0a3f24756de3fe4665971b9d1896acb35513911e6176bc8dd0f"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/scored.parquet",
+    "sha256": "41c07565be9f4225bd9ae0e7f269b079b1407c9e9bd3fe6f5d09b0765154f5f3"
+  },
+  "source_quality_excluded": 38901,
+  "reverted_changed_rows": 36570
+}

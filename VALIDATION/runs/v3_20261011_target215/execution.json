@@ -97,9 +97,11 @@
     "Aggregate t5/full-monthly ranking component prepared/audited on344841rows; exact v72/v73/v74/v76 controls,292259changed rows,12.5961s prediction RMS",
     "EMA Boolean-buffer diagnostic failure archived and corrected; real-buffer/recovery preflight passed; both retried models saved/reloaded and score audited; transferred+0.5437, close direction",
     "Daily/runway calibrated correction CV291.845637 (-0.357213 vs refined), January+0.276760/July-0.991186; independent calibration/source/scalar/SQL audits pass; no production",
-    "Ten raw daily taxi source inputs prepared/audited across2429888 training/ranking rows; daily main184-input screen guarded and queued after airport production"
+    "Ten raw daily taxi source inputs prepared/audited across2429888 training/ranking rows; daily main184-input screen guarded and queued after airport production",
+    "Daily-taxi neural extension CPU original weights/outputs/RNG/new-column gradients pass; all2085047 original12 raw/transformed features exact; fixed matched-single and equal-size one-of-three screen queued863590 after daily tree859814",
+    "Inherited monthly quality gate applied to daily correction: refined CV291.6660086 (-0.5368414), CI[-0.7420,-0.3577], both months; cumulative vs v76-0.7834; all344419 independent SQL source-gate/control/scores pass; selected component prepare/audit queued870127"
   ],
-  "next": "Complete CatBoost CV and airport production, then fixed daily-taxi main-tree CV. Investigate January daily correction regression without an airport gate or weight scan. Assemble selected refinement only after component production audit. Preserve scheduled v75/v76 uploads and actual-score geometry evaluation.",
+  "next": "Finish CatBoost CV, airport production, daily-taxi main tree and neural screens sequentially, then prepare/audit selected quality-gated daily combined component. Review outcomes for candidate assembly/versioning; preserve v75/v76 scheduled uploads and live-score geometry evaluation.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -265,7 +267,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T11:59:02.155797+00:00",
+  "updated_at": "2026-10-11T12:17:06.117520+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -366,5 +368,23 @@
     "jobs": [
       "public_runway_daily_taxi_main_tree"
     ]
+  },
+  "public_daily_taxi_nn_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_nn_queue.json",
+    "pid": 863590,
+    "state": "waiting",
+    "jobs": [
+      "public_runway_daily_taxi_neural"
+    ]
+  },
+  "public_daily_taxi_production_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_production_queue.json",
+    "pid": 870127,
+    "state": "waiting",
+    "jobs": [
+      "selected_quality_daily_taxi_production_component"
+    ],
+    "no_version": true,
+    "no_upload": true
   }
 }

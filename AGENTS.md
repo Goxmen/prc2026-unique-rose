@@ -114,6 +114,30 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,14:16 Amsterdam: quality-gated daily taxi correction selected.**
+  `public_daily_taxi_quality.py` applies the existing monthly invalid-share<5%
+  rule to daily shifts; no new threshold, airport choice, calibration or fit.
+  Refined CV292.2029→291.6660 (−0.5368), interval[−0.7420,−0.3577], January−0.0825,
+  July−0.9912. Cumulative v76 gain0.7834 with production rounding. All344419
+  source-gate/control/score SQL checks pass. Original unrestricted result retained.
+  This is a follow-up on reused development. Perfect-cell-mean290.8270 in
+  daily_taxi/diagnosis is label-informed headroom ONLY, not a candidate.
+  `public_daily_taxi_submit.py` component prepare/audit queued870127 after
+  NN863590; requires airport production audit, replays v76/aggregate exactly,
+  refits only source calibration on full2025. No version/upload reserved.
+  Active CatBoost847447; then airport847448→daily tree859814→daily NN863590→
+  selected daily production870127. V75/V76 upload watchers remain unchanged.
+
+- **October11,14:08 Amsterdam: daily-taxi neural follow-up queued.**
+  `nn_public_daily_taxi_jan_jul.py`, queue863590 waits for daily main-tree859814.
+  Same ten raw source inputs; existing public head widened268→278 with new
+  columns zero. CPU old weights/outputs/RNG and new-gradient checks pass;
+  all old12 raw/transformed inputs exactly preserved. Fixed seed42,21/17epochs;
+  matched single plus one-of-three replacement scored with production rounding.
+  Full prediction reloads and separate model/SQL audits required. No fit yet.
+  Sequence remains CatBoost847447→airport847448→daily tree859814→daily NN863590.
+  Further public CODA metadata only has monthly network totals; source lead closed.
+
 - **October11,14:00 Amsterdam: new daily runway taxi source and first CV gain.**
   Public EUROCONTROL dashboard:16,169 daily/runway cells, all10 airports,
   Jan2025–Jul2026, independently queried totals audited. Source cohort differs;

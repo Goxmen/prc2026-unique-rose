@@ -1,0 +1,420 @@
+{
+  "design": {
+    "parent": "selected half sparse3/half calls15 combination",
+    "change": "ten daily runway/airport taxi inputs",
+    "original_columns": 156,
+    "added_columns": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction",
+      "pub_taxi_runway_mean",
+      "pub_taxi_runway_reference",
+      "pub_taxi_runway_additional",
+      "pub_taxi_runway_count",
+      "pub_taxi_airport_mean",
+      "pub_taxi_airport_reference",
+      "pub_taxi_airport_additional",
+      "pub_taxi_airport_count",
+      "pub_taxi_runway_share",
+      "pub_taxi_runway_minus_airport"
+    ],
+    "model": {
+      "parent": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "added": [
+        "pub_taxi_runway_mean",
+        "pub_taxi_runway_reference",
+        "pub_taxi_runway_additional",
+        "pub_taxi_runway_count",
+        "pub_taxi_airport_mean",
+        "pub_taxi_airport_reference",
+        "pub_taxi_airport_additional",
+        "pub_taxi_airport_count",
+        "pub_taxi_runway_share",
+        "pub_taxi_runway_minus_airport"
+      ],
+      "scales": [
+        600.0,
+        600.0,
+        300.0,
+        200.0,
+        600.0,
+        600.0,
+        300.0,
+        600.0,
+        1.0,
+        300.0
+      ],
+      "transform": "existing12 unchanged; new10 asinh(x/scale)/4 clipped[-5,5],missing0",
+      "architecture": "widen existing public first layer268 to278; preserve all existing weights; new columns zero",
+      "training": "original sparse training function; seed42,21/17 fixed epochs; no continuation or EMA"
+    },
+    "original_model": {
+      "sequence_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "width": 32,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "kernel": 3,
+      "dilations": [
+        1,
+        4,
+        16
+      ],
+      "activation": "SiLU",
+      "normalization": "LayerNorm over channels independently per point",
+      "pooling": "masked mean and max",
+      "fusion_hidden": 128,
+      "final_residual_initialization": "zero",
+      "usable": "at least two distinct timestamps",
+      "original_inputs": 156,
+      "extra_dropout": 0
+    },
+    "sequence": {
+      "window_before_sec": 7200,
+      "window_after_sec": 60,
+      "max_points": 128,
+      "minimum_distinct_timestamps": 2,
+      "labels_used": false,
+      "identity": "audited unique near-takeoff identity; missing and ambiguous remain absent",
+      "sort": [
+        "airport",
+        "hex",
+        "ts_ms",
+        "lat",
+        "lon",
+        "alt",
+        "gs"
+      ],
+      "duplicate_timestamp": "retain lexicographically first lat/lon/alt/gs per airport/hex/time",
+      "selection": "floor(linspace(0,n-1,128)); first and last always retained",
+      "gap": "previous raw observation within query window; first=-1; never interpolated",
+      "ground_alt_code": -123,
+      "other_negative_alt": "unknown",
+      "negative_speed": "unknown",
+      "origin": "mean of the airport X-Plane runway ends",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "point_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "bounds": {
+        "time": [
+          -0.008333333333333333,
+          1
+        ],
+        "gap": [
+          0,
+          1
+        ],
+        "east_north": [
+          -2,
+          2
+        ],
+        "speed": [
+          0,
+          1
+        ],
+        "altitude": [
+          0,
+          1
+        ],
+        "distance": [
+          0,
+          1
+        ],
+        "clock": [
+          -1,
+          1
+        ]
+      },
+      "scales": {
+        "time_sec": 7200,
+        "gap_log_sec": 7260,
+        "east_north_m": 20000,
+        "speed_kt": 300,
+        "altitude_ft": 10000,
+        "distance_m": 40000,
+        "clock": "clip(asinh((point-originalAOBT)/1800),-8,8)/8",
+        "raw_count_cap": 4096
+      },
+      "padding": "right padding, independent boolean point mask, all padded channels zero",
+      "absent_sequence": "0 or 1 points cached honestly; model residual hard-gated off"
+    },
+    "seed": 42,
+    "fixed_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "target": "original direct min(y,10800), standardized with ordinary training population",
+    "training": "exact original sparse train bytecode; only public model constructor differs",
+    "preprocessing": "exact original156 preprocessing, checked against saved control",
+    "machine": "desktop RTX3080; same-machine saved physical-scale seed42 controls",
+    "primary": "matched seed42 physical network inside production-rounded public stack",
+    "selected_reference": "actual three-sparse-member v64; pool-size difference explicit",
+    "tree": "selected callsign main LightGBM plus original airport and CatBoost, seed42",
+    "rome": "selected half Cat3/half R20",
+    "network_share": 0.71,
+    "rules": "unchanged",
+    "no_inner_stopping": true,
+    "no_weight_search": true,
+    "no_new_gate": true,
+    "held_labels": "fixed-epoch monitoring and final development score only",
+    "exploratory_reused_development_months": true,
+    "production_or_upload": false,
+    "variant": "public",
+    "secondary": "replace only seed42 of selected three-member pool; unchanged1042/2042",
+    "no_production": true,
+    "no_upload": true
+  },
+  "source": {
+    "path": "VALIDATION/nn_public_daily_taxi_jan_jul.py",
+    "sha256": "035eff67079d4c31a9b27b3d4b049b795845b6a04257acaf36c2d2e62bbb0063"
+  },
+  "cache": {
+    "path": "data/derived/sparse_track_sequence_20261010/full.json",
+    "sha256": "723cb02477e53b3c3e6b265fa98d3bd67a8e531b45d37943c6f527de5735d6da",
+    "outputs": {
+      "full_index.parquet": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684",
+      "full_points.bin": "e24e96f34f4fd536c621a3f5c36dd7fc8eae0f037fb0a32b59c1c1b84392d147"
+    },
+    "rows": 2085047,
+    "stored_points": 84624170
+  },
+  "folds": {
+    "2025-01": {
+      "matrix": {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+        "sha256": "ee1239362fd6b4a32c412931465be86a928b9c0904f7ec64b5b74291435ab2c7"
+      },
+      "control_record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-01_s42.json",
+        "sha256": "618dc1053b75db5270046d8c99d26304b45867fd846758dfde4646bb3238811b"
+      },
+      "control_prediction": {
+        "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-01_s42.parquet",
+        "sha256": "325e16a9d3ce4272fa27424d7a60fc96ba2db7545c2a1572eabadd587d999c2f"
+      },
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+        "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+      }
+    },
+    "2025-07": {
+      "matrix": {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-07.pkl",
+        "sha256": "1c44b5007b1cfe70db2387ce37089e55cad7540f8ebb5e9c043f2ee77c3d0f28"
+      },
+      "control_record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-07_s42.json",
+        "sha256": "e56df70ffb9be8d8b3a64ea81789a2dc75b02a323274375837d40a24744279db"
+      },
+      "control_prediction": {
+        "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-07_s42.parquet",
+        "sha256": "f12392f47d049637d8b7c2d822165ac07b4e1902b45d2e7892e1e1a7574e9318"
+      },
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+        "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+      }
+    }
+  },
+  "public_features": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_daily_taxi/features2025.parquet",
+    "sha256": "e075efce225df05eb3d62cba82b40108a8d59c690fa1f575cd9bc9786b87e39b"
+  },
+  "feature_audit": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_daily_taxi/feature_manifest.json",
+    "sha256": "fa9086d34e7420a713e882ab14c5c4f4ffe2ce1acea785c8c618d733006b9bb5"
+  },
+  "metadata": {
+    "path": "data/derived/missing_plan_view_20261010/manifest.json",
+    "sha256": "2e3b18762f9c0fc752fb5283c1db52becff9e7668b52213b4db2508aa4ba7a22"
+  },
+  "metadata_values": {
+    "path": "data/derived/missing_plan_view_20261010/metadata.parquet",
+    "sha256": "28a878774dcc40e54def883001c84a856aac22bdd63c942e9cd4e9b260cfc219"
+  },
+  "control_identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/identity.json",
+    "sha256": "42566e584e329291bff122096c0d983a7f096afdedad2eda56240a17bad71013"
+  },
+  "controls": {
+    "2025-01": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-01_s42.json",
+      "sha256": "45d0e9fb7cf6f3b2b93fd612be0ed95a8d876951287ebe45eeb4334ec7c4f75b"
+    },
+    "2025-07": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.json",
+      "sha256": "c70cea646789fdccd2584f95eca80f072a3666a3dc59888c3e5765eb23bea817"
+    }
+  },
+  "control_audit": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/audit.json",
+    "sha256": "c269b8740f74067315100bc156dbe45303a25b6058f3b768b54a5c0f8eaa348e"
+  },
+  "selected_result": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/result.json",
+    "sha256": "6c36bc3fe1ba8852c0a8c051aff896c839c640389a820c62a68b46f7d0c7be12"
+  },
+  "selected_errors": {
+    "path": "VALIDATION/runs/v3_20261010_sparse_track_combo_score/scored_errors.parquet",
+    "sha256": "4bd61faa57a30a7abe011f46ed4a2ebfc9b74d2ff1c17158fb61db9bd7428e1b"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/nn_public_scratch_jan_jul.py",
+      "sha256": "4a3bb76c028152b4840980db0bc34a235496c21685b76a506baf3e995ea1440b"
+    },
+    {
+      "path": "VALIDATION/nn_public_daily_taxi.py",
+      "sha256": "032f691c18c2c6fbb3f17ea716574d1cac37cff52163a20e952311f07aed3de3"
+    },
+    {
+      "path": "VALIDATION/nn_public_scratch.py",
+      "sha256": "3b3f3d087b69bbef95a023edf85d5c5ab7c99c396449320806961c50f5e75a3a"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi_features.py",
+      "sha256": "dccb3a14c6c3feb18d8237a2df3317732f21d84ec06d9a7d533e8f228668561d"
+    },
+    {
+      "path": "VALIDATION/nn_sparse_track_jan_jul.py",
+      "sha256": "b1225096a7f259020823c46d9a53f0acae942cd58f70dd35a535a54a575d9884"
+    },
+    {
+      "path": "VALIDATION/chunked_direct_data.py",
+      "sha256": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9"
+    },
+    {
+      "path": "VALIDATION/public_stack_cv.py",
+      "sha256": "7a07755c65281de72d0d2cb3bd62b4d33c7591f4e9922aa8960bfc546421044a"
+    },
+    {
+      "path": "VALIDATION/public_refinements_submission_cv.py",
+      "sha256": "fe9cac8a8f35dab31d2580ef54de8dffccfc12b016f19d5bb0d3367bde55d6fb"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    }
+  ],
+  "rome_predictions": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+    "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+  },
+  "selected_predictions": {
+    "path": "VALIDATION/runs/v3_20261011_public_stack_cv/scored.parquet",
+    "sha256": "04d0886b113ce081bbba97bf880e8f33c06366a5a98ac64084abab186ca01e92"
+  },
+  "rounded": {
+    "path": "VALIDATION/runs/v3_20261011_public_refinements_submission_cv/scored.parquet",
+    "sha256": "251492e2dc2c5ac55e70ee6cdfaa4d9ad403f82bcce202cdf52af034baafd2ee"
+  },
+  "checks": {
+    "device": "cpu",
+    "all_original_weights_exact": true,
+    "new_columns_zero": true,
+    "original_initial_output_and_rng_exact": true,
+    "active_old_public_head_preserved": true,
+    "added_columns_have_finite_nonzero_gradient": true
+  },
+  "training_bytecode_exact": true
+}

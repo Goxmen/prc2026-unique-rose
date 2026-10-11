@@ -1,5 +1,81 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Source-quality follow-up passes both months, 14:16 Amsterdam
+
+The daily-mean failure diagnosis locates January regressions mainly at EDDF,
+EDDM and LSZH. The original correction shifts their eligible means downward
+more than their actual prediction bias. This is consistent with source-cohort
+mismatch, including the documented exclusion of deicing after off-block; it
+is not proof that deicing explains each flight. The initial correction's
+January LFPG aggregate still improves despite high invalid share.
+
+A single follow-up, `public_daily_taxi_quality.py`, reuses the **existing monthly
+invalid-share<5% rule** for daily corrections. It preserves every coefficient,
+noise estimate, original shift and the120-second cap; missing quality leaves
+the parent unchanged. No new threshold or airport choice. It was declared
+after inspecting the original winter losses, so this remains reused-development
+selection, not independent confirmation.
+
+On production-rounded v76 the result is **291.7905 (−0.6589)**,
+interval[−0.9015,−0.4491]. On the selected airport/t5/full-monthly refinement,
+**292.2029→291.6660 (−0.5368)**, interval[−0.7420,−0.3577].
+**January improves0.0825 and July0.9912** on the refined parent. Relative to
+its unrestricted daily correction the refinement improves0.1796,
+interval[−0.3357,−0.0054]; the same gate difference on v76 is inconclusive.
+The cumulative change from production-rounded v76 is−0.7834. Independent SQL
+checks all344,419 raw-source quality shares, gate decisions, parent/daily
+predictions, dates, final choices and scores. Keep the original result too.
+
+The diagnostic under`v3_20261011_public_daily_taxi/diagnosis/` also computes
+perfect held-label runway-cell means: CV290.8270 before reapplying plan bounds.
+This is deliberately label-informed headroom diagnosis, **not a usable model,
+validation gain or rigorous bound after postprocessing**. It is not selected.
+
+The passing quality-gated correction is selected for preparation with the
+previously passing combined refinement. `public_daily_taxi_submit.py` assembles
+the saved public main/physical/Rome parts, replaces only the airport trees,
+reuses the audited t5/full-monthly ranking stage and refits only the small
+source-mismatch calibration on full2025. It must reproduce v76's direct and
+serialized outputs and the aggregate control before making changes. A separate
+SQL/tree/source-gate/CV/schema audit follows, with exact daily-shift and final
+constraint replay. The prepared template-compatible file has **no version and
+no upload** until reviewed against the other pending candidates. Queue870127
+runs after the neural screen863590; it requires airport production's audit too.
+This preserves the sequential desktop queue. The full-year taxi models are
+never repeated by this builder.
+
+## Daily-taxi neural test queued; broader source check closed, 14:08 Amsterdam
+
+`nn_public_daily_taxi.py` adds the same ten raw daily-taxi inputs to the
+selected public physical network. It widens the existing public head's first
+layer268→278, preserving every old weight/bias and initializing only the ten
+new input columns to zero. Original tabular/track/public initialization,
+initial outputs and initialization/dropout RNG match on CPU. The old public
+head still works and new columns receive finite nonzero gradients after the
+output head becomes active. CUDA checks run at the start of its queued fit.
+The old twelve features and their transformed values reproduce exactly for
+all2,085,047 training rows; source feature SQL audit remains the prerequisite.
+
+The fixed screen reuses original training code, seed42 and21/17epochs. Primary
+comparison is old/new seed42 inside the production-rounded public stack.
+A second fixed comparison replaces only seed42 of the selected three-member
+pool and preserves1042/2042, so both comparisons have equal member counts.
+The actual selected control must reproduce exactly. Each completed model is
+saved before diagnostics, then every held prediction reloads exactly; a separate
+raw-track/encoder sample audit and all-row SQL score audit follow. No weight,
+architecture-width, stopping or seed search. No full-year fit is selected yet.
+Run`v3_20261011_nn_public_daily_taxi/`, runner
+`nn_public_daily_taxi_jan_jul.py`; queue863590 follows daily main-tree859814.
+Do not edit the frozen source/identity or start it alongside the active CatBoost.
+
+A read-only check of the [CODA all-causes dashboard](https://ansperformance.eu/capacity/tot_dly/)
+found monthly network-wide summaries, not daily airport/operator aggregates.
+Its public metadata is cached at`tmp/research_20261011/coda_public_source/`;
+no data queries or model experiments followed. The public taxi methodology
+again confirms local takeoff dates, the2h exclusion, after-off-block deicing
+exclusion and stand/runway reference eligibility. No exact cohort identity is
+inferred from that documentation. Laptop SSH still times out; no remote job ran.
+
 ## Daily runway source, production parity and completed averaging, 14:00 Amsterdam
 
 A new public source provides **daily taxi-out totals by runway** for all ten

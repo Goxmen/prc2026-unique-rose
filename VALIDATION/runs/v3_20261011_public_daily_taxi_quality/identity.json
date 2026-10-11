@@ -1,0 +1,57 @@
+{
+  "design": {
+    "parent": "production-rounded v76 and selected refined parent",
+    "change": "existing monthly invalid-share<0.05 gate also limits daily runway taxi corrections",
+    "threshold_provenance": "unchanged monthly_taxi_reconcile.DESIGN maximum_invalid_share",
+    "parameters": "all original daily fit coefficients/noise and shifts unchanged",
+    "calendar": "airport local takeoff month; unknown source quality leaves parent unchanged",
+    "interpretation": "follow-up after winter source-population failure diagnosis; reused Jan/Jul development",
+    "no_new_threshold_search": true,
+    "no_airport_selection": true,
+    "no_new_fit": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/public_daily_taxi_quality.py",
+      "sha256": "279b1eecf6b441ec68886ae400ead1ed7660b345c530021cc7b7f943d6d3eb72"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/monthly_taxi_reconcile.py",
+      "sha256": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/identity.json",
+      "sha256": "9b3074d65ceee81a056c2724f0e4e0613111b006d225adacac62f9408fe0e5cf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/scored.parquet",
+      "sha256": "ca1b72f79d89d60bd068680b39362de8c5ee72a93e3a983cee156180c7d613eb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/result.json",
+      "sha256": "e64847aab76f30bd50e0fe1381156515c1988c0deeccaddc28b66330e06ae165"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/audit.json",
+      "sha256": "d51820e09a5dcfae75b978fd452944de674089c732ceb5dd0e6d9bcd0f957ece"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/parameters.json",
+      "sha256": "24709b526c045a41ebc33c7b7ccee86f3b3667bb966d5c1cce32958f2ce9500c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/diagnosis/result.json",
+      "sha256": "a56eefd86c3dbfdf1a5f22919ddd1ef9da687e57adba50b519e951e7a7f2626f"
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/taxi_out_additional_time_2025.csv",
+      "sha256": "4aedf19520d3f84bebc418b56835762c907b714a9c19e751bb8658f9e62ce598"
+    }
+  ]
+}

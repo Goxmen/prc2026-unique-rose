@@ -1,0 +1,42 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 863590,
+  "predecessor_start": "8895173",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_daily_taxi/score_audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T12:15:55.389477+00:00",
+  "jobs": [
+    {
+      "name": "selected_quality_daily_taxi_production_component",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_daily_taxi_submit.py",
+          "prepare"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_daily_taxi_submit.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/public_daily_taxi_submit.py": "b64a7f87414b5ca746a662d148e6cda838f6d7eb4b7cae573d8340f70c092a74",
+        "VALIDATION/public_daily_taxi.py": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570",
+        "VALIDATION/public_daily_taxi_quality.py": "279b1eecf6b441ec68886ae400ead1ed7660b345c530021cc7b7f943d6d3eb72",
+        "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/result.json": "a78590460c78b58ce0a9c92c0ee01d313a5972738f9cac62e73b09034d0cd160",
+        "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/audit.json": "21b428acf29db40d8f9827cbeb7e42e7883037850d1c3ad32816525c8041cc1b",
+        "VALIDATION/public_airport_submit.py": "f99beca4160c8df5c9ccde22e88593e0a9c5cfe7342fbeab2b325d7ce4190498",
+        "VALIDATION/public_refinements_aggregate_submit.py": "9e44578eef0fda8e62f709a1f3339e1ee6ee3125d88b79b7bd7ae6eecc991f06"
+      },
+      "log": "tmp/research_20261011/public_daily_taxi_production.log",
+      "result": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T12:15:55.416020+00:00",
+  "pid": 870127
+}
