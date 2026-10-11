@@ -29,6 +29,12 @@ flights generally improve, but long Rome flights worsen in July. A fixed t5
 ordinary-aggregate prior with the same variance is queued after neural
 production; numerical checks pass, no CV result yet. Ordinary punctuality
 is currently training. No date-aligned production candidate is selected.
+A fixed raw-track withholding experiment is queued last: the public single
+network randomly loses its entire raw-track branch on 25% of training rows,
+with the original inference, inputs, epochs and parameters. CPU checks pass;
+Jan/Jul results are pending. This tests branch robustness, not complete ADS-B
+or ground-only missingness. Live check at 10:47 Amsterdam still gives v74 as
+best/latest, 221.6881 and rank12/242.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

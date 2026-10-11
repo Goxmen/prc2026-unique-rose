@@ -56,9 +56,10 @@
     "public main full-year model and all344841 ranking reloads exact",
     "structural Rome support not selected: +0.5626 versus old posterior; July worsens",
     "off-block alignment not selected: +0.1506 against matched IFR; all source/date/fallback/SQL audits pass",
-    "fixed t5 ordinary aggregate preflight passes8036-state enumeration; screen queued after neural production"
+    "fixed t5 ordinary aggregate preflight passes8036-state enumeration; screen queued after neural production",
+    "fixed raw-track withholding CPU initialization/RNG/masking/gradient/padding checks and frozen provenance pass; GPU/CV pending"
   ],
-  "next": "ordinary punctuality screen; joint main/neural CV then selected neural production; fixed heavier-tail daily screen; preserve v75 upload",
+  "next": "ordinary punctuality screen; joint main/neural CV and selected neural production; fixed heavy-tail daily screen; raw-track withholding CV; preserve v75 upload",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -104,8 +105,9 @@
     ]
   },
   "last_live_check": {
-    "at": "2026-10-11T07:26:36+00:00",
+    "at": "2026-10-11T08:47:40+00:00",
     "best": 221.6881,
+    "latest_version": 74,
     "rank": 12,
     "scoring_teams": 242
   },
@@ -149,6 +151,15 @@
     "state": "waiting",
     "jobs": [
       "fixed variance-matched t5 ordinary-aggregate screen and SQL audit"
+    ]
+  },
+  "track_dropout_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/track_dropout_queue.json",
+    "pid": 746093,
+    "state": "waiting",
+    "jobs": [
+      "fixed25% training raw-track withholding; original inference; matched public-single CV",
+      "sampled model reload audit and independent all-row SQL scores"
     ]
   }
 }

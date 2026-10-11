@@ -705,3 +705,50 @@ stage checks labels, calendars, controls and scores. No CV result exists yet.
 queue (PID721659) and its audit, then runs the screen/audit sequentially.
 It shares the research cancellation file and contains no upload stage.
 Ordinary punctuality is the current desktop fit (PID734641).
+
+## Fixed raw-track withholding screen
+
+The next distinct neural experiment keeps the public physical network and
+withholds its entire raw-track branch on a fixed25% of training rows. All
+tabular/public inputs remain available; inference uses every observed track.
+This tests whether the residual track branch over-specializes to its training
+availability. It does not simulate the loss of all ADS-B-derived inputs or
+specifically ground-only coverage. The original parameterization, encoder,
+21/17 epochs, seed42, optimizer and batch order are retained. There is no
+probability, epoch or inference-gate search.
+
+`nn_track_dropout.py` uses a private per-device generator to preserve the
+original dropout RNG stream. CPU checks pass identical initialization and
+parameter keys, bit-exact inference, an independent masked-training replay,
+global RNG preservation, finite gradients, zero track gradients when every
+track is withheld, an active public head and padding invariance. CUDA checks
+and both Jan/Jul fits remain pending. `nn_track_dropout_jan_jul.py` reuses the
+original training bytecode in an isolated namespace and compares against the
+audited public single. The selected three-member pool is a separate-size
+diagnostic reference. Reload and independent SQL audits are queued too.
+
+Run `v3_20261011_nn_track_dropout/` and its frozen identity are retained.
+`track_dropout_queue.json` (PID746093) waits for the heavy-tail queue
+(PID737069) and its audit. It shares the research cancellation file, runs
+one heavy job at a time, and has no production or upload stage.
+
+A live check at **10:47:40 Amsterdam on11 October** still reports best/latest
+v74 **221.6881**, rank12/242; the target gap remains6.6881 seconds. January's
+ordinary-punctuality fit has finished and July is running. V75 remains queued
+for the next UTC upload day.
+
+## Public-source follow-up
+
+Read-only checks of recent public READMEs found no new compelling method to
+add ahead of the queued screens. [Unbelievable-quartz](https://github.com/ToukoUrsin/prc2026-taxi-out)
+uses direct/residual tree blending and reports389.12 seconds;
+[quirky-honey](https://github.com/dhsdb010/OPDI) and
+[gentle-octopus](https://github.com/joris-decombe/taxiout) describe clock mixtures,
+ADS-B correction and missing-plan handling already explored here. Their
+reported best scores are269.33 and271.9 seconds, respectively; these are
+their published claims, not a new live-score check. The recent
+[zestful-fountain](https://github.com/Phoenix-Ops-LTD/prc2026-taxiout) README
+still centers on following-clock features and longer LightGBM training,
+which our retained feature/HPO work already addresses. No competitor source
+code was copied or executed in this follow-up. Local read-only snapshots
+are under `tmp/research_20261011/public_sources/`.

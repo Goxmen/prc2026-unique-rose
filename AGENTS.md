@@ -114,6 +114,22 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 10:53 Amsterdam continuation:** live best/latest remains v74,
+  221.6881, rank12/242 (checked10:47). Ordinary punctuality finished its January
+  fit and is training July (PID734641). A fixed raw-track withholding screen
+  is queued after the existing heavy-tail queue: `track_dropout_queue.json`
+  (PID746093) waits for PID737069 and its audit. Runners `nn_track_dropout.py`
+  and `nn_track_dropout_jan_jul.py` mask the entire raw-track branch on25% of
+  training rows, using a private generator; original inference, initialization,
+  epochs, tabular/public inputs and trainable parameters are unchanged. CPU
+  identity/RNG/masking/gradient/padding checks and provenance guard pass; no
+  CUDA or CV result yet. It reuses the audited public single as its matched
+  control. All new sources are hash-bound by the waiting queue; do not edit
+  them without safely rebinding it. Same research cancellation file, no
+  production selection or upload. Queue order: punctuality → joint CV/public
+  neural production → heavy-tail screen → track withholding. V75's upload
+  watcher remains unchanged for12 October00:00 UTC.
+
 - **October 11: active target is now 215.00 or lower.** v71 achieved the previous
   225.00 target at 224.3602; preserve that completed goal record. Current work is
   in `VALIDATION/reports/TARGET215_RESEARCH.md` and
