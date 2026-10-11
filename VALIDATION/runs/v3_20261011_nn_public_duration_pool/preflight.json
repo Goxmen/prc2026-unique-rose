@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "original_weights_outputs_and_rng_exact": true,
+      "original_gradients_checked": true,
+      "gradient_max_absolute_error": 0.0,
+      "cuda_track_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+      "nonzero_projection_effect_and_gradient": true,
+      "missing_track_fallback_and_padding_exact": true,
+      "pooling": {
+        "hand_interval_and_weighted_mean_exact": true,
+        "capped_gap_and_invalid_pair_checked": true,
+        "isolated_absent_and_padding_checked": true
+      },
+      "added_parameters": 2048
+    },
+    {
+      "device": "cuda",
+      "original_weights_outputs_and_rng_exact": true,
+      "original_gradients_checked": true,
+      "gradient_max_absolute_error": 9.313225746154785e-10,
+      "cuda_track_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+      "nonzero_projection_effect_and_gradient": true,
+      "missing_track_fallback_and_padding_exact": true,
+      "pooling": {
+        "hand_interval_and_weighted_mean_exact": true,
+        "capped_gap_and_invalid_pair_checked": true,
+        "isolated_absent_and_padding_checked": true
+      },
+      "added_parameters": 2048
+    }
+  ],
+  "training_bytecode_exact": true,
+  "original_globals_unchanged": true
+}

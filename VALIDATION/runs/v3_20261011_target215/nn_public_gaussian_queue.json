@@ -44,7 +44,8 @@
         "VALIDATION/runs/v3_20261011_nn_public_gaussian/identity.json": "ad3a4b6d9fb6fe37b59bd53db6c24acce45a0e5be120786aa94395bf5568f16e"
       },
       "log": "tmp/research_20261011/nn_public_gaussian.log",
-      "result": "VALIDATION/runs/v3_20261011_nn_public_gaussian/score_audit.json"
+      "result": "VALIDATION/runs/v3_20261011_nn_public_gaussian/score_audit.json",
+      "completed_result_sha256": "657becc40731249c99345228ccc5f84345eaa2e49941e456c223f152c3544e99"
     }
   ],
   "reordered_before_any_fit": {
@@ -60,15 +61,15 @@
     "previous_queue": "VALIDATION/runs/v3_20261011_target215/provenance_format_recovery_1733/nn_public_gaussian_queue.json",
     "reason": "Handle both historical list and mapping provenance formats; original model predictions unchanged; no downstream fit had started"
   },
-  "state": "running",
+  "state": "complete",
   "cuda_preflight_recovery": {
     "previous_queue": "VALIDATION/runs/v3_20261011_target215/cuda_preflight_recovery/nn_public_gaussian_queue.json",
     "checks": "VALIDATION/runs/v3_20261011_target215/cuda_preflight_recovery/checks.json",
     "no_fit_repeated": true
   },
-  "updated_at": "2026-10-11T15:53:21.663287+00:00",
+  "updated_at": "2026-10-11T16:12:41.785497+00:00",
   "pid": 992975,
   "job": 0,
-  "stage": 0,
-  "child_pid": 1004500
+  "stage": 3,
+  "child_pid": null
 }

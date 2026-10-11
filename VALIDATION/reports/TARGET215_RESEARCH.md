@@ -1,5 +1,68 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Gaussian likelihood closed after regression, 18:14 Amsterdam
+
+The fixed observation-variance objective worsens matched seed42 CV
+292.834296 →297.492245 (**+4.657949**), interval[+3.135877,+7.799266]. Its
+one-of-three replacement worsens292.449363 →293.096278 (**+0.646915**),
+interval[+0.359397,+1.155369]. January worsens1.150310 and July0.143519 in
+the pool. Do not expand or tune this loss direction; no production or upload.
+
+Both original/new full-held mean predictions and new variances reload exactly.
+Independent model/input checks cover1,094 rows, with maximum mean difference
+0.000306 seconds and maximum log-variance difference1.79e-6. All344,419
+truth/calendar/control rows and SQL scores pass. Result SHA-256:
+`7e600f4f7f6b32b9237bc8b90afe3c93dee56aa319937f951f4c6124921424f9`.
+Retain both checkpoints and variance predictions; no fit is repeated.
+
+Time-weighted pooling worker1016455 is now training under queue1002895 after
+passing desktop CPU/CUDA checks. Its real first20-step benchmark is40.32ms per
+batch with4.626GiB peak allocated GPU memory. The laptop full-shape candidate
+workflow test has finished and its returned receipt/source hashes pass.
+Live18:13 Amsterdam still gives v74 **221.6881**, rank12/242 on344,841 flights.
+The215 target remains active; v75–v77 still have no official scores.
+
+
+## Scored-basis packaging ready for actual results, 18:11 Amsterdam
+
+`scored_basis_candidate.py` consumes the frozen51-vector diagnosis only after
+all required actual official results exist. It verifies live scores and exact
+source hashes before creating a version. Selection requires a conservative
+upper RMSE bound at least0.25 seconds below the actual current best, or a bound
+that reaches215; it skips an already-met goal. This is explicit leaderboard
+selection. Jan/Jul CV is reported even when it regresses, with the inherited
+historical reconstruction caveat. No new fit or weight search is performed.
+
+`tools/audit_scored_basis_candidate.py` independently reconstructs the blend in
+SQL as v64 plus weighted differences. The score identity, four-decimal score
+uncertainty and measured clipping/rounding RMS give a conservative bound without
+assuming hidden-label values. It checks every ranking row, every CV label/day/
+month against raw truth, all weight bounds, schema and unchanged template values.
+It produces the final review required by the existing guarded uploader.
+
+Small synthetic known-label checks pass for reordered/signed weights, active
+clipping, score rounding, malformed coefficients and corrupted output. A
+separate laptop integration check runs the **exact production source bytes**
+inside a temporary root with344,841 synthetic ranking rows,344,419 synthetic
+CV rows and51 vectors. The full build and separate SQL audit pass. Missing
+scores stop before any output; corrupt files fail the audit; existing candidates
+cannot be overwritten. No real API is called and the temporary data is deleted.
+Only the receipt is retained under `target215/scored_candidate_workflow_check.json`.
+Its source hashes and remote/local receipt hash agree.
+
+The initial integration run caught floating reduction order flipping549 exact
+half-integer predictions. The builder now preserves the diagnosis's already
+evaluated integer vectors. It independently checks unrounded arithmetic and
+nearest-integer cells, and the SQL bound uses the actual serialized output.
+This preserves the intended file rather than silently creating a numerical
+variant. No real submission was affected.
+
+**No actual v78, new version reservation, projected live score or blend upload
+exists.** The actual v75–v77 results are still required. Gaussian training
+continues on the desktop, followed by time-weighted pooling; the laptop test
+ran independently with one heavy job per host.
+
+
 ## Early-public projection closed after full CV, 17:55 Amsterdam
 
 Both fixed fits and all audits are complete. Matched seed42 CV changes

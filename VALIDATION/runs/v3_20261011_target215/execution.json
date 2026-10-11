@@ -4,12 +4,12 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "gaussian_observation_variance_cv",
-    "pid": 1004500,
-    "queue_pid": 992975,
+    "task": "time_weighted_pooling_cv",
+    "pid": 1016455,
+    "queue_pid": 1002895,
     "stage": 0,
-    "log": "tmp/research_20261011/nn_public_gaussian.log",
-    "live_start": "10271257"
+    "log": "tmp/research_20261011/nn_public_duration_pool.log",
+    "live_start": "10387625"
   },
   "laptop": {
     "host": "GLAPTOP",
@@ -44,7 +44,7 @@
     "returned_at": "2026-10-11T14:57:19.398195+00:00",
     "return_verification": "VALIDATION/runs/v3_20261011_daily_main_submit/return_verification.json",
     "desktop_main_audit": "VALIDATION/runs/v3_20261011_daily_main_submit/audit.json",
-    "last_additional_work": "Time-weighted pooling synthetic CUDA preflight complete on RTX5060;66dependencies and returned JSON hash verified; no extra fit"
+    "last_additional_work": "Full-shape synthetic scored-candidate integration check complete;344841ranking/344419CV/51vectors, receipt and source hashes verified; no real model fit or upload"
   },
   "utc_uploads_used": [
     70,
@@ -167,7 +167,8 @@
     "Inverse-reference complete independent model/SQL audit pass; inconclusive screen closed",
     "Fixed broad offset-family descriptive diagnostic complete; no candidate or upload",
     "Neural CUDA convolution rounding diagnosed with identical-network repeat; narrow dtype-scaled check; no architecture/training change or repeated fit",
-    "Early-public projection completed both fits and all audits; matched-0.1786 and one-of-three-0.0739 inconclusive; January worse; no expansion"
+    "Early-public projection completed both fits and all audits; matched-0.1786 and one-of-three-0.0739 inconclusive; January worse; no expansion",
+    "Gaussian NLL mean screen completed all model/variance and SQL audits; matched+4.6579 and one-of-three+0.6469, both months worse; no expansion"
   ],
   "next": "Finish returned CatBoost audit and combined component, then fixed inverse-reference and early-public screens; laptop continues selected daily-main production. Preserve all completed fits and original v75/v76 upload schedule.",
   "queued_upload": {
@@ -342,7 +343,7 @@
       "not_before_utc": "2026-10-12T00:20:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T15:54:56.422604+00:00",
+  "updated_at": "2026-10-11T16:16:17.049980+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -479,7 +480,7 @@
   },
   "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1736.json",
   "last_live_leaderboard_check": {
-    "updatedAt": "2026-10-11T15:54:31+00:00",
+    "updatedAt": "2026-10-11T16:13:57+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -544,8 +545,8 @@
   "nn_public_gaussian_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/nn_public_gaussian_queue.json",
     "pid": 992975,
-    "state": "running",
-    "process_live": true,
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "fixed_public_gaussian_observation_likelihood"
     ]
@@ -562,14 +563,14 @@
     ]
   },
   "daily_geometry_note": "51-vector preparation/audit complete; evaluator992976 waits actual successful v75/v76/v77 scores after v77watcher. No upload.",
-  "previous_goal_turn_classification": "progress: new fixed time-weighted pooling hypothesis implemented, raw-cache arithmetic independently audited, CPU and laptop GPU checks pass; desktop CV queued without overlapping active training",
+  "previous_goal_turn_classification": "progress: prepare full scored-basis packaging and independent SQL auditor; full-shape isolated laptop workflow passes missing-score, corruption, overwrite, clipping and rounding checks; no actual version reserved",
   "inverse_reference_january": {
     "state": "complete; all153706 old/new held predictions reload exactly",
     "record": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/predictions/2025-01_s42.json",
     "minutes": 19.573394281150104,
     "remaining": "none; July and full audit complete"
   },
-  "production_priority": "Selected production complete. Desktop Gaussian992975 -> time-weighted pooling1002895; laptop synthetic check complete and idle.",
+  "production_priority": "Selected production complete. Desktop time-weighted pooling1002895; laptop full-shape synthetic candidate workflow check complete and idle.",
   "inverse_reference_result": {
     "state": "closed: CV inconclusive; final full model/SQL audit pass",
     "cv_v76": 292.449362934613,
@@ -602,7 +603,7 @@
   "nn_public_duration_pool_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/nn_public_duration_pool_queue.json",
     "pid": 1002895,
-    "state": "waiting",
+    "state": "running",
     "process_live": true,
     "jobs": [
       "fixed_time_weighted_track_pool"
@@ -640,9 +641,39 @@
     "july_change": -0.22726772500061543
   },
   "latest_verified_wait": {
-    "at": "2026-10-11T15:54:56.422604+00:00",
-    "pid": 1004500,
-    "start": "10271257",
-    "task": "gaussian_observation_variance_cv"
+    "at": "2026-10-11T16:16:17.049980+00:00",
+    "pid": 1016455,
+    "start": "10387625",
+    "task": "time_weighted_pooling_cv"
+  },
+  "scored_candidate_readiness": "VALIDATION/runs/v3_20261011_target215/scored_candidate_readiness.json",
+  "gaussian_result": {
+    "state": "closed; both months regress, no production or upload",
+    "cv": {
+      "control": 292.83429599342526,
+      "candidate": 297.49224505891374,
+      "selected": 292.449362934613,
+      "replace_seed42": 293.0962776133732
+    },
+    "paired": {
+      "candidate_vs_control": {
+        "change": 4.657949065488481,
+        "ci95": [
+          3.1358767199059807,
+          7.799266096290794
+        ],
+        "decision": "regression"
+      },
+      "replace_seed42_vs_selected": {
+        "change": 0.6469146787601971,
+        "ci95": [
+          0.35939720682728404,
+          1.1553685964337221
+        ],
+        "decision": "regression"
+      }
+    },
+    "result": "VALIDATION/runs/v3_20261011_nn_public_gaussian/result.json",
+    "audit": "VALIDATION/runs/v3_20261011_nn_public_gaussian/score_audit.json"
   }
 }

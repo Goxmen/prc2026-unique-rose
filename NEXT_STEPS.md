@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target: 215.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
-leaving **6.6881 seconds**. Live check: **11 October 17:54 Amsterdam**,
+leaving **6.6881 seconds**. Live check: **11 October 18:13 Amsterdam**,
 rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
 are used. Autonomous submissions and both machines remain authorized.
 
@@ -31,12 +31,27 @@ waits for actual successful v75/v76/v77 scores and fresh leaderboard/file checks
 no score is imputed. A subsequently selected blend still needs its own final
 file audit. Existing 50-vector evaluation remains separately queued after v76.
 
-Desktop research: Gaussian observation-variance training is running under992975,
-followed by time-weighted pooling1002895. Both fixed screens preserve the
-original inputs, epochs and optimizer. The Gaussian experiment changes only
-the intended loss; inference uses the mean. One heavy job runs per host. The
-laptop is idle after completing the selected production fits and the new
-synthetic GPU check.
+The follow-up blend packager is ready: `scored_basis_candidate.py` consumes the
+actual 51-vector diagnosis only after successful v75–v77 scores. It creates a
+candidate only when the conservative score bound improves the current official
+best by at least0.25 seconds or reaches215. It reports Jan/Jul CV even if it
+regresses, because selection explicitly uses leaderboard feedback. The separate
+SQL auditor checks the weighted predictions, raw historical truth, score identity,
+and clipping/rounding bound. A full-size synthetic laptop test passes; no actual
+v78, new version reservation or blend upload exists yet. Preserve the source
+diagnosis's integer vectors, because recomputing half-integer ties can differ
+with floating reduction order. Run the separate audit before any later upload.
+
+Desktop research: time-weighted pooling is training under1002895. The original
+inputs, epochs and optimizer are fixed, and one heavy job runs per host. Its
+first real training benchmark uses4.626GiB allocated GPU memory. The laptop is
+idle after the selected production fits and separate full-size synthetic check.
+
+The Gaussian observation-variance screen is complete and closed: matched CV
+worsens4.6579 seconds and one-of-three replacement worsens0.6469 seconds,
+interval[+0.3594,+1.1554]. Both months worsen. All original/new mean and variance
+reloads and independent model/SQL audits pass. Retain both models; no production,
+loss tuning or submission follows this result.
 
 The early-public neural projection screen is complete and closed: matched
 CV−0.1786 and one-of-three replacement−0.0739 are inconclusive; January worsens
@@ -53,8 +68,8 @@ labels, dropout, epochs or optimizer changes. Independent raw integer timestamp
 checks pass on 2,107 cached flights; 1,648 of 1,698 usable samples have nonuniform
 weights. This shows an active input transformation, not predictive value. CPU
 and laptop RTX5060 synthetic checks pass; the returned report and all 66 code
-dependencies have verified hashes. Desktop checks and matched Jan/Jul fits are
-queued after Gaussian; no CV result, candidate or upload yet.
+dependencies have verified hashes. Desktop checks now pass and matched Jan/Jul fits are running; no CV result,
+candidate or upload yet.
 
 Closed directions: inverse public-reference inputs give only −0.0025 versus
 v76 and −0.0004 in the refined recipe, both inconclusive; both months/models

@@ -1,0 +1,53 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_gaussian/identity.json",
+    "sha256": "ad3a4b6d9fb6fe37b59bd53db6c24acce45a0e5be120786aa94395bf5568f16e"
+  },
+  "source": {
+    "path": "VALIDATION/nn_public_gaussian_jan_jul.py",
+    "sha256": "cb2e9000838dede436b7a91f6e19f17e3f94cf24664b1f5662f8439f3bab19b1"
+  },
+  "checks": [
+    {
+      "month": "2025-01",
+      "sampled_rows": 548,
+      "maximum_difference": 0.00030590399364882614,
+      "maximum_log_variance_difference": 9.5367431640625e-07,
+      "all_variances_reloaded_exact": true,
+      "variance_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_gaussian/networks/2025-01_s42_variance.parquet",
+        "sha256": "ee3d268ec9e776c6ab30e440c1fb60ac9f7816227cb543ba3884a0a5c3104eec"
+      },
+      "all_held_reload_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_gaussian/models/2025-01_reload.json",
+        "sha256": "a7a8a789c5de1fa4013ac505b2fd466636a0f33a243534b6af707aa0e607de06"
+      },
+      "all_control_reload_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_gaussian/models/2025-01_control_reload.json",
+        "sha256": "df62b55a86e2626d1cceef32c061d6878f741a6b189d74f8c1d753ba2da7eb40"
+      },
+      "raw_scalar_rows": 32
+    },
+    {
+      "month": "2025-07",
+      "sampled_rows": 546,
+      "maximum_difference": 0.0003032588010682957,
+      "maximum_log_variance_difference": 1.7881393432617188e-06,
+      "all_variances_reloaded_exact": true,
+      "variance_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_gaussian/networks/2025-07_s42_variance.parquet",
+        "sha256": "2232f824654305c4861eca821dbc8c7dd1f6ca8d271aa37f210759a3f180d2cc"
+      },
+      "all_held_reload_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_gaussian/models/2025-07_reload.json",
+        "sha256": "94191ae1486322dc77f44a9ee04bdc9ba99b6a773d54e3e582eef7603a8c1e97"
+      },
+      "all_control_reload_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_gaussian/models/2025-07_control_reload.json",
+        "sha256": "869cedaeb949f5e535b2800a3596f5ec360d5712e101de540c2709c867f3a968"
+      },
+      "raw_scalar_rows": 32
+    }
+  ]
+}
