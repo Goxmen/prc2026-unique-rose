@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "Three-member public neural production; k0/k1 saved and all ranking reloads exact; final k2 training",
-    "queue": "VALIDATION/runs/v3_20261011_target215/public_neural_production_queue.json",
-    "pid": 759761,
-    "log": "tmp/research_20261011/public_neural_production.log"
+    "task": "Fixed variance-matched heavy-tail ordinary daily aggregate screen",
+    "queue": "VALIDATION/runs/v3_20261011_target215/heavy_tail_queue.json",
+    "pid": 778456,
+    "log": "tmp/research_20261011/daily_heavy_tail.log"
   },
   "laptop": "Windows online, WSL offline at09:02 UTC; optional user request to open WSL remains pending",
   "utc_uploads_used": [
@@ -64,7 +64,8 @@
     "joint public main/neural combination passesCV292.4494 (-0.4921 versus v75); both individual comparisons and both months improve; exact controls and SQL audit pass",
     "reserved SQL alias corrected in four new auditors; three waiting queues safely stopped/rebound without model changes or repeated fits",
     "Neural Rome classifier CPU checks and all-row target/input/training membership preflight pass; Jan126507 and July86723 training rows; no fits yet",
-    "Public-only airline/month shift: analytic gradient, exact zero-update source, shared-airline, row-order, direction and poisoned-label numerical checks pass; no CV result yet"
+    "Public-only airline/month shift: analytic gradient, exact zero-update source, shared-airline, row-order, direction and poisoned-label numerical checks pass; no CV result yet",
+    "All three public full-year networks complete; all344841 ranking reloads per member exact; separate1845-row model/input audit passed max0.001371 seconds"
   ],
   "next": "Complete neural production/audit; fixed heavy-tail, track dropout, reference bridge; build/audit v76; neural Rome and public-only monthly adaptation screens; preserve v75 upload.",
   "queued_upload": {
@@ -145,7 +146,7 @@
   "public_neural_production_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_neural_production_queue.json",
     "pid": 721659,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "fixed direct joint main/neural CV and SQL audit",
       "guarded three-member full-year public neural pool,15 epochs",
@@ -155,7 +156,7 @@
   "heavy_tail_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/heavy_tail_queue.json",
     "pid": 761632,
-    "state": "waiting",
+    "state": "running",
     "jobs": [
       "fixed variance-matched t5 ordinary-aggregate screen and SQL audit"
     ]

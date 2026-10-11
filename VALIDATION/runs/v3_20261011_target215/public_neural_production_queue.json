@@ -1,5 +1,5 @@
 {
-  "state": "running",
+  "state": "complete",
   "predecessor_pid": 707786,
   "predecessor_start": "7305052",
   "predecessor_result": "VALIDATION/runs/v3_20261011_punctuality_lgb/result.json",
@@ -55,7 +55,8 @@
         "VALIDATION/runs/v3_20261011_nn_public_submit/preflight.json": "1c09316efa50671321ce30a31240ecbe277e280e358f1e10168bdb855828683d"
       },
       "log": "tmp/research_20261011/public_neural_production.log",
-      "result": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k2.json"
+      "result": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k2.json",
+      "completed_result_sha256": "99b1a14e52c91393f500e1d7bb006513a7027a9acdb49c179291c64b3a693486"
     },
     {
       "name": "audit_public_neural_production",
@@ -70,13 +71,14 @@
         "VALIDATION/tools/audit_public_neural_production.py": "6a6b528f41c2349154ac9181c94d2c5f622392966852f57507e7308e6006ae7d"
       },
       "log": "tmp/research_20261011/audit_public_neural_production.log",
-      "result": "VALIDATION/runs/v3_20261011_nn_public_submit/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_nn_public_submit/audit.json",
+      "completed_result_sha256": "a9c4d19910718159594776b59baf6069387cbe90c222872e05989a048354a24c"
     }
   ],
   "rebound_from_pid": 717805,
-  "updated_at": "2026-10-11T09:08:43.328000+00:00",
+  "updated_at": "2026-10-11T09:39:08.545629+00:00",
   "pid": 721659,
-  "job": 1,
-  "stage": 1,
-  "child_pid": 759761
+  "job": 2,
+  "stage": 0,
+  "child_pid": null
 }

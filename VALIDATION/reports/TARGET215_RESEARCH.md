@@ -35,6 +35,14 @@ and logs under `v3_20261011_rome_public_monthly_shift/`.
 
 ## Current queue: selected v76 and a new Rome classifier
 
+**Production completed11:39 Amsterdam.** All three15-epoch networks are saved,
+with exact all344,841-row checkpoint reloads per member. The separate audit
+reconstructs inputs and predictions on615 rows per network (1,845 total), with
+maximum difference0.001371 seconds at0.01 tolerance;7,380 public-transform values
+and32 scalar track reconstructions also pass. Retain all models and predictions.
+The desktop has advanced to the fixed heavy-tail screen. V76's build remains
+queued after the existing validation jobs; there is still no v76 file.
+
 At11:28 Amsterdam, the selected joint public main/neural recipe has a reserved
 version **v76**, CV **292.4494**. Its build and independent audit are queued after
 the existing monthly-reference comparison; full-year neural production remains

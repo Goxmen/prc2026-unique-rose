@@ -114,6 +114,15 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 11:39 Amsterdam: public neural production complete.** All three
+  15-epoch networks are retained under `v3_20261011_nn_public_submit/`, seeds
+  42/1042/2042 on the desktop. Each saved model reproduces all344,841 ranking
+  predictions exactly. The separate input/model audit passes615 rows per member
+  (maximum0.001371 seconds, tolerance0.01),7,380 independently transformed public
+  values and32 scalar track reconstructions. Do not refit completed networks.
+  QueuePID721659 is complete; heavy-tailPID761632 is now running childPID778456.
+  The v76 build remains queued after the existing track/monthly-reference jobs.
+
 - **October 11, 11:38 Amsterdam: public-only monthly Rome adaptation queued.**
   `rome_public_monthly_shift_queue.json` (PID777889) follows neural-RomePID770665.
   This is one airline/month logit shift inferred from the held month's public

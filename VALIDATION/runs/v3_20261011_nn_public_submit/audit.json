@@ -1,0 +1,50 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_public_neural_production.py",
+    "sha256": "6a6b528f41c2349154ac9181c94d2c5f622392966852f57507e7308e6006ae7d"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_submit/identity.json",
+    "sha256": "cd3d3d711333178622bd2c62e414d3b9daf438c878045d95dd740de0e294ca29"
+  },
+  "checks": [
+    {
+      "member": 0,
+      "seed": 42,
+      "rows": 615,
+      "max_difference_seconds": 0.0013705462552024983,
+      "record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k0.json",
+        "sha256": "5f91a2b1bfa34d8fe0868c9cd094884ee04fdd3deed0498f158eb44eb220b802"
+      },
+      "production_reload_all_rows": true
+    },
+    {
+      "member": 1,
+      "seed": 1042,
+      "rows": 615,
+      "max_difference_seconds": 0.0010352457534281712,
+      "record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k1.json",
+        "sha256": "29370700cfcf1ff8f07cee0662827a9b8c7a12aaa5412648a6d0904d8119c4b3"
+      },
+      "production_reload_all_rows": true
+    },
+    {
+      "member": 2,
+      "seed": 2042,
+      "rows": 615,
+      "max_difference_seconds": 0.0011999154753539187,
+      "record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k2.json",
+        "sha256": "99b1a14e52c91393f500e1d7bb006513a7027a9acdb49c179291c64b3a693486"
+      },
+      "production_reload_all_rows": true
+    }
+  ],
+  "public_transform_values": 7380,
+  "scalar_track_rows": 32,
+  "tolerance_seconds": 0.01,
+  "scope": "Independent input preparation on input-selected rows; every ranking prediction also reloaded during production"
+}

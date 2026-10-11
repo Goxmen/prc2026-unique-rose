@@ -12,7 +12,8 @@ failed; no expansion.
 XGBoost as a fourth tree member failed (+0.2433 CV). Full-schedule public neural
 training passed its matched single-seed screen (−0.2513 CV); the three-seed
 expansion also passes (−0.3536 on v75, both months), with model and score audits
-complete. Full-year neural production is running on the desktop.
+complete. All three full-year networks and production audits are complete;
+the desktop is now running the fixed heavy-tail screen.
 Its combination with the new main tree passes joint CV292.4494 (−0.4921
 versus v75), improving both individual changes and both months. All control
 replays and the independent SQL audit pass. V76 is reserved for this combination;
