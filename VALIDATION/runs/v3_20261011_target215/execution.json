@@ -110,9 +110,12 @@
     "Disagreement-weighted daily allocation fails+0.6591, CI[+0.1688,+1.2994]; independent SQL variance and cell conservation audit passes; direction closed",
     "Public stand-reference inverse pilot passes metadata/source audit; held public-source RMSE13.9872 to10.3799 in2025 and13.3828 to10.0593 in2026; no departure labels and no taxi-CV claim",
     "Two inverse-reference features prepared for all2429888 training/ranking rows; all4859776 SQL feature values and8305 public-cell coefficient reconstructions pass; completed Jan/Jul coefficients reused",
-    "Full174 CatBoost production and no-refit combined component queued897098 then907102; fixed176-input inverse-reference tree queued909597; no new versions or uploads"
+    "Full174 CatBoost production and no-refit combined component queued897098 then907102; fixed176-input inverse-reference tree queued909597; no new versions or uploads",
+    "Daily-taxi main tree January10000 rounds complete; all153706 old/new held predictions reload exactly; July now fitting",
+    "Early access of existing twelve public neural inputs passes CPU original weights/outputs/gradients/RNG and track-padding checks; fixed same-input same-update Jan21/Jul17 seed42 screen queued917136 after reference inverse909597; no score yet",
+    "Early-public idle queue safely rebound after moving recovery checkpoint guard before training; injected partial-checkpoint test rejects before model construction, no fit interrupted or repeated"
   ],
-  "next": "Finish daily-taxi main/NN and Rome screens; prepare/audit selected daily-quality and full174 CatBoost components; then test two inverse-reference inputs with fixed Jan/Jul main-tree settings. Review joint gains for final candidate assembly, preserve v75/v76 scheduled uploads and official-score geometry evaluation.",
+  "next": "Finish current daily-taxi main/NN and Rome screens and selected production components; evaluate fixed inverse-reference main-tree and early-public neural tests sequentially. Review joint gains for final candidate assembly; preserve v75/v76 scheduled uploads and official-score geometry evaluation.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -278,7 +281,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T13:21:03.000783+00:00",
+  "updated_at": "2026-10-11T13:34:02.214465+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -445,5 +448,15 @@
       "fixed_public_reference_inverse_main_tree"
     ],
     "process_live": true
-  }
+  },
+  "nn_public_early_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/nn_public_early_queue.json",
+    "pid": 917136,
+    "state": "waiting",
+    "process_live": true,
+    "jobs": [
+      "fixed_public_inputs_early_neural_projection"
+    ]
+  },
+  "early_public_latest_integrity": "VALIDATION/runs/v3_20261011_target215/early_public_queue_integrity_after_recovery.json"
 }

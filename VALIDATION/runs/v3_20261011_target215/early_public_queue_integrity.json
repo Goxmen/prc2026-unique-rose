@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "checked_at": "2026-10-11T13:31:34.278455+00:00",
+  "queue": "VALIDATION/runs/v3_20261011_target215/nn_public_early_queue.json",
+  "pid": 914722,
+  "predecessor_live": true,
+  "queue_sources_match": true,
+  "identity_sources_and_controls_match": true,
+  "cpu_initialization_checks": {
+    "device": "cpu",
+    "original_parameters_exact": true,
+    "new_weights_zero": true,
+    "initial_outputs_and_original_gradients_exact": true,
+    "initialization_and_dropout_rng_exact": true,
+    "old_nonzero_heads_preserved": true,
+    "new_projection_has_nonzero_finite_gradient": true,
+    "nonzero_projection_changes_output": true,
+    "track_padding_invariant": true,
+    "added_parameters": 6144
+  },
+  "no_fit_started": true
+}

@@ -83,6 +83,13 @@ pass the independent SQL audit. One fixed main-tree test is queued under909597
 after combined-component builder907102. Public-source reconstruction is not
 taxi-out validation; no gain or promotion is claimed yet.
 
+A fixed early-public-input neural test is queued under917136 after909597.
+It projects the existing twelve public values into the first512-unit hidden
+layer with6,144 zero-initialized weights, retaining the original late public
+head. CPU output/gradient/RNG checks pass; CUDA and complete old/new model
+replays precede scoring. Same seed42,21/17epochs, inputs and training update;
+matched single and one-of-three replacement comparisons, no fit/score yet.
+
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 The earlier225.00 goal is complete; its result remains the baseline below.
 

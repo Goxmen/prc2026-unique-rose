@@ -114,6 +114,21 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,15:30 Amsterdam: early-public neural projection queued.**
+  `nn_public_early.py` adds a zero-initialized12→512 projection before the first
+  tabular activation, retaining the existing public late head. Same inputs,
+  direct target, population, seed42,21/17epochs and training bytecode. CPU
+  original weights/outputs/gradients/RNG exact, active old heads preserved,
+  new gradients finite/nonzero and track padding invariant. CUDA checks and
+  full old-model replay run before each fit; new models save before diagnostics,
+  all predictions reload, separate model/input and SQL audits follow.
+  Runner`nn_public_early_jan_jul.py`, run`v3_20261011_nn_public_early/`;
+  queue917136 follows inverse-reference909597, one heavy desktop job at a time.
+  No fit/score/production/upload yet. Older clock-pointer idea overlaps the
+  completed clock-bypass screen; do not repeat it as a new experiment.
+  Daily-taxi main tree's January10,000-round model is saved; all153,706 old/new
+  held predictions reload exactly. July and two-month scoring are pending.
+
 - **October11,15:18 Amsterdam: full174 CatBoost passes narrowly; new reference inverse pilot.**
   Both CatBoost CV fits completed and audited; direct−0.1464, v76 transfer−0.1220,
   both months. In the actual selected daily-quality stack:291.6660→291.5895,

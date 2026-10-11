@@ -1,5 +1,47 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Early access to public neural inputs, 15:30 Amsterdam
+
+The selected public neural model supplies its twelve daily departure inputs
+only to a32-unit residual head after the main tabular network. A fixed new
+architecture also projects those same twelve transformed values into the first
+512-unit hidden layer, before its activation. This adds6,144 weights, all
+initialized to zero; the existing public head, physical track branch, raw
+inputs, transforms, population, loss, optimizer, schedule and21/17 stopping
+epochs remain unchanged. There is no additional dataset, weight sweep or
+continuation. The hypothesis is that the public information can interact with
+ordinary inputs throughout the hidden layers.
+
+`nn_public_early.py` passes CPU checks: every original parameter, initial
+prediction and gradient matches exactly in training and evaluation modes;
+initialization/dropout random state matches; existing nonzero public/track
+heads are preserved; the new weights receive finite nonzero gradients and
+change predictions when activated; padded track values have no effect. CUDA
+checks run before fitting. The training update reuses the original bytecode.
+Before each new fit, the complete saved late-head control must replay on the
+unchanged held inputs. Each new checkpoint saves before diagnostics and must
+replay every held prediction. A separate model/input audit and all-row SQL
+score audit follow.
+
+The primary comparison is matched seed42 versus seed42 inside rounded v76.
+The secondary comparison replaces only seed42 in its three-member public
+physical pool, retaining1042/2042. Both are reused Jan/Jul development checks.
+Runner`nn_public_early_jan_jul.py`, run`v3_20261011_nn_public_early/`.
+Queue917136 follows reference-inverse queue909597; one heavy desktop job
+continues at a time. No fit, CV gain, production or upload is claimed yet.
+Its first idle watcher914722 was stopped before any fit to move the partial
+checkpoint guard ahead of training. An injected partial checkpoint now rejects
+before model construction; the former source/identity/queue are retained in
+`pre_fit_recovery_guard/`. No model or active training was repeated.
+
+This follows an inventory check of the older learned-clock proposal. Its core
+mechanism is already covered by the completed clock-bypass experiment, which
+improved its matched laptop single but did not establish a gain over the
+selected pooled model. That check is not repeated or reclassified as a new
+candidate. The current daily-taxi main tree has completed January's10,000
+rounds; all153,706 original and new held predictions reload exactly. July and
+the final two-month score remain pending; no early single-month selection.
+
 ## Full-input CatBoost passes narrowly; stand-reference inverse pilot, 15:18 Amsterdam
 
 The ordinary CatBoost screen is complete. Its fixed134→174 input expansion
