@@ -1,0 +1,85 @@
+{
+  "features": [
+    "pub_dep_count_gap",
+    "pub_dep_mean",
+    "pub_dep_long_count",
+    "pub_dep_long_gap_sum",
+    "pub_dep_resid900_mean",
+    "pub_dep_resid1800_mean",
+    "pub_dep_resid_clock_mean",
+    "pub_dep_own900_left",
+    "pub_dep_own1800_left",
+    "pub_dep_own900_fraction",
+    "pub_dep_own1800_fraction",
+    "pub_dep_long900_fraction"
+  ],
+  "source": {
+    "path": "VALIDATION/public_delay_features.py",
+    "sha256": "9f7407e5d291ae2c9b1010abe74fadee7f648695c25cca08ac735d90b3ef04df"
+  },
+  "inputs": [
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "public": {
+    "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2025.csv",
+    "sha256": "d742eeb626e5f9f7e0c756e2ae3cf90078f4627e989a2e31b8ed21ba8f5510be"
+  },
+  "output": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_features/features2025.parquet",
+    "sha256": "28fc54ff31c5ccb41817c649eea963a9a3cd3e037d2adb400e3fd00cfaa7be0d"
+  },
+  "checks": {
+    "explicit_vfr_excluded": true,
+    "unknown_included": true,
+    "hand_arithmetic": true,
+    "departure_label_isolation": true,
+    "row_order_invariant": true
+  }
+}

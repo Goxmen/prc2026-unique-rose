@@ -1,0 +1,228 @@
+{
+  "design": {
+    "parent": "v74",
+    "gate": "at least50 accepted training matches, every label outside recovered window",
+    "matching": "exact flight and movement route; compatible aircraft; consistent plan route; exactly one candidate",
+    "landing_gap_sec": [
+      600,
+      72000
+    ],
+    "window_sec": 3606,
+    "airports": "all airports; gate fitted on allowed training months",
+    "held_labels": "final development scoring only"
+  },
+  "support": {
+    "2025-01": [
+      {
+        "airport": "EDDF",
+        "size": 35,
+        "sum": 35,
+        "allowed": false
+      },
+      {
+        "airport": "EDDM",
+        "size": 88,
+        "sum": 88,
+        "allowed": true
+      },
+      {
+        "airport": "EGLL",
+        "size": 73,
+        "sum": 73,
+        "allowed": true
+      },
+      {
+        "airport": "EHAM",
+        "size": 30,
+        "sum": 22,
+        "allowed": false
+      },
+      {
+        "airport": "LEBL",
+        "size": 99,
+        "sum": 96,
+        "allowed": false
+      },
+      {
+        "airport": "LEMD",
+        "size": 82,
+        "sum": 82,
+        "allowed": true
+      },
+      {
+        "airport": "LFPG",
+        "size": 150,
+        "sum": 149,
+        "allowed": false
+      },
+      {
+        "airport": "LIRF",
+        "size": 82,
+        "sum": 82,
+        "allowed": true
+      },
+      {
+        "airport": "LSZH",
+        "size": 21,
+        "sum": 20,
+        "allowed": false
+      },
+      {
+        "airport": "LTFM",
+        "size": 58,
+        "sum": 58,
+        "allowed": true
+      }
+    ],
+    "2025-07": [
+      {
+        "airport": "EDDF",
+        "size": 41,
+        "sum": 39,
+        "allowed": false
+      },
+      {
+        "airport": "EDDM",
+        "size": 56,
+        "sum": 56,
+        "allowed": true
+      },
+      {
+        "airport": "EGLL",
+        "size": 33,
+        "sum": 33,
+        "allowed": false
+      },
+      {
+        "airport": "EHAM",
+        "size": 19,
+        "sum": 15,
+        "allowed": false
+      },
+      {
+        "airport": "LEBL",
+        "size": 52,
+        "sum": 50,
+        "allowed": false
+      },
+      {
+        "airport": "LEMD",
+        "size": 43,
+        "sum": 43,
+        "allowed": false
+      },
+      {
+        "airport": "LFPG",
+        "size": 90,
+        "sum": 89,
+        "allowed": false
+      },
+      {
+        "airport": "LIRF",
+        "size": 41,
+        "sum": 41,
+        "allowed": false
+      },
+      {
+        "airport": "LSZH",
+        "size": 8,
+        "sum": 7,
+        "allowed": false
+      },
+      {
+        "airport": "LTFM",
+        "size": 46,
+        "sum": 46,
+        "allowed": false
+      }
+    ],
+    "production": [
+      {
+        "airport": "EDDF",
+        "size": 55,
+        "sum": 53,
+        "allowed": false
+      },
+      {
+        "airport": "EDDM",
+        "size": 111,
+        "sum": 111,
+        "allowed": true
+      },
+      {
+        "airport": "EGLL",
+        "size": 81,
+        "sum": 81,
+        "allowed": true
+      },
+      {
+        "airport": "EHAM",
+        "size": 35,
+        "sum": 27,
+        "allowed": false
+      },
+      {
+        "airport": "LEBL",
+        "size": 117,
+        "sum": 114,
+        "allowed": false
+      },
+      {
+        "airport": "LEMD",
+        "size": 93,
+        "sum": 93,
+        "allowed": true
+      },
+      {
+        "airport": "LFPG",
+        "size": 179,
+        "sum": 177,
+        "allowed": false
+      },
+      {
+        "airport": "LIRF",
+        "size": 95,
+        "sum": 95,
+        "allowed": true
+      },
+      {
+        "airport": "LSZH",
+        "size": 23,
+        "sum": 22,
+        "allowed": false
+      },
+      {
+        "airport": "LTFM",
+        "size": 80,
+        "sum": 80,
+        "allowed": true
+      }
+    ]
+  },
+  "months": {
+    "2025-01": {
+      "parent": 326.6173940355033,
+      "candidate": 326.61725530154257,
+      "changed": 1
+    },
+    "2025-07": {
+      "parent": 260.8172239516663,
+      "candidate": 260.8172239516663,
+      "changed": 0
+    }
+  },
+  "paired": {
+    "change": -6.936698036952293e-05,
+    "ci95": [
+      -0.00025871295746284775,
+      0.0
+    ],
+    "decision": "inconclusive"
+  },
+  "cv": 293.7172396266044,
+  "ranking_changed": 3,
+  "source": {
+    "path": "VALIDATION/recovered_plan_all_airports.py",
+    "sha256": "cd77c61e866faf2a23367041f2db0672a114dd231af6f6d050702dc4f4a4744d"
+  }
+}

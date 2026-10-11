@@ -1,0 +1,445 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_boundary_jan_jul/identity.json",
+    "sha256": "e57c661784c66b5bc6de590934192d51d4221a09aba16508a64e00215f46b373"
+  },
+  "design": {
+    "parent": "selected half sparse3/half calls15 combination",
+    "change": "dense pointwise before/after off-block supervision of physical-scale encoder",
+    "original_columns": 156,
+    "added_columns": [],
+    "model": {
+      "parent": {
+        "features": [
+          "stand_near50m",
+          "stand_near200m",
+          "stand_near1000m",
+          "runway_near100m",
+          "runway_near500m",
+          "runway_near2000m",
+          "stand_log_distance",
+          "runway_log_distance",
+          "east_velocity",
+          "north_velocity",
+          "sampled_gap",
+          "sampled_pair_known",
+          "actual_clock_minute_scale",
+          "slow_speed"
+        ],
+        "stand_scales_m": [
+          50,
+          200,
+          1000
+        ],
+        "runway_scales_m": [
+          100,
+          500,
+          2000
+        ],
+        "velocity_scale_mps": 50,
+        "clock_scale_sec": 60,
+        "slow_speed_scale_kt": 5,
+        "initialization": "parallel linear stem zero; original encoder and RNG preserved",
+        "new_data": false,
+        "additional_dropout": 0
+      },
+      "change": "training-only per-point off-block boundary head",
+      "auxiliary_weight": 0.1,
+      "label_smoothing_sec": 30.0,
+      "point_age_scale_sec": 7200.0,
+      "label": "sigmoid((clipped recorded taxi duration - point age)/30)",
+      "reduction": "mean over valid points per usable flight, then mean over flights",
+      "usable": "at least two points; original ordinary training population",
+      "initialization": "zero linear point head; old parameters and RNG unchanged"
+    },
+    "original_model": {
+      "sequence_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "width": 32,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "kernel": 3,
+      "dilations": [
+        1,
+        4,
+        16
+      ],
+      "activation": "SiLU",
+      "normalization": "LayerNorm over channels independently per point",
+      "pooling": "masked mean and max",
+      "fusion_hidden": 128,
+      "final_residual_initialization": "zero",
+      "usable": "at least two distinct timestamps",
+      "original_inputs": 156,
+      "extra_dropout": 0
+    },
+    "sequence": {
+      "window_before_sec": 7200,
+      "window_after_sec": 60,
+      "max_points": 128,
+      "minimum_distinct_timestamps": 2,
+      "labels_used": false,
+      "identity": "audited unique near-takeoff identity; missing and ambiguous remain absent",
+      "sort": [
+        "airport",
+        "hex",
+        "ts_ms",
+        "lat",
+        "lon",
+        "alt",
+        "gs"
+      ],
+      "duplicate_timestamp": "retain lexicographically first lat/lon/alt/gs per airport/hex/time",
+      "selection": "floor(linspace(0,n-1,128)); first and last always retained",
+      "gap": "previous raw observation within query window; first=-1; never interpolated",
+      "ground_alt_code": -123,
+      "other_negative_alt": "unknown",
+      "negative_speed": "unknown",
+      "origin": "mean of the airport X-Plane runway ends",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "point_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "bounds": {
+        "time": [
+          -0.008333333333333333,
+          1
+        ],
+        "gap": [
+          0,
+          1
+        ],
+        "east_north": [
+          -2,
+          2
+        ],
+        "speed": [
+          0,
+          1
+        ],
+        "altitude": [
+          0,
+          1
+        ],
+        "distance": [
+          0,
+          1
+        ],
+        "clock": [
+          -1,
+          1
+        ]
+      },
+      "scales": {
+        "time_sec": 7200,
+        "gap_log_sec": 7260,
+        "east_north_m": 20000,
+        "speed_kt": 300,
+        "altitude_ft": 10000,
+        "distance_m": 40000,
+        "clock": "clip(asinh((point-originalAOBT)/1800),-8,8)/8",
+        "raw_count_cap": 4096
+      },
+      "padding": "right padding, independent boolean point mask, all padded channels zero",
+      "absent_sequence": "0 or 1 points cached honestly; model residual hard-gated off"
+    },
+    "seed": 42,
+    "fixed_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "target": "original direct min(y,10800), standardized with ordinary training population",
+    "training": "original sparse training schedule plus fixed 0.1 pointwise auxiliary BCE",
+    "preprocessing": "exact original156 preprocessing, checked against saved control",
+    "machine": "desktop RTX3080; same-machine saved physical-scale seed42 controls",
+    "primary": "half boundary single/half calls15 versus half physical single/half calls15",
+    "selected_reference": "actual three-sparse-member v64; pool-size difference explicit",
+    "tree": "selected callsign main LightGBM plus original airport and CatBoost, seed42",
+    "rome": "selected half Cat3/half R20",
+    "network_share": 0.71,
+    "rules": "unchanged",
+    "no_inner_stopping": true,
+    "no_weight_search": true,
+    "no_new_gate": true,
+    "held_labels": "fixed-epoch monitoring and final development score only",
+    "exploratory_reused_development_months": true,
+    "production_or_upload": false
+  },
+  "month": "2025-01",
+  "seed": 42,
+  "stop_epoch": 21,
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+      "sha256": "ee1239362fd6b4a32c412931465be86a928b9c0904f7ec64b5b74291435ab2c7"
+    },
+    "control_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-01_s42.json",
+      "sha256": "618dc1053b75db5270046d8c99d26304b45867fd846758dfde4646bb3238811b"
+    },
+    "control_prediction": {
+      "path": "VALIDATION/runs/v3_20261011_nn_track_physical_scales_jan_jul/networks/2025-01_s42.parquet",
+      "sha256": "325e16a9d3ce4272fa27424d7a60fc96ba2db7545c2a1572eabadd587d999c2f"
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+      "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_boundary_jan_jul/models/2025-01_s42.pt",
+    "sha256": "469d27eebe20035a9b3fe8853781de1fb7ab91941e0d02cbdfc675777da54eb1"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_boundary_jan_jul/networks/2025-01_s42.parquet",
+    "sha256": "aa9a8d7e6b3b6b79eaefcbf2eaf55cc98b133e4d67f2c686bd8d351e9d9996b7"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+    "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+  },
+  "curve": [
+    {
+      "epoch": 1,
+      "train_loss": 0.3722678640916342,
+      "train_mse_std": 0.3455134232654108,
+      "auxiliary_bce": 0.26754440211173763,
+      "rmse": 471.8448766282242,
+      "seconds": 30.90402896500018
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2617752826489246,
+      "train_mse_std": 0.2574484507634514,
+      "auxiliary_bce": 0.04326831970124372,
+      "rmse": 465.25863535812476,
+      "seconds": 31.872343488998013
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.24174803029265804,
+      "train_mse_std": 0.23866758573671448,
+      "auxiliary_bce": 0.03080444252611593,
+      "rmse": 460.46578630023447,
+      "seconds": 31.215744203000213
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.22641005850119603,
+      "train_mse_std": 0.22359313966590774,
+      "auxiliary_bce": 0.0281691872543126,
+      "rmse": 457.8201114717625,
+      "seconds": 31.656858315000136
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.21866087240579704,
+      "train_mse_std": 0.2159615105048067,
+      "auxiliary_bce": 0.02699361862079874,
+      "rmse": 459.70872949551733,
+      "seconds": 30.815236096997978
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.2145100933881925,
+      "train_mse_std": 0.21187478606754068,
+      "auxiliary_bce": 0.02635307232023704,
+      "rmse": 455.3443854022642,
+      "seconds": 31.759599045995856
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.20656336176729667,
+      "train_mse_std": 0.20394488590294776,
+      "auxiliary_bce": 0.026184756625026905,
+      "rmse": 449.7503727539447,
+      "seconds": 31.909844418005378
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.19963858337361734,
+      "train_mse_std": 0.19707034191343986,
+      "auxiliary_bce": 0.025682412869066713,
+      "rmse": 458.0303230541409,
+      "seconds": 30.500690181004757
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.20124666744286282,
+      "train_mse_std": 0.1987029294916655,
+      "auxiliary_bce": 0.025437379014525467,
+      "rmse": 459.92103764338674,
+      "seconds": 32.34761554800207
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.19106463048155461,
+      "train_mse_std": 0.18855722798244484,
+      "auxiliary_bce": 0.025074025128349078,
+      "rmse": 461.38312806974096,
+      "seconds": 32.51446627599944
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.20453642613984907,
+      "train_mse_std": 0.20204416608809245,
+      "auxiliary_bce": 0.024922599042223204,
+      "rmse": 461.7408802244781,
+      "seconds": 31.896457807000843
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.19032804281846288,
+      "train_mse_std": 0.1878450222080108,
+      "auxiliary_bce": 0.0248302056809542,
+      "rmse": 456.6784120437302,
+      "seconds": 32.07830401400133
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.1951367327533624,
+      "train_mse_std": 0.192664874310758,
+      "auxiliary_bce": 0.024718586006711386,
+      "rmse": 458.0126514260355,
+      "seconds": 32.604419556999346
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.1755105776740586,
+      "train_mse_std": 0.17305322955144498,
+      "auxiliary_bce": 0.0245734834077214,
+      "rmse": 457.69417307101986,
+      "seconds": 31.38003390999802
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.1674588316587611,
+      "train_mse_std": 0.16502586540105596,
+      "auxiliary_bce": 0.024329661234247516,
+      "rmse": 457.24516766740214,
+      "seconds": 31.59971319000033
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.16177177867659218,
+      "train_mse_std": 0.15935493277817347,
+      "auxiliary_bce": 0.024168461248711276,
+      "rmse": 457.6532584010178,
+      "seconds": 31.59368681700289
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.1562025280659556,
+      "train_mse_std": 0.153794757009581,
+      "auxiliary_bce": 0.024077711978424322,
+      "rmse": 458.4443149213369,
+      "seconds": 31.595366923997062
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.1491298922718111,
+      "train_mse_std": 0.14673815632622458,
+      "auxiliary_bce": 0.02391736043467867,
+      "rmse": 457.4383654001627,
+      "seconds": 30.868404303997522
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.14424573673224503,
+      "train_mse_std": 0.14185990858017591,
+      "auxiliary_bce": 0.02385828196597068,
+      "rmse": 457.8369021201935,
+      "seconds": 31.007837206001568
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.1406273571114007,
+      "train_mse_std": 0.1382503049477407,
+      "auxiliary_bce": 0.023770520236286577,
+      "rmse": 457.760440441076,
+      "seconds": 31.511440007998317
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.1370753281576585,
+      "train_mse_std": 0.1347037597388224,
+      "auxiliary_bce": 0.023715684067362536,
+      "rmse": 457.6461949609474,
+      "seconds": 30.730110741002136
+    }
+  ],
+  "minutes": 11.051917841233323,
+  "train_rows": 1596201,
+  "held_rows": 153706,
+  "host": "GPC",
+  "gpu": "NVIDIA GeForce RTX 3080",
+  "torch": "2.14.1+cu130"
+}

@@ -1,7 +1,8 @@
 # Next steps
 
 **Active target, 11 October 2026: 215.00 seconds or lower.** Continue autonomous
-uploads and Jan/Jul validation. Best/latest is v73 at 223.1850; the remaining gap is 8.1850 seconds.
+uploads and Jan/Jul validation. Best/latest is v74 at 221.6881; the remaining gap is 6.6881 seconds.
+All five UTC October11 upload slots are used; continue offline validation.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

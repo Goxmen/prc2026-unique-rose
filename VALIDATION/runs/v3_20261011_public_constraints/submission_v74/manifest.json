@@ -1,0 +1,92 @@
+{
+  "version": 74,
+  "state": "scored",
+  "file": "submissions/unique-rose_v74.parquet",
+  "sha256": "55bd7ba5c8aa214b676ca5ec11ca0e882aab3bb93b0a31e9d724aac72f3989c5",
+  "parent": "v73",
+  "change": "public monthly-level and recovered-plan correction stage",
+  "rows": 344841,
+  "jan_jul_cv": 293.71730899358477,
+  "cv_record": {
+    "path": "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/cv.json",
+    "sha256": "a37f09a5ec084b20bc6de1170334023f18e68f450b4fefcc072989c903100aaa"
+  },
+  "sources": {
+    "VALIDATION/public_constraints_candidate.py": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234",
+    "VALIDATION/monthly_taxi_reconcile.py": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572",
+    "VALIDATION/recovered_plan_exclusion_fixed.py": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa",
+    "VALIDATION/daily_delay_reconcile.py": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06",
+    "VALIDATION/runs/v3_20261011_expanded_affine/submission_v73/manifest.json": "984f5f3e02145c8a910b139f687b499ab105657e9991241ee3ed73b9a2379f64",
+    "VALIDATION/runs/v3_20261011_expanded_affine/submission_v73/cv.parquet": "580b298e147ae4b2934a60b949e996ec508fc3245b1548a22be231e0b9dbf653",
+    "VALIDATION/runs/v3_20261011_monthly_taxi/result.json": "44aa5a06ffc5f3a2046d92e84de4f19a8eb4d3737b591fda321a3581a732a75a",
+    "VALIDATION/runs/v3_20261011_monthly_taxi/rows2025.parquet": "4f54fdfd841d3f287cd691c9fdb4ae5e9cc04f6f99347e5d055c0cc17db9d02b",
+    "VALIDATION/runs/v3_20261011_monthly_taxi/predictions.parquet": "6953cfaf21a96d55eeccdcfff66a6c8314da6d2b77a336183b469cc6bb89c005",
+    "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/result.json": "bf545a4ce1c950257229b85eb44936677e11c643db901fadf30ffdeed708d750",
+    "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/cache_identity.json": "1646b266b59f2edc047342b5d9cfb2ced99e28b69823f8cc4d92ca95554f8f41",
+    "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3",
+    "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/ranking_matches.parquet": "4631ed21c1d79ec9fb00e0522a3ba405558de6afc0a8190eb8047d8e6b8e11b0",
+    "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6",
+    "VALIDATION/runs/v3_20261011_daily_delay/ranking_inputs.parquet": "872c0c62847b25fc97700c32e14239d5a990228fef2cc960b9ec5be17c95e9bf",
+    "data/ranking.parquet": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86",
+    "data/submitting.parquet": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+    "submissions/unique-rose_v73.parquet": "b6f3bdea63d3b54db1376c27b086bf67e6761519e54fabf2f632a02381f21b29",
+    "data/external/eurocontrol_performance_20261011/manifest.json": "7e2cf43c6d6de298140687d0eef83ed6ff17e8658e2402c760c8abef88dbb175",
+    "data/external/eurocontrol_performance_20261011/taxi_out_additional_time_2025.csv": "4aedf19520d3f84bebc418b56835762c907b714a9c19e751bb8658f9e62ce598",
+    "data/external/eurocontrol_performance_20261011/taxi_out_additional_time_2026.csv": "b72040e0987e6c7d5706279d645ef9f814a6506165c83f89d8509022154a1076",
+    "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/parameters.json": "cd0586523ffc85b908043689dcd3bd31d97f4fc85b27c7616ed72e3e360947b7",
+    "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/cv.json": "a37f09a5ec084b20bc6de1170334023f18e68f450b4fefcc072989c903100aaa",
+    "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/cv.parquet": "9061d6fa5ce21f88a80802b308959a6911c989aaf354a046b99448a66db76c45",
+    "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/monthly_cells.parquet": "3189e92351f78bc1919cf701be12c7c26ff6a9c94080404f5d09e33643739795",
+    "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/exclusion_audit.parquet": "655482e646b7b9e527b04dc752dc13bfcaf5c7b8bbb4f2123e8e488434abb1a6",
+    "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/predictions.parquet": "1e0d924589d690da0f4390ce697bfa81db7080a55544796a22e8cae9927280f4",
+    "VALIDATION/tools/audit_public_constraints.py": "bfd3de23c08f2f05af03031c00a69f9691ecd2334800c742d6205a8d27ed33ab",
+    "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/audit.json": "e539cf263dc16cf0fa996c285abc8d49fa2b8a3f2b5afda1d0f06166e06b2351"
+  },
+  "authorization": "October11 user authorized autonomous uploads",
+  "audit": {
+    "template_ids_and_schema_exact": true,
+    "readback_exact": true,
+    "monthly_cv_reproduced_exact": true,
+    "no_targets_in_inference": true,
+    "independent_review": {
+      "passed": true,
+      "independent_donor_checks": [
+        [
+          175,
+          0.0
+        ],
+        [
+          49,
+          0.0
+        ]
+      ],
+      "negative_lower_edge_cases": 4,
+      "replay_rows": 344841,
+      "all_stages_exact": true,
+      "source": {
+        "path": "VALIDATION/tools/audit_public_constraints.py",
+        "sha256": "bfd3de23c08f2f05af03031c00a69f9691ecd2334800c742d6205a8d27ed33ab"
+      },
+      "file_sha256": "55bd7ba5c8aa214b676ca5ec11ca0e882aab3bb93b0a31e9d724aac72f3989c5"
+    }
+  },
+  "changed_rows": 273161,
+  "matched_bound_changes": 70,
+  "recovered_exclusion_changes": 20,
+  "limitations": "Unobserved deicing, reference eligibility and helicopter exclusions; true/predicted truncation mismatch",
+  "uploaded_at": "2026-10-11T05:10:32+00:00",
+  "remote_sha256": "55bd7ba5c8aa214b676ca5ec11ca0e882aab3bb93b0a31e9d724aac72f3989c5",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v74.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 221.6881
+  },
+  "checked_at": "2026-10-11T05:12:08+00:00",
+  "score": 221.6881
+}

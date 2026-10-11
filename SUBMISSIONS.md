@@ -10,13 +10,13 @@ scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 4
 were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are `-`.
 On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
-**Active target: 215.00 seconds or lower. Best/latest: v73, 223.1850 s.**
-V73 improves v71 by **1.1752 seconds**; **8.1850 seconds** remain to the target.
-Live 11 October 06:53 Amsterdam: **rank 13/242**, all **344,841** original
-January/July flights scored. The full daily correction v72 lost (226.5719),
-while including it at lower weight in the scored blend improved the result.
-V73 Jan/Jul CV is **295.2491**; weights use own leaderboard feedback, not
-independent validation. [Current research](VALIDATION/reports/TARGET215_RESEARCH.md).
+**Active target: 215.00 seconds or lower. Best/latest: v74, 221.6881 s.**
+V74 improves v73 by **1.4969 seconds**; **6.6881 seconds** remain to the target.
+Live 11 October 07:12 Amsterdam: **rank 12/242**, all **344,841** original
+January/July flights scored. Monthly public aggregates and recovered-plan
+constraints improved both CV and the leaderboard. V74 Jan/Jul CV is **293.7173**;
+its parent uses own leaderboard feedback, not independent validation.
+[Current research](VALIDATION/reports/TARGET215_RESEARCH.md).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -129,6 +129,7 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 72 | **Pooled-component-ensemble** | Row 70 adds the separately scored physical-track pool. | - | - | - | - | 296.3160 | **224.3602** | v71 |
 | 73 | **Daily-delay-posterior** | Row 72 conditions predictions on public daily pre-departure totals. | - | - | - | - | 295.4354 | 226.5719 | v72 |
 | 74 | **Daily-component-ensemble** | Row 72 adds the separately scored daily-delay posterior to its basis. | - | - | - | - | 295.2491 | **223.1850** | v73 |
+| 75 | **Public-constraints** | Row 74 adds a monthly-level and recovered-plan correction stage. | - | - | - | - | 293.7173 | **221.6881** | v74 |
 
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV was adopted
@@ -984,3 +985,5 @@ The organiser has approved open trajectory data if declared; this is the declara
 
 
 - **Row 74 (v73)** extends v71's basis with the separately scored v72, retaining bounds [−3, 4] and ridge 1. The new component receives weight 0.4033 while other weights are recomputed. Jan/Jul CV **296.3160 → 295.2491 (−1.0669)**, interval [−2.0688, −0.1323]; both months improve. Selection remains explicitly leaderboard-conditioned and these are reused development predictions. The independent MSE identity projects **223.1851**; clipping one raw negative and rounding has RMS 0.2884 seconds, with conservative upper bound **223.4742**. **Official 223.1850**, processed 11 October 06:52:34 Amsterdam, improving v71 by 1.1752 seconds. All source, identity/schema, serialization and remote-hash checks pass. Live rank 13/242; the 215.00 target is still active. [CV record](VALIDATION/runs/v3_20261011_expanded_affine/submission_v73/cv.json), [submission record](VALIDATION/runs/v3_20261011_expanded_affine/submission_v73/manifest.json).
+
+- **Row 75 (v74)** applies three sequential parts to v73: half-strength EUROCONTROL monthly-mean calibration, restoration of matched-plan convex bounds after the affine blend, and a recovered missing-plan exclusion interval. CV **295.2491 → 293.7173 (−1.5318)**, paired-day interval **[−3.2008, −0.5140]**; both months improve. The monthly estimator uses only permitted training months and airport-local calendars. Unique exact flight/route arrival-plan matches support the exclusion interval in 175/175 training cases; this nonconvex constraint has empirical support, not a general squared-error guarantee. An initial negative-boundary bug was corrected before selection. Independent checks reproduce all 224 recovered donor joins and all 344,841 final predictions; 70 matched-bound and 20 recovered-window predictions change. **Official 221.6881**, processed 11 October 07:11:06 Amsterdam, −1.4969 versus v73. Remote SHA-256 matches; live rank 12/242. All five UTC October11 upload slots are now used. [CV record](VALIDATION/runs/v3_20261011_public_constraints/submission_v74/cv.json), [submission record](VALIDATION/runs/v3_20261011_public_constraints/submission_v74/manifest.json), [audit](VALIDATION/runs/v3_20261011_public_constraints/submission_v74/audit.json).

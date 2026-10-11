@@ -1,0 +1,18 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "initial_predictions_match": true,
+      "expert_dispatch_exact": true,
+      "unknown_fallback_exact": true
+    },
+    {
+      "device": "cuda",
+      "initial_predictions_match": true,
+      "expert_dispatch_exact": true,
+      "unknown_fallback_exact": true
+    }
+  ],
+  "training_bytecode_exact": false,
+  "original_globals_unchanged": true
+}

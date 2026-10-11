@@ -120,14 +120,24 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   `VALIDATION/runs/v3_20261011_target215/`. Public EUROCONTROL daily aggregates
   have been downloaded once and independently audited; a discrete posterior
   improves v71 Jan/Jul CV by 0.8806 seconds, but its interval includes no gain.
-  v72 scored 226.5719 (worse), then its smaller contribution in v73 scored
-  **223.1850**, best/latest, rank 13/242. Four uploads used on UTC October11
-  (v70-v73); one slot remains. The 215 target still needs 8.1850 seconds.
-  A new pointwise off-block-boundary auxiliary network is fitting Jan/Jul
-  sequentially on the desktop: `nn_track_boundary_jan_jul.py`, log
-  `tmp/research_20261011/nn_boundary.log`. Do not start a second heavy job. Autonomous uploads remain authorized. All three agents report account
-  usage exhaustion, so root continues from retained work; do not restart them
-  to bypass that limit. Laptop WSL currently shows offline on Tailscale.
+  v72 scored 226.5719 (worse), v73 scored 223.1850, and **v74 is best/latest
+  at 221.6881**, rank 12/242 (07:12 Amsterdam), all 344,841 flights. V74 adds
+  monthly public-mean calibration and matched/recovered-plan constraints;
+  Jan/Jul CV 293.7173 (−1.5318). All five UTC October11 uploads are used
+  (v70–v74); next slot is October12 00:00 UTC /02:00 Amsterdam. The active
+  target needs 6.6881 seconds. Do not duplicate any fit or upload.
+  The pointwise off-block-boundary network completed both folds and failed
+  (+0.1697 CV; both months worse); retain models without production.
+  Airport fine-tuning finished and was inconclusive (−0.0462 versus matched
+  global continuation); retain both arms without production. All-airport
+  recovered-plan extension was numerical noise. Excluding explicit VFR from
+  public daily totals improves source identity sharply at EHAM/LSZH but gives
+  only −0.0177 versus the old posterior. New R20 Rome screen adds12 input-only
+  daily-aggregate features, retaining all settings/rows: desktop session16713,
+  `rome_public_delay_jan_jul.py`, log `tmp/research_20261011/rome_public_delay.log`.
+  No second heavy desktop job. Autonomous uploads remain authorized. All agents
+  report account usage exhaustion; do not restart them to bypass that limit.
+  Laptop WSL currently shows offline on Tailscale.
 
 - **October 11, 02:04: goal achieved — v71 officially 224.3602, best/latest, rank 15/242.** This is 0.6398 below the 225.00 target, 1.0392 better than v69 and 11.8293 better than v58, on the accepted 344,841-flight population. v70 physical pool scored 231.9066 (−0.8685 versus v64); adding it to the existing scored basis produced v71. Jan/Jul CV 296.3160 improves v69 but remains worse than v64/v70; weights use leaderboard scores, not independent validation. `physical_affine_clipped.py` accounts for one negative raw value and integer serialization; official score matches the 224.3602 projection. Records: `v3_20261011_physical_affine/submission_v71/` and `v3_20261011_target225/leaderboard_v71.json`. All fits and audits are complete and retained on desktop/laptop; no training job remains. Ground-only pooling failed its matched screen (+0.1272, inconclusive), as did Rome cost calibration and airport offsets; do not repeat. Two uploads used UTC October 11 (v70/v71). Autonomous uploads remain authorized, but this requested goal is complete; do not start more work for it. Historical active-goal/progress notes below are superseded.
 

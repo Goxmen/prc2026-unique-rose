@@ -1,0 +1,70 @@
+{
+  "design": {
+    "parent": "v73",
+    "airports": [
+      "LIRF",
+      "LTFM"
+    ],
+    "window_sec": 3606,
+    "landing_gap_sec": [
+      600,
+      72000
+    ],
+    "matching": "exact flight and movement route; compatible aircraft; consistent plan route; exactly one candidate",
+    "rule": "if prediction inside excluded interval, project to nearest nonnegative edge",
+    "target_access": "scoring and diagnostic only; recovery input allowlist",
+    "caveat": "Nonconvex support does not itself guarantee squared-error improvement; published gate saw reused2025 data"
+  },
+  "months": {
+    "2025-01": {
+      "parent": 326.92633040341144,
+      "candidate": 326.874997202016,
+      "changed": 2
+    },
+    "2025-07": {
+      "parent": 263.57178995014846,
+      "candidate": 261.41494762098165,
+      "changed": 7
+    }
+  },
+  "paired": {
+    "change": -1.1040877652811218,
+    "ci95": [
+      -2.7324558295719696,
+      -0.08908286451920246
+    ],
+    "decision": "improvement"
+  },
+  "diagnostics": {
+    "LIRF": {
+      "rows": 95,
+      "truth_outside": 95
+    },
+    "LTFM": {
+      "rows": 80,
+      "truth_outside": 80
+    }
+  },
+  "training": [
+    {
+      "fold": "2025-01",
+      "rows": 140,
+      "outside": 140
+    },
+    {
+      "fold": "2025-07",
+      "rows": 87,
+      "outside": 87
+    }
+  ],
+  "candidate_pairs": 200,
+  "accepted": 175,
+  "ranking_pairs": 51,
+  "ranking_accepted": 49,
+  "ranking_changed": 20,
+  "cv": 294.1449724114988,
+  "source": {
+    "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+    "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+  }
+}
