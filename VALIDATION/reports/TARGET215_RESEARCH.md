@@ -1,5 +1,50 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Fixed observation-variance screen prepared, 16:43 Amsterdam
+
+The public physical network uses one squared-error objective for both reliable
+clock observations and ambiguous recording cases. A new fixed screen learns a
+per-row observation variance while retaining exactly the same mean architecture,
+168 inputs, training population and clipped target. The loss is twice Gaussian
+negative log likelihood, `exp(-s) * (mean - target)^2 + s`, with standardized
+log variance bounded to [−6, 4]. Its new linear head sees the existing hidden,
+track, quality and public inputs and starts at zero. At initialization the loss
+and original mean gradients are exactly those of MSE. Inference still uses only
+the predicted mean. This is a hypothesis about training behavior, not a claimed
+improvement or a change to the leaderboard metric.
+
+`nn_public_gaussian.py` and `nn_public_gaussian_jan_jul.py` preserve the existing
+seed42, 21/17 epochs, batches, AdamW and OneCycle schedule. An AST comparison
+permits only the loss statement and its logged metric name to differ from the
+frozen trainer. CPU checks pass for original weights, nonzero mean paths,
+initial outputs/loss/gradients, initialization/dropout randomness, padding,
+variance-only changes leaving mean inference unchanged, and independent
+analytic gradients at nonzero variance. CUDA checks run before any fit. Each
+completed fit saves a recovery checkpoint before diagnostics; every held mean
+and variance reloads, with separate sampled input/model and all-row SQL audits.
+Selection uses matched Jan/Jul RMSE and the one-of-three replacement in v76.
+There is no variance/weight/stopping scan and no selected production fit.
+
+Identity SHA-256:
+`5ba0cd80630bf8f81ee4cd085444bf59d2eaa83e7ac942580df8a979f017dfd8`.
+Queue959021 waits behind candidate packaging959020, which follows the existing
+daily-main finish943880. The earlier idle Gaussian waiter957091 was replaced
+before any child or fit so selected production is packaged first. All five
+current queue source bindings pass; one heavy job per host remains enforced.
+
+`daily_refinements_candidate.py` packages the selected combined production file
+without fitting or recalibration. Its pending v77 build preserves the component
+bytes, copies Jan/Jul predictions, binds immutable sources and the v76 snapshot,
+and independently checks all344,841 ranking values and344,419 CV rows in SQL.
+No v77 file, submission row or upload is claimed before those stages complete.
+V75/V76 upload watchers remain unchanged.
+
+The laptop daily-main model checkpoint is saved after17.66minutes onGLAPTOP;
+SHA-256 `2977801222c1d77ceeeff579f6c923a61269e13805577d0999a7cfb346c51d94`.
+Ranking inference/reload checks are still running, so the collector has not yet
+accepted a complete return. Live16:41Amsterdam still gives v74 at221.6881,
+rank12/242 on344,841 rows, leaving6.6881seconds to the active target.
+
 ## Rome daily features closed; returned CatBoost fully audited, 16:28 Amsterdam
 
 All six Rome daily-taxi classifier fits and audits are complete. V76 CV changes

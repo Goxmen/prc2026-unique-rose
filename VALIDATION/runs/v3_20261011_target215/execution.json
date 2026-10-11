@@ -17,7 +17,7 @@
     "pid": 5443,
     "queue_pid": 2979,
     "queue_start": "132812",
-    "state": "running",
+    "state": "checkpoint saved; ranking prediction and reload checks running",
     "started_at": "2026-10-11T14:17:46.461470+00:00",
     "log": "tmp/research_20261011/daily_main_laptop.log",
     "identity": "VALIDATION/runs/v3_20261011_daily_main_submit/identity.json",
@@ -34,6 +34,11 @@
       "return_state": "complete; model/receipt/input audit hashes verified; desktop waiter943861 resumed",
       "returned_at": "2026-10-11T14:19:41.587252+00:00",
       "desktop_audit": "pass; every ranking prediction reloaded exactly"
+    },
+    "model_checkpoint": {
+      "sha256": "2977801222c1d77ceeeff579f6c923a61269e13805577d0999a7cfb346c51d94",
+      "fit_minutes": 17.6563007738,
+      "host": "GLAPTOP"
     }
   },
   "utc_uploads_used": [
@@ -318,7 +323,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T14:24:57.926250+00:00",
+  "updated_at": "2026-10-11T14:42:28.234541+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -453,9 +458,9 @@
       "fixed_daily_taxi_rome_cat3"
     ]
   },
-  "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1522.json",
+  "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1643.json",
   "last_live_leaderboard_check": {
-    "updatedAt": "2026-10-11T14:22:40+00:00",
+    "updatedAt": "2026-10-11T14:41:33+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -507,5 +512,25 @@
     "jobs": [
       "daily_main_return_and_combined_production"
     ]
-  }
+  },
+  "daily_refinements_candidate_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/daily_refinements_candidate_queue.json",
+    "pid": 959020,
+    "state": "waiting",
+    "process_live": true,
+    "jobs": [
+      "package_selected_daily_refinements"
+    ]
+  },
+  "nn_public_gaussian_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/nn_public_gaussian_queue.json",
+    "pid": 959021,
+    "state": "waiting",
+    "process_live": true,
+    "jobs": [
+      "fixed_public_gaussian_observation_likelihood"
+    ]
+  },
+  "new_hypothesis": "Fixed learned Gaussian observation variance; mean model and inputs unchanged; CPU initial outputs/loss/gradients/RNG and analytic gradient checks pass; no fit yet",
+  "candidate_packaging": "v77 packaging queued after selected daily-main component audit; no file or upload exists yet"
 }

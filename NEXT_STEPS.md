@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
-v74 at **221.6881**, leaving6.6881 seconds. Live check at16:22 Amsterdam:
+v74 at **221.6881**, leaving6.6881 seconds. Live check at16:41 Amsterdam:
 rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
 Autonomous submissions and both machines remain authorized. The laptop's
 full174 CatBoost fit is complete (10,000 rounds,28.07minutes); its328.53MB
@@ -9,6 +9,14 @@ model returned with a verified hash. All344,841 ranking predictions reload
 exactly, and the CatBoost/daily-quality combined production component is built
 and audited (CV291.5895). The laptop now trains the selected daily main
 tree (worker5443, queue2979). Both hosts retain one heavy job at a time.
+
+A fixed Gaussian-likelihood neural screen is prepared: learn observation
+variance while keeping the mean architecture, 168 inputs and 21/17 epochs.
+CPU initialization, gradient, randomness and padding checks pass; CUDA checks
+and both CV fits are queued, so no gain is claimed. Queue959021 follows
+packaging959020, which follows daily-main finish943880. The packaging stage
+will create/audit v77 from the selected combined component; no v77 file or
+upload exists yet. See `TARGET215_RESEARCH.md` for the frozen design.
 
 The daily main-tree screen now passes its all-row model/SQL audit. Its gain
 shrinks from0.0852 versus v76 to **0.0398** on top of the selected CatBoost and

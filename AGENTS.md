@@ -114,6 +114,20 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 16:43 Amsterdam: fixed Gaussian neural loss screen prepared; selected packaging queued.**
+  `nn_public_gaussian.py` / `nn_public_gaussian_jan_jul.py` add a zero-initialized
+  log-variance head, preserving the mean architecture/168 inputs/seed42/21–17
+  epochs. Loss becomes twice Gaussian NLL; only mean RMSE selects it. CPU
+  output/loss/gradient/RNG/padding and independent analytic gradient checks pass;
+  full original trainer AST differs only in loss and metric name. No fit yet.
+  Run `v3_20261011_nn_public_gaussian`, queue959021 after959020. The latter packages
+  and audits selected combined production as v77 after daily-main finish943880;
+  no v77 file or upload exists yet. Existing early-public943879 and inverse943878
+  remain ahead of that chain. Laptop5443 still fits daily main; collector935144
+  waits. One heavy job per host. All queue source hashes pass. The previous idle
+  Gaussian waiter957091 was replaced before any child/fit to package production
+  first; its queue is archived. V75/V76 upload watchers are unchanged.
+
 - **October 11, 16:28 Amsterdam: Rome daily features closed; selected CatBoost production audited.**
   All six Rome daily-taxi classifier fits/audits pass, but CV worsens **+0.1190**
   versus v76 and **+0.1239** within the daily-quality recipe, both months worse,

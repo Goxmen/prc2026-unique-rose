@@ -1,0 +1,44 @@
+{
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "predecessor_pid": 943880,
+  "predecessor_start": "9691485",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/audit.json",
+  "created_at": "2026-10-11T14:40:09.781488+00:00",
+  "state": "waiting",
+  "jobs": [
+    {
+      "name": "package_selected_daily_refinements",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_refinements_candidate.py",
+          "build",
+          "--version",
+          "77"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_refinements_candidate.py",
+          "audit",
+          "--version",
+          "77"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/daily_refinements_candidate.py": "2901ff27a8b57d47d4a120f971d88c95f6d3b0b5395cb4c9b9fe5f1ab5d502d8",
+        "VALIDATION/daily_main_refinements_submit.py": "867ae62e00b3a5be71c0ec601c30574a31316bb805d293b3f462f1f8ac1540c1",
+        "VALIDATION/daily_main_refinements_cv.py": "f4db783eb6a7b27f38194f786173ab30d0f655afba7e903ca4ca071a1382de03",
+        "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/result.json": "74d5befb67c2cd83f547364054e41ae73d89e6a66b03206b0b4947c3c02111ef",
+        "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/audit.json": "5ee09e0ad374f67eadc147f0461a1398f7c8797ffa271daca749f4a007f8894e"
+      },
+      "log": "tmp/research_20261011/daily_refinements_candidate.log",
+      "result": "VALIDATION/runs/v3_20261011_daily_refinements_candidate/submission_v77/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T14:40:09.809981+00:00",
+  "pid": 959020
+}
