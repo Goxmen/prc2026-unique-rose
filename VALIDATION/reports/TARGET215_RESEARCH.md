@@ -560,3 +560,28 @@ Runners: `daily_offblock_alignment.py`, `tools/audit_offblock_alignment.py`.
 Run: `v3_20261011_daily_offblock_alignment/`; queue:
 `v3_20261011_target215/offblock_alignment_queue.json`. Source audit, calendar
 preflight and the descriptive prior-date diagnostic are retained there.
+
+## Public neural production preparation
+
+`nn_public_submit.py` is prepared for a passing three-member result. Its
+preparation guard requires both the primary and v75-transfer comparisons to
+pass, plus the queued neural reload audit. It reuses the verified full-year
+156-column packet and original encoder, then appends the same twelve public
+transforms as CV. The three seeds retain the original15-epoch full-year schedule;
+training bytecode changes only the model constructor. CPU checks reproduce
+original weights/RNG for all three seeds and verify masking and gradient flow.
+
+No full-year public neural fit has started or been selected. The planned arm
+keeps all new members on the desktop; the original full-year physical pool was
+fitted on the laptop, while both CV pools use the desktop. Each future fit is
+saved before inference, and every old-ranking prediction must reproduce on
+reload. `tools/audit_public_neural_production.py` additionally checks a sample
+using the retained encoder, raw tracks and independently recomputed public
+transforms. These are prepared checks, not completed production audits.
+
+A fresh read of the credited public
+[daily-method source](https://github.com/il-miscusi/prc-2026-gracious-tornado/blob/main/research/final/levers/daily.py)
+also highlights a remaining difference: its ordinary-day shift uses a fitted
+heavy-tailed prior, while ours has fixed Gaussian scales. That is a possible
+follow-up after the pending date-alignment and structural-prior results; no
+new experiment or claim of gain follows from this source comparison alone.

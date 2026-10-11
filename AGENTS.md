@@ -208,6 +208,12 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   sources/fits are unchanged. All use `cancel_research_queue`. No date-aligned
   production or score yet; preserve source/calendars audits under
   `v3_20261011_daily_offblock_alignment/` and never infer dates from hidden labels.
+  `nn_public_submit.py` and `tools/audit_public_neural_production.py` are prepared
+  for a passing neural-pool result/audit. CPU initialization/RNG checks pass for
+  all three seeds; no full-year public neural fit is selected or started yet.
+  The runner reuses the original156 encoder/rows and15 epochs, appends the same
+  public12 transforms, and requires all-row ranking reloads. All new members
+  are bound to desktop; the retained original production pool used laptop.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL is offline on Tailscale; its Windows host is online but Windows
