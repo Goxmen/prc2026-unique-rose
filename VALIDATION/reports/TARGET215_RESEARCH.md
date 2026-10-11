@@ -1,5 +1,88 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Uncertain calendar screen closed, 20:35 Amsterdam
+
+The fixed calendar-aware correction gives CV290.930119→290.932236,
+change+0.002117seconds, paired-day interval[−0.030178,+0.040981]. January
+changes−0.000581 and July+0.004815. The result is inconclusive; no further
+calendar expansion, production, submission or selected-candidate row follows.
+
+The laptop completes inference in52.2seconds, reproducing every original
+control and preserving predictions under shuffled rows and poisoned labels
+within3.64e-10seconds. All2,336 original touched rows pass the fixed new gate;
+only10 targets span two possible UTC dates. The independent auditor checks
+all92,386 discrete state dates using Python UTC datetimes, all scope decisions,
+58 scalar multiday messages with SciPy densities (maximum1.11e-10seconds),
+and all344,419 raw-label/parent/fallback/constraint/SQL score rows. Exact-v78
+control replay passes. All returned files have matching remote/local hashes.
+
+Together with the closed attention and non-Rome screens, this turn produces
+no new selected candidate. Best/latest remains v74 at221.6881 as of20:23
+Amsterdam. At20:35, all four upload watchers and all four evaluation/follow-up
+watchers are live; file, manifest and declared source hashes match. V75–v78
+remain frozen for02:00–02:30Amsterdam on12October. The conditional fifth-slot
+coordinator still requires their actual successful scores. Both machines have
+completed the current research jobs, and the215target remains active.
+
+
+## Native-airport extension closed; uncertain calendar inference started
+
+The fixed all-nine-airport extension changes exact-v78 Jan/Jul CV
+290.930119→290.905917,−0.024202 with interval[−0.073983,+0.017770].
+January changes−0.028251 and July−0.020154. All317,891 inputs and9,966
+native-calendar calibration cells pass the independent audit; all344,419
+truth/parent/constraint/score rows agree. A separate219-row scalar message
+check agrees within7.3e-12seconds and checks every native prior and scope gate.
+The laptop completed inference in219.5seconds, including shuffled/poisoned
+replays, with maximum ordering discrepancy7.7e-11seconds. All returned hashes
+match. The result is inconclusive; no production, ledger row or upload follows.
+
+`joint_public_calendar.py` addresses a different limitation: assigning each
+flight to one UTC off-block day before conditioning on public totals. It now
+integrates each long-flight prior state into its implied day, and analytically
+integrates ordinary normal distributions across midnight. A flight contributes
+to only one day, retaining negative covariance between different daily totals.
+The ordinary shared15-second error includes probability flow across midnight.
+Source count mismatch uses expected membership with the retained noise formula;
+all nuisance parameters, priors, original touched scope and half strength stay
+fixed. Targets with unsupported or non-interior possible days retain their v78
+increment. Peers include all non-VFR flights in the held takeoff month.
+
+The26,528-row packet adds only takeoff epoch to the exact audited Rome inputs;
+every new value is separately checked in SQL against the retained raw source.
+All source tables and parameters are byte-identical. Numerical quadrature
+checks interval moments and all cross-midnight covariances, split-day moments
+recombine the original moments, the common derivative conserves the total,
+and synthetic two-day/fallback/permutation/poison checks pass. These caught a
+pandas datetime-resolution assumption before real inference; explicit day units
+fix it. No fitted or scored artifact was affected. The frozen screen runs on
+the laptop and compares with exact v78 through the same v77 correction origin.
+The Gaussian peer approximation and reused development data remain limitations;
+a separate final scalar/SQL audit is required before any selection.
+
+
+## Learned track attention closed; native-airport joint screen started
+
+The attention queue completed both fixed fits and the exact-v78 comparison.
+Matched CV291.302089→291.369246 worsens0.067157seconds. Replacing one of
+three pool members gives290.930119→290.919185, only−0.010933 with paired-day
+interval[−0.095097,+0.060959]. Both comparisons are inconclusive; no additional
+seeds, production or upload are selected. Original and new saved-model reloads
+agree exactly on all344,419 held rows;1,094 independent model rows agree within
+0.000749seconds, and all-row SQL truth/score/stack audits pass. Retain all fits.
+
+`joint_public_airports_cv.py` prepares the same joint-minus-departure correction
+for all nine non-Rome airports, against exact v78. It reuses each airport's
+original quantile support without Rome's copy-mode mixture, calibrates taxi
+count/sum noise on each native airport's allowed training cells, and retains
+its existing delay parameters. Fixed half strength and the existing long-gap,
+quality, source-support and calendar gates remain unchanged. No airport is
+selected using held labels. All317,891 compact inputs, all public source values
+and9,966 calibration cells pass a separate SQL/raw/calendar audit. Full local
+days are checked in each airport's timezone, including London and Istanbul.
+Inference runs on the laptop; no result or production selection is claimed yet.
+
+
 ## Conditional fifth-slot submission automated, 20:02 Amsterdam
 
 Queue1082968 waits for evaluator1068545 to finish with actual successful

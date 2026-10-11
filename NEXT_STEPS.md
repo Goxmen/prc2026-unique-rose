@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target: 215.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
-leaving **6.6881 seconds**. Live check: **11 October 20:03 Amsterdam**,
+leaving **6.6881 seconds**. Live check: **11 October 20:23 Amsterdam**,
 rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
 are used. Autonomous submissions and both machines remain authorized.
 
@@ -73,14 +73,32 @@ yet. The isolated laptop check passes13 resource/decision/failure cases without
 calling a live API or creating a real submission. Keep the fifth next-window
 slot for this conditional follow-up unless new evidence justifies changing it.
 
-A fixed learned attention-pooling screen is training on the desktop. One
-zero-initialized scalar score replaces uniform mean weights over the existing
-physical track states; max pooling, all168 inputs and the original21/17epoch
-schedule stay fixed. It adds32 parameters. CPU/GPU checks preserve original
-weights, outputs, RNG, padding and missing-track behavior. The previous raw
-input audit is reused only after all cache/fold/source identities match exactly.
-Queue1076700 runs both fits, saved-model checks and the fixed matched and
-one-of-three comparisons through exact v78. No candidate is selected yet.
+The fixed learned attention-pooling screen is complete and closed. Replacing
+one of three pool members changes exact-v78 CV by−0.0109 seconds, interval
+[−0.0951,+0.0610]; the matched single-member comparison worsens0.0672.
+Both fits, full saved-model reloads,1,094 independent model rows and all344,419
+SQL CV rows pass their audits. This is inconclusive; no extra seeds, production
+or submission follow. Preserve the completed models and receipts.
+
+The fixed non-Rome extension is complete and closed: CV290.930119→290.905917,
+change−0.024202, interval[−0.073983,+0.017770]. Both months improve slightly,
+but the result is inconclusive. The laptop completed inference in219.5seconds;
+all317,891 inputs,9,966 calibration cells,344,419 score rows and219 scalar
+messages pass audits. Native priors, scope gates and unchanged Rome rows are
+verified. No production or submission follows.
+
+The uncertain-calendar joint-source experiment is also complete and closed.
+Integrating Rome's possible UTC off-block days changes CV by+0.002117seconds,
+interval[−0.030178,+0.040981]; January−0.000581 and July+0.004815.
+Laptop inference takes52.2seconds and reproduces the old controls. Numerical
+quadrature, all92,386 support-state calendar assignments, all scope gates,
+58 independent scalar messages and all344,419 SQL score rows pass. Only10
+targets have support on multiple days, although uncertain peers can affect
+other targets. No expansion, production or submission follows.
+
+At20:35Amsterdam the four upload watchers and four evaluation/follow-up
+watchers remain live; candidate files, manifests and all declared source hashes
+match. The desktop and laptop have finished the current research jobs.
 
 The explicit-neighbour public-source screen is complete and closed. Retaining
 one largest-variance peer's full discrete support changes v78 CV by−0.0500,

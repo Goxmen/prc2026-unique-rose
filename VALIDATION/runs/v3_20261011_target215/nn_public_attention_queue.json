@@ -1,5 +1,5 @@
 {
-  "state": "running",
+  "state": "complete",
   "predecessor_pid": 1046322,
   "predecessor_start": "10673708",
   "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_attention/cpu_gpu_preflight.json",
@@ -48,7 +48,8 @@
         "VALIDATION/runs/v3_20261011_nn_public_attention/cpu_gpu_preflight.json": "93e3ce1ffb917c7957963a95d6d170808605d6dc115c85164bbfc237de743699"
       },
       "log": "tmp/research_20261011/nn_public_attention.log",
-      "result": "VALIDATION/runs/v3_20261011_nn_public_attention/score_audit.json"
+      "result": "VALIDATION/runs/v3_20261011_nn_public_attention/score_audit.json",
+      "completed_result_sha256": "c7d2ba7d223e732423938ed042f4c4d3d3b62e9e4f86798fd786af9c83a8eaf4"
     },
     {
       "name": "attention_exact_v78_stack",
@@ -95,12 +96,13 @@
         "VALIDATION/runs/v3_20261011_joint_public_moments/audit.json": "3d065bb05dc4a868fd7ad5634b8907575a640db56b5b612d2904d98be288fff5"
       },
       "log": "tmp/research_20261011/attention_selected_stack.log",
-      "result": "VALIDATION/runs/v3_20261011_attention_selected_stack/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_attention_selected_stack/audit.json",
+      "completed_result_sha256": "19c1c72e96677599a7af2d1b44569b84b9b3e14525aebd7e41657d91bfc29b5f"
     }
   ],
-  "updated_at": "2026-10-11T17:51:27.776890+00:00",
+  "updated_at": "2026-10-11T18:12:17.880167+00:00",
   "pid": 1076700,
-  "job": 0,
-  "stage": 0,
-  "child_pid": 1076701
+  "job": 1,
+  "stage": 3,
+  "child_pid": null
 }

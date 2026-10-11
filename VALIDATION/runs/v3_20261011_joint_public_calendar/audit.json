@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_calendar/identity.json",
+    "sha256": "d0f648a0bb85f0ce747d36fea0c111a8539ef53ffb9571af5867018b857075ee"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_calendar/result.json",
+    "sha256": "5eab2a22c5f7450c86691e8d935cf53f62863c65ee6dd8cca5d9b631acdf2d96"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_joint_public_calendar.py",
+    "sha256": "c83bb83142799d31711276352d1b25525f90de6d2e44dcdeb86db90e7025d573"
+  },
+  "rows": 344419,
+  "all_raw_truth_v78_parent_increment_fallback_and_sql_scores": true,
+  "final_constraints_replayed": true,
+  "scalar_message_checks": [
+    {
+      "month": "2025-01",
+      "rows": 11317,
+      "all_support_states_checked": 14816,
+      "all_scope_gates_checked": true,
+      "sampled_messages": 25,
+      "max_message_error": 2.751221472863108e-11
+    },
+    {
+      "month": "2025-07",
+      "rows": 15211,
+      "all_support_states_checked": 77570,
+      "all_scope_gates_checked": true,
+      "sampled_messages": 33,
+      "max_message_error": 1.1095835361629725e-10
+    }
+  ],
+  "independent_final_audit_pending": false,
+  "reviewer": "root; retained subagents unavailable on account quota"
+}

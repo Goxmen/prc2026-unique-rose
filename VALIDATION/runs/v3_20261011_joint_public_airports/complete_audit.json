@@ -1,0 +1,176 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_airports/identity.json",
+    "sha256": "b5ab75c3c52fee9d7466bcfc5fa0ab11ed4976f112461e128a5d1e598dc5bed3"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_joint_public_airports_messages.py",
+    "sha256": "5233b0d93d2eeb95b218fde5babdfbcf3d16512f880e1d78c62ff7c17e58074c"
+  },
+  "input_audit": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_airports/input_audit.json",
+    "sha256": "5fb132e2ec47522f1e9c1e7f2e877904b8a3b1f277dced7bef0905bdc9d90b05"
+  },
+  "score_audit": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_airports/audit.json",
+    "sha256": "156715d7918e12f3ade8360b0dd7418c06168cdc316efdbf2c744ed18fa09a54"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_airports/inference.json",
+    "sha256": "c923054e2b94dc8235bde152825c8031264da3e06090c8da565135c3bd6b343a"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_airports/result.json",
+    "sha256": "9f0500060c7c28dcff8a81446f9febf060d937cb9c448a1b2724c4db2de49e08"
+  },
+  "all_native_supports_and_scope_gates_checked": true,
+  "scalar_message_checks": [
+    {
+      "month": "2025-01",
+      "airport": "EDDF",
+      "rows": 15496,
+      "active": 596,
+      "sampled": 12,
+      "max_error": 7.048583938740194e-12
+    },
+    {
+      "month": "2025-01",
+      "airport": "EDDM",
+      "rows": 11266,
+      "active": 0,
+      "sampled": 0,
+      "max_error": 0.0
+    },
+    {
+      "month": "2025-01",
+      "airport": "EGLL",
+      "rows": 19420,
+      "active": 826,
+      "sampled": 12,
+      "max_error": 6.366462912410498e-12
+    },
+    {
+      "month": "2025-01",
+      "airport": "EHAM",
+      "rows": 18460,
+      "active": 1008,
+      "sampled": 16,
+      "max_error": 6.366462912410498e-12
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEBL",
+      "rows": 12234,
+      "active": 303,
+      "sampled": 16,
+      "max_error": 3.410605131648481e-12
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEMD",
+      "rows": 16510,
+      "active": 440,
+      "sampled": 16,
+      "max_error": 2.2737367544323206e-12
+    },
+    {
+      "month": "2025-01",
+      "airport": "LFPG",
+      "rows": 17900,
+      "active": 0,
+      "sampled": 0,
+      "max_error": 0.0
+    },
+    {
+      "month": "2025-01",
+      "airport": "LSZH",
+      "rows": 9735,
+      "active": 0,
+      "sampled": 0,
+      "max_error": 0.0
+    },
+    {
+      "month": "2025-01",
+      "airport": "LTFM",
+      "rows": 21368,
+      "active": 594,
+      "sampled": 16,
+      "max_error": 4.774847184307873e-12
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDF",
+      "rows": 21334,
+      "active": 1134,
+      "sampled": 12,
+      "max_error": 2.2737367544323206e-12
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDM",
+      "rows": 15825,
+      "active": 236,
+      "sampled": 16,
+      "max_error": 4.092726157978177e-12
+    },
+    {
+      "month": "2025-07",
+      "airport": "EGLL",
+      "rows": 20790,
+      "active": 1600,
+      "sampled": 12,
+      "max_error": 4.320099833421409e-12
+    },
+    {
+      "month": "2025-07",
+      "airport": "EHAM",
+      "rows": 22489,
+      "active": 1243,
+      "sampled": 16,
+      "max_error": 2.0463630789890885e-12
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEBL",
+      "rows": 16752,
+      "active": 1525,
+      "sampled": 16,
+      "max_error": 3.183231456205249e-12
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEMD",
+      "rows": 18818,
+      "active": 1289,
+      "sampled": 16,
+      "max_error": 2.9558577807620168e-12
+    },
+    {
+      "month": "2025-07",
+      "airport": "LFPG",
+      "rows": 21712,
+      "active": 734,
+      "sampled": 15,
+      "max_error": 7.275957614183426e-12
+    },
+    {
+      "month": "2025-07",
+      "airport": "LSZH",
+      "rows": 12611,
+      "active": 512,
+      "sampled": 12,
+      "max_error": 2.2737367544323206e-12
+    },
+    {
+      "month": "2025-07",
+      "airport": "LTFM",
+      "rows": 25171,
+      "active": 525,
+      "sampled": 16,
+      "max_error": 6.821210263296962e-12
+    }
+  ],
+  "message_audit_pending": false,
+  "reviewer": "root; retained subagents unavailable on account quota"
+}

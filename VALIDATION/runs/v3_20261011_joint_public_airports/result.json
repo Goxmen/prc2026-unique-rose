@@ -1,0 +1,76 @@
+{
+  "design": {
+    "settings": {
+      "ordinary_sigma": 200.0,
+      "common_day_sigma": 15.0,
+      "cutoff": 7200.0,
+      "df": 5,
+      "prior": "each airport retains its original training quantiles; Rome copy component is not transferred",
+      "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+      "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+      "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+      "comparison": "joint posterior mean minus matched departure-only moment posterior mean",
+      "transfer": "one fixed half incremental correction through current v77 constraints",
+      "common_error": "one shared15-second mean perturbation across the selected two cohorts",
+      "scope": "all nine non-Rome airports; same eligibility, quality and long-gap/prior gate",
+      "no_iteration": true,
+      "no_parameter_search": true,
+      "no_new_fit": true,
+      "parent": "v78 unchanged on Rome; fixed half incremental correction on other airports",
+      "calibration": "same count/sum calibration function per native airport and fold; own timezone retained",
+      "no_new_gate": true,
+      "no_airport_selection": true
+    },
+    "parent": "exact selected v78",
+    "primary": "v78 plus fixed0.5 joint-minus-departure-only increment at all nine non-Rome airports",
+    "scope": "same eligible/quality/supported-source long-gap gate; no held-label airport selection",
+    "calibration": "same source count/sum fit at each native airport; other fold parameters reused",
+    "retained": "all Rome and ordinary predictions, fixed v70 prior, own source calendars and final constraints",
+    "limitations": [
+      "moment approximation",
+      "already public-informed parent",
+      "extensively reused development months"
+    ],
+    "no_new_taxi_fit": true,
+    "no_weight_scan": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_airports/identity.json",
+    "sha256": "b5ab75c3c52fee9d7466bcfc5fa0ab11ed4976f112461e128a5d1e598dc5bed3"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_airports/inference.json",
+    "sha256": "c923054e2b94dc8235bde152825c8031264da3e06090c8da565135c3bd6b343a"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_airports/scored.parquet",
+    "sha256": "20862cc7b29ebb2a653b77fe0edf64108004074fd336a1cf3c883c2cb22c1a54"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.860607626995,
+      "candidate": 325.8323568942964
+    },
+    "2025-07": {
+      "control": 255.9996300885311,
+      "candidate": 255.97947648951035
+    }
+  },
+  "cv": {
+    "control": 290.93011885776303,
+    "candidate": 290.90591669190337
+  },
+  "paired": {
+    "change": -0.024202165859648517,
+    "ci95": [
+      -0.07398259345320497,
+      0.01777025120240762
+    ],
+    "decision": "inconclusive"
+  },
+  "touched": 12565,
+  "changed": 12037,
+  "all_untouched_and_Rome_rows_exact": true
+}

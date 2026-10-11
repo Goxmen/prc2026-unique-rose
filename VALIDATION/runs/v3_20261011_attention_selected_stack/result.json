@@ -1,0 +1,61 @@
+{
+  "design": {
+    "parent": "exact selected v78",
+    "change": "fixed single and one-of-three attention member replacement",
+    "primary": "one-of-three replacement versus selected pool",
+    "secondary": "matched seed42 comparison",
+    "joint_update": "same v70-based joint public increment, unchanged0.5 weight and final constraints",
+    "no_fit": true,
+    "no_weight_scan": true,
+    "no_new_gate": true,
+    "no_upload": true,
+    "evidence": "reused Jan/Jul development months; no independent confirmation"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_attention_selected_stack/identity.json",
+    "sha256": "3323e2d4f626097b34278684f98651910f8086f39f2b5ae022537c8bb05d91c5"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261011_attention_selected_stack/scored.parquet",
+    "sha256": "08265c60c66d0ec444def0eb095096d07ebb1995f2ad07ac09cf2da9d8d629b1"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.10648980938095,
+      "candidate": 326.0955024177289,
+      "selected": 325.860607626995,
+      "replace_seed42": 325.8312975081907
+    },
+    "2025-07": {
+      "control": 256.49768721325097,
+      "candidate": 256.64298889464004,
+      "selected": 255.9996300885311,
+      "replace_seed42": 256.0070733377246
+    }
+  },
+  "cv": {
+    "control": 291.30208851131596,
+    "candidate": 291.3692456561845,
+    "selected": 290.93011885776303,
+    "replace_seed42": 290.91918542295764
+  },
+  "paired": {
+    "candidate_vs_control": {
+      "change": 0.06715714486850288,
+      "ci95": [
+        -0.1688069057380371,
+        0.2834330978029644
+      ],
+      "decision": "inconclusive"
+    },
+    "replace_seed42_vs_selected": {
+      "change": -0.010933434805394882,
+      "ci95": [
+        -0.09509747946325575,
+        0.060958684160581436
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "exact_v78_parent_replayed": true
+}

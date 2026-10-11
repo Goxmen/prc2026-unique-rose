@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "at": "2026-10-11T18:35:59.596988+00:00",
+  "uploads": [
+    {
+      "version": 75,
+      "process": {
+        "pid": 649782,
+        "start": "6729742",
+        "command": "/home/gunes/PRC/.venv/bin/python -u /home/gunes/PRC/VALIDATION/queued_candidate_upload.py /home/gunes/PRC/VALIDATION/runs/v3_20261011_target215/queue_v75.json "
+      },
+      "manifest": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/submission_v75/manifest.json",
+      "manifest_sha256": "9999ff2ba75a2c4ee35814c6502ea833cc08057cc74d9efa89acade85e85fb7c",
+      "file_sha256": "9d4ba9a1b66cd7f2b6bb16c6a5d015b418c80aac7115fc549921a2506a64779b",
+      "not_before_utc": "2026-10-12T00:00:05+00:00"
+    },
+    {
+      "version": 76,
+      "process": {
+        "pid": 792755,
+        "start": "8175927",
+        "command": "/home/gunes/PRC/.venv/bin/python -u VALIDATION/queued_candidate_upload.py VALIDATION/runs/v3_20261011_target215/queue_v76.json "
+      },
+      "manifest": "VALIDATION/runs/v3_20261011_public_neural_candidate/submission_v76/manifest.json",
+      "manifest_sha256": "aa99213f914267e41b37fc3bb5e46e4ac411712821524e8918dc3fdd37e1a4ac",
+      "file_sha256": "17d66918de307849c7afbb6522f257d6c2f9eef3e3ffde478a8995ab84d1b425",
+      "not_before_utc": "2026-10-12T00:10:05+00:00"
+    },
+    {
+      "version": 77,
+      "process": {
+        "pid": 990172,
+        "start": "10134924",
+        "command": "/home/gunes/PRC/.venv/bin/python -u VALIDATION/queued_candidate_upload.py /home/gunes/PRC/VALIDATION/runs/v3_20261011_target215/queue_v77.json "
+      },
+      "manifest": "VALIDATION/runs/v3_20261011_daily_refinements_candidate/submission_v77/manifest.json",
+      "manifest_sha256": "dbf7ed321006ecb07d09814775c040b771d1b0dda811de50d2e4ac4603e2776b",
+      "file_sha256": "e8381979532aded6d795f84963c842bf31592713dbdd58c275f9006276364ae1",
+      "not_before_utc": "2026-10-12T00:20:05+00:00"
+    },
+    {
+      "version": 78,
+      "process": {
+        "pid": 1067877,
+        "start": "10890130",
+        "command": "/home/gunes/PRC/.venv/bin/python -u VALIDATION/queued_candidate_upload.py /home/gunes/PRC/VALIDATION/runs/v3_20261011_target215/queue_v78.json "
+      },
+      "manifest": "VALIDATION/runs/v3_20261011_joint_public_candidate/submission_v78/manifest.json",
+      "manifest_sha256": "9826d32052cff5d1b56ebc01d2ad6a6b006cec763716a3c51c2fa283a4b24172",
+      "file_sha256": "ef806d537d1317bb224a0be2c44451486b4bed309c72a0096babf80a16ebd6c4",
+      "not_before_utc": "2026-10-12T00:30:05+00:00"
+    }
+  ],
+  "evaluators_and_followup": [
+    {
+      "name": "public_geometry_evaluate",
+      "process": {
+        "pid": 826430,
+        "start": "8509683",
+        "command": "/home/gunes/PRC/.venv/bin/python -u VALIDATION/target215_research_queue.py /home/gunes/PRC/VALIDATION/runs/v3_20261011_target215/public_geometry_evaluate_queue.json "
+      },
+      "all_declared_source_hashes_match": true
+    },
+    {
+      "name": "daily_models_geometry_evaluate",
+      "process": {
+        "pid": 992976,
+        "start": "10155249",
+        "command": "/home/gunes/PRC/.venv/bin/python -u VALIDATION/target215_research_queue.py /home/gunes/PRC/VALIDATION/runs/v3_20261011_target215/daily_models_geometry_evaluate_queue.json "
+      },
+      "all_declared_source_hashes_match": true
+    },
+    {
+      "name": "joint_models_geometry_evaluate",
+      "process": {
+        "pid": 1068545,
+        "start": "10896106",
+        "command": "/home/gunes/PRC/.venv/bin/python -u VALIDATION/target215_research_queue.py /home/gunes/PRC/VALIDATION/runs/v3_20261011_target215/joint_models_geometry_evaluate_queue.json "
+      },
+      "all_declared_source_hashes_match": true
+    },
+    {
+      "name": "joint_scored_followup",
+      "process": {
+        "pid": 1082968,
+        "start": "11043732",
+        "command": "/home/gunes/PRC/.venv/bin/python -u VALIDATION/target215_research_queue.py /home/gunes/PRC/VALIDATION/runs/v3_20261011_target215/joint_scored_followup_queue.json "
+      },
+      "all_declared_source_hashes_match": true
+    }
+  ],
+  "no_cancel_files": true,
+  "no_new_upload": true
+}

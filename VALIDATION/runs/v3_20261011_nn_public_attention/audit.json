@@ -1,0 +1,41 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_attention/identity.json",
+    "sha256": "bf9886d21950df3c9e9a887f08f01465f281796be8be88d20e644e30ed89341d"
+  },
+  "source": {
+    "path": "VALIDATION/nn_public_attention_jan_jul.py",
+    "sha256": "67bdfb2fd00b14e6fbdb1cea9aa36a80b2b9efac5fbc25039bcf7e0dd703968a"
+  },
+  "checks": [
+    {
+      "month": "2025-01",
+      "sampled_rows": 548,
+      "maximum_difference": 0.0006291848371802189,
+      "all_held_reload_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_attention/models/2025-01_reload.json",
+        "sha256": "151fbf6c33e944ade7573e85ed4cba2c3c571915f697b3c1951302b523c79c79"
+      },
+      "all_control_reload_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_attention/models/2025-01_control_reload.json",
+        "sha256": "167d11a5e30cc1a1330c155d315d76713ba83bd1db7920b6be12bf3c4bb0d4fd"
+      },
+      "raw_scalar_rows": 32
+    },
+    {
+      "month": "2025-07",
+      "sampled_rows": 546,
+      "maximum_difference": 0.0007484470543204225,
+      "all_held_reload_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_attention/models/2025-07_reload.json",
+        "sha256": "d3d5008a42c7ceb98ca1aa00a7569c182a7a82217fb61a6ce7209c2ce2666e91"
+      },
+      "all_control_reload_receipt": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_attention/models/2025-07_control_reload.json",
+        "sha256": "1e6eebfd1810b870b504ee734e52779ddbe6252d960d092d31cf90f1a5e0160c"
+      },
+      "raw_scalar_rows": 32
+    }
+  ]
+}
