@@ -1,0 +1,114 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "data/external/eurocontrol_performance_20261011/pun_apt_data.json",
+    "sha256": "c239cd2fc7ae8b274fad56ab100d7bf4401e07bd238e4f7e8d91f4048318e4f1"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_public_punctuality.py",
+    "sha256": "be9f6fc079503a21572341f317f257a8d8298ea0c45c8106bbf303e26ed1b524"
+  },
+  "feature_manifest": {
+    "path": "VALIDATION/runs/v3_20261011_public_punctuality/manifest.json",
+    "sha256": "5a223f42f8344df8ad4ebffd8a48333d0324173d445e079b0a6eaeb7e6a17886"
+  },
+  "rows": 2085047,
+  "feature_values": 18765423,
+  "maximum_absolute_difference": 0.0,
+  "full_2025_and_all_four_ranking_months_covered": true,
+  "independent_raw_json_parse": true,
+  "independent_sql_arithmetic": true,
+  "descriptive_source_comparison": [
+    {
+      "airport": "EDDF",
+      "days": 365,
+      "signed_mean_bias_minutes": -1.1697427264957252,
+      "mean_absolute_difference_minutes": 2.3122725720858313,
+      "mean_correlation": 0.9157492598122314,
+      "otp_absolute_difference_percentage_points": 3.4759196761458258,
+      "otp_correlation": 0.9894104923630115
+    },
+    {
+      "airport": "EDDM",
+      "days": 365,
+      "signed_mean_bias_minutes": 2.301643779353822,
+      "mean_absolute_difference_minutes": 2.602859973254387,
+      "mean_correlation": 0.9696690294442404,
+      "otp_absolute_difference_percentage_points": 3.6006796412598665,
+      "otp_correlation": 0.9715014105747157
+    },
+    {
+      "airport": "EGLL",
+      "days": 365,
+      "signed_mean_bias_minutes": 1.7043873333333321,
+      "mean_absolute_difference_minutes": 1.9896314983737886,
+      "mean_correlation": 0.9605244942667346,
+      "otp_absolute_difference_percentage_points": 2.7132468351215824,
+      "otp_correlation": 0.9885539654209362
+    },
+    {
+      "airport": "EHAM",
+      "days": 365,
+      "signed_mean_bias_minutes": -2.411053117117117,
+      "mean_absolute_difference_minutes": 2.507119418734074,
+      "mean_correlation": 0.9818328001585366,
+      "otp_absolute_difference_percentage_points": 7.5045190374941,
+      "otp_correlation": 0.9830476212363742
+    },
+    {
+      "airport": "LEBL",
+      "days": 365,
+      "signed_mean_bias_minutes": 1.5160687967145794,
+      "mean_absolute_difference_minutes": 1.7434818945697879,
+      "mean_correlation": 0.9907181574595093,
+      "otp_absolute_difference_percentage_points": 1.3058347354797788,
+      "otp_correlation": 0.9911911662579416
+    },
+    {
+      "airport": "LEMD",
+      "days": 365,
+      "signed_mean_bias_minutes": 1.4490394519976153,
+      "mean_absolute_difference_minutes": 1.6017358603794567,
+      "mean_correlation": 0.9791470001424175,
+      "otp_absolute_difference_percentage_points": 1.0812901553408079,
+      "otp_correlation": 0.9861701297312275
+    },
+    {
+      "airport": "LFPG",
+      "days": 365,
+      "signed_mean_bias_minutes": 1.2298934017515055,
+      "mean_absolute_difference_minutes": 1.3884275772495784,
+      "mean_correlation": 0.9881983921532561,
+      "otp_absolute_difference_percentage_points": 1.6060054831529835,
+      "otp_correlation": 0.9895819472573029
+    },
+    {
+      "airport": "LIRF",
+      "days": 365,
+      "signed_mean_bias_minutes": 5.031569852470424,
+      "mean_absolute_difference_minutes": 5.228056505412407,
+      "mean_correlation": 0.9829937641943732,
+      "otp_absolute_difference_percentage_points": 6.380101071385045,
+      "otp_correlation": 0.9823341769549729
+    },
+    {
+      "airport": "LSZH",
+      "days": 365,
+      "signed_mean_bias_minutes": 2.140272253731343,
+      "mean_absolute_difference_minutes": 2.290763037013095,
+      "mean_correlation": 0.9892003203443802,
+      "otp_absolute_difference_percentage_points": 3.255116964616373,
+      "otp_correlation": 0.9882944931357546
+    },
+    {
+      "airport": "LTFM",
+      "days": 365,
+      "signed_mean_bias_minutes": 0.9365546130374476,
+      "mean_absolute_difference_minutes": 1.9078453216578581,
+      "mean_correlation": 0.8853341613526892,
+      "otp_absolute_difference_percentage_points": 2.646275935644294,
+      "otp_correlation": 0.9398255501801265
+    }
+  ],
+  "interpretation": "Closely correlated but different airline schedules/population; features only, no exact aggregate constraint"
+}

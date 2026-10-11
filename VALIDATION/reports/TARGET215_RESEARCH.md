@@ -358,3 +358,39 @@ probabilities in either training fold. Month membership checks pass. These are
 preflight results, not evidence of predictive gain. Runners
 `rome_public_peer_features.py` and `rome_public_peers_jan_jul.py` are queued
 after the neural run and main-LightGBM audit via `peer_research_queue.json`.
+
+## Independent public daily punctuality inputs
+
+EUROCONTROL's [daily airport punctuality dashboard](https://www.eurocontrol.int/Economics/DailyPunctuality-Airports.html)
+directly links a public JSON containing departure/arrival on-time fractions,
+mean schedule delays and the operated-schedule fraction. The retained unmodified
+file covers every day of2025 and all four ranking months at all ten airports.
+Its SHA-256 is `c239cd2fc7ae8b274fad56ab100d7bf4401e07bd238e4f7e8d91f4048318e4f1`.
+Credit: EUROCONTROL; the general attributed non-commercial terms discussed
+above apply. No organiser clearance or open licence is asserted.
+
+This source uses airline schedules and differs from the supplied movement
+population. Across2025 days, departure-mean correlations range0.885–0.991,
+but absolute mean differences range1.39–5.23minutes; Rome's median signed
+difference is+5.03minutes. Departure-punctuality correlations range0.940–0.991.
+These are descriptive source checks, not validation gains. The source will
+enter learned features, not an exact aggregate constraint.
+
+The fixed Rome screen adds nine inputs to v75's80-column CatBoost recipe:
+five source values and four discrepancies from input-only900/1800-second
+taxi references or AOBT_3 clocks. The original rows, three seeds, rounds and
+R20 mixture remain fixed. An independent raw-JSON parser and DuckDB calculation
+check all **18,765,423** feature values exactly, including VFR exclusion and
+unknown-rule inclusion. Hand arithmetic, row-order invariance, source coverage
+and target-isolation checks pass. The run is queued after the peer-budget
+experiment; no fit or score is claimed yet.
+
+Runners: `public_punctuality_features.py`, `tools/audit_public_punctuality.py`,
+`rome_punctuality_jan_jul.py`. Runs: `v3_20261011_public_punctuality/`,
+`v3_20261011_rome_punctuality/`; queue `punctuality_research_queue.json`.
+
+A separate v75 residual grouping reconfirms that two previously investigated
+January LFPG labels dominate one small group's CV error. No defensible new
+recording rule was found in the earlier investigation; no clipping, removal or
+reweighting follows. The descriptive grouping is retained in
+`v3_20261011_target215/v75_error_groups.json`; it is not ranking-error attribution.

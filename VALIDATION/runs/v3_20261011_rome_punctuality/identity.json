@@ -1,0 +1,84 @@
+{
+  "design": {
+    "parent": "prepared v75 public Cat3/R20",
+    "change": "nine public airport-day punctuality inputs",
+    "features": [
+      "pun_dep_otp15",
+      "pun_arr_otp15",
+      "pun_dep_mean",
+      "pun_arr_mean",
+      "pun_operated",
+      "pun_otp900_resid",
+      "pun_otp1800_resid",
+      "pun_mean900_resid",
+      "pun_clock_mean_resid"
+    ],
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "rounds": {
+      "2025-01": 1182,
+      "2025-07": 1401
+    },
+    "columns": 89,
+    "no_parameter_or_weight_search": true,
+    "no_new_early_stopping": true,
+    "source_population": "airline schedules; not an exact challenge-population identity",
+    "held_labels": "final reused development scoring only",
+    "production_or_upload": false
+  },
+  "source": {
+    "path": "VALIDATION/rome_punctuality_jan_jul.py",
+    "sha256": "f35ab2d47a06db4c73d02fde095ea044f4ddae7e7d550188c3df136672f0348c"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/rome_public_delay_cat.py",
+      "sha256": "d63b80be80105158c04e4cbd2442bafdeecc5a25767cbc549ac537d803093fff"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_jan_jul.py",
+      "sha256": "3e5968639ccbf6b532c505eeba7817832a4cada5113fa655f999288635365dc4"
+    },
+    {
+      "path": "VALIDATION/rome_public_peers_jan_jul.py",
+      "sha256": "c25c11298ba930ea1ec6bbace973826d2509175154486405cc1599c964e7c974"
+    },
+    {
+      "path": "VALIDATION/public_punctuality_features.py",
+      "sha256": "ee3c4f306bac7d97de8d17a2ce0554fc20a4cba5c467c90d72929a682186b5a4"
+    },
+    {
+      "path": "VALIDATION/rome_catboost_bagging_jan_jul.py",
+      "sha256": "7b2ad4de4ce5be9fe9dfe7bfa159870d67fb7f17a7fac9642cae1a252f20b5a0"
+    }
+  ],
+  "feature_manifest": {
+    "path": "VALIDATION/runs/v3_20261011_public_punctuality/manifest.json",
+    "sha256": "5a223f42f8344df8ad4ebffd8a48333d0324173d445e079b0a6eaeb7e6a17886"
+  },
+  "feature_audit": {
+    "path": "VALIDATION/runs/v3_20261011_public_punctuality/audit.json",
+    "sha256": "a2ee1fd05aa99ae9288dd57ffc0545862d28739c9b995cbca7f453851a7fa56e"
+  },
+  "inputs": {
+    "2025-01": {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-01.pkl",
+      "sha256": "fb05a7f13c11573a43962671138ccd8f52e46666112e3f00328159b459870810"
+    },
+    "2025-07": {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-07.pkl",
+      "sha256": "aad64884a10a8cb677ee9026a53e06d38d01ff64eed114be06b06c25a21a62a2"
+    }
+  },
+  "parent_result": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/result.json",
+    "sha256": "a1d6fea26fb3be8eb69efc3ce0ce850a42a7dd4c6b451eca3c5bd1913381167a"
+  },
+  "parent_predictions": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+    "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+  }
+}
