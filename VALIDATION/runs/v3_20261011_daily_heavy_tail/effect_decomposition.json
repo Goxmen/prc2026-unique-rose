@@ -1,0 +1,438 @@
+{
+  "scope": "Descriptive decomposition of completed reused-development result; no gates, exclusions or new score selection",
+  "sources": {
+    "VALIDATION/runs/v3_20261011_daily_heavy_tail/scored.parquet": "446fbe50a11db5c7608b8754a614454b8374f09269e869a06650080b05923241",
+    "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+  },
+  "airport_months": [
+    {
+      "month": "2025-07",
+      "airport": "LTFM",
+      "n_rows": 25171,
+      "delta_sse": -47570504.36816276,
+      "delta_vs_original_sse": -49649580.90800627
+    },
+    {
+      "month": "2025-01",
+      "airport": "LIRF",
+      "n_rows": 11317,
+      "delta_sse": -25023147.603973035,
+      "delta_vs_original_sse": -25836931.971803375
+    },
+    {
+      "month": "2025-01",
+      "airport": "LTFM",
+      "n_rows": 21368,
+      "delta_sse": -22017594.13445483,
+      "delta_vs_original_sse": -23610260.698966555
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEBL",
+      "n_rows": 16752,
+      "delta_sse": -8940449.786433743,
+      "delta_vs_original_sse": -13501951.245490624
+    },
+    {
+      "month": "2025-01",
+      "airport": "LFPG",
+      "n_rows": 17900,
+      "delta_sse": -7408865.850915729,
+      "delta_vs_original_sse": -7318456.818759955
+    },
+    {
+      "month": "2025-01",
+      "airport": "EGLL",
+      "n_rows": 19420,
+      "delta_sse": -3108617.8508260148,
+      "delta_vs_original_sse": -3249138.743731947
+    },
+    {
+      "month": "2025-07",
+      "airport": "LFPG",
+      "n_rows": 21712,
+      "delta_sse": -1232072.026905877,
+      "delta_vs_original_sse": -1003894.7045778069
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDM",
+      "n_rows": 15825,
+      "delta_sse": -461033.1554493418,
+      "delta_vs_original_sse": -207944.96674026755
+    },
+    {
+      "month": "2025-07",
+      "airport": "LIRF",
+      "n_rows": 15211,
+      "delta_sse": -342398.2294457075,
+      "delta_vs_original_sse": 45338972.8024139
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEMD",
+      "n_rows": 18818,
+      "delta_sse": -174919.09073939692,
+      "delta_vs_original_sse": -5657253.23919255
+    },
+    {
+      "month": "2025-07",
+      "airport": "LSZH",
+      "n_rows": 12611,
+      "delta_sse": -35069.70623170812,
+      "delta_vs_original_sse": 246992.41521725387
+    },
+    {
+      "month": "2025-01",
+      "airport": "EDDM",
+      "n_rows": 11266,
+      "delta_sse": 68241.86284934246,
+      "delta_vs_original_sse": 51846.686501570846
+    },
+    {
+      "month": "2025-01",
+      "airport": "EDDF",
+      "n_rows": 15496,
+      "delta_sse": 89910.26992017997,
+      "delta_vs_original_sse": 98024.18818907652
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDF",
+      "n_rows": 21334,
+      "delta_sse": 108349.25812258077,
+      "delta_vs_original_sse": 111223.32849029156
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEBL",
+      "n_rows": 12234,
+      "delta_sse": 205343.85767034738,
+      "delta_vs_original_sse": -807676.3391111718
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEMD",
+      "n_rows": 16510,
+      "delta_sse": 418854.02643506427,
+      "delta_vs_original_sse": -592911.044849802
+    },
+    {
+      "month": "2025-01",
+      "airport": "LSZH",
+      "n_rows": 9735,
+      "delta_sse": 509183.9114499609,
+      "delta_vs_original_sse": -111562.91527325693
+    },
+    {
+      "month": "2025-07",
+      "airport": "EHAM",
+      "n_rows": 22489,
+      "delta_sse": 548562.2237423632,
+      "delta_vs_original_sse": -88120.9942094498
+    },
+    {
+      "month": "2025-07",
+      "airport": "EGLL",
+      "n_rows": 20790,
+      "delta_sse": 771625.6712186958,
+      "delta_vs_original_sse": 571497.7800412083
+    },
+    {
+      "month": "2025-01",
+      "airport": "EHAM",
+      "n_rows": 18460,
+      "delta_sse": 2636084.4821384335,
+      "delta_vs_original_sse": -1221356.469101757
+    }
+  ],
+  "mechanism": [
+    {
+      "month": "2025-07",
+      "airport": "LTFM",
+      "gap_band": "long_gap",
+      "n_rows": 2513,
+      "delta_sse": -32875601.528871343
+    },
+    {
+      "month": "2025-01",
+      "airport": "LIRF",
+      "gap_band": "long_gap",
+      "n_rows": 716,
+      "delta_sse": -25420606.404797107
+    },
+    {
+      "month": "2025-01",
+      "airport": "LTFM",
+      "gap_band": "ordinary_gap",
+      "n_rows": 19807,
+      "delta_sse": -18953609.094627246
+    },
+    {
+      "month": "2025-07",
+      "airport": "LTFM",
+      "gap_band": "ordinary_gap",
+      "n_rows": 22658,
+      "delta_sse": -14694902.839291202
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEBL",
+      "gap_band": "ordinary_gap",
+      "n_rows": 13607,
+      "delta_sse": -9123005.456399327
+    },
+    {
+      "month": "2025-01",
+      "airport": "LFPG",
+      "gap_band": "ordinary_gap",
+      "n_rows": 15151,
+      "delta_sse": -6419455.942713366
+    },
+    {
+      "month": "2025-01",
+      "airport": "EGLL",
+      "gap_band": "long_gap",
+      "n_rows": 2051,
+      "delta_sse": -3219665.281740318
+    },
+    {
+      "month": "2025-01",
+      "airport": "LTFM",
+      "gap_band": "long_gap",
+      "n_rows": 1561,
+      "delta_sse": -3063985.039827479
+    },
+    {
+      "month": "2025-07",
+      "airport": "LFPG",
+      "gap_band": "ordinary_gap",
+      "n_rows": 17797,
+      "delta_sse": -1302813.9183577145
+    },
+    {
+      "month": "2025-01",
+      "airport": "LFPG",
+      "gap_band": "long_gap",
+      "n_rows": 2749,
+      "delta_sse": -989409.9082023356
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDM",
+      "gap_band": "long_gap",
+      "n_rows": 1451,
+      "delta_sse": -562485.1405269491
+    },
+    {
+      "month": "2025-07",
+      "airport": "LIRF",
+      "gap_band": "long_gap",
+      "n_rows": 3450,
+      "delta_sse": -373138.70594764315
+    },
+    {
+      "month": "2025-01",
+      "airport": "EHAM",
+      "gap_band": "long_gap",
+      "n_rows": 2496,
+      "delta_sse": -217631.26002458116
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEMD",
+      "gap_band": "long_gap",
+      "n_rows": 2761,
+      "delta_sse": -112432.53219633174
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEMD",
+      "gap_band": "ordinary_gap",
+      "n_rows": 16057,
+      "delta_sse": -62486.55854306436
+    },
+    {
+      "month": "2025-07",
+      "airport": "LSZH",
+      "gap_band": "long_gap",
+      "n_rows": 1544,
+      "delta_sse": -31735.736726159343
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDF",
+      "gap_band": "ordinary_gap",
+      "n_rows": 18321,
+      "delta_sse": -16223.669031781983
+    },
+    {
+      "month": "2025-01",
+      "airport": "EDDM",
+      "gap_band": "ordinary_gap",
+      "n_rows": 10556,
+      "delta_sse": -11634.708484876153
+    },
+    {
+      "month": "2025-01",
+      "airport": "EDDF",
+      "gap_band": "ordinary_gap",
+      "n_rows": 14288,
+      "delta_sse": -8005.129485317581
+    },
+    {
+      "month": "2025-07",
+      "airport": "LSZH",
+      "gap_band": "ordinary_gap",
+      "n_rows": 11067,
+      "delta_sse": -3333.9695055491525
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEBL",
+      "gap_band": "ordinary_gap",
+      "n_rows": 11414,
+      "delta_sse": 14464.366137782408
+    },
+    {
+      "month": "2025-07",
+      "airport": "LIRF",
+      "gap_band": "ordinary_gap",
+      "n_rows": 11761,
+      "delta_sse": 30740.476501933234
+    },
+    {
+      "month": "2025-07",
+      "airport": "LFPG",
+      "gap_band": "long_gap",
+      "n_rows": 3915,
+      "delta_sse": 70741.89145184192
+    },
+    {
+      "month": "2025-01",
+      "airport": "EDDM",
+      "gap_band": "long_gap",
+      "n_rows": 710,
+      "delta_sse": 79876.5713342183
+    },
+    {
+      "month": "2025-07",
+      "airport": "EHAM",
+      "gap_band": "long_gap",
+      "n_rows": 3093,
+      "delta_sse": 82436.20801563287
+    },
+    {
+      "month": "2025-01",
+      "airport": "EDDF",
+      "gap_band": "long_gap",
+      "n_rows": 1208,
+      "delta_sse": 97915.39940549879
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDM",
+      "gap_band": "ordinary_gap",
+      "n_rows": 14374,
+      "delta_sse": 101451.98507760357
+    },
+    {
+      "month": "2025-01",
+      "airport": "EGLL",
+      "gap_band": "ordinary_gap",
+      "n_rows": 17369,
+      "delta_sse": 111047.43091432599
+    },
+    {
+      "month": "2025-07",
+      "airport": "EDDF",
+      "gap_band": "long_gap",
+      "n_rows": 3013,
+      "delta_sse": 124572.92715436251
+    },
+    {
+      "month": "2025-01",
+      "airport": "LSZH",
+      "gap_band": "ordinary_gap",
+      "n_rows": 9136,
+      "delta_sse": 134412.60905202478
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEMD",
+      "gap_band": "ordinary_gap",
+      "n_rows": 15365,
+      "delta_sse": 153322.55186381604
+    },
+    {
+      "month": "2025-07",
+      "airport": "LEBL",
+      "gap_band": "long_gap",
+      "n_rows": 3145,
+      "delta_sse": 182555.6699655819
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEBL",
+      "gap_band": "long_gap",
+      "n_rows": 820,
+      "delta_sse": 190879.4915325652
+    },
+    {
+      "month": "2025-01",
+      "airport": "LEMD",
+      "gap_band": "long_gap",
+      "n_rows": 1145,
+      "delta_sse": 265531.4745712478
+    },
+    {
+      "month": "2025-07",
+      "airport": "EGLL",
+      "gap_band": "ordinary_gap",
+      "n_rows": 17334,
+      "delta_sse": 302553.53812176676
+    },
+    {
+      "month": "2025-01",
+      "airport": "LSZH",
+      "gap_band": "long_gap",
+      "n_rows": 599,
+      "delta_sse": 374771.3023979372
+    },
+    {
+      "month": "2025-01",
+      "airport": "LIRF",
+      "gap_band": "ordinary_gap",
+      "n_rows": 10601,
+      "delta_sse": 397458.8008241105
+    },
+    {
+      "month": "2025-07",
+      "airport": "EHAM",
+      "gap_band": "ordinary_gap",
+      "n_rows": 19396,
+      "delta_sse": 466126.015726726
+    },
+    {
+      "month": "2025-07",
+      "airport": "EGLL",
+      "gap_band": "long_gap",
+      "n_rows": 3456,
+      "delta_sse": 469072.1330969361
+    },
+    {
+      "month": "2025-01",
+      "airport": "EHAM",
+      "gap_band": "ordinary_gap",
+      "n_rows": 15964,
+      "delta_sse": 2853715.742163023
+    }
+  ],
+  "previously_identified_lfpg_extremes": [
+    {
+      "month": "2025-01",
+      "n_rows": 2,
+      "delta_sse": 2497930.6824121475
+    }
+  ]
+}

@@ -11,6 +11,16 @@ remain inconclusive. All321,707 scoped Gaussian predictions replay within1e−8;
 all344,419 labels, calendars, fallbacks and scores pass independent SQL checks.
 Retain `v3_20261011_daily_heavy_tail/`; no production candidate is selected.
 
+The descriptive decomposition improves11 of20 airport-month groups. Istanbul
+accounts for69.59 million less squared error across both months, and January
+Rome for25.02 million, versus the aligned Gaussian control. The two previously
+identified January Paris extreme labels worsen by2.50 million squared seconds,
+so they do not drive the gain. July Rome is almost unchanged versus that
+control, and remains45.34 million squared seconds worse than the original
+takeoff-day method. These reused-data diagnostics select no airport gate or
+label exclusion; they reinforce the need for the direct original-date test.
+Full groups: `v3_20261011_daily_heavy_tail/effect_decomposition.json`.
+
 The aligned Gaussian parent was itself unselected, so the0.5591 figure does not
 establish an improvement to today's recipe. The follow-up
 `daily_heavy_tail_stack.py` replaces only the Gaussian aggregate shape inside
