@@ -1,0 +1,45 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 761634,
+  "predecessor_start": "7861385",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_monthly_reference_bridge/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T09:15:41.875890+00:00",
+  "reserved_version": 76,
+  "selection": "Combined CV292.4494082064518; passes against v75 and both single changes; independent score audit pass",
+  "jobs": [
+    {
+      "name": "combined_public_neural_main_candidate_v76",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_neural_candidate.py",
+          "--version",
+          "76",
+          "--with-main"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/tools/audit_public_neural_candidate.py",
+          "--version",
+          "76"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/public_neural_candidate.py": "c2aa19ba64f6fdb6a1e122f38f843149459e3d39c3203a8d87ed9bd10777b204",
+        "VALIDATION/tools/audit_public_neural_candidate.py": "eb62d0ca57aef8ba25cb2cc63248a316493a8948a0a5b023d381a417e68b30da",
+        "VALIDATION/public_main_candidate.py": "223c9bd5963b3fb5f99f7034a11018d2501dfe25096f5659f31c1acd6269372b",
+        "VALIDATION/runs/v3_20261011_public_stack_cv/result.json": "576208a843dbe82a8047d36b7ce546ac24f0ae77e76d70b2c019f89a423beedf",
+        "VALIDATION/runs/v3_20261011_public_stack_cv/audit.json": "3e526a98b44060135051dcaf62a83c3cf50142aa6c5421c35bc7bfab9ccc06ff"
+      },
+      "log": "tmp/research_20261011/joint_candidate_v76.log",
+      "result": "VALIDATION/runs/v3_20261011_public_neural_candidate/submission_v76/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T09:15:41.902032+00:00",
+  "pid": 764020
+}

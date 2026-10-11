@@ -15,8 +15,9 @@ expansion also passes (−0.3536 on v75, both months), with model and score audi
 complete. Full-year neural production is running on the desktop.
 Its combination with the new main tree passes joint CV292.4494 (−0.4921
 versus v75), improving both individual changes and both months. All control
-replays and the independent SQL audit pass; build the combined file after
-the three full-year neural members and production audit finish.
+replays and the independent SQL audit pass. V76 is reserved for this combination;
+its build/audit is queued after the existing research jobs, once the three
+full-year neural members and production audit have finished. No v76 file yet.
 Cross-fitted Rome peer budgets were inconclusive
 (−0.1407 on v75); no production expansion. Rome punctuality inputs also gave
 no gain (+0.0128 on v75). Their ordinary main-regressor test also gives no
@@ -42,6 +43,10 @@ A reference-population monthly comparison is queued after track withholding.
 It matches the public coverage fraction using stand/runway input frequency;
 the existing correction strength and limits stay fixed. This approximates
 source membership, with numerical checks passed and CV still pending.
+A fixed neural Rome classifier is queued after the v76 build. It adds one-third
+neural probability to the current Cat3/R20 classifier mean, using train-only
+inner stopping and75 inputs without departure-label histories. CPU and all-row
+input checks pass; no classifier fit or validation result yet.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

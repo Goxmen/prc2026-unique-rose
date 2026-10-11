@@ -1,5 +1,38 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Current queue: selected v76 and a new Rome classifier
+
+At11:28 Amsterdam, the selected joint public main/neural recipe has a reserved
+version **v76**, CV **292.4494**. Its build and independent audit are queued after
+the existing monthly-reference comparison; full-year neural production remains
+in progress. No v76 submission file or official score exists yet. This queue has
+no upload stage, and the already authorized v75 upload watcher is unchanged.
+
+A new independent classifier family is queued after that build: a PLE neural
+binary classifier for Rome's recorded schedule-copy mechanism. The primary
+comparison adds a fixed one-third neural probability to the existing public
+Cat3/R20 mean on the selected joint stack. One seed, unweighted binary
+cross-entropy, one architecture, no blend search. Pure neural probabilities are
+a diagnostic only. This differs from earlier auxiliary heads in the ordinary
+taxi network and from failed cost-weighted Rome trees.
+
+The75 inputs are the existing80 minus five departure-label history columns;
+their exclusion keeps the inner stopping month out of target-history inputs.
+Consequently this is a family-plus-input-removal comparison, not a pure family
+ablation. Encoders and numeric bins are fitted separately on inner and full
+training rows. The final epoch is the lowest inner-month log loss among48
+epochs; held-out January/July labels never select the stopping epoch. All
+scoring includes the complete taxi correction stack and the v74 transfer.
+
+CPU checks cover unknown/missing categories, finite extreme inputs, gradients,
+state reloads, row permutation and isolation of ordinary-model settings. Input
+checks match all126,507 January-fold and86,723 July-fold training IDs and binary
+targets to raw rows; held Rome populations are11,317 and15,211. Full fits will
+compare predictions from the in-memory trained network against its disk
+checkpoint before releasing memory. No fitting or validation gain is claimed
+yet. Sources: `rome_neural_model.py`, `rome_neural_jan_jul.py`; retained identity
+and preflight in `v3_20261011_rome_neural/`, queue in `v3_20261011_target215/`.
+
 The active target is **215.00 seconds or lower**, replacing the completed
 225.00 target. Starting best/latest is **v71, 224.3602**, rank 15/242 on 344,841
 original January/July flights (live 06:29 Amsterdam). The gap is 9.3602 seconds.

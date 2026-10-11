@@ -114,6 +114,22 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 11:28 Amsterdam: v76 reserved; neural Rome screen queued.**
+  `joint_candidate_build_queue.json` (PID764020) waits for the monthly-reference
+  queue, then builds/audits `public_neural_candidate.py --version 76 --with-main`.
+  Its selected Jan/Jul CV is292.4494; there is no file or upload stage yet.
+  First public production network is retained with exact all-row reloads;
+  the second of three is training. A new fixed PLE Rome classifier is queued
+  after the v76 build/audit: read `rome_neural_queue.json` for its PID. It blends
+  one-third neural probability with the current public Cat3/R20 mean. The75
+  inputs exclude five departure-label history columns to isolate the inner
+  stopping month; preprocessing is fitted separately inside each split.
+  CPU checks and all-row input/target/membership checks pass on126,507/86,723
+  Rome training rows. No model fit, CV gain or production selection yet.
+  Runners `rome_neural_model.py`, `rome_neural_jan_jul.py`; run
+  `v3_20261011_rome_neural/`. All queues share the research cancellation file;
+  v75's upload watcher and bound artifacts remain unchanged.
+
 - **October 11, 11:12 Amsterdam: joint main/neural CV passes.** Combined
   transfer CV292.4494,−0.4921 versus v75,−0.3213 versus main alone and−0.1386
   versus neural alone; both months and all paired intervals improve. Exact

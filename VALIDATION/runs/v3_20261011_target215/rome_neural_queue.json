@@ -1,0 +1,45 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 764020,
+  "predecessor_start": "7885279",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_public_neural_candidate/submission_v76/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T09:27:35.884671+00:00",
+  "jobs": [
+    {
+      "name": "fixed_neural_rome_classifier",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/rome_neural_jan_jul.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/rome_neural_jan_jul.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/rome_neural_jan_jul.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/rome_neural_model.py": "a33a1a8a70fbf5bd4bb5508dd91cb910efccf3dc2dadb1cda5b820c93628d5d5",
+        "VALIDATION/rome_neural_jan_jul.py": "1d46f69586268711de5594b68de92c7ad7a616f706b5e7287a13c37fb9fa98d4",
+        "VALIDATION/runs/v3_20261011_rome_neural/identity.json": "be0c787192bd16f3ec66ff8a9f0446d5734b61ecc9efd3aefb785349fa04af51",
+        "VALIDATION/runs/v3_20261011_rome_neural/preflight.json": "84cba512659ea82ea3cb9226d7a9c1853b155a3addf78096cc7e277490840232"
+      },
+      "log": "tmp/research_20261011/rome_neural.log",
+      "result": "VALIDATION/runs/v3_20261011_rome_neural/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T09:27:35.911448+00:00",
+  "pid": 770665
+}

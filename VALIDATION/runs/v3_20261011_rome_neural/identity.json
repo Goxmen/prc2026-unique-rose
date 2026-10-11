@@ -1,0 +1,119 @@
+{
+  "design": {
+    "parent": "selected combined public main/neural stack with public Cat3/R20",
+    "change": "fixed one-third PLE neural recording-classifier probability",
+    "model": {
+      "encoding": {
+        "min_cat_rows": 20,
+        "quantiles": 256,
+        "clip": 5.0
+      },
+      "bins": 32,
+      "d_ple": 8,
+      "hidden": [
+        256,
+        128
+      ],
+      "dropout": 0.1,
+      "batch": 1024,
+      "max_epochs": 48,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "gradient_clip": 1.0,
+      "seed": 42,
+      "loss": "unweighted binary cross-entropy with logits",
+      "stopping": "lowest last-allowed-training-month log loss; refit full outer training",
+      "schedule": "OneCycleLR over48 epochs in inner and full fits; stop full at chosen epoch"
+    },
+    "rows": "original R20 Rome population and binary target",
+    "input_columns": 75,
+    "removed": [
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d"
+    ],
+    "new_inputs": [],
+    "removing_history": "exclude departure-label history to keep the inner stopping split isolated",
+    "probability": "(2/3)*current publicCat3/R20 mean + (1/3)*neural",
+    "primary": "taxi RMSE after full correction stack and v74 transfer",
+    "no_blend_or_architecture_search": true,
+    "no_cost_weighting": true,
+    "seed": 42,
+    "machine": "desktop RTX3080; inner and full fits on same machine",
+    "evaluation": "reused Jan/Jul development; new single member is an exploratory screen"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/rome_neural_jan_jul.py",
+      "sha256": "1d46f69586268711de5594b68de92c7ad7a616f706b5e7287a13c37fb9fa98d4"
+    },
+    {
+      "path": "VALIDATION/rome_neural_model.py",
+      "sha256": "a33a1a8a70fbf5bd4bb5508dd91cb910efccf3dc2dadb1cda5b820c93628d5d5"
+    },
+    {
+      "path": "VALIDATION/nn_jan_jul.py",
+      "sha256": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_cat.py",
+      "sha256": "d63b80be80105158c04e4cbd2442bafdeecc5a25767cbc549ac537d803093fff"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_jan_jul.py",
+      "sha256": "3e5968639ccbf6b532c505eeba7817832a4cada5113fa655f999288635365dc4"
+    },
+    {
+      "path": "VALIDATION/rome_public_peer_features.py",
+      "sha256": "80b5ff1bfe48f8826af0c1159e3c8f42248edacb6d120b5eab66e21adeb291bc"
+    },
+    {
+      "path": "VALIDATION/public_stack_cv.py",
+      "sha256": "7a07755c65281de72d0d2cb3bd62b4d33c7591f4e9922aa8960bfc546421044a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/result.json",
+      "sha256": "576208a843dbe82a8047d36b7ce546ac24f0ae77e76d70b2c019f89a423beedf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/audit.json",
+      "sha256": "3e526a98b44060135051dcaf62a83c3cf50142aa6c5421c35bc7bfab9ccc06ff"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/scored.parquet",
+      "sha256": "04d0886b113ce081bbba97bf880e8f33c06366a5a98ac64084abab186ca01e92"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+      "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_features/audit.json",
+      "sha256": "ad26576b5ab7e7a95f1e282e8f76b40b04f430e239808b270198e0afd5b01b19"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-01.pkl",
+      "sha256": "fb05a7f13c11573a43962671138ccd8f52e46666112e3f00328159b459870810"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-07.pkl",
+      "sha256": "aad64884a10a8cb677ee9026a53e06d38d01ff64eed114be06b06c25a21a62a2"
+    }
+  ],
+  "cpu_checks": {
+    "device": "cpu",
+    "unknown_and_missing_category_zero": true,
+    "finite_extreme_inputs": true,
+    "transform_does_not_refit": true,
+    "finite_bce_gradients": true,
+    "state_reload_exact": true,
+    "inference_row_permutation": true,
+    "no_ordinary_recipe_mutation": true
+  }
+}
