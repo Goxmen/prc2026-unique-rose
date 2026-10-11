@@ -786,3 +786,37 @@ checks. No CV score or production selection exists yet. Run:
 `v3_20261011_monthly_reference_bridge/`. Queue
 `monthly_reference_queue.json` (PID755899) waits for track-withholding
 PID746093 and its audit, uses the same cancellation file, and has no upload.
+
+## Combined public models pass; ordinary punctuality does not
+
+The fixed joint calculation passes with transferred CV **292.4494**, versus
+v75 **292.9415** (−0.4921, paired-day interval **[−0.6646,−0.3504]**).
+It also beats the public main tree alone by0.3213 and the public neural pool
+alone by0.1386; both intervals exclude zero and both months improve in every
+comparison. The combined January/July scores are326.1741/258.7247. Primary
+untransferred CV is291.7234. Exact all-row replays of all three controls and
+the independent SQL audit pass. This remains reused development evidence,
+not a new official score.
+
+Run `v3_20261011_public_stack_cv/` retains the result and audit. Full-year
+public neural production has started on the desktop under PID759761,
+queuePID721659. After its three members and production audit finish, the
+combined candidate can be built with `public_neural_candidate.py --with-main`.
+No final file or new version is reserved yet; the selected main-tree model
+is already complete and will be reused.
+
+Ordinary punctuality finishes at **291.9869**, versus its public-main/Cat
+control291.9697: **+0.0172**. The transfer changes292.7707 →292.7843,
+**+0.0137**, interval[−0.0021,+0.0272]. Both months worsen. No production
+expansion is selected. All344,419 saved predictions reload exactly during
+the fits; `tools/audit_punctuality_main.py` separately verifies their receipts,
+hashes, all truth/calendar/control values and SQL scores.
+
+That new auditor initially failed because DuckDB requires explicit `AS` for
+the alias `value`. This is corrected. The same syntax appeared in the three
+waiting experiment auditors, so their queues were stopped before any child
+started, their old identities/queue records retained with `_before_sql_alias`,
+and their guards rerun. No numerical/training function changed and no model
+was repeated. Current downstream PIDs: **761632 heavy-tail →761633 track
+withholding →761634 monthly reference**. The active neural production and
+V75 upload queues were not changed.

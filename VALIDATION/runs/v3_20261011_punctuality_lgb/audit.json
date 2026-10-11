@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "rows": 344419,
+  "truth_calendar_controls_exact": true,
+  "independent_sql_scores": true,
+  "retained_all_row_model_reload_count": 344419,
+  "source": {
+    "path": "VALIDATION/tools/audit_punctuality_main.py",
+    "sha256": "74c634f8105df10b3b4de98ee90c728ff197012d12e7120436cb7a39efc82134"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_punctuality_lgb/identity.json",
+    "sha256": "1a88c93f046eb7009b3218e545015fb60b6f1a89438d2371b4adc7dffff5e760"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261011_punctuality_lgb/result.json",
+    "sha256": "9e0e00d863d77b349796d79ea4f3fc7dc7e3528c98eb7158517355b49b8fc456"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_punctuality_lgb/scored.parquet",
+    "sha256": "5b97f1a6e7d2c7b0efb00f794a212f449170603cdeedfad3943e64df1e20fb5c"
+  },
+  "scope": "Independent SQL labels/controls/scores; verify model and prediction hashes and completed all-row fit reload receipts"
+}

@@ -114,6 +114,23 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 11:12 Amsterdam: joint main/neural CV passes.** Combined
+  transfer CV292.4494,−0.4921 versus v75,−0.3213 versus main alone and−0.1386
+  versus neural alone; both months and all paired intervals improve. Exact
+  control replays and independent SQL audit pass under `v3_20261011_public_stack_cv/`.
+  Full-year public neural production is now running (PID759761, queuePID721659),
+  first of three15-epoch members, log `tmp/research_20261011/public_neural_production.log`.
+  After production/audit, build the combined candidate with `public_neural_candidate.py
+  --with-main`; no new version or file reserved yet. Ordinary punctuality is
+  complete and gives no gain: primary+0.0172, transfer+0.0137, both months
+  worse. All344,419 reloads and SQL truth/control/score checks pass; no expansion.
+  An explicit SQL `AS value` fixed a reserved-alias parser error in the new
+  auditor. Three waiting queues were stopped without children, their identities
+  archived, and rebound after the same fix: heavy-tailPID761632 → track
+  withholdingPID761633 → monthly-referencePID761634. Training/inference math
+  is unchanged. Read current queue JSONs; older PIDs below are history. V75's
+  upload watcherPID649782 and its sources remain unchanged.
+
 - **October 11, 11:02 Amsterdam:** a new fixed monthly-reference screen is
   queued last (`monthly_reference_queue.json`, PID755899, after PID746093).
   `monthly_reference_bridge.py` estimates which stand/runway cells contribute

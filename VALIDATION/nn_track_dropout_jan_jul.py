@@ -184,7 +184,7 @@ def audit_scores():
             from candidate c join truth t using(mvt_id)''').fetchone()
         assert count == unique == 344419 and errors == 0
         for name in result['cv']:
-            metrics = con.execute(f'select month,sqrt(avg(pow({name}-y,2))) value from candidate group by month').fetchall()
+            metrics = con.execute(f'select month,sqrt(avg(pow({name}-y,2))) as value from candidate group by month').fetchall()
             for month, value in metrics:
                 np.testing.assert_allclose(value, result['scores'][month][name], atol=1e-8, rtol=0)
             np.testing.assert_allclose(np.mean([v for m, v in metrics]), result['cv'][name], atol=1e-8, rtol=0)

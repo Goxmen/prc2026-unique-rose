@@ -12,13 +12,16 @@ failed; no expansion.
 XGBoost as a fourth tree member failed (+0.2433 CV). Full-schedule public neural
 training passed its matched single-seed screen (−0.2513 CV); the three-seed
 expansion also passes (−0.3536 on v75, both months), with model and score audits
-complete. Full-year neural production is queued after the current screens.
-Its combination with the new main tree has a fixed joint CV and independent
-SQL audit queued before neural production; the provenance guard passes.
+complete. Full-year neural production is running on the desktop.
+Its combination with the new main tree passes joint CV292.4494 (−0.4921
+versus v75), improving both individual changes and both months. All control
+replays and the independent SQL audit pass; build the combined file after
+the three full-year neural members and production audit finish.
 Cross-fitted Rome peer budgets were inconclusive
 (−0.1407 on v75); no production expansion. Rome punctuality inputs also gave
-no gain (+0.0128 on v75). Their ordinary main-regressor test is queued;
-all 18,765,423 input values passed independent arithmetic checks.
+no gain (+0.0128 on v75). Their ordinary main-regressor test also gives no
+gain (+0.0137 on the public-main/v75 combination). All18,765,423 input values,
+all344,419 model reloads and independent SQL scores pass; no expansion.
 A structural Rome prior for the daily-total method failed (+0.5626 versus
 the old posterior, largely July); no production expansion.
 The daily totals empirically align with off-block dates rather than takeoff
@@ -27,8 +30,8 @@ using dates estimated from v70 predictions failed to improve (+0.1506 versus
 matched IFR control), despite passing source/calendar/scoring audits. Ordinary
 flights generally improve, but long Rome flights worsen in July. A fixed t5
 ordinary-aggregate prior with the same variance is queued after neural
-production; numerical checks pass, no CV result yet. Ordinary punctuality
-is currently training. No date-aligned production candidate is selected.
+production; numerical checks pass, no CV result yet. No date-aligned
+production candidate is selected.
 A fixed raw-track withholding experiment is queued last: the public single
 network randomly loses its entire raw-track branch on 25% of training rows,
 with the original inference, inputs, epochs and parameters. CPU checks pass;

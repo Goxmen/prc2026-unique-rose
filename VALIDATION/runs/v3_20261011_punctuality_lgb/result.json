@@ -1,0 +1,66 @@
+{
+  "design": {
+    "parent": "passing public main and public Rome Cat3 combination",
+    "change": "nine public punctuality inputs in ordinary main LightGBM only",
+    "original_columns": 174,
+    "added": [
+      "pun_dep_otp15",
+      "pun_arr_otp15",
+      "pun_dep_mean",
+      "pun_arr_mean",
+      "pun_operated",
+      "pun_otp900_resid",
+      "pun_otp1800_resid",
+      "pun_mean900_resid",
+      "pun_clock_mean_resid"
+    ],
+    "columns": 183,
+    "rounds": 10000,
+    "seed": 42,
+    "trial": "LB1",
+    "threads": 4,
+    "rows": "unchanged original ordinary population",
+    "machine": "desktop; same-machine174-column controls",
+    "no_parameter_or_weight_search": true,
+    "no_stopping_selection": true,
+    "production_or_upload": false
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.40230630846963,
+      "pred": 326.4209157925886,
+      "transferred_control": 326.3333338352751,
+      "transferred": 326.34770405269876
+    },
+    "2025-07": {
+      "control": 257.5371111467929,
+      "pred": 257.55297928032013,
+      "transferred_control": 259.2080311891503,
+      "transferred": 259.2209678418583
+    }
+  },
+  "cv": {
+    "control": 291.96970872763126,
+    "pred": 291.98694753645435,
+    "transferred_control": 292.7706825122127,
+    "transferred": 292.7843359472785
+  },
+  "paired": {
+    "pred_vs_control": {
+      "change": 0.017238808823094587,
+      "ci95": [
+        0.0012144911015418815,
+        0.031139486555288438
+      ],
+      "decision": "regression"
+    },
+    "transferred_vs_transferred_control": {
+      "change": 0.013653435065833719,
+      "ci95": [
+        -0.0021428396256286675,
+        0.027202062983270988
+      ],
+      "decision": "inconclusive"
+    }
+  }
+}

@@ -1,12 +1,11 @@
 {
-  "state": "waiting",
   "predecessor_pid": 721659,
   "predecessor_start": "7448898",
   "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_submit/audit.json",
   "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
   "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
-  "created_at": "2026-10-11T08:29:59.027072+00:00",
+  "created_at": "2026-10-11T09:11:42.937211+00:00",
   "jobs": [
     {
       "name": "fixed_t5_ordinary_aggregate",
@@ -25,13 +24,16 @@
         ]
       ],
       "sources": {
-        "VALIDATION/daily_heavy_tail.py": "16ce0b19e52076fb9ae2fcc98154443b0344bb5232c0ce2175ecbdf83b44dbfe",
-        "VALIDATION/runs/v3_20261011_daily_heavy_tail/identity.json": "516baf41ce08314fff8e79d133187c9bf549d73555988857c898524b9db44ddb"
+        "VALIDATION/daily_heavy_tail.py": "d521a1708e8bd5217254548ecfc8fb9b984b083840331b1bde7bd7a977de0932",
+        "VALIDATION/runs/v3_20261011_daily_heavy_tail/identity.json": "6135247083444da652c3be117343a6a678c68d7a289b6d3210e24d13d78e7c55"
       },
       "log": "tmp/research_20261011/daily_heavy_tail.log",
       "result": "VALIDATION/runs/v3_20261011_daily_heavy_tail/audit.json"
     }
   ],
-  "updated_at": "2026-10-11T08:29:59.053664+00:00",
-  "pid": 737069
+  "state": "waiting",
+  "rebound_from_pid": 737069,
+  "rebind_reason": "Explicit AS on SQL value alias; numerical/training code unchanged; revised guards pass",
+  "updated_at": "2026-10-11T09:11:42.962441+00:00",
+  "pid": 761632
 }

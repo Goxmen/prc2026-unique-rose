@@ -1,0 +1,111 @@
+{
+  "design": {
+    "parent": "v75",
+    "change": "public main LightGBM and public physical neural pool together",
+    "tree": "equal main/airport/CatBoost",
+    "neural": "equal callsign15/physical3",
+    "neural_weight": 0.71,
+    "rome": "public Cat3 plus original R20, equal mixture",
+    "transfer": "v74 plus new primary minus original v70; restore matched/recovered bounds",
+    "no_new_fit": true,
+    "no_weight_or_parameter_search": true,
+    "evaluation": "reused Jan/Jul development",
+    "comparisons": [
+      "combined vs public-main alone",
+      "combined vs public-neural alone",
+      "combined vs v75"
+    ]
+  },
+  "scores": {
+    "2025-01": {
+      "baseline": 326.6213827655868,
+      "baseline_transfer": 326.47717924134565,
+      "main": 326.40230630846963,
+      "main_transfer": 326.3333338352751,
+      "neural": 326.4654456181014,
+      "neural_transfer": 326.27878354283257,
+      "combined": 326.28558057775336,
+      "combined_transfer": 326.1740758752955
+    },
+    "2025-07": {
+      "baseline": 257.7805353413711,
+      "baseline_transfer": 259.4059186106082,
+      "main": 257.5371111467929,
+      "main_transfer": 259.2080311891503,
+      "neural": 257.38302935026417,
+      "neural_transfer": 258.8971924742017,
+      "combined": 257.1611804522669,
+      "combined_transfer": 258.72474053760806
+    }
+  },
+  "cv": {
+    "baseline": 292.200959053479,
+    "baseline_transfer": 292.9415489259769,
+    "main": 291.96970872763126,
+    "main_transfer": 292.7706825122127,
+    "neural": 291.92423748418275,
+    "neural_transfer": 292.58798800851713,
+    "combined": 291.72338051501015,
+    "combined_transfer": 292.4494082064518
+  },
+  "paired": {
+    "combined_vs_baseline": {
+      "change": -0.47757853846883336,
+      "ci95": [
+        -0.6758659724543893,
+        -0.321719814058158
+      ],
+      "decision": "improvement"
+    },
+    "combined_vs_main": {
+      "change": -0.2463282126211368,
+      "ci95": [
+        -0.3891974452164618,
+        -0.11391159740546368
+      ],
+      "decision": "improvement"
+    },
+    "combined_vs_neural": {
+      "change": -0.20085696917266205,
+      "ci95": [
+        -0.27286984310211615,
+        -0.14670935591986387
+      ],
+      "decision": "improvement"
+    },
+    "combined_transfer_vs_baseline_transfer": {
+      "change": -0.49214071952513905,
+      "ci95": [
+        -0.6645627707686892,
+        -0.35042605135232313
+      ],
+      "decision": "improvement"
+    },
+    "combined_transfer_vs_main_transfer": {
+      "change": -0.3212743057609089,
+      "ci95": [
+        -0.47021356018829863,
+        -0.1928144037804707
+      ],
+      "decision": "improvement"
+    },
+    "combined_transfer_vs_neural_transfer": {
+      "change": -0.13857980206535103,
+      "ci95": [
+        -0.19051258387289954,
+        -0.09276440958263167
+      ],
+      "decision": "improvement"
+    }
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_stack_cv/identity.json",
+    "sha256": "b6a6a27f84444718097f16940adcd7ab744e2c2b29772dc61ecb9f7f8ab06a82"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_public_stack_cv/scored.parquet",
+    "sha256": "04d0886b113ce081bbba97bf880e8f33c06366a5a98ac64084abab186ca01e92"
+  },
+  "all_three_control_replays_exact": true,
+  "selection": "Joint recipe is selectable only if it improves both individual transferred recipes; no upload here"
+}

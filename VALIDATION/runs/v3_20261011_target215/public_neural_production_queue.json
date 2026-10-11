@@ -1,5 +1,5 @@
 {
-  "state": "waiting",
+  "state": "running",
   "predecessor_pid": 707786,
   "predecessor_start": "7305052",
   "predecessor_result": "VALIDATION/runs/v3_20261011_punctuality_lgb/result.json",
@@ -28,7 +28,8 @@
         "VALIDATION/public_stack_cv.py": "7a07755c65281de72d0d2cb3bd62b4d33c7591f4e9922aa8960bfc546421044a"
       },
       "log": "tmp/research_20261011/public_stack_cv.log",
-      "result": "VALIDATION/runs/v3_20261011_public_stack_cv/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_public_stack_cv/audit.json",
+      "completed_result_sha256": "3e526a98b44060135051dcaf62a83c3cf50142aa6c5421c35bc7bfab9ccc06ff"
     },
     {
       "name": "public_neural_production",
@@ -73,6 +74,9 @@
     }
   ],
   "rebound_from_pid": 717805,
-  "updated_at": "2026-10-11T08:02:58.092098+00:00",
-  "pid": 721659
+  "updated_at": "2026-10-11T09:08:43.328000+00:00",
+  "pid": 721659,
+  "job": 1,
+  "stage": 1,
+  "child_pid": 759761
 }

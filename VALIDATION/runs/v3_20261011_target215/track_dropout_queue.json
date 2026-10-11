@@ -1,12 +1,11 @@
 {
-  "state": "waiting",
-  "predecessor_pid": 737069,
-  "predecessor_start": "7610994",
+  "predecessor_pid": 761632,
+  "predecessor_start": "7861385",
   "predecessor_result": "VALIDATION/runs/v3_20261011_daily_heavy_tail/audit.json",
   "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
   "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
-  "created_at": "2026-10-11T08:46:15.334043+00:00",
+  "created_at": "2026-10-11T09:11:42.937980+00:00",
   "jobs": [
     {
       "name": "fixed_raw_track_withholding",
@@ -38,13 +37,16 @@
       ],
       "sources": {
         "VALIDATION/nn_track_dropout.py": "d4e08b2b6a6dbfcf6b78a389d25d885d85ef9f9a1b8be3d61aa4047048896bce",
-        "VALIDATION/nn_track_dropout_jan_jul.py": "61882e99f94600f569c76620acfb7e039076488f778cd1ed23188dcf6c3d9527",
-        "VALIDATION/runs/v3_20261011_nn_track_dropout/identity.json": "0bc1ac79ee7bb084f7ad59e99c064b2cedbebecdbdfe020aa0a9674d0a92c357"
+        "VALIDATION/nn_track_dropout_jan_jul.py": "3c6b137c4bd06476cd80990b565e6df40480a434f689bbc7aad4b565210309b9",
+        "VALIDATION/runs/v3_20261011_nn_track_dropout/identity.json": "c11beabd48a8bbc6e5ee07f6bfda5e3de9b87e01f1ac7c1a33016a077a84a0a6"
       },
       "log": "tmp/research_20261011/track_dropout.log",
       "result": "VALIDATION/runs/v3_20261011_nn_track_dropout/score_audit.json"
     }
   ],
-  "updated_at": "2026-10-11T08:46:15.360779+00:00",
-  "pid": 746093
+  "state": "waiting",
+  "rebound_from_pid": 746093,
+  "rebind_reason": "Explicit AS on SQL value alias; numerical/training code unchanged; revised guards pass",
+  "updated_at": "2026-10-11T09:11:42.966579+00:00",
+  "pid": 761633
 }
