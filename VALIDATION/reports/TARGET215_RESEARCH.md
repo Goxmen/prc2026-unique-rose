@@ -1,5 +1,46 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Public callsign network and preparation for the next official scores
+
+V76 adds public daily information to the physical networks, main LightGBM and
+Rome classifier, but its fifteen callsign networks still have only the original
+156 inputs plus six callsign clocks. The next fixed screen supplies the same
+twelve public transforms to that remaining neural component. It keeps every
+original162 input, the exact saved encoder/bins, original seed42 initialization,
+2048-row batches, optimizer,24-epoch schedule and fixed21/17 stop epochs. A
+zero-initialized32-wide public head reads the original256-wide hidden state plus
+the12 scaled inputs. No new data download, clock feature or stopping search.
+
+`nn_calls_public.py` passes CPU checks for original weights, initial output,
+initialization/dropout RNG and finite nonzero new-head gradients. The isolated
+training factory reuses the original function bytecode. Before each fit, the
+saved original model must reload **every** held-month prediction exactly; the
+saved new checkpoint must likewise reproduce every new prediction. Regenerated
+preprocessing must equal the original162-column state, including types/order.
+Public transforms additionally receive scalar arithmetic checks. The screen
+compares one new callsign network against the matching retained seed42 network
+inside the selected public physical/main/Rome stack. Callsign15 is a separate,
+different-size reference, not the primary control. Independent SQL checks all
+344,419 labels, calendar fields, selected controls and complete recipe scores.
+
+No fit has started for this direction. Queue PID811666 runs fit→score→audit after
+the current width64 work and the short geometry preparation. Its frozen sources
+and identity are in `v3_20261011_nn_calls_public/` and
+`target215/calls_public_queue.json`. No production candidate is selected.
+
+`public_models_geometry.py` prepares the retained45-vector scored basis plus
+v70/v72/v74/v75/v76, using actual ranking files and matching Jan/Jul vectors.
+Mutable upload manifests are captured as immutable snapshots. Preparation and
+all-row independent SQL audits are queued after width64 (PID808050); no score is
+imputed for v75 or v76. Once both are officially successful, `evaluate` checks
+all basis scores live and uses the existing weight bounds[−3,4], sum-one
+constraint and ridge1. It independently verifies the expanded squared-error
+identity and reports a conservative bound including official score rounding,
+zero-clipping and integer serialization. A synthetic hidden-target oracle and
+serialization/score-rounding checks already pass. It produces a diagnosis only,
+without reserving a version or uploading. The inherited v3–v9 CV reconstruction
+caveat is retained; leaderboard-derived weights are not independent validation.
+
 ## Completed aggregate tests; wider track encoder started
 
 The exact selected-stack t5 replacement improves v76 CV292.4494→292.3760

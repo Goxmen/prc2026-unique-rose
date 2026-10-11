@@ -78,9 +78,11 @@
     "Exact selected-stack t5 replacement improves v76 CV0.0734, both months; all original stages replay and SQL score audit pass; small effect retained without upload",
     "Grid interpolation first moments and24600-state enumeration pass; actual-stack CV+0.0011 inconclusive; all control/SQL audits pass; no promotion",
     "Full monthly correction, fixed multiplier1 instead0.5, improves v76 CV0.0938; both months; independent SQL arithmetic and scores pass; no distinct submission",
-    "Width64 track encoder CPU/CUDA initialization, tabular/public weights, dropout RNG, missing-track gates, padding and gradient checks pass; 2048row synthetic capacity test1.72GB peak"
+    "Width64 track encoder CPU/CUDA initialization, tabular/public weights, dropout RNG, missing-track gates, padding and gradient checks pass; 2048row synthetic capacity test1.72GB peak",
+    "Prepared scored-public-model geometry tool; synthetic hidden-target oracle, score-rounding interval, serialization bound and expanded-MSE identity pass; actual50-vector preparation queued after width64",
+    "Public-input callsign single-network CPU initialization/weights/dropout RNG/output/gradient checks and original artifact/source guard pass; Jan/Jul fits queued after geometry preparation"
   ],
-  "next": "Complete width64 Jan/Jul fits and audits; inspect joint refinements only if meaningful. Preserve v75/v76 midnight queues. Once official scores arrive, evaluate new scored model directions in the retained affine basis; no duplicate uploads.",
+  "next": "Finish width64 Jan/Jul and audits; prepare/audit 50-vector scored basis; fit/audit public callsign single with exact old/new held-prediction reloads. Preserve v75/v76 uploads. Run public_models_geometry.py evaluate after both official results arrive.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -246,7 +248,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T10:22:17.919557+00:00",
+  "updated_at": "2026-10-11T10:37:39.414298+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -271,5 +273,21 @@
       "fixed_track_encoder_width64"
     ]
   },
-  "queued_upload_integrity": "VALIDATION/runs/v3_20261011_target215/upload_integrity_after_v76.json"
+  "queued_upload_integrity": "VALIDATION/runs/v3_20261011_target215/upload_integrity_after_v76.json",
+  "public_geometry_prepare_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/public_geometry_prepare_queue.json",
+    "pid": 808050,
+    "state": "waiting",
+    "jobs": [
+      "prepare_audit_public_model_scored_basis"
+    ]
+  },
+  "calls_public_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/calls_public_queue.json",
+    "pid": 811666,
+    "state": "waiting",
+    "jobs": [
+      "fixed_public_inputs_callsign_network"
+    ]
+  }
 }

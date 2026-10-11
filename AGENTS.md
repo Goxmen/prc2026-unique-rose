@@ -114,6 +114,20 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11: new public-callsign screen prepared; width64 still training.**
+  The callsign15 component has no public daily inputs yet. New single seed42
+  adds the same12 public transforms through a zero head, keeping all162 original
+  inputs/encoding, optimizer and21/17epochs. CPU/source checks pass. Before fitting,
+  it must reproduce every original held prediction; every new checkpoint reload
+  must match too. Runner `nn_calls_public_jan_jul.py`, run`v3_20261011_nn_calls_public`,
+  queue PID811666 after geometry preparation; no fits/results yet. Geometry tool
+  `public_models_geometry.py` prepares the retained45 directions plus70/72/74/75/76;
+  prepare/audit queued PID808050 after width64. Numerical hidden-target/rounding
+  checks pass. Run `evaluate` only after official v75/v76 results; it checks scores
+  live and gives CV plus conservative serialization bounds, without uploading or
+  reserving a version. Sources/queues frozen; don't alter or repeat active jobs.
+
+
 - **October11: aggregate follow-ups audited; width64 track screen running.**
   Direct t5 on actual v76: CV−0.0734; full monthly correction:−0.0938, both
   months improve in each. Effects retained without distinct submissions.

@@ -62,6 +62,13 @@ Live12:12 Amsterdam: v74 remains best/latest221.6881, rank12/242. V75/v76
 uploads are queued for12 October02:00/02:10 Amsterdam. Their official scores
 will determine whether adding their separately scored directions improves the
 existing affine basis; no re-upload of a duplicate file.
+After width64, prepare/audit the50-vector scored basis, then test public daily
+inputs in the callsign network—the remaining neural component without them.
+The callsign screen preserves all162 original inputs/encoding and fixed21/17
+epochs; the saved original and new models must reproduce every held prediction.
+CPU/source checks pass; no fit yet. Geometry evaluation requires actual official
+v75/v76 scores, checks the basis live, and reports rounding/clipping bounds;
+no score imputation, candidate version or upload occurs in that diagnostic.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 
