@@ -144,16 +144,23 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   `v3_20261011_target215/queue_v75.json` binds the exact manifest and runner.
   Check queue/process before any manual upload. Create its cancellation file
   if the user pauses/stops; never silently leave a queued upload active then.
-  Desktop session49192 runs the two main-LightGBM public-feature folds; log
-  `tmp/research_20261011/public_delay_lgb.log`. Public neural continuation was
+  Main-LightGBM public-feature CV is complete: primary −0.2308, fixed v74
+  transfer −0.1703, both months improve; saved controls used the laptop, new
+  fits the desktop. Its reload audit and combination with v75 are queued.
+  Log `tmp/research_20261011/public_delay_lgb.log`. Public neural continuation was
   small/inconclusive versus its original parent; no expansion. The retained
   three-seed TabM blend failed (+0.2828 primary CV); no new fit or production.
-  A finite detached research queue (PID656094,
-  `v3_20261011_target215/research_queue.json`) waits for the entire LightGBM
-  fit-and-score shell, then runs XGBoost fourth-tree CV and full-schedule public
-  neural CV, sequentially. Do not launch another heavy desktop job while this
-  queue is waiting/running. Cancellation file: `cancel_research_queue` in that
-  run folder. These are unscored experiments, not selected candidates.
+  A finite detached research queue in `v3_20261011_target215/research_queue.json`
+  now runs XGBoost fourth-tree CV then full-schedule public neural CV. Read the
+  queue for current PIDs; XGBoost's first fold completed in1.8 minutes. Its
+  categorical-string conversion passed real-input checks before any fit.
+  A second `peer_research_queue.json` waits for the first queue to finish,
+  then audits main LightGBM and fits cross-fitted Rome peer-budget features.
+  All jobs are sequential. Do not launch another heavy desktop job while
+  either queue is waiting/running. Both use cancellation file
+  `cancel_research_queue` in that run folder. These pending experiments are
+  not selected candidates. Peer probabilities exclude their own training
+  months and all five departure-label history inputs; see the research report.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL currently shows offline on Tailscale.

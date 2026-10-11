@@ -1,5 +1,5 @@
 {
-  "state": "waiting",
+  "state": "running",
   "predecessor_pid": 644296,
   "predecessor_start": "6670472",
   "predecessor_result": "VALIDATION/runs/v3_20261011_public_delay_lgb/result.json",
@@ -23,10 +23,11 @@
         ]
       ],
       "sources": {
-        "VALIDATION/xgboost_diversity_jan_jul.py": "c94ca0d3fd5eb1fa157d4e808894968d99628d2c859a35af05c2921aedbca815"
+        "VALIDATION/xgboost_diversity_jan_jul.py": "85af42674b780da347c3f5aae001f21c7736a45da413e91777b2dcdee0bbc35b"
       },
       "log": "tmp/research_20261011/xgboost_diversity.log",
-      "result": "VALIDATION/runs/v3_20261011_xgboost_diversity/result.json"
+      "result": "VALIDATION/runs/v3_20261011_xgboost_diversity/result.json",
+      "completed_result_sha256": "9f8c4037c6e1a6cc496353069718d01cf52505cdcb32f58e08782b2165a29543"
     },
     {
       "name": "public_neural_full",
@@ -58,6 +59,10 @@
     }
   ],
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
-  "updated_at": "2026-10-11T06:13:51.558183+00:00",
-  "pid": 656094
+  "updated_at": "2026-10-11T06:30:52.053183+00:00",
+  "revision_reason": "Before any fit: encode categorical strings with shared training vocabulary; real input preflight passed",
+  "pid": 659112,
+  "job": 1,
+  "stage": 0,
+  "child_pid": 665913
 }

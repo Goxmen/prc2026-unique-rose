@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "hand_arithmetic": true,
+    "explicit_vfr_excluded": true,
+    "unknown_rule_included": true,
+    "hard_rule_fallback": true,
+    "label_isolation": true,
+    "row_order_invariant": true
+  },
+  "coverage": [
+    {
+      "month": "2025-01",
+      "all_train_rome": 126616,
+      "model_train_rome": 126507,
+      "missing_peers": 109,
+      "hard_rule_fallback": 109,
+      "other_missing": 0,
+      "inner_columns": 63,
+      "fold_membership_exact": true
+    },
+    {
+      "month": "2025-07",
+      "all_train_rome": 86769,
+      "model_train_rome": 86723,
+      "missing_peers": 46,
+      "hard_rule_fallback": 46,
+      "other_missing": 0,
+      "inner_columns": 63,
+      "fold_membership_exact": true
+    }
+  ],
+  "source": {
+    "path": "VALIDATION/rome_public_peers_jan_jul.py",
+    "sha256": "c25c11298ba930ea1ec6bbace973826d2509175154486405cc1599c964e7c974"
+  },
+  "features": {
+    "path": "VALIDATION/rome_public_peer_features.py",
+    "sha256": "80b5ff1bfe48f8826af0c1159e3c8f42248edacb6d120b5eab66e21adeb291bc"
+  }
+}

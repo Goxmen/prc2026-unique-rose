@@ -1,0 +1,65 @@
+{
+  "design": {
+    "parent": "selected callsign main LightGBM inside v70",
+    "change": "12 public IFR daily aggregate inputs",
+    "original_columns": 162,
+    "new_features": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "rounds": 10000,
+    "seed": 42,
+    "trial": "LB1",
+    "threads": 4,
+    "primary": "same selected ordinary/Cat3-R20 stack; only main tree changes",
+    "caveat": "Saved main control on laptop, candidate on desktop; reused Jan/Jul development"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.8094692499064,
+      "pred": 326.58982635193996,
+      "v74": 326.6173940355033,
+      "transferred": 326.4725963765094
+    },
+    "2025-07": {
+      "control": 258.9255682058297,
+      "pred": 258.68358643833886,
+      "v74": 260.8172239516663,
+      "transferred": 260.6213370613039
+    }
+  },
+  "cv": {
+    "control": 292.86751872786806,
+    "pred": 292.6367063951394,
+    "v74": 293.71730899358477,
+    "transferred": 293.5469667189067
+  },
+  "paired": {
+    "pred_vs_control": {
+      "change": -0.23081233272861823,
+      "ci95": [
+        -0.31765318885947946,
+        -0.17337385162571695
+      ],
+      "decision": "improvement"
+    },
+    "transferred_vs_v74": {
+      "change": -0.17034227467814844,
+      "ci95": [
+        -0.2297823670410537,
+        -0.12292876123729538
+      ],
+      "decision": "improvement"
+    }
+  }
+}

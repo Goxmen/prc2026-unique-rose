@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "main LightGBM with12 public daily inputs, two CV folds",
-    "session_id": 49192,
-    "log": "tmp/research_20261011/public_delay_lgb.log",
-    "run": "VALIDATION/runs/v3_20261011_public_delay_lgb"
+    "task": "XGBoost fourth-tree CV, then full public neural CV",
+    "queue": "VALIDATION/runs/v3_20261011_target215/research_queue.json",
+    "pid": 659112,
+    "log": "tmp/research_20261011/xgboost_diversity.log"
   },
   "laptop": "offline; no job",
   "utc_uploads_used": [
@@ -35,9 +35,12 @@
     "public neural continuation small/inconclusive versus original",
     "v75 production and full independent audit complete",
     "independent SQL audited4,138,092 ranking feature values",
-    "retained TabM3 fixed blend failed+0.2828 primary CV"
+    "retained TabM3 fixed blend failed+0.2828 primary CV",
+    "main public LightGBM CV passed-0.2308 primary/-0.1703 on v74",
+    "XGBoost categorical strings corrected and real-input preflight passed before fitting",
+    "peer arithmetic and actual outer-fold population checks passed"
   ],
-  "next": "finish main-LightGBM CV, then queued XGBoost and public-neural CV sequentially; inspect results and audit meaningful gains; preserve queued v75 for next UTC window",
+  "next": "review XGBoost, full public neural and peer-feature scores as queues finish; main-LightGBM audit/combined CV queued; preserve v75 queued upload",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -47,11 +50,20 @@
   },
   "research_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/research_queue.json",
-    "pid": 656094,
-    "state": "waiting",
+    "pid": 659112,
+    "state": "running",
     "jobs": [
       "XGBoost fourth tree, fixed162 inputs/4000 rounds",
       "public neural head, full original21/17 epochs"
+    ]
+  },
+  "peer_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/peer_research_queue.json",
+    "pid": 664608,
+    "state": "waiting",
+    "jobs": [
+      "main public LightGBM all-row reload and selected-Cat combination",
+      "Rome cross-fitted peer daily budgets"
     ]
   }
 }

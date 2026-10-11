@@ -39,25 +39,42 @@ def artifact(path):
     return selected.features.base.artifact(path)
 
 
-def convert(frame, cats):
-    """Retain existing category codes; negative missing codes become NaN."""
+def convert(frame, cats, category_maps=None):
+    """Encode categories against the training frame's retained vocabulary.
+
+    The original LightGBM packet contains categorical strings, not numerical
+    category IDs. Held unknowns map to NaN; numeric columns stay numerical.
+    """
     names = list(frame)
-    a = frame.to_numpy(dtype=np.float32, copy=True)
-    a[~np.isfinite(a)] = np.nan
+    a = np.empty(frame.shape, dtype=np.float32)
     types = ['c' if name in cats else 'q' for name in names]
-    for j, kind in enumerate(types):
+    maps = {} if category_maps is None else dict(category_maps)
+    for j, (name, kind) in enumerate(zip(names, types)):
         if kind == 'c':
+            if category_maps is None:
+                maps[name] = frame[name].astype('category').cat.categories.tolist()
+            values = pd.Categorical(frame[name], categories=maps[name]).codes.astype(np.float32)
+            a[:, j] = values
             a[a[:, j] < 0, j] = np.nan
             v = a[np.isfinite(a[:, j]), j]
             np.testing.assert_array_equal(v, np.floor(v))
-    return a, types
+        else:
+            a[:, j] = frame[name].to_numpy(dtype=np.float32, na_value=np.nan)
+    a[~np.isfinite(a)] = np.nan
+    return a, types, maps
 
 
 def check(device='cpu'):
     frame = pd.DataFrame({'num': [0., 1., np.inf, -2., 3., 4., 5., 6.],
-                          'cat': [0, 1, -1, 0, 2, 1, 2, 0]})
-    a, ft = convert(frame, ['cat'])
+                          'cat': ['A', 'B', None, 'A', 'C', 'B', 'C', 'A']})
+    a, ft, maps = convert(frame, ['cat'])
     assert np.isnan(a[2]).all() and ft == ['q', 'c']
+    held = frame.copy()
+    held.loc[0, 'cat'] = 'UNSEEN'
+    held['cat'] = pd.Categorical(held['cat'], categories=['C', 'B', 'A', 'UNSEEN'])
+    va, vft, _ = convert(held, ['cat'], maps)
+    assert np.isnan(va[0, 1]) and vft == ft
+    np.testing.assert_array_equal(va[1:], a[1:])
     y = np.array([1, 3, 2, 1, 5, 6, 7, 8], dtype=np.float32)
     d = xgb.QuantileDMatrix(a, y, feature_names=list(frame), feature_types=ft,
                           enable_categorical=True, max_bin=16, nthread=1)
@@ -72,7 +89,9 @@ def check(device='cpu'):
         np.testing.assert_array_equal(first, reload.predict(d))
     assert np.isfinite(first).all() and model.feature_types == ft
     return dict(device=device, missing_codes_preserved=True,
-                categorical_types_exact=True, serialization_exact=True)
+                string_categories_aligned=True, unknown_categories_missing=True,
+                held_category_order_invariant=True, categorical_types_exact=True,
+                serialization_exact=True)
 
 
 def guard():
@@ -111,8 +130,8 @@ def fit():
         cats = parent.ideas.signals._categorical(X.columns) + [
             c for c in parent.ideas.ef.CATEGORICAL if c in X]
         names = list(X)
-        xa, ft = convert(X, cats)
-        va, vft = convert(V, cats)
+        xa, ft, category_maps = convert(X, cats)
+        va, vft, _ = convert(V, cats, category_maps)
         assert ft == vft and names == list(V)
         y, ids = d['y'].copy(), d['ids'].copy()
         train_ids = d['train_ids'].copy()
@@ -139,6 +158,7 @@ def fit():
         write_json(path.with_suffix('.json'), dict(identity=artifact(OUT / 'identity.json'),
             input=artifact(source), model=artifact(mp), prediction=artifact(path),
             params=PARAMS, rounds=ROUNDS, columns=names, feature_types=ft,
+            category_maps=category_maps,
             train_rows=len(y), held_rows=len(ids), all_held_reload_exact=True,
             minutes=(time.monotonic()-started)/60, host=platform.node()))
         parent.log(f'{month}: completed in {(time.monotonic()-started)/60:.1f} min')

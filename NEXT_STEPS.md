@@ -6,10 +6,11 @@ All five UTC October11 upload slots are used; continue offline validation.
 V75 is fully prepared and audited: public daily inputs in the Rome CatBoost
 pool give Jan/Jul CV292.9415, a0.7758-second gain over v74. It is queued for
 12 October02:00 Amsterdam; no official result yet. The main-LightGBM version
-is running on the desktop. Retained TabM blending failed; no expansion.
-Two further experiments are queued sequentially after that run: XGBoost as
-a fourth tree member and public neural inputs trained for the full original
-schedule. Their scores are pending; neither is a selected submission.
+completed with another0.1703-second CV gain on v74; its audit and combination
+with v75 are queued. Retained TabM blending failed; no expansion.
+XGBoost as a fourth tree member is running, followed by public neural inputs
+trained for the full original schedule, then a cross-fitted Rome peer-budget
+test. Their scores are pending; none is a selected submission.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

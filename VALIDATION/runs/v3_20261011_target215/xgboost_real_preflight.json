@@ -1,0 +1,25 @@
+{
+  "rows_each": 64,
+  "features": 162,
+  "categorical_columns": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "airline",
+    "rc_dep_set_60",
+    "rc_arr_set_60"
+  ],
+  "string_vocabularies": 13,
+  "matrix_construction_pass": true,
+  "source": {
+    "path": "VALIDATION/xgboost_diversity_jan_jul.py",
+    "sha256": "85af42674b780da347c3f5aae001f21c7736a45da413e91777b2dcdee0bbc35b"
+  }
+}

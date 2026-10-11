@@ -285,15 +285,23 @@ upload or candidate-ledger row follows. Runner `tabm_retained_blend.py`, run
 
 ## Fixed follow-ups queued after the main LightGBM
 
-The LightGBM January fit finished in 18.5 minutes; July is running. A finite
-queue waits for both fitting and scoring to finish before starting either
-follow-up. Every heavy job is sequential on the desktop; no laptop job exists.
+The LightGBM fits are complete (18.5/14.7 minutes). Its primary CV improves
+**292.8675 → 292.6367 (−0.2308)**, interval[−0.3177,−0.1734]; the fixed v74
+transfer improves **293.7173 → 293.5470 (−0.1703)**, interval[−0.2298,−0.1229].
+Both months improve. Saved controls ran on the laptop and candidates on the
+desktop, a numerical-comparison caveat. Saved-model reload and its combination
+with the selected Rome change are queued; no production fit or ledger row yet.
+XGBoost started after both fitting and scoring finished. Every heavy job is
+sequential on the desktop; laptop SSH timed out again around08:18 Amsterdam.
 
 1. **XGBoost diversity:** the existing 162 inputs, original training rows and
    labels, 4,000 fixed depth-8 rounds, seed42. Add it as an equal fourth tree
    member inside the unchanged0.29 tree share. No held-label stopping or weight
    search. The native categorical path preserves the existing shared category
-   codes and missing values. CPU and CUDA synthetic serialization checks pass;
+   vocabularies and missing values. The initial numeric-code assumption was
+   corrected before fitting: retained categories are strings. CPU/CUDA checks
+   cover missing/unseen categories, shuffled category order and serialization;
+   real cached64-row train/held frames pass all162 columns and13 categories.
    reloading onto the same device fixes a4.8e−7 difference from default CPU
    reload of a CUDA model. XGBoost3.4.1 is pinned;3.4.2 shown in the live docs
    was unavailable from the package index. See the official
@@ -314,3 +322,31 @@ follow-up. Every heavy job is sequential on the desktop; no laptop job exists.
 These are unscored experiments, not selected candidates. Queue/source bindings
 and status live in `v3_20261011_target215/research_queue.json`. Its cancellation
 file or an inactive objective stops further jobs and any active child.
+
+## Cross-fitted recording-mode peer budgets
+
+The selected public inputs subtract fixed ordinary taxi references for every
+other flight. A new fixed screen instead discounts those contributions by a
+recording-mode probability: a schedule-copy row contributes approximately zero
+pre-departure delay. Ten features include that probability, the remaining daily
+budget at900/1800-second references, its per-flight fraction, and Bernoulli
+uncertainty in the total. This remains a learned feature treatment of the public
+measurement; no hidden labels enter it.
+
+For each outer fold, three interleaved groups of its permitted training months
+produce month-excluded training probabilities. A fourth model, fitted on all
+permitted months, predicts the outer holdout. All use fixed R20 settings and
+1,700 rounds. The five departure-taxi history columns are removed from these
+inner models so they cannot carry excluded-month departure labels; public daily
+inputs are also absent. The remaining63 inputs are clocks, supplied arrivals,
+categories and open track observations. The final three CatBoosts retain v75's
+parameters, training rows and rounds, adding the ten features to its80 inputs.
+
+Feature arithmetic, VFR exclusion, unknown-rule inclusion, padding-independent
+row order and target isolation pass hand-built checks. Actual input coverage is
+complete except the already rule-covered109/46 training flights: these use the
+existing zero-delay copy-mode fallback. There are no other missing peer
+probabilities in either training fold. Month membership checks pass. These are
+preflight results, not evidence of predictive gain. Runners
+`rome_public_peer_features.py` and `rome_public_peers_jan_jul.py` are queued
+after the neural run and main-LightGBM audit via `peer_research_queue.json`.
