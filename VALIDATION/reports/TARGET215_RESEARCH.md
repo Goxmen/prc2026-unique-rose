@@ -597,7 +597,7 @@ labels, dates and retained controls exactly and reproduces the monthly scores.
 No repeated fits were needed.
 
 Full-year production is now selected and queued after ordinary punctuality:
-`public_neural_production_queue.json` (PID717805), waiting on PID707786.
+`public_neural_production_queue.json` (now PID721659), waiting on PID707786.
 It prepares the frozen packet, fits all three members, checks every ranking
 reload and then runs the separate input/encoder/track auditor. It shares the
 research cancellation file and has no upload stage. The training guard now
@@ -606,3 +606,22 @@ manifest; its updated CPU preflight passes. The earlier preflight record is
 retained as history. No new submission version or final blend is reserved yet;
 combining the public main tree and new neural pool still needs an explicit
 joint CV calculation. The public main-tree full-year fit is running now.
+
+That direct calculation is now the first job in the neural production queue.
+`public_stack_cv.py` uses the retained six neural models and two main-tree
+models; no refitting, blend-weight search or new classifier is involved.
+It requires exact all-row replays of v75 and both single-change candidates,
+then applies the same full correction stack to their combination. A separate
+SQL pass checks all labels, calendars, controls and monthly scores. The
+provenance guard has passed; scores remain pending. The original waiting
+queue (PID717805) was stopped without starting a child and archived before
+rebinding its source hashes to PID721659. No upload queue was changed.
+
+`public_neural_candidate.py` and `tools/audit_public_neural_candidate.py` are
+prepared for the retained production pool, either alone or with the public
+main tree. The combined mode requires improvement over both individual
+transferred recipes in the joint CV; neither mode refits models. They replay
+the original neural pool, v70 and v75, then independently check all final
+predictions, constraints, template IDs and SQL scores. Compilation and CLI
+import checks pass. Full execution awaits production and joint CV; no file,
+version or upload has been created by these builders yet.

@@ -13,7 +13,8 @@ XGBoost as a fourth tree member failed (+0.2433 CV). Full-schedule public neural
 training passed its matched single-seed screen (−0.2513 CV); the three-seed
 expansion also passes (−0.3536 on v75, both months), with model and score audits
 complete. Full-year neural production is queued after the current screens.
-Its combination with the new main tree still needs joint CV.
+Its combination with the new main tree has a fixed joint CV and independent
+SQL audit queued before neural production; the provenance guard passes.
 Cross-fitted Rome peer budgets were inconclusive
 (−0.1407 on v75); no production expansion. Rome punctuality inputs also gave
 no gain (+0.0128 on v75). Their ordinary main-regressor test is queued;

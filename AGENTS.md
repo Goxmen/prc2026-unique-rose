@@ -212,16 +212,24 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   (−0.2767), v75 transfer292.5880 (−0.3536), both months; interval
   [−0.5065, −0.2263] on v75. All six sampled reloads pass 3,282 rows; independent
   SQL checks all 344,419 labels/dates/controls and scores. Full-year production
-  is selected: `public_neural_production_queue.json` (PID717805) waits for the
-  ordinary-punctuality PID707786, then runs `nn_public_submit.py` prepare/fit
+  is selected: `public_neural_production_queue.json` (PID721659) waits for the
+  ordinary-punctuality PID707786, first scores/audits the direct main/neural
+  combination with `public_stack_cv.py`, then runs `nn_public_submit.py` prepare/fit
   and `tools/audit_public_neural_production.py`. No fit has started yet.
   Updated CPU initialization/RNG checks pass for all three seeds.
   The runner reuses the original156 encoder/rows and15 epochs, appends the same
   public12 transforms, and requires all-row ranking reloads. All new members
   are bound to desktop; the retained original production pool used laptop.
   Same research cancellation file; no upload or new version reserved. The
-  public main tree full-year fit is now running (PID716355). A joint public
-  main/neural CV calculation is still required before selecting their blend.
+  public main tree full-year fit is now running (PID716355). The joint CV guard
+  passes and binds all retained models, controls and audits; its score is still
+  pending. It must reproduce both single-change recipes exactly, with fixed
+  weights and the full correction stack. The old waiting PID717805 was stopped
+  without starting a child, then rebound; its queue record is archived.
+  `public_neural_candidate.py` and `tools/audit_public_neural_candidate.py`
+  are prepared (compile/import checks only), with optional `--with-main`.
+  The combined mode requires both joint CV comparisons to pass. Execution
+  awaits production; no candidate file/version or upload is reserved.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL is offline on Tailscale; its Windows host is online but Windows

@@ -6,8 +6,30 @@
   "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
   "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
-  "created_at": "2026-10-11T07:56:07.073268+00:00",
+  "created_at": "2026-10-11T08:02:58.063231+00:00",
   "jobs": [
+    {
+      "name": "public_stack_joint_cv",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_stack_cv.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_stack_cv.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/public_stack_cv.py": "7a07755c65281de72d0d2cb3bd62b4d33c7591f4e9922aa8960bfc546421044a"
+      },
+      "log": "tmp/research_20261011/public_stack_cv.log",
+      "result": "VALIDATION/runs/v3_20261011_public_stack_cv/audit.json"
+    },
     {
       "name": "public_neural_production",
       "commands": [
@@ -50,6 +72,7 @@
       "result": "VALIDATION/runs/v3_20261011_nn_public_submit/audit.json"
     }
   ],
-  "updated_at": "2026-10-11T07:56:07.101700+00:00",
-  "pid": 717805
+  "rebound_from_pid": 717805,
+  "updated_at": "2026-10-11T08:02:58.092098+00:00",
+  "pid": 721659
 }
