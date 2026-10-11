@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "original_weights_rng_and_outputs_exact": true,
+      "padding_invariant": true,
+      "label_orientation_and_midpoint": true,
+      "finite_nonzero_auxiliary_gradient": true,
+      "inference_has_no_auxiliary_output": true
+    },
+    {
+      "device": "cuda",
+      "original_weights_rng_and_outputs_exact": true,
+      "padding_invariant": true,
+      "label_orientation_and_midpoint": true,
+      "finite_nonzero_auxiliary_gradient": true,
+      "inference_has_no_auxiliary_output": true
+    }
+  ],
+  "training_bytecode_exact": false,
+  "original_globals_unchanged": true,
+  "auxiliary_weight": 0.1
+}

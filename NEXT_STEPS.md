@@ -1,6 +1,11 @@
 # Next steps
 
-**Goal achieved, 11 October 2026:** v71 is best/latest at **224.3602 seconds**,
+**Active target, 11 October 2026: 215.00 seconds or lower.** Continue autonomous
+uploads and Jan/Jul validation. Best/latest is v73 at 223.1850; the remaining gap is 8.1850 seconds.
+The earlier 225.00 target is complete; the result below remains the baseline.
+Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
+
+**Previous goal achieved, 11 October 2026:** v71 is best/latest at **224.3602 seconds**,
 **0.6398 below** the requested 225.00 target. It improves v69 by 1.0392 and
 v58 by 11.8293 seconds on 344,841 flights; live rank is **15/242** at 02:04
 Amsterdam. All training and audits are complete; preserve the retained models.

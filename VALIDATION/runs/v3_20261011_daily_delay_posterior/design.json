@@ -1,0 +1,32 @@
+{
+  "design": {
+    "parent": "v71",
+    "ordinary_sigma": 150.0,
+    "common_day_sigma": 15.0,
+    "long_threshold": 3600.0,
+    "copy_airport": "LIRF",
+    "copy_threshold": 3600.0,
+    "copy_max_gap": 50400.0,
+    "noise_floor": 60.0,
+    "mismatch_scale_floor": 600.0,
+    "negative_output": "clip zero",
+    "calibration": "allowed outer training labels only",
+    "screen": "fixed analytic Gaussian moments; no hyperparameter scan",
+    "method": "60-second discrete messages; t3 measurement likelihood; Gaussian ordinary sum",
+    "grid_sec": 60.0,
+    "held_quantiles": 15,
+    "ordinary_grid_points": 41,
+    "ordinary_grid_sd": 6.0,
+    "copy_broad_share": 0.05,
+    "long_prior": "held quantiles centered at incoming mean; Rome adds copy and broad components",
+    "max_correction": null
+  },
+  "source": {
+    "path": "VALIDATION/daily_delay_posterior.py",
+    "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+  },
+  "helpers": {
+    "path": "VALIDATION/daily_delay_reconcile.py",
+    "sha256": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "design": {
+    "parent": "v71",
+    "ordinary_sigma": 150.0,
+    "common_day_sigma": 15.0,
+    "long_threshold": 3600.0,
+    "copy_airport": "LIRF",
+    "copy_threshold": 3600.0,
+    "copy_max_gap": 50400.0,
+    "noise_floor": 60.0,
+    "mismatch_scale_floor": 600.0,
+    "negative_output": "clip zero",
+    "calibration": "allowed outer training labels only",
+    "screen": "fixed analytic Gaussian moments; no hyperparameter scan",
+    "method": "60-second discrete messages; t3 measurement likelihood; Gaussian ordinary sum",
+    "grid_sec": 60.0,
+    "held_quantiles": 15,
+    "ordinary_grid_points": 41,
+    "ordinary_grid_sd": 6.0,
+    "copy_broad_share": 0.05,
+    "long_prior": "held quantiles centered at incoming mean; Rome adds copy and broad components",
+    "max_correction": null
+  },
+  "parent": "v70",
+  "months": {
+    "2025-01": {
+      "parent": 326.80942569953737,
+      "candidate": 325.9479405033647
+    },
+    "2025-07": {
+      "parent": 258.9260076889741,
+      "candidate": 258.06195633766924
+    }
+  },
+  "cv": 292.00494842051694,
+  "paired": {
+    "change": -0.8627682737387659,
+    "ci95": [
+      -2.414283323885887,
+      0.5859070820168499
+    ],
+    "decision": "inconclusive"
+  },
+  "source": {
+    "path": "VALIDATION/daily_delay_posterior.py",
+    "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+  },
+  "parent_predictions": {
+    "path": "VALIDATION/runs/v3_20261011_physical_candidate/pool3/cv/predictions.parquet",
+    "sha256": "d037778ff0c95be7dc7980dfadc67c64dc34bd441b3d016e77c67c07d124c9ad"
+  }
+}

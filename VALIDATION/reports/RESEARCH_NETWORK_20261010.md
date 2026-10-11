@@ -1,5 +1,9 @@
 # Research network: 10 October 2026
 
+**New active target: 215.00 or lower.** The 225.00 result below is completed
+history. Continuing research and current state are in
+[the October 11 report](TARGET215_RESEARCH.md).
+
 **Goal achieved, 11 October 02:04 Amsterdam:** the user requested an official
 leaderboard score of **225.00 or lower**, with autonomous uploads. **v71 scores
 224.3602 officially** on all 344,841 accepted original January/July flights,
