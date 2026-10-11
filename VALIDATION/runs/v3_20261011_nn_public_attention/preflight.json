@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "added_parameters": 32,
+      "original_weights_outputs_rng_exact": true,
+      "original_gradients_checked": true,
+      "maximum_gradient_error": 0.0,
+      "missing_track_and_padding_exact": true,
+      "attention_has_finite_nonzero_gradient": true,
+      "pooling": {
+        "scalar_softmax_weights": true,
+        "all_missing_and_single_point": true,
+        "padding_ignored": true,
+        "local_state_permutation_invariant": true,
+        "zero_logits_exact_uniform": true
+      }
+    },
+    {
+      "device": "cuda",
+      "added_parameters": 32,
+      "original_weights_outputs_rng_exact": true,
+      "original_gradients_checked": true,
+      "maximum_gradient_error": 4.656612873077393e-10,
+      "missing_track_and_padding_exact": true,
+      "attention_has_finite_nonzero_gradient": true,
+      "pooling": {
+        "scalar_softmax_weights": true,
+        "all_missing_and_single_point": true,
+        "padding_ignored": true,
+        "local_state_permutation_invariant": true,
+        "zero_logits_exact_uniform": true
+      }
+    }
+  ],
+  "training_bytecode_exact": true,
+  "original_globals_unchanged": true
+}

@@ -62,6 +62,23 @@ submission exists. Preserve the source
 diagnosis's integer vectors, because recomputing half-integer ties can differ
 with floating reduction order. Run the separate audit before any later upload.
 
+A fixed learned attention-pooling screen is training on the desktop. One
+zero-initialized scalar score replaces uniform mean weights over the existing
+physical track states; max pooling, all168 inputs and the original21/17epoch
+schedule stay fixed. It adds32 parameters. CPU/GPU checks preserve original
+weights, outputs, RNG, padding and missing-track behavior. The previous raw
+input audit is reused only after all cache/fold/source identities match exactly.
+Queue1076700 runs both fits, saved-model checks and the fixed matched and
+one-of-three comparisons through exact v78. No candidate is selected yet.
+
+The explicit-neighbour public-source screen is complete and closed. Retaining
+one largest-variance peer's full discrete support changes v78 CV by−0.0500,
+interval[−0.3854,+0.1814]; January worsens0.0466 and July improves0.1467.
+The laptop completed both months with exact original controls and row-order/
+label-poison invariance. All2,336 peer memberships and all344,419 CV rows pass
+SQL checks;148 independent scalar peer/density checks agree within7.3e-11seconds.
+The result is inconclusive; retain v78, with no production or submission.
+
 A fixed recurrent track screen is complete and closed. One forward GRU of width 32
 summarizes the existing local physical states through a zero-initialized
 projection; all inputs, original weights, seed 42 and 21/17 epochs are retained.

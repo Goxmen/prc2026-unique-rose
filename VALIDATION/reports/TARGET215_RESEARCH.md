@@ -1,5 +1,60 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Fixed learned track-pooling screen started, 19:52 Amsterdam
+
+`nn_public_attention_pool.py` adds one32-to-1 scalar score over the existing
+physical convolution states. Masked softmax weights replace the uniform mean
+through a weighted-minus-uniform residual; maximum pooling is unchanged.
+Zero score weights reproduce the original mean exactly, including empty and
+single-point tracks. This adds32parameters, with the same168inputs, seed42,
+21/17epochs, preprocessing, MSE and original AdamW/OneCycle implementation.
+There is no new source, width change, time weighting or additional dropout.
+
+CPU and RTX3080 preflights preserve original parameters, outputs and RNG.
+Original gradients agree exactly on CPU and within9.32e-10 on GPU; the new
+score receives a finite nonzero gradient. Separate scalar softmax arithmetic,
+local-state permutation, padding and missing-track checks pass. The retained
+2,085,047-row index/2,096-example raw-input audit is reused after comparing
+all cache, fold, public-feature, metadata and control identities exactly.
+The immutable receipt is `cpu_gpu_preflight.json`, separate from the fit
+runner's own mutable `preflight.json` to avoid the earlier receipt collision.
+
+Queue1076700 runs the two desktop fits, full old/new disk reload checks and
+independent model/SQL audits, then the declared single-member and one-of-three
+comparisons. `attention_v77_stack.py` replays the previous full correction stack;
+`attention_selected_stack.py` then applies the same v70-based joint-source
+increment and final bounds to all arms, verifying exact v78. The joint increment
+is independent of the replaced neural model. Both scorers were written and
+source-frozen before training or held predictions existed. No candidate or
+production expansion is selected at this stage.
+
+## Explicit uncertain peer adds no reliable gain, 19:49 Amsterdam
+
+The fixed follow-up replaces one peer's Gaussian moment approximation with
+its complete retained discrete support. For each target, select the long-flight
+peer with the largest covariance contribution standardized by the target's
+leave-one-out covariance; resolve12-decimal ties by movement ID. Use that same
+peer in the joint and departure-only updates. Other moments, calibrated noise,
+priors, source calendars and eligibility remain unchanged, with no iteration.
+The candidate replays v77 plus the new half increment, compared with exact v78.
+
+Jan/Jul CV **290.930119 →290.880076 (−0.050043)** is inconclusive:
+paired-day interval **[−0.385368,+0.181418]**. January changes **+0.046577**,
+July **−0.146662**. This does not justify expanding the method or consuming a
+submission slot. Retain the original v78; no production or ledger row follows.
+
+The portable1MB packet contains no labels or true off-block dates. Laptop
+inference completed in31.04seconds. Original moment-based controls reproduce;
+all2,336 selected peer IDs and outputs are invariant to row permutation and
+poisoned extraneous label columns, maximum difference2.66e-10seconds.
+Synthetic discrete enumeration and degenerate-peer limits pass. Independent
+SQL checks all344,419 raw labels, dates, parent predictions, increments and
+scores, plus all2,336 peer memberships. A separate scalar-cohort/standardized
+covariance/peer-selection and SciPy mixture audit checks148targets, maximum
+posterior discrepancy7.24e-11seconds. Source, packet and returned hashes match.
+Runners: `joint_public_discrete_peer.py`, `joint_public_peer_cv.py`; retained
+run `v3_20261011_joint_public_peer/`, final `audit.json` and `message_audit.json`.
+
 ## Joint public-source increment selected as v78, 19:40 Amsterdam
 
 The fixed three-moment screen improves exact-v77 Jan/Jul CV
