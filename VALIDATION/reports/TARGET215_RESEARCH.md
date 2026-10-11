@@ -1,5 +1,38 @@
 # Research toward 215 seconds — 11 October 2026
 
+## New fixed screen: share public evidence across an airline's month
+
+The existing daily posterior conditions flights separately within each day.
+The new `rome_public_monthly_shift.py` instead estimates one regularized logit
+shift per Rome airline, shared across the held month's interior dates. It
+starts from the selected joint stack's public Cat3/R20 probabilities and uses
+the existing movement-flight-number airline parser. This is public aggregate
+adaptation, not calibration against held individual departure labels.
+
+The fixed prior standard deviation is0.5 logits. A t3 likelihood compares
+public daily totals with expected positive delays under the original stack's
+conditional predictions at probability zero and one. Variance is fixed at the
+incoming probabilities: independent recording-mode variance, the existing150s
+ordinary and15s common-day scales, and retained permitted-training source/count
+mismatch estimates. No likelihood, prior-scale, airline gate or blend search.
+An independent conditional-mode mean can differ from the clipped blended
+prediction; the screen records that discrepancy as a limitation.
+
+The source dates use takeoff minus the frozen incoming prediction; calendar
+edges and explicit VFR are excluded. Inference reads a strict whitelist and
+never sees `y` or the recorded off-block date. The inferred probabilities pass
+through all existing prediction corrections and the same v74 transfer/bounds.
+The selected joint controls must replay exactly and non-Rome predictions stay
+identical. There are no new taxi-model fits.
+
+Numerical checks pass: independent daily sums, analytic versus finite-difference
+gradient (maximum error6.1e−12), exact identity for matching source totals or an
+empty scope, row/source permutation, shared airline shifts, expected update
+direction and poisoned-label isolation. The screen and independent row-loop/
+SQL audits are queued after the neural Rome screen (PID777889). No Jan/Jul gain,
+production candidate or upload is claimed. Retain the source, frozen identity
+and logs under `v3_20261011_rome_public_monthly_shift/`.
+
 ## Current queue: selected v76 and a new Rome classifier
 
 At11:28 Amsterdam, the selected joint public main/neural recipe has a reserved

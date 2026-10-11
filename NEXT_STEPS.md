@@ -47,6 +47,10 @@ A fixed neural Rome classifier is queued after the v76 build. It adds one-third
 neural probability to the current Cat3/R20 classifier mean, using train-only
 inner stopping and75 inputs without departure-label histories. CPU and all-row
 input checks pass; no classifier fit or validation result yet.
+A public-only Rome adaptation screen follows it: one regularized airline/month
+probability shift is inferred jointly from that month's daily delay totals.
+This shares evidence across days, with fixed prior strength and retained
+training-only source-noise estimates. Numerical checks pass; CV is pending.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

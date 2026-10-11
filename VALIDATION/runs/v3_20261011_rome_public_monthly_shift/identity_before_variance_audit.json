@@ -1,0 +1,101 @@
+{
+  "design": {
+    "parent": "selected joint public main/neural stack, fixed public Cat3/R20",
+    "change": "infer one regularized Rome airline/month logit shift from public daily totals",
+    "settings": {
+      "logit_prior_sd": 0.5,
+      "likelihood": "Student t3 with fixed incoming variance",
+      "ordinary_sigma": 150.0,
+      "common_day_sigma": 15.0,
+      "optimizer": "L-BFGS-B from zero",
+      "optimizer_gtol": 1e-07,
+      "optimizer_ftol": 1e-12,
+      "optimizer_maxiter": 500,
+      "grouping": "one airline shift shared across input-assigned interior off-block dates",
+      "uncertainty": "source/count mismatch plus independent recording modes and ordinary aggregate",
+      "scope": "Rome classifier probabilities strictly between zero and one; explicit VFR excluded",
+      "source_dates": "takeoff minus frozen incoming primary prediction; no regrouping after update",
+      "no_parameter_or_weight_search": true
+    },
+    "grouping": "movement flight-number airline prefix, existing parser",
+    "prior_scale": 0.5,
+    "public_input": "retained EUROCONTROL daily pre-departure total and count",
+    "mode_outputs": "original full correction stack at classifier probabilities0 and1",
+    "noise": "unchanged permitted-training off-block-date source parameters",
+    "months": "use only interior held dates assigned from frozen incoming primary predictions",
+    "production": false,
+    "no_new_taxi_model_fits": true,
+    "no_target_label_adaptation": true,
+    "limitation": "MAP logit shifts and independent-mode variance approximation; conditional-mode mean may differ from clipped blended prediction",
+    "evaluation": "reused Jan/Jul development; public aggregates of held flights intentionally observed"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/rome_public_monthly_shift_jan_jul.py",
+      "sha256": "ca9ebea7ee0d700c5dfaf9347a44b9cf58572d220bae37aeff87916522ef60b9"
+    },
+    {
+      "path": "VALIDATION/rome_public_monthly_shift.py",
+      "sha256": "9565ac0eb8136e784db83311ae0b7e59532742b97cba365af9f769ad9d4c072e"
+    },
+    {
+      "path": "VALIDATION/public_stack_cv.py",
+      "sha256": "7a07755c65281de72d0d2cb3bd62b4d33c7591f4e9922aa8960bfc546421044a"
+    },
+    {
+      "path": "VALIDATION/daily_offblock_alignment.py",
+      "sha256": "08f48001e826e1442a4fe188d05a88a2e69a1ce1d3ad87b1b144158243a9afec"
+    },
+    {
+      "path": "VALIDATION/rome_signals.py",
+      "sha256": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/identity.json",
+      "sha256": "b6a6a27f84444718097f16940adcd7ab744e2c2b29772dc61ecb9f7f8ab06a82"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/audit.json",
+      "sha256": "3e526a98b44060135051dcaf62a83c3cf50142aa6c5421c35bc7bfab9ccc06ff"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/scored.parquet",
+      "sha256": "04d0886b113ce081bbba97bf880e8f33c06366a5a98ac64084abab186ca01e92"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/identity.json",
+      "sha256": "07912cb38f8dce178577c763e0985d0959498141342935c4b0d4add247344d65"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/result.json",
+      "sha256": "b78f060f7f5840ccda54a0e231fbbbb75acc870a12a38dc2845b02d80fb69eb0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/audit.json",
+      "sha256": "1d2b05668e64733963c4a1a83979925f353d74b5ca83eae6a428f63b0e351062"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/rows2025.parquet",
+      "sha256": "bc2fd953c3f911bdaa70c6f0a1ab6d9b96d23ef31e07333853175fae9a5c4437"
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2025.csv",
+      "sha256": "d742eeb626e5f9f7e0c756e2ae3cf90078f4627e989a2e31b8ed21ba8f5510be"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+      "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+    }
+  ],
+  "checks": {
+    "hand_daily_sums": true,
+    "analytic_gradient_error": 6.034728272652501e-12,
+    "finite_difference_gradient": true,
+    "label_and_true_date_isolation": true,
+    "row_source_order_invariant": true,
+    "matched_source_identity": true,
+    "empty_scope_identity": true,
+    "higher_public_total_reduces_copy_probability": true,
+    "airline_shift_shared_across_days": true
+  }
+}

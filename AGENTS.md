@@ -114,6 +114,21 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 11:38 Amsterdam: public-only monthly Rome adaptation queued.**
+  `rome_public_monthly_shift_queue.json` (PID777889) follows neural-RomePID770665.
+  This is one airline/month logit shift inferred from the held month's public
+  daily totals, with a fixed0.5 logit prior SD and t3 likelihood. It shares
+  evidence across days, unlike the completed per-day posterior or peer-budget
+  classifier features. Public aggregate observations are intentionally used;
+  individual held departure labels never enter inference. Original joint-stack
+  mode endpoints, training-only source noise, probability/rule corrections and
+  bounds are retained. Numerical gradient, zero-update, empty-scope, row-order,
+  shared-airline, direction and target-isolation checks pass; no CV result yet.
+  Runners `rome_public_monthly_shift.py`, `rome_public_monthly_shift_jan_jul.py`;
+  run `v3_20261011_rome_public_monthly_shift/`. No taxi-network refit or upload
+  stage. The three-member neural production is finishing its last member;
+  k0/k1 already have exact all344,841-row checkpoint reloads.
+
 - **October 11, 11:28 Amsterdam: v76 reserved; neural Rome screen queued.**
   `joint_candidate_build_queue.json` (PID764020) waits for the monthly-reference
   queue, then builds/audits `public_neural_candidate.py --version 76 --with-main`.

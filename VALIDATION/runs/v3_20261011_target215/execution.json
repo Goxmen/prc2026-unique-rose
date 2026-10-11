@@ -63,9 +63,10 @@
     "ordinary punctuality failed to improve: primary+0.0172, v75/main transfer+0.0137; all344419 reload receipts and independent SQL score audit pass",
     "joint public main/neural combination passesCV292.4494 (-0.4921 versus v75); both individual comparisons and both months improve; exact controls and SQL audit pass",
     "reserved SQL alias corrected in four new auditors; three waiting queues safely stopped/rebound without model changes or repeated fits",
-    "Neural Rome classifier CPU checks and all-row target/input/training membership preflight pass; Jan126507 and July86723 training rows; no fits yet"
+    "Neural Rome classifier CPU checks and all-row target/input/training membership preflight pass; Jan126507 and July86723 training rows; no fits yet",
+    "Public-only airline/month shift: analytic gradient, exact zero-update source, shared-airline, row-order, direction and poisoned-label numerical checks pass; no CV result yet"
   ],
-  "next": "Finish and audit three production networks; queued heavy-tail, track withholding and reference bridge; build/audit selected v76; then fixed neural Rome classifier; preserve v75 upload.",
+  "next": "Complete neural production/audit; fixed heavy-tail, track dropout, reference bridge; build/audit v76; neural Rome and public-only monthly adaptation screens; preserve v75 upload.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -196,5 +197,14 @@
       "Train-only inner stopping and preprocessing; full-model disk reloads and independent score audit"
     ]
   },
-  "queue_integrity_audit": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1130.json"
+  "queue_integrity_audit": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1130.json",
+  "rome_public_monthly_shift_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/rome_public_monthly_shift_queue.json",
+    "pid": 777889,
+    "state": "waiting",
+    "jobs": [
+      "One regularized airline/month logit shift inferred from public daily totals, fixed prior SD0.5",
+      "Independent row-loop aggregates/variance/probability audit and SQL CV audit"
+    ]
+  }
 }
