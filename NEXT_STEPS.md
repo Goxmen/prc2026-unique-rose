@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
-v74 at **221.6881**, leaving6.6881 seconds. Live check at16:53 Amsterdam:
+v74 at **221.6881**, leaving6.6881 seconds. Live check at17:08 Amsterdam:
 rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
 Autonomous submissions and both machines remain authorized. The laptop's
 full174 CatBoost fit is complete (10,000 rounds,28.07minutes); its328.53MB
@@ -42,6 +42,12 @@ The50-vector ranking/CV basis is prepared and independently audited; evaluate
 it only after their successful official scores arrive, with fresh score checks
 and explicit rounding/clipping bounds. That guarded diagnosis is queued after
 the v76 watcher, without an upload. Do not upload duplicate predictions.
+
+The stand-reference inverse main-tree test is complete on CV and closed:
+−0.0025 versus v76 and−0.0004 inside the refined recipe, both intervals include
+zero; January is slightly better and July slightly worse. These are not useful
+gains. Both models and full held reloads are retained; the final independent
+model/SQL audit is running. No production expansion or submission row.
 
 The wider physical encoder is closed: matched−0.0148 and transferred+0.0140,
 both inconclusive. Track withholding, neural Rome, punctuality and fourth-tree

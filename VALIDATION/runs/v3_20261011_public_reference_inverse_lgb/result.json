@@ -1,0 +1,71 @@
+{
+  "design": {
+    "parent": "v76 with production rounding; selected refinements checked separately",
+    "change": "two public stand/runway reference inverse estimates in main LightGBM",
+    "added": [
+      "pub_ref_inverse_stand_sec",
+      "pub_ref_inverse_contrast_sec"
+    ],
+    "original_columns": 174,
+    "columns": 176,
+    "seed": 42,
+    "trial": "LB1",
+    "rounds": 10000,
+    "threads": 4,
+    "labels_rows_parameters": "original public main-tree inputs, labels and settings retained",
+    "comparison": "same-machine retained174-column main model; every other component fixed",
+    "primary": "production-rounded v76; refined-parent substitution secondary",
+    "limitation": "reused Jan/Jul development; external source cohort differs from competition",
+    "no_parameter_search": true,
+    "no_new_stopping": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/identity.json",
+    "sha256": "21d317fff6ea989f302d3c12779f11a05b98f3eb6b81e5f02bfde74522ac9eb6"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/scored.parquet",
+    "sha256": "11f6370fcf6205f3a40d285dacb7d08051bc5c4f30da89cfe473118f296a2b7a"
+  },
+  "scores": {
+    "2025-01": {
+      "v76": 326.17391214810544,
+      "v76_reference": 326.1667951501095,
+      "refined": 325.94319178263174,
+      "refined_reference": 325.9384942596665
+    },
+    "2025-07": {
+      "v76": 258.7248137211206,
+      "v76_reference": 258.7268923296616,
+      "refined": 258.46250828577354,
+      "refined_reference": 258.4663392012628
+    }
+  },
+  "cv": {
+    "v76": 292.449362934613,
+    "v76_reference": 292.4468437398856,
+    "refined": 292.20285003420264,
+    "refined_reference": 292.2024167304647
+  },
+  "paired": {
+    "v76": {
+      "change": -0.0025191947274549875,
+      "ci95": [
+        -0.013419294978992368,
+        0.008098828445451638
+      ],
+      "decision": "inconclusive"
+    },
+    "refined": {
+      "change": -0.0004333037379637972,
+      "ci95": [
+        -0.01095009937120892,
+        0.009665490912157538
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "both_serialized_and_unserialized_controls_exact": true
+}

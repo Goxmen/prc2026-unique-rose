@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "public_reference_inverse_main_tree",
-    "pid": 950591,
+    "task": "public_reference_inverse_final_audit",
+    "pid": 975282,
     "queue_pid": 943878,
-    "stage": 1,
+    "stage": 3,
     "log": "tmp/research_20261011/public_reference_inverse_lgb.log"
   },
   "laptop": {
@@ -462,7 +462,7 @@
   },
   "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1643.json",
   "last_live_leaderboard_check": {
-    "updatedAt": "2026-10-11T14:53:06+00:00",
+    "updatedAt": "2026-10-11T15:08:23+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -545,7 +545,7 @@
     ]
   },
   "daily_geometry_note": "Prepare audited51-vector extension after Gaussian resource barrier; evaluate only after official successful v75/v76/v77 scores, fresh leaderboard and unchanged344841 population. No upload.",
-  "previous_goal_turn_classification": "progress: inverse January model/reload completed, extended audited-basis geometry prepared and queued, commits3e404da/d084b9e pushed; active machine handles verified",
+  "previous_goal_turn_classification": "progress: laptop main-tree production and all344841 predictions completed/returned with exact hashes and template IDs; selected assembly prioritized, commit115e397 pushed",
   "inverse_reference_january": {
     "state": "complete; all153706 old/new held predictions reload exactly",
     "record": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/predictions/2025-01_s42.json",
@@ -561,5 +561,24 @@
     "collector_pid": 935144,
     "collector_live": true
   },
-  "production_priority": "Desktop inverse943878 \u2192 daily-main finish971695 \u2192 v77 package971696 \u2192 early neural971697 \u2192 Gaussian971698 \u2192 geometry preparation971699. Only idle waiters changed; original sources and fits unchanged."
+  "production_priority": "Desktop inverse943878 \u2192 daily-main finish971695 \u2192 v77 package971696 \u2192 early neural971697 \u2192 Gaussian971698 \u2192 geometry preparation971699. Only idle waiters changed; original sources and fits unchanged.",
+  "inverse_reference_result": {
+    "state": "closed: CV inconclusive; full independent audit running",
+    "cv_v76": 292.449362934613,
+    "cv_with_reference": 292.4468437398856,
+    "v76_change": -0.0025191947274549875,
+    "v76_ci95": [
+      -0.013419294978992368,
+      0.008098828445451638
+    ],
+    "refined_change": -0.0004333037379637972,
+    "refined_ci95": [
+      -0.01095009937120892,
+      0.009665490912157538
+    ],
+    "January": "tiny negative change",
+    "July": "tiny positive change",
+    "production": "none; do not expand",
+    "models": "both retained; original and new full-held reloads passed in fit"
+  }
 }

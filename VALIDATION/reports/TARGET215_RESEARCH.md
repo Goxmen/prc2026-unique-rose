@@ -1,5 +1,23 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Stand-reference inverse screen closed on CV, 17:08 Amsterdam
+
+Both176-input main-tree fits are complete. Adding the two inverse-reference
+inputs changes rounded-v76 CV292.449363 →292.446844 (**−0.002519**), with
+paired-day interval[−0.013419,+0.008099]. Inside the retained airport/t5/monthly
+recipe,292.202850 →292.202417 (**−0.000433**), interval[−0.010950,+0.009665].
+January changes−0.007117/−0.004698 respectively, while July changes
++0.002079/+0.003831. These are inconclusive, tiny effects,
+not evidence of improvement. No production expansion or submission row follows.
+
+The new inputs were used: stand/contrast split counts are8,991/11,670 in January
+and9,239/10,839 in July. The earlier public-reference reconstruction pilot's
+lower reference error therefore did not translate into meaningful taxi-out CV.
+Retain both models and the source pilot; do not repeat them. January/July fit
+and prediction receipts record19.57/15.60minutes, and every original and new
+held prediction reloads exactly. The final independent all-row model/SQL audit
+is still running; its completed status will be recorded separately.
+
 ## Daily main production returned; selected candidate takes priority, 16:58 Amsterdam
 
 The laptop has finished its selected184-input main LightGBM and all344,841
