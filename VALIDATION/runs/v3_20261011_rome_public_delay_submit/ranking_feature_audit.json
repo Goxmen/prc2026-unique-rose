@@ -1,0 +1,36 @@
+{
+  "status": "pass",
+  "rows": 344841,
+  "values": 4138092,
+  "columns": [
+    "pub_dep_count_gap",
+    "pub_dep_mean",
+    "pub_dep_long_count",
+    "pub_dep_long_gap_sum",
+    "pub_dep_resid900_mean",
+    "pub_dep_resid1800_mean",
+    "pub_dep_resid_clock_mean",
+    "pub_dep_own900_left",
+    "pub_dep_own1800_left",
+    "pub_dep_own900_fraction",
+    "pub_dep_own1800_fraction",
+    "pub_dep_long900_fraction"
+  ],
+  "max_abs_error": 4.656612873077393e-10,
+  "source": {
+    "path": "VALIDATION/tools/audit_ranking_public_delay_features.py",
+    "sha256": "8d1834bc3816b27c3d1dcf0de1936c06442907a5bc421eba5e1f413ddc33f3f9"
+  },
+  "feature_manifest": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_features/manifest.json",
+    "sha256": "b10ac9d0ccc276e405aefa0cd13db22702a46c8ad034bfff0905ad87dd8f591d"
+  },
+  "raw_ranking": {
+    "path": "data/ranking.parquet",
+    "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+  },
+  "public": {
+    "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2026.csv",
+    "sha256": "5952d20ef5f9c4245018dd6986064c5c4aa15d568a6c0c2dcdcbc73bf8a43fd2"
+  }
+}

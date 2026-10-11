@@ -3,6 +3,10 @@
 **Active target, 11 October 2026: 215.00 seconds or lower.** Continue autonomous
 uploads and Jan/Jul validation. Best/latest is v74 at 221.6881; the remaining gap is 6.6881 seconds.
 All five UTC October11 upload slots are used; continue offline validation.
+V75 is fully prepared and audited: public daily inputs in the Rome CatBoost
+pool give Jan/Jul CV292.9415, a0.7758-second gain over v74. It is queued for
+12 October02:00 Amsterdam; no official result yet. The main-LightGBM version
+is running on the desktop. Retained TabM blending failed; no expansion.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

@@ -1,0 +1,98 @@
+{
+  "design": {
+    "parent": "v70 half Cat3/R20 Rome classifier",
+    "new_features": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "retained_classifier_extras": [
+      "airline",
+      "handler_arr_sched_share",
+      "handler_arr_n",
+      "flight_number_format",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60"
+    ],
+    "seed": 42,
+    "rounds": 1700,
+    "trial": "R20",
+    "training_membership": "unchanged original R20 after_drop",
+    "heldout_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "no_hyperparameter_search": true,
+    "public_population": "IFR and unknown flight rule; explicit VFR excluded",
+    "feature_targets": "none; raw clocks and public airport-day total only",
+    "secondary": "same final-prediction delta added to v74; restore matched and recovered plan bounds"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.8094692499064,
+      "pred": 326.57721114457684,
+      "v74": 326.6173940355033,
+      "transferred": 326.44551588125523
+    },
+    "2025-07": {
+      "control": 258.9255682058297,
+      "pred": 258.2115139354058,
+      "v74": 260.8172239516663,
+      "transferred": 259.89740113487005
+    }
+  },
+  "cv": {
+    "control": 292.86751872786806,
+    "pred": 292.39436253999133,
+    "v74": 293.71730899358477,
+    "transferred": 293.17145850806264
+  },
+  "paired": {
+    "pred_vs_control": {
+      "change": -0.4731561878767252,
+      "ci95": [
+        -0.9260806167781901,
+        -0.03843962768834839
+      ],
+      "decision": "improvement"
+    },
+    "transferred_vs_v74": {
+      "change": -0.545850485522152,
+      "ci95": [
+        -1.0193920179860592,
+        -0.08534750226587655
+      ],
+      "decision": "improvement"
+    }
+  },
+  "source": {
+    "path": "VALIDATION/rome_public_delay_jan_jul.py",
+    "sha256": "3e5968639ccbf6b532c505eeba7817832a4cada5113fa655f999288635365dc4"
+  }
+}

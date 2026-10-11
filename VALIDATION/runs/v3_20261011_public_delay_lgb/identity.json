@@ -1,0 +1,53 @@
+{
+  "design": {
+    "parent": "selected callsign main LightGBM inside v70",
+    "change": "12 public IFR daily aggregate inputs",
+    "original_columns": 162,
+    "new_features": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "rounds": 10000,
+    "seed": 42,
+    "trial": "LB1",
+    "threads": 4,
+    "primary": "same selected ordinary/Cat3-R20 stack; only main tree changes",
+    "caveat": "Saved main control on laptop, candidate on desktop; reused Jan/Jul development"
+  },
+  "source": {
+    "path": "VALIDATION/public_delay_lgb_jan_jul.py",
+    "sha256": "e3288a72e1c2fd7e88d37fe688a28c3f463664ab9612c2f5c919dc6e24c540bc"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/callsign_lgb_jan_jul.py",
+      "sha256": "e4089d4f3eee2e2129e260a3b278b26bb36673f72daea1906a43b4949575cbbc"
+    },
+    {
+      "path": "VALIDATION/public_delay_features.py",
+      "sha256": "9f7407e5d291ae2c9b1010abe74fadee7f648695c25cca08ac735d90b3ef04df"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_jan_jul.py",
+      "sha256": "3e5968639ccbf6b532c505eeba7817832a4cada5113fa655f999288635365dc4"
+    }
+  ],
+  "feature_manifest": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_features/manifest.json",
+    "sha256": "b10ac9d0ccc276e405aefa0cd13db22702a46c8ad034bfff0905ad87dd8f591d"
+  },
+  "audit": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_features/audit.json",
+    "sha256": "ad26576b5ab7e7a95f1e282e8f76b40b04f430e239808b270198e0afd5b01b19"
+  }
+}

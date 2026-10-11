@@ -1,0 +1,67 @@
+{
+  "design": {
+    "parent": "Cat3/R20 mixture in v70",
+    "change": "same12 public daily aggregate inputs in CatBoost",
+    "features": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "rounds": {
+      "2025-01": 1182,
+      "2025-07": 1401
+    },
+    "no_stopping_search": true,
+    "rows": "exact retained original Rome population",
+    "arms": [
+      "newCat3_oldR20",
+      "newCat3_newR20"
+    ]
+  },
+  "source": {
+    "path": "VALIDATION/rome_public_delay_cat.py",
+    "sha256": "d63b80be80105158c04e4cbd2442bafdeecc5a25767cbc549ac537d803093fff"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/rome_public_delay_jan_jul.py",
+      "sha256": "3e5968639ccbf6b532c505eeba7817832a4cada5113fa655f999288635365dc4"
+    },
+    {
+      "path": "VALIDATION/rome_catboost_bagging_jan_jul.py",
+      "sha256": "7b2ad4de4ce5be9fe9dfe7bfa159870d67fb7f17a7fac9642cae1a252f20b5a0"
+    },
+    {
+      "path": "VALIDATION/rome_catboost_jan_jul.py",
+      "sha256": "4c20f7bf3fcb2cd6f4b61667820d71972dbf877f82970fea0b882ec6b8a5736a"
+    },
+    {
+      "path": "VALIDATION/catboost_jan_jul.py",
+      "sha256": "26ba16e459de838a71cf404dd610e617b23a9798cc83f42b5befe4e6fc6272e6"
+    }
+  ],
+  "inputs": {
+    "2025-01": {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-01.pkl",
+      "sha256": "fb05a7f13c11573a43962671138ccd8f52e46666112e3f00328159b459870810"
+    },
+    "2025-07": {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-07.pkl",
+      "sha256": "aad64884a10a8cb677ee9026a53e06d38d01ff64eed114be06b06c25a21a62a2"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "source": {
+    "path": "VALIDATION/rome_public_delay_submit.py",
+    "sha256": "861bd2c540a68aa960fecb885f3c38cf5a4fc8aee8aa7d6b24244eb74e5cedac"
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/rome_public_delay_jan_jul.py",
+      "sha256": "3e5968639ccbf6b532c505eeba7817832a4cada5113fa655f999288635365dc4"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_cat.py",
+      "sha256": "d63b80be80105158c04e4cbd2442bafdeecc5a25767cbc549ac537d803093fff"
+    },
+    {
+      "path": "VALIDATION/rome_catboost_submit.py",
+      "sha256": "e1ba5dbd728132c0d65c7b5f55262550a5af619d3d42f61acd325723f51830ef"
+    },
+    {
+      "path": "VALIDATION/public_delay_features.py",
+      "sha256": "9f7407e5d291ae2c9b1010abe74fadee7f648695c25cca08ac735d90b3ef04df"
+    },
+    {
+      "path": "VALIDATION/physical_candidate.py",
+      "sha256": "7cbf2c4674ff1d88a2f59115b1e7032e0d03aace0ac4a5203c2893855ce78b59"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    }
+  ],
+  "feature_audit": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_features/audit.json",
+    "sha256": "ad26576b5ab7e7a95f1e282e8f76b40b04f430e239808b270198e0afd5b01b19"
+  },
+  "r20_cv": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay/result.json",
+    "sha256": "e4d5e1b0d230ef6fd7162e77937ecbeb6b346cca613f71ab16bc4a9faaf792f0"
+  },
+  "r20_audit": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay/audit.json",
+    "sha256": "a4ca13f65674085dadb2a4d630e3e8a44a83eed70c4edf5b2dfd405975cdac81"
+  },
+  "cat_cv": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/result.json",
+    "sha256": "a1d6fea26fb3be8eb69efc3ce0ce850a42a7dd4c6b451eca3c5bd1913381167a"
+  },
+  "parent": {
+    "path": "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/manifest.json",
+    "sha256": "adba83f89036fa4154e43f53c09f40c6595b76e60e5ad1926e796da494ba2d85"
+  }
+}

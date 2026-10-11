@@ -1,0 +1,34 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/identity.json",
+    "sha256": "964a6e42164e8c85f1e8c8a167aacd21405f1c48d813276bacbef1ef482533de"
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/prepared.json",
+    "sha256": "15195d8371e6ae82d649ce7f9797832130e49c24588231ca28ba977f30d40d89"
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/models/cat_s142.cbm",
+    "sha256": "3764a5419e78525f315c854e83cbc282c61690ffb349cac660d6bc4351a41723"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/predictions/cat_s142.parquet",
+    "sha256": "5d6735d28668efcbe34a6f118331f6486e33548c997b33eacf6826cc6a0cdd29"
+  },
+  "params": {
+    "loss_function": "Logloss",
+    "eval_metric": "Logloss",
+    "depth": 6,
+    "learning_rate": 0.05,
+    "l2_leaf_reg": 10.0,
+    "random_seed": 142,
+    "task_type": "GPU",
+    "devices": "0",
+    "thread_count": 2,
+    "gpu_ram_part": 0.65,
+    "allow_writing_files": false,
+    "verbose": 500
+  },
+  "rounds": 2017,
+  "minutes": 1.8402134657665252
+}

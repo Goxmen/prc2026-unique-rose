@@ -133,8 +133,21 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   recovered-plan extension was numerical noise. Excluding explicit VFR from
   public daily totals improves source identity sharply at EHAM/LSZH but gives
   only −0.0177 versus the old posterior. New R20 Rome screen adds12 input-only
-  daily-aggregate features, retaining all settings/rows: desktop session16713,
-  `rome_public_delay_jan_jul.py`, log `tmp/research_20261011/rome_public_delay.log`.
+  daily-aggregate features passed. The same inputs in CatBoost3 are selected:
+  v74 CV293.7173 →292.9415 (−0.7758), both months improve, interval
+  [−1.3893, −0.1546]. All six classifier reloads and25M feature-value checks pass.
+  **V75 is fully prepared and audited**, not uploaded: all three full-year
+  models reload exactly and all344,841 predictions reproduce. All317,942
+  non-Rome rows stay unchanged. Manifest under
+  `v3_20261011_rome_public_delay_submit/submission_v75/`; never refit/rebuild.
+  A detached uploader (PID649782) waits until October12 00:00:05 UTC; queue
+  `v3_20261011_target215/queue_v75.json` binds the exact manifest and runner.
+  Check queue/process before any manual upload. Create its cancellation file
+  if the user pauses/stops; never silently leave a queued upload active then.
+  Desktop session49192 runs the two main-LightGBM public-feature folds; log
+  `tmp/research_20261011/public_delay_lgb.log`. Public neural continuation was
+  small/inconclusive versus its original parent; no expansion. The retained
+  three-seed TabM blend failed (+0.2828 primary CV); no new fit or production.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL currently shows offline on Tailscale.

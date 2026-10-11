@@ -221,3 +221,64 @@ comparison uses the selected v70 ordinary models and Cat3/R20 half mixture;
 a fixed secondary delta transfer to v74 is reported separately. Synthetic
 population, arithmetic, row-order and target-isolation checks pass. Runner
 `rome_public_delay_jan_jul.py`; features in `public_delay_features.py`.
+
+## Public daily inputs: classifier selection and small neural effect
+
+The Rome LightGBM screen completed with **−0.4732 seconds** in the selected v70
+stack (January −0.2323, July −0.7141), interval [−0.9261, −0.0384]. Its fixed
+delta transfer to v74 gives **293.1715**, **−0.5459**, interval [−1.0194, −0.0853].
+Both saved LightGBMs reload with exact probabilities on every held Rome row.
+
+The same features were then given to the original three CatBoost seeds with
+unchanged settings and original training-selected rounds (1182/1401). No new
+stopping search. All six models reload with **exact** held probabilities.
+
+| Changed classifier components | CV in v70 stack | Change | Fixed v74 transfer CV | Change |
+|---|---:|---:|---:|---:|
+| Original components | 292.8675 | — | 293.7173 | — |
+| R20 only | 292.3944 | −0.4732 | 293.1715 | −0.5459 |
+| CatBoost pool only | 292.2010 | −0.6666 | 292.9415 | −0.7758 |
+| Both | 292.2383 | −0.6293 | 292.9019 | −0.8155 |
+
+**Select CatBoost only.** Its v74 transfer improves both months; interval
+[−1.3893, −0.1546]. Changing both components has a wider interval
+[−1.7749, +0.1962] and does not beat CatBoost alone in the primary matched
+stack. This is reused development selection, not independent confirmation.
+Large Rome long-flight errors improve and worsen; the selected change is not
+a per-flight exception. Three full-year CatBoost refits use the original2017
+rounds and160,577 rows/33,205 positives. The other full-year models are reused.
+Runner `rome_public_delay_submit.py`; v75 is fully prepared and independently
+audited, with no upload yet. All three production models reload exactly on
+26,899 Rome rows, and all344,841 final predictions reproduce. All317,942
+non-Rome rows stay unchanged. Ranking features pass an independent SQL check
+of4,138,092 values. The audited file is queued for12 October02:00 Amsterdam,
+with fresh source/schema/quota checks before upload; queue state is in
+`v3_20261011_target215/queue_v75.json`. Its manifest is immutable while queued.
+
+Independent SQL reproduced **25,020,564 feature values on all2,085,047** 2025
+departures, maximum floating-point difference 4.7e−10. The feature builder reads
+only movement/schedule/AOBT_3 clocks, flight rule and the public aggregate.
+
+A short neural follow-up adds a zero-initialized residual head using the same
+12 values plus the original hidden representation, starting from saved physical
+models. Two fixed epochs (original weights2e−5, new head1e−3) give293.2865:
+**−0.0613** against the original physical single model, interval
+[−0.1595, +0.0097]. Against the matched two-epoch global continuation it gains
+0.0735, interval [−0.1228, −0.0497], but the original-model comparison remains
+inconclusive and the effect is small. No expansion or production. Both models
+remain under `v3_20261011_nn_public_delay/public/`.
+
+A main-LightGBM screen is running in `public_delay_lgb_jan_jul.py`: preserve
+all162 current inputs, LB1 settings,10,000 rounds andseed42, append the same12
+public values. It started at07:53 Amsterdam after the production classifier
+fits, on the desktop with four threads. Saved main controls are from the laptop; any small result
+must retain that numerical-comparison caveat. Laptop WSL still timed out at
+07:45 Amsterdam; no laptop job was started.
+
+Reusing all six retained TabM predictions (three seeds per fold), a fixed
+25% neural share in the selected v70 stack scores293.1503 versus292.8675:
+**+0.2828**, interval[+0.1178,+0.5059], both months worse. The fixed v74
+transfer is also worse by0.1123, with an interval including zero. This resolves
+the old unused-pool lead without new fits. No weight search, production model,
+upload or candidate-ledger row follows. Runner `tabm_retained_blend.py`, run
+`v3_20261011_tabm_retained_blend/`.

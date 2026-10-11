@@ -1,0 +1,95 @@
+{
+  "design": {
+    "parent": "Cat3/R20 mixture in v70",
+    "change": "same12 public daily aggregate inputs in CatBoost",
+    "features": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "rounds": {
+      "2025-01": 1182,
+      "2025-07": 1401
+    },
+    "no_stopping_search": true,
+    "rows": "exact retained original Rome population",
+    "arms": [
+      "newCat3_oldR20",
+      "newCat3_newR20"
+    ]
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.8094692499064,
+      "v74": 326.6173940355033,
+      "cat_only": 326.6213827655868,
+      "both": 326.4176887945771,
+      "cat_only_transfer": 326.47717924134565,
+      "both_transfer": 326.3339850744903
+    },
+    "2025-07": {
+      "control": 258.9255682058297,
+      "v74": 260.8172239516663,
+      "cat_only": 257.7805353413711,
+      "both": 258.05884445854156,
+      "cat_only_transfer": 259.4059186106082,
+      "both_transfer": 259.46973132841214
+    }
+  },
+  "cv": {
+    "control": 292.86751872786806,
+    "v74": 293.71730899358477,
+    "cat_only": 292.200959053479,
+    "both": 292.2382666265593,
+    "cat_only_transfer": 292.9415489259769,
+    "both_transfer": 292.9018582014512
+  },
+  "paired": {
+    "cat_only_vs_control": {
+      "change": -0.6665596743890774,
+      "ci95": [
+        -1.2904333477294199,
+        -0.028950656580630094
+      ],
+      "decision": "improvement"
+    },
+    "both_vs_control": {
+      "change": -0.6292521013087082,
+      "ci95": [
+        -1.6579081890357679,
+        0.3908101107828001
+      ],
+      "decision": "inconclusive"
+    },
+    "cat_only_transfer_vs_v74": {
+      "change": -0.7757600676078766,
+      "ci95": [
+        -1.3893086825223258,
+        -0.15456096978962974
+      ],
+      "decision": "improvement"
+    },
+    "both_transfer_vs_v74": {
+      "change": -0.8154507921335892,
+      "ci95": [
+        -1.774908129791778,
+        0.1961973411556648
+      ],
+      "decision": "inconclusive"
+    }
+  }
+}
