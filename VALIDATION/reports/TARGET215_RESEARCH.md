@@ -585,3 +585,24 @@ also highlights a remaining difference: its ordinary-day shift uses a fitted
 heavy-tailed prior, while ours has fixed Gaussian scales. That is a possible
 follow-up after the pending date-alignment and structural-prior results; no
 new experiment or claim of gain follows from this source comparison alone.
+
+**The three-seed public neural pool subsequently passed.** In the actual public
+Rome recipe, matched-size primary CV improves **292.2010 → 291.9242 (−0.2767)**,
+interval **[−0.4264, −0.1444]**. The v75 transfer improves **292.9415 → 292.5880
+(−0.3536)**, interval **[−0.5065, −0.2263]**. January gains 0.1984 and July 0.5087
+seconds in that transfer. These remain reused development months, not an
+official-score result. All six model reload checks pass on 3,282 sampled rows,
+maximum discrepancy 0.00147 seconds. A separate SQL audit checks all 344,419
+labels, dates and retained controls exactly and reproduces the monthly scores.
+No repeated fits were needed.
+
+Full-year production is now selected and queued after ordinary punctuality:
+`public_neural_production_queue.json` (PID717805), waiting on PID707786.
+It prepares the frozen packet, fits all three members, checks every ranking
+reload and then runs the separate input/encoder/track auditor. It shares the
+research cancellation file and has no upload stage. The training guard now
+also binds the independent score audit and revalidates the completed CV
+manifest; its updated CPU preflight passes. The earlier preflight record is
+retained as history. No new submission version or final blend is reserved yet;
+combining the public main tree and new neural pool still needs an explicit
+joint CV calculation. The public main-tree full-year fit is running now.

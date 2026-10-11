@@ -1,0 +1,57 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "month": "2025-01",
+      "seed": 42,
+      "rows": 548,
+      "raw_scalar_rows": 32,
+      "maximum_difference_seconds": 0.0014699681660204078
+    },
+    {
+      "month": "2025-01",
+      "seed": 1042,
+      "rows": 548,
+      "raw_scalar_rows": 32,
+      "maximum_difference_seconds": 0.0005907889585614612
+    },
+    {
+      "month": "2025-01",
+      "seed": 2042,
+      "rows": 548,
+      "raw_scalar_rows": 32,
+      "maximum_difference_seconds": 0.0012376212353046867
+    },
+    {
+      "month": "2025-07",
+      "seed": 42,
+      "rows": 546,
+      "raw_scalar_rows": 32,
+      "maximum_difference_seconds": 0.0004920745877825539
+    },
+    {
+      "month": "2025-07",
+      "seed": 1042,
+      "rows": 546,
+      "raw_scalar_rows": 32,
+      "maximum_difference_seconds": 0.0006489345437330485
+    },
+    {
+      "month": "2025-07",
+      "seed": 2042,
+      "rows": 546,
+      "raw_scalar_rows": 32,
+      "maximum_difference_seconds": 0.0006788774790038588
+    }
+  ],
+  "source": {
+    "path": "VALIDATION/tools/audit_public_neural.py",
+    "sha256": "bd5a1d6f2bce1c277147743aabdf27d80e78db2da0ce798248cd007840d008a4"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/identity.json",
+    "sha256": "527e0bfa368108020ff7f3981be89fd8e23ef22213bcdd583a1b9b0bc470b895"
+  },
+  "tolerance_seconds": 0.01,
+  "interpretation": "Numerical reload audit; development months are reused"
+}

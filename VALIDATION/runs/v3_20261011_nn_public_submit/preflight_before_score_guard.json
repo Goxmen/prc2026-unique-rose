@@ -1,0 +1,34 @@
+{
+  "training_bytecode_exact": true,
+  "checks": [
+    {
+      "device": "cpu",
+      "original_initialization_exact": true,
+      "original_dropout_rng_exact": true,
+      "nonzero_physical_path_exact": true,
+      "padding_invariant": true,
+      "finite_gradient": true
+    }
+  ],
+  "seeds": [
+    {
+      "seed": 42,
+      "original_weights_rng_exact": true,
+      "new_head_zero": true
+    },
+    {
+      "seed": 1042,
+      "original_weights_rng_exact": true,
+      "new_head_zero": true
+    },
+    {
+      "seed": 2042,
+      "original_weights_rng_exact": true,
+      "new_head_zero": true
+    }
+  ],
+  "source": {
+    "path": "VALIDATION/nn_public_submit.py",
+    "sha256": "e1736d06ecf58a4508dab4dcea3aae6c8da6198df79cd4f35565cc7b071fd116"
+  }
+}

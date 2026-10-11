@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "public neural three-seed CV expansion",
+    "task": "public main LightGBM full-year production",
     "queue": "VALIDATION/runs/v3_20261011_target215/expansion_research_queue.json",
-    "pid": 680356,
-    "log": "tmp/research_20261011/public_neural_pool.log"
+    "pid": 716355,
+    "log": "tmp/research_20261011/public_main_production.log"
   },
   "laptop": "Windows online, WSL offline; both SSH paths time out; optional user request to open WSL pending",
   "utc_uploads_used": [
@@ -50,9 +50,11 @@
     "both Rome screens all six model reloads exact; independent SQL scores pass",
     "public neural single audit passed1094 rows; max0.00147 seconds",
     "public daily source aligns with recorded off-block dates: all2085047 clock identities exact; 7301 SQL source-day aggregates pass",
-    "estimated v70 off-block dates wrong on24 of344419 held rows; descriptive diagnostic, no CV gain claimed"
+    "estimated v70 off-block dates wrong on24 of344419 held rows; descriptive diagnostic, no CV gain claimed",
+    "public neural three-seed pool passed: primary-0.2767, v75 transfer-0.3536; both months",
+    "all six neural reload samples pass3282 rows; independent SQL checks all344419 labels/controls/scores"
   ],
-  "next": "finish neural pool and public main production; structural prior, off-block-date alignment and ordinary punctuality screens queued sequentially; preserve v75 upload",
+  "next": "finish public main production; structural prior, off-block-date alignment, ordinary punctuality then passing public neural production queued sequentially; preserve v75 upload",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -125,6 +127,15 @@
     "state": "waiting",
     "jobs": [
       "input-only estimated off-block-date posterior and independent audit"
+    ]
+  },
+  "public_neural_production_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/public_neural_production_queue.json",
+    "pid": 717805,
+    "state": "waiting",
+    "jobs": [
+      "guarded three-member full-year public neural pool,15 epochs",
+      "all-row reloads in fit; independent sampled input/encoder/track audit"
     ]
   }
 }

@@ -70,9 +70,13 @@ def preflight():
 
 
 def prepare():
+    cv.guard()
     result = read(cv.OUT / 'result.json')
     audit = read(cv.OUT / 'audit.json')
+    score_audit = read(cv.OUT / 'score_audit.json')
     assert audit['status'] == 'pass'
+    assert score_audit['status'] == 'pass' and score_audit['result'] == art(cv.OUT / 'result.json')
+    verify(score_audit['predictions'])
     for name in ['pred_vs_control', 'transferred_vs_v75']:
         assert result['paired'][name]['decision'] == 'improvement', name
     assert read(OUT / 'preflight.json')['source'] == art(__file__)
@@ -85,6 +89,7 @@ def prepare():
     value = dict(design=DESIGN, source=art(__file__), helpers=[art(m.__file__) for m in sources],
         preflight=art(OUT / 'preflight.json'), cv_identity=art(cv.MANIFEST),
         cv_result=art(cv.OUT / 'result.json'), cv_audit=art(cv.OUT / 'audit.json'),
+        cv_score_audit=art(cv.OUT / 'score_audit.json'),
         physical_identity=art(physical.MANIFEST), parent_packet=parent,
         training_features=art(model_type.features.OUT / 'features2025.parquet'),
         training_feature_audit=art(model_type.features.OUT / 'audit.json'),
@@ -103,7 +108,7 @@ def guard():
     assert value['source'] == art(__file__) and value['design'] == DESIGN
     for rec in value['helpers']:
         verify(rec)
-    for key in ['preflight', 'cv_identity', 'cv_result', 'cv_audit', 'physical_identity',
+    for key in ['preflight', 'cv_identity', 'cv_result', 'cv_audit', 'cv_score_audit', 'physical_identity',
                 'training_features', 'training_feature_audit', 'ranking_features', 'ranking_feature_audit']:
         verify(value[key])
     assert read(verify(value['cv_audit']))['status'] == 'pass'

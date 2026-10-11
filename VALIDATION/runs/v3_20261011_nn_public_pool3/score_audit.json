@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "rows": 344419,
+  "all_truth_and_control_values_exact": true,
+  "sql_monthly_and_mean_scores": true,
+  "source": {
+    "path": "VALIDATION/tools/audit_public_neural_scores.py",
+    "sha256": "5e6012a4f61242723447610a411af679431de8161582b4ea1c8a3766b091d2e0"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/result.json",
+    "sha256": "672267ff6cecf9a1af842628b6df36baa093c1b1214bf9660b05fecc3e5cecdf"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/scored.parquet",
+    "sha256": "a2c00a52d28cd21df0b96f2a30583660b55c38c46f12bde3d5b7936db04171de"
+  },
+  "truth": {
+    "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+    "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+  },
+  "parent": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+    "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+  },
+  "scope": "Labels, calendar, retained controls and score arithmetic; model reloads are in audit.json"
+}

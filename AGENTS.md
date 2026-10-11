@@ -208,12 +208,20 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   sources/fits are unchanged. All use `cancel_research_queue`. No date-aligned
   production or score yet; preserve source/calendars audits under
   `v3_20261011_daily_offblock_alignment/` and never infer dates from hidden labels.
-  `nn_public_submit.py` and `tools/audit_public_neural_production.py` are prepared
-  for a passing neural-pool result/audit. CPU initialization/RNG checks pass for
-  all three seeds; no full-year public neural fit is selected or started yet.
+  The public neural pool is complete and **passes**: primary CV291.9242
+  (−0.2767), v75 transfer292.5880 (−0.3536), both months; interval
+  [−0.5065, −0.2263] on v75. All six sampled reloads pass 3,282 rows; independent
+  SQL checks all 344,419 labels/dates/controls and scores. Full-year production
+  is selected: `public_neural_production_queue.json` (PID717805) waits for the
+  ordinary-punctuality PID707786, then runs `nn_public_submit.py` prepare/fit
+  and `tools/audit_public_neural_production.py`. No fit has started yet.
+  Updated CPU initialization/RNG checks pass for all three seeds.
   The runner reuses the original156 encoder/rows and15 epochs, appends the same
   public12 transforms, and requires all-row ranking reloads. All new members
   are bound to desktop; the retained original production pool used laptop.
+  Same research cancellation file; no upload or new version reserved. The
+  public main tree full-year fit is now running (PID716355). A joint public
+  main/neural CV calculation is still required before selecting their blend.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL is offline on Tailscale; its Windows host is online but Windows

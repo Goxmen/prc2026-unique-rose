@@ -1,0 +1,136 @@
+{
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/identity.json",
+    "sha256": "527e0bfa368108020ff7f3981be89fd8e23ef22213bcdd583a1b9b0bc470b895"
+  },
+  "month": "2025-07",
+  "member": 2,
+  "seed": 2042,
+  "epochs": 17,
+  "minutes": 6.511743769983393,
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.33811297366647897,
+      "rmse": 647.0596390436658,
+      "seconds": 23.023336455007666
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.23874727712605098,
+      "rmse": 636.879862889781,
+      "seconds": 23.612731147004524
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.21422725965201975,
+      "rmse": 632.1166965671139,
+      "seconds": 23.34860794300039
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.20115920044970484,
+      "rmse": 631.7749673429851,
+      "seconds": 23.599533711007098
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.18852631359818806,
+      "rmse": 626.7343807377497,
+      "seconds": 23.300540612006444
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.18064139278566282,
+      "rmse": 631.5788190641233,
+      "seconds": 22.142003255998134
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.17595094000434539,
+      "rmse": 627.0449567879461,
+      "seconds": 22.508622943001683
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.1681524032507246,
+      "rmse": 618.3619919799173,
+      "seconds": 23.47319178300677
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.16086276213747788,
+      "rmse": 626.6349742004701,
+      "seconds": 22.671149137997418
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.15188231295756557,
+      "rmse": 626.0166189931531,
+      "seconds": 22.83419270599552
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.1486749183953101,
+      "rmse": 637.2496469203178,
+      "seconds": 23.190660423992085
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.14233044373365297,
+      "rmse": 628.2953491207696,
+      "seconds": 22.68913754299865
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.13424398885740896,
+      "rmse": 626.1589391686483,
+      "seconds": 22.51196860500204
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.12670173591501577,
+      "rmse": 629.0092873764848,
+      "seconds": 22.640577683006995
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.11936814417770455,
+      "rmse": 626.4597742678391,
+      "seconds": 22.486479649000103
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.11378942650938839,
+      "rmse": 628.7821547140512,
+      "seconds": 23.02697525100666
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.10755092124860818,
+      "rmse": 626.314943764894,
+      "seconds": 23.586173550997046
+    }
+  ],
+  "initial_check": {
+    "seed": 2042,
+    "original_weights_rng_exact": true,
+    "new_head_zero": true
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/models/2025-07_k2.pt",
+    "sha256": "0359e202b102b6c6f3b70e7313642a51dfc5b73a2034d4daca352005d7f6fd80"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-07_k2.parquet",
+    "sha256": "013820082aa68965017781982e54a010b5d3d4df3cfa3032dfd20a79cfdae816"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+    "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+  },
+  "train_rows": 1140233,
+  "held_rows": 190713,
+  "gpu": "NVIDIA GeForce RTX 3080",
+  "host": "GPC"
+}
