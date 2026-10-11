@@ -428,3 +428,21 @@ its exact comparison; completed model fits and prediction files are unchanged.
 The stopped queues were rebound to the corrected auditor and resumed; their
 failure records are retained. This was an audit implementation error, not a
 change to model validation results.
+
+## Further lead: preserve the recording-mode distribution
+
+The retained daily posterior infers Rome's copy probability from the incoming
+mean and a single airport-level ordinary taxi mean. Its v71 input was already
+a signed ensemble, so this inversion need not recover the actual classifier
+probability or the per-flight ordinary mean. This is a concrete limitation of
+the failed full-strength posterior, distinct from adding daily totals as inputs.
+
+After the queued screens, a possible fixed follow-up is to construct the two
+conditional means directly from v70's saved ordinary prediction and its original
+Rome classifier, then condition that distribution on the public total. The
+zero/one classifier endpoints of the existing correction function provide a
+check that the mixture reconstructs the original prediction. The prior must
+exclude the new public-data models to avoid treating the same daily measurement
+as independent evidence twice. No implementation, fit or validation result is
+claimed for this lead; its measurement uncertainty and final constraints would
+still need the existing audits.
