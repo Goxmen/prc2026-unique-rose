@@ -1,0 +1,56 @@
+{
+  "design": {
+    "parent": "selected full174 CatBoost/airport/t5/monthly/daily-quality component",
+    "change": "main LightGBM184 inputs with ten daily-taxi features",
+    "calibration": "reuse full2025 parameters; recompute fixed source shift",
+    "cv": "daily_main_refinements_cv.combined; reused development and small incremental gain",
+    "no_fits": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/identity.json",
+    "sha256": "f431be9ce7abcc3e20afc5abe267f58c3baba165247e6b707788e7ce3c8394fa"
+  },
+  "rows": 344841,
+  "jan_jul_cv": 291.54971016150586,
+  "cv_months": {
+    "2025-01": 325.826575649057,
+    "2025-07": 257.2728446739547
+  },
+  "paired": {
+    "change": -0.03976821617834503,
+    "ci95": [
+      -0.08156572795667927,
+      -0.012447959978735313
+    ],
+    "decision": "improvement"
+  },
+  "parent_control_all_stages_exact": true,
+  "full2025_calibration_reused": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/parameters.json",
+    "sha256": "e59983c3c875a8161a484a2531e27add8d86e058e89b2f72218bcea39ca589b0"
+  },
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/candidate.parquet",
+      "sha256": "e8381979532aded6d795f84963c842bf31592713dbdd58c275f9006276364ae1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/predictions.parquet",
+      "sha256": "1f4cd0aae217d3f5b6372af43945ad419c92c6db2c71d1c932d7632bf2bc5d7b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/cells.parquet",
+      "sha256": "05ee9c20d3e270112be28f498bfd57a540de6e7af33a25f6b2214b5934d2c09f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/cv.parquet",
+      "sha256": "e9d14718559f5b28afb2415618a71e31a46827633fd7c1be79e81123b08b85bd"
+    }
+  ],
+  "changed_rows": 265442,
+  "prediction_rms_change": 3.3225637339533605,
+  "no_version": true,
+  "no_upload": true
+}

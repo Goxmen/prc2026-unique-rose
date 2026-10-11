@@ -11,7 +11,7 @@ SETTINGS = dict(parent=parent.SETTINGS,
     change='add zero-initialized twelve-input projection before first tabular activation',
     architecture='existing first linear output plus Linear(12,512,bias=False); original late public head retained',
     added_parameters=6144, inputs='same twelve public inputs and original transform, no new data',
-    initialization='all new weights zero; every original parameter/output/gradient/RNG unchanged',
+    initialization='new weights zero; original parameters/outputs/RNG exact; CUDA convolution gradients within floating accumulation precision',
     training='same original sparse update,21/17 epochs,seed42,original batch and schedule')
 
 
@@ -57,6 +57,7 @@ def check(device='cpu'):
             model.public[-1].weight.fill_(.02)
             model.fusion[-1].weight.fill_(.01)
             model.track.physics_stem.weight.fill_(.02)
+    gradient_max_error = 0.
     for training in [False,True]:
         old.train(training);new.train(training)
         torch.manual_seed(912);expected=old(*tab,*track)
@@ -73,7 +74,14 @@ def check(device='cpu'):
             other=params[name]
             assert (value.grad is None)==(other.grad is None),name
             if value.grad is not None:
-                torch.testing.assert_close(value.grad,other.grad,rtol=0,atol=0)
+                # CUDA convolution accumulation varies even for two identical
+                # networks. Keep every other gradient and all CPU checks exact.
+                tolerance = 0.
+                if device != 'cpu' and name.startswith('track.blocks.') and '.convs.' in name and name.endswith('.weight'):
+                    scale = float(torch.maximum(value.grad.abs(),other.grad.abs()).max())
+                    tolerance = 8 * torch.finfo(value.grad.dtype).eps * scale
+                torch.testing.assert_close(value.grad,other.grad,rtol=0,atol=tolerance)
+                gradient_max_error = max(gradient_max_error,float((value.grad-other.grad).abs().max()))
         gradient=new.public_early.weight.grad
         assert torch.isfinite(gradient).all() and gradient.abs().sum()>0
     new.eval()
@@ -84,6 +92,8 @@ def check(device='cpu'):
         altered=track[0].clone();altered[~track[1]]=999
         torch.testing.assert_close(new(*tab,altered,*track[1:]),actual,rtol=0,atol=0)
     return dict(device=device,original_parameters_exact=True,new_weights_zero=True,
-        initial_outputs_and_original_gradients_exact=True,initialization_and_dropout_rng_exact=True,
+        initial_outputs_exact=True,original_gradients_checked=True,gradient_max_absolute_error=gradient_max_error,
+        cuda_convolution_gradient_tolerance='8 * float epsilon * tensor maximum; all other gradients exact',
+        initialization_and_dropout_rng_exact=True,
         old_nonzero_heads_preserved=True,new_projection_has_nonzero_finite_gradient=True,
         nonzero_projection_changes_output=True,track_padding_invariant=True,added_parameters=6144)

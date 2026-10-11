@@ -335,7 +335,7 @@
     },
     {
       "path": "VALIDATION/nn_public_gaussian.py",
-      "sha256": "85872694d45d93c7c3349988d31dc415a990237f60b2d02415e151c0f949e1cd"
+      "sha256": "638ade8dc0d905989460feffdc9075c3db2db265ed06e1907cb9997c1fc09010"
     },
     {
       "path": "VALIDATION/nn_public_scratch.py",
@@ -384,7 +384,10 @@
   },
   "checks": {
     "device": "cpu",
-    "original_parameters_mean_initial_loss_and_gradients_exact": true,
+    "original_parameters_mean_and_initial_loss_exact": true,
+    "original_gradients_checked": true,
+    "gradient_max_absolute_error": 0.0,
+    "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
     "initialization_and_dropout_rng_exact": true,
     "variance_gradient_finite_nonzero": true,
     "variance_does_not_change_mean_inference": true,

@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_daily_refinements_candidate.py",
+    "sha256": "b42a2f140a5a84d4c70dfbaa9c451e833d6bf3bc4a117723a54af9adecf1bcfc"
+  },
+  "output_sha256": "e8381979532aded6d795f84963c842bf31592713dbdd58c275f9006276364ae1",
+  "ranking_rows": 344841,
+  "cv_rows": 344419,
+  "cv": 291.54971016150586,
+  "tree_mean_exact": true,
+  "both_constraint_and_rounding_boundaries_exact": true,
+  "quality_gate_exact": true,
+  "raw_truth_calendar_and_sql_cv_exact": true,
+  "template_and_all_unchanged_columns_exact": true,
+  "byte_identical_audited_component": true,
+  "component_audit": {
+    "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/audit.json",
+    "sha256": "619fa53f9d1035aa7ca9f6e05c4cdc22a807aa4e78c7538b6a03cb3e9de56518"
+  },
+  "scope": "Separate root-authored arithmetic/constraint/CV review; completed source/model/daily-shift audits reused",
+  "reviewer": "root; no independent subagent available"
+}

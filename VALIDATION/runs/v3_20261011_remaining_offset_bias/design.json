@@ -1,0 +1,36 @@
+{
+  "groups": {
+    "all": "true",
+    "nonrome_missing_id": "airport!='LIRF' and not has_id",
+    "rome_missing_id": "airport='LIRF' and not has_id",
+    "rome_id_1h_to_4h_gap": "airport='LIRF' and has_id and gap>3600 and gap<14400"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tools/describe_remaining_offset_bias.py",
+      "sha256": "ed752540a5e407d2c1583ab7cf56dd2a3f7c20a37bf38705c9bc2652eacaf83c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/scored.parquet",
+      "sha256": "ebcb2e5a3456a9615b649dbb49eb4843e076f03360e4706461c0b9c1d6b0ed7c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/result.json",
+      "sha256": "74d5befb67c2cd83f547364054e41ae73d89e6a66b03206b0b4947c3c02111ef"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_ifr/rows2025.parquet",
+      "sha256": "7b0aa7441d36c15da1e7c6b53c6a144afe83d384194f1bb6db58982b544cfb51"
+    }
+  ],
+  "label_use": "held2025 labels determine descriptive best offsets; not honest validation",
+  "families": "each mask separately; one constant shared across both months",
+  "objectives": [
+    "pooled MSE",
+    "mean of January/July RMSE"
+  ],
+  "bounds": "unrestricted real offset; no rounding or physical constraints",
+  "no_candidate": true,
+  "no_submission": true,
+  "no_leaderboard_forecast": true
+}

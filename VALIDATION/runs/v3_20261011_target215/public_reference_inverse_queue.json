@@ -44,10 +44,11 @@
         "VALIDATION/runs/v3_20261011_public_reference_inverse_features/audit.json": "504ce305ba531e8a2267e72638d48ba4544f848cd6cc62f61175d4535d7da86d"
       },
       "log": "tmp/research_20261011/public_reference_inverse_lgb.log",
-      "result": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/audit.json",
+      "completed_result_sha256": "4638dc0b9880cd74da0b8e72771c8246ff75fbeb4d422dc572aba89952e5b310"
     }
   ],
-  "state": "running",
+  "state": "complete",
   "recovery": {
     "reason": "Production audit FLOAT intermediate corrected independently; no predictions or model recipes changed",
     "previous_queue": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit_precision_recovery/public_reference_inverse_queue.json",
@@ -57,9 +58,9 @@
       "sha256": "02ba2864b13854c4368fe1f8af0246e0ab5acecd9be7e961b414f91fba0fc03e"
     }
   },
-  "updated_at": "2026-10-11T15:05:24.059390+00:00",
+  "updated_at": "2026-10-11T15:11:54.114873+00:00",
   "pid": 943878,
   "job": 0,
   "stage": 3,
-  "child_pid": 975282
+  "child_pid": null
 }

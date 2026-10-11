@@ -56,7 +56,7 @@
       "architecture": "existing first linear output plus Linear(12,512,bias=False); original late public head retained",
       "added_parameters": 6144,
       "inputs": "same twelve public inputs and original transform, no new data",
-      "initialization": "all new weights zero; every original parameter/output/gradient/RNG unchanged",
+      "initialization": "new weights zero; original parameters/outputs/RNG exact; CUDA convolution gradients within floating accumulation precision",
       "training": "same original sparse update,21/17 epochs,seed42,original batch and schedule"
     },
     "original_model": {
@@ -331,7 +331,7 @@
     },
     {
       "path": "VALIDATION/nn_public_early.py",
-      "sha256": "41cc5a0f815d3b0c649e6c9ce0bd2741a135c9c6470c78d72aed2eb219597acb"
+      "sha256": "9e386c9cf4df418865a0eea2e825779b5a587efec1321bfc57d08f8150819bad"
     },
     {
       "path": "VALIDATION/nn_public_scratch.py",
@@ -382,7 +382,10 @@
     "device": "cpu",
     "original_parameters_exact": true,
     "new_weights_zero": true,
-    "initial_outputs_and_original_gradients_exact": true,
+    "initial_outputs_exact": true,
+    "original_gradients_checked": true,
+    "gradient_max_absolute_error": 0.0,
+    "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
     "initialization_and_dropout_rng_exact": true,
     "old_nonzero_heads_preserved": true,
     "new_projection_has_nonzero_finite_gradient": true,

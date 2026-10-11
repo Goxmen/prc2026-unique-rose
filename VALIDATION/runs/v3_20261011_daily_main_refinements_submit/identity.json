@@ -1,0 +1,141 @@
+{
+  "design": {
+    "parent": "selected full174 CatBoost/airport/t5/monthly/daily-quality component",
+    "change": "main LightGBM184 inputs with ten daily-taxi features",
+    "calibration": "reuse full2025 parameters; recompute fixed source shift",
+    "cv": "daily_main_refinements_cv.combined; reused development and small incremental gain",
+    "no_fits": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/daily_main_refinements_submit.py",
+      "sha256": "867ae62e00b3a5be71c0ec601c30574a31316bb805d293b3f462f1f8ac1540c1"
+    },
+    {
+      "path": "VALIDATION/daily_main_submit.py",
+      "sha256": "5efc1386ca70dc86554de4ce4124a46d97529d0ec63208aae46e4e9faa62777c"
+    },
+    {
+      "path": "VALIDATION/daily_main_refinements_cv.py",
+      "sha256": "f4db783eb6a7b27f38194f786173ab30d0f655afba7e903ca4ca071a1382de03"
+    },
+    {
+      "path": "VALIDATION/catboost_refinements_submit.py",
+      "sha256": "04ec3d11d4e16d2074e8a8d6daedc7bb18ef6411cd0a03bd019667353333cd7e"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi_submit.py",
+      "sha256": "b64a7f87414b5ca746a662d148e6cda838f6d7eb4b7cae573d8340f70c092a74"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/public_refinements_aggregate_submit.py",
+      "sha256": "9e44578eef0fda8e62f709a1f3339e1ee6ee3125d88b79b7bd7ae6eecc991f06"
+    },
+    {
+      "path": "VALIDATION/callsign_submit.py",
+      "sha256": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_submit/identity.json",
+      "sha256": "e82693e11b84c6a456e4e49fb2aa89d42a194c9a27d6aae92575eeb70e176375"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_submit/audit.json",
+      "sha256": "220693536476a5cbe82ec8e8ef89646eb4c167c0635718c28007f8b198ae632b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_submit/predictions/old.json",
+      "sha256": "332b34fdafb73ee3830c7e5996aa86c28d88cbf9899cc80a4c3700a5a16bb037"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_submit/predictions/old.parquet",
+      "sha256": "3a78718d460b94fa66de588cfcff1f25aee7138bef4f1827e278bc88e50c1b44"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/identity.json",
+      "sha256": "3f9601e298865effb5c65256d119016069f548774fb398d4ed6033b35545a44d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/result.json",
+      "sha256": "74d5befb67c2cd83f547364054e41ae73d89e6a66b03206b0b4947c3c02111ef"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/audit.json",
+      "sha256": "5ee09e0ad374f67eadc147f0461a1398f7c8797ffa271daca749f4a007f8894e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/scored.parquet",
+      "sha256": "ebcb2e5a3456a9615b649dbb49eb4843e076f03360e4706461c0b9c1d6b0ed7c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/identity.json",
+      "sha256": "e87c27b78b9f9678884f3b0ccd004e224392cf05948317fdb22026f16c7f7a1f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/result.json",
+      "sha256": "a1479ef793b758174e3d5a3ad3d69713740321675c9b5c32848f541bc27db8a9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/audit.json",
+      "sha256": "5e3c1d5d5469de0f40258eba4dc3bffa4c5bfbf189efae46a55a9ac80375360d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/predictions.parquet",
+      "sha256": "866702162df2341fd7bb35ef954a8f683f8bfd3061ef2ab466ff921fbe04b108"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/candidate.parquet",
+      "sha256": "469a5606aab314e3811c5a424438617ce85b84f9b5b85cff70543c6c2cb7bfec"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/cv.parquet",
+      "sha256": "557f1a693076e99e08cd943b7a788b40e60dbd834462ffb90992c83237d6bf48"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/parameters.json",
+      "sha256": "e59983c3c875a8161a484a2531e27add8d86e058e89b2f72218bcea39ca589b0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/predictions.parquet",
+      "sha256": "7fab300ff56268cec590711f6e937b2b37248e42462146803c5aa2de7553cf8e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_aggregate_submit/predictions.parquet",
+      "sha256": "1af4f007aa1429df86f33d469c994d8fb39ba0ee0f3533a916dcdc90c2019667"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_neural_candidate/submission_v76/predictions.parquet",
+      "sha256": "742797ad8d413a2e3818ebcedac6f01e87a8fc0503d2581f925aee534a54b25a"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/ranking_inputs.parquet",
+      "sha256": "872c0c62847b25fc97700c32e14239d5a990228fef2cc960b9ec5be17c95e9bf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/ranking_matches.parquet",
+      "sha256": "4631ed21c1d79ec9fb00e0522a3ba405558de6afc0a8190eb8047d8e6b8e11b0"
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    }
+  ]
+}

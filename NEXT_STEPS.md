@@ -1,132 +1,66 @@
 # Next steps
 
-**Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
-v74 at **221.6881**, leaving6.6881 seconds. Live check at17:08 Amsterdam:
-rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
-Autonomous submissions and both machines remain authorized. The laptop's
-full174 CatBoost fit is complete (10,000 rounds,28.07minutes); its328.53MB
-model returned with a verified hash. All344,841 ranking predictions reload
-exactly, and the CatBoost/daily-quality combined production component is built
-and audited (CV291.5895). The laptop has completed and returned the selected daily main
-tree too (17.66minutes; all344,841 predictions reloaded exactly). Model and
-prediction hashes and all template IDs pass on return. Its original-source
-desktop inference audit remains queued. Heavy jobs stay sequential on each host.
+**Active target: 215.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
+leaving **6.6881 seconds**. Live check: **11 October 17:33 Amsterdam**,
+rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
+are used. Autonomous submissions and both machines remain authorized.
 
-A fixed Gaussian-likelihood neural screen is prepared: learn observation
-variance while keeping the mean architecture, 168 inputs and 21/17 epochs.
-CPU initialization, gradient, randomness and padding checks pass; CUDA checks
-and both CV fits are queued, so no gain is claimed. Queue971698 follows early-public971697, which follows
-packaging971696 and daily-main finish971695. The packaging stage
-will create/audit v77 from the selected combined component; no v77 file or
-upload exists yet. See `TARGET215_RESEARCH.md` for the frozen design.
+Three selected candidates are prepared and audited for the next UTC window:
 
-The daily main-tree screen now passes its all-row model/SQL audit. Its gain
-shrinks from0.0852 versus v76 to **0.0398** on top of the selected CatBoost and
-daily-quality corrections: joint CV **291.5497**, both months improve. Retain
-this as a small component without a distinct submission row. The full-year184-input tree and predictions are returned. Desktop finish
-queue971695 follows the running inverse test943878 and performs the original
-ranking audit plus combined-file build/audit; v77 packaging971696 follows. All completed fits are reused.
+| Candidate | Change | Jan/Jul CV | Earliest upload, Amsterdam |
+| --- | --- | ---: | --- |
+| v75 | v74 adds public daily inputs to the Rome CatBoost pool. | 292.9415 | 12 October 02:00 |
+| v76 | v75 adds public daily inputs to the main tree and physical networks. | 292.4494 | 12 October 02:10 |
+| v77 | v76 adds the selected daily and tree refinements. | 291.5497 | 12 October 02:20 |
 
-A 51-vector score-geometry extension will add the selected v77 file to the
-existing basis after its package audit, reusing all 50 old vectors. Queue971699
-runs its preparation/audit after Gaussian971698. Evaluation requires actual
-successful v75/v76/v77 scores and a fresh leaderboard check; no score is imputed
-and no blend or upload is selected yet.
+None has an official score yet. All uploads require unchanged audited sources,
+exact file/schema/IDs, available quota and the same accepted population. Do not
+upload duplicate predictions. V77 changes 331,381 rows versus v76 and improves
+both validation months, but its development data has been reused extensively.
+Its final main-tree increment is only 0.0398 seconds; keep it within this combined
+candidate. The full174 CatBoost and daily184 main tree were trained on the
+laptop, returned with verified hashes and reloaded exactly on all ranking rows
+on the desktop. Both production fits are complete; do not repeat them.
 
-V75 and V76 are prepared, fully audited and queued for12 October02:00/02:10
-Amsterdam. V75 adds public daily inputs to the Rome CatBoost pool: Jan/Jul
-CV292.9415,−0.7758 versus v74. V76 also adds public inputs to the main tree
-and physical neural pool: CV292.4494,−0.4921 versus v75, both months and both
-single-change comparisons better. Neither has an official score yet.
-The50-vector ranking/CV basis is prepared and independently audited; evaluate
-it only after their successful official scores arrive, with fresh score checks
-and explicit rounding/clipping bounds. That guarded diagnosis is queued after
-the v76 watcher, without an upload. Do not upload duplicate predictions.
+V77's original packaging attempt failed before creating a file because one old
+manifest used mapping-form provenance. The corrected packager verifies both
+retained formats; all predictions remain unchanged. Component, package and
+separate root-authored final arithmetic/constraint/raw-truth audits pass.
+The prepared 51-vector score basis also passes its all-row audit. Its evaluation
+waits for actual successful v75/v76/v77 scores and fresh leaderboard/file checks;
+no score is imputed. A subsequently selected blend still needs its own final
+file audit. Existing 50-vector evaluation remains separately queued after v76.
 
-The stand-reference inverse main-tree test is complete on CV and closed:
-−0.0025 versus v76 and−0.0004 inside the refined recipe, both intervals include
-zero; January is slightly better and July slightly worse. These are not useful
-gains. Both models and full held reloads are retained; the final independent
-model/SQL audit is running. No production expansion or submission row.
+Desktop research: the early-public neural projection screen is restarting after
+a pre-training CUDA check stopped on sub-nanosecond gradient arithmetic.
+Identical-network repetitions show the same convolution accumulation variation.
+Only those CUDA weight gradients now allow eight dtype epsilons times their
+maximum magnitude; every other gradient and all weights/outputs/RNG remain
+exact. CPU/CUDA checks pass for early-public and the following Gaussian screen.
+No fit had started and none was repeated. Their architecture, optimizer, inputs,
+epochs and original training updates are unchanged. The Gaussian screen changes
+only the intended loss to learn observation variance; inference uses the mean.
+Current queues: early-public 992974 → Gaussian 992975. One heavy job per host.
+The laptop is currently idle after completing both selected production fits.
 
-The wider physical encoder is closed: matched−0.0148 and transferred+0.0140,
-both inconclusive. Track withholding, neural Rome, punctuality and fourth-tree
-screens also failed or were inconclusive. Small t5/monthly-strength/reference
-effects remain research without distinct submissions. All completed fits are
-retained; do not repeat them. Details are in the research report below.
+Closed directions: inverse public-reference inputs give only −0.0025 versus
+v76 and −0.0004 in the refined recipe, both inconclusive; both months/models
+and the final all-row model/SQL audit are complete. Daily neural features
+(+0.0751 in the pool), daily Rome inputs (+0.1190), wider tracks, track
+withholding, neural Rome, punctuality, fourth-tree XGBoost, parameter averaging
+and the public-callsign three-member pool failed or were inconclusive.
+Retain their results and models; do not repeat or add submission rows.
 
-The public callsign three-member check did not confirm its single-seed gain:
-matched direct−0.1016 is inconclusive; transferred+0.0770 worsens both months.
-All model/SQL audits pass. Stop expansion and retain the six completed fits.
+A label-informed diagnostic of four fixed broad constant-offset families finds
+at most 0.081 seconds of CV reduction per family, even when held labels choose
+the offset. This only bounds those unrounded constant corrections on CV, not
+2026 gains or nonlinear corrections. No candidate, deployment offset or upload
+was created. Broad offset probes are deprioritized on this evidence.
 
-Public airport inputs plus the retained t5/full-monthly corrections improve
-production-rounded CV292.4494→292.2029 (−0.2465), both months,
-interval[−0.3874,−0.1492]. All boundaries and SQL scores pass. The ranking
-aggregate component and all ten airport production models are now complete
-and audited; final candidate assembly remains. No new version is reserved.
-
-New public daily taxi-out totals by runway cover all ten airports and both
-years. Source totals are independently audited but the cohort differs from the
-competition. The fixed original calibration gains0.3572 and worsens January.
-Applying the existing monthly invalid-share<5% rule improves the refined
-recipe by**0.5368 to291.6660**, interval[−0.7420,−0.3577], with **both months
-better**. The threshold is inherited; no airport selection or threshold scan.
-Cumulative improvement versus production-rounded v76 is0.7834. This is still
-reused-development evidence. Source-quality and all-row score audits pass.
-The selected combined component is prepared and audited on344,841 ranking rows;
-no new submission version is reserved. The original audit failed because SQL
-added FLOAT columns before promotion to DOUBLE. The separate corrected auditor
-gets an exact tree mean and passes every other check, preserving all original
-predictions, calibration and source identities. Dependent idle queues were
-reconnected; no fit was repeated. The recovery records are in its run directory.
-Ten raw source inputs are prepared/audited for tree and neural tests as well.
-
-Parameter averaging is complete and closed: same-trajectory transferred+0.5437,
-interval[+0.2463,+0.8308]. Its Boolean-buffer post-training failure was repaired,
-archived and retried only because no checkpoint had been saved. Real-buffer and
-recovery checks pass; models now save before diagnostics. Keep all completed
-fits. Full174-input CatBoost CV and airport production have finished. V75/V76
-watchers are unchanged. The daily neural test is complete and closed:
-matched+0.2371, one-of-three replacement+0.0751; both months worsen and both
-intervals include zero. All original-input, model reload and SQL audits pass;
-keep its two models and do not expand this direction.
-
-Rome's fixed ten-daily-taxi-input test is complete and closed: all six classifier
-fits and original-input/model/SQL audits pass, but v76 CV worsens0.1190 seconds
-and the daily-quality recipe worsens0.1239. Both months worsen; both intervals
-include zero. Retain all six models; no production expansion follows.
-
-Joint public count/sum inference is explored and retained, not selected.
-The initial Rome mixture screen gains0.2952; a fixed follow-up using retained
-broad supports gains0.3879. Both improve both months, but both day intervals
-include losses and a few large July mistakes dominate. All audits pass; no
-production, upload or new submission row. Do not retry these completed screens
-or turn the exploratory point estimates into claimed confirmed improvements.
-
-Full174-input CatBoost improves v76 CV by0.1220 and the selected daily-quality
-combination by0.0765 to291.5895, both intervals narrowly below zero. January's
-combined change is only−0.0076; historical control used the laptop GPU. Its
-full-year model is complete and returned. Ranking inference/audit waits after
-Rome under943861; component assembly/audit943877 reuses all calibrations and
-reserves no submission version.
-
-Disagreement-weighted daily correction failed by0.6591; close that direction.
-An independently audited public-reference inverse pilot reduces held public
-source error in both years, without reading departure labels. Two stand/runway
-features are prepared for all training/ranking inputs;4,859,776 feature values
-pass the independent SQL audit. One fixed main-tree test is queued under943878
-after combined-component builder943877. Public-source reconstruction is not
-taxi-out validation; no gain or promotion is claimed yet.
-
-A fixed early-public-input neural test is queued under943879 after943878.
-It projects the existing twelve public values into the first512-unit hidden
-layer with6,144 zero-initialized weights, retaining the original late public
-head. CPU output/gradient/RNG checks pass; CUDA and complete old/new model
-replays precede scoring. Same seed42,21/17epochs, inputs and training update;
-matched single and one-of-three replacement comparisons, no fit/score yet.
-
-Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
-The earlier225.00 goal is complete; its result remains the baseline below.
+All three existing subagents remain unavailable due to the account usage limit;
+the root agent is continuing the retained work. Sources, failures, recovery
+receipts and limitations are in the [215-second research report](VALIDATION/reports/TARGET215_RESEARCH.md).
+The earlier 225.00 goal is complete; its result remains below.
 
 **Previous goal achieved, 11 October 2026:** v71 is best/latest at **224.3602 seconds**,
 **0.6398 below** the requested 225.00 target. It improves v69 by 1.0392 and

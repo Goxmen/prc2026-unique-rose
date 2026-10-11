@@ -1,0 +1,63 @@
+{
+  "predecessor_pid": 971697,
+  "predecessor_start": "9946325",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_early/score_audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T14:36:47.325623+00:00",
+  "jobs": [
+    {
+      "name": "fixed_public_gaussian_observation_likelihood",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_gaussian_jan_jul.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_gaussian_jan_jul.py",
+          "audit_models"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_gaussian_jan_jul.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_gaussian_jan_jul.py",
+          "audit_scores"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/nn_public_gaussian.py": "85872694d45d93c7c3349988d31dc415a990237f60b2d02415e151c0f949e1cd",
+        "VALIDATION/nn_public_gaussian_jan_jul.py": "cb2e9000838dede436b7a91f6e19f17e3f94cf24664b1f5662f8439f3bab19b1",
+        "VALIDATION/nn_public_scratch.py": "3b3f3d087b69bbef95a023edf85d5c5ab7c99c396449320806961c50f5e75a3a",
+        "VALIDATION/nn_public_scratch_jan_jul.py": "4a3bb76c028152b4840980db0bc34a235496c21685b76a506baf3e995ea1440b",
+        "VALIDATION/nn_sparse_track_jan_jul.py": "b1225096a7f259020823c46d9a53f0acae942cd58f70dd35a535a54a575d9884",
+        "VALIDATION/runs/v3_20261011_nn_public_gaussian/identity.json": "5ba0cd80630bf8f81ee4cd085444bf59d2eaa83e7ac942580df8a979f017dfd8"
+      },
+      "log": "tmp/research_20261011/nn_public_gaussian.log",
+      "result": "VALIDATION/runs/v3_20261011_nn_public_gaussian/score_audit.json"
+    }
+  ],
+  "state": "error",
+  "reordered_before_any_fit": {
+    "previous_queue": "VALIDATION/runs/v3_20261011_target215/nn_public_gaussian_queue_before_packaging.json",
+    "idle_pid": 957091,
+    "reason": "Package already-selected production before optional new research; preserve one heavy job per host"
+  },
+  "reprioritized_at": "2026-10-11T14:59:12.337911+00:00",
+  "priority_reason": "Laptop model and all ranking predictions returned/audited; finish selected production before optional neural experiments",
+  "prior_idle_queue": "VALIDATION/runs/v3_20261011_target215/selected_production_priority_1658/nn_public_gaussian_queue.json",
+  "updated_at": "2026-10-11T15:19:02.444412+00:00",
+  "pid": 971698,
+  "error": "Predecessor did not finish scoring",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/gunes/PRC/VALIDATION/target215_research_queue.py\", line 58, in run\n    assert (ROOT / q['predecessor_result']).exists(), 'Predecessor did not finish scoring'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Predecessor did not finish scoring\n"
+}

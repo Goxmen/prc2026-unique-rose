@@ -47,10 +47,11 @@
         "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/audit.json": "5ee09e0ad374f67eadc147f0461a1398f7c8797ffa271daca749f4a007f8894e"
       },
       "log": "tmp/research_20261011/daily_main_production_finish.log",
-      "result": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/audit.json",
+      "completed_result_sha256": "619fa53f9d1035aa7ca9f6e05c4cdc22a807aa4e78c7538b6a03cb3e9de56518"
     }
   ],
-  "state": "waiting",
+  "state": "complete",
   "recovery": {
     "reason": "Production audit FLOAT intermediate corrected independently; no predictions or model recipes changed",
     "previous_queue": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit_precision_recovery/daily_main_production_finish_queue.json",
@@ -63,6 +64,9 @@
   "reprioritized_at": "2026-10-11T14:59:12.335625+00:00",
   "priority_reason": "Laptop model and all ranking predictions returned/audited; finish selected production before optional neural experiments",
   "prior_idle_queue": "VALIDATION/runs/v3_20261011_target215/selected_production_priority_1658/daily_main_production_finish_queue.json",
-  "updated_at": "2026-10-11T14:59:12.364965+00:00",
-  "pid": 971695
+  "updated_at": "2026-10-11T15:18:22.482173+00:00",
+  "pid": 971695,
+  "job": 0,
+  "stage": 3,
+  "child_pid": null
 }

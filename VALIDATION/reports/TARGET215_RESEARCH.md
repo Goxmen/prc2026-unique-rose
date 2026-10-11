@@ -1,5 +1,74 @@
 # Research toward 215 seconds — 11 October 2026
 
+## V77 prepared and queued; production complete, 17:34 Amsterdam
+
+The laptop-trained daily main tree passes the desktop original-source and
+all-344,841-prediction reload audit. The combined selected component also passes
+its tree arithmetic, daily shifts, constraints, serialization and 344,419-row
+CV audit. It scores **291.549710**, versus v76's **292.449408**; both months
+improve. The main-tree increment over the full-CatBoost/quality parent is only
+0.039768 seconds and receives no separate submission row.
+
+V77 now contains the exact audited component bytes, SHA-256
+`e8381979532aded6d795f84963c842bf31592713dbdd58c275f9006276364ae1`.
+It changes 331,381 rows versus v76, RMS 24.571827 seconds. Its first packager
+attempt failed before creating output because one ancestor stores source hashes
+as a mapping instead of a list. Both formats now receive the same hash checks;
+corruption and malformed records are rejected. No fit or prediction was changed.
+The original terminal queues and recovery receipt are retained under
+`target215/provenance_format_recovery_1733/`.
+
+`tools/audit_daily_refinements_candidate.py` independently reconstructs the
+three-tree mean and both constraint/rounding boundaries, and checks every CV
+label/calendar against raw historical truth. It reuses completed model and daily
+source audits. This is a separate root-authored implementation, not a second
+agent review. All checks pass. The manifest is frozen at SHA-256
+`dbf7ed321006ecb07d09814775c040b771d1b0dda811de50d2e4ac4603e2776b`.
+Watcher990172 queues v77 for **12 October 00:20:05 UTC / 02:20 Amsterdam**, after
+v75/v76. All three files remain unscored. Live17:33 Amsterdam still gives v74
+**221.6881**, rank12/242; the215 target remains unmet.
+
+The 51-vector basis is prepared and audited; all old50 vectors match exactly.
+Evaluator992976 waits for the actual v77 result, then requires successful
+v75/v76/v77 official scores, remote hashes and a fresh public score check.
+No projected score exists yet and no automatic blend upload is scheduled.
+
+## CUDA preflight corrected before neural training
+
+Early-public stopped before any fit because its check demanded bit-exact CUDA
+convolution gradients. A controlled repeat using **two identical networks**
+shows the same difference: maximum9.31e-10, about1.99e-7 of the tensor maximum.
+The Gaussian comparison showed the same convolution-only effect. All other
+weights, outputs, gradients and RNG checks were exact. The diagnostic is in
+`target215/cuda_gradient_diagnostic.json`.
+
+Only CUDA `track.blocks.*.convs.*.weight` gradient comparisons now permit
+`8 * dtype epsilon * tensor maximum`; CPU and all other checks remain exact.
+Both complete CPU/CUDA preflights pass. Original identities and stopped queues
+are archived under `target215/cuda_preflight_recovery/`; no model checkpoint,
+fit or training result existed. The original architecture/optimizer/epochs and
+training function remain unchanged. Queues992974 →992975 restart early-public
+then Gaussian. The laptop is idle after its two completed production fits.
+
+## Broad offset opportunity described, not selected
+
+`tools/describe_remaining_offset_bias.py` independently matches all344,419
+selected CV rows to raw truth/calendar/IDs and describes four fixed, separate
+constant-offset families. Held labels choose the best shared January/July offset,
+so this is an optimistic descriptive diagnostic, **not honest validation**.
+The best mean-monthly-RMSE changes are −0.000377 for all rows, −0.080933 for
+non-Rome missing-ID rows, −0.076104 for Rome missing-ID rows and −0.066954 for
+Rome identified flights with a1–4h schedule gap. Analytic derivatives, expanded
+SSE and direct row calculations agree.
+
+These results bound only the stated unrestricted, unrounded constant families
+on the retained CV months; they do not bound 2026 gains or nonlinear/clipped
+corrections. No deployment offset or candidate was created. Broad offset probes
+are deprioritized; preserve upload slots for the selected models and scored
+blend analysis. The inverse-reference screen's final model/SQL audit is now
+complete and passes; its negligible result remains closed without production.
+
+
 ## Stand-reference inverse screen closed on CV, 17:08 Amsterdam
 
 Both176-input main-tree fits are complete. Adding the two inverse-reference

@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "original_parameters_exact": true,
+      "new_weights_zero": true,
+      "initial_outputs_exact": true,
+      "original_gradients_checked": true,
+      "gradient_max_absolute_error": 0.0,
+      "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+      "initialization_and_dropout_rng_exact": true,
+      "old_nonzero_heads_preserved": true,
+      "new_projection_has_nonzero_finite_gradient": true,
+      "nonzero_projection_changes_output": true,
+      "track_padding_invariant": true,
+      "added_parameters": 6144
+    },
+    {
+      "device": "cuda",
+      "original_parameters_exact": true,
+      "new_weights_zero": true,
+      "initial_outputs_exact": true,
+      "original_gradients_checked": true,
+      "gradient_max_absolute_error": 9.313225746154785e-10,
+      "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+      "initialization_and_dropout_rng_exact": true,
+      "old_nonzero_heads_preserved": true,
+      "new_projection_has_nonzero_finite_gradient": true,
+      "nonzero_projection_changes_output": true,
+      "track_padding_invariant": true,
+      "added_parameters": 6144
+    }
+  ],
+  "training_bytecode_exact": true,
+  "original_globals_unchanged": true
+}

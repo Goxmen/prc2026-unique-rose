@@ -97,6 +97,7 @@ def check(device='cpu'):
             model.public[-1].weight.fill_(.02)
             model.fusion[-1].weight.fill_(.01)
             model.track.physics_stem.weight.fill_(.02)
+    gradient_max_error = 0.
     for training in [False, True]:
         old.train(training); new.train(training)
         torch.manual_seed(912); expected = old(*tab, *track)
@@ -117,7 +118,14 @@ def check(device='cpu'):
             other = parameters[name]
             assert (value.grad is None) == (other.grad is None), name
             if value.grad is not None:
-                torch.testing.assert_close(value.grad, other.grad, rtol=0, atol=0)
+                # Identical-network CUDA convolution repeats also differ by
+                # floating accumulation precision; all other checks stay exact.
+                tolerance = 0.
+                if device != 'cpu' and name.startswith('track.blocks.') and '.convs.' in name and name.endswith('.weight'):
+                    scale = float(torch.maximum(value.grad.abs(), other.grad.abs()).max())
+                    tolerance = 8 * torch.finfo(value.grad.dtype).eps * scale
+                torch.testing.assert_close(value.grad, other.grad, rtol=0, atol=tolerance)
+                gradient_max_error = max(gradient_max_error, float((value.grad-other.grad).abs().max()))
         assert torch.isfinite(new.variance.weight.grad).all() and new.variance.weight.grad.abs().sum() > 0
     new.eval()
     with torch.no_grad():
@@ -134,7 +142,9 @@ def check(device='cpu'):
     gaussian_loss(mean, truth, logv).backward()
     torch.testing.assert_close(mean.grad, 2 * (mean - truth) * torch.exp(-logv) / 3, rtol=1e-14, atol=1e-14)
     torch.testing.assert_close(logv.grad, (1 - (mean - truth).square() * torch.exp(-logv)) / 3, rtol=1e-14, atol=1e-14)
-    return dict(device=device, original_parameters_mean_initial_loss_and_gradients_exact=True,
+    return dict(device=device, original_parameters_mean_and_initial_loss_exact=True,
+        original_gradients_checked=True, gradient_max_absolute_error=gradient_max_error,
+        cuda_convolution_gradient_tolerance='8 * float epsilon * tensor maximum; all other gradients exact',
         initialization_and_dropout_rng_exact=True, variance_gradient_finite_nonzero=True,
         variance_does_not_change_mean_inference=True, padding_invariant_for_both_outputs=True,
         independent_nonzero_variance_gradients_pass=True)

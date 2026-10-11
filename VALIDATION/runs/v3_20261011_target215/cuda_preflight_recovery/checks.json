@@ -1,0 +1,83 @@
+{
+  "status": "pass",
+  "at": "2026-10-11T15:33:07.626131+00:00",
+  "checks": {
+    "nn_public_early": {
+      "cpu": {
+        "device": "cpu",
+        "original_parameters_exact": true,
+        "new_weights_zero": true,
+        "initial_outputs_exact": true,
+        "original_gradients_checked": true,
+        "gradient_max_absolute_error": 0.0,
+        "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+        "initialization_and_dropout_rng_exact": true,
+        "old_nonzero_heads_preserved": true,
+        "new_projection_has_nonzero_finite_gradient": true,
+        "nonzero_projection_changes_output": true,
+        "track_padding_invariant": true,
+        "added_parameters": 6144
+      },
+      "cuda": {
+        "device": "cuda",
+        "original_parameters_exact": true,
+        "new_weights_zero": true,
+        "initial_outputs_exact": true,
+        "original_gradients_checked": true,
+        "gradient_max_absolute_error": 9.313225746154785e-10,
+        "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+        "initialization_and_dropout_rng_exact": true,
+        "old_nonzero_heads_preserved": true,
+        "new_projection_has_nonzero_finite_gradient": true,
+        "nonzero_projection_changes_output": true,
+        "track_padding_invariant": true,
+        "added_parameters": 6144
+      },
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_early/identity.json",
+        "sha256": "293776fd6492cb78ce4ac5160c41c96d0af670ba6847863cf2e2689d55093be9"
+      },
+      "old_identity": {
+        "path": "VALIDATION/runs/v3_20261011_target215/cuda_preflight_recovery/v3_20261011_nn_public_early_identity.json",
+        "sha256": "bdabc0cc4626f79ce6fd54f717dfe0b7db3328e9ddeea50d1d4f0024c7614754"
+      }
+    },
+    "nn_public_gaussian": {
+      "cpu": {
+        "device": "cpu",
+        "original_parameters_mean_and_initial_loss_exact": true,
+        "original_gradients_checked": true,
+        "gradient_max_absolute_error": 0.0,
+        "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+        "initialization_and_dropout_rng_exact": true,
+        "variance_gradient_finite_nonzero": true,
+        "variance_does_not_change_mean_inference": true,
+        "padding_invariant_for_both_outputs": true,
+        "independent_nonzero_variance_gradients_pass": true
+      },
+      "cuda": {
+        "device": "cuda",
+        "original_parameters_mean_and_initial_loss_exact": true,
+        "original_gradients_checked": true,
+        "gradient_max_absolute_error": 7.450580596923828e-09,
+        "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+        "initialization_and_dropout_rng_exact": true,
+        "variance_gradient_finite_nonzero": true,
+        "variance_does_not_change_mean_inference": true,
+        "padding_invariant_for_both_outputs": true,
+        "independent_nonzero_variance_gradients_pass": true
+      },
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_gaussian/identity.json",
+        "sha256": "ad3a4b6d9fb6fe37b59bd53db6c24acce45a0e5be120786aa94395bf5568f16e"
+      },
+      "old_identity": {
+        "path": "VALIDATION/runs/v3_20261011_target215/cuda_preflight_recovery/v3_20261011_nn_public_gaussian_identity.json",
+        "sha256": "5ba0cd80630bf8f81ee4cd085444bf59d2eaa83e7ac942580df8a979f017dfd8"
+      }
+    }
+  },
+  "training_change": false,
+  "architecture_change": false,
+  "explanation": "Identical network repeat reproduces CUDA convolution gradient rounding; permit only 8 dtype epsilons times tensor maximum for those weights"
+}

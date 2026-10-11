@@ -20,6 +20,19 @@ OUT = ROOT / 'VALIDATION/runs/v3_20261011_daily_refinements_candidate'
 art, read, verify = component.art, component.read, component.verify
 
 
+def source_records(value):
+    """Accept the two retained manifest formats without skipping verification."""
+    if isinstance(value, dict):
+        value = [dict(path=path, sha256=digest) for path, digest in value.items()]
+    assert isinstance(value, list), 'Unsupported source-record container'
+    for record in value:
+        assert isinstance(record, dict) and isinstance(record.get('path'), str)
+        digest = record.get('sha256')
+        assert isinstance(digest, str) and len(digest) == 64
+        assert all(character in '0123456789abcdef' for character in digest)
+        yield record
+
+
 def build(version):
     destination = OUT / f'submission_v{version}'
     output = ROOT / f'submissions/unique-rose_v{version}.parquet'
@@ -61,8 +74,9 @@ def build(version):
             path = module.OUT / name
             if path.exists(): paths.add(path)
         identity = read(module.OUT / 'identity.json')
-        for record in identity.get('sources', []): paths.add(verify(record))
-        for record in identity.get('files', []): paths.add(verify(record))
+        for key in ['sources', 'files']:
+            for record in source_records(identity.get(key, [])):
+                paths.add(verify(record))
     sources.update({str(path.relative_to(ROOT)): sha256(path) for path in paths})
     destination.mkdir(parents=True)
     write_json(destination / 'parent_v76_snapshot.json', parent)
