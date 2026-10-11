@@ -114,6 +114,40 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 16:28 Amsterdam: Rome daily features closed; selected CatBoost production audited.**
+  All six Rome daily-taxi classifier fits/audits pass, but CV worsens **+0.1190**
+  versus v76 and **+0.1239** within the daily-quality recipe, both months worse,
+  intervals include zero. Retain `v3_20261011_rome_daily_taxi`; no expansion.
+  Returned laptop full174 CatBoost passes all344,841-row prediction reload and
+  original134-input audit. Its combined daily-quality production component is
+  built/audited in `v3_20261011_catboost_refinements_submit` (CV291.589478,
+  unversioned). Desktop queue943878 is running inverse-reference main-tree CV;
+  laptop5443/queue2979 continues daily main production, collector935144 waits.
+  Early-public943879 and daily-main finish943880 follow sequentially. Upload
+  watchers649782/792755 remain unchanged. Live16:22: v74 **221.6881**, rank12/242;
+  target215.00 remains unmet. Do not repeat completed fits or audits.
+
+- **October11,16:20Amsterdam: daily NN closed; production audit recovered; Cat model returned.**
+  Daily-taxi neural extension finishes: matched CV+0.237078; one-of-three
+  replacement+0.075091, both months worse and intervals include zero. Full-row
+  reloads and independent input/SQL audits pass; retain both models, no expansion.
+  Airport/t5/monthly/daily-quality production is prepared and audited,
+  CV291.666009, file hash1d974a195bdc548adb61ce625eef1bddda243ccb726cae067b428141dc86ffae.
+  Its original audit failed a FLOAT+FLOAT intermediate in SQL; separate
+  `tools/audit_public_daily_taxi_production.py` casts all terms to DOUBLE and
+  gets exactly0 discrepancy on all344,841 rows, with all other checks passing.
+  Original source, identity, predictions and calibration are unchanged. Preserve
+  `v3_20261011_public_daily_taxi_submit/audit_precision_recovery/`; no fits repeated.
+  New desktop chain **Rome943857 →Cat inference943861 →combined943877 →
+  inverse943878 →early943879 →daily-main finish943880**. Old queued PIDs in
+  earlier notes are superseded. Rome's zero-change control replay passed; fits
+  now run. Laptop CatBoost completed10,000 rounds in28.07min;328.53MB checkpoint
+  returned/hash-verified at14:19:41UTC, hash
+  ed0dacdfb76cf362c0830a7bb9bfb29d04fa6c6c6eb108c9899faf61ea668294.
+  Collector943887 completed and resumed943861; reuse the model, do not refit.
+  Laptop now runs daily-main worker5443 under queue2979, with collector935144
+  still waiting. One heavy job per host; upload watchers649782/792755 unchanged.
+
 - **October11,16:08Amsterdam: daily-main combination audited and production queued.**
   `daily_main_refinements_cv.py` reuses all models and calibration: selected
   CatBoost/daily-quality CV291.589478→291.549710 (−0.039768), paired-day

@@ -1,0 +1,57 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_rome_daily_taxi/identity.json",
+    "sha256": "697142587ee38fbb18254a2de4de2886ce04f15e814517a39464202372418c30"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261011_rome_daily_taxi/result.json",
+    "sha256": "1ed23e59e8a5f998f9c7187e6f61d0b0c8bd85cc2bb251ed799361571bb439ef"
+  },
+  "models": [
+    {
+      "month": "2025-01",
+      "seed": 42,
+      "held_rome_rows": 11317,
+      "all_reload_exact": true
+    },
+    {
+      "month": "2025-01",
+      "seed": 142,
+      "held_rome_rows": 11317,
+      "all_reload_exact": true
+    },
+    {
+      "month": "2025-01",
+      "seed": 242,
+      "held_rome_rows": 11317,
+      "all_reload_exact": true
+    },
+    {
+      "month": "2025-07",
+      "seed": 42,
+      "held_rome_rows": 15211,
+      "all_reload_exact": true
+    },
+    {
+      "month": "2025-07",
+      "seed": 142,
+      "held_rome_rows": 15211,
+      "all_reload_exact": true
+    },
+    {
+      "month": "2025-07",
+      "seed": 242,
+      "held_rome_rows": 15211,
+      "all_reload_exact": true
+    }
+  ],
+  "rows": 344419,
+  "original80_and_new10_inputs_exact": true,
+  "independent_sql_truth_calendar_controls_scores_non_rome": true,
+  "all_quality_gates_and_constraints_replayed": true,
+  "source": {
+    "path": "VALIDATION/rome_daily_taxi_jan_jul.py",
+    "sha256": "1c31ca98f8a4795da87aa36f165eb75c8c51b83a5a812ecfd50046a57a249ecd"
+  }
+}

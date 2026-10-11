@@ -1,5 +1,75 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Rome daily features closed; returned CatBoost fully audited, 16:28 Amsterdam
+
+All six Rome daily-taxi classifier fits and audits are complete. V76 CV changes
+292.449363 → 292.568401 (**+0.119038**), with January +0.068160 and July
++0.169915. The paired-day interval is [−0.011181, +0.248215]. In the selected
+daily-quality recipe, CV changes 291.666009 → 291.789902 (**+0.123893**),
+interval [−0.010112, +0.259859]. Both months worsen. All original 80 and new
+10 inputs, six saved-model probability reloads, non-Rome controls and
+344,419-row independent SQL checks pass. Retain the models and close this
+direction without a production fit or submission entry.
+
+The laptop-trained full174 CatBoost now passes the complete desktop production
+audit: all 344,841 ranking predictions reload exactly and the original 134
+input values/categories agree. The combined CatBoost/airport/t5/monthly/
+daily-quality file is built and audited too, with every parent stage replayed
+exactly and all-row SQL tree means, gates, rounding and CV checks passing.
+Its CV is 291.589478; candidate SHA-256:
+`469a5606aab314e3811c5a424438617ce85b84f9b5b85cff70543c6c2cb7bfec`.
+It remains an unversioned component pending the selected daily main tree.
+
+Desktop queue 943878 now runs the stand-reference inverse main-tree test.
+Laptop worker 5443 continues the full-year daily main fit; collector 935144
+waits for its verified result. Each host runs one heavy job. The live check
+at 16:22 Amsterdam still gives v74 at 221.6881, rank 12/242; v75/v76 have no
+official results yet. No goal completion or leaderboard transfer is claimed.
+
+## Daily neural direction closed; production returns, 16:20 Amsterdam
+
+Adding the ten daily-taxi inputs to the public neural model does not improve
+CV. Matched seed42 changes292.834296→293.071374 (**+0.237078**), with
+January+0.062326/July+0.411830. Replacing only seed42 in the selected three-member
+pool changes292.449363→292.524454 (**+0.075091**), worsening both months.
+The respective paired-day intervals[−0.004097,+0.476950] and
+[−0.002799,+0.162001] include zero. Both full held sets reload exactly; the
+independent sampled model/input and all344,419-row SQL audits pass. Retain the
+completed models and close expansion; these are not production candidates.
+
+The selected airport/t5/monthly/daily-quality production file is now prepared
+and independently audited. It changes323,988 rows versus v76, with prediction
+RMS22.3961seconds, and excludes54,792 rows from the daily correction through
+the existing quality rule. Jan/Jul CV remains291.666009. File SHA-256:
+`1d974a195bdc548adb61ce625eef1bddda243ccb726cae067b428141dc86ffae`.
+It remains an unversioned component pending the selected tree replacements.
+
+The first production audit stopped at its tree-mean check. Its SQL evaluated
+FLOAT main+FLOAT airport before adding DOUBLE CatBoost, introducing a maximum
+0.000325521-second rounding difference. The production matrix already uses
+double throughout. `tools/audit_public_daily_taxi_production.py` casts every
+term before addition and gets **exactly zero** discrepancy on all344,841 rows;
+an independent NumPy mean agrees too. All source-quality, parent-control,
+daily-shift, bound, schema and344,419-row CV checks pass. The original runner,
+manifest, calibration and every prediction remain unchanged. Error and queue
+snapshots are preserved in `audit_precision_recovery/`; no preparation or fit
+was repeated. The original failed audit is not relabeled as a successful run.
+
+Only idle dependent watchers and the CatBoost return collector were replaced.
+Current desktop chain: Rome943857 →Cat inference943861 →combined943877
+→inverse943878 →early-public943879 →daily-main finish943880. The Rome
+zero-change replay passes all three original scoring stages; its six fits
+are now running. Existing upload watchers and laptop training were untouched.
+
+Laptop CatBoost finished10,000 rounds on2,051,327 rows in28.07minutes. Its
+328,530,384-byte checkpoint returned and passed model/receipt/input-audit hashes
+at14:19:41UTC; model SHA-256
+`ed0dacdfb76cf362c0830a7bb9bfb29d04fa6c6c6eb108c9899faf61ea668294`.
+Collector943887 resumed desktop waiter943861 only after verification; it will
+reuse the model for ranking predictions after Rome. Laptop queue2979 has
+sequentially started daily-main worker5443 (184inputs,10,000rounds,four threads).
+No official score changed during this work.
+
 ## Daily main tree survives the selected combination, 16:08 Amsterdam
 
 The main-tree screen's independent audit passes: all344,419 original and new

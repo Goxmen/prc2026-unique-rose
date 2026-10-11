@@ -1,0 +1,56 @@
+{
+  "design": {
+    "parent": "selected public-airport/t5/full-monthly/daily-quality production component",
+    "change": "ordinary CatBoost full174 inputs, original K07/10000/seed42",
+    "calibration": "reuse original full2025 daily parameters; recompute shift from changed incoming prediction",
+    "cv": "catboost_refinements_cv.candidate; tiny January gain and cross-machine control caveat retained",
+    "no_fits": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/identity.json",
+    "sha256": "e87c27b78b9f9678884f3b0ccd004e224392cf05948317fdb22026f16c7f7a1f"
+  },
+  "rows": 344841,
+  "jan_jul_cv": 291.5894783776842,
+  "cv_months": {
+    "2025-01": 325.85312353289453,
+    "2025-07": 257.3258332224739
+  },
+  "paired": {
+    "change": -0.07653021833507978,
+    "ci95": [
+      -0.15314165757830694,
+      -0.0034746064131184174
+    ],
+    "decision": "improvement"
+  },
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/candidate.parquet",
+      "sha256": "469a5606aab314e3811c5a424438617ce85b84f9b5b85cff70543c6c2cb7bfec"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/predictions.parquet",
+      "sha256": "866702162df2341fd7bb35ef954a8f683f8bfd3061ef2ab466ff921fbe04b108"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/cells.parquet",
+      "sha256": "491f68869c782c6a1dfb80eb3eb56dc2483f8223e359c549a40020cf591d79e5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/cv.parquet",
+      "sha256": "557f1a693076e99e08cd943b7a788b40e60dbd834462ffb90992c83237d6bf48"
+    }
+  ],
+  "parent_control_all_stages_exact": true,
+  "full2025_calibration_reused": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/parameters.json",
+    "sha256": "e59983c3c875a8161a484a2531e27add8d86e058e89b2f72218bcea39ca589b0"
+  },
+  "changed_rows": 297104,
+  "prediction_rms_change": 9.327987310164591,
+  "no_version": true,
+  "no_upload": true
+}

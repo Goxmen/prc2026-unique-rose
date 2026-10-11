@@ -1,0 +1,310 @@
+{
+  "design": {
+    "parent": "selected half sparse3/half calls15 combination",
+    "change": "ten daily runway/airport taxi inputs",
+    "original_columns": 156,
+    "added_columns": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction",
+      "pub_taxi_runway_mean",
+      "pub_taxi_runway_reference",
+      "pub_taxi_runway_additional",
+      "pub_taxi_runway_count",
+      "pub_taxi_airport_mean",
+      "pub_taxi_airport_reference",
+      "pub_taxi_airport_additional",
+      "pub_taxi_airport_count",
+      "pub_taxi_runway_share",
+      "pub_taxi_runway_minus_airport"
+    ],
+    "model": {
+      "parent": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "added": [
+        "pub_taxi_runway_mean",
+        "pub_taxi_runway_reference",
+        "pub_taxi_runway_additional",
+        "pub_taxi_runway_count",
+        "pub_taxi_airport_mean",
+        "pub_taxi_airport_reference",
+        "pub_taxi_airport_additional",
+        "pub_taxi_airport_count",
+        "pub_taxi_runway_share",
+        "pub_taxi_runway_minus_airport"
+      ],
+      "scales": [
+        600.0,
+        600.0,
+        300.0,
+        200.0,
+        600.0,
+        600.0,
+        300.0,
+        600.0,
+        1.0,
+        300.0
+      ],
+      "transform": "existing12 unchanged; new10 asinh(x/scale)/4 clipped[-5,5],missing0",
+      "architecture": "widen existing public first layer268 to278; preserve all existing weights; new columns zero",
+      "training": "original sparse training function; seed42,21/17 fixed epochs; no continuation or EMA"
+    },
+    "original_model": {
+      "sequence_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "width": 32,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "kernel": 3,
+      "dilations": [
+        1,
+        4,
+        16
+      ],
+      "activation": "SiLU",
+      "normalization": "LayerNorm over channels independently per point",
+      "pooling": "masked mean and max",
+      "fusion_hidden": 128,
+      "final_residual_initialization": "zero",
+      "usable": "at least two distinct timestamps",
+      "original_inputs": 156,
+      "extra_dropout": 0
+    },
+    "sequence": {
+      "window_before_sec": 7200,
+      "window_after_sec": 60,
+      "max_points": 128,
+      "minimum_distinct_timestamps": 2,
+      "labels_used": false,
+      "identity": "audited unique near-takeoff identity; missing and ambiguous remain absent",
+      "sort": [
+        "airport",
+        "hex",
+        "ts_ms",
+        "lat",
+        "lon",
+        "alt",
+        "gs"
+      ],
+      "duplicate_timestamp": "retain lexicographically first lat/lon/alt/gs per airport/hex/time",
+      "selection": "floor(linspace(0,n-1,128)); first and last always retained",
+      "gap": "previous raw observation within query window; first=-1; never interpolated",
+      "ground_alt_code": -123,
+      "other_negative_alt": "unknown",
+      "negative_speed": "unknown",
+      "origin": "mean of the airport X-Plane runway ends",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "point_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "bounds": {
+        "time": [
+          -0.008333333333333333,
+          1
+        ],
+        "gap": [
+          0,
+          1
+        ],
+        "east_north": [
+          -2,
+          2
+        ],
+        "speed": [
+          0,
+          1
+        ],
+        "altitude": [
+          0,
+          1
+        ],
+        "distance": [
+          0,
+          1
+        ],
+        "clock": [
+          -1,
+          1
+        ]
+      },
+      "scales": {
+        "time_sec": 7200,
+        "gap_log_sec": 7260,
+        "east_north_m": 20000,
+        "speed_kt": 300,
+        "altitude_ft": 10000,
+        "distance_m": 40000,
+        "clock": "clip(asinh((point-originalAOBT)/1800),-8,8)/8",
+        "raw_count_cap": 4096
+      },
+      "padding": "right padding, independent boolean point mask, all padded channels zero",
+      "absent_sequence": "0 or 1 points cached honestly; model residual hard-gated off"
+    },
+    "seed": 42,
+    "fixed_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "target": "original direct min(y,10800), standardized with ordinary training population",
+    "training": "exact original sparse train bytecode; only public model constructor differs",
+    "preprocessing": "exact original156 preprocessing, checked against saved control",
+    "machine": "desktop RTX3080; same-machine saved physical-scale seed42 controls",
+    "primary": "matched seed42 physical network inside production-rounded public stack",
+    "selected_reference": "actual three-sparse-member v64; pool-size difference explicit",
+    "tree": "selected callsign main LightGBM plus original airport and CatBoost, seed42",
+    "rome": "selected half Cat3/half R20",
+    "network_share": 0.71,
+    "rules": "unchanged",
+    "no_inner_stopping": true,
+    "no_weight_search": true,
+    "no_new_gate": true,
+    "held_labels": "fixed-epoch monitoring and final development score only",
+    "exploratory_reused_development_months": true,
+    "production_or_upload": false,
+    "variant": "public",
+    "secondary": "replace only seed42 of selected three-member pool; unchanged1042/2042",
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_daily_taxi/identity.json",
+    "sha256": "dab615e0a98464a679f98e45b1649d0b47e937c9cc454cf2f310c5efbf2016d3"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_daily_taxi/scored.parquet",
+    "sha256": "0c40e813af8b56418dbc1e388560666a37c19ec7922e11c28351f9d70e44ef27"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.4210657391404,
+      "candidate": 326.4833922327794,
+      "selected": 326.17391214810544,
+      "replace_seed42": 326.210350854824
+    },
+    "2025-07": {
+      "control": 259.24752624771014,
+      "candidate": 259.6593564679939,
+      "selected": 258.7248137211206,
+      "replace_seed42": 258.8385572302839
+    }
+  },
+  "cv": {
+    "control": 292.83429599342526,
+    "candidate": 293.0713743503867,
+    "selected": 292.449362934613,
+    "replace_seed42": 292.524454042554
+  },
+  "paired": {
+    "candidate_vs_control": {
+      "change": 0.23707835696140478,
+      "ci95": [
+        -0.004097074981386227,
+        0.47694971443810735
+      ],
+      "decision": "inconclusive"
+    },
+    "replace_seed42_vs_selected": {
+      "change": 0.07509110794094909,
+      "ci95": [
+        -0.0027990446078099748,
+        0.16200060300553284
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "actual_selected_pool_and_rounding_exact": true
+}

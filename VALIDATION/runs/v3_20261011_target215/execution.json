@@ -4,40 +4,36 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "daily_taxi_neural_screen",
-    "pid": 928770,
-    "queue_pid": 863590,
-    "stage": 0,
-    "log": "tmp/research_20261011/public_daily_taxi_nn.log"
+    "task": "public_reference_inverse_main_tree",
+    "pid": 950591,
+    "queue_pid": 943878,
+    "stage": 1,
+    "log": "tmp/research_20261011/public_reference_inverse_lgb.log"
   },
   "laptop": {
     "host": "GLAPTOP",
     "ssh": "glaptop-wsl",
-    "task": "selected_full174_catboost_full_year",
-    "supervisor_pid": 1600,
-    "supervisor_start": "59445",
-    "pid": 1601,
-    "process_start": "59447",
-    "training_started": true,
-    "started_at": "2026-10-11T13:48:23.775434+00:00",
-    "log": "tmp/research_20261011/catboost_full_inputs_laptop.log",
-    "manifest": "VALIDATION/runs/v3_20261011_catboost_full_inputs_submit/portable_worker/manifest.json",
-    "manifest_sha256": "16c1263b1c707ff1669cfd2b9d5eba91b62902b8e1597279e242a101953ff2dc",
-    "cache_reused_bytes": 2552204749,
-    "transferred_bytes": 62464715,
-    "desktop_collector_pid": 925705,
-    "desktop_fit_waiter_pid": 897098,
-    "desktop_fit_waiter_state": "stopped while laptop fits; collector resumes only after verified model import",
-    "next": {
-      "task": "daily_main_full_year_184",
-      "queue": "VALIDATION/runs/v3_20261011_target215/daily_main_laptop_queue.json",
-      "pid": 2979,
-      "process_start": "132812",
-      "predecessor_pid": 1600,
-      "predecessor_start": "59445",
-      "state": "waiting",
-      "collector_pid": 935144,
-      "additional_transferred_bytes": 28176015
+    "task": "selected_daily_main_full_year",
+    "pid": 5443,
+    "queue_pid": 2979,
+    "queue_start": "132812",
+    "state": "running",
+    "started_at": "2026-10-11T14:17:46.461470+00:00",
+    "log": "tmp/research_20261011/daily_main_laptop.log",
+    "identity": "VALIDATION/runs/v3_20261011_daily_main_submit/identity.json",
+    "collector_pid": 935144,
+    "completed_catboost": {
+      "supervisor_pid": 1600,
+      "pid": 1601,
+      "exit_code": 0,
+      "fit_minutes": 28.0688295592,
+      "model_sha256": "ed0dacdfb76cf362c0830a7bb9bfb29d04fa6c6c6eb108c9899faf61ea668294",
+      "record_sha256": "db558910738f1b31bd54f38c7216d484015e167fa445fab417973d4ad661a0c9",
+      "collector_pid": 943887,
+      "desktop_waiter_pid": 943861,
+      "return_state": "complete; model/receipt/input audit hashes verified; desktop waiter943861 resumed",
+      "returned_at": "2026-10-11T14:19:41.587252+00:00",
+      "desktop_audit": "pass; every ranking prediction reloaded exactly"
     }
   },
   "utc_uploads_used": [
@@ -144,9 +140,19 @@
     "Laptop WSL restored: original2.55GB matrix hash matches; only62.5MB transferred; all154 portable files and2051327 labels/original134 columns audited; selected174-input production CatBoost training on5060, duplicate desktop waiter stopped before fit",
     "Daily-taxi main tree completed and audited all344419 held rows: rounded-v76 CV-0.085240; fixed refinement CV-0.076536; both months improve",
     "Exact four-way main/CatBoost combination audited: selected daily-quality/fullCat291.589478 to291.549710 (-0.039768), CI[-0.081566,-0.012448], both months; retain small component without separate submission",
-    "Daily-main full-year portable cache and ranking equivalence checked; extra28.18MB transferred and all remote files validated; laptop queue2979 waitsCat1600; collector935144 and desktop finish935145 preserve one heavy job per host; four collector integrity tests pass"
+    "Daily-main full-year portable cache and ranking equivalence checked; extra28.18MB transferred and all remote files validated; laptop queue2979 waitsCat1600; collector935144 and desktop finish935145 preserve one heavy job per host; four collector integrity tests pass",
+    "Daily neural screen closed: matched+0.237078, one-of-three replacement+0.075091; both months worsen, paired intervals inconclusive; both full-row model reloads and independent input/SQL audits pass; no expansion",
+    "Daily-quality/airport/t5/monthly production component prepared; all344841 source gates, shifts, bounds, schema and scores pass independent audit; candidate hash1d974a195bdc548adb61ce625eef1bddda243ccb726cae067b428141dc86ffae",
+    "Original production audit FLOAT+FLOAT intermediate caused0.00032552 error; separate immutable-source auditor casts all terms DOUBLE and gets exactly0 on every row; original predictions/calibration/identity retained, no fit repeated",
+    "Idle dependent queues reconnected after precision-audit failure: Rome943857 to Cat943861 to combined943877 to inverse943878 to early943879 to daily-main finish943880; Cat collector943887 rebound; laptop worker/queue and upload watchers untouched",
+    "Laptop full174 CatBoost completed10000 rounds in28.07min; saved328.53MB model; laptop moved sequentially to daily-main worker5443, collector returning Cat checkpoint for desktop inference",
+    "CatBoost laptop model fully returned and SHA-256 verified; desktop waiter943861 resumed without training; inference waits for Rome experiment",
+    "Rome daily-taxi Cat3 six fits complete, all held model reloads and original80/new10 inputs/SQL audits pass; v76+0.119038 and selected quality+0.123893, both months worse, intervals inconclusive; close direction with no production",
+    "Returned full174 CatBoost generated and reloaded all344841 ranking predictions without a training refit; final source audit underway",
+    "Returned full174 CatBoost production all344841 prediction reload and original134-input audit pass",
+    "CatBoost plus daily-quality combined production built/audited; CV291.589478; unversioned"
   ],
-  "next": "Finish running daily neural screen and CatBoost production; laptop then fits selected daily main. Desktop continues Rome, inverse-reference and early-public screens, followed by returned daily-main audit and consolidated component build. Preserve scheduled v75/v76 and wait for official score geometry.",
+  "next": "Finish returned CatBoost audit and combined component, then fixed inverse-reference and early-public screens; laptop continues selected daily-main production. Preserve all completed fits and original v75/v76 upload schedule.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -312,7 +318,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T14:06:08.245120+00:00",
+  "updated_at": "2026-10-11T14:24:57.926250+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -421,8 +427,8 @@
   "public_daily_taxi_nn_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_nn_queue.json",
     "pid": 863590,
-    "state": "running",
-    "process_live": true,
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "public_runway_daily_taxi_neural"
     ]
@@ -430,63 +436,62 @@
   "public_daily_taxi_production_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_production_queue.json",
     "pid": 870127,
-    "state": "waiting",
+    "state": "audit_recovered",
+    "process_live": false,
     "jobs": [
       "selected_quality_daily_taxi_production_component"
     ],
-    "process_live": true
+    "audit": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit.json",
+    "original_queue_state": "error"
   },
   "rome_daily_taxi_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/rome_daily_taxi_queue.json",
-    "pid": 877491,
-    "state": "waiting",
+    "pid": 943857,
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "fixed_daily_taxi_rome_cat3"
-    ],
-    "process_live": true
+    ]
   },
   "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1522.json",
   "last_live_leaderboard_check": {
-    "bestScore": 221.6881,
-    "bestFile": "unique-rose_v74.parquet",
+    "updatedAt": "2026-10-11T14:22:40+00:00",
+    "best": 221.6881,
+    "latest_version": 74,
     "rank": 12,
     "scoringTeamCount": 242,
-    "updatedAt": "2026-10-11T13:51:56+00:00",
-    "latest_version": 74,
     "usedPairs": 344841
   },
   "catboost_full_production_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/catboost_full_production_queue.json",
-    "pid": 897098,
-    "state": "waiting_for_laptop_model_import",
+    "pid": 943861,
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "full174_catboost_production_component"
-    ],
-    "process_live": true,
-    "process_state": "T",
-    "remote_training": true
+    ]
   },
   "catboost_refinements_production_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/catboost_refinements_production_queue.json",
-    "pid": 907102,
-    "state": "waiting",
+    "pid": 943877,
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "selected_catboost_daily_refinements_component"
-    ],
-    "process_live": true
+    ]
   },
   "public_reference_inverse_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_reference_inverse_queue.json",
-    "pid": 909597,
-    "state": "waiting",
+    "pid": 943878,
+    "state": "running",
+    "process_live": true,
     "jobs": [
       "fixed_public_reference_inverse_main_tree"
-    ],
-    "process_live": true
+    ]
   },
   "nn_public_early_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/nn_public_early_queue.json",
-    "pid": 917136,
+    "pid": 943879,
     "state": "waiting",
     "process_live": true,
     "jobs": [
@@ -496,7 +501,7 @@
   "early_public_latest_integrity": "VALIDATION/runs/v3_20261011_target215/early_public_queue_integrity_after_recovery.json",
   "daily_main_production_finish_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/daily_main_production_finish_queue.json",
-    "pid": 935145,
+    "pid": 943880,
     "state": "waiting",
     "process_live": true,
     "jobs": [

@@ -1,0 +1,53 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 907102,
+  "predecessor_start": "9336897",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T13:20:27.430333+00:00",
+  "jobs": [
+    {
+      "name": "fixed_public_reference_inverse_main_tree",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_reference_inverse_lgb.py",
+          "preflight"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_reference_inverse_lgb.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_reference_inverse_lgb.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_reference_inverse_lgb.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/public_reference_inverse_lgb.py": "2f7475b941532a6b7b540e06595f7ecdca02808f1c385031af12cdd3e80526d5",
+        "VALIDATION/public_reference_inverse_features.py": "f3efedcbcbbf0e14ae4d5dcf1c1f2a6d005e5008f3b43993ec266044509e98cd",
+        "VALIDATION/tools/probe_public_reference_inverse.py": "f65eea072feacf22216d00887598f5f618e20ac47013510e58e43de6beff85c5",
+        "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/identity.json": "21d317fff6ea989f302d3c12779f11a05b98f3eb6b81e5f02bfde74522ac9eb6",
+        "VALIDATION/runs/v3_20261011_public_reference_inverse_features/manifest.json": "b497da56a148ef1f5c50415a1b992bb297e2855a5517faaa1fa7fc8ef1da9f0d",
+        "VALIDATION/runs/v3_20261011_public_reference_inverse_features/audit.json": "504ce305ba531e8a2267e72638d48ba4544f848cd6cc62f61175d4535d7da86d"
+      },
+      "log": "tmp/research_20261011/public_reference_inverse_lgb.log",
+      "result": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T13:20:27.458256+00:00",
+  "pid": 909597
+}

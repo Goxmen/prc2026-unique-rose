@@ -1,12 +1,11 @@
 {
-  "state": "waiting",
-  "predecessor_pid": 877491,
-  "predecessor_start": "9035048",
+  "predecessor_pid": 943857,
+  "predecessor_start": "9691424",
   "predecessor_result": "VALIDATION/runs/v3_20261011_rome_daily_taxi/audit.json",
   "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
   "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
-  "created_at": "2026-10-11T12:59:54.930268+00:00",
+  "created_at": "2026-10-11T14:16:43.429403+00:00",
   "jobs": [
     {
       "name": "full174_catboost_production_component",
@@ -34,9 +33,23 @@
         "VALIDATION/runs/v3_20261011_catboost_refinements_cv/audit.json": "6c24b245fe4cc9c27d2b52c9a3d8a54391fce9a2a444716a5e945ed8e1484e9b"
       },
       "log": "tmp/research_20261011/catboost_full_inputs_submit.log",
-      "result": "VALIDATION/runs/v3_20261011_catboost_full_inputs_submit/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_catboost_full_inputs_submit/audit.json",
+      "completed_result_sha256": "73a4b4957531a7a9fb83bca5fe0b8a9b93b111d8afe5b2bf9686fa949cef4bb2"
     }
   ],
-  "updated_at": "2026-10-11T12:59:54.957549+00:00",
-  "pid": 897098
+  "state": "complete",
+  "recovery": {
+    "reason": "Production audit FLOAT intermediate corrected independently; no predictions or model recipes changed",
+    "previous_queue": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit_precision_recovery/catboost_full_production_queue.json",
+    "previous_queue_sha256": "583c4ab10696f3746cff6467f062b408ac804b3e20791e7c14346a8e777ffc5b",
+    "passing_audit": {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit.json",
+      "sha256": "02ba2864b13854c4368fe1f8af0246e0ab5acecd9be7e961b414f91fba0fc03e"
+    }
+  },
+  "updated_at": "2026-10-11T14:24:36.613475+00:00",
+  "pid": 943861,
+  "job": 0,
+  "stage": 1,
+  "child_pid": null
 }

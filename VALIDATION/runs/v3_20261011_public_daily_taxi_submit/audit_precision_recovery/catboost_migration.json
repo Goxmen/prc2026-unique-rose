@@ -1,0 +1,55 @@
+{
+  "created_at": "2026-10-11T13:48:23.333615+00:00",
+  "reason": "User restored laptop WSL; move only unstarted CatBoost full-year fit to laptop",
+  "desktop_queue_pid": 897098,
+  "desktop_queue_start": "9230584",
+  "original_queue": {
+    "state": "waiting",
+    "predecessor_pid": 877491,
+    "predecessor_start": "9035048",
+    "predecessor_result": "VALIDATION/runs/v3_20261011_rome_daily_taxi/audit.json",
+    "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+    "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+    "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+    "created_at": "2026-10-11T12:59:54.930268+00:00",
+    "jobs": [
+      {
+        "name": "full174_catboost_production_component",
+        "commands": [
+          [
+            "/home/gunes/PRC/.venv/bin/python",
+            "-u",
+            "VALIDATION/catboost_full_inputs_submit.py",
+            "fit"
+          ],
+          [
+            "/home/gunes/PRC/.venv/bin/python",
+            "-u",
+            "VALIDATION/catboost_full_inputs_submit.py",
+            "audit"
+          ]
+        ],
+        "sources": {
+          "VALIDATION/catboost_full_inputs_submit.py": "9ac20ce33b893007520f13800ce1a957efc2cc316092b1bd0501be1347fc20ec",
+          "VALIDATION/catboost_full_inputs.py": "49c99b455a12854333a1ea8ede9cbd4fef7574805553219c61ba285bad0a2679",
+          "VALIDATION/catboost_refinements_cv.py": "7ce1029575a13b3ce2d2ed88bbdf828b3f092f2044f790d461c6aea8173e92c7",
+          "VALIDATION/public_delay_lgb_submit.py": "b4339d8f0683a6884c3e1b174bb1437c468180f8cd3ca00c89e49e1153f2da23",
+          "VALIDATION/runs/v3_20261011_catboost_full_inputs_submit/identity.json": "352dc721d708444947559b62309500fc8c3218c98639b9595f6596cee8c13d4f",
+          "VALIDATION/runs/v3_20261011_catboost_refinements_cv/result.json": "a955ec016103cbc4e601f4da015bbef0ba2ee41a2d4e4027fc6f6025f46c3ed8",
+          "VALIDATION/runs/v3_20261011_catboost_refinements_cv/audit.json": "6c24b245fe4cc9c27d2b52c9a3d8a54391fce9a2a444716a5e945ed8e1484e9b"
+        },
+        "log": "tmp/research_20261011/catboost_full_inputs_submit.log",
+        "result": "VALIDATION/runs/v3_20261011_catboost_full_inputs_submit/audit.json"
+      }
+    ],
+    "updated_at": "2026-10-11T12:59:54.957549+00:00",
+    "pid": 897098
+  },
+  "original_queue_sha256": "583c4ab10696f3746cff6467f062b408ac804b3e20791e7c14346a8e777ffc5b",
+  "portable_manifest_sha256": "16c1263b1c707ff1669cfd2b9d5eba91b62902b8e1597279e242a101953ff2dc",
+  "worker_source_sha256": "a5fbed27cff842d731bc092b6079d1957ad3d1d5602c2186b714c9639a8663d1",
+  "dispatch_source_sha256": "05ed7148dbf7a0edeb7f7d9bd50541be9eae6adf88cf40569ce4e9ec85d5bf8b",
+  "original_cached_matrix_verified_on_both_hosts": true,
+  "transferred_bytes": 62464715,
+  "state": "idle_waiter_stopped"
+}

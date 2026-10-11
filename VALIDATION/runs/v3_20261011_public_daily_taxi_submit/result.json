@@ -1,0 +1,77 @@
+{
+  "design": {
+    "parent": "v76",
+    "change": "public airport trees, t5/full-monthly and quality-gated daily runway taxi totals",
+    "cv": "retained production-rounded quality.refined_quality",
+    "production": "reuse all selected models and aggregate parameters; daily calibration refit once on full2025",
+    "quality_gate": "same monthly invalid share<0.05",
+    "rows": 344841,
+    "no_new_taxi_model_fit": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/identity.json",
+    "sha256": "9ee2f956b242e5f7511d8944a35c42d41e10e046550b7be713f9ab7b5bd9e5c5"
+  },
+  "rows": 344841,
+  "jan_jul_cv": 291.6660085960193,
+  "cv_months": {
+    "2025-01": 325.8606946460391,
+    "2025-07": 257.47132254599944
+  },
+  "paired": {
+    "change": -0.5368414381833588,
+    "ci95": [
+      -0.7420419207269994,
+      -0.35767692116610383
+    ],
+    "decision": "improvement"
+  },
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/candidate.parquet",
+      "sha256": "1d974a195bdc548adb61ce625eef1bddda243ccb726cae067b428141dc86ffae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/predictions.parquet",
+      "sha256": "7fab300ff56268cec590711f6e937b2b37248e42462146803c5aa2de7553cf8e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/cells.parquet",
+      "sha256": "3833afe475b674860a73f09abf47a574e1830f8f65d6d6a0249bddf98c4b6223"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/calibration.parquet",
+      "sha256": "296451f422d73275ad995e13745420864a9b93b319454271324f03811c0f2082"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/parameters.json",
+      "sha256": "e59983c3c875a8161a484a2531e27add8d86e058e89b2f72218bcea39ca589b0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/cv.parquet",
+      "sha256": "58a45eec1be189ec7e84a590b03f44ac730eeced6580667f6c9ffc3606159c05"
+    }
+  ],
+  "component_sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-01.parquet",
+      "sha256": "fe4c0c588387c397eb6cc0365d0449f564b23275c9a0d18af7cb7c271dae4ca1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-07.parquet",
+      "sha256": "69bf84a9f86ff78ecfc1d2c42d7c0a84836a9cd3f7ff9d06d1f5198cf10a9770"
+    }
+  ],
+  "controls_reproduced": [
+    "v76 direct",
+    "v76 final and serialization",
+    "aggregate production"
+  ],
+  "changed_rows": 323988,
+  "prediction_rms_change": 22.39608538243874,
+  "quality_excluded_rows": 54792,
+  "no_version": true,
+  "no_upload": true
+}

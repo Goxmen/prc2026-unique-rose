@@ -1,0 +1,102 @@
+{
+  "design": {
+    "parent": "production-rounded v76 public Cat3/original R20",
+    "change": "ten public daily runway/airport taxi inputs in the CatBoost classifier",
+    "added": [
+      "pub_taxi_runway_mean",
+      "pub_taxi_runway_reference",
+      "pub_taxi_runway_additional",
+      "pub_taxi_runway_count",
+      "pub_taxi_airport_mean",
+      "pub_taxi_airport_reference",
+      "pub_taxi_airport_additional",
+      "pub_taxi_airport_count",
+      "pub_taxi_runway_share",
+      "pub_taxi_runway_minus_airport"
+    ],
+    "old_columns": 80,
+    "columns": 90,
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "rounds": {
+      "2025-01": 1182,
+      "2025-07": 1401
+    },
+    "preserved": "original classifier rows, targets, parameters, rounds and equal Cat3/R20 mixture",
+    "primary": "production-rounded v76 substitution",
+    "secondary": "selected airport/t5/full-monthly/daily-quality recipe; recompute fixed daily shifts",
+    "no_weight_or_parameter_search": true,
+    "no_new_stopping": true,
+    "limitation": "reused Jan/Jul development; public taxi source is a different cohort",
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_rome_daily_taxi/identity.json",
+    "sha256": "697142587ee38fbb18254a2de4de2886ce04f15e814517a39464202372418c30"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_rome_daily_taxi/scored.parquet",
+    "sha256": "f584e9c799e43db0620a2885f7ed1753b1dbcecc2751e03475bf61f8eef708fe"
+  },
+  "cells": {
+    "path": "VALIDATION/runs/v3_20261011_rome_daily_taxi/cells.parquet",
+    "sha256": "2d7887e2f62668ea171754c74511b704a2479f13dbbf7479cc5cc1e2cd2e6c7b"
+  },
+  "scores": {
+    "2025-01": {
+      "v76": 326.17391214810544,
+      "v76_dailycat": 326.2420722285975,
+      "refined": 325.94319178263174,
+      "refined_dailycat": 326.0102315869419,
+      "quality": 325.8606946460391,
+      "quality_dailycat": 325.92958228022735
+    },
+    "2025-07": {
+      "v76": 258.7248137211206,
+      "v76_dailycat": 258.89472881266886,
+      "refined": 258.46250828577354,
+      "refined_dailycat": 258.6349845836014,
+      "quality": 257.47132254599944,
+      "quality_dailycat": 257.65022126256883
+    }
+  },
+  "paired": {
+    "v76": {
+      "change": 0.11903758602016978,
+      "ci95": [
+        -0.011180632288134972,
+        0.24821463756137516
+      ],
+      "decision": "inconclusive"
+    },
+    "refined": {
+      "change": 0.11975805106902726,
+      "ci95": [
+        -0.011599840940052529,
+        0.25010790247186127
+      ],
+      "decision": "inconclusive"
+    },
+    "quality": {
+      "change": 0.12389317537881084,
+      "ci95": [
+        -0.010111687486062592,
+        0.2598588729447442
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "cv": {
+    "v76": 292.449362934613,
+    "v76_dailycat": 292.5684005206332,
+    "refined": 292.20285003420264,
+    "refined_dailycat": 292.32260808527167,
+    "quality": 291.6660085960193,
+    "quality_dailycat": 291.7899017713981
+  },
+  "serialized_unserialized_and_quality_controls_exact": true
+}

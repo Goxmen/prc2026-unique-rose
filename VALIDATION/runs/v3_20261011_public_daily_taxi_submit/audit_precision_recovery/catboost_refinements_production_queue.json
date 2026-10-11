@@ -1,0 +1,41 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 897098,
+  "predecessor_start": "9230584",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_catboost_full_inputs_submit/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T13:17:38.055576+00:00",
+  "jobs": [
+    {
+      "name": "selected_catboost_daily_refinements_component",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/catboost_refinements_submit.py",
+          "prepare"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/catboost_refinements_submit.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/catboost_refinements_submit.py": "04ec3d11d4e16d2074e8a8d6daedc7bb18ef6411cd0a03bd019667353333cd7e",
+        "VALIDATION/catboost_full_inputs_submit.py": "9ac20ce33b893007520f13800ce1a957efc2cc316092b1bd0501be1347fc20ec",
+        "VALIDATION/catboost_refinements_cv.py": "7ce1029575a13b3ce2d2ed88bbdf828b3f092f2044f790d461c6aea8173e92c7",
+        "VALIDATION/public_daily_taxi_submit.py": "b64a7f87414b5ca746a662d148e6cda838f6d7eb4b7cae573d8340f70c092a74",
+        "VALIDATION/runs/v3_20261011_catboost_refinements_cv/result.json": "a955ec016103cbc4e601f4da015bbef0ba2ee41a2d4e4027fc6f6025f46c3ed8",
+        "VALIDATION/runs/v3_20261011_catboost_refinements_cv/audit.json": "6c24b245fe4cc9c27d2b52c9a3d8a54391fce9a2a444716a5e945ed8e1484e9b"
+      },
+      "log": "tmp/research_20261011/catboost_refinements_submit.log",
+      "result": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T13:17:38.085674+00:00",
+  "pid": 907102
+}

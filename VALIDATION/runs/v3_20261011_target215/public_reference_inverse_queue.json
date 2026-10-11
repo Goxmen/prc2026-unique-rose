@@ -1,12 +1,11 @@
 {
-  "state": "waiting",
-  "predecessor_pid": 907102,
-  "predecessor_start": "9336897",
+  "predecessor_pid": 943877,
+  "predecessor_start": "9691454",
   "predecessor_result": "VALIDATION/runs/v3_20261011_catboost_refinements_submit/audit.json",
   "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
   "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
-  "created_at": "2026-10-11T13:20:27.430333+00:00",
+  "created_at": "2026-10-11T14:16:43.733133+00:00",
   "jobs": [
     {
       "name": "fixed_public_reference_inverse_main_tree",
@@ -48,6 +47,19 @@
       "result": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/audit.json"
     }
   ],
-  "updated_at": "2026-10-11T13:20:27.458256+00:00",
-  "pid": 909597
+  "state": "running",
+  "recovery": {
+    "reason": "Production audit FLOAT intermediate corrected independently; no predictions or model recipes changed",
+    "previous_queue": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit_precision_recovery/public_reference_inverse_queue.json",
+    "previous_queue_sha256": "119b7549acbe7108db85ad47b1d4dd0218be5c56e0581b6aa7555b94beabdee0",
+    "passing_audit": {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit.json",
+      "sha256": "02ba2864b13854c4368fe1f8af0246e0ab5acecd9be7e961b414f91fba0fc03e"
+    }
+  },
+  "updated_at": "2026-10-11T14:25:48.805745+00:00",
+  "pid": 943878,
+  "job": 0,
+  "stage": 1,
+  "child_pid": 950591
 }

@@ -1,5 +1,5 @@
 {
-  "state": "waiting",
+  "state": "error",
   "predecessor_pid": 863590,
   "predecessor_start": "8895173",
   "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_daily_taxi/score_audit.json",
@@ -37,6 +37,16 @@
       "result": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit.json"
     }
   ],
-  "updated_at": "2026-10-11T12:15:55.416020+00:00",
-  "pid": 870127
+  "updated_at": "2026-10-11T14:12:30.862485+00:00",
+  "pid": 870127,
+  "job": 0,
+  "stage": 1,
+  "child_pid": 941291,
+  "error": "selected_quality_daily_taxi_production_component stage 1 failed: 1",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/gunes/PRC/VALIDATION/target215_research_queue.py\", line 86, in run\n    assert child.returncode == 0, f'{job[\"name\"]} stage {stage} failed: {child.returncode}'\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError: selected_quality_daily_taxi_production_component stage 1 failed: 1\n",
+  "recovery_audit": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit.json",
+    "sha256": "02ba2864b13854c4368fe1f8af0246e0ab5acecd9be7e961b414f91fba0fc03e"
+  },
+  "recovery_note": "Original audit errored; corrected separate audit passed unchanged file. Preparation is not repeated."
 }

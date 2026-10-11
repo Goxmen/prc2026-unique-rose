@@ -1,12 +1,11 @@
 {
-  "state": "waiting",
   "predecessor_pid": 870127,
-  "predecessor_start": "8966630",
+  "predecessor_start": "not-live-after-failed-audit",
   "predecessor_result": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit.json",
   "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
   "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
-  "created_at": "2026-10-11T12:27:19.568647+00:00",
+  "created_at": "2026-10-11T14:16:43.327456+00:00",
   "jobs": [
     {
       "name": "fixed_daily_taxi_rome_cat3",
@@ -47,9 +46,23 @@
         "VALIDATION/runs/v3_20261011_rome_daily_taxi/preflight.json": "2999a713bb6616a66a45392f163fd68a3c255ece3a5c1f2b3f8afd3e9c6f2658"
       },
       "log": "tmp/research_20261011/rome_daily_taxi.log",
-      "result": "VALIDATION/runs/v3_20261011_rome_daily_taxi/audit.json"
+      "result": "VALIDATION/runs/v3_20261011_rome_daily_taxi/audit.json",
+      "completed_result_sha256": "530a2ef6703faa689acf8faf66a02491dfc1d46c02cf6ca535fa18c80ed0fc12"
     }
   ],
-  "updated_at": "2026-10-11T12:27:19.595304+00:00",
-  "pid": 877491
+  "state": "complete",
+  "recovery": {
+    "reason": "Production audit FLOAT intermediate corrected independently; no predictions or model recipes changed",
+    "previous_queue": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit_precision_recovery/rome_daily_taxi_queue.json",
+    "previous_queue_sha256": "7ce176f7a52b7871b2def2e23034d7ea5c75d779bc4141afa01275e1759e5324",
+    "passing_audit": {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit.json",
+      "sha256": "02ba2864b13854c4368fe1f8af0246e0ab5acecd9be7e961b414f91fba0fc03e"
+    }
+  },
+  "updated_at": "2026-10-11T14:23:38.406767+00:00",
+  "pid": 943857,
+  "job": 0,
+  "stage": 3,
+  "child_pid": null
 }

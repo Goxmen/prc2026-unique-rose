@@ -1,23 +1,21 @@
 # Next steps
 
 **Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
-v74 at **221.6881**, leaving6.6881 seconds. Live check at15:51 Amsterdam:
+v74 at **221.6881**, leaving6.6881 seconds. Live check at16:22 Amsterdam:
 rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
-Autonomous submissions and both machines remain authorized. Laptop WSL returned
-at15:40 Amsterdam and is training the selected full174 CatBoost production
-component (worker1601). Desktop Jan/Jul experiments continue independently;
-one heavy job runs per host. Only62.5MB needed transfer; the original2.55GB
-training matrix matched its cached hash. Desktop collector925705 verifies the
-returned model before resuming idle waiter897098 for predictions/audit; that
-waiter is stopped to prevent duplicate training. See the portable-worker
-manifest and migration record in `v3_20261011_catboost_full_inputs_submit/`.
+Autonomous submissions and both machines remain authorized. The laptop's
+full174 CatBoost fit is complete (10,000 rounds,28.07minutes); its328.53MB
+model returned with a verified hash. All344,841 ranking predictions reload
+exactly, and the CatBoost/daily-quality combined production component is built
+and audited (CV291.5895). The laptop now trains the selected daily main
+tree (worker5443, queue2979). Both hosts retain one heavy job at a time.
 
 The daily main-tree screen now passes its all-row model/SQL audit. Its gain
 shrinks from0.0852 versus v76 to **0.0398** on top of the selected CatBoost and
 daily-quality corrections: joint CV **291.5497**, both months improve. Retain
 this as a small component without a distinct submission row. Laptop queue2979
 fits the full-year184-input tree after CatBoost; collector935144 verifies the
-return. Desktop finish queue935145 follows917136 and performs the full original
+return. Desktop finish queue943880 follows943879 and performs the full original
 ranking audit plus combined-file build/audit. All completed fits are reused.
 
 V75 and V76 are prepared, fully audited and queued for12 October02:00/02:10
@@ -54,27 +52,28 @@ recipe by**0.5368 to291.6660**, interval[−0.7420,−0.3577], with **both month
 better**. The threshold is inherited; no airport selection or threshold scan.
 Cumulative improvement versus production-rounded v76 is0.7834. This is still
 reused-development evidence. Source-quality and all-row score audits pass.
-The selected combined component's prepare/audit queue870127 follows the neural
-screen; no new submission version is reserved. The original result is retained.
+The selected combined component is prepared and audited on344,841 ranking rows;
+no new submission version is reserved. The original audit failed because SQL
+added FLOAT columns before promotion to DOUBLE. The separate corrected auditor
+gets an exact tree mean and passes every other check, preserving all original
+predictions, calibration and source identities. Dependent idle queues were
+reconnected; no fit was repeated. The recovery records are in its run directory.
 Ten raw source inputs are prepared/audited for tree and neural tests as well.
 
 Parameter averaging is complete and closed: same-trajectory transferred+0.5437,
 interval[+0.2463,+0.8308]. Its Boolean-buffer post-training failure was repaired,
 archived and retried only because no checkpoint had been saved. Real-buffer and
 recovery checks pass; models now save before diagnostics. Keep all completed
-fits. Full174-input CatBoost CV and airport production have finished. The current
-heavy desktop job is daily-taxi-input main LightGBM859814. One heavy job at a
-time; sources and queue identities are frozen. V75/V76 watchers are unchanged.
-A fixed neural daily-taxi test follows under queue863590: identical original
-network plus ten zero-initialized public input columns, seed42 and21/17epochs.
-CPU initialization/gradient checks and exact original feature transforms pass;
-CUDA/model/score audits run in sequence. No new production selection yet.
+fits. Full174-input CatBoost CV and airport production have finished. V75/V76
+watchers are unchanged. The daily neural test is complete and closed:
+matched+0.2371, one-of-three replacement+0.0751; both months worsen and both
+intervals include zero. All original-input, model reload and SQL audits pass;
+keep its two models and do not expand this direction.
 
-Rome's three-member classifier also has a fixed ten-daily-taxi-input test ready:
-all original80 inputs, targets and memberships pass preparation checks; its
-six90-input fits are queued after the selected production-component builder
-under877491. A zero-change score replay precedes fitting, followed by full
-model/input/SQL audits. This uses the same three seeds and original stopping.
+Rome's fixed ten-daily-taxi-input test is complete and closed: all six classifier
+fits and original-input/model/SQL audits pass, but v76 CV worsens0.1190 seconds
+and the daily-quality recipe worsens0.1239. Both months worsen; both intervals
+include zero. Retain all six models; no production expansion follows.
 
 Joint public count/sum inference is explored and retained, not selected.
 The initial Rome mixture screen gains0.2952; a fixed follow-up using retained
@@ -86,18 +85,19 @@ or turn the exploratory point estimates into claimed confirmed improvements.
 Full174-input CatBoost improves v76 CV by0.1220 and the selected daily-quality
 combination by0.0765 to291.5895, both intervals narrowly below zero. January's
 combined change is only−0.0076; historical control used the laptop GPU. Its
-full-year model is queued after Rome under897098; component assembly/audit
-under907102 reuses all calibrations and reserves no submission version.
+full-year model is complete and returned. Ranking inference/audit waits after
+Rome under943861; component assembly/audit943877 reuses all calibrations and
+reserves no submission version.
 
 Disagreement-weighted daily correction failed by0.6591; close that direction.
 An independently audited public-reference inverse pilot reduces held public
 source error in both years, without reading departure labels. Two stand/runway
 features are prepared for all training/ranking inputs;4,859,776 feature values
-pass the independent SQL audit. One fixed main-tree test is queued under909597
-after combined-component builder907102. Public-source reconstruction is not
+pass the independent SQL audit. One fixed main-tree test is queued under943878
+after combined-component builder943877. Public-source reconstruction is not
 taxi-out validation; no gain or promotion is claimed yet.
 
-A fixed early-public-input neural test is queued under917136 after909597.
+A fixed early-public-input neural test is queued under943879 after943878.
 It projects the existing twelve public values into the first512-unit hidden
 layer with6,144 zero-initialized weights, retaining the original late public
 head. CPU output/gradient/RNG checks pass; CUDA and complete old/new model
