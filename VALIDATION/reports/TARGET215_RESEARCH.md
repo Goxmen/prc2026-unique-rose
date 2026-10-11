@@ -1,5 +1,50 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Daily main tree survives the selected combination, 16:08 Amsterdam
+
+The main-tree screen's independent audit passes: all344,419 original and new
+held predictions replay exactly, and SQL verifies truth, calendars, controls
+and scores. The ten new inputs improve rounded-v76 CV by0.085240 seconds.
+
+`daily_main_refinements_cv.py` then reuses all fits and calibrations in four
+fixed combinations. It reconstructs the two serialized boundaries, recomputes
+the unchanged daily source correction, and applies the selected quality gate.
+
+| Fixed combination | Jan/Jul CV |
+| --- | ---: |
+| Airport/t5/monthly/daily-quality parent | 291.666009 |
+| Parent with daily main tree | 291.624416 |
+| Parent with full174 CatBoost | 291.589478 |
+| Parent with both tree changes | **291.549710** |
+
+The incremental daily-main change on the selected CatBoost parent is
+**−0.039768**, paired-day interval[−0.081566,−0.012448]; January−0.026548,
+July−0.052989. The effect before the daily-quality correction is−0.073526,
+so adding standalone improvements would overstate the retained gain.
+All parent intermediate predictions, shifts and final values replay exactly;
+all-row SQL and separate shift/gate/bound checks pass. This is a small selected
+component on reused development months, with no separate submission entry or
+claim of leaderboard transfer. Its combined CV is0.899653 below rounded v76.
+
+`daily_main_submit.py` prepares the fixed184-input LB1/10,000/seed42 production
+fit. The desktop's complete source guard passes, including exact equality of
+the cached old ranking matrix/IDs against the original ranking builder. The
+laptop verified every portable input/source hash; only28,176,015 further bytes
+needed transfer. Queue2979 waits for the live CatBoost supervisor1600 before
+starting the LightGBM, preserving one heavy job per host.
+
+Collector935144 (`remote_component_return.py`) verifies the completed remote
+queue, model, predictions and input-audit receipt. Tests cover a valid return,
+corrupted model transfer, a missing live process without completion, and later
+prediction corruption; all four pass. Desktop queue935145 follows early-public
+queue917136, waits for the verified return, then runs the original-source
+all-row prediction audit and `daily_main_refinements_submit.py prepare/audit`.
+The final component builder reuses the same full2025 calibration, checks every
+parent stage and preserves the submission schema. Those production stages are
+queued; no model or combined file is claimed complete yet. V75/V76 upload
+watchers remain unchanged. Live score check at15:51Amsterdam remains v74,
+221.6881, rank12/242 on344,841 flights.
+
 ## Laptop training restored, 15:50 Amsterdam
 
 The user reopened laptop WSL and authorized distributing the current work.

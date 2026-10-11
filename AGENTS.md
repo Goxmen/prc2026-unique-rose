@@ -114,6 +114,24 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,16:08Amsterdam: daily-main combination audited and production queued.**
+  `daily_main_refinements_cv.py` reuses all models and calibration: selected
+  CatBoost/daily-quality CV291.589478→291.549710 (−0.039768), paired-day
+  interval[−0.081566,−0.012448], January−0.026548/July−0.052989. All344,419
+  controls, shifts, bounds and SQL scores pass. The standalone daily main tree's
+  CV−0.085240 also passes its full-row model/SQL audit. These are small reused-CV
+  component effects; no distinct submission entry or official improvement.
+  `daily_main_submit.py` prepares the full-year184-input LB1/10,000/seed42 fit;
+  exact cached ranking equivalence and all portable hashes pass. Laptop
+  queue2979 waits for CatBoost supervisor1600; only28.18MB additional transfer.
+  Root collector935144 uses `remote_component_return.py` and a frozen plan under
+  `v3_20261011_daily_main_submit/`; four corruption/process/return tests pass.
+  Desktop queue935145 follows917136, waits for verified return, audits all
+  ranking predictions against original inputs, then runs
+  `daily_main_refinements_submit.py prepare/audit` to combine without refitting
+  calibration. Preserve queued jobs and completed fits. Upload watchers are
+  unchanged. Best/latest remains v74 221.6881, rank12/242 at15:51Amsterdam.
+
 - **October11,15:50 Amsterdam: laptop WSL restored and training allocated.**
   The user reopened WSL. Laptop main updated to5b7ac28; original2.55GB training
   cache hash matches, only62.5MB transferred. Selected full174-input ordinary

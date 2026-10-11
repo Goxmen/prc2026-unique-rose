@@ -1,0 +1,56 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 917136,
+  "predecessor_start": "9431584",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_early/score_audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T14:02:48.172320+00:00",
+  "jobs": [
+    {
+      "name": "daily_main_return_and_combined_production",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/remote_component_return.py",
+          "wait",
+          "VALIDATION/runs/v3_20261011_daily_main_submit/remote_return_plan.json"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_main_submit.py",
+          "audit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_main_refinements_submit.py",
+          "prepare"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_main_refinements_submit.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/daily_main_submit.py": "5efc1386ca70dc86554de4ce4124a46d97529d0ec63208aae46e4e9faa62777c",
+        "VALIDATION/daily_main_refinements_cv.py": "f4db783eb6a7b27f38194f786173ab30d0f655afba7e903ca4ca071a1382de03",
+        "VALIDATION/daily_main_refinements_submit.py": "867ae62e00b3a5be71c0ec601c30574a31316bb805d293b3f462f1f8ac1540c1",
+        "VALIDATION/remote_component_return.py": "dc3a6cef008e075b379da080141e3bca37e051b96295cc2dcbb92cc0d7c0a572",
+        "VALIDATION/runs/v3_20261011_daily_main_submit/remote_return_plan.json": "7b3cc7af14cf887cb5bf1d3a1de13caf2f79e9913299bd4dffb446f5b6e9a55c",
+        "VALIDATION/runs/v3_20261011_daily_main_submit/identity.json": "e82693e11b84c6a456e4e49fb2aa89d42a194c9a27d6aae92575eeb70e176375",
+        "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/result.json": "74d5befb67c2cd83f547364054e41ae73d89e6a66b03206b0b4947c3c02111ef",
+        "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/audit.json": "5ee09e0ad374f67eadc147f0461a1398f7c8797ffa271daca749f4a007f8894e"
+      },
+      "log": "tmp/research_20261011/daily_main_production_finish.log",
+      "result": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T14:02:48.198881+00:00",
+  "pid": 935145
+}

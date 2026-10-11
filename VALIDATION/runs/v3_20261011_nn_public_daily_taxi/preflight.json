@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "all_original_weights_exact": true,
+      "new_columns_zero": true,
+      "original_initial_output_and_rng_exact": true,
+      "active_old_public_head_preserved": true,
+      "added_columns_have_finite_nonzero_gradient": true
+    },
+    {
+      "device": "cuda",
+      "all_original_weights_exact": true,
+      "new_columns_zero": true,
+      "original_initial_output_and_rng_exact": true,
+      "active_old_public_head_preserved": true,
+      "added_columns_have_finite_nonzero_gradient": true
+    }
+  ],
+  "training_bytecode_exact": true,
+  "original_globals_unchanged": true
+}

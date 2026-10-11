@@ -1,0 +1,43 @@
+{
+  "state": "waiting",
+  "pid": 935144,
+  "process_start": "9607908",
+  "plan_sha256": "7b3cc7af14cf887cb5bf1d3a1de13caf2f79e9913299bd4dffb446f5b6e9a55c",
+  "started_at": "2026-10-11T14:02:48.197023+00:00",
+  "remote": {
+    "queue": {
+      "state": "waiting",
+      "host": "GLAPTOP",
+      "predecessor_pid": 1600,
+      "predecessor_start": "59445",
+      "predecessor_result": "VALIDATION/runs/v3_20261011_catboost_full_inputs_submit/model.json",
+      "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+      "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+      "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+      "created_at": "2026-10-11T14:00:04.800470+00:00",
+      "jobs": [
+        {
+          "name": "selected_daily_main_full_year",
+          "commands": [
+            [
+              "/home/gunes/PRC/.venv/bin/python",
+              "-u",
+              "VALIDATION/daily_main_submit.py",
+              "fit"
+            ]
+          ],
+          "sources": {
+            "VALIDATION/daily_main_submit.py": "5efc1386ca70dc86554de4ce4124a46d97529d0ec63208aae46e4e9faa62777c",
+            "VALIDATION/runs/v3_20261011_daily_main_submit/identity.json": "e82693e11b84c6a456e4e49fb2aa89d42a194c9a27d6aae92575eeb70e176375"
+          },
+          "log": "tmp/research_20261011/daily_main_laptop.log",
+          "result": "VALIDATION/runs/v3_20261011_daily_main_submit/predictions/old.json"
+        }
+      ],
+      "updated_at": "2026-10-11T14:00:57.869176+00:00",
+      "pid": 2979
+    },
+    "process_start": "132812"
+  },
+  "checked_at": "2026-10-11T14:09:24.903870+00:00"
+}

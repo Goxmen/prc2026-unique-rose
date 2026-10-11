@@ -1,0 +1,85 @@
+{
+  "design": {
+    "parent": "selected full174 CatBoost plus airport/t5/full-monthly/daily-quality recipe",
+    "change": "replace only main LightGBM with retained184-input daily-taxi model",
+    "primary": "combined versus full_cat after unchanged daily-quality correction",
+    "secondary": "four fixed main/CatBoost combinations, before and after quality correction",
+    "no_fits": true,
+    "no_weight_or_parameter_search": true,
+    "no_upload": true,
+    "limitation": "reused Jan/Jul development; historical CatBoost control used another GPU"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/identity.json",
+    "sha256": "3f9601e298865effb5c65256d119016069f548774fb398d4ed6033b35545a44d"
+  },
+  "scores": {
+    "2025-01": {
+      "refined_before": 325.94319178263174,
+      "refined": 325.8606946460391,
+      "daily_main_before": 325.8817523119733,
+      "daily_main": 325.83350942315803,
+      "full_cat_before": 325.9425714555512,
+      "full_cat": 325.85312353289453,
+      "combined_before": 325.882417494223,
+      "combined": 325.826575649057
+    },
+    "2025-07": {
+      "refined_before": 258.46250828577354,
+      "refined": 257.47132254599944,
+      "daily_main_before": 258.3708752321488,
+      "daily_main": 257.4153225694016,
+      "full_cat_before": 258.285865594237,
+      "full_cat": 257.3258332224739,
+      "combined_before": 258.19896851139646,
+      "combined": 257.2728446739547
+    }
+  },
+  "cv": {
+    "refined_before": 292.20285003420264,
+    "refined": 291.6660085960193,
+    "daily_main_before": 292.12631377206105,
+    "daily_main": 291.6244159962798,
+    "full_cat_before": 292.1142185248941,
+    "full_cat": 291.5894783776842,
+    "combined_before": 292.0406930028097,
+    "combined": 291.54971016150586
+  },
+  "paired": {
+    "primary": {
+      "change": -0.03976821617834503,
+      "ci95": [
+        -0.08156572795667927,
+        -0.012447959978735313
+      ],
+      "decision": "improvement"
+    },
+    "daily_main_alone": {
+      "change": -0.0415925997394595,
+      "ci95": [
+        -0.08379843284423956,
+        -0.014408683979807796
+      ],
+      "decision": "improvement"
+    },
+    "before_quality": {
+      "change": -0.07352552208439533,
+      "ci95": [
+        -0.12783442293404584,
+        -0.0420359905381659
+      ],
+      "decision": "improvement"
+    }
+  },
+  "all_parent_controls_shifts_and_main_refined_exact": true,
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/scored.parquet",
+      "sha256": "ebcb2e5a3456a9615b649dbb49eb4843e076f03360e4706461c0b9c1d6b0ed7c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/cells.parquet",
+      "sha256": "8d1dd4a63498c04cf781432a0c9566b84fb7a37374537c6c1018e2316ceff69d"
+    }
+  ]
+}

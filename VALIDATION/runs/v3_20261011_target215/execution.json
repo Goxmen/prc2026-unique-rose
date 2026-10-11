@@ -4,14 +4,11 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "public_runway_daily_taxi_main_tree_audit",
-    "queue": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_lgb_queue.json",
-    "pid": 923939,
-    "queue_pid": 859814,
-    "stage": 3,
-    "log": "tmp/research_20261011/public_daily_taxi_lgb.log",
-    "training_started": true,
-    "training_complete": true
+    "task": "daily_taxi_neural_screen",
+    "pid": 928770,
+    "queue_pid": 863590,
+    "stage": 0,
+    "log": "tmp/research_20261011/public_daily_taxi_nn.log"
   },
   "laptop": {
     "host": "GLAPTOP",
@@ -30,7 +27,18 @@
     "transferred_bytes": 62464715,
     "desktop_collector_pid": 925705,
     "desktop_fit_waiter_pid": 897098,
-    "desktop_fit_waiter_state": "stopped while laptop fits; collector resumes only after verified model import"
+    "desktop_fit_waiter_state": "stopped while laptop fits; collector resumes only after verified model import",
+    "next": {
+      "task": "daily_main_full_year_184",
+      "queue": "VALIDATION/runs/v3_20261011_target215/daily_main_laptop_queue.json",
+      "pid": 2979,
+      "process_start": "132812",
+      "predecessor_pid": 1600,
+      "predecessor_start": "59445",
+      "state": "waiting",
+      "collector_pid": 935144,
+      "additional_transferred_bytes": 28176015
+    }
   },
   "utc_uploads_used": [
     70,
@@ -133,9 +141,12 @@
     "Daily-taxi main tree January10000 rounds complete; all153706 old/new held predictions reload exactly; July now fitting",
     "Early access of existing twelve public neural inputs passes CPU original weights/outputs/gradients/RNG and track-padding checks; fixed same-input same-update Jan21/Jul17 seed42 screen queued917136 after reference inverse909597; no score yet",
     "Early-public idle queue safely rebound after moving recovery checkpoint guard before training; injected partial-checkpoint test rejects before model construction, no fit interrupted or repeated",
-    "Laptop WSL restored: original2.55GB matrix hash matches; only62.5MB transferred; all154 portable files and2051327 labels/original134 columns audited; selected174-input production CatBoost training on5060, duplicate desktop waiter stopped before fit"
+    "Laptop WSL restored: original2.55GB matrix hash matches; only62.5MB transferred; all154 portable files and2051327 labels/original134 columns audited; selected174-input production CatBoost training on5060, duplicate desktop waiter stopped before fit",
+    "Daily-taxi main tree completed and audited all344419 held rows: rounded-v76 CV-0.085240; fixed refinement CV-0.076536; both months improve",
+    "Exact four-way main/CatBoost combination audited: selected daily-quality/fullCat291.589478 to291.549710 (-0.039768), CI[-0.081566,-0.012448], both months; retain small component without separate submission",
+    "Daily-main full-year portable cache and ranking equivalence checked; extra28.18MB transferred and all remote files validated; laptop queue2979 waitsCat1600; collector935144 and desktop finish935145 preserve one heavy job per host; four collector integrity tests pass"
   ],
-  "next": "Finish current daily-taxi main/NN and Rome screens and selected production components; evaluate fixed inverse-reference main-tree and early-public neural tests sequentially. Review joint gains for final candidate assembly; preserve v75/v76 scheduled uploads and official-score geometry evaluation.",
+  "next": "Finish running daily neural screen and CatBoost production; laptop then fits selected daily main. Desktop continues Rome, inverse-reference and early-public screens, followed by returned daily-main audit and consolidated component build. Preserve scheduled v75/v76 and wait for official score geometry.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -301,7 +312,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T13:49:53.759756+00:00",
+  "updated_at": "2026-10-11T14:06:08.245120+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -401,20 +412,20 @@
   "public_daily_taxi_lgb_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_lgb_queue.json",
     "pid": 859814,
-    "state": "running",
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "public_runway_daily_taxi_main_tree"
-    ],
-    "process_live": true
+    ]
   },
   "public_daily_taxi_nn_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_nn_queue.json",
     "pid": 863590,
-    "state": "waiting",
+    "state": "running",
+    "process_live": true,
     "jobs": [
       "public_runway_daily_taxi_neural"
-    ],
-    "process_live": true
+    ]
   },
   "public_daily_taxi_production_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_production_queue.json",
@@ -436,10 +447,12 @@
   },
   "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1522.json",
   "last_live_leaderboard_check": {
-    "updatedAt": "2026-10-11T13:18:04+00:00",
-    "best": 221.6881,
+    "bestScore": 221.6881,
+    "bestFile": "unique-rose_v74.parquet",
     "rank": 12,
     "scoringTeamCount": 242,
+    "updatedAt": "2026-10-11T13:51:56+00:00",
+    "latest_version": 74,
     "usedPairs": 344841
   },
   "catboost_full_production_queue": {
@@ -480,5 +493,14 @@
       "fixed_public_inputs_early_neural_projection"
     ]
   },
-  "early_public_latest_integrity": "VALIDATION/runs/v3_20261011_target215/early_public_queue_integrity_after_recovery.json"
+  "early_public_latest_integrity": "VALIDATION/runs/v3_20261011_target215/early_public_queue_integrity_after_recovery.json",
+  "daily_main_production_finish_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/daily_main_production_finish_queue.json",
+    "pid": 935145,
+    "state": "waiting",
+    "process_live": true,
+    "jobs": [
+      "daily_main_return_and_combined_production"
+    ]
+  }
 }

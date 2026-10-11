@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
-v74 at **221.6881**, leaving6.6881 seconds. Live check at15:18 Amsterdam:
+v74 at **221.6881**, leaving6.6881 seconds. Live check at15:51 Amsterdam:
 rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
 Autonomous submissions and both machines remain authorized. Laptop WSL returned
 at15:40 Amsterdam and is training the selected full174 CatBoost production
@@ -11,6 +11,14 @@ training matrix matched its cached hash. Desktop collector925705 verifies the
 returned model before resuming idle waiter897098 for predictions/audit; that
 waiter is stopped to prevent duplicate training. See the portable-worker
 manifest and migration record in `v3_20261011_catboost_full_inputs_submit/`.
+
+The daily main-tree screen now passes its all-row model/SQL audit. Its gain
+shrinks from0.0852 versus v76 to **0.0398** on top of the selected CatBoost and
+daily-quality corrections: joint CV **291.5497**, both months improve. Retain
+this as a small component without a distinct submission row. Laptop queue2979
+fits the full-year184-input tree after CatBoost; collector935144 verifies the
+return. Desktop finish queue935145 follows917136 and performs the full original
+ranking audit plus combined-file build/audit. All completed fits are reused.
 
 V75 and V76 are prepared, fully audited and queued for12 October02:00/02:10
 Amsterdam. V75 adds public daily inputs to the Rome CatBoost pool: Jan/Jul
