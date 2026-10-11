@@ -12,7 +12,7 @@
     "log": "tmp/research_20261011/catboost_full_inputs.log",
     "training_started": true
   },
-  "laptop": "Windows online; WSL offline at11:23UTC, LastSeen04:00UTC; prior optional request unanswered",
+  "laptop": "Windows online but SSH timed out at12:40UTC; WSL Tailscale offline since04:00UTC; no remote job",
   "utc_uploads_used": [
     70,
     71,
@@ -99,7 +99,11 @@
     "Daily/runway calibrated correction CV291.845637 (-0.357213 vs refined), January+0.276760/July-0.991186; independent calibration/source/scalar/SQL audits pass; no production",
     "Ten raw daily taxi source inputs prepared/audited across2429888 training/ranking rows; daily main184-input screen guarded and queued after airport production",
     "Daily-taxi neural extension CPU original weights/outputs/RNG/new-column gradients pass; all2085047 original12 raw/transformed features exact; fixed matched-single and equal-size one-of-three screen queued863590 after daily tree859814",
-    "Inherited monthly quality gate applied to daily correction: refined CV291.6660086 (-0.5368414), CI[-0.7420,-0.3577], both months; cumulative vs v76-0.7834; all344419 independent SQL source-gate/control/scores pass; selected component prepare/audit queued870127"
+    "Inherited monthly quality gate applied to daily correction: refined CV291.6660086 (-0.5368414), CI[-0.7420,-0.3577], both months; cumulative vs v76-0.7834; all344419 independent SQL source-gate/control/scores pass; selected component prepare/audit queued870127",
+    "Rome daily-taxi Cat3 original80 features, IDs, targets and folds exact; six90-input fits queued after selected production component",
+    "joint source-count/sum posterior CV-0.2952, both months but wide interval inconclusive; audits pass; no selection",
+    "retained broad-support count/sum follow-up CV-0.3879, both months but wide interval inconclusive; no refit; audits pass; no selection",
+    "full174 CatBoost January10000 rounds saved, all held predictions reload exactly; July running"
   ],
   "next": "Finish CatBoost CV, airport production, daily-taxi main tree and neural screens sequentially, then prepare/audit selected quality-gated daily combined component. Review outcomes for candidate assembly/versioning; preserve v75/v76 scheduled uploads and live-score geometry evaluation.",
   "queued_upload": {
@@ -267,7 +271,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T12:18:43.219868+00:00",
+  "updated_at": "2026-10-11T12:44:39.677622+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -340,7 +344,10 @@
     "path": "VALIDATION/runs/v3_20261011_target215/public_geometry_evaluate_queue.json",
     "pid": 826430,
     "state": "waiting",
-    "predecessor": "v76 upload watcher792755; evaluator requires both actual successful official scores"
+    "jobs": [
+      "actual_official_public_model_geometry"
+    ],
+    "process_live": true
   },
   "catboost_full_inputs_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/catboost_full_inputs_queue.json",
@@ -367,7 +374,8 @@
     "state": "waiting",
     "jobs": [
       "public_runway_daily_taxi_main_tree"
-    ]
+    ],
+    "process_live": true
   },
   "public_daily_taxi_nn_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_nn_queue.json",
@@ -375,7 +383,8 @@
     "state": "waiting",
     "jobs": [
       "public_runway_daily_taxi_neural"
-    ]
+    ],
+    "process_live": true
   },
   "public_daily_taxi_production_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_daily_taxi_production_queue.json",
@@ -384,7 +393,23 @@
     "jobs": [
       "selected_quality_daily_taxi_production_component"
     ],
-    "no_version": true,
-    "no_upload": true
+    "process_live": true
+  },
+  "rome_daily_taxi_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/rome_daily_taxi_queue.json",
+    "pid": 877491,
+    "state": "waiting",
+    "jobs": [
+      "fixed_daily_taxi_rome_cat3"
+    ],
+    "process_live": true
+  },
+  "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1444.json",
+  "last_live_leaderboard_check": {
+    "updatedAt": "2026-10-11T12:41:41+00:00",
+    "best": 221.6881,
+    "rank": 12,
+    "scoringTeamCount": 242,
+    "usedPairs": 344841
   }
 }

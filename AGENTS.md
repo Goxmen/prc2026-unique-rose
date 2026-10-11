@@ -114,6 +114,27 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,14:42 Amsterdam: Rome daily-taxi classifier queued; count/sum screens inconclusive.**
+  `rome_daily_taxi_jan_jul.py` prepares80→90 inputs, original three seeds,
+  1182/1401 rounds and exact original rows/targets/masks. Run
+  `v3_20261011_rome_daily_taxi/`; queue877491 follows production-component870127.
+  Zero-change full scoring replay precedes six fits; all old/new model reloads,
+  source features and independent SQL scores must pass. Compare serializedv76
+  and selected daily-quality refinements with unchanged mixture weights.
+  Do not start another heavy job while the desktop queue runs.
+  New light screens`taxi_count_sum_jan_jul.py` and
+  `taxi_count_sum_support_jan_jul.py` condition ambiguous Rome modes on public
+  truncated flight counts and taxi totals. The second reuses retained broad
+  training supports and all first-screen calibration. CV291.3708/291.2781 versus
+  291.6660: gains0.2952/0.3879, both months, **both inconclusive** with wide
+  paired-day intervals. Both audits pass; no selection, production, upload or
+  `SUBMISSIONS.md` entry. Keep both runs and diagnostics; do not refit or tune
+  airport/date gates. Typical Rome source-count omission is2flights but large
+  mismatches exist; no exact subset constraint is established. The public taxi
+  schema has no stand/hour/individual-flight detail. January's174-input CatBoost
+  fit is saved and July is running. Laptop WSL remains offline and its Windows
+  SSH endpoint timed out too. Autonomous uploads and the215.00goal remain active.
+
 - **October11,14:16 Amsterdam: quality-gated daily taxi correction selected.**
   `public_daily_taxi_quality.py` applies the existing monthly invalid-share<5%
   rule to daily shifts; no new threshold, airport choice, calibration or fit.

@@ -1,0 +1,112 @@
+{
+  "design": {
+    "parent": "selected production-rounded daily-quality refinement",
+    "change": "retained broad/quantile supports replace narrow Gaussian/copy modes in count/sum inference",
+    "scope": "stand/runway present, existing monthly quality gate and public supported runway-day cells",
+    "prior": "refined parent before daily quality correction; copy share from inherited tau and scheduled gap",
+    "ordinary_rows": "retain selected daily-quality prediction exactly",
+    "source_calibration": "allowed-training complete local days only; omitted count and sum versus intercept and input count/100",
+    "fit": "separate Huber losses scaled by training-target MAD; no held-label fitting",
+    "residual_covariance": "centered residuals/sqrt(input count); retain cells within three MADs in both coordinates",
+    "settings": {
+      "cutoff": 7200.0,
+      "ordinary_sigma": 200.0,
+      "common_day_sigma": 15.0,
+      "count_noise_floor": 1.0,
+      "sum_noise_floor": 60.0,
+      "df": 5,
+      "copy_gap_min": 3600.0,
+      "copy_gap_max": 50400.0,
+      "likelihood": "variance-matched bivariate Student t5; Gaussian moments for other flights",
+      "allocation": "same ambiguous Rome mixture scope; other long rows contribute broad uncertainty only",
+      "fallback": "unchanged incoming prediction; no repeated conditioning",
+      "long_prior": "unchanged retained15 training quantiles plus copy and5% broad support; mean-preserving tilt",
+      "source_uncertainty": "same completed count/sum calibration; no refit",
+      "prior_join_bounds": "not applied inside support; original final matched/recovered bounds still applied"
+    },
+    "no_weight_or_parameter_search": true,
+    "no_taxi_model_fit": true,
+    "no_production": true,
+    "no_upload": true,
+    "limitation": "Gaussian moment approximation for other modes; reused development",
+    "calibration": "reuse every fitted count/sum coefficient and covariance exactly",
+    "declared_after": "inconclusive first screen and its false-copy diagnosis; reused development selection",
+    "no_new_fit": true
+  },
+  "checks": {
+    "independent_discrete_state_enumeration": true,
+    "permutation": true,
+    "mean_preserving_support": true,
+    "unchanged_ordinary_rows": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/taxi_count_sum_support_jan_jul.py",
+      "sha256": "b5a2f860ebec2440149983352c9d9eb4eb35fa6cef1d70c1c73b99e18adf37c2"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_support.py",
+      "sha256": "450309c0e04658c71ca6a01652979d3682172f8bdb99eb483ea28c44d1e5b345"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_posterior.py",
+      "sha256": "86e5a14489d6804c3957ed2f8a35df14ea6558851baf76de65a21b5855f5454f"
+    },
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_jan_jul.py",
+      "sha256": "770aed0e2502912bbae5559ad968eeec3f46fdb804eef6f5cb94f5598b6058ec"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/identity.json",
+      "sha256": "3fe060c50b8bab204d8a25f543fd0b6bc3bcce9aed9eb9397adf861cc5a02da1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/scored.parquet",
+      "sha256": "a18409310874282f9b863fa6a1d10a6d1ba7026a1613d1f6e4654a9d944ee895"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/result.json",
+      "sha256": "1bd69a240ba70c92eeb539b6937138b97d65ac249f9b80d711e34b5e3d3a950d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/audit.json",
+      "sha256": "8170d06c8eda53b8b9c6a3822a0067dc3b47726621f7d10f155f75e7356567f2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/parameters.json",
+      "sha256": "b31856b32b1591fb7ba3394880f84137669b5e0a8eb8f4d7e3366925da9233a7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/calibration.parquet",
+      "sha256": "9774d4140c65ce1582196b7f18ebc5ee8cdfc0e03edb5ba71fc46b0e0ee628db"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/screen.json",
+      "sha256": "1b10b8eb811a42e5caa451c2e5baac8ea8e9ae951256a50e6d71ba4d4f09dbd8"
+    },
+    {
+      "path": "tmp/research_20261011/daily_taxi_source/training_rows.parquet",
+      "sha256": "f4c5e9ca9cc863d0540bc17238f299acc6bcd4a2eb4eddf3c7417d331659feea"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/scored.parquet",
+      "sha256": "41c07565be9f4225bd9ae0e7f269b079b1407c9e9bd3fe6f5d09b0765154f5f3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    }
+  ]
+}

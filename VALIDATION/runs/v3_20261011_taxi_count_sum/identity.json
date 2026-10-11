@@ -1,0 +1,95 @@
+{
+  "design": {
+    "parent": "selected production-rounded daily-quality refinement",
+    "change": "Rome ambiguous two-mode rows use joint truncated source count/sum inference instead of uniform daily shift",
+    "scope": "stand/runway present, existing monthly quality gate and public supported runway-day cells",
+    "prior": "refined parent before daily quality correction; copy share from inherited tau and scheduled gap",
+    "ordinary_rows": "retain selected daily-quality prediction exactly",
+    "source_calibration": "allowed-training complete local days only; omitted count and sum versus intercept and input count/100",
+    "fit": "separate Huber losses scaled by training-target MAD; no held-label fitting",
+    "residual_covariance": "centered residuals/sqrt(input count); retain cells within three MADs in both coordinates",
+    "settings": {
+      "cutoff": 7200.0,
+      "ordinary_sigma": 200.0,
+      "common_day_sigma": 15.0,
+      "count_noise_floor": 1.0,
+      "sum_noise_floor": 60.0,
+      "df": 5,
+      "copy_gap_min": 3600.0,
+      "copy_gap_max": 50400.0,
+      "likelihood": "variance-matched bivariate Student t5; Gaussian moments for other flights",
+      "allocation": "change ambiguous copy-mode means only; simultaneous leave-one-out updates",
+      "fallback": "unchanged incoming prediction; no repeated conditioning"
+    },
+    "no_weight_or_parameter_search": true,
+    "no_taxi_model_fit": true,
+    "no_production": true,
+    "no_upload": true,
+    "limitation": "Gaussian moment approximation for other modes; reused development"
+  },
+  "checks": {
+    "quadrature_max_error": 5.587935447692871e-09,
+    "independent_student_density": true,
+    "permutation": true,
+    "unchanged_ordinary_rows": true,
+    "unsupported_exact_fallback": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/taxi_count_sum_jan_jul.py",
+      "sha256": "770aed0e2502912bbae5559ad968eeec3f46fdb804eef6f5cb94f5598b6058ec"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_posterior.py",
+      "sha256": "86e5a14489d6804c3957ed2f8a35df14ea6558851baf76de65a21b5855f5454f"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi_quality.py",
+      "sha256": "279b1eecf6b441ec68886ae400ead1ed7660b345c530021cc7b7f943d6d3eb72"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/scored.parquet",
+      "sha256": "41c07565be9f4225bd9ae0e7f269b079b1407c9e9bd3fe6f5d09b0765154f5f3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/result.json",
+      "sha256": "a78590460c78b58ce0a9c92c0ee01d313a5972738f9cac62e73b09034d0cd160"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/audit.json",
+      "sha256": "21b428acf29db40d8f9827cbeb7e42e7883037850d1c3ad32816525c8041cc1b"
+    },
+    {
+      "path": "tmp/research_20261011/daily_taxi_source/training_rows.parquet",
+      "sha256": "f4c5e9ca9cc863d0540bc17238f299acc6bcd4a2eb4eddf3c7417d331659feea"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/screen.json",
+      "sha256": "1b10b8eb811a42e5caa451c2e5baac8ea8e9ae951256a50e6d71ba4d4f09dbd8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    }
+  ]
+}

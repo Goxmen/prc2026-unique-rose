@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target, 11 October 2026: 215.00 seconds or lower.** Best/latest is
-v74 at **221.6881**, leaving6.6881 seconds. Live check at14:17 Amsterdam:
+v74 at **221.6881**, leaving6.6881 seconds. Live check at14:41 Amsterdam:
 rank12/242, all344,841 flights. All five UTC October11 upload slots are used.
 Autonomous submissions and both machines remain authorized; laptop WSL is
 currently offline, while Windows is online. Desktop jobs run one at a time.
@@ -55,6 +55,19 @@ A fixed neural daily-taxi test follows under queue863590: identical original
 network plus ten zero-initialized public input columns, seed42 and21/17epochs.
 CPU initialization/gradient checks and exact original feature transforms pass;
 CUDA/model/score audits run in sequence. No new production selection yet.
+
+Rome's three-member classifier also has a fixed ten-daily-taxi-input test ready:
+all original80 inputs, targets and memberships pass preparation checks; its
+six90-input fits are queued after the selected production-component builder
+under877491. A zero-change score replay precedes fitting, followed by full
+model/input/SQL audits. This uses the same three seeds and original stopping.
+
+Joint public count/sum inference is explored and retained, not selected.
+The initial Rome mixture screen gains0.2952; a fixed follow-up using retained
+broad supports gains0.3879. Both improve both months, but both day intervals
+include losses and a few large July mistakes dominate. All audits pass; no
+production, upload or new submission row. Do not retry these completed screens
+or turn the exploratory point estimates into claimed confirmed improvements.
 
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 The earlier225.00 goal is complete; its result remains the baseline below.

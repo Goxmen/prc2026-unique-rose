@@ -1,0 +1,153 @@
+{
+  "checked_at": "2026-10-11T12:44:39.677622+00:00",
+  "scope": "descriptive full2025; not validation or an exact subset assumption",
+  "formula": "stand and runway present; valid taxi in[0,7200]; local takeoff day/runway; n>=20 in both views; ratio=median(source_n/valid_n), residual=source_n-ratio*valid_n; MAD*1.4826",
+  "sources": [
+    {
+      "path": "tmp/research_20261011/daily_taxi_source/training_rows.parquet",
+      "sha256": "f4c5e9ca9cc863d0540bc17238f299acc6bcd4a2eb4eddf3c7417d331659feea"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+    },
+    {
+      "path": "tmp/research_20261011/daily_taxi_count/cells.parquet",
+      "sha256": "44c55850741f64f67e0805be8e680aec9c75fd79223a181e01141f3dbf446c4b"
+    }
+  ],
+  "airports": [
+    {
+      "airport": "EDDF",
+      "cells": 798,
+      "public_coverage_ratio": 0.9728260869565217,
+      "median_missing": 6.0,
+      "count_residual_mad": 8.416172282608697,
+      "count_residual_rmse": 10.968338851635439,
+      "median_long_count": 0.0,
+      "p90_long_count": 0.0,
+      "p99_long_count": 0.0,
+      "same_count": 12,
+      "count_excess": 0
+    },
+    {
+      "airport": "EDDM",
+      "cells": 930,
+      "public_coverage_ratio": 0.9539459730443669,
+      "median_missing": 8.0,
+      "count_residual_mad": 6.208328539613969,
+      "count_residual_rmse": 19.61927894415932,
+      "median_long_count": 0.0,
+      "p90_long_count": 0.0,
+      "p99_long_count": 0.0,
+      "same_count": 44,
+      "count_excess": 0
+    },
+    {
+      "airport": "EGLL",
+      "cells": 638,
+      "public_coverage_ratio": 0.991452922077922,
+      "median_missing": 3.0,
+      "count_residual_mad": 2.2555977954545345,
+      "count_residual_rmse": 2.6850745420772446,
+      "median_long_count": 0.0,
+      "p90_long_count": 0.0,
+      "p99_long_count": 1.6299999999999955,
+      "same_count": 52,
+      "count_excess": 1
+    },
+    {
+      "airport": "EHAM",
+      "cells": 928,
+      "public_coverage_ratio": 0.9708383530578981,
+      "median_missing": 8.0,
+      "count_residual_mad": 5.606137066827317,
+      "count_residual_rmse": 27.017399784552218,
+      "median_long_count": 0.0,
+      "p90_long_count": 0.0,
+      "p99_long_count": 0.0,
+      "same_count": 28,
+      "count_excess": 0
+    },
+    {
+      "airport": "LEBL",
+      "cells": 665,
+      "public_coverage_ratio": 0.9723926380368099,
+      "median_missing": 6.0,
+      "count_residual_mad": 4.184024539877268,
+      "count_residual_rmse": 7.362931137068578,
+      "median_long_count": 0.0,
+      "p90_long_count": 0.0,
+      "p99_long_count": 0.0,
+      "same_count": 32,
+      "count_excess": 2
+    },
+    {
+      "airport": "LEMD",
+      "cells": 948,
+      "public_coverage_ratio": 0.9072372796807449,
+      "median_missing": 23.0,
+      "count_residual_mad": 10.301130192051879,
+      "count_residual_rmse": 19.119985040261838,
+      "median_long_count": 0.0,
+      "p90_long_count": 0.0,
+      "p99_long_count": 0.0,
+      "same_count": 2,
+      "count_excess": 0
+    },
+    {
+      "airport": "LFPG",
+      "cells": 860,
+      "public_coverage_ratio": 0.8964465937762827,
+      "median_missing": 28.5,
+      "count_residual_mad": 21.822057716568544,
+      "count_residual_rmse": 43.3421184548885,
+      "median_long_count": 0.0,
+      "p90_long_count": 0.0,
+      "p99_long_count": 1.0,
+      "same_count": 3,
+      "count_excess": 0
+    },
+    {
+      "airport": "LIRF",
+      "cells": 608,
+      "public_coverage_ratio": 0.9935135059325124,
+      "median_missing": 2.0,
+      "count_residual_mad": 2.912307181425514,
+      "count_residual_rmse": 19.723318329006766,
+      "median_long_count": 0.0,
+      "p90_long_count": 2.0,
+      "p99_long_count": 5.0,
+      "same_count": 147,
+      "count_excess": 4
+    },
+    {
+      "airport": "LSZH",
+      "cells": 1012,
+      "public_coverage_ratio": 0.9373692468619247,
+      "median_missing": 6.0,
+      "count_residual_mad": 6.459719992154815,
+      "count_residual_rmse": 14.525383730080353,
+      "median_long_count": 0.0,
+      "p90_long_count": 0.0,
+      "p99_long_count": 0.0,
+      "same_count": 45,
+      "count_excess": 0
+    },
+    {
+      "airport": "LTFM",
+      "cells": 875,
+      "public_coverage_ratio": 0.9679715302491103,
+      "median_missing": 9.0,
+      "count_residual_mad": 11.62864911032027,
+      "count_residual_rmse": 22.81453334605284,
+      "median_long_count": 0.0,
+      "p90_long_count": 0.0,
+      "p99_long_count": 0.0,
+      "same_count": 23,
+      "count_excess": 35
+    }
+  ],
+  "published_schema_sha256": "b3e20b52fac1b27a0782aef562e62d0f47a70d16c5539a78abcf9c295f9974f1",
+  "published_schema_finer_dimensions": false
+}

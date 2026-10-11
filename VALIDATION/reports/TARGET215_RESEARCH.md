@@ -1,5 +1,65 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Rome daily-taxi inputs queued; count/sum inference remains exploratory, 14:42 Amsterdam
+
+`rome_daily_taxi_jan_jul.py` adds the ten audited runway/day and airport/day
+taxi inputs to the selected Rome CatBoost pool: 80→90 columns, seeds42/142/242,
+the original1182/1401 rounds, identical126,507/86,723 training rows and
+11,317/15,211 Rome held rows. Preparation checks original features, targets,
+IDs, masks and permitted months exactly. The equal Cat3/original-R20 mixture
+and all other models remain fixed. Primary scoring uses production-rounded
+v76; secondary scoring substitutes into the selected refinements and recomputes
+their unchanged daily-quality correction. All three controls must reproduce.
+Before fitting, a zero-change replay exercises this complete scoring path.
+Every old classifier must replay before its replacement fits; new models save
+before diagnostics, then all held probabilities reload. A separate model,
+input and SQL score audit follows. Queue877491 runs after production-component
+queue870127, preserving one heavy desktop job. No production fit or upload is
+selected from this new test. Run`v3_20261011_rome_daily_taxi/`.
+
+A separate source diagnostic found Rome's public count typically close to the
+challenge's stand-present/0–2h cohort: median coverage0.9935, median omission
+2flights, residual MAD2.91flights across608 runway-days. The count residual
+RMSE is19.72flights, however, and four source counts exceed the comparable
+challenge count. These are approximate measurements, not exact subset bounds.
+The published taxi model has date/airport/phase/runway dimensions; its schema
+does not expose stand, hour or individual-flight rows. No further source
+download ran. Diagnostic cache:`tmp/research_20261011/daily_taxi_count/`.
+
+Two fixed, inexpensive posterior screens tested that underexplored count signal.
+They replace uniform daily shifts only for ambiguous Rome recording modes,
+starting from the refined prediction before its daily correction. Public counts
+and sums are truncated at the source's2h cutoff. A training-only Huber fit
+estimates missing counts/sums and their covariance on complete local days;
+the source likelihood is variance-matched bivariate t5. The first version uses
+Gaussian ordinary/copy modes; the one follow-up reuses the retained training
+quantiles, copy point and5% broad support with a mean-preserving tilt. It does
+not refit source calibration or select a new spread. Both preserve the selected
+quality-corrected predictions outside the ambiguous Rome scope and reapply
+the original final bounds and rounding.
+
+| Screen | Jan/Jul CV | Change vs selected291.6660 | January / July change |
+| --- | ---: | ---: | ---: |
+| Count and sum, narrow modes | 291.3708 | −0.2952, inconclusive | −0.1324 / −0.4580 |
+| Retained broad supports | 291.2781 | −0.3879, inconclusive | −0.1502 / −0.6257 |
+
+Paired-day intervals are[−1.2413,+0.6391] and[−1.2947,+0.5050], respectively.
+These repeatedly reused development results are **not selected**. The initial
+screen changes2,416 rows: July copied-clock cases save168.2million SSE, while
+ordinary cases lose142.5million SSE. A few large errors dominate. The broader
+follow-up addresses the narrow ordinary assumption but does not establish a
+reliable gain. Do not add either to`SUBMISSIONS.md`, retune gates on their
+winning/losing dates, or claim the two screens independently confirm each other.
+
+Runs`v3_20261011_taxi_count_sum/` and`v3_20261011_taxi_count_sum_support/` retain
+all parameters, predictions and source-cell diagnostics. Both audits pass:
+independent normal-moment quadrature, Student-density/discrete-state checks,
+permutation checks, exact calibration reuse, all-row SQL labels/controls/scores,
+permitted-month calibration counts/sums and final-constraint replay. No heavy
+taxi model was fitted for these screens. The desktop's174-input CatBoost has
+completed January and is training July. Laptop WSL remains offline; a separate
+SSH attempt to its online Windows host also timed out, so no remote job ran.
+
 ## Source-quality follow-up passes both months, 14:16 Amsterdam
 
 The daily-mean failure diagnosis locates January regressions mainly at EDDF,

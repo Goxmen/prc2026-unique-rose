@@ -1,0 +1,93 @@
+{
+  "design": {
+    "parent": "selected production-rounded daily-quality refinement",
+    "change": "Rome ambiguous two-mode rows use joint truncated source count/sum inference instead of uniform daily shift",
+    "scope": "stand/runway present, existing monthly quality gate and public supported runway-day cells",
+    "prior": "refined parent before daily quality correction; copy share from inherited tau and scheduled gap",
+    "ordinary_rows": "retain selected daily-quality prediction exactly",
+    "source_calibration": "allowed-training complete local days only; omitted count and sum versus intercept and input count/100",
+    "fit": "separate Huber losses scaled by training-target MAD; no held-label fitting",
+    "residual_covariance": "centered residuals/sqrt(input count); retain cells within three MADs in both coordinates",
+    "settings": {
+      "cutoff": 7200.0,
+      "ordinary_sigma": 200.0,
+      "common_day_sigma": 15.0,
+      "count_noise_floor": 1.0,
+      "sum_noise_floor": 60.0,
+      "df": 5,
+      "copy_gap_min": 3600.0,
+      "copy_gap_max": 50400.0,
+      "likelihood": "variance-matched bivariate Student t5; Gaussian moments for other flights",
+      "allocation": "change ambiguous copy-mode means only; simultaneous leave-one-out updates",
+      "fallback": "unchanged incoming prediction; no repeated conditioning"
+    },
+    "no_weight_or_parameter_search": true,
+    "no_taxi_model_fit": true,
+    "no_production": true,
+    "no_upload": true,
+    "limitation": "Gaussian moment approximation for other modes; reused development"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/identity.json",
+    "sha256": "3fe060c50b8bab204d8a25f543fd0b6bc3bcce9aed9eb9397adf861cc5a02da1"
+  },
+  "scores": {
+    "2025-01": {
+      "refined": 325.94319178263174,
+      "refined_quality": 325.8606946460391,
+      "candidate": 325.7282594164544
+    },
+    "2025-07": {
+      "refined": 258.46250828577354,
+      "refined_quality": 257.47132254599944,
+      "candidate": 257.0133049377384
+    }
+  },
+  "cv": {
+    "refined": 292.20285003420264,
+    "refined_quality": 291.6660085960193,
+    "candidate": 291.37078217709643
+  },
+  "paired": {
+    "refined": {
+      "change": -0.8320678571062388,
+      "ci95": [
+        -1.8530300910850734,
+        0.1571116886196904
+      ],
+      "decision": "inconclusive"
+    },
+    "refined_quality": {
+      "change": -0.29522641892287993,
+      "ci95": [
+        -1.2412583000278024,
+        0.6391244736611376
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "touched": 2428,
+  "changed": 2416,
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/scored.parquet",
+      "sha256": "a18409310874282f9b863fa6a1d10a6d1ba7026a1613d1f6e4654a9d944ee895"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/calibration.parquet",
+      "sha256": "9774d4140c65ce1582196b7f18ebc5ee8cdfc0e03edb5ba71fc46b0e0ee628db"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/cells.parquet",
+      "sha256": "0ba43f6718a6cf7abb8ca1a0b9fceaaa76bda776370fe24f75662e97389e4bbc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/probabilities.parquet",
+      "sha256": "a913d16ff9c5150ca9c7239783069f7f690cb82478697286c1416ece9b000bd8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/parameters.json",
+      "sha256": "b31856b32b1591fb7ba3394880f84137669b5e0a8eb8f4d7e3366925da9233a7"
+    }
+  ]
+}
