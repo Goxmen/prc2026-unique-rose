@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "independent_sql_local_calendar_and_every_feature": true,
+  "missing_source_values_preserved": true,
+  "no_departure_labels_read": true,
+  "checks": [
+    {
+      "name": "2025",
+      "rows": 2085047,
+      "sql_feature_entries": 20850470,
+      "permuted_rows": 2000
+    },
+    {
+      "name": "ranking",
+      "rows": 344841,
+      "sql_feature_entries": 3448410,
+      "permuted_rows": 2000
+    }
+  ],
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_features/manifest.json",
+    "sha256": "1f922f10e5c986d2e14e4a6bef2ebd302d9c60c106d6d782f6b4086277acfa1c"
+  },
+  "source": {
+    "path": "VALIDATION/public_daily_taxi_features.py",
+    "sha256": "dccb3a14c6c3feb18d8237a2df3317732f21d84ec06d9a7d533e8f228668561d"
+  }
+}

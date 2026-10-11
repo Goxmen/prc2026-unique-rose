@@ -114,6 +114,27 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,14:00 Amsterdam: new daily runway taxi source and first CV gain.**
+  Public EUROCONTROL dashboard:16,169 daily/runway cells, all10 airports,
+  Jan2025–Jul2026, independently queried totals audited. Source cohort differs;
+  local takeoff dates fit better, but do not assert exact label sums. Cache
+  `data/external/eurocontrol_daily_taxi_20261011/` complete; do not redownload.
+  `public_daily_taxi.py` fixes training-only robust population calibration and
+  uncertainty-shrunk mean shifts with original120-second cap. Production-rounded
+  v76 CV−0.5105; refined recipe−0.3572 to291.8456, interval[−0.6706,−0.0882],
+  but January+0.2768/July−0.9912. All calibration/SQL/scalar audits pass; no
+  new production/version. Ten new raw source inputs prepared/audited for all
+  2,085,047 training and344,841 ranking rows. `public_daily_taxi_lgb.py` fixed
+  174→184 LB1/10000 comparison queued859814 after airport production847448;
+  no fits yet. Production-rounded earlier combined CV292.2028500 (−0.2465129),
+  both months; t5/full-monthly ranking component prepared/audited, airport
+  production/final assembly remains. See TARGET215_RESEARCH.md latest section.
+  EMA Boolean diagnostic failure/retry archived; recovery checkpoints now safe.
+  Completed same-trajectory EMA loses+0.5437 transferred; all audits pass, closed.
+  Current sequence: CatBoost847447 (child858973) →airport847448 →daily tree859814.
+  V75/V76 watchers649782/792755 and geometry826430 remain unchanged.
+  Laptop WSL offline; all three subagents unavailable under account usage limit.
+
 - **October11,13:25 Amsterdam: airport gain and combined refinements audited; callsign3 closed.**
   Airport public inputs improve selected v76 CV0.1035, both months, interval
   [−0.1573,−0.0660]; all20 models/all344419 score audits pass. Combined with

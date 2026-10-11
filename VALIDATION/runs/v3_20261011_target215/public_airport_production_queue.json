@@ -1,7 +1,7 @@
 {
   "state": "waiting",
-  "predecessor_pid": 834461,
-  "predecessor_start": "8592891",
+  "predecessor_pid": 847447,
+  "predecessor_start": "8729849",
   "predecessor_result": "VALIDATION/runs/v3_20261011_catboost_full_inputs/audit.json",
   "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
   "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
@@ -32,6 +32,14 @@
       "result": "VALIDATION/runs/v3_20261011_public_airport_submit/audit.json"
     }
   ],
-  "updated_at": "2026-10-11T11:23:41.554672+00:00",
-  "pid": 840168
+  "rebindings": [
+    {
+      "at": "2026-10-11T11:36:27.577142+00:00",
+      "old_pid": 840168,
+      "old_predecessor": 834461,
+      "reason": "Recover failed EMA post-training Boolean diagnostic; evidence archived, no new checkpoint was retained"
+    }
+  ],
+  "updated_at": "2026-10-11T11:36:27.606417+00:00",
+  "pid": 847448
 }

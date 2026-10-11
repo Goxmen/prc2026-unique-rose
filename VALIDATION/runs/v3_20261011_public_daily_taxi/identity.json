@@ -1,0 +1,111 @@
+{
+  "design": {
+    "primary_parent": "v76 plus selected airport/t5/full-monthly refinements, production rounding",
+    "secondary_parent": "v76 with production rounding; same method without any retuning",
+    "source": "EUROCONTROL public taxi-out dashboard; local takeoff day and runway; minutes to seconds",
+    "train_selection": "stand/runway present, true taxi in [0,7200]; only allowed outer training months",
+    "inference_selection": "stand/runway present, incoming prediction in [0,7200]; no labels",
+    "minimum_cell_rows": 20,
+    "minimum_source_rows": 20,
+    "source_to_prediction_count_range": [
+      0.5,
+      1.2
+    ],
+    "calibration": "airport intercept and airport count-deficit coefficient; equal cells; Huber20; ridge0.001",
+    "noise": "per-airport training residual MAD times1.4826; floor10 seconds",
+    "prior_mean_variance": "200^2 / eligible cell count + 15^2; fixed existing daily prior scales",
+    "gain": "prior mean variance / (prior mean variance + calibrated source noise variance)",
+    "correction": "gain times source+composition minus predicted mean; raw gap capped at120 seconds",
+    "cap_provenance": "same120-second raw cap as existing monthly stage; no cap/weight search",
+    "incomplete_training_days": "require entire local day to lie in allowed UTC months",
+    "postprocessing": "reapply matched/recovered plan bounds, then nonnegative nearest integer",
+    "limitations": "Source cohort differs; true/predicted truncation differs; repeatedly reused Jan/Jul development",
+    "no_taxi_model_fit": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "folds": {
+    "2025-01": [
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11"
+    ],
+    "2025-07": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ]
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/public_refinements_submission_cv.py",
+      "sha256": "fe9cac8a8f35dab31d2580ef54de8dffccfc12b016f19d5bb0d3367bde55d6fb"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/monthly_taxi_reconcile.py",
+      "sha256": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/manifest.json",
+      "sha256": "432a6a2685ffd837f1824d858fa168319fbcd6f0ba03e1fb770773a11a028bbc"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+    },
+    {
+      "path": "tmp/research_20261011/daily_taxi_source/training_rows.parquet",
+      "sha256": "f4c5e9ca9cc863d0540bc17238f299acc6bcd4a2eb4eddf3c7417d331659feea"
+    },
+    {
+      "path": "VALIDATION/reports/research_network_20261010/public_daily_taxi_source_audit.json",
+      "sha256": "278c25ecc809fa1723a9644b8051aa97fe6a291fffabe4c0c7f8cdff6215532f"
+    },
+    {
+      "path": "VALIDATION/reports/research_network_20261010/public_daily_taxi_population.json",
+      "sha256": "3076f3b8a13871040ac12f1e66d58ed0cf09e02c4d5a03dfa2d3b45b2a6a8c1b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_submission_cv/scored.parquet",
+      "sha256": "251492e2dc2c5ac55e70ee6cdfaa4d9ad403f82bcce202cdf52af034baafd2ee"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_submission_cv/result.json",
+      "sha256": "c3368670a8208aad88a7f555cd3ec7117e26d6666797abbdc8cba62cc4592275"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_submission_cv/audit.json",
+      "sha256": "35fc6cb406a45d9dfb19eb43d1182acff2a795fab271d936aeebe343b4fc5e1e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    }
+  ]
+}

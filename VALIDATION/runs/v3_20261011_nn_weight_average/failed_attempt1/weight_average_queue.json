@@ -1,0 +1,63 @@
+{
+  "state": "error",
+  "predecessor_pid": 824857,
+  "predecessor_start": "8492950",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_nn_calls_public_pool3/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T10:53:12.155198+00:00",
+  "jobs": [
+    {
+      "name": "fixed_neural_parameter_average",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_weight_average_jan_jul.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_weight_average_jan_jul.py",
+          "audit_models"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_weight_average_jan_jul.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_weight_average_jan_jul.py",
+          "audit_scores"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/nn_weight_average_jan_jul.py": "467a57ccee41d85229c1ab72de3695e1497c63f23df4d23b860f6334adb959a9",
+        "VALIDATION/nn_weight_average.py": "bf1f71d8d3de53a1ebb02df2f870c67f9e4a5b510b7193b71f2ed27c04b66966",
+        "VALIDATION/runs/v3_20261011_nn_weight_average/identity.json": "9e0812fb4723c88219207b7800dda1553d5f4f816a8eab1fe0ab83f99761ecc0"
+      },
+      "log": "tmp/research_20261011/weight_average.log",
+      "result": "VALIDATION/runs/v3_20261011_nn_weight_average/score_audit.json"
+    }
+  ],
+  "rebindings": [
+    {
+      "at": "2026-10-11T10:56:58.583710+00:00",
+      "old_pid": 822573,
+      "old_predecessor": 816876,
+      "reason": "Prioritize matched callsign3 check; no EMA fit had started"
+    }
+  ],
+  "updated_at": "2026-10-11T11:33:08.733157+00:00",
+  "pid": 824858,
+  "job": 0,
+  "stage": 0,
+  "child_pid": 838636,
+  "error": "fixed_neural_parameter_average stage 0 failed: 1",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/gunes/PRC/VALIDATION/target215_research_queue.py\", line 86, in run\n    assert child.returncode == 0, f'{job[\"name\"]} stage {stage} failed: {child.returncode}'\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError: fixed_neural_parameter_average stage 0 failed: 1\n"
+}

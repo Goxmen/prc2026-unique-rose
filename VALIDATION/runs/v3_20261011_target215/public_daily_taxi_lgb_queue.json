@@ -1,0 +1,51 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 847448,
+  "predecessor_start": "8729849",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_public_airport_submit/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T11:57:26.131322+00:00",
+  "jobs": [
+    {
+      "name": "public_runway_daily_taxi_main_tree",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_daily_taxi_lgb.py",
+          "preflight"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_daily_taxi_lgb.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_daily_taxi_lgb.py",
+          "score"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_daily_taxi_lgb.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/public_daily_taxi_lgb.py": "8d2c98eaf65b2499da867d6cb47b04292e42e3f74062943051be60599c8ed60c",
+        "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/identity.json": "3d1767dfe602ba82ad8f7d4afc337ba49bbdd1fc3acda59ecbe8b784cc3d1471",
+        "VALIDATION/public_daily_taxi_features.py": "dccb3a14c6c3feb18d8237a2df3317732f21d84ec06d9a7d533e8f228668561d",
+        "VALIDATION/runs/v3_20261011_public_daily_taxi_features/audit.json": "7bb7a076d933153c0732f55733fead8e1b519997e140b7ae22de862b3f8e2cd7"
+      },
+      "log": "tmp/research_20261011/public_daily_taxi_lgb.log",
+      "result": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T11:57:26.157563+00:00",
+  "pid": 859814
+}

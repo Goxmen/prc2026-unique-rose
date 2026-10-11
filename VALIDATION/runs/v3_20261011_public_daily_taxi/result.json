@@ -1,0 +1,91 @@
+{
+  "design": {
+    "primary_parent": "v76 plus selected airport/t5/full-monthly refinements, production rounding",
+    "secondary_parent": "v76 with production rounding; same method without any retuning",
+    "source": "EUROCONTROL public taxi-out dashboard; local takeoff day and runway; minutes to seconds",
+    "train_selection": "stand/runway present, true taxi in [0,7200]; only allowed outer training months",
+    "inference_selection": "stand/runway present, incoming prediction in [0,7200]; no labels",
+    "minimum_cell_rows": 20,
+    "minimum_source_rows": 20,
+    "source_to_prediction_count_range": [
+      0.5,
+      1.2
+    ],
+    "calibration": "airport intercept and airport count-deficit coefficient; equal cells; Huber20; ridge0.001",
+    "noise": "per-airport training residual MAD times1.4826; floor10 seconds",
+    "prior_mean_variance": "200^2 / eligible cell count + 15^2; fixed existing daily prior scales",
+    "gain": "prior mean variance / (prior mean variance + calibrated source noise variance)",
+    "correction": "gain times source+composition minus predicted mean; raw gap capped at120 seconds",
+    "cap_provenance": "same120-second raw cap as existing monthly stage; no cap/weight search",
+    "incomplete_training_days": "require entire local day to lie in allowed UTC months",
+    "postprocessing": "reapply matched/recovered plan bounds, then nonnegative nearest integer",
+    "limitations": "Source cohort differs; true/predicted truncation differs; repeatedly reused Jan/Jul development",
+    "no_taxi_model_fit": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/identity.json",
+    "sha256": "9b3074d65ceee81a056c2724f0e4e0613111b006d225adacac62f9408fe0e5cf"
+  },
+  "scores": {
+    "2025-01": {
+      "v76": 326.17391214810544,
+      "v76_daily": 326.30554240110376,
+      "refined": 325.94319178263174,
+      "refined_daily": 326.2199514477529
+    },
+    "2025-07": {
+      "v76": 258.7248137211206,
+      "v76_daily": 257.5722313616245,
+      "refined": 258.46250828577354,
+      "refined_daily": 257.47132254599944
+    }
+  },
+  "cv": {
+    "v76": 292.449362934613,
+    "v76_daily": 291.93888688136417,
+    "refined": 292.20285003420264,
+    "refined_daily": 291.8456369968762
+  },
+  "paired": {
+    "v76": {
+      "change": -0.5104760532488797,
+      "ci95": [
+        -0.8762400509125505,
+        -0.21116379903848584
+      ],
+      "decision": "improvement"
+    },
+    "refined": {
+      "change": -0.3572130373264599,
+      "ci95": [
+        -0.6706312667526194,
+        -0.08819003816444974
+      ],
+      "decision": "improvement"
+    }
+  },
+  "changed_rows": {
+    "v76": 319988,
+    "refined": 324905
+  },
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/scored.parquet",
+      "sha256": "ca1b72f79d89d60bd068680b39362de8c5ee72a93e3a983cee156180c7d613eb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/calibration.parquet",
+      "sha256": "53b9d47f5c25ac3589e753ea0769e25ab575f0520cc0237645eef76ded38540c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/cells.parquet",
+      "sha256": "6a1f2e7383476dab4ff95c87fd775ba6c1a8db99ab25f5408b8162fa87333e26"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/parameters.json",
+      "sha256": "24709b526c045a41ebc33c7b7ccee86f3b3667bb966d5c1cce32958f2ce9500c"
+    }
+  ]
+}

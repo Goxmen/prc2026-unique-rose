@@ -1,0 +1,49 @@
+{
+  "design": {
+    "parent": "v76",
+    "change": "public airport trees plus t5 daily and full monthly adjustments",
+    "method": "same fixed recipe; round both v74 boundary and final output in both arms",
+    "inherited_comparison": "retained separately; no historical score overwritten",
+    "no_fits": true,
+    "no_parameter_change": true,
+    "no_upload": true,
+    "limitation": "Repeatedly reused Jan/Jul development; serialization parity does not create independent evidence"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_refinements_submission_cv/identity.json",
+    "sha256": "cbcd25bc98b993d4994e670b9b748c6dce3c35b2f7c404f138ff80e96e41ebaf"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_public_refinements_submission_cv/scored.parquet",
+    "sha256": "251492e2dc2c5ac55e70ee6cdfaa4d9ad403f82bcce202cdf52af034baafd2ee"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.17391214810544,
+      "candidate": 325.94319178263174,
+      "control_unrounded": 326.1740758752955,
+      "candidate_unrounded": 325.9466311204909
+    },
+    "2025-07": {
+      "control": 258.7248137211206,
+      "candidate": 258.46250828577354,
+      "control_unrounded": 258.72474053760806,
+      "candidate_unrounded": 258.45978092941334
+    }
+  },
+  "cv": {
+    "control": 292.449362934613,
+    "candidate": 292.20285003420264,
+    "control_unrounded": 292.4494082064518,
+    "candidate_unrounded": 292.2032060249521
+  },
+  "paired": {
+    "change": -0.2465129004103801,
+    "ci95": [
+      -0.38744744556821686,
+      -0.14920702038315525
+    ],
+    "decision": "improvement"
+  },
+  "same_production_rounding_boundaries": true
+}

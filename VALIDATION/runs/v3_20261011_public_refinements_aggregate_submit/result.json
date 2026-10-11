@@ -1,0 +1,51 @@
+{
+  "design": {
+    "parent": "v76",
+    "change": "validated joint t5 daily and full monthly refinement",
+    "daily": "original v71 prior, takeoff dates, population, full-year parameters and v73 weight",
+    "monthly": "original full-year composition coefficients and120-second cap; multiplier1",
+    "controls": [
+      "v72 Gaussian",
+      "serialized v73 affine",
+      "v74 stages",
+      "v76 transfer"
+    ],
+    "serialization": "retain rounding at v72, v73 and v74 production boundaries",
+    "final_constraints": "original matched and recovered-plan constraints",
+    "no_new_parameters": true,
+    "no_model_fit": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_refinements_aggregate_submit/identity.json",
+    "sha256": "9dab247f7514b8fc8a429029f8ef63ac4bde5828d2130e56783c7c8717552daf"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_public_refinements_aggregate_submit/predictions.parquet",
+    "sha256": "1af4f007aa1429df86f33d469c994d8fb39ba0ee0f3533a916dcdc90c2019667"
+  },
+  "days": {
+    "path": "VALIDATION/runs/v3_20261011_public_refinements_aggregate_submit/days.parquet",
+    "sha256": "526273d96b5534dad3b4648572b320d05ab07b3b03f22acaefeb0911686484f0"
+  },
+  "monthly_cells": {
+    "path": "VALIDATION/runs/v3_20261011_public_refinements_aggregate_submit/monthly_cells.parquet",
+    "sha256": "f7d9a4165d3f0c47843857492d85af622c556a93c8db08252cd237457700bc9a"
+  },
+  "rows": 344841,
+  "gaussian_max_error": 1.4551915228366852e-11,
+  "controls_replayed": [
+    "v72",
+    "v73",
+    "v74",
+    "v76"
+  ],
+  "all_control_serializations_exact": true,
+  "changed_rows": 292259,
+  "rms_change": 12.596100180544905,
+  "cv_aggregate": 292.292807275311,
+  "cv_caveat": "CV retains unrounded v74 boundary, as inherited by v76; production retains its serialized boundary",
+  "no_version": true,
+  "no_upload": true
+}

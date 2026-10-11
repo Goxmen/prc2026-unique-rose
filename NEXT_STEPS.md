@@ -26,21 +26,28 @@ The public callsign three-member check did not confirm its single-seed gain:
 matched direct−0.1016 is inconclusive; transferred+0.0770 worsens both months.
 All model/SQL audits pass. Stop expansion and retain the six completed fits.
 
-Public airport inputs improve the selected recipe by0.1035, with both months
-better and interval[−0.1573,−0.0660]. Combined with the retained t5 daily
-posterior and full monthly multiplier, CV improves0.2462 to292.2032,
-interval[−0.3874,−0.1484]. All individual controls replay exactly and the SQL
-audit passes. Ten full-year airport models are queued for this combined
-candidate; no new submission version is reserved.
+Public airport inputs plus the retained t5/full-monthly corrections improve
+production-rounded CV292.4494→292.2029 (−0.2465), both months,
+interval[−0.3874,−0.1492]. All boundaries and SQL scores pass. The ranking
+aggregate component is prepared/audited; ten airport production fits and final
+candidate assembly remain. No new version is reserved.
 
-The desktop sequence is now fixed parameter averaging (decay0.999), then
-ordinary CatBoost with174 rather than134 inputs, then the ten full-year airport
-models. The CatBoost addition supplies22 combined inputs,6 callsign clocks and
-12 public inputs that K07 previously lacked; original rows/labels/settings stay
-fixed. Its old134 values/categories and both preflights pass. Hardware differences
-from the saved laptop control remain a caveat. Parameter averaging preserves
-original updates and saves both last and averaged states. No result yet for
-either screen. All queues are guarded and sequential; no completed fits repeat.
+New public daily taxi-out totals by runway cover all ten airports and both
+years. The source extraction and all totals are audited, but its cohort differs
+from the competition. A fixed training-calibrated correction improves the
+refined recipe by0.3572 to291.8456, interval[−0.6706,−0.0882], with January
+worse0.2768 and July better0.9912. No winter-fix claim or production selection.
+Ten raw runway/day and airport/day source inputs are prepared and independently
+audited for all training/ranking rows. A fixed174→184 main-tree comparison is
+queued after airport production, with original rows/settings and exact controls.
+
+Parameter averaging is complete and closed: same-trajectory transferred+0.5437,
+interval[+0.2463,+0.8308]. Its Boolean-buffer post-training failure was repaired,
+archived and retried only because no checkpoint had been saved. Real-buffer and
+recovery checks pass; models now save before diagnostics. Keep all completed
+fits. Current desktop sequence: full174-input CatBoost847447, then public airport
+production847448, then daily-taxi-input main LightGBM859814. One heavy job at a
+time; sources and queue identities are frozen. V75/V76 watchers are unchanged.
 
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 The earlier225.00 goal is complete; its result remains the baseline below.

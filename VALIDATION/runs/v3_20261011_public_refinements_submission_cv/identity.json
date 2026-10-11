@@ -1,0 +1,66 @@
+{
+  "design": {
+    "parent": "v76",
+    "change": "public airport trees plus t5 daily and full monthly adjustments",
+    "method": "same fixed recipe; round both v74 boundary and final output in both arms",
+    "inherited_comparison": "retained separately; no historical score overwritten",
+    "no_fits": true,
+    "no_parameter_change": true,
+    "no_upload": true,
+    "limitation": "Repeatedly reused Jan/Jul development; serialization parity does not create independent evidence"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/public_refinements_submission_cv.py",
+      "sha256": "fe9cac8a8f35dab31d2580ef54de8dffccfc12b016f19d5bb0d3367bde55d6fb"
+    },
+    {
+      "path": "VALIDATION/public_refinements_cv.py",
+      "sha256": "efd71a2828a0f65842b6741ec15472b5e86da3168c2afddac115731896cb4b2d"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_cv/scored.parquet",
+      "sha256": "a823db12755a9a05db4d142e44e37249235edd794af3a3c308a4f01057b127ac"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_cv/result.json",
+      "sha256": "c913eb343d78df700f08f71bc1ce9827ac594a7ef022b268b725ac85edbeed5f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_cv/audit.json",
+      "sha256": "05980695442fca6cddb7346504b894430aebb44425005e54a7caec430e66aad8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/scored.parquet",
+      "sha256": "04d0886b113ce081bbba97bf880e8f33c06366a5a98ac64084abab186ca01e92"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/scored.parquet",
+      "sha256": "9150cf74514efa76d0ad7b9a75fc1bb744f45fd240830e7e7da5214d2001fee8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/cv.parquet",
+      "sha256": "9061d6fa5ce21f88a80802b308959a6911c989aaf354a046b99448a66db76c45"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+      "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    }
+  ]
+}

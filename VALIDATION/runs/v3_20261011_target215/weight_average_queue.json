@@ -1,5 +1,5 @@
 {
-  "state": "running",
+  "state": "complete",
   "predecessor_pid": 824857,
   "predecessor_start": "8492950",
   "predecessor_result": "VALIDATION/runs/v3_20261011_nn_calls_public_pool3/audit.json",
@@ -37,12 +37,14 @@
         ]
       ],
       "sources": {
-        "VALIDATION/nn_weight_average_jan_jul.py": "467a57ccee41d85229c1ab72de3695e1497c63f23df4d23b860f6334adb959a9",
+        "VALIDATION/nn_weight_average_jan_jul.py": "574481c61bb5f0efead9bff23a6ff6d6bee78bac9e794dfea71b394f4a5946c3",
         "VALIDATION/nn_weight_average.py": "bf1f71d8d3de53a1ebb02df2f870c67f9e4a5b510b7193b71f2ed27c04b66966",
-        "VALIDATION/runs/v3_20261011_nn_weight_average/identity.json": "9e0812fb4723c88219207b7800dda1553d5f4f816a8eab1fe0ab83f99761ecc0"
+        "VALIDATION/runs/v3_20261011_nn_weight_average/identity.json": "a3012649f61b0bd7d411e3970bfe7c67cae9fe601c52041da8188e4715baf487",
+        "VALIDATION/runs/v3_20261011_nn_weight_average/recovery_preflight.json": "1609cee28f6fb6584d01fc3c61ddd8fc2b5b851bcbc6d977dad6065a4589d03d"
       },
       "log": "tmp/research_20261011/weight_average.log",
-      "result": "VALIDATION/runs/v3_20261011_nn_weight_average/score_audit.json"
+      "result": "VALIDATION/runs/v3_20261011_nn_weight_average/score_audit.json",
+      "completed_result_sha256": "92149f928d1ac8e61b5875dbad28eb8330edb0e8bfe0085a6cb4b56a91b3b445"
     }
   ],
   "rebindings": [
@@ -51,11 +53,17 @@
       "old_pid": 822573,
       "old_predecessor": 816876,
       "reason": "Prioritize matched callsign3 check; no EMA fit had started"
+    },
+    {
+      "at": "2026-10-11T11:36:27.577142+00:00",
+      "old_pid": 824858,
+      "old_predecessor": 824857,
+      "reason": "Recover failed EMA post-training Boolean diagnostic; evidence archived, no new checkpoint was retained"
     }
   ],
-  "updated_at": "2026-10-11T11:21:08.681368+00:00",
-  "pid": 824858,
+  "updated_at": "2026-10-11T11:55:57.705491+00:00",
+  "pid": 847446,
   "job": 0,
-  "stage": 0,
-  "child_pid": 838636
+  "stage": 3,
+  "child_pid": null
 }

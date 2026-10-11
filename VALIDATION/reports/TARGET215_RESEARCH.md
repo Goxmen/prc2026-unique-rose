@@ -1,5 +1,93 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Daily runway source, production parity and completed averaging, 14:00 Amsterdam
+
+A new public source provides **daily taxi-out totals by runway** for all ten
+airports. The [EUROCONTROL taxi-out dashboard](https://ansperformance.eu/efficiency/taxiout/)
+embeds an anonymously published Power BI report. Its ordinary public query API
+exposes date, airport, runway, flight count, total taxi minutes, reference minutes
+and additional minutes. The local cache contains16,169 distinct cells from
+January2025 through July2026. An independent, uncompressed query grouped only
+by airport reproduces every count exactly and all three minute totals to within
+1.1e-8. This is source extraction evidence, not competition-cohort identity.
+
+The source population is different. A24-view diagnostic of all2,085,047 training
+departures finds local takeoff dates match better than UTC or off-block dates.
+Among10,111 common2025 runway-day cells, the basic stand-present/0–2h cohort
+matches the source count in794 cells and both count/sum in only21. Exclusions
+and reference eligibility remain unobserved. Do not treat the public mean as an
+exact competition-label constraint. The [published terms](https://ansperformance.eu/about/disclaimer/)
+require attribution and limit reuse; no general open-data license is claimed.
+Raw responses are retained unmodified and not committed. Fetchers:
+`tools/bootstrap_public_daily_taxi_source.py` and `tools/fetch_public_daily_taxi.py`.
+Do not redownload the completed cache. Extraction and population audits are in
+`research_network_20261010/public_daily_taxi_{source_audit,population}.json`.
+
+The fixed first correction, `public_daily_taxi.py`, fits airport intercepts and
+count-deficit coefficients using only the outer fold's permitted training labels.
+It uses Huber20, a training residual noise estimate and existing daily prior
+scales to shrink the mean correction. Source/competition counts must be within
+0.5–1.2, both at least20; the inherited120-second raw cap stays fixed. Only rows
+with stand/runway and incoming predictions up to2h receive the correction.
+The source calendar uses local takeoff days; partial training days are excluded.
+All plan bounds and production rounding are reapplied.
+
+The correction improves production-rounded v76 CV292.4494→291.9389
+(−0.5105, interval[−0.8762,−0.2112]). On the selected airport/t5/full-monthly
+refinement it changes292.2029→291.8456 (−0.3572,
+interval[−0.6706,−0.0882]). **January worsens0.2768; July improves0.9912**
+on that refined parent. Retain the result without claiming a winter solution.
+Independent SQL checks every held label/date/parent/score, all10,776 calibration
+cells and training membership; a separate scalar implementation verifies all
+4,010 inference-group updates. No production file or new submission row exists.
+Run: `v3_20261011_public_daily_taxi/`.
+
+The ten source inputs are also prepared for a conditional model: runway/day
+and airport/day taxi, reference and additional means/counts, runway count share
+and runway-minus-airport mean. Missing source cells remain missing. All ten
+columns for2,085,047 training and344,841 ranking rows pass independent SQL
+arithmetic/calendar checks (24,298,880 values);2,000 permuted rows per view
+reconstruct exactly. No departure label is read by the feature builder.
+`public_daily_taxi_features.py` retains both caches and its manifest/audit.
+A fixed main-LightGBM comparison adds these ten inputs to the existing174,
+retaining LB1/10000/seed42 and original rows. Both original and new entire held
+predictions reload; actual production-rounded v76 and refined controls must
+reproduce exactly. Queue859814 waits for airport production847448, then runs
+preflight→fit→score→audit. Source and identity are frozen; no fit or score yet.
+
+Production parity for the earlier joint refinement is now explicit:
+`public_refinements_submission_cv.py` rounds both v74 and final boundaries in
+both arms, giving292.4493629→292.2028500 (−0.2465129),
+interval[−0.3874474,−0.1492070]. January/July both improve. The original
+unrounded comparison remains retained separately. Independent SQL verifies
+all344,419 labels, controls, serialization boundaries and scores.
+`public_refinements_aggregate_submit.py` prepares/audits the t5/full-monthly
+production component on all344,841 rows, exactly reproducing v72/v73/v74/v76
+controls and the existing affine weight. It changes292,259 serialized rows
+with RMS12.5961 seconds; this is prediction change, not measured score gain.
+Airport production substitution and final candidate assembly still remain.
+
+The parameter-average experiment initially finished January's training but
+failed before saving because a diagnostic subtracted Boolean PLE buffers.
+The failed trajectory, original source, identities and queue states are archived
+under `v3_20261011_nn_weight_average/failed_attempt1/`; no recoverable checkpoint
+existed. The fix compares nonfloating buffers separately and atomically saves
+last weights plus shadow averaged parameters before diagnostics. Tests with real
+January/July Boolean buffers and a synthetic optimizer/recovery trajectory pass.
+Only that failed fit was repeated. Both new checkpoints now reload completely,
+the separate model audit and all344,419 SQL scores pass.
+
+Averaging is closed: same-trajectory direct+0.5492,
+interval[+0.2584,+0.8360]; transferred+0.5437,
+interval[+0.2463,+0.8308]. It does not improve the selected model. Historical
+control differences are0.1027 transferred, inconclusive, so historical runs were
+not substituted for the actual same-trajectory control. All models remain saved.
+The recovered EMA queue847446 is complete. CatBoost queue847447 now runs,
+then airport production847448, then daily-taxi main-tree859814. All remain
+sequential. V75/V76 upload watchers649782/792755 and geometry queue826430 are
+unchanged. The laptop's WSL remains unavailable and the three research agents
+have exhausted their account allowance. No new agent jobs were created.
+
 ## Airport gain, failed callsign expansion and combined refinements, 13:25 Amsterdam
 
 Public inputs in the airport LightGBMs pass the fixed screen: direct

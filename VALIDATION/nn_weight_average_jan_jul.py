@@ -40,6 +40,25 @@ def clone(function, **namespace):
         function.__name__, function.__defaults__, function.__closure__)
 
 
+def historical_difference(current, original):
+    assert set(current)==set(original)
+    assert all(current[name].shape==original[name].shape and current[name].dtype==original[name].dtype for name in current)
+    changed=[name for name in current if not torch.equal(current[name],original[name])]
+    floating=[name for name in current if current[name].is_floating_point() and current[name].numel()]
+    maximum=max((float((current[name]-original[name]).abs().max()) for name in floating),default=0.)
+    return changed,maximum,[name for name in changed if not current[name].is_floating_point()]
+
+
+def save_recovery(path, model, optimizer, curve, steps):
+    parameters=list(model.named_parameters())
+    assert [id(p) for _,p in parameters]==[id(p) for p in optimizer.original_parameters]
+    assert len(parameters)==len(optimizer.averages)
+    payload=dict(state_dict=model.state_dict(),design=DESIGN,kind='same-trajectory last iterate',
+        average_state={name:value.detach().cpu().clone() for (name,_),value in zip(parameters,optimizer.averages)},
+        curve=curve,steps=steps)
+    temporary=path.with_suffix('.pt.tmp');torch.save(payload,temporary);temporary.replace(path)
+
+
 def training_function():
     def train(data, tracks, train_rows, held_rows, stop):
         instances = []
@@ -61,15 +80,14 @@ def training_function():
         original = torch.load(verify(previous['model']),map_location=data.device,weights_only=False)['state_dict']
         current = model.state_dict()
         assert set(current)==set(original)
-        changed = [name for name in current if not torch.equal(current[name],original[name])]
-        maximum_weight_change = max(float((current[name]-original[name]).abs().max()) for name in current)
         old = pd.read_parquet(verify(previous['prediction']))
         assert len(old)==len(last_prediction)
         (OUT/'last').mkdir(exist_ok=True);(OUT/'models').mkdir(exist_ok=True)
         lp = OUT/'last'/f'{month}.parquet';lm = OUT/'models'/f'{month}_last.pt'
         assert not lp.exists() and not lm.exists(), 'Preserve unrecorded completed trajectory'
-        torch.save(dict(state_dict=current,design=DESIGN,kind='same-trajectory last iterate'),lm)
+        save_recovery(lm,model,optimizer,curve,expected)
         pd.DataFrame(dict(mvt_id=old.mvt_id,base=last_prediction.astype(np.float32))).to_parquet(lp,index=False)
+        changed,maximum_weight_change,nonfloat_changes=historical_difference(current,original)
         restored = model_type.SparseFusion(data.cards,data.bins,data.train[2].shape[1]).to(data.device)
         restored.load_state_dict(torch.load(lm,map_location=data.device,weights_only=False)['state_dict'])
         np.testing.assert_array_equal(single.base.predict(restored,data,tracks,held_rows),last_prediction)
@@ -84,6 +102,7 @@ def training_function():
             all_last_predictions_reloaded_exact=True,all_averaged_predictions_reloaded_exact=True,
             historical_model=previous['model'],historical_prediction=previous['prediction'],
             historical_changed_tensors=changed,historical_maximum_weight_difference=maximum_weight_change,
+            historical_changed_nonfloating_buffers=nonfloat_changes,
             historical_prediction_rms=float(np.sqrt(np.mean((last_prediction-old.base.to_numpy(float))**2))),
             interpretation='Historical comparison can include float32 prediction serialization; primary control is same trajectory'))
         return model,prediction,curve

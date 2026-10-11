@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "original_updates_gradients_moments_exact": true,
+      "original_rng_and_schedule_exact": true,
+      "steps": 12,
+      "independent_recurrence_max_error": 1.482735464408691e-07,
+      "average_installed_exactly": true,
+      "buffers_unchanged": true
+    },
+    {
+      "device": "cuda",
+      "original_updates_gradients_moments_exact": true,
+      "original_rng_and_schedule_exact": true,
+      "steps": 12,
+      "independent_recurrence_max_error": 1.555967539812464e-07,
+      "average_installed_exactly": true,
+      "buffers_unchanged": true
+    }
+  ],
+  "training_bytecode_exact": true,
+  "original_globals_unchanged": true
+}
