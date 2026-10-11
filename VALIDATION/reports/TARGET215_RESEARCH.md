@@ -282,3 +282,35 @@ transfer is also worse by0.1123, with an interval including zero. This resolves
 the old unused-pool lead without new fits. No weight search, production model,
 upload or candidate-ledger row follows. Runner `tabm_retained_blend.py`, run
 `v3_20261011_tabm_retained_blend/`.
+
+## Fixed follow-ups queued after the main LightGBM
+
+The LightGBM January fit finished in 18.5 minutes; July is running. A finite
+queue waits for both fitting and scoring to finish before starting either
+follow-up. Every heavy job is sequential on the desktop; no laptop job exists.
+
+1. **XGBoost diversity:** the existing 162 inputs, original training rows and
+   labels, 4,000 fixed depth-8 rounds, seed42. Add it as an equal fourth tree
+   member inside the unchanged0.29 tree share. No held-label stopping or weight
+   search. The native categorical path preserves the existing shared category
+   codes and missing values. CPU and CUDA synthetic serialization checks pass;
+   reloading onto the same device fixes a4.8e−7 difference from default CPU
+   reload of a CUDA model. XGBoost3.4.1 is pinned;3.4.2 shown in the live docs
+   was unavailable from the package index. See the official
+   [GPU](https://xgboost.readthedocs.io/en/stable/gpu/index.html) and
+   [categorical](https://xgboost.readthedocs.io/en/stable/tutorials/categorical.html)
+   documentation. Runner `xgboost_diversity_jan_jul.py`.
+2. **Full public neural training:** the earlier two-epoch continuation was
+   too limited to establish whether the public inputs help joint learning.
+   This fixed follow-up trains the same zero-initialized public residual head
+   from the original physical model initialization for the original21/17 epochs.
+   Original156 preprocessing and the exact original sparse optimizer bytecode
+   remain; the12 fixed-scaled public channels bypass that encoder. CPU checks
+   verify original weights/RNG, dropout, a nonzero physical path, padding and
+   gradient flow. Comparison is with the saved same-desktop physical single
+   models at the same epochs. Runners `nn_public_scratch.py` and
+   `nn_public_scratch_jan_jul.py`.
+
+These are unscored experiments, not selected candidates. Queue/source bindings
+and status live in `v3_20261011_target215/research_queue.json`. Its cancellation
+file or an inactive objective stops further jobs and any active child.

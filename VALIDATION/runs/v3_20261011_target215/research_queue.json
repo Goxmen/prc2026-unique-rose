@@ -1,0 +1,63 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 644296,
+  "predecessor_start": "6670472",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_public_delay_lgb/result.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "jobs": [
+    {
+      "name": "xgboost_diversity",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/xgboost_diversity_jan_jul.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/xgboost_diversity_jan_jul.py",
+          "score"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/xgboost_diversity_jan_jul.py": "c94ca0d3fd5eb1fa157d4e808894968d99628d2c859a35af05c2921aedbca815"
+      },
+      "log": "tmp/research_20261011/xgboost_diversity.log",
+      "result": "VALIDATION/runs/v3_20261011_xgboost_diversity/result.json"
+    },
+    {
+      "name": "public_neural_full",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_scratch_jan_jul.py",
+          "fit",
+          "--arm",
+          "public"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/nn_public_scratch_jan_jul.py",
+          "score",
+          "--arm",
+          "public"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/nn_public_scratch_jan_jul.py": "4a3bb76c028152b4840980db0bc34a235496c21685b76a506baf3e995ea1440b",
+        "VALIDATION/nn_public_scratch.py": "3b3f3d087b69bbef95a023edf85d5c5ab7c99c396449320806961c50f5e75a3a",
+        "VALIDATION/nn_public_delay.py": "af53e6d86062292bbd166e6282bafabbeb7c403297753ef424a91e1365f57194"
+      },
+      "log": "tmp/research_20261011/public_neural_full.log",
+      "result": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/score.json"
+    }
+  ],
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "updated_at": "2026-10-11T06:13:51.558183+00:00",
+  "pid": 656094
+}

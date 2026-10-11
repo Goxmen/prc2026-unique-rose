@@ -37,12 +37,21 @@
     "independent SQL audited4,138,092 ranking feature values",
     "retained TabM3 fixed blend failed+0.2828 primary CV"
   ],
-  "next": "finish main-LightGBM public-feature CV; preserve queued v75 manifest; next upload window2026-10-12T00:00Z",
+  "next": "finish main-LightGBM CV, then queued XGBoost and public-neural CV sequentially; inspect results and audit meaningful gains; preserve queued v75 for next UTC window",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
     "pid": 649782,
     "not_before_utc": "2026-10-12T00:00:05+00:00",
     "state": "waiting"
+  },
+  "research_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/research_queue.json",
+    "pid": 656094,
+    "state": "waiting",
+    "jobs": [
+      "XGBoost fourth tree, fixed162 inputs/4000 rounds",
+      "public neural head, full original21/17 epochs"
+    ]
   }
 }

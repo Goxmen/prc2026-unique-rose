@@ -148,6 +148,12 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   `tmp/research_20261011/public_delay_lgb.log`. Public neural continuation was
   small/inconclusive versus its original parent; no expansion. The retained
   three-seed TabM blend failed (+0.2828 primary CV); no new fit or production.
+  A finite detached research queue (PID656094,
+  `v3_20261011_target215/research_queue.json`) waits for the entire LightGBM
+  fit-and-score shell, then runs XGBoost fourth-tree CV and full-schedule public
+  neural CV, sequentially. Do not launch another heavy desktop job while this
+  queue is waiting/running. Cancellation file: `cancel_research_queue` in that
+  run folder. These are unscored experiments, not selected candidates.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL currently shows offline on Tailscale.
