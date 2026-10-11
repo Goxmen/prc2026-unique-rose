@@ -1,0 +1,291 @@
+{
+  "design": {
+    "parent": "selected half sparse3/half calls15 combination",
+    "change": "withhold complete raw-track branch for25% of training rows",
+    "original_columns": 156,
+    "added_columns": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "model": {
+      "parent": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "track_drop_probability": 0.25,
+      "generator": "separate per-device generator; initialization seed plus104729",
+      "training": "mask entire raw track; original missing-track gate; no inverse-probability rescaling",
+      "inference": "all observed tracks; original forward computation",
+      "unchanged": "tabular/public inputs, weights, optimizer, batch order, dropout RNG and epochs",
+      "limitation": "Raw-track branch availability; not a complete ADS-B or ground-only missingness simulation"
+    },
+    "original_model": {
+      "sequence_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "width": 32,
+      "residual_blocks": 3,
+      "convolutions_per_block": 2,
+      "kernel": 3,
+      "dilations": [
+        1,
+        4,
+        16
+      ],
+      "activation": "SiLU",
+      "normalization": "LayerNorm over channels independently per point",
+      "pooling": "masked mean and max",
+      "fusion_hidden": 128,
+      "final_residual_initialization": "zero",
+      "usable": "at least two distinct timestamps",
+      "original_inputs": 156,
+      "extra_dropout": 0
+    },
+    "sequence": {
+      "window_before_sec": 7200,
+      "window_after_sec": 60,
+      "max_points": 128,
+      "minimum_distinct_timestamps": 2,
+      "labels_used": false,
+      "identity": "audited unique near-takeoff identity; missing and ambiguous remain absent",
+      "sort": [
+        "airport",
+        "hex",
+        "ts_ms",
+        "lat",
+        "lon",
+        "alt",
+        "gs"
+      ],
+      "duplicate_timestamp": "retain lexicographically first lat/lon/alt/gs per airport/hex/time",
+      "selection": "floor(linspace(0,n-1,128)); first and last always retained",
+      "gap": "previous raw observation within query window; first=-1; never interpolated",
+      "ground_alt_code": -123,
+      "other_negative_alt": "unknown",
+      "negative_speed": "unknown",
+      "origin": "mean of the airport X-Plane runway ends",
+      "runway_point": "X-Plane runway end for RUNWAY_mvt (paved end, not displaced threshold)",
+      "point_channels": [
+        "time_before_takeoff",
+        "preceding_gap",
+        "preceding_gap_known",
+        "east",
+        "north",
+        "speed",
+        "speed_known",
+        "altitude",
+        "altitude_known",
+        "ground",
+        "stand_distance",
+        "stand_known",
+        "runway_distance",
+        "runway_known",
+        "actual_clock_offset",
+        "actual_clock_known"
+      ],
+      "quality_channels": [
+        "log_raw_count",
+        "retained_slots_fraction",
+        "span",
+        "ground_fraction",
+        "actual_clock_known",
+        "stand_known",
+        "runway_known",
+        "left_source_missing",
+        "right_source_missing"
+      ],
+      "bounds": {
+        "time": [
+          -0.008333333333333333,
+          1
+        ],
+        "gap": [
+          0,
+          1
+        ],
+        "east_north": [
+          -2,
+          2
+        ],
+        "speed": [
+          0,
+          1
+        ],
+        "altitude": [
+          0,
+          1
+        ],
+        "distance": [
+          0,
+          1
+        ],
+        "clock": [
+          -1,
+          1
+        ]
+      },
+      "scales": {
+        "time_sec": 7200,
+        "gap_log_sec": 7260,
+        "east_north_m": 20000,
+        "speed_kt": 300,
+        "altitude_ft": 10000,
+        "distance_m": 40000,
+        "clock": "clip(asinh((point-originalAOBT)/1800),-8,8)/8",
+        "raw_count_cap": 4096
+      },
+      "padding": "right padding, independent boolean point mask, all padded channels zero",
+      "absent_sequence": "0 or 1 points cached honestly; model residual hard-gated off"
+    },
+    "seed": 42,
+    "fixed_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "target": "original direct min(y,10800), standardized with ordinary training population",
+    "training": "exact original sparse train bytecode; only public model constructor differs",
+    "preprocessing": "exact original156 preprocessing, checked against saved control",
+    "machine": "desktop RTX3080; same-machine saved physical-scale seed42 controls",
+    "primary": "same-machine public single versus new single, actual public Cat3/R20 stack",
+    "selected_reference": "public three-member pool; different pool size, diagnostic only",
+    "tree": "selected callsign main LightGBM plus original airport and CatBoost, seed42",
+    "rome": "selected half Cat3/half R20",
+    "network_share": 0.71,
+    "rules": "unchanged",
+    "no_inner_stopping": true,
+    "no_weight_search": true,
+    "no_new_gate": true,
+    "held_labels": "fixed-epoch monitoring and final development score only",
+    "exploratory_reused_development_months": true,
+    "production_or_upload": false,
+    "variant": "public",
+    "no_probability_search": true,
+    "no_epoch_search": true,
+    "scope": "Does not simulate loss of all ADS-B scalar inputs or ground-only coverage"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.7179555526533,
+      "candidate": 327.04402670853176,
+      "control_transfer": 326.52573587497625,
+      "candidate_transfer": 326.72645355344474,
+      "pool3_transfer": 326.27878354283257
+    },
+    "2025-07": {
+      "control": 258.15006689187436,
+      "candidate": 258.5308874013466,
+      "control_transfer": 259.4221674151615,
+      "candidate_transfer": 259.8911430179767,
+      "pool3_transfer": 258.8971924742017
+    }
+  },
+  "cv": {
+    "control": 292.43401122226385,
+    "candidate": 292.7874570549392,
+    "control_transfer": 292.97395164506884,
+    "candidate_transfer": 293.30879828571074,
+    "pool3_transfer": 292.58798800851713
+  },
+  "paired": {
+    "candidate_vs_control": {
+      "change": 0.3534458326753622,
+      "ci95": [
+        0.1123565296398354,
+        0.6478285734783916
+      ],
+      "decision": "regression"
+    },
+    "candidate_transfer_vs_control_transfer": {
+      "change": 0.33484664064184244,
+      "ci95": [
+        0.1049717184426644,
+        0.5994123405772772
+      ],
+      "decision": "regression"
+    },
+    "candidate_transfer_vs_pool3_transfer": {
+      "change": 0.7208102771935785,
+      "ci95": [
+        0.49677189599525207,
+        0.993288063556035
+      ],
+      "decision": "regression"
+    }
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_dropout/identity.json",
+    "sha256": "c11beabd48a8bbc6e5ee07f6bfda5e3de9b87e01f1ac7c1a33016a077a84a0a6"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_dropout/scored.parquet",
+    "sha256": "91da69900849cdb29f14bf65458636d78e08d5bb9536ea87ca130ee4a9041912"
+  },
+  "original_public_single_squared_errors_exact": true,
+  "interpretation": "Matched public single is primary; selected pool3 is a different-size reference; no production selected"
+}

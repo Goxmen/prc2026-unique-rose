@@ -1,0 +1,102 @@
+{
+  "design": {
+    "parent": "selected combined public main/neural stack with public Cat3/R20",
+    "change": "fixed one-third PLE neural recording-classifier probability",
+    "model": {
+      "encoding": {
+        "min_cat_rows": 20,
+        "quantiles": 256,
+        "clip": 5.0
+      },
+      "bins": 32,
+      "d_ple": 8,
+      "hidden": [
+        256,
+        128
+      ],
+      "dropout": 0.1,
+      "batch": 1024,
+      "max_epochs": 48,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "gradient_clip": 1.0,
+      "seed": 42,
+      "loss": "unweighted binary cross-entropy with logits",
+      "stopping": "lowest last-allowed-training-month log loss; refit full outer training",
+      "schedule": "OneCycleLR over48 epochs in inner and full fits; stop full at chosen epoch"
+    },
+    "rows": "original R20 Rome population and binary target",
+    "input_columns": 75,
+    "removed": [
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d"
+    ],
+    "new_inputs": [],
+    "removing_history": "exclude departure-label history to keep the inner stopping split isolated",
+    "probability": "(2/3)*current publicCat3/R20 mean + (1/3)*neural",
+    "primary": "taxi RMSE after full correction stack and v74 transfer",
+    "no_blend_or_architecture_search": true,
+    "no_cost_weighting": true,
+    "seed": 42,
+    "machine": "desktop RTX3080; inner and full fits on same machine",
+    "evaluation": "reused Jan/Jul development; new single member is an exploratory screen"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.28558057775336,
+      "control_transfer": 326.1740758752955,
+      "candidate": 326.10054140454713,
+      "candidate_transfer": 326.0941745447181,
+      "pure": 326.0746419480343,
+      "pure_transfer": 326.326017769544
+    },
+    "2025-07": {
+      "control": 257.1611804522669,
+      "control_transfer": 258.72474053760806,
+      "candidate": 259.76580893121616,
+      "candidate_transfer": 260.5102263355723,
+      "pure": 265.2826669520756,
+      "pure_transfer": 266.03971307539024
+    }
+  },
+  "cv": {
+    "control": 291.72338051501015,
+    "control_transfer": 292.4494082064518,
+    "candidate": 292.93317516788164,
+    "candidate_transfer": 293.3022004401452,
+    "pure": 295.678654450055,
+    "pure_transfer": 296.1828654224671
+  },
+  "paired": {
+    "candidate_vs_control": {
+      "change": 1.2097946528715227,
+      "ci95": [
+        -0.21630500892041696,
+        3.464303256322029
+      ],
+      "decision": "inconclusive"
+    },
+    "candidate_transfer_vs_control_transfer": {
+      "change": 0.8527922336934353,
+      "ci95": [
+        -0.07619935368349465,
+        2.137296768830396
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "original_joint_controls_exact": true,
+  "non_rome_unchanged": true,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_rome_neural/identity.json",
+    "sha256": "be0c787192bd16f3ec66ff8a9f0446d5734b61ecc9efd3aefb785349fa04af51"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_rome_neural/scored.parquet",
+    "sha256": "f3af8d095bad0301328c653b628aa042e080fcd0309663fe725f093b51c19e52"
+  },
+  "interpretation": "Fixed one-third blend is primary; pure model diagnostic only; no production selected"
+}

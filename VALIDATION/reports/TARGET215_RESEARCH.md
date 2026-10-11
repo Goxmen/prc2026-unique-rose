@@ -1,5 +1,40 @@
 # Research toward 215 seconds — 11 October 2026
 
+## V76 prepared and two completed screens, 12:05 Amsterdam
+
+**V76 is built, independently audited and queued for12 October02:10 Amsterdam.**
+Its joint public main/neural change has Jan/Jul CV292.4494 versus v75's292.9415,
+a0.4921-second gain, interval[−0.6646,−0.3504]. Both months and comparisons with
+both individual changes improve. The production pool, main tree, original
+controls, final constraints, IDs and schema reproduce across all344,841 rows.
+Independent SQL reproduces all344,419 CV truths and scores. File SHA-256
+`17d66918de307849c7afbb6522f257d6c2f9eef3e3ffde478a8995ab84d1b425`;
+all96 frozen dependencies verified before queueing. Upload watcher PID792755
+binds manifest hash `aa99213f914267e41b37fc3bb5e46e4ac411712821524e8918dc3fdd37e1a4ac`.
+V75's earlier02:00 queue is unchanged. No official result for either file yet.
+
+Raw-track withholding **fails**: matched single CV292.4340→292.7875
+(+0.3534), interval[+0.1124,+0.6478]. Transferred CV292.9740→293.3088
+(+0.3348), interval[+0.1050,+0.5994]. Both months worsen. Numerical model
+reloads pass1,094 sampled rows (maximum0.001031s); SQL independently checks
+all344,419 truths, calendars and scores. Retain both21/17-epoch models in
+`v3_20261011_nn_track_dropout/`; no production expansion or submission.
+
+The frequency-weighted monthly reference bridge changes v75 CV
+292.9415→292.8897 (−0.0519), interval[−0.0795,−0.0330]; both months improve.
+Every reference mass and all344,419 SQL scores pass. This is a small effect
+on reused development data, using approximate reference membership. Retain
+`v3_20261011_monthly_reference_bridge/`; no distinct candidate or upload.
+
+The neural Rome classifier also fails to improve: selected CV292.4494→
+293.3022 (+0.8528), interval[−0.0762,+2.1373]. January improves0.0799 but
+July worsens1.7855. All saved probabilities reload, and independent training
+membership, train-only encoders, stopping and all344,419 SQL scores pass.
+Retain `v3_20261011_rome_neural/`; no production fit or upload. The desktop
+continues with public-only airline/month adaptation and exact-stack t5.
+Earlier queue statuses below are historical. The subagent network remains
+unavailable due to its account usage limit; its prior research is retained.
+
 ## Heavy-tail result and exact selected-stack follow-up
 
 The fixed t5 ordinary-aggregate prior improves the matched aligned Gaussian

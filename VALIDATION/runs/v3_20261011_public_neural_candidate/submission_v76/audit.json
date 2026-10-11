@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_public_neural_candidate.py",
+    "sha256": "eb62d0ca57aef8ba25cb2cc63248a316493a8948a0a5b023d381a417e68b30da"
+  },
+  "output_sha256": "17d66918de307849c7afbb6522f257d6c2f9eef3e3ffde478a8995ab84d1b425",
+  "full_prediction_replay_rows": 344841,
+  "independent_neural_pool_exact": true,
+  "independent_tree_mean_exact": true,
+  "independent_constraints_exact": true,
+  "independent_sql_truth_calendar_controls_and_cv": true,
+  "cv": 292.4494082064515,
+  "schema_and_ids_exact": true,
+  "production_model_audit": {
+    "path": "VALIDATION/runs/v3_20261011_nn_public_submit/audit.json",
+    "sha256": "a9c4d19910718159594776b59baf6069387cbe90c222872e05989a048354a24c"
+  },
+  "scope": "All final arithmetic and constraints replayed; retained production stages reload all new model predictions"
+}

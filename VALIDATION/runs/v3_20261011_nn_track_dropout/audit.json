@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "month": "2025-01",
+      "seed": 42,
+      "rows": 548,
+      "raw_scalar_rows": 32,
+      "maximum_difference_seconds": 0.0010306315998604987
+    },
+    {
+      "month": "2025-07",
+      "seed": 42,
+      "rows": 546,
+      "raw_scalar_rows": 32,
+      "maximum_difference_seconds": 0.00041321751245959604
+    }
+  ],
+  "source": {
+    "path": "VALIDATION/tools/audit_public_neural.py",
+    "sha256": "bd5a1d6f2bce1c277147743aabdf27d80e78db2da0ce798248cd007840d008a4"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_track_dropout/identity.json",
+    "sha256": "c11beabd48a8bbc6e5ee07f6bfda5e3de9b87e01f1ac7c1a33016a077a84a0a6"
+  },
+  "tolerance_seconds": 0.01,
+  "interpretation": "Numerical reload audit; development months are reused"
+}

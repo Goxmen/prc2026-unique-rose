@@ -114,6 +114,22 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,12:05 Amsterdam: v76 built and audited; autonomous upload queued.**
+  Public daily inputs in the main tree and three physical networks improve v75
+  Jan/Jul CV292.9415→292.4494 (−0.4921); both months and individual-component
+  comparisons pass. All344,841 final predictions/constraints/schema and all344,419
+  CV truths/scores independently audited. File SHA starts17d66918; manifest and
+  full audit in `v3_20261011_public_neural_candidate/submission_v76/`. Watcher
+  PID792755 (`target215/queue_v76.json`) uploads at12 October02:10 Amsterdam;
+  v75's02:00 queue is unchanged. Neither has an official result yet. Do not
+  refit, rebuild or alter bound sources. Ledger row77 added. Raw-track withholding
+  failed (+0.3534 matched CV, both months worse); monthly-reference proxy is a
+  small−0.0519, retained as research without a distinct submission. Both audited.
+  Neural Rome classification is running, then public monthly-airline adaptation
+  and exact selected-stack heavy-tail replacement. Target remains215; best v74
+  is221.6881 (last live11:30 Amsterdam). Full details in TARGET215_RESEARCH.md.
+
+
 - **October 11, 11:46 Amsterdam: heavy-tail screen passes its matched comparison.**
   CV292.1302→291.5711,−0.5591 versus the aligned Gaussian method, paired interval
   [−0.9126,−0.3181], both months improve. Against the original takeoff-day method,

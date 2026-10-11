@@ -13,12 +13,12 @@ XGBoost as a fourth tree member failed (+0.2433 CV). Full-schedule public neural
 training passed its matched single-seed screen (−0.2513 CV); the three-seed
 expansion also passes (−0.3536 on v75, both months), with model and score audits
 complete. All three full-year networks and production audits are complete;
-the desktop is now running the fixed track-withholding screen.
+the fixed track-withholding screen has finished and regresses both months.
 Its combination with the new main tree passes joint CV292.4494 (−0.4921
 versus v75), improving both individual changes and both months. All control
-replays and the independent SQL audit pass. V76 is reserved for this combination;
-its build/audit is queued after the existing research jobs, once the three
-full-year neural members and production audit have finished. No v76 file yet.
+replays and the independent SQL audit pass. V76 is now built and independently audited on all344,841 ranking rows.
+Its file and96 frozen dependencies are verified; it is queued for upload
+on12 October02:10 Amsterdam, after v75. No official v76 result yet.
 Cross-fitted Rome peer budgets were inconclusive
 (−0.1407 on v75); no production expansion. Rome punctuality inputs also gave
 no gain (+0.0128 on v75). Their ordinary main-regressor test also gives no
@@ -36,20 +36,18 @@ both months, interval[−0.9126,−0.3181]. Its gain against the original daily
 method is inconclusive. A direct replacement inside v76 is queued: keep the
 actual original dates, prior, noise, weight and all later corrections. No
 date-aligned production candidate is selected.
-A fixed raw-track withholding experiment is running: the public single
-network randomly loses its entire raw-track branch on 25% of training rows,
-with the original inference, inputs, epochs and parameters. CPU checks pass;
-Jan/Jul results are pending. This tests branch robustness, not complete ADS-B
-or ground-only missingness. Live check at 11:30 Amsterdam still gives v74 as
+Withholding the raw-track branch on25% of training rows failed: matched
+single-network CV worsens0.3534, with transferred change+0.3348 and both
+months worse. Model/input reloads and independent scores pass; no expansion.
+This tested branch robustness, not complete ADS-B or ground-only missingness. Live check at 11:30 Amsterdam still gives v74 as
 best/latest, 221.6881 and rank12/242.
-A reference-population monthly comparison is queued after track withholding.
-It matches the public coverage fraction using stand/runway input frequency;
-the existing correction strength and limits stay fixed. This approximates
-source membership, with numerical checks passed and CV still pending.
-A fixed neural Rome classifier is queued after the v76 build. It adds one-third
-neural probability to the current Cat3/R20 classifier mean, using train-only
-inner stopping and75 inputs without departure-label histories. CPU and all-row
-input checks pass; no classifier fit or validation result yet.
+The frequency-weighted monthly-reference comparison is complete and audited.
+It improves v75 CV by0.0519, interval[−0.0795,−0.0330], with both months better.
+The effect is too small for a distinct submission; retain it as research.
+Source membership remains approximated, not observed.
+The fixed neural Rome classifier failed to improve: selected CV+0.8528;
+January slightly improves but July worsens1.7855. Saved probabilities and
+independent training/stopping/score audits pass; no expansion.
 A public-only Rome adaptation screen follows it: one regularized airline/month
 probability shift is inferred jointly from that month's daily delay totals.
 This shares evidence across days, with fixed prior strength and retained

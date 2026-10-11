@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "Track withholding: January21epochs retained; July17epochs training; CV/audits pending",
-    "queue": "VALIDATION/runs/v3_20261011_target215/track_dropout_queue.json",
-    "pid": 780609,
-    "log": "tmp/research_20261011/track_dropout.log"
+    "task": "Public-only airline/month adaptation; neural Rome finished without gain",
+    "queue": "VALIDATION/runs/v3_20261011_target215/rome_public_monthly_shift_queue.json",
+    "pid": null,
+    "log": "tmp/research_20261011/rome_public_monthly_shift.log"
   },
   "laptop": "Windows online; WSL still offline at09:55UTC; pending optional request to open WSL",
   "utc_uploads_used": [
@@ -66,9 +66,13 @@
     "Neural Rome classifier CPU checks and all-row target/input/training membership preflight pass; Jan126507 and July86723 training rows; no fits yet",
     "Public-only airline/month shift: analytic gradient, exact zero-update source, shared-airline, row-order, direction and poisoned-label numerical checks pass; no CV result yet",
     "All three public full-year networks complete; all344841 ranking reloads per member exact; separate1845-row model/input audit passed max0.001371 seconds",
-    "Heavy-tail screen CV291.5711 improves matched off-block Gaussian by0.5591, CI[-0.9126,-0.3181]; both months; versus original daily method gain0.4338 remains inconclusive; all344419 truth/control/score audits pass"
+    "Heavy-tail screen CV291.5711 improves matched off-block Gaussian by0.5591, CI[-0.9126,-0.3181]; both months; versus original daily method gain0.4338 remains inconclusive; all344419 truth/control/score audits pass",
+    "Raw-track withholding failed: matched CV+0.3534, transferred+0.3348; both months worse; model and score audits pass",
+    "Monthly reference proxy improves v75 by0.0519; both months; independently audited, retained as small research effect without submission",
+    "V76 built and fully audited; all344841 predictions/constraints/schema and all344419 SQL CV labels/scores pass; all96 frozen dependencies verified",
+    "Neural Rome fixed one-third classifier failed to improve: selected CV+0.8528, July+1.7855; train-only membership/vocabulary/stopping and scores audited"
   ],
-  "next": "Track withholding and monthly reference screens; build/audit v76; neural Rome, public airline/month shift, and exact selected-stack t5 replacement; preserve v75 upload.",
+  "next": "Public-only monthly-airline adaptation, then exact selected-stack t5 comparison; preserve v75/v76 queued uploads.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -165,7 +169,7 @@
   "track_dropout_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/track_dropout_queue.json",
     "pid": 761633,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "fixed25% training raw-track withholding; original inference; matched public-single CV",
       "sampled model reload audit and independent all-row SQL scores"
@@ -174,7 +178,7 @@
   "monthly_reference_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/monthly_reference_queue.json",
     "pid": 761634,
-    "state": "waiting",
+    "state": "complete",
     "jobs": [
       "fixed frequency-weighted monthly source population, actual v75 transfer",
       "independent SQL scores and coverage-mass audit"
@@ -183,7 +187,7 @@
   "joint_candidate_build_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/joint_candidate_build_queue.json",
     "pid": 764020,
-    "state": "waiting",
+    "state": "complete",
     "reserved_version": 76,
     "jobs": [
       "Build selected combined public main/neural v76",
@@ -193,7 +197,7 @@
   "rome_neural_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/rome_neural_queue.json",
     "pid": 770665,
-    "state": "waiting",
+    "state": "complete",
     "jobs": [
       "One fixed one-third PLE neural classifier blend at Rome, one seed",
       "Train-only inner stopping and preprocessing; full-model disk reloads and independent score audit"
@@ -203,7 +207,7 @@
   "rome_public_monthly_shift_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/rome_public_monthly_shift_queue.json",
     "pid": 777889,
-    "state": "waiting",
+    "state": "complete",
     "jobs": [
       "One regularized airline/month logit shift inferred from public daily totals, fixed prior SD0.5",
       "Independent row-loop aggregates/variance/probability audit and SQL CV audit"
@@ -212,10 +216,27 @@
   "heavy_tail_stack_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/heavy_tail_stack_queue.json",
     "pid": 782369,
-    "state": "waiting",
+    "state": "running",
     "jobs": [
       "Replace only actual v76 daily Gaussian aggregate with variance-matched t5",
       "Exact v72/v73/v74/v76 control replay; independent SQL score and fixed-weight serialization audit"
     ]
-  }
+  },
+  "queued_uploads": [
+    {
+      "state": "waiting",
+      "pid": 649782,
+      "manifest": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/submission_v75/manifest.json",
+      "manifest_sha256": "9999ff2ba75a2c4ee35814c6502ea833cc08057cc74d9efa89acade85e85fb7c",
+      "not_before_utc": "2026-10-12T00:00:05+00:00"
+    },
+    {
+      "state": "waiting",
+      "pid": 792755,
+      "manifest": "VALIDATION/runs/v3_20261011_public_neural_candidate/submission_v76/manifest.json",
+      "manifest_sha256": "aa99213f914267e41b37fc3bb5e46e4ac411712821524e8918dc3fdd37e1a4ac",
+      "not_before_utc": "2026-10-12T00:10:05+00:00"
+    }
+  ],
+  "updated_at": "2026-10-11T10:05:52.959626+00:00"
 }
