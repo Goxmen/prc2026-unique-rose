@@ -221,7 +221,9 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   public12 transforms, and requires all-row ranking reloads. All new members
   are bound to desktop; the retained original production pool used laptop.
   Same research cancellation file; no upload or new version reserved. The
-  public main tree full-year fit is now running (PID716355). The joint CV guard
+  public main tree full-year production is complete: all344,841 ranking
+  predictions reload exactly; retain `v3_20261011_public_delay_lgb_submit/`.
+  The joint CV guard
   passes and binds all retained models, controls and audits; its score is still
   pending. It must reproduce both single-change recipes exactly, with fixed
   weights and the full correction stack. The old waiting PID717805 was stopped
@@ -230,6 +232,11 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   are prepared (compile/import checks only), with optional `--with-main`.
   The combined mode requires both joint CV comparisons to pass. Execution
   awaits production; no candidate file/version or upload is reserved.
+  Structural Rome conditional support failed its screen: CV292.5676 versus
+  old posterior292.0049 (+0.5626), January−0.0611/July+1.1863; interval
+  [−0.0344,+1.3290]. No expansion. Endpoints and predictions are retained in
+  `v3_20261011_daily_structural_prior/`. The off-block-date screen is now
+  running (child PID731591); its independent audit remains queued afterward.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL is offline on Tailscale; its Windows host is online but Windows

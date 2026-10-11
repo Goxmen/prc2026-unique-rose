@@ -7,7 +7,7 @@ V75 is fully prepared and audited: public daily inputs in the Rome CatBoost
 pool give Jan/Jul CV292.9415, a0.7758-second gain over v74. It is queued for
 12 October02:00 Amsterdam; no official result yet. The main-LightGBM version
 passed its complete reload audit and adds another 0.1709 seconds to v75,
-reaching CV 292.7707; its full-year fit is running. Retained TabM blending
+reaching CV 292.7707; full-year production and all344,841 reloads are complete. Retained TabM blending
 failed; no expansion.
 XGBoost as a fourth tree member failed (+0.2433 CV). Full-schedule public neural
 training passed its matched single-seed screen (−0.2513 CV); the three-seed
@@ -19,12 +19,12 @@ Cross-fitted Rome peer budgets were inconclusive
 (−0.1407 on v75); no production expansion. Rome punctuality inputs also gave
 no gain (+0.0128 on v75). Their ordinary main-regressor test is queued;
 all 18,765,423 input values passed independent arithmetic checks.
-A structural Rome prior for the daily-total method is also queued, using
-retained conditional predictions and no new fits.
+A structural Rome prior for the daily-total method failed (+0.5626 versus
+the old posterior, largely July); no production expansion.
 The daily totals empirically align with off-block dates rather than takeoff
 dates: Rome's source-error p95 falls from7,231 to142 seconds. A fixed screen
-using dates estimated from v70 predictions is queued after the structural
-prior and before ordinary punctuality. Source/calendar audits pass; no model
+using dates estimated from v70 predictions is running before ordinary
+punctuality. Source/calendar audits pass; no model
 gain or production is claimed for this new lead.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).

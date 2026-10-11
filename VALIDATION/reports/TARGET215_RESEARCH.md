@@ -639,3 +639,32 @@ Across airports the robust scale divided by square root of the count is roughly
 proof of the source's noise mechanism. Retain uncertainty; CSV precision does
 not justify an exact or rounding-only constraint. Full statistics and the
 audited input hash are in `v3_20261011_daily_offblock_alignment/source_noise_diagnostic.json`.
+
+## Main production complete; conditional Rome support rejected
+
+The public main LightGBM completed its original 10,000 rounds on 2,051,327
+ordinary rows in 20.16 minutes. The saved model reproduces every one of its
+344,841 ranking predictions exactly after reload. Retain the model, input
+identity and prediction records under `v3_20261011_public_delay_lgb_submit/`;
+no extra fit or upload is needed. A combined final file still awaits joint
+CV and the new neural production pool.
+
+The fixed structural-prior screen finishes at **292.5676**, versus **292.0049**
+for the original daily posterior: **+0.5626 seconds**. January changes −0.0611
+and July +1.1863; paired-day interval [−0.0344, +1.3290]. This does not support
+expansion. The prior-mean checks and exact serialized parent replay pass;
+all non-Rome predictions stay unchanged. There are 2,839 conditional-copy
+supports, four fixed-copy supports and 1,323 original fallbacks. Preserve
+the endpoints, predictions and result under `v3_20261011_daily_structural_prior/`.
+No submission-ledger entry, full-year expansion or upload follows this result.
+The off-block-date screen has started next in the sequential queue.
+
+A short recovery-source check does not justify another expansion: the cached
+OPDI flight lists contain aircraft/callsign/route identities and first/last
+observations, but no LOBT or other flight-plan off-block timestamp. The retained
+LIRF/LTFM recovery pairs have 12 ambiguous departures in training and only one
+in ranking; the existing rule already accepts 49 of the 50 ranking departures
+with any candidate donor. Resolving ambiguity would therefore cover only one
+additional test departure and would not address the broad missing-plan
+population. No new fetch, match relaxation, model or flight-specific correction
+was made.

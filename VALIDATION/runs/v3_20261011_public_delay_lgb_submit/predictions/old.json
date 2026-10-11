@@ -1,0 +1,31 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_lgb_submit/identity.json",
+    "sha256": "c3baf76d7f2d6a9882ac5d60268615c14987ab6b87f809396f1c192087381d59"
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_lgb_submit/models/lgb.txt",
+    "sha256": "8cff226ac87963bde18241e66b35d40c7cdd5684f9913b844834771694a6efee"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_public_delay_lgb_submit/predictions/old.parquet",
+    "sha256": "ae717e5bbc62e0133c9f73c59a3fc921683b8cb4d84d42a5474fd8f9ae2b3b71"
+  },
+  "ranking_packet": {
+    "kind": "shared stripped ranking packet",
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/manifest.json",
+      "sha256": "279580a52250cdc230020e3c1d9f715dffa86f8e12baa6b8e3e2f380e7f4a614"
+    },
+    "source": {
+      "path": "VALIDATION/callsign_submit_portable.py",
+      "sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c"
+    }
+  },
+  "feature_table": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/ranking_features.parquet",
+    "sha256": "4f46d20a5463792ca80987f4481ec31bb84f2257152ebe30e116544216f54f0e"
+  },
+  "rows": 344841,
+  "all_ranking_reload_exact": true
+}

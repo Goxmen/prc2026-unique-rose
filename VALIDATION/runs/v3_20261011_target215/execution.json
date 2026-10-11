@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "public main LightGBM full-year production",
-    "queue": "VALIDATION/runs/v3_20261011_target215/expansion_research_queue.json",
-    "pid": 716355,
-    "log": "tmp/research_20261011/public_main_production.log"
+    "task": "estimated off-block-date daily posterior screen",
+    "queue": "VALIDATION/runs/v3_20261011_target215/offblock_alignment_queue.json",
+    "pid": 731591,
+    "log": "tmp/research_20261011/offblock_alignment.log"
   },
   "laptop": "Windows online, WSL offline; both SSH paths time out; optional user request to open WSL pending",
   "utc_uploads_used": [
@@ -52,9 +52,11 @@
     "public daily source aligns with recorded off-block dates: all2085047 clock identities exact; 7301 SQL source-day aggregates pass",
     "estimated v70 off-block dates wrong on24 of344419 held rows; descriptive diagnostic, no CV gain claimed",
     "public neural three-seed pool passed: primary-0.2767, v75 transfer-0.3536; both months",
-    "all six neural reload samples pass3282 rows; independent SQL checks all344419 labels/controls/scores"
+    "all six neural reload samples pass3282 rows; independent SQL checks all344419 labels/controls/scores",
+    "public main full-year model and all344841 ranking reloads exact",
+    "structural Rome support not selected: +0.5626 versus old posterior; July worsens"
   ],
-  "next": "finish main production; structural prior, off-block alignment and ordinary punctuality screens; joint main/neural CV then passing neural production; preserve v75 upload",
+  "next": "finish off-block alignment and ordinary punctuality screens; joint main/neural CV then passing neural production; preserve v75 upload",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -91,7 +93,7 @@
   "expansion_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/expansion_research_queue.json",
     "pid": 680356,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "Rome model audits",
       "public neural single audit",
@@ -108,7 +110,7 @@
   "structural_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/structural_research_queue.json",
     "pid": 687769,
-    "state": "waiting",
+    "state": "complete",
     "jobs": [
       "structural Rome prior in daily posterior, no new model fits"
     ]
@@ -124,7 +126,7 @@
   "offblock_alignment_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/offblock_alignment_queue.json",
     "pid": 707785,
-    "state": "waiting",
+    "state": "running",
     "jobs": [
       "input-only estimated off-block-date posterior and independent audit"
     ]
