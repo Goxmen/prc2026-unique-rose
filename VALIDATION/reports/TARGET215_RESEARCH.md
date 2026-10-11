@@ -1,5 +1,33 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Heavy-tail result and exact selected-stack follow-up
+
+The fixed t5 ordinary-aggregate prior improves the matched aligned Gaussian
+screen **292.1302→291.5711 (−0.5591)**, interval **[−0.9126,−0.3181]**.
+January improves0.5358 and July0.5823. Against the original all-departure
+takeoff-day posterior, the gain is0.4338 with interval[−1.5036,+0.6652]; versus
+its IFR variant it is0.4084, interval[−1.4676,+0.6952]. Those wider comparisons
+remain inconclusive. All321,707 scoped Gaussian predictions replay within1e−8;
+all344,419 labels, calendars, fallbacks and scores pass independent SQL checks.
+Retain `v3_20261011_daily_heavy_tail/`; no production candidate is selected.
+
+The aligned Gaussian parent was itself unselected, so the0.5591 figure does not
+establish an improvement to today's recipe. The follow-up
+`daily_heavy_tail_stack.py` replaces only the Gaussian aggregate shape inside
+the actual selected stack. It uses v72's original serialized v71 prior,
+takeoff-day/all-departure grouping and original training-only noise parameters.
+It keeps the stored v73 weight0.4032872515123992 and integer serialization,
+recomputes v74's monthly shifts with the same fitted coefficients, restores
+its plan bounds, and applies the selected v76 public-model change and bounds.
+No date, mixture-strength, source-noise or weight search is performed.
+
+Every original v72 Gaussian output and all later control stages must replay.
+The independent SQL audit checks the replacement weight, round-to-even
+serialization, labels, calendars and full selected-recipe scores. Numerical
+preflight retains the8,036-state enumeration and verifies SQL half-integer
+rounding. The fixed screen/audit is queued after public monthly-airline
+adaptation (PID782369); no score, full-year inference or submission yet.
+
 ## New fixed screen: share public evidence across an airline's month
 
 The existing daily posterior conditions flights separately within each day.

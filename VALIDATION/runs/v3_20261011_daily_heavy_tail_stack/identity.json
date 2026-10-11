@@ -1,0 +1,125 @@
+{
+  "design": {
+    "parent": "selected v76 combined public recipe",
+    "change": "replace Gaussian ordinary aggregate weights with variance-matched t5 in the existing daily posterior",
+    "source_dates": "original takeoff dates; original all-departure population",
+    "prior": "original serialized v71, as actually used by v72",
+    "noise": "reuse original v72 permitted-training parameters",
+    "daily_weight": "unchanged v73 stored weight on v72",
+    "monthly": "original v74 fitted composition coefficients; recompute shift from changed incoming predictions",
+    "retained": "v73 serialization, v74 plan corrections, v76 public-model delta and plan corrections",
+    "no_new_taxi_fit": true,
+    "no_new_parameter_fit": true,
+    "no_weight_or_scale_search": true,
+    "evaluation": "follow-up after t5 beat Gaussian in the off-block-date screen; reused development",
+    "production": false
+  },
+  "daily_weight": 0.4032872515123992,
+  "sources": [
+    {
+      "path": "VALIDATION/daily_heavy_tail_stack.py",
+      "sha256": "148ae443ab9995c6d6719d4ca5ec27c1f298cebb4a23d923c4c5f73bca9c3392"
+    },
+    {
+      "path": "VALIDATION/daily_heavy_tail.py",
+      "sha256": "d521a1708e8bd5217254548ecfc8fb9b984b083840331b1bde7bd7a977de0932"
+    },
+    {
+      "path": "VALIDATION/daily_delay_submit.py",
+      "sha256": "be11673322be96ade5d34ba8f2c3a97bb9503ad1c4286d3dee644e4a866e1303"
+    },
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/monthly_taxi_reconcile.py",
+      "sha256": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail/identity.json",
+      "sha256": "6135247083444da652c3be117343a6a678c68d7a289b6d3210e24d13d78e7c55"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail/result.json",
+      "sha256": "63cab1a9ae310f0a704935cd3d7124b9569f39e4b0e7db6b67d1b67460a23799"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail/audit.json",
+      "sha256": "ef4947ced53d3bc48069d9469ffef329ab9a29f7039fb1aee9328eef8548ccf0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/screen.json",
+      "sha256": "1b10b8eb811a42e5caa451c2e5baac8ea8e9ae951256a50e6d71ba4d4f09dbd8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay_submit/submission_v72/cv.parquet",
+      "sha256": "c72e86a6e11eb1fe1246ebb5bb647e9603e84a9ad0dead78720104f8b71b1e62"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_expanded_affine/submission_v73/geometry.json",
+      "sha256": "e55b1a55eeeb15c7e94b17eab770994f57b90c1b19394e09d5fd52163824d45a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_expanded_affine/submission_v73/cv.parquet",
+      "sha256": "580b298e147ae4b2934a60b949e996ec508fc3245b1548a22be231e0b9dbf653"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/cv.parquet",
+      "sha256": "9061d6fa5ce21f88a80802b308959a6911c989aaf354a046b99448a66db76c45"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/parameters.json",
+      "sha256": "cd0586523ffc85b908043689dcd3bd31d97f4fc85b27c7616ed72e3e360947b7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/scored.parquet",
+      "sha256": "04d0886b113ce081bbba97bf880e8f33c06366a5a98ac64084abab186ca01e92"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/audit.json",
+      "sha256": "3e526a98b44060135051dcaf62a83c3cf50142aa6c5421c35bc7bfab9ccc06ff"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+      "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_monthly_taxi/rows2025.parquet",
+      "sha256": "4f54fdfd841d3f287cd691c9fdb4ae5e9cc04f6f99347e5d055c0cc17db9d02b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2025.csv",
+      "sha256": "d742eeb626e5f9f7e0c756e2ae3cf90078f4627e989a2e31b8ed21ba8f5510be"
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/taxi_out_additional_time_2025.csv",
+      "sha256": "4aedf19520d3f84bebc418b56835762c907b714a9c19e751bb8658f9e62ce598"
+    }
+  ],
+  "checks": {
+    "variance_matched": true,
+    "centered": true,
+    "gaussian_replay": true,
+    "no_long_and_no_ordinary": true,
+    "enumerated_states": 8036,
+    "enumeration_max_error": 4.547473508864641e-11,
+    "permutation": true
+  }
+}

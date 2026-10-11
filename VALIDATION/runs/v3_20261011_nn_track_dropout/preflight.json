@@ -1,0 +1,34 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "identical_parameters_and_initialization_rng": true,
+      "inference_exact": true,
+      "independent_augmentation_generator": true,
+      "dropout_rng_exact": true,
+      "masked_training_replay_exact": true,
+      "dropped_usable_rows": 5,
+      "kept_usable_rows": 27,
+      "finite_gradient": true,
+      "all_dropped_track_gradient_zero": true,
+      "public_head_active_without_track": true,
+      "padding_invariant": true
+    },
+    {
+      "device": "cuda",
+      "identical_parameters_and_initialization_rng": true,
+      "inference_exact": true,
+      "independent_augmentation_generator": true,
+      "dropout_rng_exact": true,
+      "masked_training_replay_exact": true,
+      "dropped_usable_rows": 7,
+      "kept_usable_rows": 25,
+      "finite_gradient": true,
+      "all_dropped_track_gradient_zero": true,
+      "public_head_active_without_track": true,
+      "padding_invariant": true
+    }
+  ],
+  "training_bytecode_exact": true,
+  "original_globals_unchanged": true
+}

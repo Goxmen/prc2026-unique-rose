@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "Fixed variance-matched heavy-tail ordinary daily aggregate screen",
-    "queue": "VALIDATION/runs/v3_20261011_target215/heavy_tail_queue.json",
-    "pid": 778456,
-    "log": "tmp/research_20261011/daily_heavy_tail.log"
+    "task": "Fixed25% raw-track withholding, January21epochs then July17epochs",
+    "queue": "VALIDATION/runs/v3_20261011_target215/track_dropout_queue.json",
+    "pid": 780609,
+    "log": "tmp/research_20261011/track_dropout.log"
   },
   "laptop": "Windows online, WSL offline at09:02 UTC; optional user request to open WSL remains pending",
   "utc_uploads_used": [
@@ -65,9 +65,10 @@
     "reserved SQL alias corrected in four new auditors; three waiting queues safely stopped/rebound without model changes or repeated fits",
     "Neural Rome classifier CPU checks and all-row target/input/training membership preflight pass; Jan126507 and July86723 training rows; no fits yet",
     "Public-only airline/month shift: analytic gradient, exact zero-update source, shared-airline, row-order, direction and poisoned-label numerical checks pass; no CV result yet",
-    "All three public full-year networks complete; all344841 ranking reloads per member exact; separate1845-row model/input audit passed max0.001371 seconds"
+    "All three public full-year networks complete; all344841 ranking reloads per member exact; separate1845-row model/input audit passed max0.001371 seconds",
+    "Heavy-tail screen CV291.5711 improves matched off-block Gaussian by0.5591, CI[-0.9126,-0.3181]; both months; versus original daily method gain0.4338 remains inconclusive; all344419 truth/control/score audits pass"
   ],
-  "next": "Complete neural production/audit; fixed heavy-tail, track dropout, reference bridge; build/audit v76; neural Rome and public-only monthly adaptation screens; preserve v75 upload.",
+  "next": "Track withholding and monthly reference screens; build/audit v76; neural Rome, public airline/month shift, and exact selected-stack t5 replacement; preserve v75 upload.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -156,7 +157,7 @@
   "heavy_tail_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/heavy_tail_queue.json",
     "pid": 761632,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "fixed variance-matched t5 ordinary-aggregate screen and SQL audit"
     ]
@@ -164,7 +165,7 @@
   "track_dropout_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/track_dropout_queue.json",
     "pid": 761633,
-    "state": "waiting",
+    "state": "running",
     "jobs": [
       "fixed25% training raw-track withholding; original inference; matched public-single CV",
       "sampled model reload audit and independent all-row SQL scores"
@@ -206,6 +207,15 @@
     "jobs": [
       "One regularized airline/month logit shift inferred from public daily totals, fixed prior SD0.5",
       "Independent row-loop aggregates/variance/probability audit and SQL CV audit"
+    ]
+  },
+  "heavy_tail_stack_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/heavy_tail_stack_queue.json",
+    "pid": 782369,
+    "state": "waiting",
+    "jobs": [
+      "Replace only actual v76 daily Gaussian aggregate with variance-matched t5",
+      "Exact v72/v73/v74/v76 control replay; independent SQL score and fixed-weight serialization audit"
     ]
   }
 }

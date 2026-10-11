@@ -1,0 +1,95 @@
+{
+  "design": {
+    "parent": "estimated off-block-date posterior on serialized original v70",
+    "change": "t5 ordinary aggregate weights on unchanged 41-node grid, matched discrete variance",
+    "df": 5,
+    "scale_in_original_sd": 0.7881524965575744,
+    "discrete_variance": 0.9999999735819367,
+    "grid": {
+      "parent": "v71",
+      "ordinary_sigma": 150.0,
+      "common_day_sigma": 15.0,
+      "long_threshold": 3600.0,
+      "copy_airport": "LIRF",
+      "copy_threshold": 3600.0,
+      "copy_max_gap": 50400.0,
+      "noise_floor": 60.0,
+      "mismatch_scale_floor": 600.0,
+      "negative_output": "clip zero",
+      "calibration": "allowed outer training labels only",
+      "screen": "fixed analytic Gaussian moments; no hyperparameter scan",
+      "method": "60-second discrete messages; t3 measurement likelihood; Gaussian ordinary sum",
+      "grid_sec": 60.0,
+      "held_quantiles": 15,
+      "ordinary_grid_points": 41,
+      "ordinary_grid_sd": 6.0,
+      "copy_broad_share": 0.05,
+      "long_prior": "held quantiles centered at incoming mean; Rome adds copy and broad components",
+      "max_correction": null
+    },
+    "no_new_taxi_fit": true,
+    "no_scale_or_weight_search": true,
+    "source_parameters": "reuse allowed-training off-block parameters exactly",
+    "scope": "same input-assigned interior dates; same fallback predictions",
+    "interpretation": "Shared heavy-tail scale for aggregate ordinary errors; fixed old linear allocation",
+    "evaluation": "motivated by prior-screen residuals on reused Jan/Jul development"
+  },
+  "scores": {
+    "2025-01": {
+      "old_all_departures": 325.9479405033647,
+      "control": 325.9053762428278,
+      "offblock_gaussian": 325.85842931540583,
+      "pred": 325.3226078018516
+    },
+    "2025-07": {
+      "old_all_departures": 258.06195633766924,
+      "control": 258.05370333568834,
+      "offblock_gaussian": 258.4019469986789,
+      "pred": 257.81964317634004
+    }
+  },
+  "cv": {
+    "old_all_departures": 292.00494842051694,
+    "control": 291.97953978925807,
+    "offblock_gaussian": 292.13018815704237,
+    "pred": 291.57112548909583
+  },
+  "paired": {
+    "old_all_departures": {
+      "change": -0.4338229314211617,
+      "ci95": [
+        -1.5035569057584695,
+        0.6652008887441746
+      ],
+      "decision": "inconclusive"
+    },
+    "control": {
+      "change": -0.40841430016226354,
+      "ci95": [
+        -1.4675705364214338,
+        0.6952460164142403
+      ],
+      "decision": "inconclusive"
+    },
+    "offblock_gaussian": {
+      "change": -0.5590626679465629,
+      "ci95": [
+        -0.9125907384753862,
+        -0.31809267052072304
+      ],
+      "decision": "improvement"
+    }
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail/identity.json",
+    "sha256": "6135247083444da652c3be117343a6a678c68d7a289b6d3210e24d13d78e7c55"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail/scored.parquet",
+    "sha256": "446fbe50a11db5c7608b8754a614454b8374f09269e869a06650080b05923241"
+  },
+  "fallback_exact": true,
+  "gaussian_control_replayed_all_scope_rows": true,
+  "scope_rows": 321707,
+  "interpretation": "Exploratory fixed follow-up; no production or upload selected"
+}

@@ -13,7 +13,7 @@ XGBoost as a fourth tree member failed (+0.2433 CV). Full-schedule public neural
 training passed its matched single-seed screen (−0.2513 CV); the three-seed
 expansion also passes (−0.3536 on v75, both months), with model and score audits
 complete. All three full-year networks and production audits are complete;
-the desktop is now running the fixed heavy-tail screen.
+the desktop is now running the fixed track-withholding screen.
 Its combination with the new main tree passes joint CV292.4494 (−0.4921
 versus v75), improving both individual changes and both months. All control
 replays and the independent SQL audit pass. V76 is reserved for this combination;
@@ -31,14 +31,16 @@ dates: Rome's source-error p95 falls from7,231 to142 seconds. A fixed screen
 using dates estimated from v70 predictions failed to improve (+0.1506 versus
 matched IFR control), despite passing source/calendar/scoring audits. Ordinary
 flights generally improve, but long Rome flights worsen in July. A fixed t5
-ordinary-aggregate prior with the same variance is queued after neural
-production; numerical checks pass, no CV result yet. No date-aligned
-production candidate is selected.
-A fixed raw-track withholding experiment is queued last: the public single
+ordinary-aggregate prior improves this matched Gaussian version by0.5591,
+both months, interval[−0.9126,−0.3181]. Its gain against the original daily
+method is inconclusive. A direct replacement inside v76 is queued: keep the
+actual original dates, prior, noise, weight and all later corrections. No
+date-aligned production candidate is selected.
+A fixed raw-track withholding experiment is running: the public single
 network randomly loses its entire raw-track branch on 25% of training rows,
 with the original inference, inputs, epochs and parameters. CPU checks pass;
 Jan/Jul results are pending. This tests branch robustness, not complete ADS-B
-or ground-only missingness. Live check at 10:47 Amsterdam still gives v74 as
+or ground-only missingness. Live check at 11:30 Amsterdam still gives v74 as
 best/latest, 221.6881 and rank12/242.
 A reference-population monthly comparison is queued after track withholding.
 It matches the public coverage fraction using stand/runway input frequency;

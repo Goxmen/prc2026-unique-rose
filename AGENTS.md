@@ -114,6 +114,19 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 11:46 Amsterdam: heavy-tail screen passes its matched comparison.**
+  CV292.1302→291.5711,−0.5591 versus the aligned Gaussian method, paired interval
+  [−0.9126,−0.3181], both months improve. Against the original takeoff-day method,
+  −0.4338 is inconclusive[−1.5036,+0.6652]. All344,419 truth/control/score audits
+  pass; no production selected. Because the aligned method itself was not in
+  the current stack, `daily_heavy_tail_stack.py` now tests only t5 in the actual
+  v72 component: retain takeoff dates, original v71 prior/noise, fixed0.403287
+  v73 weight and serialization, v74 monthly/bounds and v76 model changes.
+  It must replay every original later stage. Numerical and SQL-rounding checks
+  pass; queuePID782369 follows monthly-airline adaptationPID777889.
+  The desktop is now fitting track withholding, queuePID761633. No existing
+  model fits or posterior screens are repeated.
+
 - **October 11, 11:39 Amsterdam: public neural production complete.** All three
   15-epoch networks are retained under `v3_20261011_nn_public_submit/`, seeds
   42/1042/2042 on the desktop. Each saved model reproduces all344,841 ranking
