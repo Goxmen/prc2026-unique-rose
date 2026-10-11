@@ -1,0 +1,82 @@
+{
+  "design": {
+    "parent": "v76",
+    "change": "12 public daily inputs in every airport LightGBM",
+    "original_inputs": 156,
+    "added_inputs": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "seed": 42,
+    "trial": "P04",
+    "rounds": 5000,
+    "threads": 4,
+    "original_training_rows": true,
+    "original_labels": true,
+    "no_callsign_inputs": true,
+    "no_new_stopping": true,
+    "no_parameter_search": true,
+    "all_other_parts": "selected public main/physical/Rome and original callsign15/CatBoost",
+    "comparison": "original saved airport models versus public airport models in selected stack",
+    "caveat": "Reused Jan/Jul development; historical and new tree thread counts can differ",
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_airport_trees/identity.json",
+    "sha256": "e9c22eb4127841ec82767ac2f778eee2ac8bc62edf48ca568963b8608be5674f"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_public_airport_trees/scored.parquet",
+    "sha256": "9150cf74514efa76d0ad7b9a75fc1bb744f45fd240830e7e7da5214d2001fee8"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.28558057775336,
+      "control_transfer": 326.1740758752955,
+      "candidate": 326.1489549146867,
+      "candidate_transfer": 326.0821176142557
+    },
+    "2025-07": {
+      "control": 257.1611804522669,
+      "control_transfer": 258.72474053760806,
+      "candidate": 257.0162344010651,
+      "candidate_transfer": 258.609682580403
+    }
+  },
+  "cv": {
+    "control": 291.72338051501015,
+    "control_transfer": 292.4494082064518,
+    "candidate": 291.5825946578759,
+    "candidate_transfer": 292.3459000973294
+  },
+  "paired": {
+    "candidate_vs_control": {
+      "change": -0.14078585713420466,
+      "ci95": [
+        -0.20953529629143688,
+        -0.09700234405706105
+      ],
+      "decision": "improvement"
+    },
+    "candidate_transfer_vs_control_transfer": {
+      "change": -0.10350810912242991,
+      "ci95": [
+        -0.15727168842450112,
+        -0.0659899656789666
+      ],
+      "decision": "improvement"
+    }
+  },
+  "selected_control_exact": true
+}

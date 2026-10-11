@@ -22,18 +22,25 @@ screens also failed or were inconclusive. Small t5/monthly-strength/reference
 effects remain research without distinct submissions. All completed fits are
 retained; do not repeat them. Details are in the research report below.
 
-Public inputs in the callsign network improve its matched single by0.3364
-in both months, but the transferred0.1588 gain remains inconclusive. All old/new
-held predictions and original162-column preprocessing reproduce exactly; SQL
-scores pass. A matched-three-member check will reuse seed42 and fit only
-1042/2042 before considering any production expansion.
+The public callsign three-member check did not confirm its single-seed gain:
+matched direct−0.1016 is inconclusive; transferred+0.0770 worsens both months.
+All model/SQL audits pass. Stop expansion and retain the six completed fits.
 
-The current desktop sequence is: public inputs in the ten airport LightGBMs
-(original156 inputs/P04/5000), then callsign3, then fixed exponential parameter
-averaging (decay0.999) in the public physical network. All guards pass. The
-averaging screen preserves original updates and saves both last and averaged
-states; CPU optimizer/RNG/schedule checks and a scalar recurrence oracle pass.
-No new production candidate or submission version is reserved for these screens.
+Public airport inputs improve the selected recipe by0.1035, with both months
+better and interval[−0.1573,−0.0660]. Combined with the retained t5 daily
+posterior and full monthly multiplier, CV improves0.2462 to292.2032,
+interval[−0.3874,−0.1484]. All individual controls replay exactly and the SQL
+audit passes. Ten full-year airport models are queued for this combined
+candidate; no new submission version is reserved.
+
+The desktop sequence is now fixed parameter averaging (decay0.999), then
+ordinary CatBoost with174 rather than134 inputs, then the ten full-year airport
+models. The CatBoost addition supplies22 combined inputs,6 callsign clocks and
+12 public inputs that K07 previously lacked; original rows/labels/settings stay
+fixed. Its old134 values/categories and both preflights pass. Hardware differences
+from the saved laptop control remain a caveat. Parameter averaging preserves
+original updates and saves both last and averaged states. No result yet for
+either screen. All queues are guarded and sequential; no completed fits repeat.
 
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 The earlier225.00 goal is complete; its result remains the baseline below.

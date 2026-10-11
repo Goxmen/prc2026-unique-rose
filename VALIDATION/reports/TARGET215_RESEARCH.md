@@ -1,5 +1,64 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Airport gain, failed callsign expansion and combined refinements, 13:25 Amsterdam
+
+Public inputs in the airport LightGBMs pass the fixed screen: direct
+CV291.7234→291.5826 (−0.1408), interval[−0.2095,−0.0970]. In the selected
+v76 recipe, CV292.4494→292.3459 (−0.1035), interval[−0.1573,−0.0660].
+January improves0.0920 and July0.1151. All twenty saved models reload every
+held prediction; independent SQL verifies344,419 labels, dates, controls and
+scores. The existing settings and original156 inputs were preserved, with
+only the twelve public inputs added. This small gain is retained as a component,
+without a separate submission entry.
+
+The public callsign three-member pool does **not** confirm the single-seed
+result. The matched direct change is−0.1016, interval[−0.2888,+0.1088], with
+January slightly worse. Its transferred effect is+0.0770,
+interval[−0.0882,+0.2966], with both months worse. Comparison against the
+selected original fifteen-member pool is+0.3149, but has unequal pool sizes.
+All old/new predictions reload exactly and the SQL audit passes. Keep all six
+fits; do not expand to fifteen or prepare a production version.
+
+A single fixed combination of public airport trees, the previously retained
+t5 daily posterior and full monthly multiplier improves v76
+CV292.4494→292.2032 (−0.2462), interval[−0.3874,−0.1484]. January improves
+0.2274 and July0.2650. It also improves over airport-only by0.1427 and over
+the two aggregate changes alone by0.0896; both intervals exclude zero.
+`public_refinements_cv.py` exactly reproduces all four individual controls,
+retains the original stage ordering and plan constraints, and passes the
+independent344,419-row SQL arithmetic/score audit. This combination was chosen
+after observing its components on the same reused development months; the
+interval is not independent confirmation. No version or upload is reserved.
+
+`public_airport_submit.py` now prepares the ten full-year airport models for
+that combined candidate. Its guard binds the passing individual/joint results,
+all twenty CV recipes, the original ordinary membership and the168-column
+feature order. It retains original labels and P04/5000/seed42 settings. Every
+ranking prediction must reload twice, with a separate full-row audit after
+fitting. QueuePID840168 waits for the CatBoost CV audit, preserving one heavy
+job per desktop. No production fit has started yet.
+
+The ordinary CatBoost was found to have only134 inputs: K07 never received the
+twenty-two combined inputs, six callsign clocks or twelve public statistics.
+`catboost_full_inputs.py` supplies the same174 inputs used by the main model,
+keeping K07/10000/seed42, original rows and uncapped labels. It verifies the
+old134 values and categorical representations exactly. The current computed
+winner is K07/c10000; an older winners snapshot has a stale null checkpoint.
+Both input preflights pass. Historical K07 controls ran on the laptop GPU,
+so hardware/nondeterminism remains a comparison caveat. QueuePID834461 waits
+for the fixed parameter-average screenPID824858, which is currently training.
+CatBoost has no new fit result yet.
+
+The previously scored affine basis already projects only221.5321; its CV
+interval includes no gain. A descriptive v73/v74 two-point calculation also
+offers only about0.096 seconds before serialization and constraints. That
+direction includes both monthly and plan changes, so it is not a measurement
+of the monthly multiplier alone. No repeat upload or new candidate follows
+from either diagnosis. New50-vector evaluation still waits for actual v75/v76
+scores. Both upload watchers remain unchanged. Laptop WSL is still offline;
+the three research agents are unavailable because their account allowance is
+exhausted. Their completed research is retained; root continues the local queue.
+
 ## Width result, callsign result and next fixed screens, 12:57 Amsterdam
 
 The width64 physical encoder does **not** improve the recipe: matched single

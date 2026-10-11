@@ -1,0 +1,115 @@
+{
+  "design": {
+    "parent": "v76",
+    "change": "joint public airport/t5/full monthly refinements",
+    "airport": "retained original P04/5000 models with12 public inputs",
+    "daily": "retained t5 replacement and original0.4032872515123992 daily weight",
+    "monthly": "retained full multiplier1 rather than0.5; same fitted parameters and raw cap",
+    "all_other_parts": "v76 components and original matched/recovered plan constraints",
+    "comparisons": [
+      "joint versus v76",
+      "joint versus airport only",
+      "joint versus aggregate changes"
+    ],
+    "no_fits": true,
+    "no_parameter_search": true,
+    "no_new_gate": true,
+    "evaluation": "combined after observing individual gains on reused Jan/Jul development",
+    "no_production": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/public_refinements_cv.py",
+      "sha256": "efd71a2828a0f65842b6741ec15472b5e86da3168c2afddac115731896cb4b2d"
+    },
+    {
+      "path": "VALIDATION/daily_heavy_tail_stack.py",
+      "sha256": "148ae443ab9995c6d6719d4ca5ec27c1f298cebb4a23d923c4c5f73bca9c3392"
+    },
+    {
+      "path": "VALIDATION/monthly_strength_stack.py",
+      "sha256": "e1f768b9e13a924ea5266d6d581eab9604ed6d615b76885c65a9c1a8dbe451e6"
+    },
+    {
+      "path": "VALIDATION/public_airport_trees.py",
+      "sha256": "38bd9e0f5994d4e9ba2bb7dbcfa7aaa7beb31fb6edf21e5ad94ef713920e3fb7"
+    },
+    {
+      "path": "VALIDATION/public_stack_cv.py",
+      "sha256": "7a07755c65281de72d0d2cb3bd62b4d33c7591f4e9922aa8960bfc546421044a"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/cv.parquet",
+      "sha256": "9061d6fa5ce21f88a80802b308959a6911c989aaf354a046b99448a66db76c45"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+      "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail_stack/scored.parquet",
+      "sha256": "b5d15cf69f5d28179f30c6f637838b8882e2923b3a079e26752688e9d23ba402"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail_stack/result.json",
+      "sha256": "9320490ced2f9725f19beaec792cb5df14e89a23670b9afbb2fd406cee09eae7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail_stack/audit.json",
+      "sha256": "d7c569c7b5cc616c1e306d9bb78e12e2572c59c8995a8fc4fdd36f90e6199014"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_monthly_strength/scored.parquet",
+      "sha256": "ec9182c4b7d77aa8ab33c4ae3abeabbfb67c8b2cdba919a6c17eaf2e56ae6e4e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_monthly_strength/result.json",
+      "sha256": "c53d01d045bc3954a97833f655c1894e033a6b002cd175987c004728be6f8e96"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_monthly_strength/audit.json",
+      "sha256": "155dcec3b6996bafa602c0acc4261e7deeca713eacd9073ec8831b0ca241495c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/scored.parquet",
+      "sha256": "9150cf74514efa76d0ad7b9a75fc1bb744f45fd240830e7e7da5214d2001fee8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/result.json",
+      "sha256": "3822f99d78d03964f59cb94fe2afafac888db3e046a6d7961f97a000c3cf41f6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/audit.json",
+      "sha256": "625f143ff68566454049122c09b7218ebc74eef61e67ddb09d409bf9829dc56f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/scored.parquet",
+      "sha256": "04d0886b113ce081bbba97bf880e8f33c06366a5a98ac64084abab186ca01e92"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/result.json",
+      "sha256": "576208a843dbe82a8047d36b7ce546ac24f0ae77e76d70b2c019f89a423beedf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_stack_cv/audit.json",
+      "sha256": "3e526a98b44060135051dcaf62a83c3cf50142aa6c5421c35bc7bfab9ccc06ff"
+    }
+  ]
+}

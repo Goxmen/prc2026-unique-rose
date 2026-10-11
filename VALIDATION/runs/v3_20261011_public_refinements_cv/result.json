@@ -1,0 +1,82 @@
+{
+  "design": {
+    "parent": "v76",
+    "change": "joint public airport/t5/full monthly refinements",
+    "airport": "retained original P04/5000 models with12 public inputs",
+    "daily": "retained t5 replacement and original0.4032872515123992 daily weight",
+    "monthly": "retained full multiplier1 rather than0.5; same fitted parameters and raw cap",
+    "all_other_parts": "v76 components and original matched/recovered plan constraints",
+    "comparisons": [
+      "joint versus v76",
+      "joint versus airport only",
+      "joint versus aggregate changes"
+    ],
+    "no_fits": true,
+    "no_parameter_search": true,
+    "no_new_gate": true,
+    "evaluation": "combined after observing individual gains on reused Jan/Jul development",
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_refinements_cv/identity.json",
+    "sha256": "159c69303df978bf44a86af5801b69d36f4af028099291d6f0fd0d67b324fd7f"
+  },
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261011_public_refinements_cv/scored.parquet",
+    "sha256": "a823db12755a9a05db4d142e44e37249235edd794af3a3c308a4f01057b127ac"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 326.1740758752955,
+      "airport": 326.0821176142557,
+      "tail": 326.0798882204517,
+      "monthly": 326.1036266919439,
+      "aggregate": 326.02426891536203,
+      "combined": 325.9466311204909
+    },
+    "2025-07": {
+      "control": 258.72474053760806,
+      "airport": 258.609682580403,
+      "tail": 258.6720437232475,
+      "monthly": 258.60759105779505,
+      "aggregate": 258.56134563526,
+      "combined": 258.45978092941334
+    }
+  },
+  "cv": {
+    "control": 292.4494082064518,
+    "airport": 292.3459000973294,
+    "tail": 292.3759659718496,
+    "monthly": 292.35560887486946,
+    "aggregate": 292.292807275311,
+    "combined": 292.2032060249521
+  },
+  "paired": {
+    "combined_vs_control": {
+      "change": -0.24620218149965467,
+      "ci95": [
+        -0.38740503726046993,
+        -0.14836286875664337
+      ],
+      "decision": "improvement"
+    },
+    "combined_vs_airport": {
+      "change": -0.14269407237722476,
+      "ci95": [
+        -0.2521902762539948,
+        -0.06726887819462135
+      ],
+      "decision": "improvement"
+    },
+    "combined_vs_aggregate": {
+      "change": -0.08960125035889632,
+      "ci95": [
+        -0.13770941153795527,
+        -0.053953054904151206
+      ],
+      "decision": "improvement"
+    }
+  },
+  "all_four_individual_controls_exact": true
+}

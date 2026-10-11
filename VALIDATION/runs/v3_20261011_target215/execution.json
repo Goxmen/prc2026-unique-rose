@@ -4,13 +4,15 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "Public inputs in ten airport LightGBMs; original156 inputs/P04/5000; sequential4-thread fits",
-    "queue": "VALIDATION/runs/v3_20261011_target215/public_airport_queue.json",
-    "pid": 822831,
-    "log": "tmp/research_20261011/public_airport.log",
+    "task": "fixed_neural_parameter_average",
+    "queue": "VALIDATION/runs/v3_20261011_target215/weight_average_queue.json",
+    "pid": 838636,
+    "queue_pid": 824858,
+    "stage": 0,
+    "log": "tmp/research_20261011/weight_average.log",
     "training_started": true
   },
-  "laptop": "Windows online; WSL offline in check at10:42UTC, LastSeen04:00UTC; prior optional request unanswered",
+  "laptop": "Windows online; WSL offline at11:23UTC, LastSeen04:00UTC; prior optional request unanswered",
   "utc_uploads_used": [
     70,
     71,
@@ -84,9 +86,14 @@
     "Scored-public basis prepared and audited:50 ranking/CV vectors, all344841 ranking rows/all344419 CV rows, independent SQL replay, scalar geometry and serialization-bound checks pass; official v75/v76 scores still required for evaluation",
     "Public callsign seed42 passes direct matched CV-0.3364 CI[-0.6174,-0.0581], both months; transferred-0.1588 CI[-0.4478,+0.1336] remains inconclusive; every old/new held prediction reloads exactly and all344419 SQL scores pass",
     "Public callsign matched3 expansion guard passes; reuse seed42, fit only1042/2042 with original162 preprocessing and all-row old/new reloads; queued after airport screen",
-    "Exponential parameter average decay0.999 has exact original optimizer/gradient/moment/RNG/schedule CPU checks and independent scalar recurrence max1.49e-7; source guard passes; same-trajectory last and average retained; queued after callsign3, no fits yet"
+    "Exponential parameter average decay0.999 has exact original optimizer/gradient/moment/RNG/schedule CPU checks and independent scalar recurrence max1.49e-7; source guard passes; same-trajectory last and average retained; queued after callsign3, no fits yet",
+    "Public airport inputs pass direct CV-0.1408 and transferred-0.1035 with both intervals below zero; both months improve; all20 models and344419 SQL truth/control/scores audited",
+    "Public callsign matched3 does not confirm single gain: direct-0.1016 inconclusive, transferred+0.0770 both months worse; all six model/control reloads and344419 SQL scores pass; no expansion",
+    "Joint public airport/t5/full monthly refinements pass CV292.2032 (-0.2462 vs v76), CI[-0.3874,-0.1484]; both months and component comparisons improve; all individual controls and independent SQL arithmetic/scores pass",
+    "Ordinary K07 CatBoost retains only134 inputs; fixed174-input screen adds22combo/6callsign/12public; original134 values/categories and both preflights pass; historical laptop GPU caveat retained; queued after EMA",
+    "Public airport full-year recipe guard passes: ten P04/5000/seed42 models168inputs, original2051327 ordinary rows; all-ranking reload/audit required; queued after CatBoost CV without version or upload"
   ],
-  "next": "Finish public airport, matched callsign3, then EMA sequentially. Preserve v75/v76 uploads. Queued geometry evaluation runs after v76 watcher exits and requires both official successes; inspect its diagnosis before any new submission. Width64 is closed.",
+  "next": "Complete EMA, full174-input CatBoost CV, then selected airport production sequentially. Callsign public expansion is closed. Combine passing tree/aggregate refinements after production audit; retain all completed fits. Preserve v75/v76 uploads and official-score geometry evaluation.",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -252,7 +259,7 @@
       "not_before_utc": "2026-10-12T00:10:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T10:37:39.414298+00:00",
+  "updated_at": "2026-10-11T11:25:41.674965+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -297,31 +304,53 @@
   "public_airport_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_airport_queue.json",
     "pid": 816876,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "fixed_public_inputs_airport_trees"
-    ]
+    ],
+    "process_live": false
   },
   "calls_public_pool3_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/calls_public_pool3_queue.json",
     "pid": 824857,
-    "state": "waiting",
+    "state": "complete",
     "jobs": [
       "public_callsign_matched_three_seed_check"
-    ]
+    ],
+    "process_live": false
   },
   "weight_average_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/weight_average_queue.json",
     "pid": 824858,
-    "state": "waiting",
+    "state": "running",
     "jobs": [
       "fixed_neural_parameter_average"
-    ]
+    ],
+    "process_live": true
   },
   "public_geometry_evaluate_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/public_geometry_evaluate_queue.json",
     "pid": 826430,
     "state": "waiting",
     "predecessor": "v76 upload watcher792755; evaluator requires both actual successful official scores"
-  }
+  },
+  "catboost_full_inputs_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/catboost_full_inputs_queue.json",
+    "pid": 834461,
+    "state": "waiting",
+    "jobs": [
+      "ordinary_catboost_full174_inputs"
+    ],
+    "process_live": true
+  },
+  "public_airport_production_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/public_airport_production_queue.json",
+    "pid": 840168,
+    "state": "waiting",
+    "jobs": [
+      "public_airport_full_year_component"
+    ],
+    "process_live": true
+  },
+  "subagents": "All three retained agents errored on account usage allowance untilOct17; no new agent work available"
 }

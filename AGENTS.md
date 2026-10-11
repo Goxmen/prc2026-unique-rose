@@ -114,6 +114,24 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October11,13:25 Amsterdam: airport gain and combined refinements audited; callsign3 closed.**
+  Airport public inputs improve selected v76 CV0.1035, both months, interval
+  [−0.1573,−0.0660]; all20 models/all344419 score audits pass. Combined with
+  retained t5/full monthly correction:CV292.2032,−0.2462 versus v76, interval
+  [−0.3874,−0.1484]; all four individual controls/SQL arithmetic pass. Runner
+  `public_refinements_cv.py`, run`v3_20261011_public_refinements_cv`.
+  Callsign3 fails confirmation: matched−0.1016 inconclusive, transferred+0.0770
+  (both months worse). Six models retained/audited; no15-member expansion.
+  Desktop queue824858 now trains parameter averaging; then queue834461 tests
+  ordinary K07 CatBoost134→174 inputs (22combo+6callsign+12public,10000rounds).
+  Original134 values/categories and both preflights pass; original control was
+  laptop GPU, a caveat. Then queue840168 fits ten public airport production
+  models for the combined refinement (`public_airport_submit.py`), followed
+  by all344841 prediction reloads/audit. No new version/upload reserved.
+  V75/V76 watchers649782/792755 and later geometry queue826430 unchanged.
+  Laptop WSL offline; subagents remain unavailable due account usage limit.
+  Sources/identities frozen; don't alter active queues or repeat completed fits.
+
 - **October11,12:57 Amsterdam: width64 closed; public callsign expands to3; airport models train.**
   Width64 matched−0.0148/transferred+0.0140 is inconclusive; model and SQL audits
   pass, no expansion. Public callsign single matched−0.3364 (both months),

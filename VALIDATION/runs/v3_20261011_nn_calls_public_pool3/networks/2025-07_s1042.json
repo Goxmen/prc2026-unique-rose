@@ -1,0 +1,245 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261011_nn_calls_public_pool3/identity.json",
+    "sha256": "d63f4696173e12c6df68dff3e06de77a873286ee40d4c1390b4ed69efbdcdd3d"
+  },
+  "design": {
+    "parent": "selected public physical pool and main tree, original callsign network",
+    "change": "three matched seeds of the public callsign network",
+    "original_inputs": 162,
+    "public_inputs": [
+      "pub_dep_count_gap",
+      "pub_dep_mean",
+      "pub_dep_long_count",
+      "pub_dep_long_gap_sum",
+      "pub_dep_resid900_mean",
+      "pub_dep_resid1800_mean",
+      "pub_dep_resid_clock_mean",
+      "pub_dep_own900_left",
+      "pub_dep_own1800_left",
+      "pub_dep_own900_fraction",
+      "pub_dep_own1800_fraction",
+      "pub_dep_long900_fraction"
+    ],
+    "model": {
+      "original_inputs": 162,
+      "public_inputs": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "scales": [
+        5.0,
+        600.0,
+        20.0,
+        72000.0,
+        100.0,
+        100.0,
+        100.0,
+        3600.0,
+        3600.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+      "head": "256 hidden plus12 public inputs ->32 SiLU ->1",
+      "initialization": "original callsign seed42 plus zero public output; original RNG unchanged",
+      "training": "original direct target, optimizer, batches and fixed21/17 epochs"
+    },
+    "seed": null,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "training": "original shared.train bytecode; model factory only",
+    "preprocessing": "original162-column encoder and bins must match retained callsign state exactly",
+    "primary": "original callsign3 versus public callsign3 in selected v76 stack",
+    "selected_reference": "original callsign15 pool; different-size reference",
+    "no_new_stopping": true,
+    "no_blend_search": true,
+    "no_production": true,
+    "evaluation": "reused Jan/Jul development; all fits on desktop RTX3080",
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "reused_member": 42,
+    "new_members": [
+      1042,
+      2042
+    ]
+  },
+  "seed": 1042,
+  "epochs": 17,
+  "config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_nn_calls_public_pool3/models/2025-07_s1042.pt",
+    "sha256": "8e5b535c8f03d5b39af01a2a708cc37807ee9cf67110aa7a5bd9d705edf66deb"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_nn_calls_public_pool3/networks/2025-07_s1042.parquet",
+    "sha256": "49d8ca2095226cc253a1ae41277889fddb00a72bd1b9dd8c1ffe5432cdc536cb"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/preprocessing/2025-07.pkl",
+    "sha256": "7f0ad12d54468b8de362ca3ad7e470ce0dd10c64256d7b871024ec8a41df3f0c"
+  },
+  "control": {
+    "model": {
+      "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/models/2025-07_s42_k1.pt",
+      "sha256": "0b6b42617118b90ddccac9b9815176a40f14384e207071d2c908755cbd421e8a"
+    },
+    "prediction": {
+      "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/networks/2025-07_s42_k1.parquet",
+      "sha256": "ef06cd8b9b9da7ff34736d328cab960ba5f942ca6dbd52461eded2033e2e5d0a"
+    }
+  },
+  "train_rows": 1140233,
+  "held_rows": 190713,
+  "original_preprocessing_exact": true,
+  "all_control_predictions_reloaded_exact": true,
+  "all_new_predictions_reloaded_exact": true,
+  "public_transform_audit": {
+    "train": {
+      "rows": 1140233,
+      "checked_values": 576,
+      "maximum_float32_error": 5.9286588749429825e-08
+    },
+    "held": {
+      "rows": 190713,
+      "checked_values": 576,
+      "maximum_float32_error": 5.939135871990686e-08
+    }
+  },
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.3381471104566688,
+      "rmse": 645.0944022752508,
+      "seconds": 3.201308412986691
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.2420536534571522,
+      "rmse": 636.8721834833308,
+      "seconds": 2.970159523989423
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.22051482649473267,
+      "rmse": 631.4229577827082,
+      "seconds": 3.121435674998793
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.2043620508579423,
+      "rmse": 629.8758314364459,
+      "seconds": 3.1195285389985656
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.19453222733378478,
+      "rmse": 630.2562765965368,
+      "seconds": 3.1393247059895657
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.1845471582125663,
+      "rmse": 626.6334245914334,
+      "seconds": 3.1381078059930587
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.17607315726227157,
+      "rmse": 629.3084116814593,
+      "seconds": 3.1609078449982917
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.17177834038931789,
+      "rmse": 631.0527706007983,
+      "seconds": 3.0837996970076347
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.16206655444894677,
+      "rmse": 634.3465090298183,
+      "seconds": 3.1409247989940923
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.15398020504440013,
+      "rmse": 624.9688694587119,
+      "seconds": 3.0955252510029823
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.14925665948759573,
+      "rmse": 631.2690326948034,
+      "seconds": 3.098625352009549
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.14094066338765196,
+      "rmse": 627.9729445007414,
+      "seconds": 3.0736206129950006
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.13297284453757283,
+      "rmse": 627.9653729825341,
+      "seconds": 3.1003148410090944
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.1276137188853818,
+      "rmse": 624.8406643763581,
+      "seconds": 3.110968158012838
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.12064956682821558,
+      "rmse": 626.2793548091649,
+      "seconds": 3.1613604510057485
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.1127913774543044,
+      "rmse": 628.5616646796071,
+      "seconds": 3.096648680002545
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.10569058796830066,
+      "rmse": 627.4938236201243,
+      "seconds": 3.196561812001164
+    }
+  ],
+  "minutes": 0.8869885773667192,
+  "machine": "NVIDIA GeForce RTX 3080"
+}

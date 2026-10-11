@@ -1,0 +1,37 @@
+{
+  "state": "waiting",
+  "predecessor_pid": 834461,
+  "predecessor_start": "8592891",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_catboost_full_inputs/audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T11:23:41.520963+00:00",
+  "jobs": [
+    {
+      "name": "public_airport_full_year_component",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_airport_submit.py",
+          "fit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/public_airport_submit.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/public_airport_submit.py": "f99beca4160c8df5c9ccde22e88593e0a9c5cfe7342fbeab2b325d7ce4190498",
+        "VALIDATION/runs/v3_20261011_public_airport_submit/identity.json": "b3bdf19d3ea41aa2c29a22dcc3934e569706f1807f81fc324499af92c7214afd"
+      },
+      "log": "tmp/research_20261011/public_airport_submit.log",
+      "result": "VALIDATION/runs/v3_20261011_public_airport_submit/audit.json"
+    }
+  ],
+  "updated_at": "2026-10-11T11:23:41.554672+00:00",
+  "pid": 840168
+}
