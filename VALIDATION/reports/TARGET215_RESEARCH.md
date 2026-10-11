@@ -1,5 +1,48 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Time-weighted track-pooling screen prepared, 17:51 Amsterdam
+
+The retained physical encoder pools equally across observations. A new fixed
+screen adds a centered time-weighted pool: each valid adjacent retained interval
+contributes half its duration to each endpoint, capped at60 seconds per interval.
+These are sampling weights, not a reconstruction of unobserved dwell time.
+The weighted mean minus the ordinary mean enters a zero-initialized32→64 linear
+projection alongside the original mean/max representation. Only2,048 weights
+are added; the existing168 inputs, original parameters, output, RNG,21/17 epochs,
+seed42 and optimizer recipe remain unchanged. Missing/single-point fallback and
+padding checks pass. No interval cap or weight scan is planned.
+
+`nn_public_duration_pool_jan_jul.py` binds the existing audit/training/scoring
+body with identical bytecode and records its source hash in the design. It
+retains pre-fit original-model reloads, checkpoint-before-diagnostics recovery,
+complete new prediction reloads and independent model/SQL audits. Comparisons
+are the matched seed42 model and its one-of-three replacement, as for the other
+fixed neural screens. There is no production selection or upload.
+
+`tools/audit_duration_pooling_inputs.py` checks2,107 cached flights against an
+independent integer-timestamp loop. Maximum pooling-weight difference is
+0.0002003 seconds, within the0.0017309 bound from the existing float32 time
+encoding; padding stays zero and all weights are finite/nonnegative. Of1,698
+usable sampled tracks,1,648 differ from equal observation weights; median L1
+weight distance is0.4159. This establishes a nontrivial transform, not a gain.
+No departure label is read in this check.
+
+CPU checks and a separate RTX5060 laptop CUDA preflight pass. All66 imported
+local source files match across hosts; only the new8KB model module and source
+manifest were transferred. The return JSON hash agrees with the remote file.
+The initial GPU gradient check found rounding across the track graph, maximum
+1.40e-9 and2.40e-7 of tensor scale. Only track gradients permit eight dtype
+epsilons times tensor maximum; tabular/public gradients, outputs, weights and
+RNG remain exact. The pre-training revision is preserved; no fit was repeated.
+
+Identity SHA-256:
+`36f8ad24b8f58e2bf1c026735110acef6ef631bc9fb74163900c6412e75f44f7`.
+Queue1002895 waits for Gaussian992975 as a resource barrier; it requires its own
+completed input audit, so an unrelated Gaussian failure does not invalidate this
+screen. The desktop still runs one heavy job. Early-public completed January
+and is training July; its full CV score is not yet available.
+
+
 ## V77 prepared and queued; production complete, 17:34 Amsterdam
 
 The laptop-trained daily main tree passes the desktop original-source and

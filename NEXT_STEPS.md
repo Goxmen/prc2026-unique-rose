@@ -40,8 +40,20 @@ exact. CPU/CUDA checks pass for early-public and the following Gaussian screen.
 No fit had started and none was repeated. Their architecture, optimizer, inputs,
 epochs and original training updates are unchanged. The Gaussian screen changes
 only the intended loss to learn observation variance; inference uses the mean.
-Current queues: early-public 992974 → Gaussian 992975. One heavy job per host.
+Current queues: early-public 992974 → Gaussian 992975 → time-weighted pooling
+1002895. One heavy job per host.
 The laptop is currently idle after completing both selected production fits.
+
+A fixed time-weighted track-pooling screen is now prepared. It supplements the
+existing observation mean/max with a centered pool weighted by adjacent retained
+time intervals, each capped at 60 seconds. A zero-initialized 2,048-weight
+projection preserves initial outputs, weights and RNG. It adds no inputs,
+labels, dropout, epochs or optimizer changes. Independent raw integer timestamp
+checks pass on 2,107 cached flights; 1,648 of 1,698 usable samples have nonuniform
+weights. This shows an active input transformation, not predictive value. CPU
+and laptop RTX5060 synthetic checks pass; the returned report and all 66 code
+dependencies have verified hashes. Desktop checks and matched Jan/Jul fits are
+queued after Gaussian; no CV result, candidate or upload yet.
 
 Closed directions: inverse public-reference inputs give only −0.0025 versus
 v76 and −0.0004 in the refined recipe, both inconclusive; both months/models

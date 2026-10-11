@@ -43,7 +43,8 @@
     },
     "returned_at": "2026-10-11T14:57:19.398195+00:00",
     "return_verification": "VALIDATION/runs/v3_20261011_daily_main_submit/return_verification.json",
-    "desktop_main_audit": "VALIDATION/runs/v3_20261011_daily_main_submit/audit.json"
+    "desktop_main_audit": "VALIDATION/runs/v3_20261011_daily_main_submit/audit.json",
+    "last_additional_work": "Time-weighted pooling synthetic CUDA preflight complete on RTX5060;66dependencies and returned JSON hash verified; no extra fit"
   },
   "utc_uploads_used": [
     70,
@@ -340,7 +341,7 @@
       "not_before_utc": "2026-10-12T00:20:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T15:37:15.719631+00:00",
+  "updated_at": "2026-10-11T15:52:15.945613+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -548,7 +549,7 @@
       "fixed_public_gaussian_observation_likelihood"
     ]
   },
-  "new_hypothesis": "Early public projection and Gaussian observation variance; CPU/CUDA checks pass after narrowly scoped convolution accumulation tolerance. No completed fit yet.",
+  "new_hypothesis": "Fixed time-weighted track pooling;2048zero-initialized projection weights, no new inputs or training recipe; raw-integer timestamp audit and CPU/laptopCUDA preflight pass; queued after Gaussian resource barrier",
   "candidate_packaging": "v77 built, component/package/final review pass; upload990172 queued Oct12 00:20:05UTC; exact component bytes retained",
   "daily_models_geometry_prepare_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/daily_models_geometry_prepare_queue.json",
@@ -560,7 +561,7 @@
     ]
   },
   "daily_geometry_note": "51-vector preparation/audit complete; evaluator992976 waits actual successful v75/v76/v77 scores after v77watcher. No upload.",
-  "previous_goal_turn_classification": "progress: selected production all-row audit, v77 final package/review and autonomous upload queue complete; inverse screen closed; neural preflight corrected without fit changes",
+  "previous_goal_turn_classification": "progress: new fixed time-weighted pooling hypothesis implemented, raw-cache arithmetic independently audited, CPU and laptop GPU checks pass; desktop CV queued without overlapping active training",
   "inverse_reference_january": {
     "state": "complete; all153706 old/new held predictions reload exactly",
     "record": "VALIDATION/runs/v3_20261011_public_reference_inverse_lgb/predictions/2025-01_s42.json",
@@ -596,5 +597,14 @@
       "actual_official_daily_model_geometry"
     ]
   },
-  "remaining_offset_bias": "Label-informed four-family constant-offset diagnostic complete; each CV gain<=0.081s, no candidate or deployment parameter"
+  "remaining_offset_bias": "Label-informed four-family constant-offset diagnostic complete; each CV gain<=0.081s, no candidate or deployment parameter",
+  "nn_public_duration_pool_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/nn_public_duration_pool_queue.json",
+    "pid": 1002895,
+    "state": "waiting",
+    "jobs": [
+      "fixed_time_weighted_track_pool"
+    ],
+    "process_live": true
+  }
 }
