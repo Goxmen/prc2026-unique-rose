@@ -668,3 +668,40 @@ with any candidate donor. Resolving ambiguity would therefore cover only one
 additional test departure and would not address the broad missing-plan
 population. No new fetch, match relaxation, model or flight-specific correction
 was made.
+
+## Date alignment does not improve the fixed posterior
+
+The corrected-date screen finishes at **292.1302**, versus **291.9795** for its
+matched IFR/takeoff-date control: **+0.1506 seconds**, interval
+**[−0.8961, +1.3272]**. January changes −0.0469 and July +0.3482. Relative to
+the historical all-departure posterior it worsens by 0.1252. No production
+candidate is selected. The independent audit passes all source sums, all
+344,419 assigned dates/scope/fallbacks, and monthly SQL scores. Only 24 incoming
+dates disagree with the recorded dates; five posterior outputs cross their
+assigned dates. Source alignment is real, but it has not demonstrated a model
+gain under this likelihood and prior.
+
+Residual analysis on these same development rows locates the regression in
+long flights. July Rome long flights add **45.72 million squared seconds**;
+July Istanbul long flights add 15.35 million, while Istanbul ordinary flights
+remove 17.42 million. Wrong assigned dates account for only 0.017 million of
+July's 34.30-million total increase. These are diagnostics for generating
+hypotheses, not independent selection evidence or reasons for per-flight edits.
+
+One fixed follow-up, `daily_heavy_tail.py`, tests **t5 ordinary-aggregate weights**
+on the unchanged 41-node grid. Its scale is solved deterministically to match
+the Gaussian grid's variance, using no outcomes. All source parameters, priors,
+dates and fallbacks stay fixed. The hypothesis is that rare aggregate ordinary
+errors need more probability than the Gaussian allows, so the daily constraint
+may otherwise push ambiguous long flights into the wrong mode. No airport gate,
+prior scale search or additional taxi model is introduced. Each scoped group
+must replay the Gaussian control before scoring the new weights.
+
+Numerical preflight passes equal variance, centering, Gaussian replay,
+no-long/no-ordinary edges, permutation invariance and independent enumeration
+of **8,036 states** (maximum difference **4.55e−11 seconds**). A separate SQL
+stage checks labels, calendars, controls and scores. No CV result exists yet.
+`heavy_tail_queue.json` (PID737069) waits for the selected neural production
+queue (PID721659) and its audit, then runs the screen/audit sequentially.
+It shares the research cancellation file and contains no upload stage.
+Ordinary punctuality is the current desktop fit (PID734641).

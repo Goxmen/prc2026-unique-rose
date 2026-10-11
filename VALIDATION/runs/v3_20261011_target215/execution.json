@@ -4,10 +4,10 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "estimated off-block-date daily posterior screen",
-    "queue": "VALIDATION/runs/v3_20261011_target215/offblock_alignment_queue.json",
-    "pid": 731591,
-    "log": "tmp/research_20261011/offblock_alignment.log"
+    "task": "ordinary main LightGBM with nine punctuality inputs, Jan/Jul screen",
+    "queue": "VALIDATION/runs/v3_20261011_target215/punctuality_main_queue.json",
+    "pid": 734641,
+    "log": "tmp/research_20261011/punctuality_main.log"
   },
   "laptop": "Windows online, WSL offline; both SSH paths time out; optional user request to open WSL pending",
   "utc_uploads_used": [
@@ -54,9 +54,11 @@
     "public neural three-seed pool passed: primary-0.2767, v75 transfer-0.3536; both months",
     "all six neural reload samples pass3282 rows; independent SQL checks all344419 labels/controls/scores",
     "public main full-year model and all344841 ranking reloads exact",
-    "structural Rome support not selected: +0.5626 versus old posterior; July worsens"
+    "structural Rome support not selected: +0.5626 versus old posterior; July worsens",
+    "off-block alignment not selected: +0.1506 against matched IFR; all source/date/fallback/SQL audits pass",
+    "fixed t5 ordinary aggregate preflight passes8036-state enumeration; screen queued after neural production"
   ],
-  "next": "finish off-block alignment and ordinary punctuality screens; joint main/neural CV then passing neural production; preserve v75 upload",
+  "next": "ordinary punctuality screen; joint main/neural CV then selected neural production; fixed heavier-tail daily screen; preserve v75 upload",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -118,7 +120,7 @@
   "punctuality_main_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/punctuality_main_queue.json",
     "pid": 707786,
-    "state": "waiting",
+    "state": "running",
     "jobs": [
       "punctuality inputs in ordinary main regressor:183 versus174 inputs"
     ]
@@ -126,7 +128,7 @@
   "offblock_alignment_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/offblock_alignment_queue.json",
     "pid": 707785,
-    "state": "running",
+    "state": "complete",
     "jobs": [
       "input-only estimated off-block-date posterior and independent audit"
     ]
@@ -139,6 +141,14 @@
       "fixed direct joint main/neural CV and SQL audit",
       "guarded three-member full-year public neural pool,15 epochs",
       "all-row reloads in fit; independent sampled input/encoder/track audit"
+    ]
+  },
+  "heavy_tail_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/heavy_tail_queue.json",
+    "pid": 737069,
+    "state": "waiting",
+    "jobs": [
+      "fixed variance-matched t5 ordinary-aggregate screen and SQL audit"
     ]
   }
 }

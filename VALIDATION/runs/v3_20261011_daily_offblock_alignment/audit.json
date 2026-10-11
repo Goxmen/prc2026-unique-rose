@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "source_checks": [
+    {
+      "assignment": "takeoff",
+      "rows": 3650,
+      "source_sums_exact": true,
+      "source_total_tolerance_seconds": 1e-08
+    },
+    {
+      "assignment": "recorded_offblock",
+      "rows": 3651,
+      "source_sums_exact": true,
+      "source_total_tolerance_seconds": 1e-08
+    }
+  ],
+  "assigned_dates_and_scope_sql_rows": 344419,
+  "fallback_exact": true,
+  "scores_sql_exact": true,
+  "source": {
+    "path": "VALIDATION/tools/audit_offblock_alignment.py",
+    "sha256": "94177d5825e3901d1c341b623997ed0d799461fac3599fa61f8dc747c10be2d9"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/result.json",
+    "sha256": "b78f060f7f5840ccda54a0e231fbbbb75acc870a12a38dc2845b02d80fb69eb0"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/scored.parquet",
+    "sha256": "aadc0dd7846faefe9ef30f8edee88f6c42ba61705ed86e9ee2bdf7a310b15095"
+  },
+  "scope": "Source sums/calendar selection/scoring; unchanged posterior message algorithm has a retained enumeration audit"
+}

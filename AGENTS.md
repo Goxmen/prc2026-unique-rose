@@ -235,8 +235,18 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   Structural Rome conditional support failed its screen: CV292.5676 versus
   old posterior292.0049 (+0.5626), January−0.0611/July+1.1863; interval
   [−0.0344,+1.3290]. No expansion. Endpoints and predictions are retained in
-  `v3_20261011_daily_structural_prior/`. The off-block-date screen is now
-  running (child PID731591); its independent audit remains queued afterward.
+  `v3_20261011_daily_structural_prior/`. The off-block-date screen also did
+  not improve: CV292.1302 versus matched IFR291.9795 (+0.1506), January−0.0469/
+  July+0.3482; interval [−0.8961,+1.3272]. All source/date/fallback/SQL audits
+  pass; 24 incoming dates are wrong, five posterior predictions cross dates.
+  No production selected. The ordinary punctuality screen is now running
+  (child PID734641, queue PID707786), followed by joint CV and neural production.
+  New fixed follow-up `daily_heavy_tail.py` changes the ordinary aggregate
+  prior to t5 on the same41-node grid with matched discrete variance. Its
+  8,036-state enumeration, Gaussian replay and edge checks pass; no CV yet.
+  `heavy_tail_queue.json` (PID737069) waits for neural queue PID721659 and its
+  production audit, then runs screen/SQL audit. Same cancellation file, no
+  new taxi fits or upload. Frozen source/identity hashes are in that queue.
   No second heavy desktop job. Autonomous uploads remain authorized. All agents
   report account usage exhaustion; do not restart them to bypass that limit.
   Laptop WSL is offline on Tailscale; its Windows host is online but Windows

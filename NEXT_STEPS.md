@@ -23,9 +23,12 @@ A structural Rome prior for the daily-total method failed (+0.5626 versus
 the old posterior, largely July); no production expansion.
 The daily totals empirically align with off-block dates rather than takeoff
 dates: Rome's source-error p95 falls from7,231 to142 seconds. A fixed screen
-using dates estimated from v70 predictions is running before ordinary
-punctuality. Source/calendar audits pass; no model
-gain or production is claimed for this new lead.
+using dates estimated from v70 predictions failed to improve (+0.1506 versus
+matched IFR control), despite passing source/calendar/scoring audits. Ordinary
+flights generally improve, but long Rome flights worsen in July. A fixed t5
+ordinary-aggregate prior with the same variance is queued after neural
+production; numerical checks pass, no CV result yet. Ordinary punctuality
+is currently training. No date-aligned production candidate is selected.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 
