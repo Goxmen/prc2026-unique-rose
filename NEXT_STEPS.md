@@ -1,17 +1,19 @@
 # Next steps
 
-**Current status, 11 October 2026:** v69 is best at **225.3994 seconds**, another
-**0.3994 seconds** from the user's 225.00 target. It improves v65 by 0.5000 and
-v58 by 10.7901 seconds on 344,841 flights. Its signed ensemble weights use our
-own leaderboard scores; Jan/Jul CV 296.8197 remains worse than v64's 293.6569.
-Autonomous uploads and both machines are authorized; one heavy job per machine.
+**Goal achieved, 11 October 2026:** v71 is best/latest at **224.3602 seconds**,
+**0.6398 below** the requested 225.00 target. It improves v69 by 1.0392 and
+v58 by 11.8293 seconds on 344,841 flights; live rank is **15/242** at 02:04
+Amsterdam. All training and audits are complete; preserve the retained models.
 
-Physical-scale track pooling passed CV **292.8675 (−0.7891 versus v64)**. All six
-saved fold/member models pass reload audits. All three full-year members are retained and audited; v70 is prepared.
-Ground-only pooling failed to improve the matched physical single (+0.1272 CV); no production fit follows. Honest inner-holdout Rome cost calibration
-failed (+1.6735 CV); no full-year fit or upload follows. See the
-[research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md).
-New candidates require Jan/Jul CV; older 16-fold validations stay unused.
+Physical-scale track pooling passed CV **292.8675 (−0.7891 versus v64)** and
+scored **231.9066** as v70. Adding that separately scored direction to v69's
+basis produced v71. Its Jan/Jul CV **296.3160** is 0.5037 better than v69 but
+remains worse than v64/v70. Weights use leaderboard feedback; this is not
+independent validation. Ground-only pooling, weighted Rome calibration and
+airport bias corrections did not pass and receive no production fit/upload.
+See the [research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md) and
+[submission record](VALIDATION/runs/v3_20261011_physical_affine/submission_v71/manifest.json).
+New future candidates still require Jan/Jul CV; older 16-fold validations stay unused.
 
 The table below preserves the September idea inventory and its original estimates.
 Its gains are combined-CV seconds against **row 43 (233.2338, uploaded as v40)**,

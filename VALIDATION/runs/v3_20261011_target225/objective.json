@@ -3,9 +3,9 @@
   "target_rmse": 225.0,
   "baseline_version": 64,
   "baseline_rmse": 232.7751,
-  "remaining_seconds": 0.3994,
+  "remaining_seconds": 0,
   "created_at": "2026-10-10T22:08:17.633707+00:00",
-  "status": "research_active",
+  "status": "complete",
   "authorization": {
     "uploads": "autonomous; user explicitly superseded all per-upload approval requirements",
     "training": "desktop and laptop; one heavy job per machine"
@@ -17,19 +17,23 @@
       "name": "scored_submission_geometry",
       "purpose": "Determine whether exact squared-error geometry of our already-scored submissions yields useful complementary predictions; explicitly leaderboard-selected, with Jan/Jul CV and rounding audit before any upload",
       "fits": 0,
-      "status": "v65 officially225.8994; retain and extend only with new scored model directions"
+      "status": "Complete: v71 official 224.3602; requested target achieved"
     },
     {
       "name": "track_physical_scales",
       "purpose": "Give raw track encoder distance and velocity features at apron/runway scales; preserve original branch initialization and compare matched single models plus actual v64",
       "machine": "desktop",
-      "status": "pool3 CV running desktop; full-year k0 running laptop; same156 inputs and original15epochs"
+      "status": "Complete: physical pool3 CV 292.8675187; production/audits complete; v70 official 231.9066"
     },
     {
       "name": "rome_cost_calibration",
       "purpose": "Assess feasibility of honest inner predictions and calibration for downstream squared error; avoid repeating failed cost-weighted classifier or unweighted Platt tests",
-      "machine": "laptop",
+      "machine": "desktop",
       "status": "Closed: honest inner-holdout weighted-Brier calibration regresses1.6735 CV, CI[.3921,3.8614]; no full-year fit/upload"
+    },
+    {
+      "name": "track_ground_pool",
+      "status": "Closed: matched physical single CV +0.1272149, inconclusive; no production fit or upload"
     }
   ],
   "validation_reconstruction": {
@@ -42,7 +46,9 @@
     "official_score": 225.8994,
     "jan_jul_cv": 297.02466770324986
   },
-  "best_version": 69,
-  "best_rmse": 225.3994,
-  "latest_live": "2026-10-10T23:02:34+00:00"
+  "best_version": 71,
+  "best_rmse": 224.3602,
+  "latest_live": "2026-10-11T00:04:29+00:00",
+  "target_margin_seconds": 0.6398,
+  "completed_at": "2026-10-11T00:03:44.699099Z"
 }

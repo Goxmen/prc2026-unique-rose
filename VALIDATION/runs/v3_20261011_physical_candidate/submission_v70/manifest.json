@@ -1,6 +1,6 @@
 {
   "version": 70,
-  "state": "prepared",
+  "state": "scored",
   "file": "submissions/unique-rose_v70.parquet",
   "sha256": "0f9138d78d54be829ebb090b57a15eb989262876098eca9ce2ade57a21ba6d97",
   "rows": 344841,
@@ -76,5 +76,20 @@
   "production_audit": {
     "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/audit_0_1_2.json",
     "sha256": "797091105009fcd523ee5e65f561a2c159d49d925fb0df962fe00578612dec0c"
-  }
+  },
+  "uploaded_at": "2026-10-11T00:00:43+00:00",
+  "remote_sha256": "0f9138d78d54be829ebb090b57a15eb989262876098eca9ce2ade57a21ba6d97",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v70.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 231.9066
+  },
+  "checked_at": "2026-10-11T00:01:14+00:00",
+  "score": 231.9066
 }

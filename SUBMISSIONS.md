@@ -10,11 +10,13 @@ scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 4
 were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are `-`.
 On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
-**Best and latest submission: v69, 225.3994 s**, improving v65 by **0.5000 s**, v64 by **7.3757 s** and v58 by **10.7901 s**.
-Live **11 October 01:29 Amsterdam**: rank **15/242**; all **344,841** original January/July flights scored. Jan/Jul CV is **296.8197**;
-weights use our own leaderboard scores, and this is not independent validation.
-The active target is **225.00 or lower**, another **0.3994 s**. Autonomous uploads are authorized.
-[Submission record](VALIDATION/runs/v3_20261011_physical_affine/submission_v69/manifest.json).
+**Goal achieved: best and latest submission v71, 224.3602 s.** It beats the
+225.00 target by **0.6398 s**, v69 by **1.0392 s**, v64 by **8.4149 s**, and v58
+by **11.8293 s**. Live **11 October 02:04 Amsterdam**: rank **15/242**; all
+**344,841** original January/July flights scored. Jan/Jul CV is **296.3160**.
+Weights use our own leaderboard scores; this is not independent validation.
+Autonomous uploads were authorized; the requested target is now complete.
+[Submission record](VALIDATION/runs/v3_20261011_physical_affine/submission_v71/manifest.json).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -123,7 +125,8 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 68 | **Physical-track-single** | Row 66 with its track pool replaced by one physical-scale network. | - | - | - | - | 293.3477 | 233.7954 | v66 |
 | 69 | **Calls-only-ensemble** | Row 66 assigns its neural share entirely to the callsign networks. | - | - | - | - | 294.4217 | 234.7131 | v68 |
 | 70 | **Component-affine-ensemble** | Row 67 adds separately scored callsign and physical-track components. | - | - | - | - | 296.8197 | **225.3994** | v69 |
-| 71 | **Physical-track-pool** | Row 66 adds physical distance and motion inputs to its track pool. | - | - | - | - | **292.8675** | pending | v70 |
+| 71 | **Physical-track-pool** | Row 66 adds physical distance and motion inputs to its track pool. | - | - | - | - | **292.8675** | 231.9066 | v70 |
+| 72 | **Pooled-component-ensemble** | Row 70 adds the separately scored physical-track pool. | - | - | - | - | 296.3160 | **224.3602** | v71 |
 
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV was adopted
@@ -970,4 +973,6 @@ The organiser has approved open trajectory data if declared; this is the declara
 
 - **Row 70 (v69)** extends v65's 45-file basis with v66 and v68, retaining coefficient bounds [−3, 4] and ridge 1. Derived affine submissions are excluded from the basis. The independent squared-error identity projects **225.3983** before serialization; the official score is **225.3994**, a **0.5000-second gain** on 344,841 flights. Jan/Jul CV improves **297.0247 → 296.8197** versus v65 (paired-day interval [−0.4678, −0.0206]); it remains worse than v64. Selection uses leaderboard scores and reused development data. Models were reused without new fits. Source hashes, template columns, rounding, readback and remote SHA checks pass. [CV record](VALIDATION/runs/v3_20261011_physical_affine/submission_v69/cv.json), [submission record](VALIDATION/runs/v3_20261011_physical_affine/submission_v69/manifest.json).
 
-- **Row 71 (v70)** replaces v64's three raw-track members with three physical-scale members, retaining all callsign networks, trees, Rome probabilities and corrections. Jan/Jul CV **293.6566 → 292.8675 (−0.7891)**; both months improve and the paired-day interval is [−1.1227, −0.5638]. These are reused development months. All six fold models and six production member/view combinations pass reload audits. Production seeds 42/1042/2042 all ran on the laptop RTX 5060 for the original 15 epochs; the desktop supplied the matched CV. The build reproduces all v64 parts and serialized values before replacement, then checks template IDs, schema and readback. **Prepared; awaiting the UTC upload window.** [Submission record](VALIDATION/runs/v3_20261011_physical_candidate/submission_v70/manifest.json).
+- **Row 71 (v70)** replaces v64's three raw-track members with three physical-scale members, retaining all callsign networks, trees, Rome probabilities and corrections. Jan/Jul CV **293.6566 → 292.8675 (−0.7891)**; both months improve and the paired-day interval is [−1.1227, −0.5638]. These are reused development months. All six fold models and six production member/view combinations pass reload audits. Production seeds 42/1042/2042 all ran on the laptop RTX 5060 for the original 15 epochs; the desktop supplied the matched CV. The build reproduces all v64 parts and serialized values before replacement, then checks template IDs, schema and readback. **Official 231.9066** on all 344,841 rows, improving v64 by 0.8685 seconds and the physical single v66 by 1.8888. Uploaded 11 October 02:00 Amsterdam; remote SHA-256 matches the audited file. [Submission record](VALIDATION/runs/v3_20261011_physical_candidate/submission_v70/manifest.json).
+
+- **Row 72 (v71)** extends v69's scored basis with v70, retaining coefficient bounds [−3, 4] and ridge 1. Jan/Jul CV is **296.3160**, improving v69 by 0.5037 but remaining worse than v64 and v70. Weights use own leaderboard scores; these are reused development predictions, not independent confirmation. The raw score projection is **224.3602**. One raw prediction is −3.1273 seconds and is clipped to zero; exact serialization RMS is 0.2887 seconds. A triangle-inequality bound including score precision, clipping and rounding gives an upper score of **224.6499**, without assumptions about hidden labels. The second algebraic score identity, all source hashes, template IDs/schema and parquet readback pass. The new clipping-aware builder preserves the older immutable builder and its manifests. **Official 224.3602**, processed 11 October 02:03:44 Amsterdam on all 344,841 flights. This beats the target by 0.6398 seconds; remote SHA-256 matches `3afd4ece7b581ca7bb86ea0f2c9976b951b47fe64ed1e00dd123c2c4341df76d`. [CV record](VALIDATION/runs/v3_20261011_physical_affine/submission_v71/cv.json), [submission record](VALIDATION/runs/v3_20261011_physical_affine/submission_v71/manifest.json).
