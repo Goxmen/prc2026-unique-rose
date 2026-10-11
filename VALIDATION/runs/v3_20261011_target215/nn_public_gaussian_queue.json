@@ -1,7 +1,7 @@
 {
-  "predecessor_pid": 959020,
-  "predecessor_start": "9832069",
-  "predecessor_result": "VALIDATION/runs/v3_20261011_daily_refinements_candidate/submission_v77/audit.json",
+  "predecessor_pid": 971697,
+  "predecessor_start": "9946325",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_early/score_audit.json",
   "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
   "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
   "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
@@ -53,6 +53,9 @@
     "idle_pid": 957091,
     "reason": "Package already-selected production before optional new research; preserve one heavy job per host"
   },
-  "updated_at": "2026-10-11T14:40:09.819740+00:00",
-  "pid": 959021
+  "reprioritized_at": "2026-10-11T14:59:12.337911+00:00",
+  "priority_reason": "Laptop model and all ranking predictions returned/audited; finish selected production before optional neural experiments",
+  "prior_idle_queue": "VALIDATION/runs/v3_20261011_target215/selected_production_priority_1658/nn_public_gaussian_queue.json",
+  "updated_at": "2026-10-11T14:59:12.371695+00:00",
+  "pid": 971698
 }

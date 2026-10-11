@@ -7,28 +7,29 @@ Autonomous submissions and both machines remain authorized. The laptop's
 full174 CatBoost fit is complete (10,000 rounds,28.07minutes); its328.53MB
 model returned with a verified hash. All344,841 ranking predictions reload
 exactly, and the CatBoost/daily-quality combined production component is built
-and audited (CV291.5895). The laptop now trains the selected daily main
-tree (worker5443, queue2979). Both hosts retain one heavy job at a time.
+and audited (CV291.5895). The laptop has completed and returned the selected daily main
+tree too (17.66minutes; all344,841 predictions reloaded exactly). Model and
+prediction hashes and all template IDs pass on return. Its original-source
+desktop inference audit remains queued. Heavy jobs stay sequential on each host.
 
 A fixed Gaussian-likelihood neural screen is prepared: learn observation
 variance while keeping the mean architecture, 168 inputs and 21/17 epochs.
 CPU initialization, gradient, randomness and padding checks pass; CUDA checks
-and both CV fits are queued, so no gain is claimed. Queue959021 follows
-packaging959020, which follows daily-main finish943880. The packaging stage
+and both CV fits are queued, so no gain is claimed. Queue971698 follows early-public971697, which follows
+packaging971696 and daily-main finish971695. The packaging stage
 will create/audit v77 from the selected combined component; no v77 file or
 upload exists yet. See `TARGET215_RESEARCH.md` for the frozen design.
 
 The daily main-tree screen now passes its all-row model/SQL audit. Its gain
 shrinks from0.0852 versus v76 to **0.0398** on top of the selected CatBoost and
 daily-quality corrections: joint CV **291.5497**, both months improve. Retain
-this as a small component without a distinct submission row. Laptop queue2979
-fits the full-year184-input tree after CatBoost; collector935144 verifies the
-return. Desktop finish queue943880 follows943879 and performs the full original
-ranking audit plus combined-file build/audit. All completed fits are reused.
+this as a small component without a distinct submission row. The full-year184-input tree and predictions are returned. Desktop finish
+queue971695 follows the running inverse test943878 and performs the original
+ranking audit plus combined-file build/audit; v77 packaging971696 follows. All completed fits are reused.
 
 A 51-vector score-geometry extension will add the selected v77 file to the
-existing basis after its package audit, reusing all 50 old vectors. Queue965724
-runs its preparation/audit after Gaussian959021. Evaluation requires actual
+existing basis after its package audit, reusing all 50 old vectors. Queue971699
+runs its preparation/audit after Gaussian971698. Evaluation requires actual
 successful v75/v76/v77 scores and a fresh leaderboard check; no score is imputed
 and no blend or upload is selected yet.
 

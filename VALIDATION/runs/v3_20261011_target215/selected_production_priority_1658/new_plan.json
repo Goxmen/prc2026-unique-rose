@@ -1,0 +1,37 @@
+[
+  {
+    "queue": "daily_main_production_finish_queue",
+    "pid": 971695,
+    "start": "9946325",
+    "predecessor": 943878,
+    "result": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/audit.json"
+  },
+  {
+    "queue": "daily_refinements_candidate_queue",
+    "pid": 971696,
+    "start": "9946325",
+    "predecessor": 971695,
+    "result": "VALIDATION/runs/v3_20261011_daily_refinements_candidate/submission_v77/audit.json"
+  },
+  {
+    "queue": "nn_public_early_queue",
+    "pid": 971697,
+    "start": "9946325",
+    "predecessor": 971696,
+    "result": "VALIDATION/runs/v3_20261011_nn_public_early/score_audit.json"
+  },
+  {
+    "queue": "nn_public_gaussian_queue",
+    "pid": 971698,
+    "start": "9946325",
+    "predecessor": 971697,
+    "result": "VALIDATION/runs/v3_20261011_nn_public_gaussian/score_audit.json"
+  },
+  {
+    "queue": "daily_models_geometry_prepare_queue",
+    "pid": 971699,
+    "start": "9946325",
+    "predecessor": 971698,
+    "result": "VALIDATION/runs/v3_20261011_daily_models_geometry/audit.json"
+  }
+]

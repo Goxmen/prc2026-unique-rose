@@ -1,0 +1,65 @@
+{
+  "predecessor_pid": 943879,
+  "predecessor_start": "9691475",
+  "predecessor_result": "VALIDATION/runs/v3_20261011_nn_public_early/score_audit.json",
+  "objective": "VALIDATION/runs/v3_20261011_target215/objective.json",
+  "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_research_queue",
+  "runner_sha256": "6cff1f74c8f4e3c4a6a4a7d3d088930efbab0425a826be831a49ef6fbe4c6b8c",
+  "created_at": "2026-10-11T14:16:43.936483+00:00",
+  "jobs": [
+    {
+      "name": "daily_main_return_and_combined_production",
+      "commands": [
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/remote_component_return.py",
+          "wait",
+          "VALIDATION/runs/v3_20261011_daily_main_submit/remote_return_plan.json"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_main_submit.py",
+          "audit"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_main_refinements_submit.py",
+          "prepare"
+        ],
+        [
+          "/home/gunes/PRC/.venv/bin/python",
+          "-u",
+          "VALIDATION/daily_main_refinements_submit.py",
+          "audit"
+        ]
+      ],
+      "sources": {
+        "VALIDATION/daily_main_submit.py": "5efc1386ca70dc86554de4ce4124a46d97529d0ec63208aae46e4e9faa62777c",
+        "VALIDATION/daily_main_refinements_cv.py": "f4db783eb6a7b27f38194f786173ab30d0f655afba7e903ca4ca071a1382de03",
+        "VALIDATION/daily_main_refinements_submit.py": "867ae62e00b3a5be71c0ec601c30574a31316bb805d293b3f462f1f8ac1540c1",
+        "VALIDATION/remote_component_return.py": "dc3a6cef008e075b379da080141e3bca37e051b96295cc2dcbb92cc0d7c0a572",
+        "VALIDATION/runs/v3_20261011_daily_main_submit/remote_return_plan.json": "7b3cc7af14cf887cb5bf1d3a1de13caf2f79e9913299bd4dffb446f5b6e9a55c",
+        "VALIDATION/runs/v3_20261011_daily_main_submit/identity.json": "e82693e11b84c6a456e4e49fb2aa89d42a194c9a27d6aae92575eeb70e176375",
+        "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/result.json": "74d5befb67c2cd83f547364054e41ae73d89e6a66b03206b0b4947c3c02111ef",
+        "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/audit.json": "5ee09e0ad374f67eadc147f0461a1398f7c8797ffa271daca749f4a007f8894e"
+      },
+      "log": "tmp/research_20261011/daily_main_production_finish.log",
+      "result": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/audit.json"
+    }
+  ],
+  "state": "waiting",
+  "recovery": {
+    "reason": "Production audit FLOAT intermediate corrected independently; no predictions or model recipes changed",
+    "previous_queue": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit_precision_recovery/daily_main_production_finish_queue.json",
+    "previous_queue_sha256": "6bae976cb59098a8f7bc2daaa7eed54959f074c7119e417d2d43f5086d96907a",
+    "passing_audit": {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/audit.json",
+      "sha256": "02ba2864b13854c4368fe1f8af0246e0ab5acecd9be7e961b414f91fba0fc03e"
+    }
+  },
+  "updated_at": "2026-10-11T14:16:43.967302+00:00",
+  "pid": 943880
+}

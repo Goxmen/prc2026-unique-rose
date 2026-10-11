@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "at": "2026-10-11T15:00:34.668531+00:00",
+  "scope": "returned artifacts, identity, template IDs and prediction values; original desktop model inference audit remains queued",
+  "model": {
+    "path": "VALIDATION/runs/v3_20261011_daily_main_submit/models/lgb.txt",
+    "sha256": "2977801222c1d77ceeeff579f6c923a61269e13805577d0999a7cfb346c51d94"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261011_daily_main_submit/predictions/old.parquet",
+    "sha256": "3a78718d460b94fa66de588cfcff1f25aee7138bef4f1827e278bc88e50c1b44"
+  },
+  "model_record": {
+    "path": "VALIDATION/runs/v3_20261011_daily_main_submit/model.json",
+    "sha256": "ef3f5ef80a96f1823a696b4737744baf3f3356d45a00cd1167d729d7ccaf3986"
+  },
+  "prediction_record": {
+    "path": "VALIDATION/runs/v3_20261011_daily_main_submit/predictions/old.json",
+    "sha256": "332b34fdafb73ee3830c7e5996aa86c28d88cbf9899cc80a4c3700a5a16bb037"
+  },
+  "collection": {
+    "path": "VALIDATION/runs/v3_20261011_daily_main_submit/remote_collection.json",
+    "sha256": "4fead583e982c66f856cf416c96780879ea25a38ce664cdf704110b00a5db597"
+  },
+  "rows": 344841,
+  "all_template_ids_exact": true,
+  "all_predictions_finite_nonnegative": true,
+  "all_returned_model_and_prediction_hashes_exact": true,
+  "laptop_all_ranking_reload_exact": true,
+  "host": "GLAPTOP",
+  "fit_minutes": 17.656300773799998
+}

@@ -114,6 +114,20 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 16:58 Amsterdam: daily-main model and predictions returned; selected production prioritized.**
+  Laptop full-year184-input LightGBM is complete (17.66minutes); all344,841
+  predictions reload exactly. Collector935144 completed14:57:19UTC; returned
+  model/prediction hashes and template IDs pass. Run `v3_20261011_daily_main_submit`,
+  model SHA2977801222c1d77ceeeff579f6c923a61269e13805577d0999a7cfb346c51d94.
+  Original-source desktop inference audit is still required. Do not refit.
+  Only idle waiters were reordered: inverse943878 (still running) → main
+  finish971695 → v77 packaging971696 → early neural971697 → Gaussian971698
+  → geometry preparation971699. Frozen commands/sources unchanged; original
+  idle handles/queues archived in `target215/selected_production_priority_1658/`.
+  Laptop has completed both allocated fits; no job remains there. V75/V76
+  upload watchers649782/792755 remain unchanged. Best live16:53 score221.6881;
+  goal215.00 remains unmet. No v77 file or upload exists yet.
+
 - **October 11, 16:43 Amsterdam: fixed Gaussian neural loss screen prepared; selected packaging queued.**
   `nn_public_gaussian.py` / `nn_public_gaussian_jan_jul.py` add a zero-initialized
   log-variance head, preserving the mean architecture/168 inputs/seed42/21–17

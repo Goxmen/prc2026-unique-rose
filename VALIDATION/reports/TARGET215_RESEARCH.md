@@ -1,5 +1,31 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Daily main production returned; selected candidate takes priority, 16:58 Amsterdam
+
+The laptop has finished its selected184-input main LightGBM and all344,841
+ranking predictions. The full-year fit took17.66minutes; every prediction
+reloads exactly on the laptop. Collector935144 finished at14:57:19UTC after
+verifying the model, prediction, input-audit and receipt hashes. Independent
+return checks also confirm all template IDs and finite nonnegative values.
+
+Model SHA-256:
+`2977801222c1d77ceeeff579f6c923a61269e13805577d0999a7cfb346c51d94`.
+Prediction SHA-256:
+`3a78718d460b94fa66de588cfcff1f25aee7138bef4f1827e278bc88e50c1b44`.
+The model is141,771,527bytes and the prediction table3,620,658bytes. The full
+original-source desktop inference audit remains required; the return check is
+not a substitute for it. No second training fit is needed.
+
+Only idle desktop waiters were reordered, after checking every process handle,
+empty child list and frozen source hash. The running inverse-reference test
+943878 is untouched. The new chain is daily-main finish971695 → v77
+packaging971696 → early-public neural971697 → Gaussian971698 → geometry
+preparation971699. Selected production now completes before the optional neural
+experiments. Previous queue files and idle process starts are retained in
+`target215/selected_production_priority_1658/`. No active fit was stopped and
+upload watchers649782/792755 remain unchanged. The laptop has no remaining
+training job; both authorized production fits are retained on the desktop.
+
 ## Daily-candidate score geometry prepared for the next window, 16:51 Amsterdam
 
 `daily_models_geometry.py` will append the selected v77 vector to the retained,
