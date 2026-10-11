@@ -1,18 +1,34 @@
 # Next steps
 
-**Active target: 215.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
-leaving **6.6881 seconds**. Live check: **11 October 20:23 Amsterdam**,
+**Active target: 205.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
+leaving **16.6881 seconds**. Live check: **11 October 20:23 Amsterdam**,
 rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
 are used. Autonomous submissions and both machines remain authorized.
 
-Four selected candidates are prepared and audited for the next UTC window:
+The user requested no research before **12 October 02:00 Amsterdam**. Three
+selected candidates remain prepared and audited for the next UTC window:
 
 | Candidate | Change | Jan/Jul CV | Earliest upload, Amsterdam |
 | --- | --- | ---: | --- |
-| v75 | v74 adds public daily inputs to the Rome CatBoost pool. | 292.9415 | 12 October 02:00 |
 | v76 | v75 adds public daily inputs to the main tree and physical networks. | 292.4494 | 12 October 02:10 |
 | v77 | v76 adds the selected daily and tree refinements. | 291.5497 | 12 October 02:20 |
 | v78 | v77 adds a joint public taxi-count, taxi-sum and departure-delay correction. | 290.9301 | 12 October 02:30 |
+
+V75 was removed from the upload queue at the user's request. Its Rome changes
+are included in v76; preserve its prepared artifacts, but **do not submit v75**.
+V76, v77 and v78 form successive comparisons with larger combined improvements
+and separate feedback on the tree/daily refinements and joint-source correction.
+The automatic fifth-slot follow-up is cancelled. **Two slots remain reserved**
+for future candidates selected after the retained candidates' actual feedback.
+
+The one-shot wake-up is scheduled for **12 October 02:00 Amsterdam (00:00 UTC)**.
+It requests continuation of this existing IDE thread, preserving permissions and
+account limits; the IDE must stay open. The local message interface passed a
+read-only preflight. The account/goal currently reports `usageLimited`, so the
+wake-up cannot guarantee inference availability. The three upload jobs operate
+independently. See [queue selection](VALIDATION/runs/v3_20261012_target205/queue_selection.json)
+and [wake-up plan](VALIDATION/runs/v3_20261012_target205/wakeup_plan.json).
+No training, screening or candidate iteration is authorized before that time.
 
 None has an official score yet. All uploads require unchanged audited sources,
 exact file/schema/IDs, available quota and the same accepted population. Do not
@@ -27,10 +43,11 @@ V77's original packaging attempt failed before creating a file because one old
 manifest used mapping-form provenance. The corrected packager verifies both
 retained formats; all predictions remain unchanged. Component, package and
 separate root-authored final arithmetic/constraint/raw-truth audits pass.
-The prepared 51-vector score basis also passes its all-row audit. Its evaluation
-waits for actual successful v75/v76/v77 scores and fresh leaderboard/file checks;
-no score is imputed. A subsequently selected blend still needs its own final
-file audit. Existing 50-vector evaluation remains separately queued after v76.
+The prepared 51-vector score basis also passes its all-row audit. All three
+50-/51-/52-vector evaluation queues are now cancelled because their frozen bases
+require v75's score. Preserve their artifacts. After the wake-up, any replacement
+must exclude unsubmitted v75 and use only actual successful official scores;
+never impute a score. A later selected blend needs its own final file audit.
 
 V78 improves v77 CV by **0.6196 seconds**, paired-day interval
 **[−1.0279, −0.2138]**. July improves1.2732; January worsens0.0340.
@@ -45,33 +62,14 @@ checks then agree within2.4e-10 seconds. Retain the original failure log.
 V78 changes1,734 ranking rows. These are reused development months, and the
 moment approximation and transfer onto v77 remain limitations.
 
-The retained follow-up blend packager `scored_basis_candidate.py` consumes the
-actual 51-vector diagnosis only after successful v75–v77 scores. It creates a
-candidate only when the conservative score bound improves the current official
-best by at least0.25 seconds or reaches215. It reports Jan/Jul CV even if it
-regresses, because selection explicitly uses leaderboard feedback. The separate
-SQL auditor checks the weighted predictions, raw historical truth, score identity,
-and clipping/rounding bound. A full-size synthetic laptop test passes. A separate
-52-vector basis now includes v78, preserves all51 prior vectors exactly and
-passes the all-row SQL audit. Its evaluator waits for actual successful
-v75–v78 scores. The matching `joint_scored_candidate.py` and separate auditor
-retain the same selection rule; the full-size52-vector synthetic build and
-separate SQL audit pass on the laptop, including missing-score/corrupt-file
-rejection and preservation of an existing candidate. No v79 or later blend
-submission exists. Preserve the source
-diagnosis's integer vectors, because recomputing half-integer ties can differ
-with floating reduction order. Run the separate audit before any later upload.
-
-The fifth-slot follow-up is now automated. Queue1082968 waits for the actual
-52-vector diagnosis, then `joint_scored_followup.py` conditionally builds v79,
-runs the separate full SQL audit and uploads only if the existing conservative
-gain rule still passes against the fresh official best. It checks quota,
-cancellation, expiry and verified live desktop jobs; the retained uploader
-rechecks sources, population, file and remote uniqueness. Upload is attempted
-once, with no automatic retry after an ambiguous result. No v79 file exists
-yet. The isolated laptop check passes13 resource/decision/failure cases without
-calling a live API or creating a real submission. Keep the fifth next-window
-slot for this conditional follow-up unless new evidence justifies changing it.
+The retained 51-/52-vector blend packagers, separate SQL auditors and synthetic
+tests are historical completed work. Their original specifications targeted 215
+and required v75. The automatic fifth-slot coordinator and its evaluator are
+cancelled; **do not restart them**. No v79 or later blend submission exists.
+A new feedback-driven candidate may be considered only after 02:00, with a new
+specification reflecting the 205 target and the actual scored candidates. Preserve
+the source diagnosis's integer vectors: recomputing half-integer ties can differ
+with floating reduction order. Report Jan/Jul CV for every selected candidate.
 
 The fixed learned attention-pooling screen is complete and closed. Replacing
 one of three pool members changes exact-v78 CV by−0.0109 seconds, interval
@@ -96,9 +94,12 @@ quadrature, all92,386 support-state calendar assignments, all scope gates,
 targets have support on multiple days, although uncertain peers can affect
 other targets. No expansion, production or submission follows.
 
-At20:35Amsterdam the four upload watchers and four evaluation/follow-up
-watchers remain live; candidate files, manifests and all declared source hashes
-match. The desktop and laptop have finished the current research jobs.
+Queue pruning is complete: only the v76/v77/v78 upload watchers remain live.
+V75, the three geometry evaluators and the automatic follow-up have exited with
+state `cancelled`. The desktop and laptop have finished the current research jobs.
+The objective path remains `v3_20261011_target215/objective.json` for compatibility
+with retained upload jobs; its target is 205. The uploader gate stays active while
+research has a separate not-before time.
 
 The explicit-neighbour public-source screen is complete and closed. Retaining
 one largest-variance peer's full discrete support changes v78 CV by−0.0500,
@@ -136,8 +137,8 @@ replays and independent SQL audits pass. No production or upload follows.
 Removing coefficient limits while accounting for official-score uncertainty
 adds only0.0061 seconds of projected gain over the bounded recipe on the same
 48 scored vectors. Its serialized upper bound is221.8268, above current best.
-No candidate or upload is selected. V75–v77 remain explicitly excluded until
-scored; existing next-window evaluation/upload watchers are unchanged.
+No candidate or upload was selected. This historical screen used only then-scored
+vectors; the queue-pruning instructions above supersede its old watcher plan.
 
 The Gaussian observation-variance screen is complete and closed: matched CV
 worsens4.6579 seconds and one-of-three replacement worsens0.6469 seconds,
@@ -166,8 +167,9 @@ the offset. This only bounds those unrounded constant corrections on CV, not
 2026 gains or nonlinear corrections. No candidate, deployment offset or upload
 was created. Broad offset probes are deprioritized on this evidence.
 
-All three existing subagents remain unavailable due to the account usage limit;
-the root agent is continuing the retained work. Sources, failures, recovery
+All three existing subagents remain unavailable due to the account usage limit.
+The root goal also reports `usageLimited`; no replacement agents or account-limit
+overrides are authorized. Research is on hold until the requested wake-up. Sources, failures, recovery
 receipts and limitations are in the [215-second research report](VALIDATION/reports/TARGET215_RESEARCH.md).
 The earlier 225.00 goal is complete; its result remains below.
 

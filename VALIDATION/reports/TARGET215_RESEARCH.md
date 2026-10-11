@@ -1,5 +1,28 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Target 205 and queue pruning, 11 October evening
+
+The user changed the target to 205.00 or lower and requested no iteration before
+12 October 02:00 Amsterdam. Retain only v76, v77 and v78 for 02:10/02:20/02:30.
+V75's changes are included in v76; its upload watcher is cancelled. The three
+geometry evaluators requiring v75 and the automatic fifth-slot coordinator are
+also cancelled and confirmed exited. Preserve all prepared artifacts, but do
+not submit v75 or restart those queues. Two next-window slots remain available
+for feedback-informed candidates. No new model experiment ran during setup.
+
+The local objective now targets 205, with a 16.6881-second gap from best v74.
+Its old path is retained for the active upload watchers. The scheduled one-shot
+wake-up at 00:00 UTC uses the existing IDE thread's local message interface,
+without changing session settings, account limits or goal status. Read-only
+owner/thread requests and five isolated timer cases pass. Account/goal status
+is `usageLimited`, so delivery cannot guarantee subsequent inference. The IDE
+must remain running; uploads are independent of the model wake-up.
+
+See `v3_20261012_target205/queue_selection.json`, `wakeup_plan.json` and
+`wakeup_receipt.json` under runs. Older sections below describe historical
+queue states and are superseded by this user instruction.
+
+
 ## Uncertain calendar screen closed, 20:35 Amsterdam
 
 The fixed calendar-aware correction gives CV290.930119→290.932236,
