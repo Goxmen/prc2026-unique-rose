@@ -114,6 +114,21 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 11, 11:02 Amsterdam:** a new fixed monthly-reference screen is
+  queued last (`monthly_reference_queue.json`, PID755899, after PID746093).
+  `monthly_reference_bridge.py` estimates which stand/runway cells contribute
+  to the public mean by input frequency, matching the published coverage share
+  with fractional ties. It keeps the old half-strength shift, invalid-share
+  gate, cap and training-only composition regression. It must replay v74 and
+  compare its transfer on v75. Numerical mass/tie/permutation/target-isolation
+  checks pass; no CV result or production selection. Same cancellation file.
+  December's descriptive reference-population audit and source are retained in
+  `VALIDATION/reports/research_network_20261010/monthly_population_probe_20261011/`
+  and `VALIDATION/tools/probe_monthly_reference_population.py`. Missing deicing
+  and official reference eligibility prevent an exact-identity claim. Laptop
+  WSL is still offline (checked11:02); Windows is online. Do not restart agents
+  that hit their account usage limit. All heavy desktop work stays sequential.
+
 - **October 11, 10:53 Amsterdam continuation:** live best/latest remains v74,
   221.6881, rank12/242 (checked10:47). Ordinary punctuality finished its January
   fit and is training July (PID734641). A fixed raw-track withholding screen

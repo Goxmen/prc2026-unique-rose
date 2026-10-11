@@ -35,6 +35,10 @@ with the original inference, inputs, epochs and parameters. CPU checks pass;
 Jan/Jul results are pending. This tests branch robustness, not complete ADS-B
 or ground-only missingness. Live check at 10:47 Amsterdam still gives v74 as
 best/latest, 221.6881 and rank12/242.
+A reference-population monthly comparison is queued after track withholding.
+It matches the public coverage fraction using stand/runway input frequency;
+the existing correction strength and limits stay fixed. This approximates
+source membership, with numerical checks passed and CV still pending.
 The earlier 225.00 target is complete; the result below remains the baseline.
 Continuing evidence: [215-second research](VALIDATION/reports/TARGET215_RESEARCH.md).
 

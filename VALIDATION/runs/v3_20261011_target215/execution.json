@@ -9,7 +9,7 @@
     "pid": 734641,
     "log": "tmp/research_20261011/punctuality_main.log"
   },
-  "laptop": "Windows online, WSL offline; both SSH paths time out; optional user request to open WSL pending",
+  "laptop": "Windows online, WSL offline at09:02 UTC; optional user request to open WSL remains pending",
   "utc_uploads_used": [
     70,
     71,
@@ -57,9 +57,11 @@
     "structural Rome support not selected: +0.5626 versus old posterior; July worsens",
     "off-block alignment not selected: +0.1506 against matched IFR; all source/date/fallback/SQL audits pass",
     "fixed t5 ordinary aggregate preflight passes8036-state enumeration; screen queued after neural production",
-    "fixed raw-track withholding CPU initialization/RNG/masking/gradient/padding checks and frozen provenance pass; GPU/CV pending"
+    "fixed raw-track withholding CPU initialization/RNG/masking/gradient/padding checks and frozen provenance pass; GPU/CV pending",
+    "December reference-population source diagnostic retained; no exact source identity or CV claim",
+    "monthly reference bridge16 allocation oracles and arithmetic/permutation/label-isolation preflight pass"
   ],
-  "next": "ordinary punctuality screen; joint main/neural CV and selected neural production; fixed heavy-tail daily screen; raw-track withholding CV; preserve v75 upload",
+  "next": "finish ordinary punctuality; joint main/neural CV and neural production; heavy-tail daily screen; raw-track withholding; monthly reference bridge; preserve v75 upload",
   "queued_upload": {
     "version": 75,
     "queue": "VALIDATION/runs/v3_20261011_target215/queue_v75.json",
@@ -160,6 +162,15 @@
     "jobs": [
       "fixed25% training raw-track withholding; original inference; matched public-single CV",
       "sampled model reload audit and independent all-row SQL scores"
+    ]
+  },
+  "monthly_reference_queue": {
+    "path": "VALIDATION/runs/v3_20261011_target215/monthly_reference_queue.json",
+    "pid": 755899,
+    "state": "waiting",
+    "jobs": [
+      "fixed frequency-weighted monthly source population, actual v75 transfer",
+      "independent SQL scores and coverage-mass audit"
     ]
   }
 }

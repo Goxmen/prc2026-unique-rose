@@ -752,3 +752,37 @@ still centers on following-clock features and longer LightGBM training,
 which our retained feature/HPO work already addresses. No competitor source
 code was copied or executed in this follow-up. Local read-only snapshots
 are under `tmp/research_20261011/public_sources/`.
+
+## Monthly reference-population follow-up
+
+The [official methodology](https://ansperformance.eu/library/ATXOT_indicator_documentation_mar23.pdf)
+excludes flights without a usable stand/runway reference, alongside other
+filters. A December2025 descriptive check applies its reference-count rule
+to the supplied year's labels. Compared with the basic eligible mean, this
+reduces the discrepancy from the published mean at Rome from13.31 to−0.93
+seconds, Barcelona4.71 to−0.22 and Istanbul14.88 to−2.04. Counts still differ,
+and winter gaps remain large at airports where deicing exclusions cannot be
+reproduced. This is source-population diagnosis, not model validation.
+Results and input hashes are in
+`research_network_20261010/monthly_population_probe_20261011/`; runner
+`tools/probe_monthly_reference_population.py`. It uses no hidden labels.
+
+One fixed experiment, `monthly_reference_bridge.py`, approximates reference
+membership using stand/runway frequency in the allowed training and held-input
+months. Within each airport-month it weights the most frequent cells until
+their mass matches the source's covered fraction; tied frequencies receive
+equal fractional weights. It calibrates the weighted predicted mean against
+the source. The original half-strength shift,120-second raw cap,5% invalid
+share gate and training-only composition regression stay unchanged. There
+is no coverage threshold or blend-weight search. The reference mask remains
+an approximation; no exact source identity is claimed.
+
+Preflight passes16 independent allocation-oracle cases, requested mass,
+fractional ties, row-order invariance, a hand-computed weighted mean,
+full-coverage identity and label isolation of input frequencies. The screen
+must replay v74 exactly, then score both the replacement monthly stage and
+its transfer on prepared v75, followed by independent SQL label/control/score
+checks. No CV score or production selection exists yet. Run:
+`v3_20261011_monthly_reference_bridge/`. Queue
+`monthly_reference_queue.json` (PID755899) waits for track-withholding
+PID746093 and its audit, uses the same cancellation file, and has no upload.
