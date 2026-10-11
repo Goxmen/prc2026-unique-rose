@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "device": "cpu",
+      "original_parameters_mean_and_initial_loss_exact": true,
+      "original_gradients_checked": true,
+      "gradient_max_absolute_error": 0.0,
+      "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+      "initialization_and_dropout_rng_exact": true,
+      "variance_gradient_finite_nonzero": true,
+      "variance_does_not_change_mean_inference": true,
+      "padding_invariant_for_both_outputs": true,
+      "independent_nonzero_variance_gradients_pass": true
+    },
+    {
+      "device": "cuda",
+      "original_parameters_mean_and_initial_loss_exact": true,
+      "original_gradients_checked": true,
+      "gradient_max_absolute_error": 7.450580596923828e-09,
+      "cuda_convolution_gradient_tolerance": "8 * float epsilon * tensor maximum; all other gradients exact",
+      "initialization_and_dropout_rng_exact": true,
+      "variance_gradient_finite_nonzero": true,
+      "variance_does_not_change_mean_inference": true,
+      "padding_invariant_for_both_outputs": true,
+      "independent_nonzero_variance_gradients_pass": true
+    }
+  ],
+  "training_ast_except_loss_and_metric_exact": true,
+  "original_globals_unchanged": true
+}

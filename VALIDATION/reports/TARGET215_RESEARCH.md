@@ -1,5 +1,27 @@
 # Research toward 215 seconds — 11 October 2026
 
+## Early-public projection closed after full CV, 17:55 Amsterdam
+
+Both fixed fits and all audits are complete. Matched seed42 CV changes
+292.834296 →292.655692 (**−0.178604**), interval[−0.460545,+0.140037]. Replacing
+only seed42 in the selected three-member pool changes292.449363 →292.375435
+(**−0.073928**), interval[−0.169447,+0.032660]. January worsens0.079412 and July
+improves0.227268 in the pool. Both comparisons are inconclusive, so there is no
+seed expansion, full-year fit, candidate or upload.
+
+All original and new full-held predictions reload exactly. The separate model
+check covers1,094 rows with maximum0.000718 seconds difference, and independent
+SQL checks all344,419 truth/calendar/control rows and every reported score.
+Keep both completed models. Result SHA-256:
+`b92bb102cc56233f6a8ea322581e58c4f19e71ae28c013f013a23bac227d88bd`.
+
+Gaussian worker1004500 has started under queue992975. Its CPU/CUDA preflight
+passes and the initial real training benchmark uses4.626GiB allocated GPU
+memory. Time-weighted pooling1002895 follows it. All frozen queue source hashes
+pass. Live17:54 Amsterdam still shows v74 **221.6881**, rank12/242,344,841 rows.
+V75–V77 remain prepared with live upload watchers; the215 goal is not complete.
+
+
 ## Time-weighted track-pooling screen prepared, 17:51 Amsterdam
 
 The retained physical encoder pools equally across observations. A new fixed

@@ -44,7 +44,8 @@
         "VALIDATION/runs/v3_20261011_nn_public_early/identity.json": "293776fd6492cb78ce4ac5160c41c96d0af670ba6847863cf2e2689d55093be9"
       },
       "log": "tmp/research_20261011/nn_public_early.log",
-      "result": "VALIDATION/runs/v3_20261011_nn_public_early/score_audit.json"
+      "result": "VALIDATION/runs/v3_20261011_nn_public_early/score_audit.json",
+      "completed_result_sha256": "56610785c8cda26d63b7b465b7d4fd2f46c710135a43dd5f7b6407ad16b4d9f0"
     }
   ],
   "rebound_at": "2026-10-11T13:33:24.923225+00:00",
@@ -67,15 +68,15 @@
     "previous_queue": "VALIDATION/runs/v3_20261011_target215/provenance_format_recovery_1733/nn_public_early_queue.json",
     "reason": "Handle both historical list and mapping provenance formats; original model predictions unchanged; no downstream fit had started"
   },
-  "state": "running",
+  "state": "complete",
   "cuda_preflight_recovery": {
     "previous_queue": "VALIDATION/runs/v3_20261011_target215/cuda_preflight_recovery/nn_public_early_queue.json",
     "checks": "VALIDATION/runs/v3_20261011_target215/cuda_preflight_recovery/checks.json",
     "no_fit_repeated": true
   },
-  "updated_at": "2026-10-11T15:34:01.603703+00:00",
+  "updated_at": "2026-10-11T15:53:16.703441+00:00",
   "pid": 992974,
   "job": 0,
-  "stage": 0,
-  "child_pid": 992978
+  "stage": 3,
+  "child_pid": null
 }

@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target: 215.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
-leaving **6.6881 seconds**. Live check: **11 October 17:33 Amsterdam**,
+leaving **6.6881 seconds**. Live check: **11 October 17:54 Amsterdam**,
 rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
 are used. Autonomous submissions and both machines remain authorized.
 
@@ -31,18 +31,19 @@ waits for actual successful v75/v76/v77 scores and fresh leaderboard/file checks
 no score is imputed. A subsequently selected blend still needs its own final
 file audit. Existing 50-vector evaluation remains separately queued after v76.
 
-Desktop research: the early-public neural projection screen is restarting after
-a pre-training CUDA check stopped on sub-nanosecond gradient arithmetic.
-Identical-network repetitions show the same convolution accumulation variation.
-Only those CUDA weight gradients now allow eight dtype epsilons times their
-maximum magnitude; every other gradient and all weights/outputs/RNG remain
-exact. CPU/CUDA checks pass for early-public and the following Gaussian screen.
-No fit had started and none was repeated. Their architecture, optimizer, inputs,
-epochs and original training updates are unchanged. The Gaussian screen changes
-only the intended loss to learn observation variance; inference uses the mean.
-Current queues: early-public 992974 → Gaussian 992975 → time-weighted pooling
-1002895. One heavy job per host.
-The laptop is currently idle after completing both selected production fits.
+Desktop research: Gaussian observation-variance training is running under992975,
+followed by time-weighted pooling1002895. Both fixed screens preserve the
+original inputs, epochs and optimizer. The Gaussian experiment changes only
+the intended loss; inference uses the mean. One heavy job runs per host. The
+laptop is idle after completing the selected production fits and the new
+synthetic GPU check.
+
+The early-public neural projection screen is complete and closed: matched
+CV−0.1786 and one-of-three replacement−0.0739 are inconclusive; January worsens
+0.0794 in the pool while July improves0.2273. Both original/new full held
+reloads and the independent model/SQL audits pass. Retain both models, without
+production expansion or a submission row. Its corrected pre-fit CUDA check
+and untouched training implementation are recorded in the research report.
 
 A fixed time-weighted track-pooling screen is now prepared. It supplements the
 existing observation mean/max with a centered pool weighted by adjacent retained

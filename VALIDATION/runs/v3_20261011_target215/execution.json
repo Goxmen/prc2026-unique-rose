@@ -4,12 +4,12 @@
   "best_version": 74,
   "best_score": 221.6881,
   "desktop": {
-    "task": "early_public_neural_cv",
-    "pid": 992978,
-    "queue_pid": 992974,
+    "task": "gaussian_observation_variance_cv",
+    "pid": 1004500,
+    "queue_pid": 992975,
     "stage": 0,
-    "log": "tmp/research_20261011/nn_public_early.log",
-    "state": "training January; first epochs completed after passing CPU/CUDA and old-model replay checks"
+    "log": "tmp/research_20261011/nn_public_gaussian.log",
+    "live_start": "10271257"
   },
   "laptop": {
     "host": "GLAPTOP",
@@ -166,7 +166,8 @@
     "51-vector basis prepared and audited, actual-score evaluation queued after v77",
     "Inverse-reference complete independent model/SQL audit pass; inconclusive screen closed",
     "Fixed broad offset-family descriptive diagnostic complete; no candidate or upload",
-    "Neural CUDA convolution rounding diagnosed with identical-network repeat; narrow dtype-scaled check; no architecture/training change or repeated fit"
+    "Neural CUDA convolution rounding diagnosed with identical-network repeat; narrow dtype-scaled check; no architecture/training change or repeated fit",
+    "Early-public projection completed both fits and all audits; matched-0.1786 and one-of-three-0.0739 inconclusive; January worse; no expansion"
   ],
   "next": "Finish returned CatBoost audit and combined component, then fixed inverse-reference and early-public screens; laptop continues selected daily-main production. Preserve all completed fits and original v75/v76 upload schedule.",
   "queued_upload": {
@@ -341,7 +342,7 @@
       "not_before_utc": "2026-10-12T00:20:05+00:00"
     }
   ],
-  "updated_at": "2026-10-11T15:52:15.945613+00:00",
+  "updated_at": "2026-10-11T15:54:56.422604+00:00",
   "grid_interpolation_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/grid_interpolation_queue.json",
     "pid": 799019,
@@ -478,7 +479,7 @@
   },
   "latest_integrity": "VALIDATION/runs/v3_20261011_target215/queue_integrity_1736.json",
   "last_live_leaderboard_check": {
-    "updatedAt": "2026-10-11T15:33:31+00:00",
+    "updatedAt": "2026-10-11T15:54:31+00:00",
     "best": 221.6881,
     "latest_version": 74,
     "rank": 12,
@@ -515,8 +516,8 @@
   "nn_public_early_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/nn_public_early_queue.json",
     "pid": 992974,
-    "state": "running",
-    "process_live": true,
+    "state": "complete",
+    "process_live": false,
     "jobs": [
       "fixed_public_inputs_early_neural_projection"
     ]
@@ -543,7 +544,7 @@
   "nn_public_gaussian_queue": {
     "path": "VALIDATION/runs/v3_20261011_target215/nn_public_gaussian_queue.json",
     "pid": 992975,
-    "state": "waiting",
+    "state": "running",
     "process_live": true,
     "jobs": [
       "fixed_public_gaussian_observation_likelihood"
@@ -568,7 +569,7 @@
     "minutes": 19.573394281150104,
     "remaining": "none; July and full audit complete"
   },
-  "production_priority": "Selected production and v77 assembly complete; desktop992974 early neural ->992975Gaussian. Laptop idle.",
+  "production_priority": "Selected production complete. Desktop Gaussian992975 -> time-weighted pooling1002895; laptop synthetic check complete and idle.",
   "inverse_reference_result": {
     "state": "closed: CV inconclusive; final full model/SQL audit pass",
     "cv_v76": 292.449362934613,
@@ -602,9 +603,46 @@
     "path": "VALIDATION/runs/v3_20261011_target215/nn_public_duration_pool_queue.json",
     "pid": 1002895,
     "state": "waiting",
+    "process_live": true,
     "jobs": [
       "fixed_time_weighted_track_pool"
-    ],
-    "process_live": true
+    ]
+  },
+  "early_public_result": {
+    "state": "closed; no production or upload",
+    "result": "VALIDATION/runs/v3_20261011_nn_public_early/result.json",
+    "audit": "VALIDATION/runs/v3_20261011_nn_public_early/score_audit.json",
+    "cv": {
+      "control": 292.83429599342526,
+      "candidate": 292.6556920835653,
+      "selected": 292.449362934613,
+      "replace_seed42": 292.375435023965
+    },
+    "paired": {
+      "candidate_vs_control": {
+        "change": -0.17860390985995878,
+        "ci95": [
+          -0.4605452311315659,
+          0.140036824369262
+        ],
+        "decision": "inconclusive"
+      },
+      "replace_seed42_vs_selected": {
+        "change": -0.07392791064802395,
+        "ci95": [
+          -0.16944736042122238,
+          0.03265963799892498
+        ],
+        "decision": "inconclusive"
+      }
+    },
+    "january_change": 0.07941190370456752,
+    "july_change": -0.22726772500061543
+  },
+  "latest_verified_wait": {
+    "at": "2026-10-11T15:54:56.422604+00:00",
+    "pid": 1004500,
+    "start": "10271257",
+    "task": "gaussian_observation_variance_cv"
   }
 }
