@@ -1,0 +1,598 @@
+{
+  "status": "closed_no_fit",
+  "assessment": {
+    "decision": "Reject shared same-flight NM endpoint alias as a high-headroom mechanism; no feature/model screen.",
+    "coverage": {
+      "training": 310869,
+      "old": 50232,
+      "final": 99428,
+      "old_total_departures": 344841,
+      "old_over600sec": 41,
+      "all_three_views_plan_endpoint_disagreements": 0
+    },
+    "training_only_evidence": {
+      "fixed_dates": 12,
+      "rows": 10245,
+      "clipped_correlation": -0.0099228056124166,
+      "route_demeaned_clipped_correlation": -0.00936944086520602,
+      "proxy_rmse_before": 384.8966086064411,
+      "proxy_rmse_after": 392.70221811599936,
+      "proxy_mae_before": 218.11400683260126,
+      "proxy_mae_after": 225.13479746217666,
+      "all_four_months_worsen": true
+    },
+    "interpretation": "Clock proxy diagnostic only, not challenge CV. Fits not run. Only original-ID pairs are covered; no missing-ID recovery claim. Airline/time confounding cannot rescue the absence of positive shared-error association. No label-derived matching or January/July departure labels.",
+    "distinct_from_prior": [
+      "arrival_plan used plan-only duration/route medians",
+      "rotation uses previous same-aircraft arrival",
+      "arrival lag context uses recent other flights at same airport",
+      "recovery fills originally missing plans"
+    ],
+    "review": "signal_scout static match/label-boundary review passed; independent scalar strict ID/route/callsign check passed",
+    "artifacts": {
+      "coverage.json": "a6e29d124e6b50c30a43cb23dfc24742f20c77317ac4d497c0967f8ed8670da9",
+      "pilot.json": "ed9a2620cf54e118f8c4299daee88a3125ac3c7381211e9c42d5032b1d52ccb5",
+      "design.json": "5cc48449cae159d836da1b28e322f79998ebb3f820b91c5e5123e13fb2538bcc",
+      "training_input_pairs.parquet": "d0eeb067fdb264058e09badfe2c4f3ea65102c480cdde4685e60c6ec5dbde45d",
+      "training_pilot.parquet": "6804a75ac14b336f472a6f978256ed8d22ef7749eceb2c9c78744fcdb4764372"
+    },
+    "source_sha256": "34a604eac9931bf2df1f2dd887b325e2e22af231226af8c37852c882815461c9"
+  },
+  "design": {
+    "mechanism": "A common NM trajectory timestamp error should appear at both departure AOBT3 and destination ARVT3.",
+    "match": "Unique original FLIGHT_ID per phase, equal movement route and callsign; both plan routes agree with movement route; known aircraft types agree; destination landing 10min..20h after takeoff.",
+    "endpoint_feature": "same-flight destination original landing minus original ARVT3, seconds",
+    "source_views": "all2025, old2026, final2026 isolated; all matching uses only own view inputs",
+    "pilot_dates": [
+      "2025-03-05",
+      "2025-03-15",
+      "2025-03-25",
+      "2025-09-05",
+      "2025-09-15",
+      "2025-09-25",
+      "2025-10-05",
+      "2025-10-15",
+      "2025-10-25",
+      "2025-11-05",
+      "2025-11-15",
+      "2025-11-25"
+    ],
+    "pilot_reference_months": [
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11"
+    ],
+    "target": "departure BLOCK minus genuine AOBT3, training diagnostics only",
+    "diagnostics": "fixed absolute landing discrepancy >60/>600, Pearson after clipping both residuals to +/-3600, direct additive-error comparison and route-demeaned association",
+    "temporal": "each of four training months and March+September versus October+November",
+    "no_held_departure_labels": true,
+    "no_matching_with_departure_block": true,
+    "no_model_fit": true,
+    "no_candidate": true,
+    "no_new_threshold_selection": true
+  },
+  "source_only_coverage": {
+    "design": {
+      "mechanism": "A common NM trajectory timestamp error should appear at both departure AOBT3 and destination ARVT3.",
+      "match": "Unique original FLIGHT_ID per phase, equal movement route and callsign; both plan routes agree with movement route; known aircraft types agree; destination landing 10min..20h after takeoff.",
+      "endpoint_feature": "same-flight destination original landing minus original ARVT3, seconds",
+      "source_views": "all2025, old2026, final2026 isolated; all matching uses only own view inputs",
+      "pilot_dates": [
+        "2025-03-05",
+        "2025-03-15",
+        "2025-03-25",
+        "2025-09-05",
+        "2025-09-15",
+        "2025-09-25",
+        "2025-10-05",
+        "2025-10-15",
+        "2025-10-25",
+        "2025-11-05",
+        "2025-11-15",
+        "2025-11-25"
+      ],
+      "pilot_reference_months": [
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "target": "departure BLOCK minus genuine AOBT3, training diagnostics only",
+      "diagnostics": "fixed absolute landing discrepancy >60/>600, Pearson after clipping both residuals to +/-3600, direct additive-error comparison and route-demeaned association",
+      "temporal": "each of four training months and March+September versus October+November",
+      "no_held_departure_labels": true,
+      "no_matching_with_departure_block": true,
+      "no_model_fit": true,
+      "no_candidate": true,
+      "no_new_threshold_selection": true
+    },
+    "source_sha256": "34a604eac9931bf2df1f2dd887b325e2e22af231226af8c37852c882815461c9",
+    "source_manifest": {
+      "path": "data/derived/source_clock_phase_20261012/manifest.json",
+      "sha256": "9505f759015a862db1b6aec38d623073c005c61ee1851c95831dea7a5d80a8d6"
+    },
+    "raw_sources": {
+      "training": [
+        {
+          "path": "data/training_2025-01-01_2025-02-01.parquet",
+          "bytes": 21218481,
+          "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+        },
+        {
+          "path": "data/training_2025-02-01_2025-03-01.parquet",
+          "bytes": 19824510,
+          "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+        },
+        {
+          "path": "data/training_2025-03-01_2025-04-01.parquet",
+          "bytes": 22606072,
+          "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+        },
+        {
+          "path": "data/training_2025-04-01_2025-05-01.parquet",
+          "bytes": 23840340,
+          "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+        },
+        {
+          "path": "data/training_2025-05-01_2025-06-01.parquet",
+          "bytes": 25187756,
+          "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+        },
+        {
+          "path": "data/training_2025-06-01_2025-07-01.parquet",
+          "bytes": 24991697,
+          "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+        },
+        {
+          "path": "data/training_2025-07-01_2025-08-01.parquet",
+          "bytes": 26014977,
+          "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+        },
+        {
+          "path": "data/training_2025-08-01_2025-09-01.parquet",
+          "bytes": 25969246,
+          "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+        },
+        {
+          "path": "data/training_2025-09-01_2025-10-01.parquet",
+          "bytes": 25102673,
+          "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+        },
+        {
+          "path": "data/training_2025-10-01_2025-11-01.parquet",
+          "bytes": 25392098,
+          "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+        },
+        {
+          "path": "data/training_2025-11-01_2025-12-01.parquet",
+          "bytes": 22173840,
+          "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+        },
+        {
+          "path": "data/training_2025-12-01_2026-01-01.parquet",
+          "bytes": 22653598,
+          "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+        }
+      ],
+      "old": [
+        {
+          "path": "data/ranking.parquet",
+          "bytes": 43564605,
+          "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+        }
+      ],
+      "final": [
+        {
+          "path": "data/final_ranking.parquet",
+          "bytes": 85853399,
+          "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+        }
+      ]
+    },
+    "source_validation": "Reuses completed all-row phase source audit; no concurrent full-file hashing.",
+    "views": {
+      "training": {
+        "totals": {
+          "departures": 2085047,
+          "missing_id": 22424,
+          "within_ten": 318660,
+          "pairs": 310869,
+          "finite_landing_error": 310869,
+          "both_clocks": 310869,
+          "paired_aobt_disagreements": 0,
+          "paired_arvt_disagreements": 0,
+          "landing_over60": 40386,
+          "landing_over600": 254
+        },
+        "summary_sha256": "5581717d4a1cb5144a0ecfde162d67b6c772c15278ff186a4367082e7ef5b828"
+      },
+      "old": {
+        "totals": {
+          "departures": 344841,
+          "missing_id": 5283,
+          "within_ten": 51626,
+          "pairs": 50232,
+          "finite_landing_error": 50232,
+          "both_clocks": 50232,
+          "paired_aobt_disagreements": 0,
+          "paired_arvt_disagreements": 0,
+          "landing_over60": 5485,
+          "landing_over600": 41
+        },
+        "summary_sha256": "42178629501e33b89866ddc76fc70b3b730ccaae90503acbb2c72f53d76bbc89"
+      },
+      "final": {
+        "totals": {
+          "departures": 670790,
+          "missing_id": 9057,
+          "within_ten": 101939,
+          "pairs": 99428,
+          "finite_landing_error": 99428,
+          "both_clocks": 99428,
+          "paired_aobt_disagreements": 0,
+          "paired_arvt_disagreements": 0,
+          "landing_over60": 11644,
+          "landing_over600": 91
+        },
+        "summary_sha256": "662854edf97c58383444377d66d4272a0fb85eaf6675dbdee36e181a821ae5a1"
+      }
+    },
+    "training_pilot_input_rows": 10245,
+    "elapsed_seconds": 10.941583223990165
+  },
+  "training_only_pilot": {
+    "design": {
+      "mechanism": "A common NM trajectory timestamp error should appear at both departure AOBT3 and destination ARVT3.",
+      "match": "Unique original FLIGHT_ID per phase, equal movement route and callsign; both plan routes agree with movement route; known aircraft types agree; destination landing 10min..20h after takeoff.",
+      "endpoint_feature": "same-flight destination original landing minus original ARVT3, seconds",
+      "source_views": "all2025, old2026, final2026 isolated; all matching uses only own view inputs",
+      "pilot_dates": [
+        "2025-03-05",
+        "2025-03-15",
+        "2025-03-25",
+        "2025-09-05",
+        "2025-09-15",
+        "2025-09-25",
+        "2025-10-05",
+        "2025-10-15",
+        "2025-10-25",
+        "2025-11-05",
+        "2025-11-15",
+        "2025-11-25"
+      ],
+      "pilot_reference_months": [
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "target": "departure BLOCK minus genuine AOBT3, training diagnostics only",
+      "diagnostics": "fixed absolute landing discrepancy >60/>600, Pearson after clipping both residuals to +/-3600, direct additive-error comparison and route-demeaned association",
+      "temporal": "each of four training months and March+September versus October+November",
+      "no_held_departure_labels": true,
+      "no_matching_with_departure_block": true,
+      "no_model_fit": true,
+      "no_candidate": true,
+      "no_new_threshold_selection": true
+    },
+    "coverage_sha256": "a6e29d124e6b50c30a43cb23dfc24742f20c77317ac4d497c0967f8ed8670da9",
+    "matching_inputs_sha256": "d0eeb067fdb264058e09badfe2c4f3ea65102c480cdde4685e60c6ec5dbde45d",
+    "source_sha256": "34a604eac9931bf2df1f2dd887b325e2e22af231226af8c37852c882815461c9",
+    "all": {
+      "rows": 10245,
+      "landing_over60": 1182,
+      "landing_over600": 11,
+      "departure_clock_rmse": 384.8966086064411,
+      "same_flight_shift_rmse": 392.70221811599936,
+      "departure_clock_mae": 218.11400683260126,
+      "same_flight_shift_mae": 225.13479746217666,
+      "clipped_correlation": -0.0099228056124166,
+      "route_demeaned_clipped_correlation": -0.00936944086520602,
+      "clock_median": 5.0,
+      "landing_median": -4.0,
+      "common_shift_within60": 2153,
+      "block_clock_within60": 2372
+    },
+    "by_month": {
+      "2025-03": {
+        "rows": 2500,
+        "landing_over60": 322,
+        "landing_over600": 1,
+        "departure_clock_rmse": 367.74714628396504,
+        "same_flight_shift_rmse": 373.1850382852989,
+        "departure_clock_mae": 202.3996,
+        "same_flight_shift_mae": 210.1392,
+        "clipped_correlation": -0.02244347677838869,
+        "route_demeaned_clipped_correlation": -0.040322538827176124,
+        "clock_median": 32.0,
+        "landing_median": -11.0,
+        "common_shift_within60": 543,
+        "block_clock_within60": 618
+      },
+      "2025-09": {
+        "rows": 2593,
+        "landing_over60": 327,
+        "landing_over600": 4,
+        "departure_clock_rmse": 412.2669716576675,
+        "same_flight_shift_rmse": 415.8219869097013,
+        "departure_clock_mae": 229.8677207867335,
+        "same_flight_shift_mae": 235.03393752410335,
+        "clipped_correlation": 0.010365564204328489,
+        "route_demeaned_clipped_correlation": 0.00487068967267965,
+        "clock_median": -3.0,
+        "landing_median": -2.0,
+        "common_shift_within60": 541,
+        "block_clock_within60": 573
+      },
+      "2025-10": {
+        "rows": 2588,
+        "landing_over60": 280,
+        "landing_over600": 4,
+        "departure_clock_rmse": 414.86148644653747,
+        "same_flight_shift_rmse": 430.35476002305086,
+        "departure_clock_mae": 228.47179289026275,
+        "same_flight_shift_mae": 237.04250386398763,
+        "clipped_correlation": -0.006488982849560147,
+        "route_demeaned_clipped_correlation": -0.002657797700617218,
+        "clock_median": 2.0,
+        "landing_median": -3.0,
+        "common_shift_within60": 520,
+        "block_clock_within60": 587
+      },
+      "2025-11": {
+        "rows": 2564,
+        "landing_over60": 253,
+        "landing_over600": 2,
+        "departure_clock_rmse": 338.3433837387881,
+        "same_flight_shift_rmse": 344.39118827522645,
+        "departure_clock_mae": 211.09477379095165,
+        "same_flight_shift_mae": 217.7258190327613,
+        "clipped_correlation": -0.025464143358405886,
+        "route_demeaned_clipped_correlation": -0.007449954547571203,
+        "clock_median": 55.0,
+        "landing_median": -5.0,
+        "common_shift_within60": 549,
+        "block_clock_within60": 594
+      }
+    },
+    "by_airport": {
+      "EDDF": {
+        "rows": 1127,
+        "landing_over60": 151,
+        "landing_over600": 0,
+        "departure_clock_rmse": 269.9404909936743,
+        "same_flight_shift_rmse": 277.5177764356717,
+        "departure_clock_mae": 167.30434782608697,
+        "same_flight_shift_mae": 178.48535936113575,
+        "clipped_correlation": -0.027211290195518004,
+        "route_demeaned_clipped_correlation": 0.019456330252574386,
+        "clock_median": 90.0,
+        "landing_median": -5.0,
+        "common_shift_within60": 212,
+        "block_clock_within60": 232
+      },
+      "EDDM": {
+        "rows": 1002,
+        "landing_over60": 132,
+        "landing_over600": 1,
+        "departure_clock_rmse": 276.1558037487385,
+        "same_flight_shift_rmse": 277.43621841681227,
+        "departure_clock_mae": 177.59081836327346,
+        "same_flight_shift_mae": 181.5239520958084,
+        "clipped_correlation": -0.026971553070451824,
+        "route_demeaned_clipped_correlation": -0.0061836085086033115,
+        "clock_median": -3.0,
+        "landing_median": -5.0,
+        "common_shift_within60": 241,
+        "block_clock_within60": 279
+      },
+      "EGLL": {
+        "rows": 1285,
+        "landing_over60": 145,
+        "landing_over600": 1,
+        "departure_clock_rmse": 456.6055198726907,
+        "same_flight_shift_rmse": 459.3509623531728,
+        "departure_clock_mae": 258.91050583657585,
+        "same_flight_shift_mae": 264.2980544747082,
+        "clipped_correlation": 0.0011153333194434594,
+        "route_demeaned_clipped_correlation": -0.005414489933475378,
+        "clock_median": 56.0,
+        "landing_median": -5.0,
+        "common_shift_within60": 224,
+        "block_clock_within60": 253
+      },
+      "EHAM": {
+        "rows": 1154,
+        "landing_over60": 102,
+        "landing_over600": 0,
+        "departure_clock_rmse": 433.5719312686829,
+        "same_flight_shift_rmse": 436.60978358207234,
+        "departure_clock_mae": 225.09098786828423,
+        "same_flight_shift_mae": 230.90554592720972,
+        "clipped_correlation": 0.0485832098399374,
+        "route_demeaned_clipped_correlation": 0.04854277046710485,
+        "clock_median": 99.0,
+        "landing_median": -3.0,
+        "common_shift_within60": 256,
+        "block_clock_within60": 274
+      },
+      "LEBL": {
+        "rows": 1062,
+        "landing_over60": 125,
+        "landing_over600": 5,
+        "departure_clock_rmse": 268.79442259761584,
+        "same_flight_shift_rmse": 284.7645903895643,
+        "departure_clock_mae": 165.2024482109228,
+        "same_flight_shift_mae": 172.9868173258004,
+        "clipped_correlation": -0.05152431661522921,
+        "route_demeaned_clipped_correlation": -0.05375865663490931,
+        "clock_median": -60.0,
+        "landing_median": -4.5,
+        "common_shift_within60": 305,
+        "block_clock_within60": 323
+      },
+      "LEMD": {
+        "rows": 1131,
+        "landing_over60": 142,
+        "landing_over600": 2,
+        "departure_clock_rmse": 263.1179972175414,
+        "same_flight_shift_rmse": 292.68061673590364,
+        "departure_clock_mae": 172.19805481874448,
+        "same_flight_shift_mae": 184.8841732979664,
+        "clipped_correlation": -0.02825827537393875,
+        "route_demeaned_clipped_correlation": -0.02305747138215957,
+        "clock_median": 0.0,
+        "landing_median": -4.0,
+        "common_shift_within60": 251,
+        "block_clock_within60": 291
+      },
+      "LFPG": {
+        "rows": 1068,
+        "landing_over60": 140,
+        "landing_over600": 1,
+        "departure_clock_rmse": 349.62463151042647,
+        "same_flight_shift_rmse": 353.15320120395234,
+        "departure_clock_mae": 225.39606741573033,
+        "same_flight_shift_mae": 229.17415730337078,
+        "clipped_correlation": -0.02599245244260913,
+        "route_demeaned_clipped_correlation": -0.01804698597758158,
+        "clock_median": -55.0,
+        "landing_median": -3.0,
+        "common_shift_within60": 236,
+        "block_clock_within60": 255
+      },
+      "LIRF": {
+        "rows": 903,
+        "landing_over60": 84,
+        "landing_over600": 1,
+        "departure_clock_rmse": 523.0962297314395,
+        "same_flight_shift_rmse": 538.3301259208662,
+        "departure_clock_mae": 284.1240310077519,
+        "same_flight_shift_mae": 291.85603543743076,
+        "clipped_correlation": -0.01478825428935837,
+        "route_demeaned_clipped_correlation": -0.015496085964183306,
+        "clock_median": -59.0,
+        "landing_median": -3.0,
+        "common_shift_within60": 157,
+        "block_clock_within60": 172
+      },
+      "LSZH": {
+        "rows": 846,
+        "landing_over60": 117,
+        "landing_over600": 0,
+        "departure_clock_rmse": 220.31290073819665,
+        "same_flight_shift_rmse": 222.85852459759218,
+        "departure_clock_mae": 161.13593380614657,
+        "same_flight_shift_mae": 165.93144208037825,
+        "clipped_correlation": -0.015625578912358523,
+        "route_demeaned_clipped_correlation": 0.03366621774651451,
+        "clock_median": -18.5,
+        "landing_median": -5.0,
+        "common_shift_within60": 208,
+        "block_clock_within60": 231
+      },
+      "LTFM": {
+        "rows": 667,
+        "landing_over60": 44,
+        "landing_over600": 0,
+        "departure_clock_rmse": 671.3682710125188,
+        "same_flight_shift_rmse": 676.1970206933795,
+        "departure_clock_mae": 407.52023988006,
+        "same_flight_shift_mae": 413.61319340329834,
+        "clipped_correlation": 0.008086926126416297,
+        "route_demeaned_clipped_correlation": -0.0026280637892671936,
+        "clock_median": 242.0,
+        "landing_median": -3.0,
+        "common_shift_within60": 63,
+        "block_clock_within60": 62
+      }
+    },
+    "by_landing_regime": {
+      "absolute_over60": {
+        "rows": 1182,
+        "landing_over60": 1182,
+        "landing_over600": 11,
+        "departure_clock_rmse": 450.56844713086093,
+        "same_flight_shift_rmse": 499.6465552798755,
+        "departure_clock_mae": 222.69712351945856,
+        "same_flight_shift_mae": 263.06598984771574,
+        "clipped_correlation": -0.03917387561084481,
+        "route_demeaned_clipped_correlation": -0.022109425288785317,
+        "clock_median": 3.0,
+        "landing_median": -78.0,
+        "common_shift_within60": 204,
+        "block_clock_within60": 311
+      },
+      "absolute_over600": {
+        "rows": 11,
+        "landing_over60": 11,
+        "landing_over600": 11,
+        "departure_clock_rmse": 278.8368698719737,
+        "same_flight_shift_rmse": 2061.433371577783,
+        "departure_clock_mae": 211.45454545454547,
+        "same_flight_shift_mae": 1780.8181818181818,
+        "clipped_correlation": -0.48874179095976983,
+        "route_demeaned_clipped_correlation": -0.19647967703592303,
+        "clock_median": -58.0,
+        "landing_median": -699.0,
+        "common_shift_within60": 0,
+        "block_clock_within60": 2
+      }
+    },
+    "halves": {
+      "March_September": {
+        "rows": 5093,
+        "landing_over60": 649,
+        "landing_over600": 5,
+        "departure_clock_rmse": 391.0473950654988,
+        "same_flight_shift_rmse": 395.4676292547052,
+        "departure_clock_mae": 216.38444924406048,
+        "same_flight_shift_mae": 222.81386216375418,
+        "clipped_correlation": -0.007147875726982497,
+        "route_demeaned_clipped_correlation": -0.01262757259126175,
+        "clock_median": 2.0,
+        "landing_median": -4.0,
+        "common_shift_within60": 1084,
+        "block_clock_within60": 1191
+      },
+      "October_November": {
+        "rows": 5152,
+        "landing_over60": 533,
+        "landing_over600": 6,
+        "departure_clock_rmse": 378.7180869239731,
+        "same_flight_shift_rmse": 389.94920063527115,
+        "departure_clock_mae": 219.82375776397515,
+        "same_flight_shift_mae": 227.42915372670808,
+        "clipped_correlation": -0.013183636420276885,
+        "route_demeaned_clipped_correlation": -0.007403752468526638,
+        "clock_median": 15.0,
+        "landing_median": -4.0,
+        "common_shift_within60": 1069,
+        "block_clock_within60": 1181
+      }
+    },
+    "departure_label_dates": [
+      "2025-03-05",
+      "2025-03-15",
+      "2025-03-25",
+      "2025-09-05",
+      "2025-09-15",
+      "2025-09-25",
+      "2025-10-05",
+      "2025-10-15",
+      "2025-10-25",
+      "2025-11-05",
+      "2025-11-15",
+      "2025-11-25"
+    ],
+    "elapsed_seconds": 0.3233306620095391,
+    "pilot_sha256": "6804a75ac14b336f472a6f978256ed8d22ef7749eceb2c9c78744fcdb4764372"
+  },
+  "records": {
+    "tmp/research_20261012/error_mechanisms/paired_endpoint/assessment.json": "013cd96f5ca2512408c24f1ff1d21f491d85995b0a71208edc4922da06152639",
+    "tmp/research_20261012/error_mechanisms/paired_endpoint/design.json": "5cc48449cae159d836da1b28e322f79998ebb3f820b91c5e5123e13fb2538bcc",
+    "tmp/research_20261012/error_mechanisms/paired_endpoint/coverage.json": "a6e29d124e6b50c30a43cb23dfc24742f20c77317ac4d497c0967f8ed8670da9",
+    "tmp/research_20261012/error_mechanisms/paired_endpoint/pilot.json": "ed9a2620cf54e118f8c4299daee88a3125ac3c7381211e9c42d5032b1d52ccb5"
+  }
+}
