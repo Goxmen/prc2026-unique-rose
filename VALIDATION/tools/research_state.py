@@ -138,6 +138,15 @@ def status(remote=False):
         assert r['views']['final']['rows']==670790
         value['legacy_final']['versions']=sorted(set(value['legacy_final']['versions']+[56]))
         value['legacy_final'].setdefault('additional_receipts',[]).append(str((flight/'independent_audit.json').relative_to(ROOT)))
+    weather=RUNS/'v3_20261012_final_weather_inference'
+    if (weather/'independent_audit.json').exists():
+        a=read(weather/'independent_audit.json')
+        assert a['status']=='pass' and a['prediction_rows_checked']==2031262
+        for version in [60,61]:
+            old=read(weather/f'old_v{version}.json');final=read(weather/f'final_v{version}.json')
+            assert old['all_original_predictions_exact'] and final['rows']==670790
+        value['legacy_final']['versions']=sorted(set(value['legacy_final']['versions']+[60,61]))
+        value['legacy_final'].setdefault('additional_receipts',[]).append(str((weather/'independent_audit.json').relative_to(ROOT)))
     allocation=read(REGISTRY).get('machine_allocation',{})
     if 'desktop' in allocation:value['desktop']=allocation['desktop']
     if not remote and 'laptop' in allocation:value['laptop']=dict(allocation['laptop'],stale=True)

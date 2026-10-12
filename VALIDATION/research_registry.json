@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T16:19:50.536826+00:00",
+  "updated_at": "2026-10-12T16:50:38.188150+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -8,7 +8,7 @@
     "slots_remaining": 0,
     "repository": "PRIVATE",
     "laptop": "Fixed full-day peer TabM CV training; seed42 only, Jan21/Jul17",
-    "desktop": "Saved weather-model final inference; fixed v56 recovery passes",
+    "desktop": "Frozen joint public posterior final port; old affine/public correction replay passes",
     "native_goal_status": "active"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
@@ -877,6 +877,33 @@
           "sha256": "9565ac0eb8136e784db83311ae0b7e59532742b97cba365af9f769ad9d4c072e"
         }
       ]
+    },
+    {
+      "id": "public_runway_literal_keys",
+      "hypothesis": "Canonical whitespace/case/leading-zero runway keys recover otherwise missing public runway cells",
+      "status": "closed_source_gate",
+      "conclusion": "No recoverable matches across all training and ranking rows; independent Python tuple audit passes. No feature, training, CV or upload follows.",
+      "metrics": {
+        "training_rows": 2085047,
+        "ranking_rows": 344841,
+        "recovered_joins": 0,
+        "ambiguous_keys": 0,
+        "source_collisions": 0
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_key_census/design.json",
+          "sha256": "b4b72360c7e1622fcae5ae176d155edbcb7115e0f3ce7fdcc783e211608fa7c8"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_key_census/result.json",
+          "sha256": "56df0734c01a9ff825ccd054b2b52e199ac7b00658eef2fe2e8315cbdf1a31a4"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_key_census/independent_audit.json",
+          "sha256": "8c18da8496e710293ef391e2fbc37e3ca8a9caf4b57d8c43b92b0f468088ef95"
+        }
+      ]
     }
   ],
   "next": [
@@ -904,10 +931,10 @@
   ],
   "machine_allocation": {
     "desktop": {
-      "stage": "weather_saved_model_final_inference",
+      "stage": "joint_public_four_month_port",
       "owner": "root",
-      "session": 90766,
-      "run": "VALIDATION/runs/v3_20261012_final_weather_inference"
+      "session": 24063,
+      "run": "VALIDATION/runs/v3_20261012_final_joint_public_inference"
     },
     "laptop": {
       "stage": "full_day_cohort_fixed_CV_running",

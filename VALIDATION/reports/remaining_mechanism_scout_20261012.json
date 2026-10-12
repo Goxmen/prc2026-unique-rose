@@ -1,0 +1,65 @@
+{
+  "status": "source_review_complete_no_justified_new_experiment",
+  "registry": {
+    "path": "VALIDATION/research_registry.json",
+    "sha256": "f3e0b069665c702f40b4dbe01ea3b91406683f5b1482bcf17e8d838b044d007a"
+  },
+  "index_queries": [
+    "aircraft",
+    "residual",
+    "structured",
+    "mixture",
+    "conditional",
+    "clipping",
+    "unclipped",
+    "tail",
+    "multi task",
+    "event localization",
+    "imputation",
+    "auxiliary",
+    "consistency",
+    "public objective"
+  ],
+  "findings": [
+    {
+      "mechanism": "Posterior-aware end-to-end training through a fixed public-aggregate measurement layer",
+      "novelty": "No indexed structured or public-objective training run found. Distinct from post-hoc prior-odds fitting and scalar auxiliary recorder heads, but this is not proof every historical file excludes it.",
+      "headroom": "Unquantified. Would teach allocation of aggregate residual across ambiguous rows rather than only pooled input representation.",
+      "limitations": [
+        "No new observations beyond existing public summaries and cached row features.",
+        "Source cohort mismatch remains an identifiability limit; a differentiable layer cannot make source totals exact.",
+        "Must not add an aggregate consistency penalty atop a prediction already conditioned on that same measurement: that double counts evidence.",
+        "Current full-day cohort experiment already tests whether unmodeled peer interactions help; its result should precede this much larger implementation."
+      ],
+      "decision": "Do not allocate a fit or claim a multi-second gain without a distinct source-only identifiability case."
+    },
+    {
+      "mechanism": "Track event-time localization",
+      "evidence": {
+        "path": "VALIDATION/reports/research_network_20261010/event_localization_assessment.json",
+        "sha256": "81418806e71d0249544fc36eaa8398580caf3ec573bb5a42b086861496895311"
+      },
+      "decision": "Previously deferred, not new. Existing pilot has 67-minute median event brackets and only12.13% within120seconds; retain earlier decision rather than relabel as novel."
+    },
+    {
+      "mechanism": "Uncapped/excess-tail regression",
+      "evidence": {
+        "path": "VALIDATION/reports/research_network_20261010/nn_tail_cap_audit.json",
+        "sha256": "5aeeaf1db6decf260c20a1ac7551a16cf71183f314bb0aed31730d620bb18a19"
+      },
+      "decision": "Already examined. Large apparent oracle headroom is concentrated in two LFPG extremes with no actual-AOBT witnesses; do not treat this as a supported new signal."
+    },
+    {
+      "mechanism": "Distillation, masked pretraining or generic additional multitask loss",
+      "decision": "No useful independent data or empirical mechanism established; novelty of objective alone does not justify expensive search."
+    }
+  ],
+  "closed_overlap_checks": [
+    "Aircraft rotation/arrival linkage, nearest/stand clocks and movement IDs",
+    "Gaussian observation variance, clock residual/bypass, auxiliary recorder modes",
+    "Conditional prior endpoints and monthly logit adaptation",
+    "Attention/recurrent/time-weighted pooling, correlated public source errors"
+  ],
+  "recommendation": "No new candidate from this scout. Preserve cohort result and exact final-route audit priorities; do not reopen closed screens or force a weak suggestion.",
+  "execution": "Metadata, source and retained report reads only; no new labels, CV scoring, fits, data download or model artifacts."
+}

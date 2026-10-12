@@ -1,0 +1,73 @@
+{
+  "status": "frozen_independent_static_review_passed_awaiting_root_execution",
+  "sources": [
+    {
+      "path": "VALIDATION/final_public_corrections.py",
+      "sha256": "fb82861e8630a3a2f4593409fbabe5873858ea30df9af144ee0a242d83aa6ec8"
+    },
+    {
+      "path": "VALIDATION/final_public_corrections_audit.py",
+      "sha256": "c64eb445b99ad7b772c1f3fb7b0106c29642168d5da8786aa4d5fc4f98a53eaa"
+    }
+  ],
+  "models_fitted": 0,
+  "real_posterior_inference_started": false,
+  "api": {
+    "module": "final_public_corrections",
+    "output": "VALIDATION/runs/v3_20261012_final_public_corrections/{old,final}/stages.parquet",
+    "result": "{view}/result.json:identity,prediction,view,rows,months,binding,old_replay",
+    "audit": "{view}/audit.json:status,identity,result,prediction,independent_SQL_all_rows",
+    "serialized_output_columns": [
+      "v71",
+      "v72",
+      "refined72",
+      "v73",
+      "refined73",
+      "v74",
+      "refined74"
+    ],
+    "load": "load_stages(view) requires passed audit + frozen identity + completed binding forfinal"
+  },
+  "run_order": [
+    "final_public_corrections.py freeze",
+    "final_public_corrections.py infer --view old",
+    "final_public_corrections_audit.py audit --view old",
+    "final_public_corrections.py bind --catalog <complete48componentcatalog>",
+    "final_public_corrections.py infer --view final",
+    "final_public_corrections_audit.py audit --view final"
+  ],
+  "final_blocker": "Complete audited final48componentbasis is not yet available; no substitutions allowed",
+  "historical_old_day_groups": 620,
+  "historical_max_forward_storage_mb": 129.042088,
+  "final_float64_basis_matrix_mb": 257.58336,
+  "preflight": "VALIDATION/runs/v3_20261012_final_public_corrections/preflight.json",
+  "guard": "One scheduled heavyjob perhost; source-only untilrootallocation",
+  "no_fit": true,
+  "no_upload": true,
+  "catalog_schema": {
+    "schema": "final_public_corrections_basis_v1",
+    "components": "Exactly all48v71version keys",
+    "entry": {
+      "old": "artifact(path,sha256)",
+      "final": "artifact(path,sha256)",
+      "audit": "passed receipt artifact(path,sha256)",
+      "result": "optional artifact for audit\u2192result\u2192final hash chain",
+      "id_column": "default mvt_id",
+      "value_column": "default submitted",
+      "old_id_column": "optional old override",
+      "old_value_column": "optional old override",
+      "provenance": "required original-model/refit history"
+    }
+  },
+  "geometry_authentication": "Both geometry JSON hashes match respective original production manifests before freeze",
+  "daily_checkpoint": "{view}/daily_state.json +daily_state.parquet preserves completed DP before downstream replay/audit",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_corrections/identity.json",
+    "sha256": "3f38bbe0a96c7ce7a3f86ba4af61810eababa8b0b05f5c747f727f97870692da"
+  },
+  "pinned_source_count": 104,
+  "independent_review": {
+    "path": "VALIDATION/reports/final_public_corrections_static_review_20261012.json",
+    "sha256": "bac3e83cd4450e858c61dbe0ce666f12de50cc1e4b19c6488629d269b258cf2c"
+  }
+}

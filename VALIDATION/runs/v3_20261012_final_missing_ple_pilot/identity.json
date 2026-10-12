@@ -1,0 +1,374 @@
+{
+  "design": {
+    "seed": 42,
+    "stop": 17,
+    "checkpoints": [
+      14,
+      15,
+      17
+    ],
+    "schedule_epochs": 24,
+    "batch": 4096,
+    "features": 134,
+    "rows": 2051327,
+    "device": "NVIDIA GeForce RTX 3080",
+    "host": "GPC",
+    "train": "Unmodified original nni.train; observation wrapper saves state before existing epoch monitor",
+    "preprocessing": "Unchanged original Encoder; previously audited exact row-chunk transform/per-column quantile adapter",
+    "acceptance": "All344841 checkpoint14 float32 values exactly equal retained v50 n42_0; fixed zero tolerance",
+    "failure": "Preserve all three states; no expansion, sweep or silent substitution",
+    "no_inner_fit": true,
+    "no_expansion": true,
+    "no_final_inference": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/adsblol.py",
+      "sha256": "9b1153c345c5520d6e3dccd96c549253d8f83370e728a18f21393472070a1a90"
+    },
+    {
+      "path": "VALIDATION/adsblol_submit.py",
+      "sha256": "3158ab0c44067d711616dfab027d746f7e4e23adcd5708b41c307ba7dedfae06"
+    },
+    {
+      "path": "VALIDATION/callsign_submit.py",
+      "sha256": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954"
+    },
+    {
+      "path": "VALIDATION/catboost_jan_jul.py",
+      "sha256": "26ba16e459de838a71cf404dd610e617b23a9798cc83f42b5befe4e6fc6272e6"
+    },
+    {
+      "path": "VALIDATION/chunked_direct_data.py",
+      "sha256": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9"
+    },
+    {
+      "path": "VALIDATION/extra_features.py",
+      "sha256": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67"
+    },
+    {
+      "path": "VALIDATION/final_missing_ple_pilot.py",
+      "sha256": "dad0bf4a360d77888792f25a122f221a2f3fde5f10415dd8729e8780dd53a07f"
+    },
+    {
+      "path": "VALIDATION/ideas_jan_jul.py",
+      "sha256": "b759b879161b14f0e554492b51488ac3adc6cf88002f9909ff73043215da8017"
+    },
+    {
+      "path": "VALIDATION/ideas_submit.py",
+      "sha256": "d47c0bc63ce6ae3482857f9a8b4a145b842bc7995b3a5b6bfd3ce2bad9e58773"
+    },
+    {
+      "path": "VALIDATION/nn_features_jan_jul.py",
+      "sha256": "f939c22dacca28d012e0ebdca946b5a5b4d337b426585d45e0fff2f1a3cd39a4"
+    },
+    {
+      "path": "VALIDATION/nn_improve_jan_jul.py",
+      "sha256": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20"
+    },
+    {
+      "path": "VALIDATION/nn_improve_submit.py",
+      "sha256": "10aea4b461a7aa9da3ee880283349fb84cab23490177765b32a9f591d5f379e5"
+    },
+    {
+      "path": "VALIDATION/nn_jan_jul.py",
+      "sha256": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/training_membership.parquet",
+      "sha256": "f6ac40ffbcb90c268c179032671130cdcde6f6f9cc095c8d38abe44076f72cf1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/submission_v50/submission_v50.json",
+      "sha256": "8cb9eac294bde9e42412719971243191063b05a65c89e92044fd2ad1c07936bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+      "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/parts/nn_v46.json",
+      "sha256": "fc83628b21e155e25aa7173b8597cb5ceed64ddb5b27186c22232a1bba4239a8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/parts/nn_v46.parquet",
+      "sha256": "53c6dc4cfc925b5b8079fb52916cc4b06d5a5bee94281111c548f5bc4e58976d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v48/ranking_2026-01.parquet",
+      "sha256": "929faacbecea0ad0dc52ee3eb1c30678bff09829dabdf785f167ba600e8fb261"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v48/ranking_2026-07.parquet",
+      "sha256": "1a76d77f95a7cda93c2deacd73f5b1142d8678848bfda06838fc6dff9a2fae3b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v48/submission_v48.json",
+      "sha256": "a5becabe7265cc1081e94c78a9b902c7650a34f1c180c9e85d6c7b4c1ddb8bd5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v49/ranking_2026-01.parquet",
+      "sha256": "71b7e6500135d72719084306982a32b3975917fe0941f15dd5e6ee5827f15fca"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v49/ranking_2026-07.parquet",
+      "sha256": "173723dbaa76d057d4e783ecc1d3e513614fab1cc3630ae057ff8e589a6ef79b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v49/submission_v49.json",
+      "sha256": "a86cb9a90705e9eafa1b55815210d8997bf99d457c476ae5f3367f060364ed27"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/prepared.json",
+      "sha256": "5e8b63dd4c9b24ca4801b298ba10750796fe80ce88d6468027ece46aca7f36c7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_ple_plan/plan.json",
+      "sha256": "4d40daf17ee9dd9493bb135586522d7333718a02ba9496adb67a9cc60296233a"
+    },
+    {
+      "path": "VALIDATION/tools/plan_final_missing_ple_20261012.py",
+      "sha256": "b9e0e3a1872e9ec1237c277b333aec76db53c80e31038097ec654927e5242443"
+    },
+    {
+      "path": "VALIDATION/tools/score_candidates_jan_jul.py",
+      "sha256": "6b33fa76baad096a6b290903d4766ef27d9cf8f86de30d96bc69d685f31f0764"
+    },
+    {
+      "path": "VALIDATION/tools/score_nn_improve_jan_jul.py",
+      "sha256": "ab1d0cd31339ad9d2361b27cc000468c26d79a8b3aac6e8439d2f13610190b15"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "torch": "2.14.1+cu130",
+  "new": {
+    "bins": 48,
+    "d_ple": 16,
+    "epochs": 24,
+    "batch": 4096,
+    "ple": {
+      "lr": 0.002,
+      "weight_decay": 1e-05
+    },
+    "tabm": {
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "k": 32,
+      "n_blocks": 2,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "normal"
+    }
+  },
+  "original_recipe": {
+    "min_cat_rows": 20,
+    "quantiles": 1024,
+    "clip": 5.0,
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "label_clip": 10800.0,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 4096,
+    "epochs": 8
+  },
+  "plan_sha256": "4d40daf17ee9dd9493bb135586522d7333718a02ba9496adb67a9cc60296233a",
+  "expected_inputs": {
+    "numeric": 123,
+    "ple_inputs": 92,
+    "plain_inputs": 237,
+    "categoricals": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "airline"
+    ],
+    "cards": [
+      11,
+      808,
+      161,
+      61,
+      2223,
+      3,
+      9,
+      6,
+      5,
+      468,
+      773
+    ],
+    "bins_per_input": [
+      20,
+      6,
+      11,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      29,
+      27,
+      43,
+      42,
+      32,
+      13,
+      2,
+      33,
+      38,
+      48,
+      48,
+      31,
+      18,
+      19,
+      20,
+      33,
+      5,
+      15,
+      48,
+      8,
+      19,
+      22,
+      48,
+      23,
+      28,
+      48,
+      48,
+      24,
+      8,
+      48,
+      23,
+      48,
+      48,
+      48,
+      48,
+      48,
+      2,
+      8,
+      2,
+      4,
+      2,
+      6,
+      12,
+      8,
+      22,
+      16,
+      22,
+      2,
+      40,
+      48,
+      5,
+      48,
+      48,
+      11,
+      48,
+      48,
+      48,
+      28,
+      28,
+      6,
+      29,
+      23,
+      28,
+      26,
+      36,
+      37,
+      37,
+      45,
+      36,
+      36,
+      28,
+      14,
+      14,
+      14,
+      28,
+      28,
+      32,
+      24
+    ],
+    "inner_month": "2025-12",
+    "inner_val_rows": 162836,
+    "inner_train_rows": 1888491
+  },
+  "mu": 982.3276532702977,
+  "sd": 407.31600230259727,
+  "original_stop_selection_reused": true,
+  "original_models_and_encoder_states_absent": true,
+  "historical_unknowns": [
+    "Historical GPU gradient atomic order is unrecoverable.",
+    "Historical CPU torch-thread count and v50 TF32 flag were not recorded; scripts used defaults.",
+    "Original encoder/bin contents have no saved state hash; source/data and cards/bin counts/scales are retained."
+  ],
+  "execution": {
+    "host": "GPC",
+    "torch_cpu_threads": 8,
+    "matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "deterministic_algorithms": false
+  }
+}

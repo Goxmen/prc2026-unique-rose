@@ -1,0 +1,460 @@
+{
+  "design": {
+    "versions": [
+      4,
+      8,
+      5,
+      7,
+      6,
+      9
+    ],
+    "rounds": 800,
+    "seed": 42,
+    "threads": 8,
+    "freeze": "2025-12-31",
+    "acceptance": "All 344841 old integer predictions exactly match the original version before any final inference",
+    "source": "v4 exact archived source; v5-v9 archived original27 implementation with exact recorded config and helper hashes",
+    "unknowns": [
+      "Original v5-v9 modeling.py source is absent.",
+      "Original v4-v9 model weights, runtime versions and individual training-order hashes are absent."
+    ],
+    "failure": "Preserve model and mismatch; no seed/thread/library/source sweep or silent substitution",
+    "no_cv_fit": true,
+    "no_retained_model_refit": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+      "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+    },
+    {
+      "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/source/VALIDATION/modeling.py",
+      "sha256": "5eda81a506acb91e1baba28e369fac379bf7bfbbed31680deaf7474da8ed920d"
+    },
+    {
+      "path": "VALIDATION/features_time.py",
+      "sha256": "94f1273ae3edc32e2799e6bb1ebcc819c0a18bf8a61dcda444514d643f944c2c"
+    },
+    {
+      "path": "VALIDATION/final_missing_early_reconstruct.py",
+      "sha256": "bc30f919be588657972076b5ed261f332194679bb420cdddc81a5f433730de3a"
+    },
+    {
+      "path": "VALIDATION/movement_data.py",
+      "sha256": "2a0a97392e4ba6fd1a3ff64a8165700ae6b4ea466cffe80c3cfa9e92290c79cf"
+    },
+    {
+      "path": "VALIDATION/protocol.py",
+      "sha256": "d459495795bb04451e887b3cdfe9714faa2d72f657331842886321b10a8b68ae"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__control.train_ids.parquet",
+      "sha256": "e5b0b1245596a7b6367de0306dc4686e17016aaa10c4bfd047108ee1f84a5e19"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/manifest.json",
+      "sha256": "712fde2830cd561047b889f0a3c51deb64e0a600f515f59db747d6404367c3ba"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v4.parquet",
+      "sha256": "e8328ee39b082db52a88a7f7acd7af934261b050453ae651f3da7407f736a6b7"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v5.parquet",
+      "sha256": "ffad2530ee5bb605221b4de4b3722914f96803571952ca06aa44201e1ac9505e"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v6.parquet",
+      "sha256": "e0d8b3c56e67af118bff2042136fffedbf0736dd731db2a6f30258fbdc129f3b"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v7.parquet",
+      "sha256": "c89de9e1fa95a77901869b97abf6ed9a3b6e00ed4a11da88d88b14c3087af0c6"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v8.parquet",
+      "sha256": "775f6974d05eabfc06c29ed4043142405e70588f349691e7829571adfd35b9bb"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v9.parquet",
+      "sha256": "6e58679304e9679d5ecfd585c496cffd96819217315a5f2c63c7500cf3f7073a"
+    },
+    {
+      "path": "data/final_ranking.parquet",
+      "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    },
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4"
+    },
+    {
+      "path": "submissions/unique-rose_v4.meta.json",
+      "sha256": "0fe8687482a564d9ce2b043914cdcc1e8b468273e47ec0b214473c57fe761922"
+    },
+    {
+      "path": "submissions/unique-rose_v5.meta.json",
+      "sha256": "9100b978ca62bde9f24750fef67cc0e739daebe62fe78848ff26183615d475b5"
+    },
+    {
+      "path": "submissions/unique-rose_v6.meta.json",
+      "sha256": "6df5fc078385ed1ea3d9c72894bba4f4df7aac29ca02230aaab11813c840a28c"
+    },
+    {
+      "path": "submissions/unique-rose_v7.meta.json",
+      "sha256": "9688e50640b8eb46ff99048578a5cb6c7ae0cabeb326a3105f906678db949742"
+    },
+    {
+      "path": "submissions/unique-rose_v8.meta.json",
+      "sha256": "74e406a794646ca1e4a7e38236074b01acd07b8ee3399785189c539302060012"
+    },
+    {
+      "path": "submissions/unique-rose_v9.meta.json",
+      "sha256": "b5cd32bab5943cf87258ab0cf9434e1b2ef12db44b9c870ac32268f38bf4557f"
+    }
+  ],
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "original_models_absent": true,
+  "expected": {
+    "4": {
+      "config": {
+        "max_taxi_sec": 200000,
+        "rounds": 800,
+        "fpl_flag": true,
+        "lag_train_days": 0,
+        "early_stopping_rounds": 0,
+        "threads": 8
+      },
+      "rows": 2084659,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around",
+        "has_flight_plan"
+      ],
+      "historical_source_exact": true
+    },
+    "8": {
+      "config": {
+        "max_taxi_sec": 32000,
+        "rounds": 800,
+        "fpl_flag": false,
+        "lag_train_days": 0,
+        "early_stopping_rounds": 0,
+        "threads": 8
+      },
+      "rows": 2084607,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around"
+      ],
+      "historical_source_exact": false
+    },
+    "5": {
+      "config": {
+        "max_taxi_sec": 10000,
+        "rounds": 800,
+        "fpl_flag": false,
+        "lag_train_days": 0,
+        "early_stopping_rounds": 0,
+        "threads": 8
+      },
+      "rows": 2084400,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around"
+      ],
+      "historical_source_exact": false
+    },
+    "7": {
+      "config": {
+        "max_taxi_sec": 22000,
+        "rounds": 800,
+        "fpl_flag": false,
+        "lag_train_days": 0,
+        "early_stopping_rounds": 0,
+        "threads": 8
+      },
+      "rows": 2084591,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around"
+      ],
+      "historical_source_exact": false
+    },
+    "6": {
+      "config": {
+        "max_taxi_sec": 16000,
+        "rounds": 800,
+        "fpl_flag": false,
+        "lag_train_days": 0,
+        "early_stopping_rounds": 0,
+        "threads": 8
+      },
+      "rows": 2084557,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around"
+      ],
+      "historical_source_exact": false
+    },
+    "9": {
+      "config": {
+        "max_taxi_sec": 50000,
+        "rounds": 800,
+        "fpl_flag": false,
+        "lag_train_days": 0,
+        "early_stopping_rounds": 0,
+        "threads": 8
+      },
+      "rows": 2084634,
+      "features": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "hour",
+        "dow",
+        "month",
+        "mvt_minus_sched_sec",
+        "mvt_minus_lobt_sec",
+        "mvt_minus_iobt_sec",
+        "mvt_minus_eobt1_sec",
+        "mvt_minus_aobt3_sec",
+        "op_taxi_30d",
+        "op_taxi_30d_n",
+        "rwy_taxi_30d",
+        "stand_taxi_90d",
+        "aphour_taxi_30d",
+        "arr_taxiin_7d",
+        "dep_actual_30m_before",
+        "arr_actual_30m_before",
+        "dep_sched_60m_around"
+      ],
+      "historical_source_exact": false
+    }
+  }
+}

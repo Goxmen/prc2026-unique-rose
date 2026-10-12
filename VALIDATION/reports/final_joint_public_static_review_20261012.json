@@ -1,0 +1,29 @@
+{
+  "status": "static_review_pass_before_freeze",
+  "runner": {
+    "path": "VALIDATION/final_joint_public_inference.py",
+    "sha256": "9883b7c1591243d5d33271ff31225e58ee6ffd8eb866cfaad603f4ad9d27bc5f"
+  },
+  "auditor": {
+    "path": "VALIDATION/final_joint_public_audit.py",
+    "sha256": "24055d85d8882c1554c82ade201aa2c9acd1b070e177332f2c4672a7e098b5a6"
+  },
+  "SQL_literals_parsed": 11,
+  "synthetic_raw_calendar_cases": 8,
+  "checks": [
+    "Exact original and robust settings plus numerical helper hashes authenticated against historical manifests.",
+    "Original full2025 parameters and source caches retained; all four final source months required.",
+    "Eleven raw input fields independently reconstructed; UTC prior-based dates, local Rome month, strict invalid-share gate and unknown-IFR semantics tested.",
+    "Old posterior caches reused with authenticated inference/result/audit chains, no posterior rerun.",
+    "Robust raw output checkpointed before old_joint parity; fail closed on unreceipted output; saved original posterior anchors delta.",
+    "All-row IDs, finite states, increments, extra-cell/weight gates and old selected components checked independently.",
+    "Final posterior audit independently rebuilds complete source memberships and up to six fixed-key targets/month using row-projection covariance and direct Schur solves.",
+    "No producer apply, robust apply, calibration fit, taxi labels or CV used by auditor."
+  ],
+  "numeric_limits": {
+    "original_and_robust_mean_atol_sec": 2e-06,
+    "rationale": "Retain historical independently standardized t5 scalar audit tolerance; serialized/algebraic component gates remain exact."
+  },
+  "peer_auditor_review": "cohort_learning read full source and reports no blockers",
+  "execution": "Synthetic SQL only; no real packet prepared, inference run or output audit executed."
+}

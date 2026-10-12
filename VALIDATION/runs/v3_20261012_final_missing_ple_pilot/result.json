@@ -1,0 +1,36 @@
+{
+  "state": "closed_nonexact_pilot",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/identity.json",
+    "sha256": "cbbb6eb0064fb2737ed68e5409443f370d461ca9ad41b4aaa433bf80f3889986"
+  },
+  "trained": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/trained.json",
+    "sha256": "c47afb3f515a889061e58740386ce46cd270afdc7e42b5462ca9733a9e3e274f"
+  },
+  "reloads": {
+    "14": {
+      "all_old_float_predictions_exact": true,
+      "rows": 344841
+    },
+    "15": {
+      "all_old_float_predictions_exact": true,
+      "rows": 344841
+    },
+    "17": {
+      "all_old_float_predictions_exact": true,
+      "rows": 344841
+    }
+  },
+  "original_n42_0_exact": false,
+  "rows": 344841,
+  "changed_float32_rows": 344841,
+  "rms_difference": 39.227264068349676,
+  "maximum_absolute_difference": 2061.6904296875,
+  "changed_single_member_rounded_rows": 335242,
+  "no_expansion": true,
+  "no_final_inference": true,
+  "no_upload": true,
+  "acceptance_tolerance_fixed": 0,
+  "caveat": "A single member fidelity check is not an ensemble accuracy or official-score claim."
+}

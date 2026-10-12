@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "runner": {
+    "path": "VALIDATION/final_joint_public_inference.py",
+    "sha256": "b59307ed7f26299e3bc5b57dd432e9f2c114b78f887e4550a717a494833c8fdd"
+  },
+  "prior_review": {
+    "path": "VALIDATION/reports/final_joint_public_static_review_20261012.json",
+    "sha256": "c92e0fa3d182853bc284e0fbcf9723c81173b72f6e18cdaf650d059f8fcfcf5a"
+  },
+  "historical_quality_identity": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/identity.json",
+    "sha256": "9ee2f956b242e5f7511d8944a35c42d41e10e046550b7be713f9ab7b5bd9e5c5"
+  },
+  "monthly_source": {
+    "path": "data/external/eurocontrol_performance_20261011/taxi_out_additional_time_2026.csv",
+    "sha256": "b72040e0987e6c7d5706279d645ef9f814a6506165c83f89d8509022154a1076"
+  },
+  "change": "Authenticate monthly CSV via its actual historical daily-quality producer identity instead of absent entry in original joint identity. Pin that identity. Original numeric code, inputs and auditor unchanged.",
+  "failure_preserved": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/freeze_failures/001_quality_csv_provenance.json",
+    "sha256": "3778576ad1d647c7258545fceaae021ca0de97bf8d982fa3ea5a1d57d93ee45d"
+  },
+  "real_execution": "None; previous freeze failed before identity or packet writes."
+}

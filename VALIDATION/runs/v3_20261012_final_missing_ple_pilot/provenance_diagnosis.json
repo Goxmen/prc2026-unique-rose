@@ -1,0 +1,375 @@
+{
+  "status": "provenance_trace_complete_cause_not_proven",
+  "sources": [
+    {
+      "path": "VALIDATION/tools/diagnose_ple_recovery_provenance_20261012.py",
+      "sha256": "273fdcbba6131fef61222e8220a60c4da278b930f0758d8f0925872af9617aea"
+    },
+    {
+      "path": "VALIDATION/ideas_submit.py",
+      "sha256": "d47c0bc63ce6ae3482857f9a8b4a145b842bc7995b3a5b6bfd3ce2bad9e58773"
+    },
+    {
+      "path": "VALIDATION/nn_improve_jan_jul.py",
+      "sha256": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20"
+    },
+    {
+      "path": "VALIDATION/nn_jan_jul.py",
+      "sha256": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766"
+    },
+    {
+      "path": "VALIDATION/final_missing_ple_pilot.py",
+      "sha256": "dad0bf4a360d77888792f25a122f221a2f3fde5f10415dd8729e8780dd53a07f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/submission_v50/submission_v50.json",
+      "sha256": "8cb9eac294bde9e42412719971243191063b05a65c89e92044fd2ad1c07936bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/parts/nn_v46.json",
+      "sha256": "fc83628b21e155e25aa7173b8597cb5ceed64ddb5b27186c22232a1bba4239a8"
+    },
+    {
+      "path": "tmp/ideas_submit/chain_detail.log",
+      "sha256": "fc84800a5aa7e6dfe35a8351e5712314b8c177516ade75f0e91628aa9c2fad42"
+    },
+    {
+      "path": "tmp/ideas_submit/chain.log",
+      "sha256": "12de186d25c3bd7c1ed3d3f1db8fc4318b6f8cdbd8683a21058b378e1bb65047"
+    },
+    {
+      "path": "tmp/ideas_submit/fit_nn_v46.log",
+      "sha256": "93b4ad0152242cf91f9c875e19d5da12bb0b0ee0216305bdb3e1b1b18442f2ec"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/identity.json",
+      "sha256": "cbbb6eb0064fb2737ed68e5409443f370d461ca9ad41b4aaa433bf80f3889986"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/prepared.json",
+      "sha256": "baf48b9c839b0ce7c2c54781ad36e5aa8ba61465acdbe8e1da1de7284995b2a9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/trained.json",
+      "sha256": "c47afb3f515a889061e58740386ce46cd270afdc7e42b5462ca9733a9e3e274f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/result.json",
+      "sha256": "7d5ea7bef27736ee50c359b6a9789fdddff3773cfc2d5b7c060f8d02dc5ed02b"
+    }
+  ],
+  "seed_and_member": {
+    "original_group": 42,
+    "member": 0,
+    "expression": "g + 1000*k",
+    "original_seed": 42,
+    "pilot_seed": 42,
+    "teacher_column": "n42_0",
+    "original_stop": 14,
+    "pilot_checkpoint": 14,
+    "seed42000_excluded_by_exact_original_source": true
+  },
+  "source_identity": {
+    "original_network_part_exact": true,
+    "original_train_exact": true,
+    "teacher_part_artifact_sha256": "53c6dc4cfc925b5b8079fb52916cc4b06d5a5bee94281111c548f5bc4e58976d"
+  },
+  "original_execution": {
+    "successful_log": "tmp/ideas_submit/chain_detail.log",
+    "original_18_segments_epoch_counts": [
+      24,
+      14,
+      14,
+      14,
+      14,
+      14,
+      24,
+      17,
+      17,
+      17,
+      17,
+      17,
+      24,
+      17,
+      17,
+      17,
+      17,
+      17
+    ],
+    "successful_stop_groups": [
+      [
+        "42",
+        "14"
+      ],
+      [
+        "142",
+        "17"
+      ],
+      [
+        "242",
+        "17"
+      ]
+    ],
+    "original_part_finished_at": "2026-10-03T20:27:11+00:00",
+    "ignored_earlier_log_reason": "fit_nn_v46.log ends during third member; its first inner stop15 is an incomplete earlier attempt.",
+    "all_original_members_full_rows": "np.arange(len(d.y))",
+    "reseeding": "torch.manual_seed and np.random.seed before model initialization; fresh CUDA generator with same seed before each full fit",
+    "inner_selection": "Original inner fit precedes full fit; pilot reuses saved stop and omits inner fit. Explicit training RNG resets remain unchanged."
+  },
+  "training_curve": {
+    "precision": "Only historical printed four-decimal losses survive; equal printed values are not exact trajectory equality",
+    "all_14_comparisons": [
+      {
+        "epoch": 1,
+        "original": 0.3709,
+        "pilot": 0.3709,
+        "equal_printed": true
+      },
+      {
+        "epoch": 2,
+        "original": 0.2656,
+        "pilot": 0.2656,
+        "equal_printed": true
+      },
+      {
+        "epoch": 3,
+        "original": 0.2426,
+        "pilot": 0.2426,
+        "equal_printed": true
+      },
+      {
+        "epoch": 4,
+        "original": 0.2272,
+        "pilot": 0.2272,
+        "equal_printed": true
+      },
+      {
+        "epoch": 5,
+        "original": 0.2141,
+        "pilot": 0.2141,
+        "equal_printed": true
+      },
+      {
+        "epoch": 6,
+        "original": 0.203,
+        "pilot": 0.203,
+        "equal_printed": true
+      },
+      {
+        "epoch": 7,
+        "original": 0.1952,
+        "pilot": 0.1952,
+        "equal_printed": true
+      },
+      {
+        "epoch": 8,
+        "original": 0.1861,
+        "pilot": 0.1861,
+        "equal_printed": true
+      },
+      {
+        "epoch": 9,
+        "original": 0.1815,
+        "pilot": 0.1815,
+        "equal_printed": true
+      },
+      {
+        "epoch": 10,
+        "original": 0.1739,
+        "pilot": 0.1739,
+        "equal_printed": true
+      },
+      {
+        "epoch": 11,
+        "original": 0.1683,
+        "pilot": 0.169,
+        "equal_printed": false
+      },
+      {
+        "epoch": 12,
+        "original": 0.1621,
+        "pilot": 0.1623,
+        "equal_printed": false
+      },
+      {
+        "epoch": 13,
+        "original": 0.1535,
+        "pilot": 0.1535,
+        "equal_printed": true
+      },
+      {
+        "epoch": 14,
+        "original": 0.1471,
+        "pilot": 0.1477,
+        "equal_printed": false
+      }
+    ],
+    "first_visible_divergence_epoch": 11,
+    "prefix_equal_printed_epochs": 10,
+    "original_epoch14_clock": "22:08:42"
+  },
+  "preprocessing": {
+    "training_cache": "Same retained original inputs.pkl selected by original data[names], with names order unchanged",
+    "source_dtype_contract": "Original Encoder emits int64 categories and float32 numeric values; chunked adapter enforces exactly those dtypes",
+    "same_original_encoder_source": true,
+    "same_feature_order_source": true,
+    "same_original_134_column_count": true,
+    "same_original_cards_bin_counts_scales": true,
+    "original_summary": {
+      "numeric": 123,
+      "ple_inputs": 92,
+      "plain_inputs": 237,
+      "categoricals": [
+        "airport",
+        "dest",
+        "aircraft_type",
+        "runway",
+        "stand",
+        "flight_rule",
+        "market_segment",
+        "flight_type",
+        "wake_cat",
+        "operator",
+        "airline"
+      ],
+      "cards": [
+        11,
+        808,
+        161,
+        61,
+        2223,
+        3,
+        9,
+        6,
+        5,
+        468,
+        773
+      ],
+      "bins_per_input": [
+        20,
+        6,
+        11,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        29,
+        27,
+        43,
+        42,
+        32,
+        13,
+        2,
+        33,
+        38,
+        48,
+        48,
+        31,
+        18,
+        19,
+        20,
+        33,
+        5,
+        15,
+        48,
+        8,
+        19,
+        22,
+        48,
+        23,
+        28,
+        48,
+        48,
+        24,
+        8,
+        48,
+        23,
+        48,
+        48,
+        48,
+        48,
+        48,
+        2,
+        8,
+        2,
+        4,
+        2,
+        6,
+        12,
+        8,
+        22,
+        16,
+        22,
+        2,
+        40,
+        48,
+        5,
+        48,
+        48,
+        11,
+        48,
+        48,
+        48,
+        28,
+        28,
+        6,
+        29,
+        23,
+        28,
+        26,
+        36,
+        37,
+        37,
+        45,
+        36,
+        36,
+        28,
+        14,
+        14,
+        14,
+        28,
+        28,
+        32,
+        24
+      ],
+      "inner_month": "2025-12",
+      "inner_val_rows": 162836,
+      "inner_train_rows": 1888491
+    },
+    "original_encoder_and_encoded_tensor_hashes_absent": true,
+    "current_original_vs_adapter_CPU_tensors_bins_and_wrapper_RNG_parity": {
+      "original_and_chunked_encoder_tensors_bins_exact": true,
+      "original_and_observed_training_outputs_weights_losses_RNG_exact": true,
+      "synthetic_epochs": 3
+    },
+    "full_historical_encoded_tensor_equality_unprovable_without_original_tensors": true
+  },
+  "runtime": {
+    "original_gpu": "NVIDIA GeForce RTX 3080",
+    "original_torch": "2.14.1+cu130",
+    "pilot_gpu": "NVIDIA GeForce RTX 3080",
+    "pilot_torch": "2.14.1+cu130",
+    "pilot_flags": {
+      "host": "GPC",
+      "torch_cpu_threads": 8,
+      "matmul_allow_tf32": false,
+      "cudnn_allow_tf32": true,
+      "deterministic_algorithms": false
+    },
+    "original_thread_count_TF32_CUDA_allocator_and_atomic_order": "unrecorded",
+    "original_source_TF32": "ideas_submit.py performs no TF32 override for network_part; inherited library defaults were not logged",
+    "checkpoint_observer": "Copies state only before original monitor; CPU control confirms no RNG or model update changes"
+  },
+  "conclusion": "Seed, member, stop, recorded dimensions and source chronology match. Losses match to printed precision through epoch10 then diverge. This supports accumulated numerical trajectory divergence, but its GPU/kernel/allocator cause cannot be proven from retained artifacts. Do not label the large error unavoidable or exact reconstruction.",
+  "no_refit": true,
+  "no_expansion": true,
+  "no_inference": true,
+  "no_labels_loaded": true
+}

@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-10-12T16:19:50.568982+00:00",
+  "updated_at": "2026-10-12T16:50:38.215128+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-12T15:03:41+00:00",
   "slots_remaining": 0,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 47,
+  "hypotheses": 48,
   "desktop": {
-    "stage": "weather_saved_model_final_inference",
+    "stage": "joint_public_four_month_port",
     "owner": "root",
-    "session": 90766,
-    "run": "VALIDATION/runs/v3_20261012_final_weather_inference"
+    "session": 24063,
+    "run": "VALIDATION/runs/v3_20261012_final_joint_public_inference"
   },
   "next": [
     "Complete fixed full-day peer TabM Jan/Jul experiment after preflight",
@@ -39,14 +39,16 @@
   ],
   "laptop": {
     "stage": "daily_cohort_fit_or_inference",
-    "completed_folds": [],
+    "completed_folds": [
+      "2025-01"
+    ],
     "run": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort",
     "preflight_pass": true,
-    "last_epoch_at": "18:18:34",
-    "fold": "2025-01",
-    "epoch": 16,
-    "epochs": 21,
-    "seconds_per_epoch": 147.1
+    "last_epoch_at": "18:48:51",
+    "fold": "2025-07",
+    "epoch": 9,
+    "epochs": 17,
+    "seconds_per_epoch": 101.79
   },
   "duration_result": {
     "cv": {
@@ -110,6 +112,8 @@
       56,
       57,
       58,
+      60,
+      61,
       64,
       66,
       68,
@@ -125,7 +129,8 @@
       "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/independent_audit.json",
       "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/independent_audit.json",
       "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/independent_audit.json",
-      "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/independent_audit.json"
+      "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/independent_audit.json",
+      "VALIDATION/runs/v3_20261012_final_weather_inference/independent_audit.json"
     ]
   },
   "depth3_completion": {

@@ -121,6 +121,18 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October12,18:42 Amsterdam:28 historical final components audited.**
+  Saved weather models recover v60/v61 exactly on all original rows; all four-month
+  output checks pass (2,031,262 rows), with no weight fits. The fixed134-input PLE pilot is nonexact
+  (39.2273s RMS), so expansion is closed; all checkpoints remain. Original losses
+  match printed precision through epoch10, with later numerical divergence
+  plausible but unproven. Laptop cohort CV has completed January and is fitting July.
+  Public correction old replay/audit passes all344841 rows/620days; joint
+  four-month inference is active on desktop. Selected-stack source is reviewed,
+  with complete-basis and exact-old gates. No final upload or new score.
+  Literal runway-key normalization recovered zero joins; independently audited,
+  closed without training. Best remains v80 at218.8525, target205.
+
 - **October 12, 18:18 Amsterdam: 26 historical final components and direct public mixtures audited.**
   Stand-family v30/v33/v34/v37 now replay all original integers exactly and pass
   the separate final SQL audit. Original classifier hash matches; ordinary text

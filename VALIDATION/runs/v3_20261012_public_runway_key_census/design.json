@@ -1,0 +1,28 @@
+{
+  "hypothesis": "Literal runway formatting may hide already available public taxi cells",
+  "transform": "trim uppercase; remove zero only for ^0[1-9][LCR]?$",
+  "gate": "Describe recoverable unambiguous source joins only; no predictive claim",
+  "ambiguity": "Discard canonical source keys with more than one raw source row",
+  "sources": [
+    {
+      "path": "VALIDATION/tools/pilot_public_runway_keys_20261012.py",
+      "sha256": "84d32db07019bf5c05ed666f5f369af6cb5c430acacaf6441846dacba874fd71"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_features/inputs2025.parquet",
+      "sha256": "8852220340f71dee3c90fce950c664d5c0574858c4e77951df16a70699753a18"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_features/inputsranking.parquet",
+      "sha256": "5fa7527dd0e132c421a42586648853644c1f9575fc43338bda0829e460fe4465"
+    }
+  ],
+  "no_labels": true,
+  "no_predictions": true,
+  "no_fit": true,
+  "no_download": true
+}

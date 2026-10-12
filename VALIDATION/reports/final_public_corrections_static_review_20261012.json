@@ -1,0 +1,69 @@
+{
+  "status": "pass_static_review_only",
+  "sources": [
+    {
+      "path": "VALIDATION/final_public_corrections.py",
+      "sha256": "fb82861e8630a3a2f4593409fbabe5873858ea30df9af144ee0a242d83aa6ec8"
+    },
+    {
+      "path": "VALIDATION/final_public_corrections_audit.py",
+      "sha256": "c64eb445b99ad7b772c1f3fb7b0106c29642168d5da8786aa4d5fc4f98a53eaa"
+    },
+    {
+      "path": "VALIDATION/public_refinements_aggregate_submit.py",
+      "sha256": "9e44578eef0fda8e62f709a1f3339e1ee6ee3125d88b79b7bd7ae6eecc991f06"
+    },
+    {
+      "path": "VALIDATION/daily_heavy_tail.py",
+      "sha256": "d521a1708e8bd5217254548ecfc8fb9b984b083840331b1bde7bd7a977de0932"
+    },
+    {
+      "path": "VALIDATION/monthly_taxi_reconcile.py",
+      "sha256": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_corrections/preflight.json",
+      "sha256": "e984f67f5157fbd7abbf2fb7f37d75b8a2db997961becef695c85788b71f4add"
+    }
+  ],
+  "resolved_before_freeze": [
+    "Both v71/v73 geometry artifacts authenticated against original production manifest hashes.",
+    "Final components may bind directly to passed audit or through verified audit -> result -> final prediction hashes; malformed/unbound chains rejected."
+  ],
+  "confirmed": [
+    "Exact saved ordered48/49 integer basis and coefficients, with original float64 matrix product; no new solve or substitutions.",
+    "Same original UTC takeoff-day grouping, full2025 daily calibration and Gaussian/t5 ordinary-grid conditional functions as selected aggregate production.",
+    "v72 serialization precedes fixed weight72 delta into raw73; monthly half/full expansion and projection/rounding order unchanged.",
+    "Final month source gaps are not guessed: daily source lookup requires finite cells; original monthly missing-source behavior remains zero shift.",
+    "All four version integer vectors and selected aggregate intermediate floats replay exactly on old rows; original standalone Gaussian raw72 accepts only original1e-8 tolerance and its serialized vector remains exact.",
+    "Full48-vector final catalog is mandatory; each old vector matches archived integer submission and each final vector has exact template IDs, nonnegative finite integers and audited hash binding.",
+    "No original corrections are refitted; no taxi labels or model inference are introduced by this port."
+  ],
+  "independent_auditor": [
+    "Scalar-column affine reconstruction with1e-8 roundoff bound and exact serialized result.",
+    "SQL nearest-even/nonnegative serialization and complete strict matched/recovered bounds.",
+    "All daily groups source/count/ordinary contribution summaries independent of producer grouping; retained conditional-posterior numeric functions are not independently rerun.",
+    "SQL monthly thresholds/source formulas/calibration/shifts with1e-8 scalar-vs-BLAS allowance; all saved cells counted and unique.",
+    "Exact old aggregate stage checks, final binding verification and original template ordering."
+  ],
+  "prefit_evidence": {
+    "fixture_rows": 8,
+    "monthly_fixture_rows": 612,
+    "direct_and_two_hop_binding_corruption_checks": true,
+    "read_existing_results_only": true
+  },
+  "limitations": [
+    "Final inference remains blocked until complete audited final catalog; no absent component substituted.",
+    "Published source cohort/calendar identity is not asserted; reproduces selected production grouping.",
+    "Independent arithmetic audit is not new model validation; final posterior calculation relies on preserved original functions plus audited source inputs."
+  ],
+  "no_freeze_or_execution_by_reviewer": true
+}

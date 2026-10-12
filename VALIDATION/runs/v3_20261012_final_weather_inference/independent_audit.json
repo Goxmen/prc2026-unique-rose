@@ -1,0 +1,236 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_final_weather_outputs_20261012.py",
+    "sha256": "8ed136fae55ce207e04f2d8846ea25d2cb08234a5a34e41479927482f997f8a9",
+    "bytes": 17242
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_weather_inference/identity.json",
+    "sha256": "c7ba8e870b52139a3ceea002846da940a62b4d204b4bb9708c86e3ec2dd6bbcc",
+    "bytes": 43662
+  },
+  "auditor_identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_weather_inference/output_auditor_identity.json",
+    "sha256": "d64c149db5afcf6cfd17359056694bd6d5ec03b443710d9a18a73e9914e8343e",
+    "bytes": 753
+  },
+  "checks": {
+    "old_v60": {
+      "rows": 344841,
+      "months": {
+        "2026-01": 152719,
+        "2026-07": 192122
+      },
+      "max_SQL_float_error": 0.0,
+      "all_mixture_correction_rules_integer_rounding_exact": true,
+      "template_order_exact": true,
+      "old_original_integers_exact": true,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/old_v60.parquet",
+        "sha256": "2876d99d7fb66fe317e08b76a22d9b7ce2907e486c9425620472e6ccbe93c4fc",
+        "bytes": 5215686
+      }
+    },
+    "old_v61": {
+      "rows": 344841,
+      "months": {
+        "2026-01": 152719,
+        "2026-07": 192122
+      },
+      "max_SQL_float_error": 0.0,
+      "all_mixture_correction_rules_integer_rounding_exact": true,
+      "template_order_exact": true,
+      "old_original_integers_exact": true,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/old_v61.parquet",
+        "sha256": "647ddbc1dbaa738f3fbc18ac5aad5649c572e11dea67da25bfd26b6e3f1a47ac",
+        "bytes": 5196613
+      }
+    },
+    "final_v60": {
+      "rows": 670790,
+      "months": {
+        "2026-01": 152719,
+        "2026-02": 144158,
+        "2026-06": 181791,
+        "2026-07": 192122
+      },
+      "max_SQL_float_error": 0.0,
+      "all_mixture_correction_rules_integer_rounding_exact": true,
+      "template_order_exact": true,
+      "old_original_integers_exact": false,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final_v60.parquet",
+        "sha256": "fff9ffab19b78ddeb207c99dad130af7e9aa7b60e9daa80540bb2b437525d726",
+        "bytes": 9161128
+      }
+    },
+    "final_v61": {
+      "rows": 670790,
+      "months": {
+        "2026-01": 152719,
+        "2026-02": 144158,
+        "2026-06": 181791,
+        "2026-07": 192122
+      },
+      "max_SQL_float_error": 0.0,
+      "all_mixture_correction_rules_integer_rounding_exact": true,
+      "template_order_exact": true,
+      "old_original_integers_exact": false,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final_v61.parquet",
+        "sha256": "43562c320733942736fcc2a66488d12556f9196da14cd6311a3250b5ff0c64e3",
+        "bytes": 9640315
+      }
+    }
+  },
+  "components": [
+    {
+      "view": "old",
+      "part": "rome",
+      "rows": 344841,
+      "values": 344841,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/old/rome.parquet",
+        "sha256": "8ba3e01cf0adbd218774425e46b88195dfb7e655936c6f5fe53dd59143b1ba35",
+        "bytes": 1942338
+      },
+      "original_all_values_exact": true,
+      "producer_saved_model_reload_receipt_exact": false
+    },
+    {
+      "view": "old",
+      "part": "lgb",
+      "rows": 344841,
+      "values": 344841,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/old/lgb.parquet",
+        "sha256": "bef8b494097e9f0034668f77068c930d7826e07e6383e92873c85540cef29d0b",
+        "bytes": 3620138
+      },
+      "original_all_values_exact": true,
+      "producer_saved_model_reload_receipt_exact": false
+    },
+    {
+      "view": "old",
+      "part": "airport",
+      "rows": 344841,
+      "values": 344841,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/old/airport.parquet",
+        "sha256": "5d1b1cede2cee16b1c7f491c1ec114e92139b49c4814ea128149635c38b3f920",
+        "bytes": 3620614
+      },
+      "original_all_values_exact": true,
+      "producer_saved_model_reload_receipt_exact": false
+    },
+    {
+      "view": "old",
+      "part": "catboost",
+      "rows": 344841,
+      "values": 344841,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/old/catboost.parquet",
+        "sha256": "9c29b307dced3996644e8bedcc771137fcfb6795bbdea1784e7831bc25ad02a8",
+        "bytes": 3620766
+      },
+      "original_all_values_exact": true,
+      "producer_saved_model_reload_receipt_exact": false
+    },
+    {
+      "view": "old",
+      "part": "nn",
+      "rows": 344841,
+      "values": 5172615,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/old/nn.parquet",
+        "sha256": "6a7807eba434cb2625dff2cf958e7e917af960b1df1410264df38ca09b339bb5",
+        "bytes": 30834407
+      },
+      "original_all_values_exact": true,
+      "producer_saved_model_reload_receipt_exact": false
+    },
+    {
+      "view": "final",
+      "part": "rome",
+      "rows": 670790,
+      "values": 670790,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final/rome.parquet",
+        "sha256": "a2256d10614aec8b9711d9d14f66c550ebbc862300a274c063093f144ccec34f",
+        "bytes": 3520331
+      },
+      "original_all_values_exact": false,
+      "producer_saved_model_reload_receipt_exact": true
+    },
+    {
+      "view": "final",
+      "part": "lgb",
+      "rows": 670790,
+      "values": 670790,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final/lgb.parquet",
+        "sha256": "4fc7b6de7a4831ef3933510651f8689a63eb21307f1730f95350f66a0d57b6de",
+        "bytes": 6250765
+      },
+      "original_all_values_exact": false,
+      "producer_saved_model_reload_receipt_exact": true
+    },
+    {
+      "view": "final",
+      "part": "airport",
+      "rows": 670790,
+      "values": 670790,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final/airport.parquet",
+        "sha256": "531cfd9a8a5de524a766310ffe64f51486960f074e57418c55093124e9d51a29",
+        "bytes": 6250629
+      },
+      "original_all_values_exact": false,
+      "producer_saved_model_reload_receipt_exact": true
+    },
+    {
+      "view": "final",
+      "part": "catboost",
+      "rows": 670790,
+      "values": 670790,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final/catboost.parquet",
+        "sha256": "be5a7de5930c73a3b323bc6693558396069e1af0dad2e24edffd68948facfa9c",
+        "bytes": 6250867
+      },
+      "original_all_values_exact": false,
+      "producer_saved_model_reload_receipt_exact": true
+    },
+    {
+      "view": "final",
+      "part": "nn",
+      "rows": 670790,
+      "values": 10061850,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final/nn.parquet",
+        "sha256": "082dbfa7b67de166473663e6b4bc6baf0c4220edf33efc57020dbd8113ad80db",
+        "bytes": 51734444
+      },
+      "original_all_values_exact": false,
+      "producer_saved_model_reload_receipt_exact": true
+    }
+  ],
+  "sources_verified": 172,
+  "models": 28,
+  "raw_sha256": {
+    "old": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86",
+    "final": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+  },
+  "original_component_values": 6551979,
+  "final_component_values": 12745010,
+  "prediction_rows_checked": 2031262,
+  "no_fit": true,
+  "no_inference": true,
+  "caveats": [
+    "v60 retains already-audited October8 parent neural refit provenance.",
+    "Saved-model reloads are verified producer receipts; this auditor independently derives output arithmetic.",
+    "Handler inputs reuse hashed previously audited input packets; raw clocks and twins are independently reconstructed."
+  ]
+}

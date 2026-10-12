@@ -1,0 +1,357 @@
+{
+  "design": {
+    "original_settings": {
+      "ordinary_sigma": 200.0,
+      "common_day_sigma": 15.0,
+      "cutoff": 7200.0,
+      "df": 5,
+      "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+      "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+      "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+      "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+      "comparison": "joint posterior mean minus matched departure-only moment posterior mean",
+      "transfer": "one fixed half incremental correction through current v77 constraints",
+      "common_error": "one shared15-second mean perturbation across the selected two cohorts",
+      "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+      "no_iteration": true,
+      "no_parameter_search": true,
+      "no_new_fit": true
+    },
+    "robust_settings": {
+      "ordinary_sigma": 200.0,
+      "common_day_sigma": 15.0,
+      "cutoff": 7200.0,
+      "df": 5,
+      "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+      "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+      "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+      "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+      "comparison": "new_joint minus original_joint; original departure-only comparator unchanged",
+      "transfer": "fixed0.5 additional increment on exactv78; separately frozen coefficient-one v79 transport",
+      "common_error": "one shared15-second outer product over the bounded message, exact original3D marginal",
+      "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+      "no_iteration": true,
+      "no_parameter_search": true,
+      "no_new_fit": true,
+      "additional": "all supported same-local-day other runway taxi cells intersecting the assigned-day delay cohort; full taxi membership",
+      "conditioning": "Gaussian Schur moments with one capped variance-matched t5 score weight; unchanged original 3D t5 target likelihood",
+      "robust_weight": "min(1,(5+k)/(3+q)); q=r_B.T C_BB^-1 r_B, k=extra dimension",
+      "review_history": "unexecuted 5+q denominator corrected to variance-matched 3+q before any robust prediction; no weight scan",
+      "caveat": "hybrid approximation; unknown cross-runway source-error covariance and possible prior-error suppression",
+      "disconnected": "exact recovery when the entire C_AB is zero; adding disconnected coordinates beside informative ones may change global q/k/weight",
+      "no_new_gate": true
+    },
+    "months": {
+      "old": [
+        "2026-01",
+        "2026-07"
+      ],
+      "final": [
+        "2026-01",
+        "2026-02",
+        "2026-06",
+        "2026-07"
+      ]
+    },
+    "input_columns": [
+      "mvt_id",
+      "month",
+      "gap",
+      "prior",
+      "eligible",
+      "quality",
+      "runway",
+      "local_day",
+      "assigned_day",
+      "fltrule",
+      "delay_scope"
+    ],
+    "prior": "Exact serialized v70 independently audited final view; retained old prior",
+    "assignments": "Takeoff minus fixed v70 once; explicit interior days of each UTC takeoff month; exclude VFR",
+    "taxi": "Original local takeoff day/runway, stand/runway eligibility, monthly invalid share strictly below0.05",
+    "source": "Reuse complete cached parent taxi_source/delay_source, require all final months covered",
+    "calibration": "Original saved full2025 taxi/delay/support parameters, exact original hashes; never refit",
+    "old": "Reconstruct inputs exactly then reuse both retained posterior outputs; do not rerun",
+    "final": "Original model.apply then unchanged robust.apply, separate per-month checkpoints",
+    "anchoring": "robust.old_joint versus saved original finaljoint atol1e-8; anchor delta to saved joint, force zero for no extra cells",
+    "transfer": "Export fulltemplate-ID increment and robust delta; half-weight/bounds/serialization only in later assembler",
+    "provenance": "v70 final retains previously audited component reconstruction history",
+    "no_fit": true,
+    "no_departure_labels": true,
+    "no_new_selection": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+    },
+    {
+      "path": "VALIDATION/daily_delay_reconcile.py",
+      "sha256": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06"
+    },
+    {
+      "path": "VALIDATION/daily_offblock_alignment.py",
+      "sha256": "08f48001e826e1442a4fe188d05a88a2e69a1ce1d3ad87b1b144158243a9afec"
+    },
+    {
+      "path": "VALIDATION/final_correction_inputs.py",
+      "sha256": "d0aec6951b833900d29aee9522764ff7007c4ee7118af965dd630c6539e32434"
+    },
+    {
+      "path": "VALIDATION/final_joint_public_audit.py",
+      "sha256": "24055d85d8882c1554c82ade201aa2c9acd1b070e177332f2c4672a7e098b5a6"
+    },
+    {
+      "path": "VALIDATION/final_joint_public_inference.py",
+      "sha256": "b59307ed7f26299e3bc5b57dd432e9f2c114b78f887e4550a717a494833c8fdd"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments_submit.py",
+      "sha256": "00fbb3cb363faf92d59223169a76c8e5bc373bb431181a5f799aa92110149ed0"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway.py",
+      "sha256": "e12479a286f7f4445e399a921d48aea0ca0e3fd6a11d7cf3e264fac970274321"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway_pilot.py",
+      "sha256": "fcae9ae8dccbbc7c217db070c577ccf95c020cc6585d47efb03e0bf5af72b620"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway_submit.py",
+      "sha256": "a5533be1fa637cc79110506cefaf179a98860abddda926b6a6dd4ed5464fa65d"
+    },
+    {
+      "path": "VALIDATION/monthly_taxi_reconcile.py",
+      "sha256": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/audit.json",
+      "sha256": "e80562fa3bb7b8201d1eb79e1db96f6ae7b63a45c34fda6438a9fe29d3681e37"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/cells.parquet",
+      "sha256": "8c824ba28000d2dc250df2748f6adcc01e9b3ee8c8b18aff6fddac769de0c23a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/delay_source.parquet",
+      "sha256": "2293d25c36c0dec0ad21898135b8fdee8b62023f148b13e7dd469185db1682ca"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/identity.json",
+      "sha256": "cb028883d966db2e3a4ae58154a92d7609910ae9aa2169ac53cc326c6d42c5be"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/inference.json",
+      "sha256": "6bd71385e5608b739d0f71e84b28ca40f9666f29d1694a172b5e0460b45ace1e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/inference.parquet",
+      "sha256": "39ed678947b57c98d35ec65b263ff3feb0270af4bdd25be438ee168e417b15e9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/inputs.parquet",
+      "sha256": "caf9e2094daa24e785d8cc32d2c2289dd778389f50a8dc152f3289e867cb49d8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/parameters.json",
+      "sha256": "d210d62aa0196b2080e566fbd667c70684876cea94c4a5651fc70a7432c1a785"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/predictions.parquet",
+      "sha256": "4291e6348c938224af5cc5d9d421ca5a4073f0583c4d611a2feb4a8ec47eb792"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/result.json",
+      "sha256": "1ccec5a9f08f715ccb0d6f9330c52f4f2e56d4611ad18bb14f9642ce78956f32"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/taxi_source.parquet",
+      "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_features/audit.json",
+      "sha256": "7bb7a076d933153c0732f55733fead8e1b519997e140b7ae22de862b3f8e2cd7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_features/inputsranking.parquet",
+      "sha256": "5fa7527dd0e132c421a42586648853644c1f9575fc43338bda0829e460fe4465"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_features/manifest.json",
+      "sha256": "1f922f10e5c986d2e14e4a6bef2ebd302d9c60c106d6d782f6b4086277acfa1c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/identity.json",
+      "sha256": "9ee2f956b242e5f7511d8944a35c42d41e10e046550b7be713f9ab7b5bd9e5c5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/audit.json",
+      "sha256": "36c7199eb60abdaa7bd2d21eb2f38ecfab47a48c1f897f3ad7d15a5063822590"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/final/clocks.parquet",
+      "sha256": "17c528cf7011ea5ae414860cc917d7868475f662a401a01a46bac05977014e15"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/final/daily.parquet",
+      "sha256": "2f8e6082b9a385b43c29f06be2bbcf11e4bd7be636712c09d708c5818852d85b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/final/matches.parquet",
+      "sha256": "430c366abbfac44454ba01ea6175e1b84886d9a5a4b4dcfb09a043c3a9a4b5cf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/final/monthly.parquet",
+      "sha256": "62e141cce2773dc2a08ad4eccdbf460c33cfb3dbf9f0874bd029d524a85424cf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/final/prepared.json",
+      "sha256": "298e65ee49814abeb2abbdaa5a8872a55c92860f051e3d133205181ee6d2ad29"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/identity.json",
+      "sha256": "60e84f9ced69f514b76e35e4a73222da7a53d90f9310d34eddc00512206ce359"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/old/clocks.parquet",
+      "sha256": "423099d40a37487c64c68d6866dd06c9662d852fff232051a5622ffdaef981be"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/old/daily.parquet",
+      "sha256": "872c0c62847b25fc97700c32e14239d5a990228fef2cc960b9ec5be17c95e9bf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/old/matches.parquet",
+      "sha256": "4631ed21c1d79ec9fb00e0522a3ba405558de6afc0a8190eb8047d8e6b8e11b0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/old/monthly.parquet",
+      "sha256": "c1c13a97e795ef344e24df091ce3fda7a99c475e956a422d0ae4d4cd3d16413d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/old/prepared.json",
+      "sha256": "07183e9659ed934de724a44c72d3de959e60d04ace2930b6dbd64e4cd52562a9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/features/audit.json",
+      "sha256": "fe15f0581a676de04189d04fb0a84996ae9ac0f759f52542406c771a1700dca6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/features/inputsfinal.parquet",
+      "sha256": "864d4a316cacfb6e0ac64032813e45fe8136f3ef4c42ffdaf726739df75237a0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/features/manifest.json",
+      "sha256": "01430f18f2ac6e6245ffb6639be7cc0afd6cd88f7b2f75a42eac9bdf00b7d6e5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+      "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v70.json",
+      "sha256": "9ae231405fd96b77a3b7d5c44b468661c1451d706283aa0b5b8df849375cfae2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v70.parquet",
+      "sha256": "2d6246894d84a265ad3e537cd9444038158caefb0838ef76e76a087b6443c229"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/identity.json",
+      "sha256": "9d4630205e0e9122196899b71e59f928c46c2f888de979d1992ee52fa0f695f6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/old_v70.json",
+      "sha256": "249e77eb4d257485d0f82be29d7629ee5c40684b6112d9076c969bed8e4f4b78"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/old_v70.parquet",
+      "sha256": "c7722fcfab26e0b67504e22096fdeee0c561ee1c529414972d67ec3ed4ea17af"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/audit.json",
+      "sha256": "593b4b60bd9ab5cebb70959f42b13ad5d8be0a029836831e024e30e5d53474c6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/cells.parquet",
+      "sha256": "d48c72edf24c96b4bbb79783409a95a6701a67af116f5db409c7e51ed7798d7b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/identity.json",
+      "sha256": "ebd9fdaaaf4f6a6623e57c003d67a8202b515442aaa1db4c21733390b3e488d5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/inference.json",
+      "sha256": "5939492afddd6388c906c1ce8deced7556a0f98f5f7a7c563da6a0aabf7c7f17"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/inference.parquet",
+      "sha256": "a65226500c65b74729ce990a28e8ae11f9025e3acf6647c7a47c5a77b5005208"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/predictions.parquet",
+      "sha256": "66b2f1cf2492da716b6a49f9296f681f2ebf3cc0497450ca12e0d6ccc825f7b9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/result.json",
+      "sha256": "28fbf58a3c9a7367f7d7372408c45b9207781ca9a53ddd8a368e4824345b87be"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_posterior.py",
+      "sha256": "86e5a14489d6804c3957ed2f8a35df14ea6558851baf76de65a21b5855f5454f"
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/taxi_out_additional_time_2026.csv",
+      "sha256": "b72040e0987e6c7d5706279d645ef9f814a6506165c83f89d8509022154a1076"
+    },
+    {
+      "path": "data/final_ranking.parquet",
+      "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    },
+    {
+      "path": "submissions/unique-rose_v70.parquet",
+      "sha256": "0f9138d78d54be829ebb090b57a15eb989262876098eca9ce2ade57a21ba6d97"
+    }
+  ],
+  "parameters": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/parameters.json",
+    "sha256": "d210d62aa0196b2080e566fbd667c70684876cea94c4a5651fc70a7432c1a785"
+  },
+  "taxi_source": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/taxi_source.parquet",
+    "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+  },
+  "delay_source": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/delay_source.parquet",
+    "sha256": "2293d25c36c0dec0ad21898135b8fdee8b62023f148b13e7dd469185db1682ca"
+  },
+  "source_month_coverage_verified": true,
+  "runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1"
+  }
+}

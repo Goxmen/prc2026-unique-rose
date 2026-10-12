@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/final_public_corrections_audit.py",
+    "sha256": "c64eb445b99ad7b772c1f3fb7b0106c29642168d5da8786aa4d5fc4f98a53eaa"
+  },
+  "producer": {
+    "path": "VALIDATION/final_public_corrections.py",
+    "sha256": "fb82861e8630a3a2f4593409fbabe5873858ea30df9af144ee0a242d83aa6ec8"
+  },
+  "round_even_zero_clip": true,
+  "matched_including_negative_upper_bound": true,
+  "exclusion_tie_lower_negative_lower_and_strict_edges": true,
+  "transport_order": true,
+  "fixture_rows": 8,
+  "monthly_fixture_rows": 612,
+  "monthly_threshold_cap_missing_source_and_clip": true,
+  "direct_and_two_hop_audit_bindings_and_corruption_rejection": true,
+  "no_real_predictions": true
+}

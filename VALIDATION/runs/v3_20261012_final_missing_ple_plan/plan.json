@@ -1,0 +1,464 @@
+{
+  "purpose": "Recover absent original legacy134 PLE weights without repeating epoch selection",
+  "versions": [
+    48,
+    49,
+    50
+  ],
+  "input_features": 134,
+  "ordinary_rows": 2051327,
+  "original_device": "NVIDIA GeForce RTX 3080",
+  "torch": "2.14.1+cu130",
+  "original_stops": {
+    "48": 15,
+    "49": 17,
+    "50": {
+      "42": 14,
+      "142": 17,
+      "242": 17
+    }
+  },
+  "blend_weights": {
+    "48": 0.6,
+    "49": 0.3,
+    "50": 0.6
+  },
+  "shared_training_trajectory_proof": {
+    "stop_referenced_only_by_loop_bound": true,
+    "one_cycle_total_epochs": 24,
+    "trainer_ast_sha256": "ad3f68216990ba548ca6d6ba0db5202793580b2546f5752cc7a4c566424de792",
+    "inference_monitor_does_not_change_optimizer_or_select_epochs": true,
+    "prefix_checkpoint_CPU_RNG_weight_parity_required_before_fit": true
+  },
+  "trajectories": [
+    {
+      "group": 42,
+      "member": 0,
+      "seed": 42,
+      "stop": 17,
+      "save_epochs": [
+        14,
+        15,
+        17
+      ],
+      "original_v50_column": "n42_0"
+    },
+    {
+      "group": 42,
+      "member": 1,
+      "seed": 1042,
+      "stop": 17,
+      "save_epochs": [
+        14,
+        15,
+        17
+      ],
+      "original_v50_column": "n42_1"
+    },
+    {
+      "group": 42,
+      "member": 2,
+      "seed": 2042,
+      "stop": 17,
+      "save_epochs": [
+        14,
+        15,
+        17
+      ],
+      "original_v50_column": "n42_2"
+    },
+    {
+      "group": 42,
+      "member": 3,
+      "seed": 3042,
+      "stop": 17,
+      "save_epochs": [
+        14,
+        15,
+        17
+      ],
+      "original_v50_column": "n42_3"
+    },
+    {
+      "group": 42,
+      "member": 4,
+      "seed": 4042,
+      "stop": 17,
+      "save_epochs": [
+        14,
+        15,
+        17
+      ],
+      "original_v50_column": "n42_4"
+    },
+    {
+      "group": 142,
+      "member": 0,
+      "seed": 142,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n142_0"
+    },
+    {
+      "group": 142,
+      "member": 1,
+      "seed": 1142,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n142_1"
+    },
+    {
+      "group": 142,
+      "member": 2,
+      "seed": 2142,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n142_2"
+    },
+    {
+      "group": 142,
+      "member": 3,
+      "seed": 3142,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n142_3"
+    },
+    {
+      "group": 142,
+      "member": 4,
+      "seed": 4142,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n142_4"
+    },
+    {
+      "group": 242,
+      "member": 0,
+      "seed": 242,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n242_0"
+    },
+    {
+      "group": 242,
+      "member": 1,
+      "seed": 1242,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n242_1"
+    },
+    {
+      "group": 242,
+      "member": 2,
+      "seed": 2242,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n242_2"
+    },
+    {
+      "group": 242,
+      "member": 3,
+      "seed": 3242,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n242_3"
+    },
+    {
+      "group": 242,
+      "member": 4,
+      "seed": 4242,
+      "stop": 17,
+      "save_epochs": [
+        17
+      ],
+      "original_v50_column": "n242_4"
+    }
+  ],
+  "unique_fits": 15,
+  "checkpoint_states": 25,
+  "no_inner_stop_fit": true,
+  "first_five_reuse_is_seed_and_recipe_only": true,
+  "old_mean_comparisons": {
+    "48": {
+      "rows": 344841,
+      "v50_group42_mean_vs_original_mean_rms": 32.470671303411514,
+      "max_abs": 1347.4366140488632,
+      "interchangeable": false,
+      "reason": "Original v50 first five stop14; v48 stops15"
+    },
+    "49": {
+      "rows": 344841,
+      "v50_group42_mean_vs_original_mean_rms": 35.114517924919355,
+      "max_abs": 1538.103344192507,
+      "interchangeable": false,
+      "reason": "Original v50 first five stop14; v49 stops17"
+    }
+  },
+  "old_input_summary": {
+    "numeric": 123,
+    "ple_inputs": 92,
+    "plain_inputs": 237,
+    "categoricals": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "airline"
+    ],
+    "cards": [
+      11,
+      808,
+      161,
+      61,
+      2223,
+      3,
+      9,
+      6,
+      5,
+      468,
+      773
+    ],
+    "bins_per_input": [
+      20,
+      6,
+      11,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      48,
+      29,
+      27,
+      43,
+      42,
+      32,
+      13,
+      2,
+      33,
+      38,
+      48,
+      48,
+      31,
+      18,
+      19,
+      20,
+      33,
+      5,
+      15,
+      48,
+      8,
+      19,
+      22,
+      48,
+      23,
+      28,
+      48,
+      48,
+      24,
+      8,
+      48,
+      23,
+      48,
+      48,
+      48,
+      48,
+      48,
+      2,
+      8,
+      2,
+      4,
+      2,
+      6,
+      12,
+      8,
+      22,
+      16,
+      22,
+      2,
+      40,
+      48,
+      5,
+      48,
+      48,
+      11,
+      48,
+      48,
+      48,
+      28,
+      28,
+      6,
+      29,
+      23,
+      28,
+      26,
+      36,
+      37,
+      37,
+      45,
+      36,
+      36,
+      28,
+      14,
+      14,
+      14,
+      28,
+      28,
+      32,
+      24
+    ],
+    "inner_month": "2025-12",
+    "inner_val_rows": 162836,
+    "inner_train_rows": 1888491
+  },
+  "label_mean": 982.3276532702977,
+  "label_sd": 407.31600230259727,
+  "input_source": {
+    "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+    "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9",
+    "verification": "Previously verified by weather preparation; rehash before recovery preparation",
+    "reuse": "Select exact original134 columns, original category metadata, ordered membership and label vector"
+  },
+  "gate_sequence": [
+    "Independent full input/membership/category/encoder/bin/card/scale checks, all preserved original summaries exact",
+    "CPU original trainer versus checkpoint-observation wrapper prefix/RNG/parameter equivalence",
+    "First fixed seed42 trajectory saves14/15/17, model+encoder states before diagnostics",
+    "Compare checkpoint14 old float32 vector to retained v50 n42_0; report all-row exactness and float/rounded fidelity",
+    "If nonexact, STOP before fourteen further fits; parent decides explicit approximation route using Jan/Jul validation",
+    "If exact, finish remaining14 fixed trajectories and compare all15 v50 old vectors plus v48/v49 means and all3 integer vectors",
+    "Final inference/independent audit only for exact old integer recipes, unless explicit approximation is separately authorized"
+  ],
+  "estimated_full15_fit_minutes_from_original_v49": 18.100243979049992,
+  "no_fit_started": true,
+  "no_encoding_started": true,
+  "no_upload": true,
+  "caveats": [
+    "Original scripts did not save these model weights; existing complete old prediction vectors remain untouched.",
+    "GPU training explicitly documented non-repeatability; same hardware/source/seeds do not prove original state identity.",
+    "v48/v49/v50 used distinct historical executions and stop15/17/14; first-five old means are not reused interchangeably.",
+    "Stopping receipts, seeds and24epoch learning-rate schedule fixed; no seed/thread/epoch/device sweep."
+  ],
+  "sources": [
+    {
+      "path": "VALIDATION/adsblol.py",
+      "sha256": "9b1153c345c5520d6e3dccd96c549253d8f83370e728a18f21393472070a1a90"
+    },
+    {
+      "path": "VALIDATION/adsblol_submit.py",
+      "sha256": "3158ab0c44067d711616dfab027d746f7e4e23adcd5708b41c307ba7dedfae06"
+    },
+    {
+      "path": "VALIDATION/catboost_jan_jul.py",
+      "sha256": "26ba16e459de838a71cf404dd610e617b23a9798cc83f42b5befe4e6fc6272e6"
+    },
+    {
+      "path": "VALIDATION/extra_features.py",
+      "sha256": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67"
+    },
+    {
+      "path": "VALIDATION/ideas_jan_jul.py",
+      "sha256": "b759b879161b14f0e554492b51488ac3adc6cf88002f9909ff73043215da8017"
+    },
+    {
+      "path": "VALIDATION/ideas_submit.py",
+      "sha256": "d47c0bc63ce6ae3482857f9a8b4a145b842bc7995b3a5b6bfd3ce2bad9e58773"
+    },
+    {
+      "path": "VALIDATION/nn_features_jan_jul.py",
+      "sha256": "f939c22dacca28d012e0ebdca946b5a5b4d337b426585d45e0fff2f1a3cd39a4"
+    },
+    {
+      "path": "VALIDATION/nn_improve_jan_jul.py",
+      "sha256": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20"
+    },
+    {
+      "path": "VALIDATION/nn_improve_submit.py",
+      "sha256": "10aea4b461a7aa9da3ee880283349fb84cab23490177765b32a9f591d5f379e5"
+    },
+    {
+      "path": "VALIDATION/nn_jan_jul.py",
+      "sha256": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/submission_v50/submission_v50.json",
+      "sha256": "8cb9eac294bde9e42412719971243191063b05a65c89e92044fd2ad1c07936bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/parts/nn_v46.json",
+      "sha256": "fc83628b21e155e25aa7173b8597cb5ceed64ddb5b27186c22232a1bba4239a8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/parts/nn_v46.parquet",
+      "sha256": "53c6dc4cfc925b5b8079fb52916cc4b06d5a5bee94281111c548f5bc4e58976d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v48/ranking_2026-01.parquet",
+      "sha256": "929faacbecea0ad0dc52ee3eb1c30678bff09829dabdf785f167ba600e8fb261"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v48/ranking_2026-07.parquet",
+      "sha256": "1a76d77f95a7cda93c2deacd73f5b1142d8678848bfda06838fc6dff9a2fae3b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v48/submission_v48.json",
+      "sha256": "a5becabe7265cc1081e94c78a9b902c7650a34f1c180c9e85d6c7b4c1ddb8bd5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v49/ranking_2026-01.parquet",
+      "sha256": "71b7e6500135d72719084306982a32b3975917fe0941f15dd5e6ee5827f15fca"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v49/ranking_2026-07.parquet",
+      "sha256": "173723dbaa76d057d4e783ecc1d3e513614fab1cc3630ae057ff8e589a6ef79b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_nn_improve_submit/submission_v49/submission_v49.json",
+      "sha256": "a86cb9a90705e9eafa1b55815210d8997bf99d457c476ae5f3367f060364ed27"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/prepared.json",
+      "sha256": "5e8b63dd4c9b24ca4801b298ba10750796fe80ce88d6468027ece46aca7f36c7"
+    },
+    {
+      "path": "VALIDATION/tools/plan_final_missing_ple_20261012.py",
+      "sha256": "b9e0e3a1872e9ec1237c277b333aec76db53c80e31038097ec654927e5242443"
+    },
+    {
+      "path": "VALIDATION/tools/score_candidates_jan_jul.py",
+      "sha256": "6b33fa76baad096a6b290903d4766ef27d9cf8f86de30d96bc69d685f31f0764"
+    },
+    {
+      "path": "VALIDATION/tools/score_nn_improve_jan_jul.py",
+      "sha256": "ab1d0cd31339ad9d2361b27cc000468c26d79a8b3aac6e8439d2f13610190b15"
+    }
+  ]
+}

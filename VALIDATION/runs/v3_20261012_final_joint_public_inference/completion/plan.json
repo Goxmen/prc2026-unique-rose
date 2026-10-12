@@ -1,0 +1,107 @@
+{
+  "commands": [
+    [
+      "prepare",
+      [
+        "VALIDATION/final_joint_public_inference.py",
+        "prepare"
+      ]
+    ],
+    [
+      "audit_inputs",
+      [
+        "VALIDATION/final_joint_public_audit.py",
+        "inputs"
+      ]
+    ],
+    [
+      "package_old",
+      [
+        "VALIDATION/final_joint_public_inference.py",
+        "package",
+        "--view",
+        "old"
+      ]
+    ],
+    [
+      "audit_old",
+      [
+        "VALIDATION/final_joint_public_audit.py",
+        "outputs",
+        "--view",
+        "old"
+      ]
+    ],
+    [
+      "infer_2026-01",
+      [
+        "VALIDATION/final_joint_public_inference.py",
+        "infer",
+        "--month",
+        "2026-01"
+      ]
+    ],
+    [
+      "infer_2026-02",
+      [
+        "VALIDATION/final_joint_public_inference.py",
+        "infer",
+        "--month",
+        "2026-02"
+      ]
+    ],
+    [
+      "infer_2026-06",
+      [
+        "VALIDATION/final_joint_public_inference.py",
+        "infer",
+        "--month",
+        "2026-06"
+      ]
+    ],
+    [
+      "infer_2026-07",
+      [
+        "VALIDATION/final_joint_public_inference.py",
+        "infer",
+        "--month",
+        "2026-07"
+      ]
+    ],
+    [
+      "package_final",
+      [
+        "VALIDATION/final_joint_public_inference.py",
+        "package",
+        "--view",
+        "final"
+      ]
+    ],
+    [
+      "audit_final",
+      [
+        "VALIDATION/final_joint_public_audit.py",
+        "outputs",
+        "--view",
+        "final"
+      ]
+    ]
+  ],
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/identity.json",
+    "sha256": "841c5c55bd9a7162d2d46e447f78d2c1d7bc632f44bfd3745ad39d2a586309db"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/final_joint_public_inference.py",
+      "sha256": "b59307ed7f26299e3bc5b57dd432e9f2c114b78f887e4550a717a494833c8fdd"
+    },
+    {
+      "path": "VALIDATION/final_joint_public_audit.py",
+      "sha256": "24055d85d8882c1554c82ade201aa2c9acd1b070e177332f2c4672a7e098b5a6"
+    }
+  ],
+  "desktop_exclusive": true,
+  "prior_desktop_session": 44584,
+  "root_allocation": "2026-10-12T16:50:11.802065+00:00"
+}

@@ -4,7 +4,8 @@
     .venv/bin/python VALIDATION/tools/index_research.py findall "monthly prior" --limit 3 --chars 500
     .venv/bin/python VALIDATION/tools/index_research.py status
 
-Indexes experiment result/design/identity/status records and current Python
+Indexes experiment result/design/identity/status records, top-level run JSON
+records (including historical nonstandard names), and current Python
 module docstrings. Full evidence stays in its original source; generated state
 lives under gitignored tmp/research_index. Explicit metrics and decisions are
 quoted as recorded, never converted into a claim of closure or improvement.
@@ -56,7 +57,8 @@ def evidence_paths():
             dirs[:] = sorted(d for d in dirs if d not in SKIP_DIRS
                              and not d.startswith(('prefit_', 'prequery_', 'encoding_', '.')))
             for name in names:
-                if RECORD.search(name) or name == 'execution.json':
+                top_level_record = len(Path(folder).relative_to(root).parts) <= 1 and name.endswith('.json')
+                if RECORD.search(name) or name == 'execution.json' or top_level_record:
                     paths.add(Path(folder) / name)
     for folder in [ROOT / 'VALIDATION', ROOT / 'VALIDATION/tools', ROOT / 'pipeline', ROOT / 'tools']:
         if folder.is_dir():
@@ -161,7 +163,7 @@ def update(destination):
                 stats['errors'] += 1
         stats['removed'] = len(set(previous)-set(entries))
         result = dict(schema=SCHEMA, parser_sha256=parser_sha, updated_at=datetime.now(timezone.utc).isoformat(),
-            scope='Experiment result/design/identity/status records and current Python module docstrings; source/model payloads excluded',
+            scope='Experiment result/design/identity/status, top-level run JSON records and current Python module docstrings; source/model payloads excluded',
             interpretation='Quoted explicit evidence only; no inferred closure, significance, novelty or improvement',
             stats=stats, entries=entries)
         temp = destination.with_name(destination.name+f'.{os.getpid()}.tmp')
@@ -190,11 +192,15 @@ def search(index, query, limit, chars):
             snippet = '; '.join(f'{k}={json.dumps(v, ensure_ascii=False)}' for k, v in list(fields.items())[:4])
         title = record.get('title', '')
         priority = sum(term in (record['path']+' '+title).lower() for term in terms)
+        # Exact filenames/phrases should outrank unrelated files sharing common
+        # split words such as "jan", "jul" and "stack".
+        if query.strip().lower() in record['path'].lower():
+            priority += len(terms)+1
         explicit_status = record.get('explicit_status', {})
         compact_status = {k: (v[:160] if isinstance(v, str) else v)
                           for k, v in list(explicit_status.items())[:8]}
-        result_rank = (3 if record['kind']=='experiment_record' and
-                       ('result' in Path(record['path']).name or explicit_status)
+        result_rank = (4 if record['kind']=='experiment_record' and 'result' in Path(record['path']).name
+                       else 3 if record['kind']=='experiment_record' and explicit_status
                        else 2 if record['kind']=='script_docstring' else 1)
         matches.append((priority, result_rank, dict(path=record['path'],
             scope=record['scope'], kind=record['kind'], sha256=record['sha256'],

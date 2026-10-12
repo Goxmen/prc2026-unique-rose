@@ -1,0 +1,58 @@
+{
+  "purpose": "One fixed missing legacy134 PLE seed42 trajectory; exact original n42_0 fidelity gate only",
+  "seed": 42,
+  "stop": 17,
+  "schedule_epochs": 24,
+  "checkpoints": [
+    14,
+    15,
+    17
+  ],
+  "features": 134,
+  "training_rows": 2051327,
+  "no_expansion": true,
+  "no_final_inference": true,
+  "no_upload": true,
+  "allocation": "Idle until weather independent audit passes AND explicit /root allocation state released_to_ple_pilot with plan_sha256 and desktop_exclusive=true; no work on only one gate",
+  "historical_uncertainty": "Original GPU atomic order, CPU torch thread count and v50 TF32 flag are unknown. Single-member replay never authenticates the complete ensembles.",
+  "sources": [
+    {
+      "path": "VALIDATION/tools/complete_final_missing_ple_pilot_20261012.py",
+      "sha256": "ee2b76b0ed67ed55b0bb70ab434f8432910a9cc30677964604e6515d09c0a911"
+    },
+    {
+      "path": "VALIDATION/final_missing_ple_pilot.py",
+      "sha256": "dad0bf4a360d77888792f25a122f221a2f3fde5f10415dd8729e8780dd53a07f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/identity.json",
+      "sha256": "cbbb6eb0064fb2737ed68e5409443f370d461ca9ad41b4aaa433bf80f3889986"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_weather_inference/identity.json",
+      "sha256": "c7ba8e870b52139a3ceea002846da940a62b4d204b4bb9708c86e3ec2dd6bbcc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_weather_inference/output_auditor_identity.json",
+      "sha256": "d64c149db5afcf6cfd17359056694bd6d5ec03b443710d9a18a73e9914e8343e"
+    },
+    {
+      "path": "VALIDATION/tools/audit_final_weather_outputs_20261012.py",
+      "sha256": "8ed136fae55ce207e04f2d8846ea25d2cb08234a5a34e41479927482f997f8a9"
+    },
+    {
+      "path": "VALIDATION/reports/final_missing_ple_pilot_static_review_20261012.json",
+      "sha256": "5026f1c3554bfd0571d3600977d205dd570a7fee2459e2c848e27e392b2e9da9"
+    }
+  ],
+  "commands": {
+    "prepare": [
+      "VALIDATION/final_missing_ple_pilot.py",
+      "prepare"
+    ],
+    "pilot": [
+      "VALIDATION/final_missing_ple_pilot.py",
+      "pilot"
+    ]
+  }
+}

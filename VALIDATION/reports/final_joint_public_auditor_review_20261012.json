@@ -1,0 +1,25 @@
+{
+  "status": "pass_static_review_only",
+  "reviewer": "cohort_learning reviewing independent new_signal_audit implementation",
+  "sources": [
+    {
+      "path": "VALIDATION/final_joint_public_inference.py",
+      "sha256": "9883b7c1591243d5d33271ff31225e58ee6ffd8eb866cfaad603f4ad9d27bc5f"
+    },
+    {
+      "path": "VALIDATION/final_joint_public_audit.py",
+      "sha256": "24055d85d8882c1554c82ade201aa2c9acd1b070e177332f2c4672a7e098b5a6"
+    }
+  ],
+  "confirmed": [
+    "All11inputs reconstructed independently from raw timestamps/routes/stand/runway/rules, monthlyCSV and audited v70",
+    "Source and calibration immutable hashes verified; full old packet exact gate",
+    "Allrow posterior anchoring, increments, touched, source support, extra memberships and robustweight checked",
+    "Fixed first/middle/last cohort and extra-cell cohort representatives; minimum MVTID target chosen before outcomes",
+    "Independent perrow covariance projection, common15second outer product, directSchur solve and normalized t5 means",
+    "Original support and ordinary moment primitives reused under frozen source identity",
+    "Retained2e-6second scalar tolerance; all algebra/ID/transport exact; no apply rerun"
+  ],
+  "no_blockers": true,
+  "no_actual_inputs_or_posteriors_executed": true
+}

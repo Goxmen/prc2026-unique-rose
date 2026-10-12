@@ -1,0 +1,45 @@
+{
+  "state": "closed_nonexact_pilot_desktop_released",
+  "desktop_owner": "root weather saved-model sequence",
+  "current_source_sha256": "dad0bf4a360d77888792f25a122f221a2f3fde5f10415dd8729e8780dd53a07f",
+  "current_identity_sha256": "cbbb6eb0064fb2737ed68e5409443f370d461ca9ad41b4aaa433bf80f3889986",
+  "no_preparation_or_fit_started": false,
+  "prepared_stage_next": "Explicit root desktop allocation AND weather independent audit pass required before prepare then one seed42 pilot",
+  "pilot_stage": "exactly seed42 to17 with14/15/17 checkpoints, fixed original24epoch schedule; no expansion/final",
+  "weather_auditor": "VALIDATION/tools/audit_final_weather_outputs_20261012.py frozen by new_signal_audit; do not edit",
+  "completed_recoveries": [
+    "v1",
+    "v12",
+    "v13",
+    "v15",
+    "v14",
+    "v16",
+    "v30",
+    "v33",
+    "v34",
+    "v37",
+    "v56"
+  ],
+  "stand_audit_recovery": "v3_20261012_final_missing_stand_reconstruct/audit_recovery_v1/execution.json complete; main receipt retains failed SQL alias audit history",
+  "v56_completion": "v3_20261012_final_missing_flightnumber_reconstruct/completion/execution.json complete; all old exact and1,015,631 audited values",
+  "pending_other_family": "v43/44 runner frozen/no prep; SQL nullable exclusions may need audit-only coalesce before allocation; v4 exact archivedsource, v3 cannotaliasv12",
+  "no_shared_registry_edits": true,
+  "worker": {
+    "path": "VALIDATION/tools/complete_final_missing_ple_pilot_20261012.py",
+    "sha256": "ee2b76b0ed67ed55b0bb70ab434f8432910a9cc30677964604e6515d09c0a911"
+  },
+  "completion_plan": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/completion/plan.json",
+    "sha256": "ac628081f177ccf54602c60b788750fd7eac437337c8ef79dcbec69ffd06db83"
+  },
+  "parent_and_independent_static_review_pass": true,
+  "pilot_result": "result.json",
+  "completion_receipt": "completion/execution.json",
+  "no_expansion": true,
+  "checkpoints_preserved": [
+    14,
+    15,
+    17
+  ],
+  "rms_fidelity_seconds": 39.227264068349676
+}

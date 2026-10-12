@@ -1,0 +1,39 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_corrections/identity.json",
+    "sha256": "3f38bbe0a96c7ce7a3f86ba4af61810eababa8b0b05f5c747f727f97870692da"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_corrections/old/result.json",
+    "sha256": "a81b3a0f16d4b39574d7923c947cef19999112cf7cf70ae3a0937909b528c1b2"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_corrections/old/stages.parquet",
+    "sha256": "0a5682dcbc041c18934d81569368b5e443f0a0ee7aeeb9be898023c826e926a8"
+  },
+  "view": "old",
+  "rows": 344841,
+  "source": {
+    "path": "VALIDATION/final_public_corrections_audit.py",
+    "sha256": "c64eb445b99ad7b772c1f3fb7b0106c29642168d5da8786aa4d5fc4f98a53eaa"
+  },
+  "independent_SQL_all_rows": true,
+  "independent_affine_max_error_sec": {
+    "raw71": 4.3655745685100555e-11,
+    "raw73": 2.9103830456733704e-11
+  },
+  "checks": {
+    "arithmetic_rows": 344841,
+    "independent_matched_and_excluded_rows_per_branch": 344841,
+    "independent_daily_source_and_prior_groups": 620,
+    "independent_monthly_max_error_sec": {
+      "original": 0.0,
+      "refined": 0.0
+    },
+    "independent_old_stage_rows_exact": 344841
+  },
+  "posterior_scope": "Original preserved numerical functions; old posterior all-row replay exact, final input/cohort/source checks independent",
+  "no_model_fit": true,
+  "no_upload": true
+}
