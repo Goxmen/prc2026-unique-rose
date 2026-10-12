@@ -80,7 +80,7 @@ fitted slopes are negative. Independent SQL window medians and scalar isolated
 references reproduce the result. This closes the proposed direct drift
 transfer, without a multi-task fit or any Jan/Jul departure-label use.
 
-A separate static-context screen is running: same-month stand medians and
+A separate static-context screen is complete: same-month stand medians and
 counts of other departures' supplied takeoff-minus-AOBT_3 clocks and supplied
 arrival taxi-in. It encodes typical stand conditions rather than transferring
 month-to-month arrival changes. It can populate stand context when a stand
@@ -95,7 +95,10 @@ and counts use log1p. No departure target or block timestamp enters features.
 All2,085,047 training and344,841 ranking departures are retained;1200 raw-source
 scalar reconstructions and synthetic edge cases pass. The main-tree screen
 keeps original184 columns, labels, rows, settings and10,000 rounds; exactv78
-scoring and coefficient-one v79 transport are fixed before fits. No result yet.
+scoring and coefficient-one v79 transport were fixed before fits. Both models
+and344,419 rows pass independent audits. The result is effectively flat:
+v78−0.000022 (interval[−0.017399,+0.015150]), v79+0.003370
+(interval[−0.013154,+0.018274]). No production, combination or upload follows.
 Sources: `../stand_month_context.py`, `../stand_month_context_lgb.py`.
 
 The updated51-score robust affine minimax check uses actualv76–v78 scores,
@@ -103,7 +106,7 @@ excluding cancelledv75. It offers only0.00587018seconds projected gain;
 its serialized upper bound219.91644 is worse than the actual incumbent.
 Independent SQL/geometry checks pass; no candidate/version/upload follows.
 
-A distinct fixed read-only comparison is frozen: distribute the existing
+A distinct fixed read-only comparison is complete: distribute the existing
 score-difference constraints using nonuniform row uncertainty. The reference
 is v78, before score-based recombination. Variance across seven recent recipes
 sets a bounded diagonal weight; its normalization uses ranking predictions
@@ -111,10 +114,16 @@ only. A robust convex solve retains the original score precision and ridge1.
 The same frozen coefficients and ranking normalization then apply to Jan/Jul.
 The primary checks compare with v79 and an otherwise identical equal-variance
 solve. This creates directions outside the affine span, so its leaderboard
-RMSE cannot be derived from the available scores. No forecast or upload is
-authorized by this diagnostic. It awaits the desktop's active stand fits.
-Source: `../heteroscedastic_score_conditioning.py`; a separate Fenchel-dual
-optimizer and all-row arithmetic/SQL auditor are prepared.
+RMSE cannot be derived from the available scores. CV changes290.674357→
+290.630277 (−0.044080), interval[−0.291878,+0.212033]; January is worse
+by0.131390. The equal-variance comparison is likewise inconclusive. The
+predeclared gate fails, so no combination, candidate or upload follows.
+An initial coordinate solver failed its KKT tolerance before opening validation
+labels; retained evidence records its0.00022986 residual. Active-set linear
+refinement solves the unchanged objective. A separate Fenchel-dual optimizer
+confirms both optima, and all-row predictions and SQL scores pass. Source:
+`../heteroscedastic_score_conditioning.py`. This closes the one tested
+disagreement-variance formula; it does not test every covariance prior.
 
 The final linear-leaf result is inconclusive: matched standardized control
 −0.051480, actualv78−0.032067 and actualv79−0.023679. All four completed

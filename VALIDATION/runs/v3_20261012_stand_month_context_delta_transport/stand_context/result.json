@@ -1,0 +1,75 @@
+{
+  "design": {
+    "parent": "v79",
+    "original_control": "exact v78",
+    "formula": "round_even(max(0,v79 + fixed_arm_on_v78 - exact_v78))",
+    "coefficient": 1.0,
+    "new_bounds": false,
+    "zero_delta_rows": "exact v79",
+    "purpose": "secondary transport check; retain original and same-machine comparisons",
+    "experiments": {
+      "stand_context": {
+        "directory": "v3_20261012_stand_month_context_lgb",
+        "control": "control",
+        "arms": [
+          "candidate"
+        ]
+      }
+    },
+    "no_fit": true,
+    "no_search": true,
+    "no_submission": true,
+    "limitation": "reused development data and fixed additive transport; not independent confirmation"
+  },
+  "experiment": "stand_context",
+  "rows": 344419,
+  "scores": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "candidate": 325.53698167010486
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "candidate": 255.81847227949228
+    }
+  },
+  "cv": {
+    "control": 290.67435711796895,
+    "candidate": 290.6777269747986
+  },
+  "paired": {
+    "candidate": {
+      "change": 0.0033698568296216536,
+      "ci95": [
+        -0.013154498791534052,
+        0.018274456396678927
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "all_row_sql_audit": "pass",
+  "exact_v78_control": true,
+  "zero_delta_rows_exact_v79": true,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_stand_month_context_delta_transport/design.json",
+    "sha256": "3eac01583b3f7098b478e87a9a04f4a634e45334c38a3229bb8a64d123d42548"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/audit.json",
+      "sha256": "534172603ea36d28dcde5b2828003b39c893844780fe8e66f64587d12a5962f6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/result.json",
+      "sha256": "0b277e9c2c681bbc154998488861b8fa6b57f34e62e4bb6f429e6c556aa02d72"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/scored.parquet",
+      "sha256": "74b5799f5fba709f1e331ff82f59a8a91e1feac9385ab0d98e698c3d9412a35e"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_stand_month_context_delta_transport/stand_context/scored.parquet",
+    "sha256": "826d43ac11dcc7624e75c6603ae5567a34594b926c0b56756d14990fa2b4cfde"
+  }
+}

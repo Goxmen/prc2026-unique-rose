@@ -44,12 +44,21 @@ Current work:
   after the seed42 production fit/export and verified return. Seeds1042/2042
   each use21/17 epochs; seed42 is retained exactly. No extra full-year fits
   have started. Compare the equal3-member pool against both saved pools.
-- **Desktop:** fixed stand-context main-tree screen is running (session42884).
+- **Stand context closed:** fixed main-tree screen is complete.
   Original184 inputs plus four same-month stand medians/counts from supplied
   AOBT_3 clocks and arrival taxi-in; each query's own clock is excluded.
   All IDs,1200 scalar reconstructions and exact188-column preflight pass.
   This tests typical stand context, including new stands, without an arrival
   drift correction. Two10,000-round fits retain the complete selected stack.
+  Independent audits pass; v78−0.000022 and v79+0.003370 show no useful effect.
+  No production or combination follows.
+- **Uncertainty-weighted score conditioning closed:** fixed disagreement-based
+  row weights yield v79−0.044080, interval[−0.291878,+0.212033], January worse.
+  Independent dual optimization and all-row arithmetic pass. No upload.
+- **Cross-date source lead:** the same-date runway restriction omits eligible
+  taxi cells covering2277 CV and1690 ranking targets. All223 source-only cohort
+  checks pass; no posterior or CV gain has been measured. Assess covariance
+  treatment before a fixed inference comparison.
 - **Rome TabM closed:** physical versusv78−0.159950 and versusv79−0.199983,
   both inconclusive. The tabular control and raw-track difference are also
   inconclusive. All8 models/inner curves/reload/SQL audits retained, no expansion.

@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_heteroscedastic_score_conditioning/result.json",
+    "sha256": "4053f617bde1e0b56342e88fdd32bf343dc1bb915f15152cec9046067c787085"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_heteroscedastic_score_conditioning/identity.json",
+    "sha256": "fa3f59ab7615cbda54833f9ae3585153d24e791b954237344f12efd535b264cf"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_heteroscedastic_score_conditioning_20261012.py",
+    "sha256": "a7e514e8c635a449730a653a0f98a7af2b7ca4e8c0df5127086fe5924805842e"
+  },
+  "rows": 344419,
+  "ranking_rows": 344841,
+  "dual_optimization": {
+    "equal": {
+      "duality_gap": 1.7053025658242404e-13,
+      "coefficient_max_difference": 0.0,
+      "independent_dual_success": true
+    },
+    "weighted": {
+      "duality_gap": -2.7711166694643907e-13,
+      "coefficient_max_difference": 4.187372670827472e-12,
+      "independent_dual_success": true
+    }
+  },
+  "exact_parent_labels_ids_integer_predictions": true,
+  "independent_SQL_scores": true,
+  "no_claim_of_known_weighted_leaderboard_loss": true
+}

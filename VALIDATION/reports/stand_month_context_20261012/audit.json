@@ -1,0 +1,121 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_stand_month_context_scores_20261012.py",
+    "sha256": "8d42a8d3b4a3ccb9edecad978fefcf7f88530bcf8d26469390932f4b6d2a6d43"
+  },
+  "helper": {
+    "path": "VALIDATION/tools/audit_public_cohort_scores_20261012.py",
+    "sha256": "ad2f04927bc81e766b1b9428b291fa12963731ea63f32d59d6d52cabd4670af4"
+  },
+  "rows": 344419,
+  "seconds": 0.49338803498540074,
+  "members": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/predictions/2025-01_s42.json",
+      "sha256": "535c3c51363a51e30592222f983dc08ed926607715d1310fdec58245dfaca2c8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/models/2025-01_s42.json",
+      "sha256": "1c6a51ff1c707391b1c5ab25f2541e95b79d4b558cca9679638e6eca63aede1f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/predictions/2025-07_s42.json",
+      "sha256": "eada45b9163cefdeca5acd8d27912b1206b3dbcf14cac81a0e7f1d98921168a4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/models/2025-07_s42.json",
+      "sha256": "a1bc02fea39014a8d43e6800a969621067176caa2d00ddf10496669763cf1042"
+    }
+  ],
+  "effects": {
+    "v78": -2.2100250646417408e-05,
+    "v79": 0.0033698568296358644
+  },
+  "sql_scores": {
+    "control": {
+      "2025-01": 325.860607626995,
+      "2025-07": 255.9996300885311
+    },
+    "candidate": {
+      "2025-01": 325.8648664517117,
+      "2025-07": 255.99532706331314
+    },
+    "control_v77": {
+      "2025-01": 325.826575649057,
+      "2025-07": 257.2728446739547
+    },
+    "candidate_v77": {
+      "2025-01": 325.83077361930845,
+      "2025-07": 257.27017130304705
+    }
+  },
+  "sql_transport_scores": {
+    "control": {
+      "2025-01": 325.53087367112914,
+      "2025-07": 255.81784056480876
+    },
+    "candidate": {
+      "2025-01": 325.53698167010486,
+      "2025-07": 255.81847227949228
+    }
+  },
+  "inputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/identity.json",
+      "sha256": "ddd18c0b3f8882549a01e19ac390a32cfd2b42ed92bffad60be3162cff259e6a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/preflight.json",
+      "sha256": "4e395b020b6933d45e368b52669037495ad1019c373b46a86a77fc5e372436b8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/result.json",
+      "sha256": "0b277e9c2c681bbc154998488861b8fa6b57f34e62e4bb6f429e6c556aa02d72"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/audit.json",
+      "sha256": "534172603ea36d28dcde5b2828003b39c893844780fe8e66f64587d12a5962f6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/scored.parquet",
+      "sha256": "74b5799f5fba709f1e331ff82f59a8a91e1feac9385ab0d98e698c3d9412a35e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_delta_transport/design.json",
+      "sha256": "3eac01583b3f7098b478e87a9a04f4a634e45334c38a3229bb8a64d123d42548"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_delta_transport/stand_context/result.json",
+      "sha256": "d9564652a013417435cac28d79f1e9d533075ca4af3cd37b2e7563f571e7faaf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_delta_transport/stand_context/scored.parquet",
+      "sha256": "826d43ac11dcc7624e75c6603ae5567a34594b926c0b56756d14990fa2b4cfde"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/cv.parquet",
+      "sha256": "8f17490dcefbedc3959a4293b2a68ef7871ecf0d8828d30aad06fefe2299895f"
+    }
+  ],
+  "scope": "Independent saved-model recipes and SQL all-row scores, parent values, truth/calendar and serialization. Large-input, source-feature and complete model-reload checks are inherited from retained receipts. Four feature names/dimension and experiment directory are specialized; raw-source medians/counts and query exclusion have a separate1200-row scalar audit.",
+  "interpretation": "Same-desktop fixed two-feature screen on reused development data; no independent holdout.",
+  "feature_audit": {
+    "path": "VALIDATION/runs/v3_20261012_stand_month_context/audit.json",
+    "sha256": "e69a0310fb795642e44eb98cbe99e82bb8dd4e378412c9c98408e37a047b2829"
+  },
+  "reused_auditor": {
+    "path": "VALIDATION/tools/audit_flight_id_clock_scores_20261012.py",
+    "sha256": "06299b4021bca949a4188fec2f74ea4e4f620a41ab1d84a1b6c39a7939debd46"
+  },
+  "specialization": {
+    "features": 1,
+    "dimension": 1,
+    "key": 4,
+    "experiment": 1
+  }
+}

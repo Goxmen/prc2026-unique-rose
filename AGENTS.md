@@ -121,7 +121,7 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
-- **October12 morning: one submission slot remains; two neural experiments active.**
+- **October12 morning: one submission slot remains; final extra TabM CV fit active.**
   Best/latestv79 **219.6130**, live08:24 Amsterdam, rank9/242. GitHub is PRIVATE;
   `LOCAL_PROGRESS.md` is gitignored. One-TabM+robust other-runway production
   file is independently audited, CV**290.228841 (−0.445516)**, unversioned/unuploaded.
@@ -133,12 +133,20 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   both inconclusive; tabular and physical-minus-tabular comparisons also inconclusive.
   All8 models and independent audits retained; no production or upload.
   Arrival stand-drift transfer failed all4 training months across1369 stands;
-  no multi-task/adaptation fit follows. Separate static stand context now runs
+  no multi-task/adaptation fit follows. Separate static stand context completed
   in `stand_month_context_lgb.py`: original184 inputs plus4 monthly stand
   medians/counts from other departures' supplied AOBT_3 clocks and provided
   arrival taxi-in. Query clocks excluded, no departure target/block read.
   Independent1200-query source audit and exact188-column preflight pass.
-  Desktop session42884 runs fit→score→audit→fixedv79 transport; do not duplicate.
+  Both fits and independent audits pass; v78−0.000022, v79+0.003370 are flat.
+  No production or combination follows. Uncertainty-weighted score conditioning
+  is also closed: v79−0.044080, interval crosses zero, January worse. Its
+  unchanged convex objective needed active-set numerical refinement before CV;
+  separate dual and all-row audits pass. No candidate or upload.
+  Cross-date taxi-source coverage census is complete:2277 CV/1690 ranking targets
+  have additional eligible cells outside the same-date restriction. Independent
+  scalar/SQL audit checks all223 cohorts. No posterior or CV result exists yet;
+  cross-date source-error covariance must be treated separately before inference.
   Flight-ID clock main-tree screen is complete/closed: v78+0.002652, v79+0.007419.
   Movement-ID arrival-clock pilot has zero coverage for the intended339 rows;
   pair-Gibbs still fails numerical precision (largest-cohort long-budget MCSE111.7s).

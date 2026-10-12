@@ -1,0 +1,67 @@
+{
+  "design": {
+    "scope": "all original touched targets in Jan/Jul2025 and accepted Jan/Jul2026",
+    "change": "only inspect additional local-day/runway taxi cells outside own local date that intersect the same assigned-day departure-delay cohort",
+    "eligibility": "unchanged rawcount>=20,sourcecount>=20,expectedcount>=20,source/expected count in[.5,1.2]",
+    "expected_counts": "unchanged original normal/discrete priors and frozen source parameters",
+    "outputs": "eligible cells, target coverage, shared peer count; no covariance conditioning or posterior",
+    "no_labels": true,
+    "no_cv_score": true,
+    "no_model_fit": true,
+    "no_source_download": true,
+    "no_upload": true
+  },
+  "created_at": "2026-10-12T08:26:35.652749+00:00",
+  "source": {
+    "path": "VALIDATION/tools/probe_cross_date_taxi_coverage_20261012.py",
+    "sha256": "a5e89296481275e4b2f90d1a45cade63ac2adf82ba62a000762d55878c97eb1d"
+  },
+  "sources": {
+    "cv": {
+      "inputs": {
+        "path": "VALIDATION/runs/v3_20261011_joint_public_moments/inputs.parquet",
+        "sha256": "fd68d2697514820f35e5abde5277629198aebe3d1168d1705f0ff97785a7c9b9"
+      },
+      "taxi_source": {
+        "path": "VALIDATION/runs/v3_20261011_joint_public_moments/taxi_source.parquet",
+        "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261011_joint_public_moments/predictions.parquet",
+        "sha256": "d1a99ca1e558432a5650a14dcd6f8edda427dbeeeefb9575b5aa3ec1554397e9"
+      },
+      "parameters": {
+        "path": "VALIDATION/runs/v3_20261011_joint_public_moments/parameters.json",
+        "sha256": "d4c54a7374f67797ee1b7da8c0283d849a73cd0abf6b16be3e7224eb56299989"
+      }
+    },
+    "ranking": {
+      "inputs": {
+        "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/inputs.parquet",
+        "sha256": "caf9e2094daa24e785d8cc32d2c2289dd778389f50a8dc152f3289e867cb49d8"
+      },
+      "taxi_source": {
+        "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/taxi_source.parquet",
+        "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+      },
+      "predictions": {
+        "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/predictions.parquet",
+        "sha256": "4291e6348c938224af5cc5d9d421ca5a4073f0583c4d611a2feb4a8ec47eb792"
+      },
+      "parameters": {
+        "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/parameters.json",
+        "sha256": "d210d62aa0196b2080e566fbd667c70684876cea94c4a5651fc70a7432c1a785"
+      }
+    }
+  },
+  "helpers": [
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway_pilot.py",
+      "sha256": "fcae9ae8dccbbc7c217db070c577ccf95c020cc6585d47efb03e0bf5af72b620"
+    }
+  ]
+}

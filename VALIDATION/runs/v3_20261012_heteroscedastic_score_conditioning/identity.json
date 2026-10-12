@@ -29,7 +29,7 @@
   "files": [
     {
       "path": "VALIDATION/heteroscedastic_score_conditioning.py",
-      "sha256": "ff45656d5d1ef821bee5a2549c50aab7cc9ad41a43dfd17956cc62fbaf88c6d3"
+      "sha256": "1255c44b00fce717b8fccbc7d83a7ca8de6806f5f03d0688f1b936fd5746dd8e"
     },
     {
       "path": "VALIDATION/runs/v3_20261012_target205_geometry/prepared.json",
@@ -172,5 +172,13 @@
     "equal_variance_projection": true,
     "weighted_direction_outside_old_span": true
   },
-  "historical_cv_caveat": "v3-v9 use an archived original27 implementation; missing exact historical source is explicit in raw runner identity"
+  "historical_cv_caveat": "v3-v9 use an archived original27 implementation; missing exact historical source is explicit in raw runner identity",
+  "numerical_solver_fix": {
+    "history": {
+      "path": "VALIDATION/runs/v3_20261012_heteroscedastic_score_conditioning/pre_cv_solver_fix/reason.json",
+      "sha256": "26d6ddba5b80234157db8e4cd7f398cff6440490dee5235172d405557589a601"
+    },
+    "formula_unchanged": true,
+    "before_validation_labels": true
+  }
 }

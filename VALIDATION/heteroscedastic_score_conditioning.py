@@ -132,8 +132,40 @@ def solve(d, g, w, radius):
         residual[active] = abs(gradient[active]+radius[active]*np.sign(b[active]))
         if residual.max() < 1e-6:
             break
-    assert residual.max() < 1e-5, (sweep, residual.max())
+    # Near-collinear old prediction directions can slow coordinate descent.
+    # Finish with exact linear solves within active orthants of the SAME
+    # strictly convex objective. No coefficient clipping or setting change.
+    signs = np.sign(b)
+    signs[abs(b)<1e-10] = 0
+    b[signs==0] = 0
+    for active_step in range(1000):
+        ix = np.flatnonzero(signs)
+        proposal = np.zeros_like(b)
+        if len(ix):
+            proposal[ix] = np.linalg.solve(hessian[np.ix_(ix,ix)],g[ix]-radius[ix]*signs[ix])
+        crossed = ix[proposal[ix]*signs[ix]<=0]
+        if len(crossed):
+            fractions = b[crossed]/(b[crossed]-proposal[crossed])
+            step = max(0.,float(fractions.min()))
+            assert step<=1
+            b += step*(proposal-b)
+            remove = crossed[fractions<=step+1e-12]
+            b[remove] = 0;signs[remove] = 0
+            continue
+        b = proposal
+        gradient = hessian@b-g
+        active = signs!=0
+        residual = np.maximum(abs(gradient)-radius,0)
+        residual[active] = abs(gradient[active]+radius[active]*signs[active])
+        if residual.max()<1e-6:
+            break
+        violation = np.where(active,-np.inf,abs(gradient)-radius)
+        j = int(np.argmax(violation))
+        assert violation[j]>1e-6, (active_step,residual.max())
+        signs[j] = -np.sign(gradient[j])
+    assert residual.max() < 1e-5, (sweep,active_step,residual.max())
     return b, dict(success=True, slsqp_iterations=int(fit.nit), coordinate_sweeps=sweep+1,
+        active_set_refinement_steps=active_step+1,
         kkt_maximum=float(residual.max()), minimum_hessian_eigenvalue=float(np.linalg.eigvalsh(hessian)[0]),
         coefficient_l1=float(abs(b).sum()), objective=float(.5*b@hessian@b-g@b+radius@abs(b)))
 

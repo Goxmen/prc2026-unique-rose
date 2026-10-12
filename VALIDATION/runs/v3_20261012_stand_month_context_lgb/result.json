@@ -1,0 +1,86 @@
+{
+  "design": {
+    "parent": "exactv78 selected184-input main LightGBM; separate coefficient-one v79 transport",
+    "change": "four label-free stand-month clock/arrival context inputs",
+    "features": [
+      "stand_month_peer_clock_median",
+      "stand_month_peer_clock_log_n",
+      "stand_month_arrival_median",
+      "stand_month_arrival_log_n"
+    ],
+    "original_columns": 184,
+    "columns": 188,
+    "seed": 42,
+    "trial": "LB1",
+    "rounds": 10000,
+    "threads": 4,
+    "rows_labels": "all original ordinary rows and targets, same desktop; held Jan/Jul unchanged",
+    "hypothesis": "typical stand geometry/context can transfer to rare and previously unseen stands",
+    "source": "full-month supplied arrival labels and other departures actual AOBT_3 clocks; no departure target or block",
+    "no_drift_correction": true,
+    "no_airport_gate": true,
+    "no_feature_search": true,
+    "no_weight_search": true,
+    "implementation": {
+      "path": "VALIDATION/flight_id_clock_lgb.py",
+      "sha256": "e02ce53414f026c47b0658cedff2668d03dbbdb753fb19de1928acc539ed3daf"
+    },
+    "limitation": "reused development; does not inherit a gain from another team or from training-only diagnostics",
+    "no_production_fit": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/identity.json",
+    "sha256": "ddd18c0b3f8882549a01e19ac390a32cfd2b42ed92bffad60be3162cff259e6a"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.860607626995,
+      "candidate": 325.8648664517117,
+      "control_v77": 325.826575649057,
+      "candidate_v77": 325.83077361930845
+    },
+    "2025-07": {
+      "control": 255.9996300885311,
+      "candidate": 255.99532706331314,
+      "control_v77": 257.2728446739547,
+      "candidate_v77": 257.27017130304705
+    }
+  },
+  "cv": {
+    "control": 290.93011885776303,
+    "candidate": 290.9300967575124,
+    "control_v77": 291.54971016150586,
+    "candidate_v77": 291.5504724611777
+  },
+  "paired": {
+    "primary": {
+      "change": -2.2100250617995698e-05,
+      "ci95": [
+        -0.017398527065505577,
+        0.015150241143502535
+      ],
+      "decision": "inconclusive"
+    },
+    "v77": {
+      "change": 0.0007622996718907871,
+      "ci95": [
+        -0.016356540768445883,
+        0.015530097307679468
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "exact_v77_and_v78_controls": true,
+  "rows": 344419,
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/scored.parquet",
+      "sha256": "74b5799f5fba709f1e331ff82f59a8a91e1feac9385ab0d98e698c3d9412a35e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context_lgb/cells.parquet",
+      "sha256": "917b7adc1e4ba7de0df1acd9e6c230032ce382683d9fa59ff9b8320f50badb51"
+    }
+  ]
+}

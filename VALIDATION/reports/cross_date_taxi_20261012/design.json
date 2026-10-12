@@ -1,0 +1,33 @@
+{
+  "status": "prospective_design_before_posterior",
+  "frozen_at": "2026-10-12T08:32:10.360294+00:00",
+  "coverage": {
+    "path": "VALIDATION/runs/v3_20261012_cross_date_taxi_coverage/result.json",
+    "sha256": "57616a018b42203db6edb7bb7d22a0ce700c0a5390c99343c56a66087c01ed48"
+  },
+  "coverage_audit": {
+    "path": "VALIDATION/runs/v3_20261012_cross_date_taxi_coverage/audit.json",
+    "sha256": "c08021bd37a3cc83dd8ecec62dfda16ac7dfb37a5060c4c0e343ba3ea97dd619"
+  },
+  "novelty": "Additional taxi cells on different local dates that share peers in the fixed assigned-day delay cohort; does not change target calendar or existing memberships.",
+  "inference_design": {
+    "parent": "selected robust same-local-day other-runway correction",
+    "original": "Preserve original three-coordinate count/sum/delay marginal and same-day robust conditioning exactly.",
+    "new_source": "All eligible other-local-day taxi cells intersecting assigned-day delay cohort, with full taxi membership and unchanged calibration.",
+    "new_covariance": "Shared-flight discrete/normal moments couple new taxi cells to the delay coordinate only. No invented cross-date common reporting error. Each new local date gets its own15-second taxi loading covariance; original message retains its existing common error.",
+    "update": "Condition the already same-day-adjusted 3D Gaussian moments on the new-date taxi block with unchanged capped t5 score weight min(1,(5+k)/(3+q)); then unchanged original3D t5 target likelihood.",
+    "target": "Target has zero contribution in every added cell; remove its original full3D moment once.",
+    "baseline": "Replay original basejoint and selected same-day posterior against saved predictions within1e-8; retain exact serialized parent controls.",
+    "calendar": "No alternate assignment, date-window search, changed source gate, new calibration or higher source strength."
+  },
+  "next": "Implement numerical/source-only pilot on the original twelve selected other-runway cohort keys. No target posterior until positive-definite, original-block, membership and direct-block-solve checks pass.",
+  "conditional_cv": "Fixed half additional joint message with original constraints; compare against selected same-day correction onv78 and coefficient-one v79. Reused development only.",
+  "caveats": [
+    "Gaussian robust moment approximation, not exact Student conditioning",
+    "Cross-date reporting-noise covariance is not calibrated; independent new-date noise is an explicit modeling assumption",
+    "Coverage does not establish useful conditional information or RMSE gain"
+  ],
+  "no_posterior_yet": true,
+  "no_cv_yet": true,
+  "no_upload": true
+}
