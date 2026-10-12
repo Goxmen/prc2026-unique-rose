@@ -1,0 +1,135 @@
+{
+  "at": "2026-10-12T09:46:30.696735+00:00",
+  "state": "inventory_only_no_execution",
+  "deadline_utc": "2026-10-14T10:00:00Z",
+  "filename": "unique-rose_final.parquet",
+  "official_source": "https://prc-data-challenge-2026.netlify.app/ranking.html#final-submission",
+  "rows": 670790,
+  "months": [
+    "2026-01",
+    "2026-02",
+    "2026-06",
+    "2026-07"
+  ],
+  "parts": {
+    "base_final_inputs": {
+      "folder": "VALIDATION/runs/v3_20261008_final_submit",
+      "records": [
+        {
+          "path": "VALIDATION/runs/v3_20261008_final_submit/inputs_final.json",
+          "exists": true,
+          "sha256": "ae59c50fb0e9b65148cb3e3ec4a4bf8b4640851186836133975ceeda0dfd9c0a"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261008_final_submit/tables_final.json",
+          "exists": true,
+          "sha256": "9d1cbb12420c094dcfb19184fa0e341aa873685fd7466fd66d1cc9e2b94fefa3"
+        }
+      ],
+      "saved_final_predictions": []
+    },
+    "callsign_main_tree": {
+      "folder": "VALIDATION/runs/v3_20261010_callsign_lgb_submit",
+      "records": [
+        {
+          "path": "VALIDATION/runs/v3_20261010_callsign_lgb_submit/predictions/final.json",
+          "exists": true,
+          "sha256": "dd193ba318d7c0f6bb15773ecb2f04faf3ca56aee8a4a5827aa9bfeec0c5c4ff"
+        }
+      ],
+      "saved_final_predictions": [
+        "VALIDATION/runs/v3_20261010_callsign_lgb_submit/predictions/final.parquet"
+      ]
+    },
+    "original_rome_catboost": {
+      "folder": "VALIDATION/runs/v3_20261010_rome_catboost_submit",
+      "records": [
+        {
+          "path": "VALIDATION/runs/v3_20261010_rome_catboost_submit/final.json",
+          "exists": true,
+          "sha256": "b121671d8d4ff505e92edcfbca16a90dc2810c2203ede7cc7ee000bd4f390203"
+        }
+      ],
+      "saved_final_predictions": [
+        "VALIDATION/runs/v3_20261010_rome_catboost_submit/predictions/final_s142.parquet",
+        "VALIDATION/runs/v3_20261010_rome_catboost_submit/predictions/final_s242.parquet",
+        "VALIDATION/runs/v3_20261010_rome_catboost_submit/predictions/final_s42.parquet",
+        "VALIDATION/runs/v3_20261010_rome_catboost_submit/probabilities/final.parquet"
+      ]
+    },
+    "physical_networks_before_public_inputs": {
+      "folder": "VALIDATION/runs/v3_20261011_nn_track_physical_submit",
+      "records": [
+        {
+          "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/portable.json",
+          "exists": true,
+          "sha256": "f35ee26e8c50e49229197d7ec2fa110ca3367f44e090805b605c874543f53cda"
+        }
+      ],
+      "saved_final_predictions": [
+        "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/final_k0.parquet",
+        "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/final_k1.parquet",
+        "VALIDATION/runs/v3_20261011_nn_track_physical_submit/networks/final_k2.parquet"
+      ]
+    },
+    "public_rome_models": {
+      "folder": "VALIDATION/runs/v3_20261011_rome_public_delay_submit",
+      "records": [
+        {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/prepared.json",
+          "exists": true,
+          "sha256": "15195d8371e6ae82d649ce7f9797832130e49c24588231ca28ba977f30d40d89"
+        }
+      ],
+      "saved_final_predictions": []
+    },
+    "public_main_tree": {
+      "folder": "VALIDATION/runs/v3_20261011_public_delay_lgb_submit",
+      "records": [
+        {
+          "path": "VALIDATION/runs/v3_20261011_public_delay_lgb_submit/identity.json",
+          "exists": true,
+          "sha256": "c3baf76d7f2d6a9882ac5d60268615c14987ab6b87f809396f1c192087381d59"
+        }
+      ],
+      "saved_final_predictions": []
+    },
+    "public_airport_trees": {
+      "folder": "VALIDATION/runs/v3_20261011_public_airport_submit",
+      "records": [
+        {
+          "path": "VALIDATION/runs/v3_20261011_public_airport_submit/identity.json",
+          "exists": true,
+          "sha256": "b3bdf19d3ea41aa2c29a22dcc3934e569706f1807f81fc324499af92c7214afd"
+        }
+      ],
+      "saved_final_predictions": []
+    },
+    "public_tabm": {
+      "folder": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit",
+      "records": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/identity.json",
+          "exists": true,
+          "sha256": "d223e62b463b6a6cd38b67fef8e125d709fabd12ad2e0540862dc97a0fc8c2f6"
+        }
+      ],
+      "saved_final_predictions": []
+    }
+  },
+  "rules": [
+    "Finish the active leaderboard production first; one heavy job per host.",
+    "Reuse saved model weights and full-year calibration. Missing inference views are not a reason to repeat completed fits.",
+    "Recompute features on the separately jittered final input namespace; do not mix old/final clocks.",
+    "Public-feature trees, Rome models and TabM need audited four-month prediction views.",
+    "Inventory all affine-basis final predictions before claiming an exact port of v79/v80; no missing component may silently become zero or another recipe.",
+    "Require exact old-view controls, final-template identities, all-row reloads, correction audits and source hashes.",
+    "Keep final-route validation/status separate from leaderboard scores.",
+    "Keep repository private under current user instruction."
+  ],
+  "not_started": [
+    "Final production feature preparation",
+    "Full selected final-view replay",
+    "Final candidate assembly/audit/upload"
+  ]
+}
