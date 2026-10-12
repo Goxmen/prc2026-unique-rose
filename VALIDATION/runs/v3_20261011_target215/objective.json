@@ -9,11 +9,11 @@
   "previous_goal": "VALIDATION/runs/v3_20261011_target225/objective.json",
   "first_direction": "EUROCONTROL daily pre-departure aggregate reconciliation; direct source identity audit before modeling",
   "agents": "Three retained subagents stopped at account usage limit; root continues from saved reviewed sources",
-  "laptop": "Final extra-seed TabM CV fit running on laptop; original42 retained,1042/2042 fixed; session57074",
+  "laptop": "Full-year TabM1042/2042 running since10:36Amsterdam, SSH52213/PID21028; seed42 retained",
   "current_best_version": 79,
   "current_best_rmse": 219.613,
   "current_gap": 14.613,
-  "updated_at": "2026-10-12T08:27:18.637605+00:00",
+  "updated_at": "2026-10-12T08:52:36.965022+00:00",
   "target_history": [
     {
       "at": "2026-10-11T20:18:12.307058+00:00",
@@ -22,7 +22,7 @@
       "source": "User request: same protocol, new target 205.00 or lower; retain 2 or 3 candidates and wait until 02:00 Amsterdam"
     }
   ],
-  "research_state": "active; best official219.6130; production combination CV290.228841 ready, waiting extra-seed CV before final-slot selection",
+  "research_state": "Three-TabM/runway CV289.762778 passes all audited fixed comparisons; two final fits running",
   "research_not_before_utc": "2026-10-12T00:00:00+00:00",
   "retained_upload_versions": [
     76,
@@ -37,14 +37,12 @@
   "resume_authorization": "User: its 2:24. get started",
   "remaining_utc_day_slots": 1,
   "used_utc_day_slots": 4,
-  "desktop": "Stand-context and uncertainty-weighted geometry completed and closed; input-only cross-date source-coverage census running",
+  "desktop": "Cross-date source comparison closed inconclusive with independent audit; production builders ready",
   "automatic_upload_queue": [],
   "last_live_check": "2026-10-12T06:24:12+00:00",
   "private_progress_note": "LOCAL_PROGRESS.md (gitignored)",
   "repository_visibility": "PRIVATE verified2026-10-12",
-  "pending_source_pilots": [
-    "Cross-date taxi-cell overlap census; input-only, no posterior or model"
-  ],
+  "pending_source_pilots": [],
   "closed_recent": [
     "flight-ID clock main tree: inconclusive",
     "movement-ID arrival-clock coverage failed",
@@ -53,6 +51,7 @@
     "Rome TabM tabular/physical: inconclusive, no production",
     "arrival month-to-month stand drift: all4 training-month tests worsen",
     "Stand-month main tree: no useful effect",
-    "Nonuniform score conditioning: inconclusive, January worse"
+    "Nonuniform score conditioning: inconclusive, January worse",
+    "Cross-date runway evidence: inconclusive versus same-date parent, January worse"
   ]
 }

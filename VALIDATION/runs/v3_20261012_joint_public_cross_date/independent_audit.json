@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_cross_date_posterior_20261012.py",
+    "sha256": "73d6c0aedf0e37104cc1362f25586a7eb5692d739dd04e2c50b6ae5276ac7bca"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date/result.json",
+    "sha256": "587fd0ffa31b0f4e0d0823ef582c6af94af1ae4bfac824350ad1278a4009b020"
+  },
+  "all_row_audit": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date/audit.json",
+    "sha256": "23853660a9e5627460d854d453da8b311ffbf3795747cb8cecdeea2a7b596e0b"
+  },
+  "rows": 344419,
+  "cohorts": 12,
+  "posterior_checks": 166,
+  "maximum_posterior_error": 1.6370904631912708e-11,
+  "independent_direct_block_conditioning": true,
+  "independent_scipy_t_density": true,
+  "independent_SQL_scores_and_transport": true,
+  "scope": "Support construction reused; independent covariance assembly and posterior arithmetic; not independent validation"
+}

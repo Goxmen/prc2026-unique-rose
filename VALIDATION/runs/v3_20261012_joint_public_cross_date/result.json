@@ -1,0 +1,160 @@
+{
+  "design": {
+    "settings": {
+      "parent": {
+        "ordinary_sigma": 200.0,
+        "common_day_sigma": 15.0,
+        "cutoff": 7200.0,
+        "df": 5,
+        "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+        "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+        "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+        "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+        "comparison": "new_joint minus original_joint; original departure-only comparator unchanged",
+        "transfer": "fixed0.5 additional increment on exactv78; separately frozen coefficient-one v79 transport",
+        "common_error": "one shared15-second outer product over the bounded message, exact original3D marginal",
+        "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+        "no_iteration": true,
+        "no_parameter_search": true,
+        "no_new_fit": true,
+        "additional": "all supported same-local-day other runway taxi cells intersecting the assigned-day delay cohort; full taxi membership",
+        "conditioning": "Gaussian Schur moments with one capped variance-matched t5 score weight; unchanged original 3D t5 target likelihood",
+        "robust_weight": "min(1,(5+k)/(3+q)); q=r_B.T C_BB^-1 r_B, k=extra dimension",
+        "review_history": "unexecuted 5+q denominator corrected to variance-matched 3+q before any robust prediction; no weight scan",
+        "caveat": "hybrid approximation; unknown cross-runway source-error covariance and possible prior-error suppression",
+        "disconnected": "exact recovery when the entire C_AB is zero; adding disconnected coordinates beside informative ones may change global q/k/weight",
+        "no_new_gate": true
+      },
+      "additional": "all eligible other-local-date taxi cells intersecting assigned-day delay cohort; complete taxi memberships",
+      "covariance": "shared-flight moments only across dates; independent15-second reporting loading for each added local date; exact old same-date block",
+      "update": "same-date robust Schur update followed by separate cross-date robust Schur update; unchanged t5 target likelihood",
+      "target_exclusion": "target is absent from both extra-source blocks; remove its full original3D contribution once",
+      "no_date_reassignment": true,
+      "no_parameter_search": true,
+      "no_covariance_repair": true,
+      "caveat": "Independent cross-date reporting errors are an uncalibrated modeling assumption; not exact Student conditioning"
+    },
+    "source_only_pilot": {
+      "settings": {
+        "parent": {
+          "ordinary_sigma": 200.0,
+          "common_day_sigma": 15.0,
+          "cutoff": 7200.0,
+          "df": 5,
+          "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+          "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+          "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+          "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+          "comparison": "new_joint minus original_joint; original departure-only comparator unchanged",
+          "transfer": "fixed0.5 additional increment on exactv78; separately frozen coefficient-one v79 transport",
+          "common_error": "one shared15-second outer product over the bounded message, exact original3D marginal",
+          "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+          "no_iteration": true,
+          "no_parameter_search": true,
+          "no_new_fit": true,
+          "additional": "all supported same-local-day other runway taxi cells intersecting the assigned-day delay cohort; full taxi membership",
+          "conditioning": "Gaussian Schur moments with one capped variance-matched t5 score weight; unchanged original 3D t5 target likelihood",
+          "robust_weight": "min(1,(5+k)/(3+q)); q=r_B.T C_BB^-1 r_B, k=extra dimension",
+          "review_history": "unexecuted 5+q denominator corrected to variance-matched 3+q before any robust prediction; no weight scan",
+          "caveat": "hybrid approximation; unknown cross-runway source-error covariance and possible prior-error suppression",
+          "disconnected": "exact recovery when the entire C_AB is zero; adding disconnected coordinates beside informative ones may change global q/k/weight",
+          "no_new_gate": true
+        },
+        "additional": "all eligible other-local-date taxi cells intersecting assigned-day delay cohort; complete taxi memberships",
+        "covariance": "shared-flight moments only across dates; independent15-second reporting loading for each added local date; exact old same-date block",
+        "update": "same-date robust Schur update followed by separate cross-date robust Schur update; unchanged t5 target likelihood",
+        "target_exclusion": "target is absent from both extra-source blocks; remove its full original3D contribution once",
+        "no_date_reassignment": true,
+        "no_parameter_search": true,
+        "no_covariance_repair": true,
+        "caveat": "Independent cross-date reporting errors are an uncalibrated modeling assumption; not exact Student conditioning"
+      },
+      "selected": "exact original twelve other-runway pilot cohort keys, chosen before that earlier experiment",
+      "scope": "all previously touched targets within these twelve cohorts",
+      "budget": {
+        "seconds": 60,
+        "incremental_workspace_mib": 256,
+        "threads": 1
+      },
+      "checks": "original3D covariance, positive definiteness, added-date independence, exact target exclusion, independent explicit-flight reconstruction, simultaneous inflated block solve",
+      "no_target_posterior": true,
+      "no_labels": true,
+      "no_cv": true,
+      "no_parameter_search": true,
+      "next": "Only consider fixed inference if numerical checks pass and added-source variance reduction is nonzero; no outcome-selected subgroup"
+    },
+    "parent": "selected same-date robust other-runway correction, on exactv78 and transported onto v79",
+    "prediction": "original constrain(v78 +0.5*(cross_date_joint-saved_original_joint)); existing same-date correction replays exactly",
+    "transport": "rint(max(0,v79+candidate_v78-exactv78)); coefficient one",
+    "gates": "paired-day upper endpoint below zero AND both months improve versus same-date parent on both v78 and v79",
+    "combo": "Only if both component gates pass: replace same-date runway delta by cross-date delta in the already selected three-TabM/runway combination; coefficient one and one clip",
+    "tolerances": "old and selected floating posterior replay atol1e-8; integer controls exact; no-extra rows use saved selected posterior exactly",
+    "no_fit": true,
+    "no_weight_search": true,
+    "no_subgroup_selection": true,
+    "no_upload": true,
+    "caveat": "Reused development data and approximate moment conditioning; not independent validation"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date/identity.json",
+    "sha256": "1baaa568279945acb10766b6719cd7c3fc8136d2e5f1845954382bfed556ee3d"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date/inference.json",
+    "sha256": "babca66541a8b1a8686484afcccb877e44a30d8b0cb2654a094d48a05d2b967c"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date/scored.parquet",
+    "sha256": "870cee6f09db0249328027b5874971aa7e455363d740eadce5c76f8198a22053"
+  },
+  "scores": {
+    "2025-01": {
+      "v78": 325.860607626995,
+      "same78": 325.7986999518615,
+      "cross78": 325.8474155626011,
+      "v79": 325.53087367112914,
+      "same79": 325.46076737113816,
+      "cross79": 325.51642494733113
+    },
+    "2025-07": {
+      "v78": 255.9996300885311,
+      "same78": 255.78824691902213,
+      "cross78": 255.75341870052137,
+      "v79": 255.81784056480876,
+      "same79": 255.57962131266686,
+      "cross79": 255.5412035918161
+    }
+  },
+  "cv": {
+    "v78": 290.93011885776303,
+    "same78": 290.7934734354418,
+    "cross78": 290.80041713156123,
+    "v79": 290.67435711796895,
+    "same79": 290.52019434190254,
+    "cross79": 290.5288142695736
+  },
+  "paired": {
+    "78": {
+      "change": 0.00694369611940715,
+      "ci95": [
+        -0.062216029981368236,
+        0.08593760699433786
+      ],
+      "decision": "inconclusive"
+    },
+    "79": {
+      "change": 0.008619927671105643,
+      "ci95": [
+        -0.06495022244588604,
+        0.09653422521041648
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "standalone_gate_pass": false,
+  "combination": null,
+  "rows": 344419,
+  "exact_selected_same_date_control": true,
+  "no_extra_rows_unchanged": true,
+  "no_upload": true
+}

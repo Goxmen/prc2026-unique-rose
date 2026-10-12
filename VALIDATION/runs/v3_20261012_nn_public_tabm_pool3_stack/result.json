@@ -1,0 +1,173 @@
+{
+  "design": {
+    "parent": "exactv78 plus immutable one-of-three TabM replacement",
+    "primary": "three_tabm versus one_tabm",
+    "secondary": "three_tabm versus selected",
+    "pool": "equal mean of fixed TabM seeds42/1042/2042; no seed or coefficient selection",
+    "retained": "calls15,all3trees,Rome,serialization,public constraints,daily quality and fixed joint increment",
+    "no_new_weights": true,
+    "no_new_gate": true,
+    "no_hpo": true,
+    "no_upload": true,
+    "caveat": "reused Jan/Jul development; new seeds use laptop, retained PLE controls use desktop"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/identity.json",
+      "sha256": "47828f7cad2238954cf85d0786ea04e64ed1bed3d62a4f7c03ebdd14fa228fe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/audit.json",
+      "sha256": "dfb17acf74c394fa9ee8642b2a52da99ce8fd3fa48ecad2106c926c945327d35"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_stack.py",
+      "sha256": "f55d193f387c05d084a4240bd785f504186dcd4ab1c49fb91bc86860908d0214"
+    },
+    {
+      "path": "VALIDATION/attention_v77_stack.py",
+      "sha256": "0f0573bc580141f5dff8f730acc7d97ad4fd471b3bda92f475485b6956f51b3a"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments_cv.py",
+      "sha256": "4a790c670c852d54ec8c0df647504d723b45874870dacddff305f1137f3842c0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/result.json",
+      "sha256": "fde5d7e92f2fe0be138f208f43ceda7036eef24a48447a36b9abed03ac46802a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/result.json",
+      "sha256": "8275186109273df0c87e446dc3f88ad59bc8a7956205ff874005c0177c57c55c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/scored.parquet",
+      "sha256": "e41fb29c950566934bdb832c00a1ee6384bc5fb92fce602381a534be42a37196"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-01_s42.parquet",
+      "sha256": "539845eb72be933a7c89b06e2c3de2aa2becf170d8542124d1aa1d3a41d8e9dd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-01_k1.parquet",
+      "sha256": "d31236f5b2fdd637592fcaf17d7fbd9dc2a67a41ac687540acb7b5a20b77f016"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-01_k2.parquet",
+      "sha256": "b7e71c0fae892936ed60562fd0f8f449b31e39425778a4bfca000d1ed7cb72bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-01_tabm.parquet",
+      "sha256": "9e2d6af81dab59c4d5f33ca8f24c2367415d7913602b7b0131d9edb9886d77d1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-01_tabm.parquet",
+      "sha256": "10958dbc91bb4e65afbcff6721abfc788e2344afc57df3542da741d0886d03ca"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-01_tabm.parquet",
+      "sha256": "2e838bd77a3bab855279d2d65b5a1979e8833a1c6c4b4d86eb312a79e41cab4a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-01_s42.parquet",
+      "sha256": "7025bf609c20aeefc7fca9691759dfafebb848c9630b76849e67f680be74ba7e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-01_s42.parquet",
+      "sha256": "76acf53b0e5092ceea257f809188e97e18c968ca376d116c6e52c871c20d2b40"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-01_s42.parquet",
+      "sha256": "5cf4cd372eaa407bb7bdcf5ada2c5b597aedab5084f87a8088382448dee9943f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.parquet",
+      "sha256": "50a011cdb0998e2b50c86ab97c35c1640be7d01dbd97c8d298976982d5165278"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-07_k1.parquet",
+      "sha256": "05d34a32df574b5bf3392130646f517110cace2b71a64ac3952da445ddc1e109"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-07_k2.parquet",
+      "sha256": "013820082aa68965017781982e54a010b5d3d4df3cfa3032dfd20a79cfdae816"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-07_tabm.parquet",
+      "sha256": "6b94b5ce799a4eb8a0d193754c3eb219e2f12839da8fbb06c779ce6b2bceae0a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-07_tabm.parquet",
+      "sha256": "85782c5f0a0bc66a750534f418b6455c5742963b94500d06dfa3769ed51d5d65"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-07_tabm.parquet",
+      "sha256": "892099d8a1f863fe22c72d7f8a396ed6cffb049e77d5c9e94f18dbcffd58e3d2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-07_s42.parquet",
+      "sha256": "a0068d91df286ab73d49e89d14166c5514354e6e796e9c49703a47b571035704"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-07_s42.parquet",
+      "sha256": "9dd2b443c5f58806f0d0d4a23868d00a99b9a1edcd7a1724786eed4b4bb5e32a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-07_s42.parquet",
+      "sha256": "8425c6890168e6f31d5b86c278c3ffda0f7a0420ec2a2b34ec05ce3331a71ac9"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/scored.parquet",
+    "sha256": "e4cc52b31b606b24a263eacb5c0d086378cd5eaaa174a55f14e50082723a524f"
+  },
+  "scores": {
+    "2025-01": {
+      "selected": 325.860607626995,
+      "one_tabm": 325.73516630246377,
+      "three_tabm": 325.54643567915883
+    },
+    "2025-07": {
+      "selected": 255.9996300885311,
+      "one_tabm": 255.6193428545173,
+      "three_tabm": 255.06636084983938
+    }
+  },
+  "cv": {
+    "selected": 290.93011885776303,
+    "one_tabm": 290.67725457849053,
+    "three_tabm": 290.3063982644991
+  },
+  "paired": {
+    "three_tabm_vs_one_tabm": {
+      "change": -0.3708563139914247,
+      "ci95": [
+        -0.5838587311195788,
+        -0.20596203752577122
+      ],
+      "decision": "improvement"
+    },
+    "three_tabm_vs_selected": {
+      "change": -0.6237205932639256,
+      "ci95": [
+        -0.9246229493390945,
+        -0.41445483739750594
+      ],
+      "decision": "improvement"
+    },
+    "one_tabm_vs_selected": {
+      "change": -0.2528642792725009,
+      "ci95": [
+        -0.3677770302937926,
+        -0.17379751169291993
+      ],
+      "decision": "improvement"
+    }
+  },
+  "exact_v78_replayed": true,
+  "exact_one_tabm_replayed": true
+}

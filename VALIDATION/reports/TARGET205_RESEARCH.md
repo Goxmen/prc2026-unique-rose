@@ -26,6 +26,51 @@ receipt remains unchanged; work began after the explicit user resumption.
 The native goal retains its old text/status; the local project objective records
 205 and no native usage limit was altered.
 
+## Three-TabM breakthrough and cross-date closure, 10:50 Amsterdam
+
+The four extra-seed CV fits completed on the laptop; the original seed42 is
+unchanged. The compact return contains17 missing files/38,146,554bytes, with
+remote and local SHA-256 agreement. All six model records, original controls,
+344,419 rows and SQL scores pass the independent audit. The equal three-TabM
+pool improves the one-TabM pool by0.370856 on v78 and0.464664 on v79.
+The frozen three-TabM/runway combination scores **289.762778**, a **0.911579**
+improvement versus v79, interval[−1.322560,−0.646076]. Versus the already audited
+one-TabM/runway combination, it improves0.466063, interval[−0.688582,−0.300130].
+Adding the retained runway correction to three TabM alone improves0.156312,
+interval[−0.310605,−0.036095]. These are fixed comparisons on reused development
+data; the original PLE execution difference remains a caveat, not an independent
+confirmation. No official gain or v80 upload is claimed.
+
+The conditional production gates therefore pass. Full-year seeds1042/2042
+started10:36 on the laptop,15epochs each; completed seed42 is retained exactly.
+Before starting,137 checkout collisions were backed up with verified hashes;
+136 scientific files were byte-identical to incoming main, while an obsolete
+machine-specific queue differed and remains in the backup. The laptop safely
+fast-forwarded to856c2af, and only missing production receipts were transferred.
+No model/cache was overwritten. Do not pull or synchronize sources during fits.
+The compact return collector and three-member stack/combination auditors are
+prepared; the previously audited one-member file remains a fallback.
+
+A distinct cross-date source extension is complete and closed. Unlike the
+selected same-date correction, it adds all eligible other-date taxi cells
+sharing flights with the unchanged assigned-day departure cohort. A separate
+15-second source-error loading is used for each new date; shared-flight moments
+supply cross-date dependence. No date is reassigned. The old same-date block
+replays exactly, then a separate capped t5-score Schur update conditions the
+added block. This remains a hybrid moment approximation with uncalibrated
+cross-date error independence. Twelve preselected source-only cohorts pass
+explicit-flight covariance reconstruction and direct block-solve checks.
+
+All2336 existing CV targets retain original eligibility;2277 have added cells.
+The selected old floating posterior replays within2.91e−11seconds and integers
+replay exactly. The new correction versus same-date changes v78 **+0.006944**,
+interval[−0.062216,+0.085938], and v79 **+0.008620**, interval[−0.064950,+0.096534].
+January worsens in both comparisons. The fixed gate fails; the three-TabM
+combination is not run. An independent direct-conditioning/SciPy-density audit
+checks166 posteriors, maximum error1.64e−11, plus all344,419 SQL rows and scores.
+No production, version or upload follows. Sources and receipts:
+`../joint_public_cross_date_cv.py`, `../runs/v3_20261012_joint_public_cross_date/`.
+
 ## Completed production and follow-ups, 12 October morning
 
 The one-member TabM full-year fit completed15 epochs at05:30 and reloaded all

@@ -1,0 +1,93 @@
+{
+  "source": {
+    "path": "VALIDATION/nn_public_tabm_pool3_submit.py",
+    "sha256": "02c858c2cf4448612c01460c5d2517ab2478976e63e2067a3fc3b34e97f252aa"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_submit.py",
+      "sha256": "02c858c2cf4448612c01460c5d2517ab2478976e63e2067a3fc3b34e97f252aa"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3.py",
+      "sha256": "8cdcb32da2469a7834d36110e131caeffc6a883c56c24909861a8c584b51f2e2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/identity.json",
+      "sha256": "47828f7cad2238954cf85d0786ea04e64ed1bed3d62a4f7c03ebdd14fa228fe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/identity.json",
+      "sha256": "48002e43d9fc6743d228f417ecba51a28dced0ed759d19f0b9ce6cee3c105785"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/trained/k0.json",
+      "sha256": "c95f1730deb8cdb46532e7f0e15ababa21fe20fa18e67e24104077c984e01a4e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/networks/k0.json",
+      "sha256": "f498e5cfe797f86436c69ba500845f9d25cebbf92d5689db4d33dfd918394ff2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/networks/old_k0.parquet",
+      "sha256": "a6e5d09c2f3eb3be8d33455e2fef50d21bf5705aa2fffeb3e363f5d2789ed087"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/models/k0.pt",
+      "sha256": "003298fbc8d540a7659d1bd744cc472d67e2eda0ef26e75dff07c4b94155c049"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/result.json",
+      "sha256": "2ffb7010ed2a35f5738ccb6753be5567d5a92cc6c09aedf1410ff0f28605dedd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/audit.json",
+      "sha256": "05fc66238bd3f73ffbd7199d056407c51f6a924da44062a5ee78a39431ef39e7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_delta_transport/tabm_pool3/result.json",
+      "sha256": "b5ae8f03abe5095152a4bba7aec250c6fb3c0ee9fbb211987fc58abfbd03d74d"
+    },
+    {
+      "path": "VALIDATION/reports/public_tabm_20261012/pool3_score_audit.json",
+      "sha256": "4a9733556bdfa4e8a960e18d46e1af591e105f6e1e513662bb6e08677663282a"
+    }
+  ],
+  "members": {
+    "1": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/identity.json",
+      "sha256": "2fdb98a5a03bb8705489560e4c92d2aeb3482db54dbd29b3908554c5e6e80381"
+    },
+    "2": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/identity.json",
+      "sha256": "401a084344469cf21e521518733cce959949ce8b47ee500c0b9acd9b2cf7520b"
+    }
+  },
+  "seeds": [
+    42,
+    1042,
+    2042
+  ],
+  "reused_seed42": {
+    "identity": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/identity.json",
+      "sha256": "48002e43d9fc6743d228f417ecba51a28dced0ed759d19f0b9ce6cee3c105785"
+    },
+    "trained": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/trained/k0.json",
+      "sha256": "c95f1730deb8cdb46532e7f0e15ababa21fe20fa18e67e24104077c984e01a4e"
+    },
+    "record": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/networks/k0.json",
+      "sha256": "f498e5cfe797f86436c69ba500845f9d25cebbf92d5689db4d33dfd918394ff2"
+    },
+    "prediction": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/networks/old_k0.parquet",
+      "sha256": "a6e5d09c2f3eb3be8d33455e2fef50d21bf5705aa2fffeb3e363f5d2789ed087"
+    }
+  },
+  "epochs": 15,
+  "ranking_rows": 344841,
+  "decision": "Fixed three-TabM pool passes both audited comparisons against one-TabM",
+  "no_upload": true
+}

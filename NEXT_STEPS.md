@@ -35,15 +35,15 @@ objective records the user's current 205 target.
 
 Current work:
 
-- **Audited production combination ready:** one-of-three TabM replacement plus
-  robust other-runway evidence improves Jan/Jul CV290.674357→290.228841
-  (−0.445516; interval[−0.655109,−0.288599]). The original344,841-row
-  production file passes component and independent combination audits.
-  No version or upload is assigned. This is reused development evidence.
-- **Laptop:** four fixed additional-seed TabM CV fits started07:44 Amsterdam,
-  after the seed42 production fit/export and verified return. Seeds1042/2042
-  each use21/17 epochs; seed42 is retained exactly. No extra full-year fits
-  have started. Compare the equal3-member pool against both saved pools.
+- **Selected three-TabM combination:** CV290.674357→289.762778 versus v79,
+  −0.911579, interval[−1.322560,−0.646076]. It improves the audited one-TabM
+  combination by0.466063. All frozen pool/transport/combination audits pass.
+  No version or upload is assigned; this is reused development evidence.
+- **Laptop:** two additional full-year fits started10:36 Amsterdam, seeds1042/
+  2042,15epochs each. Reuse completed seed42. SSH session52213/PID21028;
+  never duplicate fits or update its sources midfit. Return only new artifacts
+  with `tools/return_tabm_pool3_submit_20261012.py`, then run the prepared
+  three-member stack, runway combination and independent final-file audit.
 - **Stand context closed:** fixed main-tree screen is complete.
   Original184 inputs plus four same-month stand medians/counts from supplied
   AOBT_3 clocks and arrival taxi-in; each query's own clock is excluded.
@@ -55,10 +55,11 @@ Current work:
 - **Uncertainty-weighted score conditioning closed:** fixed disagreement-based
   row weights yield v79−0.044080, interval[−0.291878,+0.212033], January worse.
   Independent dual optimization and all-row arithmetic pass. No upload.
-- **Cross-date source lead:** the same-date runway restriction omits eligible
-  taxi cells covering2277 CV and1690 ranking targets. All223 source-only cohort
-  checks pass; no posterior or CV gain has been measured. Assess covariance
-  treatment before a fixed inference comparison.
+- **Cross-date source extension closed:** new eligible cells cover2277 CV/
+  1690 ranking targets, but the fixed source comparison adds v78+0.006944,
+  v79+0.008620 versus the selected same-date update. Both intervals include
+  zero and January worsens. Independent166-posterior/all-row audits pass;
+  no combination, production or upload follows.
 - **Rome TabM closed:** physical versusv78−0.159950 and versusv79−0.199983,
   both inconclusive. The tabular control and raw-track difference are also
   inconclusive. All8 models/inner curves/reload/SQL audits retained, no expansion.
@@ -74,9 +75,6 @@ Current work:
   calibrated fraction RMSE0.0232, versus typical prior SD0.0079–0.0101 on the
   separate held-input dates. The arrival witness is weak (correlation−0.119).
   Independent source/SQL/calibration checks pass; no posterior or CV follows.
-- **Prepared follow-ups:** three-TabM plus runway CV is frozen before seed
-  results. Two additional production fits depend on audited gains over one-TabM
-  on both fixed comparisons; no further production fits have begun.
 - **Source pilots closed:** movement-ID arrival clocks cover none of339 intended
   no-ID1–4h Rome rows. Exact pair-Gibbs improves mixing but largest-cohort
   long-budget increment MCSE111.7s exceeds the fixed25s limit. Independent

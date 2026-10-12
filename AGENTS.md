@@ -121,40 +121,30 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
-- **October12 morning: one submission slot remains; final extra TabM CV fit active.**
-  Best/latestv79 **219.6130**, live08:24 Amsterdam, rank9/242. GitHub is PRIVATE;
-  `LOCAL_PROGRESS.md` is gitignored. One-TabM+robust other-runway production
-  file is independently audited, CV**290.228841 (−0.445516)**, unversioned/unuploaded.
-  Four extra-seed TabM CV fits run on the laptop (`nn_public_tabm_pool3.py`,
-  SSH session57074); seed42 retained. Frozen pool+runway comparison and
-  conditional two-fit full-year continuation are prepared; no production
-  expansion before audited three-versus-one gains on both fixed comparisons.
-  Rome TabM is complete/closed: physical v78−0.159950, v79−0.199983,
-  both inconclusive; tabular and physical-minus-tabular comparisons also inconclusive.
-  All8 models and independent audits retained; no production or upload.
-  Arrival stand-drift transfer failed all4 training months across1369 stands;
-  no multi-task/adaptation fit follows. Separate static stand context completed
-  in `stand_month_context_lgb.py`: original184 inputs plus4 monthly stand
-  medians/counts from other departures' supplied AOBT_3 clocks and provided
-  arrival taxi-in. Query clocks excluded, no departure target/block read.
-  Independent1200-query source audit and exact188-column preflight pass.
-  Both fits and independent audits pass; v78−0.000022, v79+0.003370 are flat.
-  No production or combination follows. Uncertainty-weighted score conditioning
-  is also closed: v79−0.044080, interval crosses zero, January worse. Its
-  unchanged convex objective needed active-set numerical refinement before CV;
-  separate dual and all-row audits pass. No candidate or upload.
-  Cross-date taxi-source coverage census is complete:2277 CV/1690 ranking targets
-  have additional eligible cells outside the same-date restriction. Independent
-  scalar/SQL audit checks all223 cohorts. No posterior or CV result exists yet;
-  cross-date source-error covariance must be treated separately before inference.
-  Flight-ID clock main-tree screen is complete/closed: v78+0.002652, v79+0.007419.
-  Movement-ID arrival-clock pilot has zero coverage for the intended339 rows;
-  pair-Gibbs still fails numerical precision (largest-cohort long-budget MCSE111.7s).
-  Both pilots and their independent audits are retained, no CV/production.
-  Updated51-vector robust affine geometry offers only0.00587s projected gain,
-  also closed. Do not repeat completed fits, broaden closed pilots or upload controls.
-  All three retained agents hit their account usage limit; root continues
-  from saved reviewed artifacts. Do not spawn replacements to bypass the limit.
+- **October12, 10:50 Amsterdam: three-TabM pool selected; two full-year fits active.**
+  Best/latestv79 **219.6130**, live08:24 Amsterdam, rank9/242; one UTC-day slot remains.
+  GitHub is PRIVATE; `LOCAL_PROGRESS.md` is gitignored. Four extra TabM CV fits
+  completed on the laptop, seed42 reused; 38.15MB return hash-verified.
+  Independent all-row audits pass. Three-versus-one improves v78 CV by0.370856
+  and v79 by0.464664. Three-TabM+same-date runway scores **289.762778**, versus
+  v79−0.911579, interval[−1.322560,−0.646076]; versus one-TabM/runway−0.466063.
+  Reused development data and historical PLE execution caveat remain explicit.
+  `nn_public_tabm_pool3_submit.py` full-year seeds1042/2042 started10:36 on the
+  laptop, SSH session52213/PID21028,15epochs each; seed42 retained exactly.
+  Never duplicate fits or sync source midfit. Laptop main was safely reconciled;
+  verified collision backup at `~/prc_target205_sync_backup_20261012_1035`.
+  After export, use `tools/return_tabm_pool3_submit_20261012.py`, then the
+  three-pool stack and combination builders and independent auditor. No v80
+  assigned/uploaded. Retain audited one-member fallback, CV290.228841.
+  Cross-date extra taxi evidence is now closed: fixed covariance pilot passed,
+  but CV versus same-date parent changes v78+0.006944, v79+0.008620, both
+  inconclusive and January worse. Independent166-posterior/344,419-row audit
+  passes; no combination/production follows. Run `v3_20261012_joint_public_cross_date`.
+  Other closed branches: stand context, nonuniform score conditioning, Rome
+  TabM classifier, arrival stand drift, flight-ID clock, linear leaves, punctuality,
+  movement-ID arrival clocks and pair-Gibbs precision. Retain artifacts; do not
+  repeat fits or upload controls. Three retained agents hit account usage limits;
+  root continues from saved reviews without spawning replacements to bypass them.
 
 
 - **October 12, 04:53 Amsterdam: target 205 research is active; best/latest v79 scores 219.6130.**

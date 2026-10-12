@@ -1,0 +1,229 @@
+{
+  "design": {
+    "settings": {
+      "parent": {
+        "ordinary_sigma": 200.0,
+        "common_day_sigma": 15.0,
+        "cutoff": 7200.0,
+        "df": 5,
+        "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+        "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+        "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+        "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+        "comparison": "new_joint minus original_joint; original departure-only comparator unchanged",
+        "transfer": "fixed0.5 additional increment on exactv78; separately frozen coefficient-one v79 transport",
+        "common_error": "one shared15-second outer product over the bounded message, exact original3D marginal",
+        "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+        "no_iteration": true,
+        "no_parameter_search": true,
+        "no_new_fit": true,
+        "additional": "all supported same-local-day other runway taxi cells intersecting the assigned-day delay cohort; full taxi membership",
+        "conditioning": "Gaussian Schur moments with one capped variance-matched t5 score weight; unchanged original 3D t5 target likelihood",
+        "robust_weight": "min(1,(5+k)/(3+q)); q=r_B.T C_BB^-1 r_B, k=extra dimension",
+        "review_history": "unexecuted 5+q denominator corrected to variance-matched 3+q before any robust prediction; no weight scan",
+        "caveat": "hybrid approximation; unknown cross-runway source-error covariance and possible prior-error suppression",
+        "disconnected": "exact recovery when the entire C_AB is zero; adding disconnected coordinates beside informative ones may change global q/k/weight",
+        "no_new_gate": true
+      },
+      "additional": "all eligible other-local-date taxi cells intersecting assigned-day delay cohort; complete taxi memberships",
+      "covariance": "shared-flight moments only across dates; independent15-second reporting loading for each added local date; exact old same-date block",
+      "update": "same-date robust Schur update followed by separate cross-date robust Schur update; unchanged t5 target likelihood",
+      "target_exclusion": "target is absent from both extra-source blocks; remove its full original3D contribution once",
+      "no_date_reassignment": true,
+      "no_parameter_search": true,
+      "no_covariance_repair": true,
+      "caveat": "Independent cross-date reporting errors are an uncalibrated modeling assumption; not exact Student conditioning"
+    },
+    "source_only_pilot": {
+      "settings": {
+        "parent": {
+          "ordinary_sigma": 200.0,
+          "common_day_sigma": 15.0,
+          "cutoff": 7200.0,
+          "df": 5,
+          "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+          "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+          "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+          "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+          "comparison": "new_joint minus original_joint; original departure-only comparator unchanged",
+          "transfer": "fixed0.5 additional increment on exactv78; separately frozen coefficient-one v79 transport",
+          "common_error": "one shared15-second outer product over the bounded message, exact original3D marginal",
+          "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+          "no_iteration": true,
+          "no_parameter_search": true,
+          "no_new_fit": true,
+          "additional": "all supported same-local-day other runway taxi cells intersecting the assigned-day delay cohort; full taxi membership",
+          "conditioning": "Gaussian Schur moments with one capped variance-matched t5 score weight; unchanged original 3D t5 target likelihood",
+          "robust_weight": "min(1,(5+k)/(3+q)); q=r_B.T C_BB^-1 r_B, k=extra dimension",
+          "review_history": "unexecuted 5+q denominator corrected to variance-matched 3+q before any robust prediction; no weight scan",
+          "caveat": "hybrid approximation; unknown cross-runway source-error covariance and possible prior-error suppression",
+          "disconnected": "exact recovery when the entire C_AB is zero; adding disconnected coordinates beside informative ones may change global q/k/weight",
+          "no_new_gate": true
+        },
+        "additional": "all eligible other-local-date taxi cells intersecting assigned-day delay cohort; complete taxi memberships",
+        "covariance": "shared-flight moments only across dates; independent15-second reporting loading for each added local date; exact old same-date block",
+        "update": "same-date robust Schur update followed by separate cross-date robust Schur update; unchanged t5 target likelihood",
+        "target_exclusion": "target is absent from both extra-source blocks; remove its full original3D contribution once",
+        "no_date_reassignment": true,
+        "no_parameter_search": true,
+        "no_covariance_repair": true,
+        "caveat": "Independent cross-date reporting errors are an uncalibrated modeling assumption; not exact Student conditioning"
+      },
+      "selected": "exact original twelve other-runway pilot cohort keys, chosen before that earlier experiment",
+      "scope": "all previously touched targets within these twelve cohorts",
+      "budget": {
+        "seconds": 60,
+        "incremental_workspace_mib": 256,
+        "threads": 1
+      },
+      "checks": "original3D covariance, positive definiteness, added-date independence, exact target exclusion, independent explicit-flight reconstruction, simultaneous inflated block solve",
+      "no_target_posterior": true,
+      "no_labels": true,
+      "no_cv": true,
+      "no_parameter_search": true,
+      "next": "Only consider fixed inference if numerical checks pass and added-source variance reduction is nonzero; no outcome-selected subgroup"
+    },
+    "parent": "selected same-date robust other-runway correction, on exactv78 and transported onto v79",
+    "prediction": "original constrain(v78 +0.5*(cross_date_joint-saved_original_joint)); existing same-date correction replays exactly",
+    "transport": "rint(max(0,v79+candidate_v78-exactv78)); coefficient one",
+    "gates": "paired-day upper endpoint below zero AND both months improve versus same-date parent on both v78 and v79",
+    "combo": "Only if both component gates pass: replace same-date runway delta by cross-date delta in the already selected three-TabM/runway combination; coefficient one and one clip",
+    "tolerances": "old and selected floating posterior replay atol1e-8; integer controls exact; no-extra rows use saved selected posterior exactly",
+    "no_fit": true,
+    "no_weight_search": true,
+    "no_subgroup_selection": true,
+    "no_upload": true,
+    "caveat": "Reused development data and approximate moment conditioning; not independent validation"
+  },
+  "checks": {
+    "original_and_selected_messages_exact": true,
+    "separate_date_reporting_covariance": true,
+    "no_extra_exact": true,
+    "target_excluded_once": true,
+    "simultaneous_inflated_block_solve": true,
+    "positive_definite_without_repair": true,
+    "label_poison_invariant": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/joint_public_cross_date_cv.py",
+      "sha256": "6776089e048f5228653210a35a492915100129df68ca6032583baa0dd997501d"
+    },
+    {
+      "path": "VALIDATION/joint_public_cross_date.py",
+      "sha256": "cf623aa91829c27066e1fdc25219fd88ad98ce50dc464d76ddfec59367eecd1e"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway.py",
+      "sha256": "e12479a286f7f4445e399a921d48aea0ca0e3fd6a11d7cf3e264fac970274321"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d"
+    },
+    {
+      "path": "VALIDATION/joint_public_cross_date_pilot.py",
+      "sha256": "61233e93dcfdfceb14f2de0f283dc493ae14a2c0b4133d354df8a73562e14fc3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date_pilot/identity.json",
+      "sha256": "8bf58d22b418f677bc1ed2f7a2663d41a2cb6a1750257549cbad43d0e4ea39a0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date_pilot/result.json",
+      "sha256": "4ef8c3e277635d78745f06b1689fea76897d164f3181d3e2ca6a4805b7b24c9e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/cv.parquet",
+      "sha256": "8f17490dcefbedc3959a4293b2a68ef7871ecf0d8828d30aad06fefe2299895f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/scored.parquet",
+      "sha256": "e4cc52b31b606b24a263eacb5c0d086378cd5eaaa174a55f14e50082723a524f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/result.json",
+      "sha256": "2ffb7010ed2a35f5738ccb6753be5567d5a92cc6c09aedf1410ff0f28605dedd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
+      "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+    },
+    {
+      "path": "VALIDATION/reports/public_tabm_20261012/pool3_score_audit.json",
+      "sha256": "4a9733556bdfa4e8a960e18d46e1af591e105f6e1e513662bb6e08677663282a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/identity.json",
+      "sha256": "b1ce9cc59fdd8aae55d47097992e5756d4e228bb14e662645047e1a7523ec5fd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/inputs.parquet",
+      "sha256": "fd68d2697514820f35e5abde5277629198aebe3d1168d1705f0ff97785a7c9b9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/predictions.parquet",
+      "sha256": "d1a99ca1e558432a5650a14dcd6f8edda427dbeeeefb9575b5aa3ec1554397e9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/taxi_source.parquet",
+      "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/delay_source.parquet",
+      "sha256": "0297c445250693f4f1bc93b94a4bc409920aab5db4b55e84b39f20118000c52d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/parameters.json",
+      "sha256": "d4c54a7374f67797ee1b7da8c0283d849a73cd0abf6b16be3e7224eb56299989"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/audit.json",
+      "sha256": "3d065bb05dc4a868fd7ad5634b8907575a640db56b5b612d2904d98be288fff5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/identity.json",
+      "sha256": "adf7f1c023d7565f1a96a4014e45fb8980ab3513feb8a4bb2aadc6392c671c37"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/predictions.parquet",
+      "sha256": "9c68b32257b2b33ff8bb252e08a91701bc359d1469934b50a6e6c2b5cc75bc94"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/scored.parquet",
+      "sha256": "d37c07d8eb1e2641ff3dd98f3cbcf3232a54f432b86f1f42a56e70f06e1c2d3f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/audit.json",
+      "sha256": "1054bfbe919ebedf43ab4e994ed5035b8050bd52bbd5ade025c43bbdd450b839"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    }
+  ]
+}

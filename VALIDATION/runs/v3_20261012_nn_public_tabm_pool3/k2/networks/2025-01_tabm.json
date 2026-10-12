@@ -1,0 +1,260 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/identity.json",
+    "sha256": "47828f7cad2238954cf85d0786ea04e64ed1bed3d62a4f7c03ebdd14fa228fe6"
+  },
+  "design": {
+    "parent": "selected one-of-three TabM replacement",
+    "model": {
+      "original_columns": 156,
+      "public_columns": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "public_transform": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "track": "unchanged physical CNN, masked mean/max64",
+      "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+      "k": 32,
+      "n_blocks": 2,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "normal",
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "loss": "mean squared error over rows AND individual32 heads",
+      "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+      "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+    },
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "reused": 42,
+    "new_seeds": [
+      1042,
+      2042
+    ],
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "schedule_epochs": 24,
+    "effective_batch": 2048,
+    "microbatch": 512,
+    "inference_chunk": 512,
+    "changes": "only seed specialization of original model initialization and permutation/dropout stream",
+    "loss": "unchanged individual K32-head MSE and actual-row-weighted accumulation",
+    "primary": "equal TabM42/1042/2042 versus immutable one-TabM/two-PLE pool",
+    "secondary": "same all-TabM pool versus original three PLE members",
+    "stack": "exact original v78 stack and separate fixed coefficient-one v79 transport",
+    "controls": "reuse saved original desktop PLE42/1042/2042; no repeated controls",
+    "host": "laptop RTX5060, same host as completed TabM42",
+    "caveat": "additional seeds reuse desktop controls with execution/hardware confounding; reused development data",
+    "preprocessing": "exact saved original156 plus unchanged12 public transform; same physical track cache",
+    "no_new_stopping": true,
+    "no_new_weight": true,
+    "no_seed_selection": true,
+    "no_hpo": true,
+    "no_production_fit": true,
+    "no_upload": true
+  },
+  "month": "2025-01",
+  "member": 2,
+  "seed": 2042,
+  "epochs": 21,
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-01.pkl",
+      "sha256": "b60ab60fcc058ce3cf8ca5b8488cc7c802c5cc43f8066621833f1ab3417a8bba",
+      "audited_candidate_record": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.json",
+        "sha256": "3c582a659a0627c02a9b29404f34a33b7f331f54b7614487f460b1254121d04d"
+      }
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+      "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+    },
+    "rows": 1596201,
+    "held_rows": 153706,
+    "reference_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-01_s42.json",
+      "sha256": "45d0e9fb7cf6f3b2b93fd612be0ed95a8d876951287ebe45eeb4334ec7c4f75b"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/models/2025-01_tabm.pt",
+    "sha256": "bb720813d325b14043e4aa3e12944666b835c327c6627be34a675f8dcfd775fd"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-01_tabm.parquet",
+    "sha256": "2e838bd77a3bab855279d2d65b5a1979e8833a1c6c4b4d86eb312a79e41cab4a"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+    "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+  },
+  "checkpoint": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/trained/2025-01_tabm.json",
+    "sha256": "9db4526c5c211f6b26ccb5e47dafce98e5e63161212301710384f5b0fa0c1d57"
+  },
+  "train_rows": 1596201,
+  "held_rows": 153706,
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.3887108145604986,
+      "seconds": 125.50651740100147
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.2760040163665603,
+      "seconds": 124.40186077199905
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.2512312197658658,
+      "seconds": 124.45211376799853
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.23534292865877746,
+      "seconds": 124.15371411200613
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.22575307196381506,
+      "seconds": 124.47056110300036
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.21659278187285538,
+      "seconds": 123.33148413399613
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.2119797256817412,
+      "seconds": 122.83883281599992
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.20466274476110047,
+      "seconds": 122.2830978560014
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.20038840440275277,
+      "seconds": 122.33990284699394
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.19522570689383809,
+      "seconds": 122.00564039200253
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.19192344022355765,
+      "seconds": 122.13892429299449
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.18803626156255904,
+      "seconds": 122.58713130999968
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.18415335752362497,
+      "seconds": 121.99681598199822
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.17983614657433622,
+      "seconds": 122.76677740400191
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.1761503551294125,
+      "seconds": 121.87149991100159
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.17333984455213416,
+      "seconds": 121.60234258599667
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.17004403184753666,
+      "seconds": 120.76831844599656
+    },
+    {
+      "epoch": 18,
+      "train_mse_std": 0.16694069066829204,
+      "seconds": 121.00463286299782
+    },
+    {
+      "epoch": 19,
+      "train_mse_std": 0.16435323475691785,
+      "seconds": 121.29192632500053
+    },
+    {
+      "epoch": 20,
+      "train_mse_std": 0.1621067116997365,
+      "seconds": 121.14487770599953
+    },
+    {
+      "epoch": 21,
+      "train_mse_std": 0.16028532549555807,
+      "seconds": 121.2058177200015
+    }
+  ],
+  "all_held_reloaded_exact": true,
+  "host": "GLAPTOP",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.14.1+cu130"
+}

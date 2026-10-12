@@ -1,0 +1,111 @@
+{
+  "design": {
+    "parent": "exact v79",
+    "primary": "three_tabm_runway versus one_tabm_runway",
+    "secondary": "three_tabm_runway versus v79 and three_tabm alone",
+    "formula": "rint(max(0,v79+(TabM_v78-exactv78)+(other_runway_v78-exactv78)))",
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "coefficients": [
+      1,
+      1
+    ],
+    "new_bounds": false,
+    "frozen_before_extra_seed_results": true,
+    "no_fit": true,
+    "no_search": true,
+    "no_production_fit": true,
+    "no_upload": true,
+    "caveat": "Fixed combination on reused Jan/Jul development; not independent confirmation."
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/identity.json",
+    "sha256": "e0357056ade91db7c53da7eff7cdaf1f9d45094ec97bd1f80dbf30c7849ed04c"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+    "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/scored.parquet",
+      "sha256": "e4cc52b31b606b24a263eacb5c0d086378cd5eaaa174a55f14e50082723a524f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/scored.parquet",
+      "sha256": "d37c07d8eb1e2641ff3dd98f3cbcf3232a54f432b86f1f42a56e70f06e1c2d3f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo/scored.parquet",
+      "sha256": "de912af54e3bfce5dc7209eb8f36c3d90f7e34377bb5c55ceba9a06136b8ae42"
+    },
+    {
+      "path": "VALIDATION/reports/public_tabm_20261012/pool3_score_audit.json",
+      "sha256": "4a9733556bdfa4e8a960e18d46e1af591e105f6e1e513662bb6e08677663282a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/result.json",
+      "sha256": "2ffb7010ed2a35f5738ccb6753be5567d5a92cc6c09aedf1410ff0f28605dedd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/audit.json",
+      "sha256": "05fc66238bd3f73ffbd7199d056407c51f6a924da44062a5ee78a39431ef39e7"
+    }
+  ],
+  "scores": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "one_tabm_runway": 325.2886986252673,
+      "three_tabm": 325.09851481957253,
+      "three_tabm_runway": 325.02854196957753
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "one_tabm_runway": 255.16898338173462,
+      "three_tabm": 254.7396650481004,
+      "three_tabm_runway": 254.49701445100365
+    }
+  },
+  "cv": {
+    "control": 290.67435711796895,
+    "one_tabm_runway": 290.228841003501,
+    "three_tabm": 289.91908993383646,
+    "three_tabm_runway": 289.7627782102906
+  },
+  "paired": {
+    "control": {
+      "change": -0.9115789076783614,
+      "ci95": [
+        -1.3225601276131331,
+        -0.6460758117638034
+      ],
+      "decision": "improvement"
+    },
+    "one_tabm_runway": {
+      "change": -0.46606279321035515,
+      "ci95": [
+        -0.688582491079272,
+        -0.3001304559805235
+      ],
+      "decision": "improvement"
+    },
+    "three_tabm": {
+      "change": -0.15631172354586909,
+      "ci95": [
+        -0.31060528302982604,
+        -0.036095347100276676
+      ],
+      "decision": "improvement"
+    }
+  },
+  "rows": 344419,
+  "exact_previous_combination": true,
+  "all_row_sql_arithmetic_truth_calendar_scores": "pass"
+}

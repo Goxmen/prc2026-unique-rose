@@ -1,0 +1,36 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date/identity.json",
+    "sha256": "1baaa568279945acb10766b6719cd7c3fc8136d2e5f1845954382bfed556ee3d"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date/predictions.parquet",
+    "sha256": "fca6cf95bf0d7972b738a64e50efa09cf3dace3482f52198e98521324a5e47a4"
+  },
+  "seconds": 14.71230458500213,
+  "diagnostics": [
+    {
+      "month": "2025-01",
+      "rows": 11317,
+      "targets": 275,
+      "targets_with_new_cells": 216,
+      "maximum_control_replay_errors": [
+        1.0913936421275139e-11,
+        9.549694368615746e-12
+      ]
+    },
+    {
+      "month": "2025-07",
+      "rows": 15211,
+      "targets": 2061,
+      "targets_with_new_cells": 2061,
+      "maximum_control_replay_errors": [
+        2.9103830456733704e-11,
+        2.9103830456733704e-11
+      ]
+    }
+  ],
+  "no_label_or_score_values_loaded": true,
+  "unchanged_old_and_same_date_posteriors_replayed": true,
+  "no_extra_uses_saved_same_date_exactly": true
+}

@@ -1,0 +1,141 @@
+{
+  "status": "pass",
+  "rows": 344419,
+  "seconds": 0.6546951089985669,
+  "source": {
+    "path": "VALIDATION/tools/audit_public_tabm_pool3_scores_20261012.py",
+    "sha256": "191e51dbcc82cf87f072f8e8656ff573bc2861a932463b44cb57415abaf9659b"
+  },
+  "helper": {
+    "path": "VALIDATION/tools/audit_public_cohort_scores_20261012.py",
+    "sha256": "ad2f04927bc81e766b1b9428b291fa12963731ea63f32d59d6d52cabd4670af4"
+  },
+  "members": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-01_tabm.json",
+      "sha256": "de792ea70ae9c8ea8ceddaae6604b922e4c9e5ca3697e05c030603d2bafd4373"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-01_tabm.json",
+      "sha256": "4ca762b07a667c8bcb264bd45fc138915433347d7506f5c766a27cf82d34f9c5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-01_tabm.json",
+      "sha256": "21681c016807b0337c23c8dd39c8a5820dda62aea6fdc01db21261c76dd075ed"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-07_tabm.json",
+      "sha256": "db5d9245cdca9856e15698bd5ec34b48776879fe441026342e95359a43c6a0ff"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-07_tabm.json",
+      "sha256": "aa815e98d8976a0bc3ba35bead152d3ad7d75f905a9ef046c79ef1844eede89d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-07_tabm.json",
+      "sha256": "cc61a7a70b776d6dbcc4501ddcc682937e5ebb6c8abd49f92706109061323751"
+    }
+  ],
+  "execution": {
+    "host": "GLAPTOP",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "torch": "2.14.1+cu130"
+  },
+  "effects": {
+    "v78_three_vs_one": -0.37085631399145313,
+    "v78_three_vs_original": -0.623720593263954,
+    "v79_three_vs_one": -0.4646641087040848,
+    "v79_three_vs_original": -0.7552671841324923
+  },
+  "sql_scores": {
+    "selected": {
+      "2025-01": 325.860607626995,
+      "2025-07": 255.9996300885311
+    },
+    "one_tabm": {
+      "2025-01": 325.73516630246377,
+      "2025-07": 255.6193428545173
+    },
+    "three_tabm": {
+      "2025-01": 325.54643567915883,
+      "2025-07": 255.06636084983938
+    }
+  },
+  "sql_transport_scores": {
+    "control": {
+      "2025-01": 325.53087367112914,
+      "2025-07": 255.81784056480876
+    },
+    "one_tabm": {
+      "2025-01": 325.3587726348833,
+      "2025-07": 255.4087354501978
+    },
+    "three_tabm": {
+      "2025-01": 325.09851481957253,
+      "2025-07": 254.7396650481004
+    }
+  },
+  "inputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/identity.json",
+      "sha256": "47828f7cad2238954cf85d0786ea04e64ed1bed3d62a4f7c03ebdd14fa228fe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/audit.json",
+      "sha256": "dfb17acf74c394fa9ee8642b2a52da99ce8fd3fa48ecad2106c926c945327d35"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/portable.json",
+      "sha256": "8938eba291928651c59ee6cad47a0a3a1d920b9ed2b35e387df11946817c1909"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/result.json",
+      "sha256": "8275186109273df0c87e446dc3f88ad59bc8a7956205ff874005c0177c57c55c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/audit.json",
+      "sha256": "265fd57db8b07620be76a8f9dc0bffd07972ffca92e18947faa9389c0f02a6ee"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/scored.parquet",
+      "sha256": "e41fb29c950566934bdb832c00a1ee6384bc5fb92fce602381a534be42a37196"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/result.json",
+      "sha256": "2ffb7010ed2a35f5738ccb6753be5567d5a92cc6c09aedf1410ff0f28605dedd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/audit.json",
+      "sha256": "05fc66238bd3f73ffbd7199d056407c51f6a924da44062a5ee78a39431ef39e7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/scored.parquet",
+      "sha256": "e4cc52b31b606b24a263eacb5c0d086378cd5eaaa174a55f14e50082723a524f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_delta_transport/design.json",
+      "sha256": "6ed6979fe87be9f2af34ec85ae38602bef901b932ac7989d0cfa66e7a3a3efdb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_delta_transport/tabm_pool3/result.json",
+      "sha256": "b5ae8f03abe5095152a4bba7aec250c6fb3c0ee9fbb211987fc58abfbd03d74d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_delta_transport/tabm_pool3/scored.parquet",
+      "sha256": "c450b6ac7e5c8d3da8be5ff91912d6765bde337ab7fbe7c8f7510f1bca3cadea"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/cv.parquet",
+      "sha256": "8f17490dcefbedc3959a4293b2a68ef7871ecf0d8828d30aad06fefe2299895f"
+    }
+  ],
+  "full_row_truth_calendar_ids_v78_and_one_tabm_exact": true,
+  "all_row_transport_and_unchanged_recovery_exact": true,
+  "input_scope": "Full matrices, semantic preprocessing and track cache verified by remote full-input fit receipts. This desktop audit verifies returned artifacts and arithmetic, without claiming unavailable local training paths passed.",
+  "interpretation": "Fixed additional-seed development comparison; unchanged original seed42. All TabM seeds share one laptop/GPU, but replaced retained PLE members used the desktop. Architecture and historical machine/execution effects remain confounded; reused development data is not independent confirmation.",
+  "scope": "Independent sources/member bindings, IDs, SQL RMSE and serialization. Original correction stack is covered by reviewed frozen scorer and exact replay; no new inference, fit or bootstrap rerun."
+}
