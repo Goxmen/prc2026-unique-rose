@@ -117,6 +117,20 @@ the tested numerical branch; it does not establish impossibility of every
 discrete inference algorithm. No outcome-selected cohort gate or further budget
 expansion follows. See [the numerical report](ALL_DISCRETE_PEER_INFERENCE_20261012.md).
 
+A distinct damped expectation-propagation proposal also fails its frozen tiny
+numerical test. It updates peer cavities while preserving coupled count, taxi
+sum and delay supports and the Student-t likelihood. Six fixed two-/three-peer
+cases use exact enumeration and the current prior-moment method as baselines.
+The one-thread test takes 23.76 seconds and 5.60 MiB of additional memory:
+185 of 288 configurations complete, 103 encounter invalid cavities, and none
+meet the accuracy criteria. Numerical convergence occurs in 177 configurations
+and is insufficient: the cutoff example can remain biased by about 1,420 seconds.
+The large-source cases also have unresolved initial quadrature errors, so their
+large errors cannot be attributed solely to the EP approximation. Independent
+enumeration and saved-error arithmetic pass. This closes the tested design,
+with no real-cohort inference, held score, tuning or upload. Retained evidence:
+`all_discrete_peer_20261012/ep_toy_closure.json`.
+
 **Linear-leaf trees: resource preflight passed; full comparison authorized.** A newly updated
 [joyous-rainbow solution](https://github.com/radekacar/joyous-rainbow/tree/dbe1eded734da48bdad7cc11b741028794316179)
 reports gains from linear leaves on a substantially weaker, different pipeline.

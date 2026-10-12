@@ -1,0 +1,724 @@
+{
+  "decision": "closed_under_frozen_EP_toy_rejection_rule",
+  "scope": "Six fixed2/3peer toys only; four source-derived subsets plus competing-copy and cutoff synthetic cases. No real cohort inference or held scoring.",
+  "attempted": 288,
+  "statuses": {
+    "completed": 185,
+    "invalid": 103
+  },
+  "seconds": 23.758594474988058,
+  "peak_incremental_mib": 5.6015625,
+  "resource_failure": null,
+  "interpretation": "Initial-cavity quadrature is independently inaccurate, especially source475 subsets. Large posterior errors there cannot be attributed solely to EP moment projection. Invalid cavities and toy accuracy/stability failures still reject this fixed numerical design. These thresholds do not prove every biased approximation scientifically useless.",
+  "rows": [
+    {
+      "case": "actual_7_2",
+      "view": "joint",
+      "attempted": 24,
+      "completed": 16,
+      "invalid": 8,
+      "max_EP_mean_error_sec": 30.45643203761074,
+      "max_EP_copy_probability_error": 0.0061747487384178346,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          8.30926912505356,
+          11.941247318807768
+        ],
+        "copy": [
+          0.002564413329615045,
+          0.0
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 2,
+        "observed_dimension": 3,
+        "orthogonal_residual_squared": 0.15927816913489642,
+        "reference_integration_error": 1.5342961006134323e-13,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 1.941876091260397e-06,
+            "covariance_error": 7.102252719271007e-07
+          },
+          {
+            "nodes": 64,
+            "mean_error": 1.013600533505965e-07,
+            "covariance_error": 3.455098010474167e-08
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          0.5919865977925838,
+          0.05103366874618587
+        ],
+        "copy": [
+          0.00019859276530476144,
+          0.0
+        ]
+      }
+    },
+    {
+      "case": "actual_7_2",
+      "view": "departure",
+      "attempted": 24,
+      "completed": 24,
+      "invalid": 0,
+      "max_EP_mean_error_sec": 4.068664722694393,
+      "max_EP_copy_probability_error": 0.0016611945660336414,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          12.630638467966492,
+          11.95391989455311
+        ],
+        "copy": [
+          0.003040887878195314,
+          0.0
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 1,
+        "observed_dimension": 1,
+        "orthogonal_residual_squared": 0.0,
+        "reference_integration_error": 2.030593901101325e-13,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 3.6989175221380233e-06,
+            "covariance_error": 9.326925884400872e-07
+          },
+          {
+            "nodes": 64,
+            "mean_error": 4.560765281547141e-07,
+            "covariance_error": 1.1259058460555416e-07
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          1.3131133553360996,
+          0.1275196581008231
+        ],
+        "copy": [
+          0.000367808918539575,
+          0.0
+        ]
+      }
+    },
+    {
+      "case": "actual_7_3",
+      "view": "joint",
+      "attempted": 24,
+      "completed": 16,
+      "invalid": 8,
+      "max_EP_mean_error_sec": 26.652454176478386,
+      "max_EP_copy_probability_error": 0.005132987821844043,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          17.384452825691824,
+          12.091415643219534,
+          12.060402978000639
+        ],
+        "copy": [
+          0.005158509799821492,
+          0.0,
+          0.0
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 2,
+        "observed_dimension": 3,
+        "orthogonal_residual_squared": 0.16623196102412122,
+        "reference_integration_error": 1.2815540173677818e-13,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 2.2717346630507507e-06,
+            "covariance_error": 1.0257872732344353e-06
+          },
+          {
+            "nodes": 64,
+            "mean_error": 1.1818321249412733e-07,
+            "covariance_error": 4.969468325732862e-08
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          0.5313572279069376,
+          0.028302948154191654,
+          0.028458833163995223
+        ],
+        "copy": [
+          0.000187132838023768,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "case": "actual_7_3",
+      "view": "departure",
+      "attempted": 24,
+      "completed": 16,
+      "invalid": 8,
+      "max_EP_mean_error_sec": 2.624307047043658,
+      "max_EP_copy_probability_error": 0.0016177192010237984,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          23.867481597804954,
+          12.737832468948113,
+          12.701586357442011
+        ],
+        "copy": [
+          0.0056589298366298835,
+          0.0,
+          0.0
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 1,
+        "observed_dimension": 1,
+        "orthogonal_residual_squared": 0.0,
+        "reference_integration_error": 3.0134276068145033e-13,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 4.3833520004255e-06,
+            "covariance_error": 1.3629365924749948e-06
+          },
+          {
+            "nodes": 64,
+            "mean_error": 5.400494448581927e-07,
+            "covariance_error": 1.644144014545379e-07
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          0.33038748453031985,
+          0.044286684507937935,
+          0.04396438563060201
+        ],
+        "copy": [
+          0.00012107973582614617,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "case": "actual_475_2",
+      "view": "joint",
+      "attempted": 24,
+      "completed": 24,
+      "invalid": 0,
+      "max_EP_mean_error_sec": 19933.199349092636,
+      "max_EP_copy_probability_error": 0.9636412657898363,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          2.2428572392309434,
+          0.9327658204902036
+        ],
+        "copy": [
+          7.473365604221058e-05,
+          0.0003217486096199762
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 3,
+        "observed_dimension": 3,
+        "orthogonal_residual_squared": 1.597443333072549e-29,
+        "reference_integration_error": 1.5848038793848857e-13,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 3.77619870952751,
+            "covariance_error": 0.10053353952429855
+          },
+          {
+            "nodes": 64,
+            "mean_error": 1.9044704452062484,
+            "covariance_error": 0.05533633572399421
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          207.1741585979289,
+          635.391182174912
+        ],
+        "copy": [
+          0.058807274142573474,
+          0.25183603140414323
+        ]
+      }
+    },
+    {
+      "case": "actual_475_2",
+      "view": "departure",
+      "attempted": 24,
+      "completed": 24,
+      "invalid": 0,
+      "max_EP_mean_error_sec": 20133.021659146085,
+      "max_EP_copy_probability_error": 0.948976122563407,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          0.7948106714916321,
+          0.42635807200281306
+        ],
+        "copy": [
+          2.3995080579368444e-05,
+          0.0001464487056877517
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 1,
+        "observed_dimension": 1,
+        "orthogonal_residual_squared": 0.0,
+        "reference_integration_error": 6.459753454485484e-14,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 2.219799327946766,
+            "covariance_error": 0.04799004695490139
+          },
+          {
+            "nodes": 64,
+            "mean_error": 1.1039706110635723,
+            "covariance_error": 0.026175109958813003
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          564.4889114967518,
+          582.3259613484729
+        ],
+        "copy": [
+          0.10530192416929529,
+          0.22020977522503782
+        ]
+      }
+    },
+    {
+      "case": "actual_475_3",
+      "view": "joint",
+      "attempted": 24,
+      "completed": 24,
+      "invalid": 0,
+      "max_EP_mean_error_sec": 19926.720583429185,
+      "max_EP_copy_probability_error": 0.9619893020694222,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          4.764851235315291,
+          1.1723328994689837,
+          1.4389353564097291
+        ],
+        "copy": [
+          0.0001586053930699681,
+          0.0004043201152797993,
+          0.0002928612241003131
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 3,
+        "observed_dimension": 3,
+        "orthogonal_residual_squared": 8.127239476039474e-28,
+        "reference_integration_error": 1.2110201659509688e-13,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 4.68822820240037,
+            "covariance_error": 0.15848512914339774
+          },
+          {
+            "nodes": 64,
+            "mean_error": 2.3858256563079707,
+            "covariance_error": 0.08804094644696625
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          215.53291592029564,
+          636.9275335692396,
+          1602.509612284156
+        ],
+        "copy": [
+          0.06028556875718216,
+          0.2515570952848807,
+          0.40002301271997864
+        ]
+      }
+    },
+    {
+      "case": "actual_475_3",
+      "view": "departure",
+      "attempted": 24,
+      "completed": 24,
+      "invalid": 0,
+      "max_EP_mean_error_sec": 20123.500580298878,
+      "max_EP_copy_probability_error": 0.9463446776295114,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          1.6760543057409905,
+          0.5256940597655557,
+          0.6188995071656791
+        ],
+        "copy": [
+          5.0625518166893396e-05,
+          0.00018055507709208163,
+          0.0001248454545840355
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 1,
+        "observed_dimension": 1,
+        "orthogonal_residual_squared": 0.0,
+        "reference_integration_error": 5.4474271466759255e-14,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 2.7645614211411784,
+            "covariance_error": 0.07561202345943485
+          },
+          {
+            "nodes": 64,
+            "mean_error": 1.3835908972036786,
+            "covariance_error": 0.041507785750923176
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          587.0263469070742,
+          565.3719321341719,
+          1540.6792617860533
+        ],
+        "copy": [
+          0.1060705825025745,
+          0.21336602746062017,
+          0.3626505321248633
+        ]
+      }
+    },
+    {
+      "case": "competing_copy",
+      "view": "joint",
+      "attempted": 24,
+      "completed": 0,
+      "invalid": 24,
+      "max_EP_mean_error_sec": null,
+      "max_EP_copy_probability_error": null,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          559.6893187329733,
+          573.6128302562977
+        ],
+        "copy": [
+          0.0615043207398871,
+          0.06303437695124141
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 1,
+        "observed_dimension": 3,
+        "orthogonal_residual_squared": 1.655530147793981,
+        "reference_integration_error": 1.74363532595107e-12,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 6.716346367952042e-10,
+            "covariance_error": 1.666842373682087e-05
+          },
+          {
+            "nodes": 64,
+            "mean_error": 2.2833637758346015e-10,
+            "covariance_error": 5.666784277158499e-06
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": null
+    },
+    {
+      "case": "competing_copy",
+      "view": "departure",
+      "attempted": 24,
+      "completed": 1,
+      "invalid": 23,
+      "max_EP_mean_error_sec": 1317.931033255134,
+      "max_EP_copy_probability_error": 0.14482758607199273,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          480.8531246770817,
+          480.8531246770749
+        ],
+        "copy": [
+          0.05284100271176717,
+          0.05284100271176653
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 1,
+        "observed_dimension": 1,
+        "orthogonal_residual_squared": 0.0,
+        "reference_integration_error": 2.468261491885041e-13,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 1.1093194155942278e-20,
+            "covariance_error": 0.01051521054913973
+          },
+          {
+            "nodes": 64,
+            "mean_error": 3.715477598837023e-21,
+            "covariance_error": 0.0035218917737458444
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          0.0004143842115809093,
+          0.00040435053779219743
+        ],
+        "copy": [
+          4.553672661167241e-08,
+          4.44341250460667e-08
+        ]
+      }
+    },
+    {
+      "case": "cutoff_crossing",
+      "view": "joint",
+      "attempted": 24,
+      "completed": 8,
+      "invalid": 16,
+      "max_EP_mean_error_sec": 1419.7554321853204,
+      "max_EP_copy_probability_error": 0.367156767645278,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          2119.196269814166,
+          898.7328038848036,
+          3.755974902195703
+        ],
+        "copy": [
+          0.5451533359030889,
+          0.16986794084250115,
+          0.01493511021415847
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 3,
+        "observed_dimension": 3,
+        "orthogonal_residual_squared": 3.960328263242361e-29,
+        "reference_integration_error": 5.247634670401596e-11,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 6.32485480549505e-05,
+            "covariance_error": 0.00044962467211062673
+          },
+          {
+            "nodes": 64,
+            "mean_error": 8.384865235022687e-06,
+            "covariance_error": 0.00010939810601073852
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          0.20949634694534325,
+          0.48070034400552686,
+          0.0594283476120836
+        ],
+        "copy": [
+          5.630977621687294e-05,
+          9.944500699166081e-05,
+          1.8173869207493976e-05
+        ]
+      }
+    },
+    {
+      "case": "cutoff_crossing",
+      "view": "departure",
+      "attempted": 24,
+      "completed": 8,
+      "invalid": 16,
+      "max_EP_mean_error_sec": 1631.9243393390898,
+      "max_EP_copy_probability_error": 0.39127779003472435,
+      "prior_moment_absolute_errors": {
+        "mean": [
+          1378.7763649842,
+          235.16289956539913,
+          1890.3863082783364
+        ],
+        "copy": [
+          0.35772274426417083,
+          0.11995924300462574,
+          0.0755467668876938
+        ]
+      },
+      "quadrature_initial_cavity_only": {
+        "rank": 1,
+        "observed_dimension": 1,
+        "orthogonal_residual_squared": 0.0,
+        "reference_integration_error": 3.465345968173576e-12,
+        "records": [
+          {
+            "nodes": 32,
+            "mean_error": 1.4338736369801097e-05,
+            "covariance_error": 0.00018204008423783336
+          },
+          {
+            "nodes": 64,
+            "mean_error": 9.161660523115955e-06,
+            "covariance_error": 0.0001746314204389421
+          }
+        ],
+        "pass_all": false
+      },
+      "all_configuration_spread": {
+        "mean": [
+          0.007112356006473419,
+          0.23777557221819734,
+          0.6296520045107172
+        ],
+        "copy": [
+          1.8542922746167534e-06,
+          9.824437919969675e-06,
+          4.1764277538380856e-05
+        ]
+      }
+    }
+  ],
+  "all_absolute_errors_retained": {
+    "path": "VALIDATION/reports/all_discrete_peer_20261012/ep_toy_result.json",
+    "sha256": "1625ffc33c90fc8afd084e84dfe4abec49d6eada6bf7da892f10f7d804547831"
+  },
+  "frozen_design_and_complete_toy_inputs": {
+    "path": "VALIDATION/reports/all_discrete_peer_20261012/ep_toy_design.json",
+    "sha256": "5fa9464947d47681fbc761e2a6c469d5b15233c86402959f6aa641627c120369"
+  },
+  "review": {
+    "path": "VALIDATION/reports/all_discrete_peer_20261012/ep_toy_review.json",
+    "sha256": "1fe5b610cc9cebc0b85eccb2ee5b6973cdde2efa980a9c189e747089d94b7a04"
+  },
+  "source": {
+    "path": "VALIDATION/joint_public_ep_toy.py",
+    "sha256": "122172b534e0d1175119289267079ae179c003774bdd9a1d41df5145de0dab6b"
+  },
+  "log": {
+    "path": "tmp/research_20261012/signal_scout/ep_toy/test.log",
+    "sha256": "dd3d3c82f7bd8bc94aada52d8b8d8d656a735600656c940304927b8623ecbbe9"
+  },
+  "no_repairs_or_extra_budgets": true,
+  "no_real_cohorts_cv_production_or_upload": true,
+  "independent_result_arithmetic_audit": {
+    "path": "VALIDATION/reports/all_discrete_peer_20261012/ep_toy_result_audit.json",
+    "sha256": "9c4d72196d4ab6828d67d1b65f4a8add522aff0073b8bdddd255ba857d08459f",
+    "receipt": {
+      "status": "pass_independent_saved_arithmetic",
+      "source": {
+        "path": "VALIDATION/joint_public_ep_toy.py",
+        "sha256": "122172b534e0d1175119289267079ae179c003774bdd9a1d41df5145de0dab6b"
+      },
+      "design": {
+        "path": "tmp/research_20261012/signal_scout/ep_toy/design.json",
+        "sha256": "5fa9464947d47681fbc761e2a6c469d5b15233c86402959f6aa641627c120369"
+      },
+      "result": {
+        "path": "tmp/research_20261012/signal_scout/ep_toy/result.json",
+        "sha256": "1625ffc33c90fc8afd084e84dfe4abec49d6eada6bf7da892f10f7d804547831"
+      },
+      "attempts": 288,
+      "counts": {
+        "completed": 185,
+        "invalid": 103
+      },
+      "completed_accuracy_pass": 0,
+      "completed_convergence_pass": 177,
+      "initial_cavity_quadrature_pass": 0,
+      "initial_cavity_quadrature_total": 12,
+      "exact_independent_enumeration": [
+        {
+          "case": "competing_copy",
+          "view": "joint",
+          "states": 4,
+          "max_error": 1.8189894035458565e-12,
+          "mean": [
+            8587.931034479756,
+            2312.068965520151
+          ],
+          "copy_mass": [
+            0.8448275862065666,
+            0.1551724137934232
+          ]
+        },
+        {
+          "case": "competing_copy",
+          "view": "departure",
+          "states": 4,
+          "max_error": 9.094947017729282e-13,
+          "mean": [
+            8587.931033255132,
+            2312.0689667448673
+          ],
+          "copy_mass": [
+            0.8448275860719926,
+            0.1551724139280074
+          ]
+        },
+        {
+          "case": "cutoff_crossing",
+          "view": "joint",
+          "states": 48,
+          "max_error": 5.4569682106375694e-12,
+          "mean": [
+            9347.180475811836,
+            8362.346203415127,
+            7202.595819203508
+          ],
+          "copy_mass": [
+            0.5736584941222396,
+            0.2422607422902046,
+            0.03393565841014421
+          ]
+        },
+        {
+          "case": "cutoff_crossing",
+          "view": "departure",
+          "states": 48,
+          "max_error": 1.8189894035458565e-12,
+          "mean": [
+            9891.621392821831,
+            8259.366350564549,
+            6160.277257237265
+          ],
+          "copy_mass": [
+            0.7127090375736723,
+            0.474417331306277,
+            0.22834543147177566
+          ]
+        }
+      ],
+      "maximum_saved_errors": {
+        "mean": 20133.021659146085,
+        "copy": 0.9636412657898363
+      },
+      "seconds": 0.03622014299617149,
+      "conclusion": "Fixed approximation rejected; initial Gamma quadrature is unresolved, so large source-toy errors cannot be assigned solely to EP projection. No rerun, repair, real cohort inference or CV."
+    }
+  }
+}

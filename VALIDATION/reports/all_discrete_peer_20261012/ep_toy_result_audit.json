@@ -1,0 +1,92 @@
+{
+  "status": "pass_independent_saved_arithmetic",
+  "source": {
+    "path": "VALIDATION/joint_public_ep_toy.py",
+    "sha256": "122172b534e0d1175119289267079ae179c003774bdd9a1d41df5145de0dab6b"
+  },
+  "design": {
+    "path": "tmp/research_20261012/signal_scout/ep_toy/design.json",
+    "sha256": "5fa9464947d47681fbc761e2a6c469d5b15233c86402959f6aa641627c120369"
+  },
+  "result": {
+    "path": "tmp/research_20261012/signal_scout/ep_toy/result.json",
+    "sha256": "1625ffc33c90fc8afd084e84dfe4abec49d6eada6bf7da892f10f7d804547831"
+  },
+  "attempts": 288,
+  "counts": {
+    "completed": 185,
+    "invalid": 103
+  },
+  "completed_accuracy_pass": 0,
+  "completed_convergence_pass": 177,
+  "initial_cavity_quadrature_pass": 0,
+  "initial_cavity_quadrature_total": 12,
+  "exact_independent_enumeration": [
+    {
+      "case": "competing_copy",
+      "view": "joint",
+      "states": 4,
+      "max_error": 1.8189894035458565e-12,
+      "mean": [
+        8587.931034479756,
+        2312.068965520151
+      ],
+      "copy_mass": [
+        0.8448275862065666,
+        0.1551724137934232
+      ]
+    },
+    {
+      "case": "competing_copy",
+      "view": "departure",
+      "states": 4,
+      "max_error": 9.094947017729282e-13,
+      "mean": [
+        8587.931033255132,
+        2312.0689667448673
+      ],
+      "copy_mass": [
+        0.8448275860719926,
+        0.1551724139280074
+      ]
+    },
+    {
+      "case": "cutoff_crossing",
+      "view": "joint",
+      "states": 48,
+      "max_error": 5.4569682106375694e-12,
+      "mean": [
+        9347.180475811836,
+        8362.346203415127,
+        7202.595819203508
+      ],
+      "copy_mass": [
+        0.5736584941222396,
+        0.2422607422902046,
+        0.03393565841014421
+      ]
+    },
+    {
+      "case": "cutoff_crossing",
+      "view": "departure",
+      "states": 48,
+      "max_error": 1.8189894035458565e-12,
+      "mean": [
+        9891.621392821831,
+        8259.366350564549,
+        6160.277257237265
+      ],
+      "copy_mass": [
+        0.7127090375736723,
+        0.474417331306277,
+        0.22834543147177566
+      ]
+    }
+  ],
+  "maximum_saved_errors": {
+    "mean": 20133.021659146085,
+    "copy": 0.9636412657898363
+  },
+  "seconds": 0.03622014299617149,
+  "conclusion": "Fixed approximation rejected; initial Gamma quadrature is unresolved, so large source-toy errors cannot be assigned solely to EP projection. No rerun, repair, real cohort inference or CV."
+}
