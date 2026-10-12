@@ -121,6 +121,16 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+Start with `VALIDATION/research_registry.json` and `VALIDATION/research_state.json`.
+`tools/research_state.py status --remote` prints a compact status; `find <terms>`
+checks previously tested hypotheses. Full logs stay on disk. Update these at
+milestones, avoid full-report rereads and repeated closed experiments.
+The fixed TabM24-epoch screen is running on the desktop (session9642), with
+same-trajectory21/17 snapshots and no stopping search. Original optimizer/update
+AST, exact CPU parameter/RNG prefixes and GPU capacity checks pass. Completion
+worker session36916 waits for laptop export and an idle desktop, then returns,
+builds and audits the selected three-TabM/runway file; it never fits or uploads.
+
 - **October12, 10:50 Amsterdam: three-TabM pool selected; two full-year fits active.**
   Best/latestv79 **219.6130**, live08:24 Amsterdam, rank9/242; one UTC-day slot remains.
   GitHub is PRIVATE; `LOCAL_PROGRESS.md` is gitignored. Four extra TabM CV fits

@@ -33,7 +33,15 @@ timer is currently scheduled. The native goal object remains `usageLimited`
 with its old text; no native limit or status was changed. The local project
 objective records the user's current 205 target.
 
-Current work:
+Current work (compact index: `VALIDATION/research_registry.json`; live local
+snapshot: `VALIDATION/research_state.json`):
+
+- **Desktop duration comparison:** two fixed24-epoch TabM trajectories running,
+  with original21/17 checkpoints saved as same-run controls. No epoch search.
+  Unchanged updates, CPU RNG/prefix parity and GPU capacity pass. Session9642.
+- **Finite production completion worker:** session36916 waits for laptop export
+  and an idle desktop, then returns/builds/audits the selected pool/runway file.
+  It does not fit or upload; source hashes and per-stage receipts are pinned.
 
 - **Selected three-TabM combination:** CV290.674357→289.762778 versus v79,
   −0.911579, interval[−1.322560,−0.646076]. It improves the audited one-TabM

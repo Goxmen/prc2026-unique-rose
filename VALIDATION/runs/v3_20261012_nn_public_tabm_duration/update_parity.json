@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_tabm_duration_updates_20261012.py",
+    "sha256": "2d4d29a20bada104b721b45401fa6fe1b823e4c8be384500a28a4ccc6b5de27b"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/identity.json",
+    "sha256": "54711f9487fd64ec1d3b5c0760bc3d92d9c8ed7831671d1ee4fb20acb4c427f2"
+  },
+  "unchanged_training_AST_except_checkpoint": true,
+  "exact24_epoch_optimizer_parameters_and_RNG": true,
+  "exact17_and21_epoch_prefixes": true,
+  "checkpoint_serialization_preserves_CPU_RNG": true,
+  "live_GPU_checkpoint_RNG_assertion": true,
+  "no_real_training_rows": true
+}

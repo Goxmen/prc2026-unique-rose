@@ -1,0 +1,514 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-12T09:13:04.777947+00:00",
+  "current": {
+    "target": 205.0,
+    "best_version": 79,
+    "best_official_rmse": 219.613,
+    "slots_remaining": 1,
+    "repository": "PRIVATE",
+    "laptop": "Two final TabM fits active; one heavy job at a time",
+    "desktop": "Fixed24-epoch duration screen running; matched21/17 trajectory snapshots"
+  },
+  "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
+  "entries": [
+    {
+      "id": "public_tabm_pool3",
+      "hypothesis": "Replace the public/physical PLE pool with three TabM seeds",
+      "status": "selected",
+      "conclusion": "Audited CV improvement; two full-year members running, original seed42 reused. No official gain yet.",
+      "metrics": {
+        "cv": 289.76277821,
+        "change_vs_v79": -0.911578908,
+        "ci95": [
+          -1.322560128,
+          -0.646075812
+        ]
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/public_tabm_20261012/pool3_score_audit.json",
+          "sha256": "4a9733556bdfa4e8a960e18d46e1af591e105f6e1e513662bb6e08677663282a"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
+          "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+        }
+      ]
+    },
+    {
+      "id": "cross_date_taxi",
+      "hypothesis": "Other-date taxi cells constrain peers in assigned-day delay total",
+      "status": "closed_inconclusive",
+      "conclusion": "Both fixed comparisons inconclusive; January worse. No combination or production.",
+      "metrics": {
+        "change_v78": 0.006943696,
+        "change_v79": 0.008619928
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date/closed.json",
+          "sha256": "af71f49848107d2618c264d97b7f62d2545e4b081f91713ca2a9a7c1915611d4"
+        }
+      ]
+    },
+    {
+      "id": "same_date_other_runway",
+      "hypothesis": "Other runway taxi totals constrain shared delay peers",
+      "status": "selected",
+      "conclusion": "Audited production correction; included in selected TabM combination.",
+      "metrics": {
+        "change_v79": -0.154162776
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/result.json",
+          "sha256": "6ad04715f1a54164d863a32b72d8d19bfa60f08999caf1f545bc8227f1c817b1"
+        }
+      ]
+    },
+    {
+      "id": "stand_month_context",
+      "hypothesis": "Typical stand clocks and arrival taxi-in transfer to departures",
+      "status": "closed_inconclusive",
+      "conclusion": "Two main-tree fits complete and audited; no production.",
+      "metrics": {
+        "change_v78": -2.21003e-05,
+        "change_v79": 0.0033698568
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/stand_month_context_20261012/closed.json",
+          "sha256": "ba6072f400eff7cc0c642c5f9388befc128b71da4b527f0f805e892c47329ad0"
+        }
+      ]
+    },
+    {
+      "id": "heteroscedastic_score_conditioning",
+      "hypothesis": "Rowwise ensemble disagreement weights scored residual constraints",
+      "status": "closed_inconclusive",
+      "conclusion": "Fixed formula inconclusive and January worse; dual optimum audited. No combination.",
+      "metrics": {
+        "change_v79": -0.04408035
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_heteroscedastic_score_conditioning/result.json",
+          "sha256": "4053f617bde1e0b56342e88fdd32bf343dc1bb915f15152cec9046067c787085"
+        }
+      ]
+    },
+    {
+      "id": "rome_tabm",
+      "hypothesis": "TabM classifier with tabular or physical-track inputs",
+      "status": "closed",
+      "conclusion": "Both arms and physical-minus-tabular inconclusive; all8 models retained.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "arrival_stand_drift",
+      "hypothesis": "Transfer monthly stand changes from arrivals",
+      "status": "closed",
+      "conclusion": "All4 training months worsen; no adaptation expansion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "flight_id_clock",
+      "hypothesis": "Interpolate IOBT from neighboring plan IDs",
+      "status": "closed",
+      "conclusion": "Two main-tree fits inconclusive; no production.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "movement_id_arrival_clock",
+      "hypothesis": "Interpolate missing plan clocks using arrival movement IDs",
+      "status": "closed",
+      "conclusion": "Zero coverage for339 intended targets.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "linear_leaves",
+      "hypothesis": "Linear-leaf LightGBM on standardized184 inputs",
+      "status": "closed",
+      "conclusion": "Four models complete; comparisons inconclusive.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "fractional_punctuality",
+      "hypothesis": "Additional public punctuality likelihood",
+      "status": "closed",
+      "conclusion": "Source error exceeds proposed prior precision; source-only pilot closed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "clock_phases",
+      "hypothesis": "Seconds/minute phases of original plan timestamps",
+      "status": "closed",
+      "conclusion": "Fixed seven-input main-tree comparison failed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "cross_flight_context",
+      "hypothesis": "Represent nearby flight contexts in neural model",
+      "status": "closed",
+      "conclusion": "Completed comparison inconclusive.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "all_peer_sobol",
+      "hypothesis": "Integrate every discrete peer by prior-Sobol sampling",
+      "status": "closed",
+      "conclusion": "Importance collapse; no stable posterior/CV.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "all_peer_gibbs",
+      "hypothesis": "Sample all peers using single-site Gibbs",
+      "status": "closed",
+      "conclusion": "Poor mixing; numerical precision gate failed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "all_peer_pair_gibbs",
+      "hypothesis": "Paired discrete moves improve mixing",
+      "status": "closed",
+      "conclusion": "Largest-cohort precision gate failed; no CV.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "all_peer_ep",
+      "hypothesis": "Damped expectation propagation with t likelihood",
+      "status": "closed",
+      "conclusion": "Tiny exact cases fail accuracy/cavity checks; no real-data expansion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "updated_robust_affine",
+      "hypothesis": "Minimax score mixture including actualv76-v78",
+      "status": "closed",
+      "conclusion": "Only0.00587seconds projected gain; no upload.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "clock_bypass",
+      "hypothesis": "Learn bounded gates directly to physical clocks",
+      "status": "closed",
+      "conclusion": "Four-fit matched laptop comparison completed; not selected.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "clock_residual",
+      "hypothesis": "Force an actual-AOBT residual target",
+      "status": "closed",
+      "conclusion": "Completed and failed; do not repeat as a new idea.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "sensor_differences",
+      "hypothesis": "Pairwise physical sensor clock differences",
+      "status": "closed",
+      "conclusion": "Completed and failed; no new observations.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "aircraft_rotation",
+      "hypothesis": "Aircraft identity and rotation history",
+      "status": "closed",
+      "conclusion": "Completed comparison regressed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "joint_callsign_track",
+      "hypothesis": "Learn callsign and raw tracks in a single network",
+      "status": "closed",
+      "conclusion": "Completed comparison failed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "track_attention",
+      "hypothesis": "Learn scalar attention over local track states",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "track_recurrent",
+      "hypothesis": "Recurrent temporal track representation",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "track_time_weighted",
+      "hypothesis": "Weight track pooling by elapsed time",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "observation_variance",
+      "hypothesis": "Learn conditional Gaussian observation variance",
+      "status": "closed",
+      "conclusion": "Regression; retain checkpoints, no expansion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "rome_continuous",
+      "hypothesis": "Regress a continuous Rome mixture coefficient",
+      "status": "closed",
+      "conclusion": "Regression against same-laptop binary Logloss control.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "native_airport_joint",
+      "hypothesis": "Extend source joint message beyond Rome",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "uncertain_calendar",
+      "hypothesis": "Integrate uncertain off-block date memberships",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "explicit_single_peer",
+      "hypothesis": "Keep largest uncertain peer discrete",
+      "status": "closed",
+      "conclusion": "Inconclusive; January worse.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "conditional_prior",
+      "hypothesis": "Use original Rome endpoints and classifier in source prior",
+      "status": "closed",
+      "conclusion": "Completed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "early_public_nn",
+      "hypothesis": "Apply public-source correction before ordinary network blend",
+      "status": "closed",
+      "conclusion": "Full CV closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "stand_reference_inverse",
+      "hypothesis": "Invert public stand-reference information",
+      "status": "closed",
+      "conclusion": "CV closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "neural_weight_average",
+      "hypothesis": "Average late weights from the same trajectory",
+      "status": "closed",
+      "conclusion": "Completed comparison failed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "tabm_duration",
+      "hypothesis": "Complete TabM’s24-epoch schedule instead of inherited PLE21/17 stops",
+      "status": "running",
+      "conclusion": "Fixed24/24 test running after CPU update/RNG parity and GPU capacity checks; intermediate21/17 snapshots are matched controls. No held-label stopping search.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/nn_public_tabm_jan_jul.py",
+          "sha256": "c28cc9686c8acccd1e215e03fb6b7ee4b6a51909ae68f412ed2cd15b56b82775"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/identity.json",
+          "sha256": "54711f9487fd64ec1d3b5c0760bc3d92d9c8ed7831671d1ee4fb20acb4c427f2"
+        }
+      ]
+    }
+  ],
+  "next": [
+    "Complete and audit three-TabM/runway production; submit one selected candidate",
+    "Test fixed TabM training duration with same-trajectory controls",
+    "Use official feedback before further score-based recombination"
+  ]
+}
