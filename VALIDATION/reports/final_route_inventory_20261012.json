@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-12T15:34:14.060340+00:00",
+  "at": "2026-10-12T15:56:26.005770+00:00",
   "state": "selected_public_component_predictions_audited_legacy_port_pending",
   "deadline_utc": "2026-10-14T10:00:00Z",
   "filename": "unique-rose_final.parquet",
@@ -276,6 +276,31 @@
       "final_model_reloads_exact": true,
       "original_model_text_hash_equal": false,
       "note": "Original archived R3 source; single fixed reconstruction; historical laptop/current desktop caveat preserved."
+    },
+    "final_daily_taxi_features": {
+      "receipt": "VALIDATION/runs/v3_20261012_final_daily_main_inference/features/audit.json",
+      "rows": 670790,
+      "values": 6707900,
+      "old_features_exact": true,
+      "missing_cells_retained": true
+    },
+    "final_correction_inputs": {
+      "receipt": "VALIDATION/runs/v3_20261012_final_correction_inputs/audit.json",
+      "raw_values": 12187572,
+      "old_daily_and_matches_exact": true,
+      "final_pairs": 73,
+      "final_accepted": 71,
+      "complete_raw_pair_enumeration": true,
+      "no_labels_or_predictions": true
+    },
+    "final_weather_features": {
+      "receipt": "VALIDATION/runs/v3_20261012_final_weather_features/audit.json",
+      "rows": 670790,
+      "values": 7378690,
+      "new_cache_files": 20,
+      "original_cache_files_unchanged": 30,
+      "all_old_features_exact": true,
+      "no_model_inference_yet": true
     }
   },
   "prepared_code": {

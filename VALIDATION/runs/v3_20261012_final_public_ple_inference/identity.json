@@ -1,0 +1,1103 @@
+{
+  "design": {
+    "family": "original public PLE physical pool, not pre-public physical or TabM",
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "epochs": 15,
+    "views": [
+      "old",
+      "final"
+    ],
+    "preprocessing": "saved full-year Encoder.transform/layout/bins/target scale; never refit",
+    "inputs": "same 156 ordinary inputs plus fixed12 public inputs, separate raw-track namespaces",
+    "bridge": "unchanged audited final_public_tabm_inference.data_for_view bytecode; PLE public transform",
+    "control": "all three old-view predictions must replay exactly on original desktop/GPU/Torch",
+    "prediction": "unchanged fixed_epoch_sparse_train.predict_view, original2048-row chunks",
+    "no_fit": true,
+    "no_new_selection": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "execution": {
+    "host": "GPC",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "torch": "2.14.1+cu130"
+  },
+  "members": [
+    {
+      "seed": 42,
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/identity.json",
+        "sha256": "cd3d3d711333178622bd2c62e414d3b9daf438c878045d95dd740de0e294ca29"
+      },
+      "trained": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/trained/k0.json",
+        "sha256": "c8c852776c95bd516d70214b1eb00a256a33340685034d7c0b03cd680149e7dd"
+      },
+      "prediction_record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k0.json",
+        "sha256": "5f91a2b1bfa34d8fe0868c9cd094884ee04fdd3deed0498f158eb44eb220b802"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/models/k0.pt",
+        "sha256": "a44430a33d6ecd41966c3ac3db8734e8f26fffb3d01850a1cbc744e39aef5edd"
+      },
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/preprocessing/full_year.pkl",
+        "sha256": "cfea5f6710a53d7786997cb21f63dd554cd7865bf78f0d01eec68f95566c228f"
+      },
+      "old_prediction": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/old_k0.parquet",
+        "sha256": "81d5978082fed596267d2a7dc68f862df57c7ece8cb4b69a03d50d02ea20d069"
+      },
+      "design": {
+        "parent": "v75 physical neural pool",
+        "change": "12 public daily inputs through the passing residual head",
+        "columns": 156,
+        "public_features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "model": {
+          "features": [
+            "pub_dep_count_gap",
+            "pub_dep_mean",
+            "pub_dep_long_count",
+            "pub_dep_long_gap_sum",
+            "pub_dep_resid900_mean",
+            "pub_dep_resid1800_mean",
+            "pub_dep_resid_clock_mean",
+            "pub_dep_own900_left",
+            "pub_dep_own1800_left",
+            "pub_dep_own900_fraction",
+            "pub_dep_own1800_fraction",
+            "pub_dep_long900_fraction"
+          ],
+          "scales": [
+            5.0,
+            600.0,
+            20.0,
+            72000.0,
+            100.0,
+            100.0,
+            100.0,
+            3600.0,
+            3600.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+          "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+          "initialization": "original physical seed42; zero new final head; no pretrained weights",
+          "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+        },
+        "seeds": [
+          42,
+          1042,
+          2042
+        ],
+        "epochs": 15,
+        "training": "unchanged fixed-epoch production updates; model constructor replaced",
+        "original_preprocessing": "exact retained full-year encoder; append public transform afterward",
+        "training_rows": 2051327,
+        "ranking_view": "old",
+        "ranking_rows": 344841,
+        "machine": "all new production members on desktop RTX3080",
+        "machine_caveat": "retained original physical production pool used laptop; CV controls/candidates all desktop",
+        "no_new_stopping_or_weight_search": true,
+        "no_upload": true
+      }
+    },
+    {
+      "seed": 1042,
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/identity.json",
+        "sha256": "cd3d3d711333178622bd2c62e414d3b9daf438c878045d95dd740de0e294ca29"
+      },
+      "trained": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/trained/k1.json",
+        "sha256": "10ec58d5fbadf8c2abe8e702cf4ffc6069807fb2ce5e4b127fdf58be007931b3"
+      },
+      "prediction_record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k1.json",
+        "sha256": "29370700cfcf1ff8f07cee0662827a9b8c7a12aaa5412648a6d0904d8119c4b3"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/models/k1.pt",
+        "sha256": "7166fcffe2df37ed90d12a26114e6d5c8a3bbbc102a8ebf9b12b9908df40fc2c"
+      },
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/preprocessing/full_year.pkl",
+        "sha256": "cfea5f6710a53d7786997cb21f63dd554cd7865bf78f0d01eec68f95566c228f"
+      },
+      "old_prediction": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/old_k1.parquet",
+        "sha256": "f8f770af800482276ea6c6135cc64ac12b6e821ccd701ffe66cbb77fcc5c600f"
+      },
+      "design": {
+        "parent": "v75 physical neural pool",
+        "change": "12 public daily inputs through the passing residual head",
+        "columns": 156,
+        "public_features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "model": {
+          "features": [
+            "pub_dep_count_gap",
+            "pub_dep_mean",
+            "pub_dep_long_count",
+            "pub_dep_long_gap_sum",
+            "pub_dep_resid900_mean",
+            "pub_dep_resid1800_mean",
+            "pub_dep_resid_clock_mean",
+            "pub_dep_own900_left",
+            "pub_dep_own1800_left",
+            "pub_dep_own900_fraction",
+            "pub_dep_own1800_fraction",
+            "pub_dep_long900_fraction"
+          ],
+          "scales": [
+            5.0,
+            600.0,
+            20.0,
+            72000.0,
+            100.0,
+            100.0,
+            100.0,
+            3600.0,
+            3600.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+          "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+          "initialization": "original physical seed42; zero new final head; no pretrained weights",
+          "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+        },
+        "seeds": [
+          42,
+          1042,
+          2042
+        ],
+        "epochs": 15,
+        "training": "unchanged fixed-epoch production updates; model constructor replaced",
+        "original_preprocessing": "exact retained full-year encoder; append public transform afterward",
+        "training_rows": 2051327,
+        "ranking_view": "old",
+        "ranking_rows": 344841,
+        "machine": "all new production members on desktop RTX3080",
+        "machine_caveat": "retained original physical production pool used laptop; CV controls/candidates all desktop",
+        "no_new_stopping_or_weight_search": true,
+        "no_upload": true
+      }
+    },
+    {
+      "seed": 2042,
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/identity.json",
+        "sha256": "cd3d3d711333178622bd2c62e414d3b9daf438c878045d95dd740de0e294ca29"
+      },
+      "trained": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/trained/k2.json",
+        "sha256": "91b288b293bdd0ee0fc536c6f6784c1223a020e7a08a3e6300b92a1825f31968"
+      },
+      "prediction_record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k2.json",
+        "sha256": "99b1a14e52c91393f500e1d7bb006513a7027a9acdb49c179291c64b3a693486"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/models/k2.pt",
+        "sha256": "ad529a39a0ab617a2a725ff3bc5d470368dec44f6c69e81fdff434f182ca04fe"
+      },
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/preprocessing/full_year.pkl",
+        "sha256": "cfea5f6710a53d7786997cb21f63dd554cd7865bf78f0d01eec68f95566c228f"
+      },
+      "old_prediction": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/old_k2.parquet",
+        "sha256": "1e032a6633f6dd16743118e1fa08e4199b0773f019812fbfe144fd0315ec5351"
+      },
+      "design": {
+        "parent": "v75 physical neural pool",
+        "change": "12 public daily inputs through the passing residual head",
+        "columns": 156,
+        "public_features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "model": {
+          "features": [
+            "pub_dep_count_gap",
+            "pub_dep_mean",
+            "pub_dep_long_count",
+            "pub_dep_long_gap_sum",
+            "pub_dep_resid900_mean",
+            "pub_dep_resid1800_mean",
+            "pub_dep_resid_clock_mean",
+            "pub_dep_own900_left",
+            "pub_dep_own1800_left",
+            "pub_dep_own900_fraction",
+            "pub_dep_own1800_fraction",
+            "pub_dep_long900_fraction"
+          ],
+          "scales": [
+            5.0,
+            600.0,
+            20.0,
+            72000.0,
+            100.0,
+            100.0,
+            100.0,
+            3600.0,
+            3600.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+          "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+          "initialization": "original physical seed42; zero new final head; no pretrained weights",
+          "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+        },
+        "seeds": [
+          42,
+          1042,
+          2042
+        ],
+        "epochs": 15,
+        "training": "unchanged fixed-epoch production updates; model constructor replaced",
+        "original_preprocessing": "exact retained full-year encoder; append public transform afterward",
+        "training_rows": 2051327,
+        "ranking_view": "old",
+        "ranking_rows": 344841,
+        "machine": "all new production members on desktop RTX3080",
+        "machine_caveat": "retained original physical production pool used laptop; CV controls/candidates all desktop",
+        "no_new_stopping_or_weight_search": true,
+        "no_upload": true
+      }
+    }
+  ],
+  "original_public": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/ranking_features.parquet",
+    "sha256": "4f46d20a5463792ca80987f4481ec31bb84f2257152ebe30e116544216f54f0e"
+  },
+  "final_public": {
+    "path": "data/derived/final_public_20261012/features.parquet",
+    "sha256": "f12b58b7b3e632cb0979038729ef42171b3b13a72bdf7ad65c27f78d87472118"
+  },
+  "packet": {
+    "design": {
+      "parent_runner": "VALIDATION/callsign_submit.py",
+      "original_columns": 156,
+      "packet_schema": [
+        "view",
+        "Vn",
+        "rank_ids"
+      ],
+      "view_order": [
+        "old",
+        "final"
+      ],
+      "old_view": "reuse original Vn/rank_ids in verified cached hs.INPUTS",
+      "groups": [
+        42,
+        142,
+        242
+      ],
+      "nets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "epochs": {
+        "42": 15,
+        "142": 21,
+        "242": 16
+      },
+      "target": "unchanged clipped direct mean",
+      "training": "original shared.train; no inner fit",
+      "portable_scope": "Portable worker: exact cached original training matrix, transferred ranking matrices, feature tables, training IDs, recipe, source and helper hashes. Original ranking/raw sources fully checked on desktop prepare; desktop audit/build checks them again.",
+      "original_runner_unchanged": true
+    },
+    "worker_source_sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c",
+    "cached_training_inputs": {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+      "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9"
+    },
+    "columns": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "hour",
+      "dow",
+      "month",
+      "mvt_minus_sched_sec",
+      "mvt_minus_lobt_sec",
+      "mvt_minus_iobt_sec",
+      "mvt_minus_eobt1_sec",
+      "mvt_minus_aobt3_sec",
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d",
+      "arr_taxiin_7d",
+      "dep_actual_30m_before",
+      "arr_actual_30m_before",
+      "dep_sched_60m_around",
+      "clock_aobt3_minus_schedule_sec",
+      "clock_aobt3_minus_eobt1_sec",
+      "clock_eobt1_minus_iobt_sec",
+      "clock_iobt_minus_lobt_sec",
+      "clock_schedule_available",
+      "clock_lobt_available",
+      "clock_iobt_available",
+      "clock_eobt1_available",
+      "clock_aobt3_available",
+      "clock_raw_flight_id_missing",
+      "clock_raw_plan_block_missing",
+      "clock_raw_aobt3_missing",
+      "clock_available_count",
+      "clock_span_sec",
+      "clock_std_sec",
+      "clock_median_sec",
+      "clock_baseline_sec",
+      "clock_baseline_source",
+      "wx_temp_c",
+      "wx_dewpoint_spread_c",
+      "wx_wind_kt",
+      "wx_gust_kt",
+      "wx_wind_dir",
+      "wx_visibility_m",
+      "wx_ceiling_ft",
+      "wx_thunder",
+      "wx_snow",
+      "wx_freezing",
+      "wx_fog",
+      "wx_rain",
+      "wx_heavy",
+      "wx_deicing",
+      "wx_age_min",
+      "wx_2h_min_visibility_m",
+      "wx_2h_min_ceiling_ft",
+      "wx_2h_max_gust_kt",
+      "wx_2h_thunder",
+      "wx_2h_snow_or_freezing",
+      "wx_2h_fog",
+      "q_rwy_prev_takeoff_gap_sec",
+      "q_rwy_takeoffs_prev30",
+      "q_apt_takeoffs_prev30",
+      "q_rwy_others_gap_prev60",
+      "q_apt_others_gap_prev60",
+      "q_queue_ahead_since_aobt3",
+      "q_rwy_landings_prev30",
+      "q_rwy_next_takeoff_gap_sec",
+      "q_rwy_takeoffs_next30",
+      "q_rwy_others_gap_pm30",
+      "q_apt_others_gap_pm30",
+      "airline",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60",
+      "dis_snow_6h_fraction",
+      "dis_snow_6h_coverage",
+      "dis_snow_24h_fraction",
+      "dis_snow_24h_coverage",
+      "dis_arr_60m_count",
+      "dis_arr_60m_mean_sec",
+      "dis_arr_60m_over30_share",
+      "dis_arr_60m_over60_share",
+      "dis_arr_180m_count",
+      "dis_arr_180m_mean_sec",
+      "dis_arr_180m_over30_share",
+      "dis_arr_180m_over60_share",
+      "sc_x_m",
+      "sc_y_m",
+      "sc_rwy_end_m",
+      "ab_matched",
+      "ab_seg_sec",
+      "ab_move_sec",
+      "ab_still_end_sec",
+      "ab_seg_n",
+      "ab_first_gs",
+      "ab_last_gnd_sec",
+      "ab_prev_gap_sec",
+      "ab_moving_10",
+      "ab_moving_30",
+      "ab_ground_10",
+      "ab_low_air_10",
+      "ab_nb_seg_mean_60",
+      "ab_nb_seg_n_60",
+      "ab_stand_min_m",
+      "ab_stand_n",
+      "ab_stand_exit_sec",
+      "ab_exit_gap_sec",
+      "ab_seg_stand_m",
+      "ab_seg_rwy_m",
+      "ab_nb_exit_mean_60",
+      "ab_nb_exit_n_60",
+      "sa_last_taxiin_sec",
+      "sa_prev_taxiin_sec",
+      "ra_last_taxiin_sec",
+      "ra_last_land_age_sec",
+      "pc_apt_mean_pm30",
+      "pc_apt_std_pm30",
+      "pc_apt_n_pm30",
+      "pc_apt_mean_next30",
+      "pc_rwy_mean_pm30",
+      "pc_rwy_n_pm30",
+      "pc_zone_mean_pm60",
+      "pc_zone_n_pm60",
+      "pc_rwy_prev_proxy",
+      "pc_rwy_next_proxy",
+      "pc_own_minus_apt",
+      "rc_burst_prev",
+      "rc_burst_next",
+      "rc_rwy_streak_sec",
+      "rc_dep_rwys_60",
+      "rc_arr_rwys_60",
+      "rc_dep_set_60",
+      "rc_arr_set_60"
+    ],
+    "views": {
+      "old": {
+        "storage": "cached_training_inputs",
+        "rows": 344841,
+        "original_source": {
+          "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_old.pkl",
+          "sha256": "22e91f3aee2a614aba8ee626de366fa1edb281a1a35a5f660d70664463cf9821"
+        },
+        "exact_matrix_and_ids_verified_by_parent_prepare": true
+      },
+      "final": {
+        "storage": "portable_pickle",
+        "packet": {
+          "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+          "sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033"
+        },
+        "rows": 670790,
+        "original_source": {
+          "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_final.pkl",
+          "sha256": "4432bb7eaa886e69a5f0b84a1bc5baff3b62cf8d179280da980fdb1d4bdf44ae"
+        },
+        "exact_matrix_and_ids_verified": true
+      }
+    },
+    "training_ids": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/training_ids.parquet",
+      "sha256": "e97c401274cd7656408100e5aeed1397db839d838d734bbba895ccfea990a923"
+    },
+    "feature_records": {
+      "train": {
+        "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+        "artifact": {
+          "path": "data/derived/callsign_submit_20261010/train.parquet",
+          "sha256": "baed91fcdea27de1e021409bd234888bd0cfad0dfb09987f30be04ff01896e6f"
+        },
+        "rows": 2085047,
+        "reference_months": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ],
+        "sources": [
+          {
+            "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+            "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f"
+          },
+          {
+            "path": "data/derived/callsign_clocks_20261010/shared.parquet",
+            "sha256": "91145d4829e3568cc5de9a8e870d8eaab162c1581683b6cca2c660ef83a4b089"
+          }
+        ],
+        "nonmissing": {
+          "cc_call_start_sec": 1750340,
+          "cc_squawk_start_sec": 1754308,
+          "cc_previous_call_end_sec": 1252310,
+          "cc_before_own_arrival": 1726279,
+          "cc_ambiguous": 1756519,
+          "cc_censored": 1756519
+        },
+        "elapsed_sec": 15.029482178000762
+      },
+      "old": {
+        "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+        "artifact": {
+          "path": "data/derived/callsign_submit_20261010/old.parquet",
+          "sha256": "563b3e20714efaff9cf5e9b58bb5cae9a33abab4722e8d7f1f63042546714b5e"
+        },
+        "rows": 344841,
+        "ranking_view": "old",
+        "per_query_month_reference_months": {
+          "2026-01": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-01"
+          ],
+          "2026-07": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-07"
+          ]
+        },
+        "sources": [
+          {
+            "path": "data/derived/callsign_submit_20261010/old/identity.parquet",
+            "sha256": "0fb05b4bab4e6ba265f897294eb09587a51e060dfa3d87ca97d3fd81fe268a0b"
+          },
+          {
+            "path": "data/derived/callsign_submit_20261010/old/shared.parquet",
+            "sha256": "f438a6784311cf2abba6b4986d37d1a930ff7c9cdcd59b106125aaa7fe707eca"
+          },
+          {
+            "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+            "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f"
+          }
+        ],
+        "nonmissing": {
+          "cc_call_start_sec": 296865,
+          "cc_squawk_start_sec": 297578,
+          "cc_previous_call_end_sec": 209615,
+          "cc_before_own_arrival": 291676,
+          "cc_ambiguous": 298020,
+          "cc_censored": 298020
+        },
+        "elapsed_sec": 20.41864543599877
+      },
+      "final": {
+        "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+        "artifact": {
+          "path": "data/derived/callsign_submit_20261010/final.parquet",
+          "sha256": "a6d67be5b4427b45dff6cb6b6c00a61485d120cdf15231114791448bbac68ce4"
+        },
+        "rows": 670790,
+        "ranking_view": "final",
+        "per_query_month_reference_months": {
+          "2026-01": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-01"
+          ],
+          "2026-02": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-02"
+          ],
+          "2026-06": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-06"
+          ],
+          "2026-07": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-07"
+          ]
+        },
+        "sources": [
+          {
+            "path": "data/derived/callsign_submit_20261010/final/identity.parquet",
+            "sha256": "ec5fd03fca49d7c881c43eb0eb2dc24a8d883b96201058eb526aa9ac79672b20"
+          },
+          {
+            "path": "data/derived/callsign_submit_20261010/final/shared.parquet",
+            "sha256": "3227fc52b1bb84f8b8d8bba9927c719767a199a820bed81efb1ce9a810ddf343"
+          },
+          {
+            "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+            "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f"
+          }
+        ],
+        "nonmissing": {
+          "cc_call_start_sec": 574459,
+          "cc_squawk_start_sec": 575895,
+          "cc_previous_call_end_sec": 405315,
+          "cc_before_own_arrival": 563213,
+          "cc_ambiguous": 576773,
+          "cc_censored": 576773
+        },
+        "elapsed_sec": 41.052646225998615
+      }
+    },
+    "files": [
+      {
+        "path": "VALIDATION/callsign_submit.py",
+        "sha256": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954"
+      },
+      {
+        "path": "VALIDATION/callsign_submit_features.py",
+        "sha256": "843d8d664f75c094afad03b02dcc4ef75c4930368cd6fbdf66c5f5ef7d811af9"
+      },
+      {
+        "path": "VALIDATION/callsign_submit_portable.py",
+        "sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c"
+      },
+      {
+        "path": "VALIDATION/final_submit.py",
+        "sha256": "60820fe3be984b14f47e1a6db09585842d93c42dd49014a936d6ebac7433679c"
+      },
+      {
+        "path": "VALIDATION/hpo_submit.py",
+        "sha256": "5e47e979b2f97d86173495fff683b1aa74e3a6188edd28d4ab466ebe4186fcfe"
+      },
+      {
+        "path": "VALIDATION/nn_callsign_clocks_jan_jul.py",
+        "sha256": "4763756ce09d4e6da4e3c47d8dd844f063a29ae5addee6d56fc4a6ec60d74132"
+      },
+      {
+        "path": "VALIDATION/nn_callsign_pool_resume.py",
+        "sha256": "015c108ee6ffa1b05a7442af966fc55c79699ef6241b82c68582fccf677f47e5"
+      },
+      {
+        "path": "VALIDATION/nn_improve_jan_jul.py",
+        "sha256": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20"
+      },
+      {
+        "path": "VALIDATION/nn_improve_submit.py",
+        "sha256": "10aea4b461a7aa9da3ee880283349fb84cab23490177765b32a9f591d5f379e5"
+      },
+      {
+        "path": "VALIDATION/nn_jan_jul.py",
+        "sha256": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766"
+      },
+      {
+        "path": "VALIDATION/nn_residual_jan_jul.py",
+        "sha256": "e5cf29800ca49dbea75882e3587bd970d66b6845481ef1d8c9578367b9322f8b"
+      },
+      {
+        "path": "VALIDATION/nn_sensor_differences_jan_jul.py",
+        "sha256": "acbee310db0fd9421f4ee9850e6d5cc48f9999e88c07577fd1907571a8072a75"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261006_hpo_submit/work/parts/nn.json",
+        "sha256": "55cf40ef18c4cf88b037f6b475981c71503b37b84e5bbc59d5fb131e295810a1"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/design.json",
+        "sha256": "95d66c8b9336c77242f428baf3f7fda97a877051200736cd0da02eb79385db3e"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+        "sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/prepared.json",
+        "sha256": "84baa8c78bf9fb171e1aba4516e658bbd6091aae54d9dea42676fc106553c58a"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/training_ids.parquet",
+        "sha256": "e97c401274cd7656408100e5aeed1397db839d838d734bbba895ccfea990a923"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+        "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/score_g42_142_242_k0_1_2_3_4.json",
+        "sha256": "1406db0bfc6aa481a5837b780a06aa09a2a525cf9a180c1b72e1bf15fb3930ff"
+      },
+      {
+        "path": "data/derived/callsign_submit_20261010/design.json",
+        "sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b"
+      },
+      {
+        "path": "data/derived/callsign_submit_20261010/final.parquet",
+        "sha256": "a6d67be5b4427b45dff6cb6b6c00a61485d120cdf15231114791448bbac68ce4"
+      },
+      {
+        "path": "data/derived/callsign_submit_20261010/old.parquet",
+        "sha256": "563b3e20714efaff9cf5e9b58bb5cae9a33abab4722e8d7f1f63042546714b5e"
+      },
+      {
+        "path": "data/derived/callsign_submit_20261010/train.parquet",
+        "sha256": "baed91fcdea27de1e021409bd234888bd0cfad0dfb09987f30be04ff01896e6f"
+      }
+    ],
+    "full_desktop_source_validation_complete": true
+  },
+  "tracks": {
+    "old": {
+      "directory": "data/derived/sparse_track_submit_20261010/old",
+      "files": [
+        {
+          "path": "data/derived/sparse_track_submit_20261010/old/full_index.parquet",
+          "sha256": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98"
+        },
+        {
+          "path": "data/derived/sparse_track_submit_20261010/old/full_points.bin",
+          "sha256": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a"
+        }
+      ],
+      "identity": {
+        "ranking_view": "old",
+        "manifest": {
+          "path": "data/derived/sparse_track_submit_20261010/old/full.json",
+          "sha256": "925a04bb6daa72d77869096e0acd2db464f889e5218ec57caa86732df65688a3"
+        },
+        "design": {
+          "path": "data/derived/sparse_track_submit_20261010/old/full_design.json",
+          "sha256": "0da5b09393525c7983fb733e78db93181e35200d2ec0ca1158aaca161a7bf049"
+        },
+        "outputs": {
+          "full_index.parquet": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98",
+          "full_points.bin": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a"
+        },
+        "rows": 344841,
+        "stored_points": 16165071
+      }
+    },
+    "final": {
+      "directory": "data/derived/sparse_track_submit_20261010/final",
+      "files": [
+        {
+          "path": "data/derived/sparse_track_submit_20261010/final/full_index.parquet",
+          "sha256": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2"
+        },
+        {
+          "path": "data/derived/sparse_track_submit_20261010/final/full_points.bin",
+          "sha256": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a"
+        }
+      ],
+      "identity": {
+        "ranking_view": "final",
+        "manifest": {
+          "path": "data/derived/sparse_track_submit_20261010/final/full.json",
+          "sha256": "2f2037dbd051e1eea6834fb605dfba89aa0cc7119cfb7c025b18c3dfc9d00f19"
+        },
+        "design": {
+          "path": "data/derived/sparse_track_submit_20261010/final/full_design.json",
+          "sha256": "a8e576a72199bc50734f388acb3c1a34a1821fa593e2252dd966754da7698acd"
+        },
+        "outputs": {
+          "full_index.parquet": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2",
+          "full_points.bin": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a"
+        },
+        "rows": 670790,
+        "stored_points": 31252680
+      }
+    }
+  },
+  "original_config": {
+    "hidden": [
+      512,
+      512,
+      256
+    ],
+    "dropout": 0.1,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "batch": 2048,
+    "epochs": 24,
+    "bins": 48,
+    "d_ple": 16,
+    "label_clip": 10800.0
+  },
+  "source": {
+    "path": "VALIDATION/final_public_ple_inference.py",
+    "sha256": "ae97ba2a92f65cee49e991239276a223d9a77d4f684ee06a1c86aa1ee5018d26"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/chunked_direct_data.py",
+      "sha256": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9"
+    },
+    {
+      "path": "VALIDATION/final_public_features.py",
+      "sha256": "e6a0a665b2d30981292e3a7a30d6e9e2fada03329a797b039e292fba94d6d945"
+    },
+    {
+      "path": "VALIDATION/final_public_ple_inference.py",
+      "sha256": "ae97ba2a92f65cee49e991239276a223d9a77d4f684ee06a1c86aa1ee5018d26"
+    },
+    {
+      "path": "VALIDATION/final_public_tabm_inference.py",
+      "sha256": "54b397a91a4cc2ba6e0695921d94520dc6b41cb6f0eec9c8ddaf0cdbc0f38209"
+    },
+    {
+      "path": "VALIDATION/fixed_epoch_sparse_train.py",
+      "sha256": "ec2f938387748adac35af0912e93a16092b223b3beb04347c6e2da30ace389bc"
+    },
+    {
+      "path": "VALIDATION/nn_public_delay.py",
+      "sha256": "af53e6d86062292bbd166e6282bafabbeb7c403297753ef424a91e1365f57194"
+    },
+    {
+      "path": "VALIDATION/nn_public_pool3.py",
+      "sha256": "327086dc1e039f6f4e573e4d7058ab74b8a19cdb439b3892686dd0081b290b05"
+    },
+    {
+      "path": "VALIDATION/nn_public_scratch.py",
+      "sha256": "3b3f3d087b69bbef95a023edf85d5c5ab7c99c396449320806961c50f5e75a3a"
+    },
+    {
+      "path": "VALIDATION/nn_public_scratch_jan_jul.py",
+      "sha256": "4a3bb76c028152b4840980db0bc34a235496c21685b76a506baf3e995ea1440b"
+    },
+    {
+      "path": "VALIDATION/nn_public_submit.py",
+      "sha256": "ef738be163c19ec030d51abc829482819cb6242ecbebd689743c7b542244a804"
+    },
+    {
+      "path": "VALIDATION/nn_sparse_track_submit.py",
+      "sha256": "8feca43b661cff32b7c0fe298516c08377d8e5b03f4f3c0ba0a91616fc86908a"
+    },
+    {
+      "path": "VALIDATION/nn_track_physical_scales.py",
+      "sha256": "9d62084a0617054a233d08a82655d9990fb6ea153cd3861566530312f80ae998"
+    },
+    {
+      "path": "VALIDATION/nn_track_physical_submit.py",
+      "sha256": "ac0ae2700b549e9c4b0fbc30a2f76e29127143aac437a40532d6c34f9cd74f29"
+    },
+    {
+      "path": "VALIDATION/public_delay_features.py",
+      "sha256": "9f7407e5d291ae2c9b1010abe74fadee7f648695c25cca08ac735d90b3ef04df"
+    },
+    {
+      "path": "VALIDATION/rome_public_delay_submit.py",
+      "sha256": "861bd2c540a68aa960fecb885f3c38cf5a4fc8aee8aa7d6b24244eb74e5cedac"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+      "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+      "sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/audit.json",
+      "sha256": "a9c4d19910718159594776b59baf6069387cbe90c222872e05989a048354a24c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/identity.json",
+      "sha256": "cd3d3d711333178622bd2c62e414d3b9daf438c878045d95dd740de0e294ca29"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/models/k0.pt",
+      "sha256": "a44430a33d6ecd41966c3ac3db8734e8f26fffb3d01850a1cbc744e39aef5edd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/models/k1.pt",
+      "sha256": "7166fcffe2df37ed90d12a26114e6d5c8a3bbbc102a8ebf9b12b9908df40fc2c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/models/k2.pt",
+      "sha256": "ad529a39a0ab617a2a725ff3bc5d470368dec44f6c69e81fdff434f182ca04fe"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k0.json",
+      "sha256": "5f91a2b1bfa34d8fe0868c9cd094884ee04fdd3deed0498f158eb44eb220b802"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k1.json",
+      "sha256": "29370700cfcf1ff8f07cee0662827a9b8c7a12aaa5412648a6d0904d8119c4b3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k2.json",
+      "sha256": "99b1a14e52c91393f500e1d7bb006513a7027a9acdb49c179291c64b3a693486"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/old_k0.parquet",
+      "sha256": "81d5978082fed596267d2a7dc68f862df57c7ece8cb4b69a03d50d02ea20d069"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/old_k1.parquet",
+      "sha256": "f8f770af800482276ea6c6135cc64ac12b6e821ccd701ffe66cbb77fcc5c600f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/old_k2.parquet",
+      "sha256": "1e032a6633f6dd16743118e1fa08e4199b0773f019812fbfe144fd0315ec5351"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/preprocessing/full_year.pkl",
+      "sha256": "cfea5f6710a53d7786997cb21f63dd554cd7865bf78f0d01eec68f95566c228f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/trained/k0.json",
+      "sha256": "c8c852776c95bd516d70214b1eb00a256a33340685034d7c0b03cd680149e7dd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/trained/k1.json",
+      "sha256": "10ec58d5fbadf8c2abe8e702cf4ffc6069807fb2ce5e4b127fdf58be007931b3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_submit/trained/k2.json",
+      "sha256": "91b288b293bdd0ee0fc536c6f6784c1223a020e7a08a3e6300b92a1825f31968"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/portable.json",
+      "sha256": "f35ee26e8c50e49229197d7ec2fa110ca3367f44e090805b605c874543f53cda"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/ranking_features.parquet",
+      "sha256": "4f46d20a5463792ca80987f4481ec31bb84f2257152ebe30e116544216f54f0e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_features/audit.json",
+      "sha256": "7f7a1cd9ff9c4938ea9da8616acfda4d8e8cc92166ddf1cce479ff8f2cda6a4c"
+    },
+    {
+      "path": "data/derived/final_public_20261012/features.parquet",
+      "sha256": "f12b58b7b3e632cb0979038729ef42171b3b13a72bdf7ad65c27f78d87472118"
+    },
+    {
+      "path": "data/derived/final_public_20261012/manifest.json",
+      "sha256": "843772b7994673fb5f9649e5894861260f34a52c8788ad153c4fd19c5a793c58"
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/final/full_index.parquet",
+      "sha256": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2"
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/final/full_points.bin",
+      "sha256": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a"
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/old/full_index.parquet",
+      "sha256": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98"
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/old/full_points.bin",
+      "sha256": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a"
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    }
+  ]
+}

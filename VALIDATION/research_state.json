@@ -1,16 +1,19 @@
 {
-  "updated_at": "2026-10-12T15:37:22.361520+00:00",
+  "updated_at": "2026-10-12T15:56:26.033849+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-12T15:03:41+00:00",
   "slots_remaining": 0,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 45,
+  "hypotheses": 47,
   "desktop": {
-    "stage": "daily_main_final_inference_preparing",
+    "stage": "daily_main_then_public_PLE_final_inference",
     "run": "VALIDATION/runs/v3_20261012_final_daily_main_inference",
-    "owner": "root"
+    "owner": "root",
+    "session": 3608,
+    "completion_session": 32346,
+    "completion": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/execution.json"
   },
   "next": [
     "Complete fixed full-day peer TabM Jan/Jul experiment after preflight",
@@ -21,26 +24,31 @@
   "active_research": [
     {
       "owner": "root",
-      "scope": "Frozen full-day peer TabM on laptop, explicit CUDA preflight review, no training yet"
+      "scope": "Laptop fixed full-day peer TabM CV; desktop saved-model final inference and correction inputs"
     },
     {
       "owner": "final_recovery",
-      "scope": "Exact old-model recovery and four-month inference; baseline12/13/15 final audited, R3 old replay exact"
+      "scope": "21 exact historical components ready; prepare stand/flight-number/ordinary missing families"
     },
     {
       "owner": "cohort_learning",
-      "scope": "Inventory remaining selected final correction stages and daily-main184-input view"
+      "scope": "Final weather inputs audited; saved weather-model inference preparation"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent cohort CUDA parity diagnosis and result audit"
+      "scope": "Bounded source-only peer spatial congestion pilot and independent postfit audit"
     }
   ],
   "laptop": {
     "stage": "daily_cohort_fit_or_inference",
     "completed_folds": [],
     "run": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort",
-    "preflight_pass": true
+    "preflight_pass": true,
+    "last_epoch_at": "17:55:24",
+    "fold": "2025-01",
+    "epoch": 7,
+    "epochs": 21,
+    "seconds_per_epoch": 142.27
   },
   "duration_result": {
     "cv": {

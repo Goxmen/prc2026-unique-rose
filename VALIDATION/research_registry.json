@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T15:37:22.288756+00:00",
+  "updated_at": "2026-10-12T15:56:26.005770+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -830,6 +830,53 @@
           "sha256": "c111c633e21097cd643947f183af667b2eff4213d03efc7999212e0373eebb96"
         }
       ]
+    },
+    {
+      "id": "spatial_peer_ground_motion",
+      "hypothesis": "Other aircraft local ground speeds reveal dynamic taxiway congestion beyond spatial context and traffic counts",
+      "status": "closed_source_gate",
+      "conclusion": "Temporal peers lose to same-count spatial-only controls on both frozen training dates. No taxi labels, model features, fitting or threshold tuning follows. Coverage and observed speed are not equivalent to taxi-time predictability.",
+      "metrics": {
+        "source_queries": 2839,
+        "supported": 592,
+        "pooled_speed_MAE_knots": {
+          "dynamic": 4.7806587837837835,
+          "null": 5.604476351351352,
+          "spatial": 4.24358108108108
+        },
+        "source_gate": false,
+        "runtime_seconds": 40.75432468300005
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/spatial_peer_motion_20261012/identity.json",
+          "sha256": "968b862d62baceddf196bedfacc7c8ed1c1f2dc74a8eab564251068fb354118d"
+        },
+        {
+          "path": "VALIDATION/reports/spatial_peer_motion_20261012/result.json",
+          "sha256": "aad5f0f2c87948277327780900c3e48039f3632fa1f276cc39477f1ffd6c89c7"
+        },
+        {
+          "path": "VALIDATION/reports/spatial_peer_motion_20261012/audit.json",
+          "sha256": "a5fdbca4ae17819ee33896aa3a296ecc8229a8e7e258b44d49a5e15f92c59102"
+        }
+      ]
+    },
+    {
+      "id": "rome_public_monthly_prior_adaptation",
+      "hypothesis": "Shared recorder-prior odds adapt across days using public aggregate source likelihood",
+      "status": "closed_historical_inconclusive",
+      "conclusion": "Historical airline/month logit adaptation already tests this mechanism: v76 change about-0.0507 seconds, interval includes0, July worse. New scout found exact overlap; no re-run or leave-day-out variant.",
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/SCOUT_EXCLUSIONS_20261012.md",
+          "sha256": "fcc2f36aefe21f4483e256f5b91b77d31f1dc65d1687c83246a73ae59995a05e"
+        },
+        {
+          "path": "VALIDATION/rome_public_monthly_shift.py",
+          "sha256": "9565ac0eb8136e784db83311ae0b7e59532742b97cba365af9f769ad9d4c072e"
+        }
+      ]
     }
   ],
   "next": [
@@ -840,26 +887,29 @@
   "active_research": [
     {
       "owner": "root",
-      "scope": "Frozen full-day peer TabM on laptop, explicit CUDA preflight review, no training yet"
+      "scope": "Laptop fixed full-day peer TabM CV; desktop saved-model final inference and correction inputs"
     },
     {
       "owner": "final_recovery",
-      "scope": "Exact old-model recovery and four-month inference; baseline12/13/15 final audited, R3 old replay exact"
+      "scope": "21 exact historical components ready; prepare stand/flight-number/ordinary missing families"
     },
     {
       "owner": "cohort_learning",
-      "scope": "Inventory remaining selected final correction stages and daily-main184-input view"
+      "scope": "Final weather inputs audited; saved weather-model inference preparation"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent cohort CUDA parity diagnosis and result audit"
+      "scope": "Bounded source-only peer spatial congestion pilot and independent postfit audit"
     }
   ],
   "machine_allocation": {
     "desktop": {
-      "stage": "daily_main_final_inference_preparing",
+      "stage": "daily_main_then_public_PLE_final_inference",
       "run": "VALIDATION/runs/v3_20261012_final_daily_main_inference",
-      "owner": "root"
+      "owner": "root",
+      "session": 3608,
+      "completion_session": 32346,
+      "completion": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/execution.json"
     },
     "laptop": {
       "stage": "full_day_cohort_fixed_CV_running",

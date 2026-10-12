@@ -1,0 +1,241 @@
+{
+  "design": {
+    "version": 56,
+    "rounds": 1700,
+    "seed": 42,
+    "threads": 8,
+    "training_rows": 160577,
+    "base_features": 68,
+    "augmented_features": 70,
+    "fallback_unseen": true,
+    "missing_fit": "Only original R20+flight-number classifier; original script did not save its weights",
+    "input_reuse": "First68 original columns of retained Rome weather packet; same immutable original builder",
+    "success": "All344841 old v56 integer predictions exact before final inference",
+    "failure": "Save model and discrepancies; close without final inference or hyperparameter/thread/library sweep",
+    "parent_final_provenance": "Reuse already-audited October8 base-neural final parts; tiny old float refit discrepancy documented separately",
+    "no_cv_refit": true,
+    "no_parent_refit": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/callsign_submit.py",
+      "sha256": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954"
+    },
+    {
+      "path": "VALIDATION/disruption_features.py",
+      "sha256": "92e47c89d6a2c91fdb6f8a6d48abd378f841697502a918d8b4bc452fb55eaf01"
+    },
+    {
+      "path": "VALIDATION/final_missing_flightnumber_reconstruct.py",
+      "sha256": "52b5fb2e6925ad505d6f74e778d17a48a3990070c824762f9b361e1ac737a37d"
+    },
+    {
+      "path": "VALIDATION/nn_improve_submit.py",
+      "sha256": "10aea4b461a7aa9da3ee880283349fb84cab23490177765b32a9f591d5f379e5"
+    },
+    {
+      "path": "VALIDATION/opdi_disruption_run.py",
+      "sha256": "2285ce5bb7400b7dbbecadf1093ad2ac2d3c1946e0d7704541144dda316fed6c"
+    },
+    {
+      "path": "VALIDATION/opdi_run.py",
+      "sha256": "c9ef284d9090e62ec81665bc5320e6d61a5884065e5dbb590532d25d79617cb5"
+    },
+    {
+      "path": "VALIDATION/rome_cost_jan_jul.py",
+      "sha256": "5ed46a2ecebdb77cdac427cd44c2ff42e4f37d82b3992c3f1bd64a24a65cadfb"
+    },
+    {
+      "path": "VALIDATION/rome_fn_submit.py",
+      "sha256": "a49be0b99df380c717f5d6b995f05b1b1b527f815a708432dc2f153d51969499"
+    },
+    {
+      "path": "VALIDATION/rome_hybrid.py",
+      "sha256": "27bfe7e0b16cd1b64e4571f063fd6fa0b4fb74ea99c335012c4723947db2fb23"
+    },
+    {
+      "path": "VALIDATION/rome_signals.py",
+      "sha256": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-01.parquet",
+      "sha256": "fe4c0c588387c397eb6cc0365d0449f564b23275c9a0d18af7cb7c271dae4ca1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-07.parquet",
+      "sha256": "69bf84a9f86ff78ecfc1d2c42d7c0a84836a9cd3f7ff9d06d1f5198cf10a9770"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261006_rome_fn_submit/submission_v56/refit.json",
+      "sha256": "194e3ddac3e3c4197e4934fe346f781beca8cc36f4ad3f1ddceaf7fa85de7a61"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261006_rome_fn_submit/submission_v56/submission_v56.json",
+      "sha256": "085b2ee8c0596d791b31c16b56a4f918c1872c253a34e74dda4d4205cecf943d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/inputs_final.json",
+      "sha256": "ae59c50fb0e9b65148cb3e3ec4a4bf8b4640851186836133975ceeda0dfd9c0a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/inputs_old.json",
+      "sha256": "c852474621502dd23a2d987dbbce63764853ebb587846eee45fd73452fa50c0f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_final.pkl",
+      "sha256": "4432bb7eaa886e69a5f0b84a1bc5baff3b62cf8d179280da980fdb1d4bdf44ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_old.pkl",
+      "sha256": "22e91f3aee2a614aba8ee626de366fa1edb281a1a35a5f660d70664463cf9821"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/nn.parquet",
+      "sha256": "f0a2d9ad78bad98afb1f4f813b0d5913988a8038955bb718b87daf05b2fa13ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/rome.parquet",
+      "sha256": "0a37d6998bdf3be726bb690b730e30b23dd3cd4030014b6d1ec52898d39d2d98"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/trees.parquet",
+      "sha256": "4eb4db3561f9065d3a3768d8e84084faf291b33ee640b9fe2a0d2b7099f5cf9e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/prepared.json",
+      "sha256": "5e8b63dd4c9b24ca4801b298ba10750796fe80ce88d6468027ece46aca7f36c7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/rome.pkl",
+      "sha256": "b5905355213b1bacb21cfd5bb5ce1e3c5376c51e9f26c1291dd6c4fe4c0f4980"
+    },
+    {
+      "path": "VALIDATION/stand_coords_submit.py",
+      "sha256": "db929614f51d7074755e60743dbadb26635fbb400c90b0c3597c67d6e878f82c"
+    },
+    {
+      "path": "VALIDATION/stand_features.py",
+      "sha256": "2ce15697cba515960fa5a27b70ec913248fcf44ccec7c1b106e0945f4dd8b4e6"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "VALIDATION/weather.py",
+      "sha256": "01241a62d8f70d1f32087522e070693850f812dbe487eb7772147b621bb80d5a"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/manifest.json",
+      "sha256": "712fde2830cd561047b889f0a3c51deb64e0a600f515f59db747d6404367c3ba"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v56.parquet",
+      "sha256": "bf1bf32eb31bf9b57f330393dde19ed97352173d6d9b82dff5c232f6fc0e93a9"
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "params": {
+    "objective": "binary",
+    "metric": "binary_logloss",
+    "learning_rate": 0.02,
+    "num_leaves": 127,
+    "min_data_in_leaf": 50,
+    "feature_fraction": 0.6,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "verbosity": -1,
+    "seed": 42,
+    "bagging_seed": 43,
+    "feature_fraction_seed": 44,
+    "num_threads": 8
+  },
+  "original_source_bytes_exact": true,
+  "original_classifier_not_retained": true
+}

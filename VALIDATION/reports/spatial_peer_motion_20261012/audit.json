@@ -1,0 +1,21 @@
+{
+  "status": "pass_raw_query_and_SQL_arithmetic",
+  "source": {
+    "path": "VALIDATION/tools/audit_spatial_peer_motion_20261012.py",
+    "sha256": "4e7a40007c6d422504759cfa569ee7bf77966399650ea55fac0a222d1a7f9f8a",
+    "bytes": 4095
+  },
+  "result": {
+    "path": "VALIDATION/reports/spatial_peer_motion_20261012/result.json",
+    "sha256": "aad5f0f2c87948277327780900c3e48039f3632fa1f276cc39477f1ffd6c89c7",
+    "bytes": 7471
+  },
+  "queries": 2839,
+  "supported": 592,
+  "all_query_aircraft_calendar_raw_speed_exact": true,
+  "all_matched_counts_and_source_scores_SQL_exact": true,
+  "no_taxi_labels": true,
+  "no_fits": true,
+  "scope": "Raw query observations and outcome arithmetic only; donor construction is retained frozen pilot code, not independently rerun.",
+  "decision": "Closed: temporal neighbor speed loses to spatial-only control on both frozen training dates."
+}

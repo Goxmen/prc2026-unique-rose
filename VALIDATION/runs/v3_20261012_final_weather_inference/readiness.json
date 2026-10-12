@@ -1,0 +1,43 @@
+{
+  "status": "prepared_source_only_not_executed",
+  "runner": {
+    "path": "VALIDATION/final_weather_inference.py",
+    "sha256": "a40fd8721afde5070c3d7953239a3358ca941be4278456f09ac92200a6381324",
+    "bytes": 16500
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_weather_inference/identity.json",
+    "sha256": "c7ba8e870b52139a3ceea002846da940a62b4d204b4bb9708c86e3ec2dd6bbcc",
+    "bytes": 43662
+  },
+  "source_count": 155,
+  "models": 28,
+  "model_bytes": 935716741,
+  "weather_audit": {
+    "path": "VALIDATION/runs/v3_20261012_final_weather_features/audit.json",
+    "sha256": "203bea136574a9edd58228a659bbc2e6e092ed632262d244a2c287de8272f4d2",
+    "bytes": 11187
+  },
+  "weather_features": {
+    "path": "VALIDATION/runs/v3_20261012_final_weather_features/features_final.parquet",
+    "sha256": "f10b5128fcc1fa46df0a65a7519628265493da990bf3481740895f5579cdbaee",
+    "bytes": 4284962
+  },
+  "independent_static_review": "new_signal_audit; original arithmetic/checkpoint/column/gate review passed; unused old-parent read removed before freeze",
+  "execution_order": [
+    "prepare",
+    "infer --part rome",
+    "infer --part lgb",
+    "infer --part airport",
+    "infer --part catboost",
+    "infer --part nn",
+    "package"
+  ],
+  "scheduling": "Root allocates exclusive desktop. Prepare reconstructs training-only preprocessing; no model fit. Inference NN requires original desktop3080, allother stagesCPU.",
+  "provenance": [
+    "Original weather Torch version was not recorded; freeze pins current version and strict all-old prediction equality is required.",
+    "v60 final retains original October8 parent base-neural reconstruction provenance."
+  ],
+  "no_model_fit": true,
+  "no_inference_yet": true
+}

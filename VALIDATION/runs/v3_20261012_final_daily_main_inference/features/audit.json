@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "independent_sql_local_calendar_and_every_feature": true,
+  "missing_source_values_preserved": true,
+  "no_departure_labels_read": true,
+  "checks": [
+    {
+      "name": "final",
+      "rows": 670790,
+      "sql_feature_entries": 6707900,
+      "permuted_rows": 2000
+    }
+  ],
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/features/manifest.json",
+    "sha256": "01430f18f2ac6e6245ffb6639be7cc0afd6cd88f7b2f75a42eac9bdf00b7d6e5"
+  },
+  "source": {
+    "path": "VALIDATION/public_daily_taxi_features.py",
+    "sha256": "dccb3a14c6c3feb18d8237a2df3317732f21d84ec06d9a7d533e8f228668561d"
+  },
+  "raw_input_rows_independently_checked": 670790,
+  "all_old_features_exact": true,
+  "builder": {
+    "path": "VALIDATION/final_daily_main_inference.py",
+    "sha256": "3ea08698a34c4a28d89280f8be8ebcfa9f2d8f2e709405fee4825da52aab4b93"
+  },
+  "retained_audit_bytecode_unchanged": true
+}

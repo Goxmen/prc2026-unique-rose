@@ -1,0 +1,57 @@
+{
+  "source": {
+    "path": "VALIDATION/public_daily_taxi_features.py",
+    "sha256": "dccb3a14c6c3feb18d8237a2df3317732f21d84ec06d9a7d533e8f228668561d"
+  },
+  "public": {
+    "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+    "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+  },
+  "public_manifest": {
+    "path": "data/external/eurocontrol_daily_taxi_20261011/manifest.json",
+    "sha256": "432a6a2685ffd837f1824d858fa168319fbcd6f0ba03e1fb770773a11a028bbc"
+  },
+  "public_audit": {
+    "path": "VALIDATION/reports/research_network_20261010/public_daily_taxi_source_audit.json",
+    "sha256": "278c25ecc809fa1723a9644b8051aa97fe6a291fffabe4c0c7f8cdff6215532f"
+  },
+  "records": {
+    "final": {
+      "raw": {
+        "path": "data/final_ranking.parquet",
+        "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+      },
+      "inputs": {
+        "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/features/inputsfinal.parquet",
+        "sha256": "864d4a316cacfb6e0ac64032813e45fe8136f3ef4c42ffdaf726739df75237a0"
+      },
+      "features": {
+        "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/features/featuresfinal.parquet",
+        "sha256": "42b07d74a5fbf6c34799509a3215f3360c6a5af8e5829a7d622920555229d61f"
+      },
+      "rows": 670790
+    }
+  },
+  "columns": [
+    "pub_taxi_runway_mean",
+    "pub_taxi_runway_reference",
+    "pub_taxi_runway_additional",
+    "pub_taxi_runway_count",
+    "pub_taxi_airport_mean",
+    "pub_taxi_airport_reference",
+    "pub_taxi_airport_additional",
+    "pub_taxi_airport_count",
+    "pub_taxi_runway_share",
+    "pub_taxi_runway_minus_airport"
+  ],
+  "labels_read": false,
+  "old_all_features_exact": true,
+  "builder": {
+    "path": "VALIDATION/final_daily_main_inference.py",
+    "sha256": "3ea08698a34c4a28d89280f8be8ebcfa9f2d8f2e709405fee4825da52aab4b93"
+  },
+  "template": {
+    "path": "data/final_submitting.parquet",
+    "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+  }
+}

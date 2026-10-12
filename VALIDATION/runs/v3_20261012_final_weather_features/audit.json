@@ -1,0 +1,345 @@
+{
+  "status": "pass",
+  "features_identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_weather_features/features.json",
+    "sha256": "df60f0cc6cf77c71d45bc1a92d18087395f2dfad1040e682b68131e499be2cba"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_final_weather_20261012.py",
+    "sha256": "da623ac0cac15fedd83832bfd55358d38247eeac2eb0ff54f61324d4e2a3e99e"
+  },
+  "retained_original_manifest": {
+    "path": "data/external/conditions_20261008/weather_manifest.json",
+    "sha256": "e94af4105f57ab2dd21648a11df536974dce11d8d63489319661e0466bf088b1",
+    "bytes": 19727
+  },
+  "original_files": 30,
+  "new_files": 20,
+  "source_hourly_rows": 119760,
+  "source_checks": [
+    {
+      "path": "data/external/conditions_20261008/weather/EDDF_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDF_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDF_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDM_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDM_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDM_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EGLL_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EGLL_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EGLL_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EHAM_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EHAM_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EHAM_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEBL_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEBL_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEBL_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEMD_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEMD_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEMD_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LFPG_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LFPG_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LFPG_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LIRF_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LIRF_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LIRF_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LSZH_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LSZH_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LSZH_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LTFM_2025.json",
+      "rows": 8832,
+      "first": "2024-12-29 00:00:00+00:00",
+      "last": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LTFM_2026-01.json",
+      "rows": 816,
+      "first": "2025-12-29 00:00:00+00:00",
+      "last": "2026-01-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LTFM_2026-07.json",
+      "rows": 792,
+      "first": "2026-06-29 00:00:00+00:00",
+      "last": "2026-07-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EDDF_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EDDF_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EDDM_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EDDM_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EGLL_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EGLL_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EHAM_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EHAM_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LEBL_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LEBL_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LEMD_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LEMD_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LFPG_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LFPG_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LIRF_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LIRF_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LSZH_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LSZH_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LTFM_2026-02.json",
+      "rows": 744,
+      "first": "2026-01-29 00:00:00+00:00",
+      "last": "2026-02-28 23:00:00+00:00"
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LTFM_2026-06.json",
+      "rows": 792,
+      "first": "2026-05-29 00:00:00+00:00",
+      "last": "2026-06-30 23:00:00+00:00"
+    }
+  ],
+  "overlap_raw_values_exact": true,
+  "rows": 670790,
+  "columns": [
+    "om_temperature_2m",
+    "om_precipitation",
+    "om_rain",
+    "om_snowfall",
+    "om_wind_speed_10m",
+    "om_precipitation_6h",
+    "om_precipitation_24h",
+    "om_precipitation_48h",
+    "om_snowfall_6h",
+    "om_snowfall_24h",
+    "om_snowfall_48h"
+  ],
+  "sql_feature_values": 7378690,
+  "direct_values_float32_exact": true,
+  "rolling_float32_exact": true,
+  "rolling_max_abs": 0.0,
+  "rolling_tolerance": "4*float32 epsilon*max(1,abs(reference))",
+  "raw_source_and_utc_floor_exact": true,
+  "final_template_order_exact": true,
+  "no_labels": true,
+  "no_fit": true
+}

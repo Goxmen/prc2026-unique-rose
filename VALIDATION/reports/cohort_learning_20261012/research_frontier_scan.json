@@ -1,0 +1,83 @@
+{
+  "status": "no_new_high_impact_candidate_justified",
+  "scope": {
+    "python_and_report_files": 791,
+    "python": 731,
+    "markdown": 60
+  },
+  "queries": {
+    "shared_copy_prior": "monthly.{0,35}logit|logit.{0,35}shift|rome_public_monthly_shift",
+    "full_discrete_peers": "all.discrete|pair.gibbs|annealed.{0,20}SMC|expectation propagation|characteristic.function|fourier|subset.sum",
+    "arrival_supervision": "multi.task|pretrain|self.supervis|contrastive|arrival.{0,40}(duration|drift|clock).{0,35}transfer",
+    "identity_effects": "ar_aircraft|aircraft.{0,20}(embedding|categorical|identity)"
+  },
+  "hits": {
+    "shared_copy_prior": [
+      "VALIDATION/reports/TARGET215_RESEARCH.md",
+      "VALIDATION/rome_public_monthly_shift.py",
+      "VALIDATION/rome_public_monthly_shift_jan_jul.py"
+    ],
+    "full_discrete_peers": [
+      "VALIDATION/joint_public_all_discrete_pilot.py",
+      "VALIDATION/joint_public_ep_toy.py",
+      "VALIDATION/joint_public_gibbs_pilot.py",
+      "VALIDATION/joint_public_other_runway_submit.py",
+      "VALIDATION/joint_public_pair_gibbs_pilot.py",
+      "VALIDATION/reports/ALL_DISCRETE_PEER_INFERENCE_20261012.md",
+      "VALIDATION/reports/SCOUT_EXCLUSIONS_20261012.md",
+      "VALIDATION/reports/TARGET205_RESEARCH.md",
+      "VALIDATION/tabm_other_runway_combo_cv.py",
+      "VALIDATION/tools/audit_other_runway_blocks_20261012.py",
+      "VALIDATION/tools/audit_pair_gibbs_20261012.py"
+    ],
+    "arrival_supervision": [
+      "VALIDATION/nn_airport_finetune.py",
+      "VALIDATION/nn_public_scratch.py",
+      "VALIDATION/nn_public_tabm.py",
+      "VALIDATION/nn_track_wide.py",
+      "VALIDATION/reports/TARGET205_RESEARCH.md"
+    ],
+    "identity_effects": [
+      "VALIDATION/aircraft_rotation.py",
+      "VALIDATION/aobt_track_observation.py",
+      "VALIDATION/arrival_stand_clock_pilot.py",
+      "VALIDATION/arrival_stand_clock_pilot_v2.py",
+      "VALIDATION/build_sparse_track_full.py",
+      "VALIDATION/build_sparse_track_submit.py",
+      "VALIDATION/callsign_clocks.py",
+      "VALIDATION/callsign_submit_features.py",
+      "VALIDATION/nn_aobt_observation_jan_jul.py",
+      "VALIDATION/nn_callsign_clocks_jan_jul.py",
+      "VALIDATION/nn_rotation_jan_jul.py",
+      "VALIDATION/punctuality_fraction_noise.py",
+      "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+      "VALIDATION/rotation_lgb_jan_jul.py",
+      "VALIDATION/tests/test_aircraft_rotation.py",
+      "VALIDATION/tools/audit_aobt_observation_20261010.py",
+      "VALIDATION/tools/audit_callsign_submit_features_20261010.py",
+      "VALIDATION/tools/audit_movement_id_arrival_clock_20261012.py",
+      "VALIDATION/tools/audit_punctuality_fraction_noise_20261012.py",
+      "VALIDATION/tools/audit_rotation_features_20261010.py",
+      "VALIDATION/tools/probe_movement_id_arrival_clock_20261012.py"
+    ]
+  },
+  "inventory_sha256": "cf9806301f064bd84d3d9c65546f21483cec39a285785fe985422a04433ff862",
+  "closed_lead": {
+    "mechanism": "shared month-level Rome logit adaptation from public sources",
+    "existing_source": "VALIDATION/rome_public_monthly_shift.py",
+    "conclusion": "Direct mechanism overlap; leave-query-day-out alone is a validation safeguard, not a new information source. Root closed lead, so no further diagnostics/pilot/fit."
+  },
+  "frontier": [
+    "Complete airport-day learned donor context is genuinely distinct and already active; wait for its fixed matched result.",
+    "Joint all-peer discrete public-source conditioning remains a numerical frontier, but existing Sobol/Gibbs/pair-Gibbs/SMC and EP screens failed precision or convergence; another solver is not a demonstrated new high-impact mechanism.",
+    "Arrival-supervised physical representation learning has no implementation found, but direct arrival-to-departure drift, local clock context and same-flight clock-transfer tests are all negative; no justified multi-second headroom or pilot is proposed.",
+    "Aircraft identity is already an explicit categorical feature in rotation LightGBM and neural screens, so an aircraft embedding would not be new evidence."
+  ],
+  "actions": {
+    "new_candidate": false,
+    "new_pilot": false,
+    "taxi_cv_labels_read": false,
+    "fit": false,
+    "upload": false
+  }
+}

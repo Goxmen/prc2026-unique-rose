@@ -1,0 +1,69 @@
+{
+  "design": {
+    "days": [
+      "2025-03-10",
+      "2025-09-10"
+    ],
+    "selection": "smallest SHA256(movement-ID)64 eligible flights per airport/day; quarter/middle/three-quarter retained ground points",
+    "radius_m": 300.0,
+    "past_seconds": 600.0,
+    "negative_time_shift_seconds": 21600.0,
+    "max_peers": 16,
+    "min_peers": 3,
+    "eligibility": "known aircraft/stand; at least3 retained ground points with speed0..60kt,0..7200s before takeoff, sameUTCday and >=200m from stand",
+    "donors": "retained ground positions with observed speed0..60kt, same airport/UTCday; exact raw absolute timestamp, no interpolation",
+    "exclusion": "all same known aircraft and same movement-ID or exact known takeoff/actualclock/stand/runway aliases",
+    "prediction": "median of per-aircraft observed speed medians; equally weighted aircraft; matched count across actual-past,6hour-shift null,spatial-only",
+    "positive": "observed peer motion, not absent-peer imputation; unsupported rows remain unpredicted",
+    "gate": "each date >=10% matched-support coverage; each date MAE at least5% lower than BOTH controls and pooled at least10% lower",
+    "limits": "90seconds,oneCPUthread,noGPU; original two shared-training pilot dates, no date/threshold search",
+    "no_taxi_labels": true,
+    "no_fit": true,
+    "no_CV": true,
+    "no_download": true,
+    "interpretation": "Source-speed observability/predictability only; no taxi-error headroom or candidate claim"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tools/pilot_spatial_peer_motion_20261012.py",
+      "sha256": "44aaefb56924dbddac22e0a11bd57f174b2206a8e811778f410a9491b88739c8",
+      "bytes": 11699
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full.json",
+      "sha256": "723cb02477e53b3c3e6b265fa98d3bd67a8e531b45d37943c6f527de5735d6da",
+      "bytes": 236550
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_chunks/2025-03-10.parquet",
+      "sha256": "9d27e359cf7e629b9e23e99c98f24e1b3904636acfeacc051b50d63d24f748ef",
+      "bytes": 184654
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_chunks/2025-03-10.bin",
+      "sha256": "ba0a8c90a169470c5330e5b4a15f85fa4e5a668e55984ab11428022eb47defe6",
+      "bytes": 3058536
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_chunks/2025-03-10.json",
+      "sha256": "d628b5a0d37fda867d5a7ed39f7f2e8ee75f2ebf9e61d797d3f34d0ed685935d",
+      "bytes": 816
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_chunks/2025-09-10.parquet",
+      "sha256": "b9c44d1fc39ee81545d4b24147536045b9ffa2d527948223c2749b1a72f777fb",
+      "bytes": 253010
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_chunks/2025-09-10.bin",
+      "sha256": "c29653ede578b8a536eb9da9f93aaf7fe29b6e0dca1a09b18342e6dc328c05d2",
+      "bytes": 6097872
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_chunks/2025-09-10.json",
+      "sha256": "523a131ca18af8820cac43de270b3193757987d18e217de5496d5d8175d74f7b",
+      "bytes": 817
+    }
+  ],
+  "before_any_source_outcomes": true
+}

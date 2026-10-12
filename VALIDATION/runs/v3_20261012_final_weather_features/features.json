@@ -1,0 +1,62 @@
+{
+  "identity": {
+    "path": "data/external/conditions_final_20261012/manifest.json",
+    "sha256": "596729407065e30f3f19e4e8fafc5182cfe9260490a3f6467f38f3e95da09177",
+    "bytes": 39269
+  },
+  "source": {
+    "path": "VALIDATION/final_weather_features.py",
+    "sha256": "66df36c00fbdb9c43b765a3b66d5a5226fdf3a0b6542e13544996cb7c4656e83",
+    "bytes": 7424
+  },
+  "weather_source": {
+    "path": "VALIDATION/external_conditions.py",
+    "sha256": "efd19823c25f6999cd59a6709a86e27208e98475818277c178fb93cbb88cf74a",
+    "bytes": 7638
+  },
+  "input": {
+    "path": "data/final_ranking.parquet",
+    "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f",
+    "bytes": 85853399
+  },
+  "template": {
+    "path": "data/final_submitting.parquet",
+    "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924",
+    "bytes": 3003722
+  },
+  "raw": {
+    "path": "VALIDATION/runs/v3_20261012_final_weather_features/raw_final.parquet",
+    "sha256": "b2d6082ed8fb44406b8ead9f33b3e749baaab9c1ddd40463c562a2ca407a4455",
+    "bytes": 7742993
+  },
+  "output": {
+    "path": "VALIDATION/runs/v3_20261012_final_weather_features/features_final.parquet",
+    "sha256": "f10b5128fcc1fa46df0a65a7519628265493da990bf3481740895f5579cdbaee",
+    "bytes": 4284962
+  },
+  "hourly": {
+    "path": "VALIDATION/runs/v3_20261012_final_weather_features/hourly.parquet",
+    "sha256": "8ec3bccd3f03798722d5d11b7e9ad3596f63c3bd4acc6f94c60ec4c3a847084e",
+    "bytes": 1005763
+  },
+  "rows": 670790,
+  "columns": [
+    "om_temperature_2m",
+    "om_precipitation",
+    "om_rain",
+    "om_snowfall",
+    "om_wind_speed_10m",
+    "om_precipitation_6h",
+    "om_precipitation_24h",
+    "om_precipitation_48h",
+    "om_snowfall_6h",
+    "om_snowfall_24h",
+    "om_snowfall_48h"
+  ],
+  "old_rows": 344841,
+  "all_old_weather_exact": true,
+  "all_overlapping_raw_values_exact": true,
+  "overlap_airport_hours": 1920,
+  "no_labels": true,
+  "no_fit": true
+}

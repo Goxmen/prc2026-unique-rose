@@ -1,0 +1,1008 @@
+{
+  "design": {
+    "purpose": "Recover two absent original v30 boosters and deterministic v33/v34/v37 descendants",
+    "seed": 42,
+    "ordinary_rounds": 800,
+    "classifier_rounds": 300,
+    "threads": 8,
+    "train_rows": 2084659,
+    "freeze": "2025-12-31",
+    "kind": "clock",
+    "late": true,
+    "dayshift": false,
+    "thread_provenance": "Original validation and unchanged submission CLI default are 8; full-year CLI override was not recorded",
+    "success": "All 344841 original integers for each of v30/v33/v34/v37 must match before final inference",
+    "failure": "Save all models and differences; stop on mismatch, no thread/seed/library sweep or silent substitution",
+    "scope": "Missing-model reconstruction, no CV refit, new weights, new version or upload",
+    "inference": "Reuse independently audited original/final four-month input packets; no repeated retained-model inference"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/dayshift_hedge.py",
+      "sha256": "6fcad559a74b522a61ae5b1c1793c8d757fe82cc2839cd1c21b978f685c173f2"
+    },
+    {
+      "path": "VALIDATION/dayshift_hedge_run.py",
+      "sha256": "d96e3a1485281771254cfd93c1aa7a133cc15cdaaffdde841cef36f1baba8636"
+    },
+    {
+      "path": "VALIDATION/dayshift_hedge_submit.py",
+      "sha256": "ab67786386c95e7c9c96cc189ee248d412a26fecf9a1434e1949204a969a4cc6"
+    },
+    {
+      "path": "VALIDATION/features_time.py",
+      "sha256": "94f1273ae3edc32e2799e6bb1ebcc819c0a18bf8a61dcda444514d643f944c2c"
+    },
+    {
+      "path": "VALIDATION/final_missing_stand_reconstruct.py",
+      "sha256": "44bad93dcd2603b2b30d69062f4790f09562591ecef08666cb08261485b12665"
+    },
+    {
+      "path": "VALIDATION/modeling.py",
+      "sha256": "777b2d45fd97565dc83ecabce248734bfb811fbadce5616d8959cad03016c43b"
+    },
+    {
+      "path": "VALIDATION/movement_data.py",
+      "sha256": "2a0a97392e4ba6fd1a3ff64a8165700ae6b4ea466cffe80c3cfa9e92290c79cf"
+    },
+    {
+      "path": "VALIDATION/overnight_models.py",
+      "sha256": "79633c2479438729f145bfa5e3e5d99d70e50a7fca12780b71790a92d4f183a3"
+    },
+    {
+      "path": "VALIDATION/overnight_run.py",
+      "sha256": "7ab27f85dac47ba54bfc85e4f326673f4f789a9093350d092e638c12c308916b"
+    },
+    {
+      "path": "VALIDATION/overnight_submit.py",
+      "sha256": "98929a74863871de580710ead8f9f4bb3837254e6fd1a4769b7e7f004d19d5a9"
+    },
+    {
+      "path": "VALIDATION/plan_window.py",
+      "sha256": "547e49b8785feba396c488f7c91c8e5a246b7da38c9607e6b81af6bd1db0e12c"
+    },
+    {
+      "path": "VALIDATION/plan_window_run.py",
+      "sha256": "cdf8366ffad3831ad4d803320ba37566b73df43ed478364d1f8b4f733160591d"
+    },
+    {
+      "path": "VALIDATION/plan_window_submit.py",
+      "sha256": "df80d09de8b1235ee49e79eadbb019496346b447b36e61190168bbfa1b9bd5f9"
+    },
+    {
+      "path": "VALIDATION/record_fixes.py",
+      "sha256": "92f6fcc9a7586f0d086b0410a633ee83f434deea4733301b0726fad16e0c338c"
+    },
+    {
+      "path": "VALIDATION/record_fixes_run.py",
+      "sha256": "1e1a9e4c4845701d38121ac86abb3215cd8e4d594cbf0317e6731f4ee7a7c9fe"
+    },
+    {
+      "path": "VALIDATION/record_fixes_submit.py",
+      "sha256": "ccad02e911e3634e7435902886fef5844d06ba6527d511d7e6dcc435dbd9be15"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/rome_hybrid.py",
+      "sha256": "27bfe7e0b16cd1b64e4571f063fd6fa0b4fb74ea99c335012c4723947db2fb23"
+    },
+    {
+      "path": "VALIDATION/rome_hybrid_run.py",
+      "sha256": "dba56ecaf91f62685e36498ad283fd22bfb5f97aeef7feb829d605e19f5ee90a"
+    },
+    {
+      "path": "VALIDATION/rome_hybrid_submit.py",
+      "sha256": "f11fdb2e2a49be839e1d0c664fc327124de87c36668c3aadaf5d911d50596db0"
+    },
+    {
+      "path": "VALIDATION/rome_signals.py",
+      "sha256": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7"
+    },
+    {
+      "path": "VALIDATION/rome_signals_run.py",
+      "sha256": "b386cd08e56877959f49fb043639bd47af0b0d772e66e20eb7d28d52f50998e9"
+    },
+    {
+      "path": "VALIDATION/rome_signals_submit.py",
+      "sha256": "5024f3d4ff579ae8b6519608b2d45aea9894199a96345fd729d4b27947c76612"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__control.train_ids.parquet",
+      "sha256": "e5b0b1245596a7b6367de0306dc4686e17016aaa10c4bfd047108ee1f84a5e19"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260918T151436598224Z/result.json",
+      "sha256": "e77ce0179df6187342b444171f08502eaae5cfa5a7b7976af3ab75d10f3e2724"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260918T151436598224Z/submission_v30.json",
+      "sha256": "4645d82202aef4db6459e225c616825fc37f2bbc8c732e6281c57c9e654f2ca6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260918T181924599658Z/result.json",
+      "sha256": "9908cc52a4e4f9027801931a17799e76b177a332469c86e1fa2097f12c1e6f7c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260918T181924599658Z/submission_v33.json",
+      "sha256": "26f3d9d26154476ffc5e632f17fe58f56f67494ae128ef56a381836fb504508c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260919T104157403241Z/result.json",
+      "sha256": "9d1b948d91ee77eb2b8103b293311462f0a0a8c0aa506dc67e7dbd5edc1643f0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260919T104157403241Z/submission_v34.json",
+      "sha256": "27f5dd3d1b64f37be322b9a3a509edeb26e506db45ca6043ff55f9e74560399a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260919T112057144323Z/result.json",
+      "sha256": "02837653ba86dc533a8a0f128ff193e15e7028969dcbb50d2dc93d349e49c09c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260919T112057144323Z/submission_v37.json",
+      "sha256": "04a3f1488b0f2422d87073c2077896613aea5bc8669bea2bec74f45c90f7bb79"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/inputs_final.json",
+      "sha256": "ae59c50fb0e9b65148cb3e3ec4a4bf8b4640851186836133975ceeda0dfd9c0a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/inputs_old.json",
+      "sha256": "c852474621502dd23a2d987dbbce63764853ebb587846eee45fd73452fa50c0f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_final.pkl",
+      "sha256": "4432bb7eaa886e69a5f0b84a1bc5baff3b62cf8d179280da980fdb1d4bdf44ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_old.pkl",
+      "sha256": "22e91f3aee2a614aba8ee626de366fa1edb281a1a35a5f660d70664463cf9821"
+    },
+    {
+      "path": "VALIDATION/runway_queue.py",
+      "sha256": "8c3627ffa3f41bc8634a86ebcf174954a343c1eb1470879113bad15bdc7a70c6"
+    },
+    {
+      "path": "VALIDATION/runway_queue_run.py",
+      "sha256": "b5d216b803b9a9561e47e9e60379c14c3641f22cfd6a6f80f506ec45d3d63fa9"
+    },
+    {
+      "path": "VALIDATION/stand_day.py",
+      "sha256": "ee596bcaf16e0b53d8249fefe1978696d8136495d1b63e057f99e8115c4e28ad"
+    },
+    {
+      "path": "VALIDATION/stand_day_run.py",
+      "sha256": "90c57bb9fc420439e84fc33916bf57183fe25c99c7a405b04834466cb8d7a1f7"
+    },
+    {
+      "path": "VALIDATION/stand_day_submit.py",
+      "sha256": "6b449dbba4279a4374af7acdf49c2b5b908544b17771f02fa3ebc4b454b59e6a"
+    },
+    {
+      "path": "VALIDATION/submit.py",
+      "sha256": "09fe62fe3840d457bdbf25d961b7b20f909b78f2521d05ea61a2369bb0f6aee4"
+    },
+    {
+      "path": "VALIDATION/weather.py",
+      "sha256": "01241a62d8f70d1f32087522e070693850f812dbe487eb7772147b621bb80d5a"
+    },
+    {
+      "path": "VALIDATION/weather_run.py",
+      "sha256": "da2b66ae1d9ad118de4eeda95a1d7e9a2bd0abfe1aae951c2a61bbb38094679b"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/manifest.json",
+      "sha256": "712fde2830cd561047b889f0a3c51deb64e0a600f515f59db747d6404367c3ba"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v30.parquet",
+      "sha256": "7e4e91a2014e5492ed58b7c87f3ee18258502518fd511059779ffd7123b96b1d"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v33.parquet",
+      "sha256": "f04d48131cfbd3ca9d64f3a6a72dac78eed40feac9d6e816ab8706929cdbc718"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v34.parquet",
+      "sha256": "f06f85b7a8212c13080d1a1d633d5d1ef5f783f20be2634efdaea76186f6879f"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v37.parquet",
+      "sha256": "6f3793ca766dabf90dcf612d81393062575535262dd9fbfe9796aa99a66b4232"
+    },
+    {
+      "path": "data/external/metar/metar.parquet",
+      "sha256": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5"
+    },
+    {
+      "path": "data/final_ranking.parquet",
+      "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    },
+    {
+      "path": "pipeline/clock_features.py",
+      "sha256": "81a4b328f2d879540c9e538297f538461f27678e593441f8b37fe83d383de9ae"
+    },
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4"
+    },
+    {
+      "path": "pipeline/prediction_rules.py",
+      "sha256": "62613801875506dcc7f4078e0e136398b6694ee8b1eb0398e9a05612c7b4e560"
+    },
+    {
+      "path": "pipeline/registered_rules.py",
+      "sha256": "5bc8da8c9ce29fa83dddeb76093d82ebfeab8e48b62ef9dc1c31d5f5d288d163"
+    }
+  ],
+  "config": {
+    "recovery": "off",
+    "target_mode": "direct",
+    "model_mode": "single",
+    "clock_features": true,
+    "fpl_flag": false,
+    "max_taxi_sec": 200000,
+    "lag_train_days": 0,
+    "rounds": 800,
+    "early_stopping_rounds": 0,
+    "threads": 8,
+    "prediction_threads": 8,
+    "fit_workers": 1,
+    "prediction_rule": "rome_4h",
+    "seeds": [
+      42,
+      142,
+      242
+    ],
+    "params": {
+      "objective": "regression",
+      "metric": "rmse",
+      "learning_rate": 0.05,
+      "num_leaves": 255,
+      "min_data_in_leaf": 200,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1
+    },
+    "sample": 1.0,
+    "train_months": 6,
+    "bootstrap_reps": 2000,
+    "bootstrap_seed": 0,
+    "block_days": 1,
+    "label": "stand-day",
+    "smoke": false,
+    "rome_hybrid": {
+      "airport": "LIRF",
+      "match_sec": 60,
+      "rule": "rome_4h",
+      "flags": [
+        "raw_flight_id_missing",
+        "raw_plan_block_missing"
+      ],
+      "classifier_params": {
+        "objective": "binary",
+        "metric": "binary_logloss",
+        "learning_rate": 0.05,
+        "num_leaves": 31,
+        "min_data_in_leaf": 100,
+        "feature_fraction": 0.9,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "verbosity": -1
+      },
+      "classifier_rounds": 300
+    },
+    "weather": {
+      "source": "Iowa Environmental Mesonet ASOS/METAR archive",
+      "max_age_min": 90,
+      "window": "2h",
+      "visibility_cap_m": 10000.0,
+      "no_ceiling_ft": 25000.0,
+      "features": [
+        "wx_temp_c",
+        "wx_dewpoint_spread_c",
+        "wx_wind_kt",
+        "wx_gust_kt",
+        "wx_wind_dir",
+        "wx_visibility_m",
+        "wx_ceiling_ft",
+        "wx_thunder",
+        "wx_snow",
+        "wx_freezing",
+        "wx_fog",
+        "wx_rain",
+        "wx_heavy",
+        "wx_deicing",
+        "wx_age_min",
+        "wx_2h_min_visibility_m",
+        "wx_2h_min_ceiling_ft",
+        "wx_2h_max_gust_kt",
+        "wx_2h_thunder",
+        "wx_2h_snow_or_freezing",
+        "wx_2h_fog"
+      ]
+    },
+    "queue": {
+      "anchor": "takeoff time",
+      "max_gap_sec": 7200,
+      "past": [
+        "q_rwy_prev_takeoff_gap_sec",
+        "q_rwy_takeoffs_prev30",
+        "q_apt_takeoffs_prev30",
+        "q_rwy_others_gap_prev60",
+        "q_apt_others_gap_prev60",
+        "q_queue_ahead_since_aobt3",
+        "q_rwy_landings_prev30"
+      ],
+      "future": [
+        "q_rwy_next_takeoff_gap_sec",
+        "q_rwy_takeoffs_next30",
+        "q_rwy_others_gap_pm30",
+        "q_apt_others_gap_pm30"
+      ],
+      "dep_columns": [
+        "ADEP_mvt",
+        "RUNWAY_mvt",
+        "MVT_TIME_UTC_mvt",
+        "AOBT_3_flt"
+      ],
+      "arr_columns": [
+        "ADES_mvt",
+        "RUNWAY_mvt",
+        "MVT_TIME_UTC_mvt"
+      ]
+    },
+    "rome_signals": {
+      "signals": [
+        "airline",
+        "handler_arr_sched_share",
+        "handler_arr_n",
+        "flight_number_format"
+      ],
+      "handler_match_sec": 60,
+      "handler_prior_weight": 10,
+      "handler_scope": "airport x airline x UTC month",
+      "late_delay_sec": 3600,
+      "late_floor_sec": 60,
+      "dayshift_gap_sec": 50400,
+      "timezone": "Europe/Rome"
+    },
+    "stand_day": {
+      "stand": [
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec"
+      ],
+      "day": [
+        "dd_noid_share",
+        "dd_notype_share",
+        "dd_arr_sched_share",
+        "dd_delay_mean_sec",
+        "dd_late_share",
+        "dh_noid_share_pm90"
+      ],
+      "day_scope": "airport x UTC day",
+      "arr_sched_match_sec": 60,
+      "late_sec": 2700,
+      "delay_clip_sec": 10800,
+      "window_sec": 5400,
+      "dep_columns": [
+        "mvt_id",
+        "ADEP_mvt",
+        "MVT_TIME_UTC_mvt",
+        "SCHED_TIME_UTC_mvt",
+        "FLIGHT_ID_mvt",
+        "AIRCRAFT_TYPE_mvt"
+      ],
+      "arr_columns": [
+        "ADES_mvt",
+        "STAND_mvt",
+        "MVT_TIME_UTC_mvt",
+        "SCHED_TIME_UTC_mvt",
+        "taxi_sec",
+        "AIRCRAFT_TYPE_mvt",
+        "FLIGHT_mvt"
+      ]
+    },
+    "candidates": {
+      "control": "pred",
+      "stand": "pred_stand",
+      "day": "pred_day",
+      "both": "pred_both",
+      "reg_both": "pred_reg_both",
+      "cls_both": "pred_cls_both"
+    },
+    "candidate_specs": {
+      "control": {
+        "ordinary": "control",
+        "classifier": "control"
+      },
+      "stand": {
+        "ordinary": "stand",
+        "classifier": "stand"
+      },
+      "day": {
+        "ordinary": "day",
+        "classifier": "day"
+      },
+      "both": {
+        "ordinary": "both",
+        "classifier": "both"
+      },
+      "reg_both": {
+        "ordinary": "both",
+        "classifier": "control"
+      },
+      "cls_both": {
+        "ordinary": "control",
+        "classifier": "both"
+      }
+    },
+    "late": true,
+    "dayshift": false,
+    "ordinaries": {
+      "control": [
+        "wx_temp_c",
+        "wx_dewpoint_spread_c",
+        "wx_wind_kt",
+        "wx_gust_kt",
+        "wx_wind_dir",
+        "wx_visibility_m",
+        "wx_ceiling_ft",
+        "wx_thunder",
+        "wx_snow",
+        "wx_freezing",
+        "wx_fog",
+        "wx_rain",
+        "wx_heavy",
+        "wx_deicing",
+        "wx_age_min",
+        "wx_2h_min_visibility_m",
+        "wx_2h_min_ceiling_ft",
+        "wx_2h_max_gust_kt",
+        "wx_2h_thunder",
+        "wx_2h_snow_or_freezing",
+        "wx_2h_fog",
+        "q_rwy_prev_takeoff_gap_sec",
+        "q_rwy_takeoffs_prev30",
+        "q_apt_takeoffs_prev30",
+        "q_rwy_others_gap_prev60",
+        "q_apt_others_gap_prev60",
+        "q_queue_ahead_since_aobt3",
+        "q_rwy_landings_prev30",
+        "q_rwy_next_takeoff_gap_sec",
+        "q_rwy_takeoffs_next30",
+        "q_rwy_others_gap_pm30",
+        "q_apt_others_gap_pm30",
+        "airline"
+      ],
+      "stand": [
+        "wx_temp_c",
+        "wx_dewpoint_spread_c",
+        "wx_wind_kt",
+        "wx_gust_kt",
+        "wx_wind_dir",
+        "wx_visibility_m",
+        "wx_ceiling_ft",
+        "wx_thunder",
+        "wx_snow",
+        "wx_freezing",
+        "wx_fog",
+        "wx_rain",
+        "wx_heavy",
+        "wx_deicing",
+        "wx_age_min",
+        "wx_2h_min_visibility_m",
+        "wx_2h_min_ceiling_ft",
+        "wx_2h_max_gust_kt",
+        "wx_2h_thunder",
+        "wx_2h_snow_or_freezing",
+        "wx_2h_fog",
+        "q_rwy_prev_takeoff_gap_sec",
+        "q_rwy_takeoffs_prev30",
+        "q_apt_takeoffs_prev30",
+        "q_rwy_others_gap_prev60",
+        "q_apt_others_gap_prev60",
+        "q_queue_ahead_since_aobt3",
+        "q_rwy_landings_prev30",
+        "q_rwy_next_takeoff_gap_sec",
+        "q_rwy_takeoffs_next30",
+        "q_rwy_others_gap_pm30",
+        "q_apt_others_gap_pm30",
+        "airline",
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec"
+      ],
+      "day": [
+        "wx_temp_c",
+        "wx_dewpoint_spread_c",
+        "wx_wind_kt",
+        "wx_gust_kt",
+        "wx_wind_dir",
+        "wx_visibility_m",
+        "wx_ceiling_ft",
+        "wx_thunder",
+        "wx_snow",
+        "wx_freezing",
+        "wx_fog",
+        "wx_rain",
+        "wx_heavy",
+        "wx_deicing",
+        "wx_age_min",
+        "wx_2h_min_visibility_m",
+        "wx_2h_min_ceiling_ft",
+        "wx_2h_max_gust_kt",
+        "wx_2h_thunder",
+        "wx_2h_snow_or_freezing",
+        "wx_2h_fog",
+        "q_rwy_prev_takeoff_gap_sec",
+        "q_rwy_takeoffs_prev30",
+        "q_apt_takeoffs_prev30",
+        "q_rwy_others_gap_prev60",
+        "q_apt_others_gap_prev60",
+        "q_queue_ahead_since_aobt3",
+        "q_rwy_landings_prev30",
+        "q_rwy_next_takeoff_gap_sec",
+        "q_rwy_takeoffs_next30",
+        "q_rwy_others_gap_pm30",
+        "q_apt_others_gap_pm30",
+        "airline",
+        "dd_noid_share",
+        "dd_notype_share",
+        "dd_arr_sched_share",
+        "dd_delay_mean_sec",
+        "dd_late_share",
+        "dh_noid_share_pm90"
+      ],
+      "both": [
+        "wx_temp_c",
+        "wx_dewpoint_spread_c",
+        "wx_wind_kt",
+        "wx_gust_kt",
+        "wx_wind_dir",
+        "wx_visibility_m",
+        "wx_ceiling_ft",
+        "wx_thunder",
+        "wx_snow",
+        "wx_freezing",
+        "wx_fog",
+        "wx_rain",
+        "wx_heavy",
+        "wx_deicing",
+        "wx_age_min",
+        "wx_2h_min_visibility_m",
+        "wx_2h_min_ceiling_ft",
+        "wx_2h_max_gust_kt",
+        "wx_2h_thunder",
+        "wx_2h_snow_or_freezing",
+        "wx_2h_fog",
+        "q_rwy_prev_takeoff_gap_sec",
+        "q_rwy_takeoffs_prev30",
+        "q_apt_takeoffs_prev30",
+        "q_rwy_others_gap_prev60",
+        "q_apt_others_gap_prev60",
+        "q_queue_ahead_since_aobt3",
+        "q_rwy_landings_prev30",
+        "q_rwy_next_takeoff_gap_sec",
+        "q_rwy_takeoffs_next30",
+        "q_rwy_others_gap_pm30",
+        "q_apt_others_gap_pm30",
+        "airline",
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec",
+        "dd_noid_share",
+        "dd_notype_share",
+        "dd_arr_sched_share",
+        "dd_delay_mean_sec",
+        "dd_late_share",
+        "dh_noid_share_pm90"
+      ]
+    },
+    "classifiers": {
+      "control": [
+        "airline",
+        "handler_arr_sched_share",
+        "handler_arr_n",
+        "flight_number_format"
+      ],
+      "stand": [
+        "airline",
+        "handler_arr_sched_share",
+        "handler_arr_n",
+        "flight_number_format",
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec"
+      ],
+      "day": [
+        "airline",
+        "handler_arr_sched_share",
+        "handler_arr_n",
+        "flight_number_format",
+        "dd_noid_share",
+        "dd_notype_share",
+        "dd_arr_sched_share",
+        "dd_delay_mean_sec",
+        "dd_late_share",
+        "dh_noid_share_pm90"
+      ],
+      "both": [
+        "airline",
+        "handler_arr_sched_share",
+        "handler_arr_n",
+        "flight_number_format",
+        "st_last_arr_sec",
+        "st_prev_arr_sec",
+        "st_same_type",
+        "st_same_airline",
+        "st_inblock_minus_sched_sec",
+        "dd_noid_share",
+        "dd_notype_share",
+        "dd_arr_sched_share",
+        "dd_delay_mean_sec",
+        "dd_late_share",
+        "dh_noid_share_pm90"
+      ]
+    },
+    "reuse_control": true,
+    "control_source": {
+      "run": "v3_20260918T120331999764Z",
+      "parts": {
+        "ordinary": "airline",
+        "classifier": "all"
+      },
+      "column": "where(dayshift_rows, gap_sec, pred_all)"
+    }
+  },
+  "model_config": {
+    "ordinary": {
+      "objective": "regression",
+      "metric": "rmse",
+      "learning_rate": 0.05,
+      "num_leaves": 255,
+      "min_data_in_leaf": 200,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1,
+      "seed": 42,
+      "bagging_seed": 43,
+      "feature_fraction_seed": 44,
+      "num_threads": 8
+    },
+    "classifier": {
+      "objective": "binary",
+      "metric": "binary_logloss",
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "min_data_in_leaf": 100,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1,
+      "seed": 42,
+      "bagging_seed": 43,
+      "feature_fraction_seed": 44,
+      "num_threads": 8
+    },
+    "ordinary_features": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "hour",
+      "dow",
+      "month",
+      "mvt_minus_sched_sec",
+      "mvt_minus_lobt_sec",
+      "mvt_minus_iobt_sec",
+      "mvt_minus_eobt1_sec",
+      "mvt_minus_aobt3_sec",
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d",
+      "arr_taxiin_7d",
+      "dep_actual_30m_before",
+      "arr_actual_30m_before",
+      "dep_sched_60m_around",
+      "clock_aobt3_minus_schedule_sec",
+      "clock_aobt3_minus_eobt1_sec",
+      "clock_eobt1_minus_iobt_sec",
+      "clock_iobt_minus_lobt_sec",
+      "clock_schedule_available",
+      "clock_lobt_available",
+      "clock_iobt_available",
+      "clock_eobt1_available",
+      "clock_aobt3_available",
+      "clock_raw_flight_id_missing",
+      "clock_raw_plan_block_missing",
+      "clock_raw_aobt3_missing",
+      "clock_available_count",
+      "clock_span_sec",
+      "clock_std_sec",
+      "clock_median_sec",
+      "clock_baseline_sec",
+      "clock_baseline_source",
+      "wx_temp_c",
+      "wx_dewpoint_spread_c",
+      "wx_wind_kt",
+      "wx_gust_kt",
+      "wx_wind_dir",
+      "wx_visibility_m",
+      "wx_ceiling_ft",
+      "wx_thunder",
+      "wx_snow",
+      "wx_freezing",
+      "wx_fog",
+      "wx_rain",
+      "wx_heavy",
+      "wx_deicing",
+      "wx_age_min",
+      "wx_2h_min_visibility_m",
+      "wx_2h_min_ceiling_ft",
+      "wx_2h_max_gust_kt",
+      "wx_2h_thunder",
+      "wx_2h_snow_or_freezing",
+      "wx_2h_fog",
+      "q_rwy_prev_takeoff_gap_sec",
+      "q_rwy_takeoffs_prev30",
+      "q_apt_takeoffs_prev30",
+      "q_rwy_others_gap_prev60",
+      "q_apt_others_gap_prev60",
+      "q_queue_ahead_since_aobt3",
+      "q_rwy_landings_prev30",
+      "q_rwy_next_takeoff_gap_sec",
+      "q_rwy_takeoffs_next30",
+      "q_rwy_others_gap_pm30",
+      "q_apt_others_gap_pm30",
+      "airline",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec"
+    ],
+    "classifier_features": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "hour",
+      "dow",
+      "month",
+      "mvt_minus_sched_sec",
+      "mvt_minus_lobt_sec",
+      "mvt_minus_iobt_sec",
+      "mvt_minus_eobt1_sec",
+      "mvt_minus_aobt3_sec",
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d",
+      "arr_taxiin_7d",
+      "dep_actual_30m_before",
+      "arr_actual_30m_before",
+      "dep_sched_60m_around",
+      "clock_aobt3_minus_schedule_sec",
+      "clock_aobt3_minus_eobt1_sec",
+      "clock_eobt1_minus_iobt_sec",
+      "clock_iobt_minus_lobt_sec",
+      "clock_schedule_available",
+      "clock_lobt_available",
+      "clock_iobt_available",
+      "clock_eobt1_available",
+      "clock_aobt3_available",
+      "clock_raw_flight_id_missing",
+      "clock_raw_plan_block_missing",
+      "clock_raw_aobt3_missing",
+      "clock_available_count",
+      "clock_span_sec",
+      "clock_std_sec",
+      "clock_median_sec",
+      "clock_baseline_sec",
+      "clock_baseline_source",
+      "airline",
+      "handler_arr_sched_share",
+      "handler_arr_n",
+      "flight_number_format",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec"
+    ]
+  },
+  "parameters": {
+    "late_mean": 1079.532110091743,
+    "late_rows": 654,
+    "dayshift_weight": 0.5789473684210527,
+    "dayshift_rows": 19,
+    "dayshift_shifted": 11
+  },
+  "dayshift_history": {
+    "rows": 19,
+    "wrong_date": 11,
+    "format": {
+      "mangled": [
+        9,
+        14
+      ],
+      "clean": [
+        2,
+        5
+      ]
+    },
+    "airline": {
+      "EXS": [
+        1,
+        2
+      ],
+      "NOS": [
+        1,
+        2
+      ],
+      "SWU": [
+        1,
+        1
+      ],
+      "WMT": [
+        0,
+        2
+      ],
+      "AMX": [
+        1,
+        1
+      ],
+      "VOE": [
+        1,
+        1
+      ],
+      "RYR": [
+        1,
+        1
+      ],
+      "CHH": [
+        1,
+        1
+      ],
+      "ITY": [
+        3,
+        4
+      ],
+      "QFA": [
+        0,
+        2
+      ],
+      "BAW": [
+        1,
+        1
+      ]
+    },
+    "taxi_sec": 1080.0
+  },
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "original_model_hashes": {
+    "models/refit_2025__v30__42.ordinary.txt": "1171023fa19f5dc756a83df583aede203ab2f234c773362ccef59484249b35fe",
+    "models/refit_2025__v30__42.classifier.txt": "c6d6b1d8dfcdf53af6033a486698818baf1c19bc7d0bfd58b7083b4ebde9355d"
+  },
+  "inference_packets_previously_audited": true,
+  "source_bytes_match_historical_records": true
+}

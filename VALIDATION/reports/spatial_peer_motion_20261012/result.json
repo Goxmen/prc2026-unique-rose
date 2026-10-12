@@ -1,0 +1,249 @@
+{
+  "status": "completed",
+  "failure": null,
+  "identity": {
+    "path": "VALIDATION/reports/spatial_peer_motion_20261012/identity.json",
+    "sha256": "968b862d62baceddf196bedfacc7c8ed1c1f2dc74a8eab564251068fb354118d",
+    "bytes": 3171
+  },
+  "source_queries": {
+    "path": "VALIDATION/reports/spatial_peer_motion_20261012/source_queries.parquet",
+    "sha256": "fa613075b762b4a1ba8c7beaa8c18e861697ad42dfca8b5abcf1775bc01bfacc",
+    "bytes": 58570
+  },
+  "design": {
+    "days": [
+      "2025-03-10",
+      "2025-09-10"
+    ],
+    "selection": "smallest SHA256(movement-ID)64 eligible flights per airport/day; quarter/middle/three-quarter retained ground points",
+    "radius_m": 300.0,
+    "past_seconds": 600.0,
+    "negative_time_shift_seconds": 21600.0,
+    "max_peers": 16,
+    "min_peers": 3,
+    "eligibility": "known aircraft/stand; at least3 retained ground points with speed0..60kt,0..7200s before takeoff, sameUTCday and >=200m from stand",
+    "donors": "retained ground positions with observed speed0..60kt, same airport/UTCday; exact raw absolute timestamp, no interpolation",
+    "exclusion": "all same known aircraft and same movement-ID or exact known takeoff/actualclock/stand/runway aliases",
+    "prediction": "median of per-aircraft observed speed medians; equally weighted aircraft; matched count across actual-past,6hour-shift null,spatial-only",
+    "positive": "observed peer motion, not absent-peer imputation; unsupported rows remain unpredicted",
+    "gate": "each date >=10% matched-support coverage; each date MAE at least5% lower than BOTH controls and pooled at least10% lower",
+    "limits": "90seconds,oneCPUthread,noGPU; original two shared-training pilot dates, no date/threshold search",
+    "no_taxi_labels": true,
+    "no_fit": true,
+    "no_CV": true,
+    "no_download": true,
+    "interpretation": "Source-speed observability/predictability only; no taxi-error headroom or candidate claim"
+  },
+  "integrity": [
+    {
+      "day": "2025-03-10",
+      "flights": 4268,
+      "known_aircraft": 3674,
+      "raw_retained_points": 127439,
+      "observed_ground_speed_points": 60483,
+      "prior_UTCday_ground_points_excluded": 2,
+      "deduplicated_points": 0,
+      "unique_donor_points": 60481,
+      "eligible_query_flights": 1645,
+      "selected_query_flights": 401,
+      "exact_signature_alias_edges": 0,
+      "missing_source_day_sides": 0
+    },
+    {
+      "day": "2025-09-10",
+      "flights": 6080,
+      "known_aircraft": 5223,
+      "raw_retained_points": 254078,
+      "observed_ground_speed_points": 148653,
+      "prior_UTCday_ground_points_excluded": 73,
+      "deduplicated_points": 0,
+      "unique_donor_points": 148580,
+      "eligible_query_flights": 3721,
+      "selected_query_flights": 564,
+      "exact_signature_alias_edges": 0,
+      "missing_source_day_sides": 0
+    }
+  ],
+  "coverage": [
+    {
+      "day": "2025-03-10",
+      "airport": "EDDF",
+      "queries": 50,
+      "matched_supported": 0,
+      "fraction": 0.0,
+      "unique_donor_points": 326
+    },
+    {
+      "day": "2025-03-10",
+      "airport": "EDDM",
+      "queries": 191,
+      "matched_supported": 0,
+      "fraction": 0.0,
+      "unique_donor_points": 3910
+    },
+    {
+      "day": "2025-03-10",
+      "airport": "EGLL",
+      "queries": 183,
+      "matched_supported": 0,
+      "fraction": 0.0,
+      "unique_donor_points": 1678
+    },
+    {
+      "day": "2025-03-10",
+      "airport": "EHAM",
+      "queries": 191,
+      "matched_supported": 42,
+      "fraction": 0.2198952879581152,
+      "unique_donor_points": 23756
+    },
+    {
+      "day": "2025-03-10",
+      "airport": "LEBL",
+      "queries": 191,
+      "matched_supported": 63,
+      "fraction": 0.3298429319371728,
+      "unique_donor_points": 11441
+    },
+    {
+      "day": "2025-03-10",
+      "airport": "LEMD",
+      "queries": 189,
+      "matched_supported": 10,
+      "fraction": 0.05291005291005291,
+      "unique_donor_points": 8507
+    },
+    {
+      "day": "2025-03-10",
+      "airport": "LSZH",
+      "queries": 191,
+      "matched_supported": 54,
+      "fraction": 0.28272251308900526,
+      "unique_donor_points": 10863
+    },
+    {
+      "day": "2025-09-10",
+      "airport": "EDDF",
+      "queries": 192,
+      "matched_supported": 66,
+      "fraction": 0.34375,
+      "unique_donor_points": 25169
+    },
+    {
+      "day": "2025-09-10",
+      "airport": "EDDM",
+      "queries": 192,
+      "matched_supported": 45,
+      "fraction": 0.234375,
+      "unique_donor_points": 29675
+    },
+    {
+      "day": "2025-09-10",
+      "airport": "EGLL",
+      "queries": 178,
+      "matched_supported": 29,
+      "fraction": 0.16292134831460675,
+      "unique_donor_points": 1903
+    },
+    {
+      "day": "2025-09-10",
+      "airport": "EHAM",
+      "queries": 192,
+      "matched_supported": 48,
+      "fraction": 0.25,
+      "unique_donor_points": 39484
+    },
+    {
+      "day": "2025-09-10",
+      "airport": "LEBL",
+      "queries": 190,
+      "matched_supported": 70,
+      "fraction": 0.3684210526315789,
+      "unique_donor_points": 17252
+    },
+    {
+      "day": "2025-09-10",
+      "airport": "LEMD",
+      "queries": 192,
+      "matched_supported": 58,
+      "fraction": 0.3020833333333333,
+      "unique_donor_points": 17305
+    },
+    {
+      "day": "2025-09-10",
+      "airport": "LFPG",
+      "queries": 143,
+      "matched_supported": 2,
+      "fraction": 0.013986013986013986,
+      "unique_donor_points": 386
+    },
+    {
+      "day": "2025-09-10",
+      "airport": "LIRF",
+      "queries": 182,
+      "matched_supported": 21,
+      "fraction": 0.11538461538461539,
+      "unique_donor_points": 1832
+    },
+    {
+      "day": "2025-09-10",
+      "airport": "LSZH",
+      "queries": 192,
+      "matched_supported": 84,
+      "fraction": 0.4375,
+      "unique_donor_points": 15574
+    }
+  ],
+  "scores": {
+    "2025-03-10": {
+      "queries": 1186,
+      "supported": 169,
+      "fraction": 0.14249578414839797,
+      "metrics": {
+        "dynamic": {
+          "mae": 4.85621301775148,
+          "rmse": 6.287070535405164
+        },
+        "null": {
+          "mae": 5.520710059171598,
+          "rmse": 7.357309793426515
+        },
+        "spatial": {
+          "mae": 4.2494082840236675,
+          "rmse": 5.662480325083052
+        }
+      }
+    },
+    "2025-09-10": {
+      "queries": 1653,
+      "supported": 423,
+      "fraction": 0.2558983666061706,
+      "metrics": {
+        "dynamic": {
+          "mae": 4.750472813238772,
+          "rmse": 6.187135379805248
+        },
+        "null": {
+          "mae": 5.637943262411348,
+          "rmse": 7.661309992669825
+        },
+        "spatial": {
+          "mae": 4.241252955082742,
+          "rmse": 5.501451291437264
+        }
+      }
+    }
+  },
+  "pooled_MAE": {
+    "dynamic": 4.7806587837837835,
+    "null": 5.604476351351352,
+    "spatial": 4.24358108108108
+  },
+  "source_gate": false,
+  "runtime_seconds": 40.75432468300005,
+  "no_departure_targets_read": true,
+  "no_fitting_or_downloads": true,
+  "deployment": "Past ground position timestamps from other known departures are present in cached public ranking tracks; source dates/windows are checked. A later coverage audit on2026 is required before any feature/model proposal.",
+  "limitation": "Two training dates only; observed speed may not recover recorded off-block time, and route/direction is not map-matched. Same-query/count-matched comparisons address count/presence but do not establish causal congestion."
+}

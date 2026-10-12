@@ -1,0 +1,629 @@
+{
+  "design": {
+    "versions": [
+      43,
+      44
+    ],
+    "rounds": {
+      "43": 800,
+      "44": 5000
+    },
+    "seed": 42,
+    "threads": 8,
+    "ordinary_rows": 2051327,
+    "ordinary_features": 112,
+    "classifier_features": 68,
+    "training_source": "Retained exact ideas full-year Xn: select original112 columns, preserving categorical metadata and row order",
+    "missing_fits": "Two original ordinary boosters only; retained classifier hash is exact for both",
+    "success": "For each version all344841 original integers exact before its final inference",
+    "failure": "Preserve saved model and mismatch; close affected version without final inference or sweep",
+    "no_classifier_fit": true,
+    "no_neural_fit": true,
+    "no_calibration_fit": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/artifact_control_run.py",
+      "sha256": "7c572acc8a428a08d36a1527996025e394bd47123d2266f09f187683dbcea89a"
+    },
+    {
+      "path": "VALIDATION/artifact_experiments_run.py",
+      "sha256": "6568a71457a456cbc7f696a8abb551e6c97e5593bc48eda174661c26545dc1cd"
+    },
+    {
+      "path": "VALIDATION/callsign_submit.py",
+      "sha256": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954"
+    },
+    {
+      "path": "VALIDATION/disruption_features.py",
+      "sha256": "92e47c89d6a2c91fdb6f8a6d48abd378f841697502a918d8b4bc452fb55eaf01"
+    },
+    {
+      "path": "VALIDATION/disruption_run.py",
+      "sha256": "4098186e9c3bffc4cc75fe24204509c56177879bad0d2d0e57236beff9e01d18"
+    },
+    {
+      "path": "VALIDATION/docs/OPDI_DISRUPTION_EXPERIMENT.md",
+      "sha256": "6151833c60221dd396e94c670bde789b03588daa5e77fa36c29c6e3222fa27d3"
+    },
+    {
+      "path": "VALIDATION/docs/RECORDING_ARTIFACT_EXPERIMENTS.md",
+      "sha256": "ce91bee7292851bf27aa2534ac8b31438e7f5534309a6319ee7023ac3b036c94"
+    },
+    {
+      "path": "VALIDATION/docs/STAND_COORDINATES_EXPERIMENT.md",
+      "sha256": "00069aa1e2d1833f81d28a7b1dd5b9ce1079dbe5a2f205d67c9ea684dc542069"
+    },
+    {
+      "path": "VALIDATION/features_time.py",
+      "sha256": "94f1273ae3edc32e2799e6bb1ebcc819c0a18bf8a61dcda444514d643f944c2c"
+    },
+    {
+      "path": "VALIDATION/final_missing_coordinates_reconstruct.py",
+      "sha256": "d3ae3eedf84c8d8d44259c93a428c735cef00022cf6f09babbb587023ff2e874"
+    },
+    {
+      "path": "VALIDATION/harness.py",
+      "sha256": "adf8a3161a279aca1faa0f78ed4f22349d63b1ec0d1826dcc954b75fb59bd214"
+    },
+    {
+      "path": "VALIDATION/modeling.py",
+      "sha256": "777b2d45fd97565dc83ecabce248734bfb811fbadce5616d8959cad03016c43b"
+    },
+    {
+      "path": "VALIDATION/movement_data.py",
+      "sha256": "2a0a97392e4ba6fd1a3ff64a8165700ae6b4ea466cffe80c3cfa9e92290c79cf"
+    },
+    {
+      "path": "VALIDATION/opdi.py",
+      "sha256": "10acfd0ed69fdf33200c73879207cdf814f3a2074d6e63375e230452fb7eb869"
+    },
+    {
+      "path": "VALIDATION/opdi_disruption_run.py",
+      "sha256": "2285ce5bb7400b7dbbecadf1093ad2ac2d3c1946e0d7704541144dda316fed6c"
+    },
+    {
+      "path": "VALIDATION/opdi_disruption_submit.py",
+      "sha256": "9cdc58db070fd10c03fbd9f82f3014b9d1a9076ea0b031d2183a995ec1623731"
+    },
+    {
+      "path": "VALIDATION/opdi_run.py",
+      "sha256": "c9ef284d9090e62ec81665bc5320e6d61a5884065e5dbb590532d25d79617cb5"
+    },
+    {
+      "path": "VALIDATION/opdi_submit.py",
+      "sha256": "de9f42832541cb594ff5fac95df783e0c356aaaee59a89be2af59f9fb3456227"
+    },
+    {
+      "path": "VALIDATION/overnight_models.py",
+      "sha256": "79633c2479438729f145bfa5e3e5d99d70e50a7fca12780b71790a92d4f183a3"
+    },
+    {
+      "path": "VALIDATION/overnight_run.py",
+      "sha256": "7ab27f85dac47ba54bfc85e4f326673f4f789a9093350d092e638c12c308916b"
+    },
+    {
+      "path": "VALIDATION/overnight_submit.py",
+      "sha256": "98929a74863871de580710ead8f9f4bb3837254e6fd1a4769b7e7f004d19d5a9"
+    },
+    {
+      "path": "VALIDATION/plan_window.py",
+      "sha256": "547e49b8785feba396c488f7c91c8e5a246b7da38c9607e6b81af6bd1db0e12c"
+    },
+    {
+      "path": "VALIDATION/protocol.py",
+      "sha256": "d459495795bb04451e887b3cdfe9714faa2d72f657331842886321b10a8b68ae"
+    },
+    {
+      "path": "VALIDATION/record_fixes.py",
+      "sha256": "92f6fcc9a7586f0d086b0410a633ee83f434deea4733301b0726fad16e0c338c"
+    },
+    {
+      "path": "VALIDATION/recording_artifacts.py",
+      "sha256": "568fe3244139588a5b48e9adc47fd89c81ad7e6421bf9154ad4b4e2ff90ada97"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/reporting.py",
+      "sha256": "7ecd3a5c3b0c6b0498e81593732d4cdaa9e63ba2780989f715dbddb2ced8f75a"
+    },
+    {
+      "path": "VALIDATION/rome_hybrid.py",
+      "sha256": "27bfe7e0b16cd1b64e4571f063fd6fa0b4fb74ea99c335012c4723947db2fb23"
+    },
+    {
+      "path": "VALIDATION/rome_hybrid_run.py",
+      "sha256": "dba56ecaf91f62685e36498ad283fd22bfb5f97aeef7feb829d605e19f5ee90a"
+    },
+    {
+      "path": "VALIDATION/rome_hybrid_submit.py",
+      "sha256": "f11fdb2e2a49be839e1d0c664fc327124de87c36668c3aadaf5d911d50596db0"
+    },
+    {
+      "path": "VALIDATION/rome_signals.py",
+      "sha256": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7"
+    },
+    {
+      "path": "VALIDATION/rome_signals_run.py",
+      "sha256": "b386cd08e56877959f49fb043639bd47af0b0d772e66e20eb7d28d52f50998e9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260925_stand_coords/submission_v43/categories.json",
+      "sha256": "441c1487df1747c8f4a20b3e0c18c951aa3e534e2e3dff384f2aff91073eb85d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260925_stand_coords/submission_v43/refit.json",
+      "sha256": "96ff46d0c9c04276e7efa87bc684c048a93fd8248460eaa9fd708c558305d37a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260925_stand_coords/submission_v43/submission_v43.json",
+      "sha256": "d102fc3f06f99a12ae5565598e76684fa42199e30ccb008a69f448f02f34afbe"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261001_jan_jul/submission_v44/categories.json",
+      "sha256": "441c1487df1747c8f4a20b3e0c18c951aa3e534e2e3dff384f2aff91073eb85d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261001_jan_jul/submission_v44/refit.json",
+      "sha256": "79ccb7ea9e9555fb2e8706d9abc97a70a92859e5443ea17777c53dd499c7d23c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261001_jan_jul/submission_v44/submission_v44.json",
+      "sha256": "c57750b2e66133eda03797df0f80f77bb9e63b1b20e4277b71e2c402cebd641f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/models/refit2025__classifier__42.txt",
+      "sha256": "9501e34314f919425cc74cc345eef9562e895f1516002847fba1583afa97d31e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/submission_v46.json",
+      "sha256": "b88bfbfb3d91432a7da05c3387f55010a6bf52aa2e0e515a807a3535ebc4e4c4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/training_membership.parquet",
+      "sha256": "f6ac40ffbcb90c268c179032671130cdcde6f6f9cc095c8d38abe44076f72cf1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+      "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/inputs_final.json",
+      "sha256": "ae59c50fb0e9b65148cb3e3ec4a4bf8b4640851186836133975ceeda0dfd9c0a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/inputs_old.json",
+      "sha256": "c852474621502dd23a2d987dbbce63764853ebb587846eee45fd73452fa50c0f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_final.pkl",
+      "sha256": "4432bb7eaa886e69a5f0b84a1bc5baff3b62cf8d179280da980fdb1d4bdf44ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_old.pkl",
+      "sha256": "22e91f3aee2a614aba8ee626de366fa1edb281a1a35a5f660d70664463cf9821"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/prepared.json",
+      "sha256": "5e8b63dd4c9b24ca4801b298ba10750796fe80ce88d6468027ece46aca7f36c7"
+    },
+    {
+      "path": "VALIDATION/runway_queue.py",
+      "sha256": "8c3627ffa3f41bc8634a86ebcf174954a343c1eb1470879113bad15bdc7a70c6"
+    },
+    {
+      "path": "VALIDATION/runway_queue_run.py",
+      "sha256": "b5d216b803b9a9561e47e9e60379c14c3641f22cfd6a6f80f506ec45d3d63fa9"
+    },
+    {
+      "path": "VALIDATION/seasonal.py",
+      "sha256": "22924a7b25edaa7db07bd0340d8af1a6421bfd0a49ab04c43e8250e05be4fec4"
+    },
+    {
+      "path": "VALIDATION/stand_coords_run.py",
+      "sha256": "3e9409ee2516b246ea81d5758eb1906ed9c62e02f6e384f91793a691b62675e2"
+    },
+    {
+      "path": "VALIDATION/stand_coords_submit.py",
+      "sha256": "db929614f51d7074755e60743dbadb26635fbb400c90b0c3597c67d6e878f82c"
+    },
+    {
+      "path": "VALIDATION/stand_day.py",
+      "sha256": "ee596bcaf16e0b53d8249fefe1978696d8136495d1b63e057f99e8115c4e28ad"
+    },
+    {
+      "path": "VALIDATION/stand_day_run.py",
+      "sha256": "90c57bb9fc420439e84fc33916bf57183fe25c99c7a405b04834466cb8d7a1f7"
+    },
+    {
+      "path": "VALIDATION/stand_day_submit.py",
+      "sha256": "6b449dbba4279a4374af7acdf49c2b5b908544b17771f02fa3ebc4b454b59e6a"
+    },
+    {
+      "path": "VALIDATION/stand_features.py",
+      "sha256": "2ce15697cba515960fa5a27b70ec913248fcf44ccec7c1b106e0945f4dd8b4e6"
+    },
+    {
+      "path": "VALIDATION/stand_geometry.py",
+      "sha256": "4043b700e2681cf7bd6b2dc64ffff2d968d9f230f4af48ba85c31a2402905c1b"
+    },
+    {
+      "path": "VALIDATION/submit.py",
+      "sha256": "09fe62fe3840d457bdbf25d961b7b20f909b78f2521d05ea61a2369bb0f6aee4"
+    },
+    {
+      "path": "VALIDATION/tests/test_opdi_disruption.py",
+      "sha256": "4fefe97c86f24e1837d1c2a32bac20e4c1441109cb38b188b239f8a86e6d6caa"
+    },
+    {
+      "path": "VALIDATION/tests/test_stand_features.py",
+      "sha256": "dcb9d985bdf551824bf9928628ca9202b16a39c5628b958d8eda5e785c6fa36d"
+    },
+    {
+      "path": "VALIDATION/tools/score_opdi_disruption.py",
+      "sha256": "492a5967620f42fb68472224681f79541af6a4ba2992125691737e22e74e4c6e"
+    },
+    {
+      "path": "VALIDATION/tuned_submit.py",
+      "sha256": "509eb585e64ee8a535e8902a86adac0e568f56098693e0377e7844185af5abd6"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "VALIDATION/weather.py",
+      "sha256": "01241a62d8f70d1f32087522e070693850f812dbe487eb7772147b621bb80d5a"
+    },
+    {
+      "path": "VALIDATION/weather_run.py",
+      "sha256": "da2b66ae1d9ad118de4eeda95a1d7e9a2bd0abfe1aae951c2a61bbb38094679b"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/manifest.json",
+      "sha256": "712fde2830cd561047b889f0a3c51deb64e0a600f515f59db747d6404367c3ba"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v43.parquet",
+      "sha256": "23981c72073d123a43598370229aa4de3f3c1e0c202374c66188ca639c4a9e9c"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v44.parquet",
+      "sha256": "9b6f5f3ab44de0ec8e23a3b1ac1208ad9271b524b0723e4764d7d44cddf9731c"
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    },
+    {
+      "path": "pipeline/clock_features.py",
+      "sha256": "81a4b328f2d879540c9e538297f538461f27678e593441f8b37fe83d383de9ae"
+    },
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4"
+    },
+    {
+      "path": "pipeline/prediction_rules.py",
+      "sha256": "62613801875506dcc7f4078e0e136398b6694ee8b1eb0398e9a05612c7b4e560"
+    },
+    {
+      "path": "pipeline/registered_rules.py",
+      "sha256": "5bc8da8c9ce29fa83dddeb76093d82ebfeab8e48b62ef9dc1c31d5f5d288d163"
+    }
+  ],
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "params": {
+    "43": {
+      "objective": "regression",
+      "metric": "rmse",
+      "learning_rate": 0.05,
+      "num_leaves": 255,
+      "min_data_in_leaf": 200,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1,
+      "seed": 42,
+      "bagging_seed": 43,
+      "feature_fraction_seed": 44,
+      "num_threads": 8
+    },
+    "44": {
+      "objective": "regression",
+      "metric": "rmse",
+      "learning_rate": 0.02,
+      "num_leaves": 127,
+      "min_data_in_leaf": 200,
+      "feature_fraction": 0.7,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbosity": -1,
+      "seed": 42,
+      "bagging_seed": 43,
+      "feature_fraction_seed": 44,
+      "num_threads": 8,
+      "lambda_l2": 100.0,
+      "path_smooth": 0.0,
+      "cat_smooth": 100.0,
+      "cat_l2": 10.0,
+      "min_data_per_group": 100,
+      "max_cat_threshold": 16
+    }
+  },
+  "ordinary_features": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "op_taxi_30d",
+    "op_taxi_30d_n",
+    "rwy_taxi_30d",
+    "stand_taxi_90d",
+    "aphour_taxi_30d",
+    "arr_taxiin_7d",
+    "dep_actual_30m_before",
+    "arr_actual_30m_before",
+    "dep_sched_60m_around",
+    "clock_aobt3_minus_schedule_sec",
+    "clock_aobt3_minus_eobt1_sec",
+    "clock_eobt1_minus_iobt_sec",
+    "clock_iobt_minus_lobt_sec",
+    "clock_schedule_available",
+    "clock_lobt_available",
+    "clock_iobt_available",
+    "clock_eobt1_available",
+    "clock_aobt3_available",
+    "clock_raw_flight_id_missing",
+    "clock_raw_plan_block_missing",
+    "clock_raw_aobt3_missing",
+    "clock_available_count",
+    "clock_span_sec",
+    "clock_std_sec",
+    "clock_median_sec",
+    "clock_baseline_sec",
+    "clock_baseline_source",
+    "wx_temp_c",
+    "wx_dewpoint_spread_c",
+    "wx_wind_kt",
+    "wx_gust_kt",
+    "wx_wind_dir",
+    "wx_visibility_m",
+    "wx_ceiling_ft",
+    "wx_thunder",
+    "wx_snow",
+    "wx_freezing",
+    "wx_fog",
+    "wx_rain",
+    "wx_heavy",
+    "wx_deicing",
+    "wx_age_min",
+    "wx_2h_min_visibility_m",
+    "wx_2h_min_ceiling_ft",
+    "wx_2h_max_gust_kt",
+    "wx_2h_thunder",
+    "wx_2h_snow_or_freezing",
+    "wx_2h_fog",
+    "q_rwy_prev_takeoff_gap_sec",
+    "q_rwy_takeoffs_prev30",
+    "q_apt_takeoffs_prev30",
+    "q_rwy_others_gap_prev60",
+    "q_apt_others_gap_prev60",
+    "q_queue_ahead_since_aobt3",
+    "q_rwy_landings_prev30",
+    "q_rwy_next_takeoff_gap_sec",
+    "q_rwy_takeoffs_next30",
+    "q_rwy_others_gap_pm30",
+    "q_apt_others_gap_pm30",
+    "airline",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60",
+    "dis_snow_6h_fraction",
+    "dis_snow_6h_coverage",
+    "dis_snow_24h_fraction",
+    "dis_snow_24h_coverage",
+    "dis_arr_60m_count",
+    "dis_arr_60m_mean_sec",
+    "dis_arr_60m_over30_share",
+    "dis_arr_60m_over60_share",
+    "dis_arr_180m_count",
+    "dis_arr_180m_mean_sec",
+    "dis_arr_180m_over30_share",
+    "dis_arr_180m_over60_share",
+    "sc_x_m",
+    "sc_y_m",
+    "sc_rwy_end_m"
+  ],
+  "classifier_features": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "op_taxi_30d",
+    "op_taxi_30d_n",
+    "rwy_taxi_30d",
+    "stand_taxi_90d",
+    "aphour_taxi_30d",
+    "arr_taxiin_7d",
+    "dep_actual_30m_before",
+    "arr_actual_30m_before",
+    "dep_sched_60m_around",
+    "clock_aobt3_minus_schedule_sec",
+    "clock_aobt3_minus_eobt1_sec",
+    "clock_eobt1_minus_iobt_sec",
+    "clock_iobt_minus_lobt_sec",
+    "clock_schedule_available",
+    "clock_lobt_available",
+    "clock_iobt_available",
+    "clock_eobt1_available",
+    "clock_aobt3_available",
+    "clock_raw_flight_id_missing",
+    "clock_raw_plan_block_missing",
+    "clock_raw_aobt3_missing",
+    "clock_available_count",
+    "clock_span_sec",
+    "clock_std_sec",
+    "clock_median_sec",
+    "clock_baseline_sec",
+    "clock_baseline_source",
+    "airline",
+    "handler_arr_sched_share",
+    "handler_arr_n",
+    "flight_number_format",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60"
+  ],
+  "original_source_bytes_exact": true,
+  "retained_classifier_hash_exact": true,
+  "original_hashes": {
+    "43": "d9dc4018e8aac8772cbfd272068dc0da3047c2b60f97ccc1580e2884e146e052",
+    "44": "d2f8fdf7ea8ed684d510bd9b7ff1c82756a1008211ad1cffdace2f5685cd197b"
+  }
+}
