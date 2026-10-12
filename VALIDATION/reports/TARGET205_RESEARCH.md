@@ -91,3 +91,25 @@ flight-linkage mechanisms while the two hosts run their fixed jobs.
 Completed negative screens and their retained models are documented in
 [the 11 October report](TARGET215_RESEARCH.md). Do not repeat those fits,
 reopen cancelled queues or spend the final slot on numerical noise.
+
+## Reapplying selected plan bounds: closed
+
+Affine recombination can cross previously selected clock bounds. A fixed
+diagnostic therefore reapplies v74's matched-plan bound and recovered-plan
+exclusion to v79, without monthly recalibration, new thresholds or fitted rules.
+Jan/Jul CV changes 290.674357→290.639693, −0.034664 seconds, interval
+[−0.071902, −0.007527]. Both months improve across 32 changed validation rows.
+
+Only nine ranking predictions change, all from the matched bound; the recovered
+exclusion changes none. The RMS prediction displacement is 0.088502 seconds,
+which bounds the absolute possible leaderboard RMSE change by the reverse
+triangle inequality, regardless of hidden labels. This is too little opportunity
+for the remaining submission slot. No selected candidate, version or upload
+follows. Thirty held labels lie outside the matched bound, so this diagnostic
+does not claim that the empirical bound is universally exact.
+
+Separate SQL reconstructs all 344,841 ranking and 344,419 validation predictions
+and monthly scores. The maximum ranking change is 49 seconds. Sources,
+predictions and receipts remain in `../runs/v3_20261012_reapply_selected_bounds/`;
+runner `../reapply_selected_bounds.py`, auditor
+`../tools/audit_reapplied_bounds.py`.
