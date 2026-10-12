@@ -1,0 +1,89 @@
+{
+  "status": "scored",
+  "training_identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/identity.json",
+    "sha256": "54711f9487fd64ec1d3b5c0760bc3d92d9c8ed7831671d1ee4fb20acb4c427f2"
+  },
+  "stack": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration_stack/result.json",
+    "sha256": "2110121229f42cd8478fd2601ece0b7b322ec25b446d5a2b135371f86736c37d"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration_stack/combined.parquet",
+    "sha256": "939e6ab99f323a879c219dadf55a93a6822228e5a3f7e178dc9916a15babce62"
+  },
+  "scores": {
+    "2025-01": {
+      "three_tabm": 325.02854196957753,
+      "matched_duration": 325.0533484758967,
+      "complete_schedule": 325.0431664905985
+    },
+    "2025-07": {
+      "three_tabm": 254.49701445100365,
+      "matched_duration": 254.41140436016693,
+      "complete_schedule": 254.41948701287387
+    }
+  },
+  "cv": {
+    "three_tabm": 289.7627782102906,
+    "matched_duration": 289.73237641803183,
+    "complete_schedule": 289.73132675173616
+  },
+  "paired": {
+    "matched_duration": {
+      "change": -0.0010496662956427372,
+      "ci95": [
+        -0.023749176317914688,
+        0.01983074456315349
+      ],
+      "decision": "inconclusive"
+    },
+    "three_tabm": {
+      "change": -0.03145145855441456,
+      "ci95": [
+        -0.07222766030788037,
+        0.01180730507526206
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "gate_pass": false,
+  "exact_old_controls_and_combined_replay": true,
+  "rows": 344419,
+  "sources": [
+    {
+      "path": "VALIDATION/nn_public_tabm_duration_score.py",
+      "sha256": "309050872c36539e96d995b074d074f8ca714353ebd498b88a69e8df77466d31"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_duration.py",
+      "sha256": "dfe5fdc1c3fd6b95081c7f1f0fc0ac3a4f72229bd9f616802d7461f5ea7b817d"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_stack.py",
+      "sha256": "f55d193f387c05d084a4240bd785f504186dcd4ab1c49fb91bc86860908d0214"
+    },
+    {
+      "path": "VALIDATION/tabm_pool3_other_runway_combo_cv.py",
+      "sha256": "cf871d6c574e09f8c9d526e6a74655bbda4f388ea26d6fed13506392be2990fa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/scored.parquet",
+      "sha256": "e4cc52b31b606b24a263eacb5c0d086378cd5eaaa174a55f14e50082723a524f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/cv.parquet",
+      "sha256": "8f17490dcefbedc3959a4293b2a68ef7871ecf0d8828d30aad06fefe2299895f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/scored.parquet",
+      "sha256": "d37c07d8eb1e2641ff3dd98f3cbcf3232a54f432b86f1f42a56e70f06e1c2d3f"
+    }
+  ],
+  "independent_model_and_score_audit_required": true,
+  "no_upload": true
+}

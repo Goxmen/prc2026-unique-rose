@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T09:28:12.121160+00:00",
+  "updated_at": "2026-10-12T10:14:21.666901+00:00",
   "current": {
     "target": 205.0,
     "best_version": 79,
@@ -491,17 +491,28 @@
     {
       "id": "tabm_duration",
       "hypothesis": "Complete TabM\u2019s24-epoch schedule instead of inherited PLE21/17 stops",
-      "status": "running",
-      "conclusion": "Fixed24/24 test running after CPU update/RNG parity and GPU capacity checks; intermediate21/17 snapshots are matched controls. No held-label stopping search.",
-      "metrics": {},
+      "status": "closed_inconclusive",
+      "conclusion": "The fixed24-epoch schedule does not improve the same-trajectory control reliably and July worsens. The selected15-epoch full-year production recipe remains unchanged.",
+      "metrics": {
+        "same_trajectory_change": -0.0010496662956427372,
+        "same_trajectory_ci95": [
+          -0.023749176317914688,
+          0.01983074456315349
+        ],
+        "selected_pool_change": -0.03145145855441456,
+        "selected_pool_ci95": [
+          -0.07222766030788037,
+          0.01180730507526206
+        ]
+      },
       "evidence": [
         {
-          "path": "VALIDATION/nn_public_tabm_jan_jul.py",
-          "sha256": "c28cc9686c8acccd1e215e03fb6b7ee4b6a51909ae68f412ed2cd15b56b82775"
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/closed.json",
+          "sha256": "253cfeb5470753edae5af1165652ee964c6a34c51a1e6a1d4a8401e7baa0f69a"
         },
         {
-          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/identity.json",
-          "sha256": "54711f9487fd64ec1d3b5c0760bc3d92d9c8ed7831671d1ee4fb20acb4c427f2"
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration_stack/independent_audit.json",
+          "sha256": "fb22d0e9ffea958cf3cceba1ba53cbbddb904bb7144ae200f2881e729fde37fe"
         }
       ]
     },

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T09:55:30.526491+00:00",
+  "updated_at": "2026-10-12T10:14:21.732652+00:00",
   "target": 205.0,
   "best_version": 79,
   "best_official_rmse": 219.613,
@@ -8,13 +8,13 @@
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 37,
   "desktop": {
-    "stage": "training_or_inference",
-    "completed_records": 2,
-    "last_epoch_at": "11:55:06",
+    "stage": "fits_complete",
+    "completed_records": 4,
+    "last_epoch_at": "12:12:34",
     "fold": "2025-07",
-    "epoch": 8,
+    "epoch": 24,
     "epochs": 24,
-    "seconds_per_epoch": 61.98
+    "seconds_per_epoch": 63.08
   },
   "next": [
     "Return/audit selected production ensemble",
@@ -26,10 +26,36 @@
     "completed_new_members": [
       1
     ],
-    "last_epoch_at": "11:53:23",
-    "epoch": 5,
+    "last_epoch_at": "12:12:44",
+    "epoch": 12,
     "epochs": 15,
-    "seconds_per_epoch": 155.64
+    "seconds_per_epoch": 156.39
+  },
+  "duration_result": {
+    "cv": {
+      "three_tabm": 289.7627782102906,
+      "matched_duration": 289.73237641803183,
+      "complete_schedule": 289.73132675173616
+    },
+    "paired": {
+      "matched_duration": {
+        "change": -0.0010496662956427372,
+        "ci95": [
+          -0.023749176317914688,
+          0.01983074456315349
+        ],
+        "decision": "inconclusive"
+      },
+      "three_tabm": {
+        "change": -0.03145145855441456,
+        "ci95": [
+          -0.07222766030788037,
+          0.01180730507526206
+        ],
+        "decision": "inconclusive"
+      }
+    },
+    "gate_pass": false
   },
   "completion": {
     "state": "waiting",

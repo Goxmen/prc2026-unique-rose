@@ -1,0 +1,128 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/identity.json",
+    "sha256": "54711f9487fd64ec1d3b5c0760bc3d92d9c8ed7831671d1ee4fb20acb4c427f2"
+  },
+  "design": {
+    "parent": "selected equal three-TabM pool plus robust same-date runway correction",
+    "change": "seed42 completes original24-epoch OneCycle schedule, rather than inherited PLE21/17 stops",
+    "controls": "same-trajectory21/17 snapshots, plus retained laptop seed42 and other two members",
+    "epochs": {
+      "2025-01": 24,
+      "2025-07": 24
+    },
+    "checkpoint_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "seed": 42,
+    "model": {
+      "original_columns": 156,
+      "public_columns": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "public_transform": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "track": "unchanged physical CNN, masked mean/max64",
+      "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+      "k": 32,
+      "n_blocks": 2,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "normal",
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "loss": "mean squared error over rows AND individual32 heads",
+      "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+      "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+    },
+    "effective_batch": 2048,
+    "microbatch": 512,
+    "architecture_optimizer_inputs_and_loss": "unchanged original public/physical TabM",
+    "checkpoint": "after original epoch update; torch RNG unchanged; no early held inference",
+    "primary": "one-of-three24-epoch replacement versus same-desktop early snapshot",
+    "selected": "same replacement versus actual three-TabM pool, including unchanged runway/v79 transport",
+    "gate": "both primary and actual selected comparisons improve in both months with paired-day upper endpoint below zero",
+    "machine": "desktop RTX3080; same-trajectory duration control, explicit historical laptop difference",
+    "no_epoch_search": true,
+    "no_inner_fit": true,
+    "no_new_feature": true,
+    "no_new_weights": true,
+    "no_upload": true,
+    "caveat": "Reused development months; does not imply optimal training duration or a gain for every seed"
+  },
+  "month": "2025-07",
+  "arm": "tabm",
+  "seed": 42,
+  "epochs": 24,
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-07.pkl",
+      "sha256": "1c44b5007b1cfe70db2387ce37089e55cad7540f8ebb5e9c043f2ee77c3d0f28"
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+      "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+    },
+    "rows": 1140233,
+    "held_rows": 190713,
+    "reference_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.json",
+      "sha256": "c70cea646789fdccd2584f95eca80f072a3666a3dc59888c3e5765eb23bea817"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/models/2025-07_tabm.pt",
+    "sha256": "95a480a9d021e1082dba77b744c9e2d42c6e19300e26b66b1eb3bdcfbd474b66"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+    "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+  },
+  "updates_completed_before_inference": true
+}

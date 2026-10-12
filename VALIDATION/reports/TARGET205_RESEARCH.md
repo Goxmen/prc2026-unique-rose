@@ -26,6 +26,18 @@ receipt remains unchanged; work began after the explicit user resumption.
 The native goal retains its old text/status; the local project objective records
 205 and no native usage limit was altered.
 
+## Longer TabM training: closed after matched comparison
+
+The fixed24-epoch comparison completed and passed the independent model/SQL audit.
+With the selected runway combination, its CV is289.731327 versus289.732376 for
+the same-trajectory21/17 control: **−0.001050 seconds**, interval[−0.023749,+0.019831].
+January improves0.010182 and July worsens0.008083. Against the actual retained
+three-TabM/runway pool, the change is−0.031451, interval[−0.072228,+0.011807],
+also inconclusive. The analogous raw v78 comparisons are inconclusive too.
+The fixed gate fails. No epoch search, extra seeds, production fit, candidate
+or upload follows; both trajectories and intermediate weights are retained.
+See `../runs/v3_20261012_nn_public_tabm_duration/closed.json`.
+
 ## Fixed TabM duration screen and research state, 11:33 Amsterdam
 
 The selected three-member production pool is running on the laptop. The desktop

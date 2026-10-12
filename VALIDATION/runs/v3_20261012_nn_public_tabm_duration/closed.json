@@ -1,0 +1,43 @@
+{
+  "state": "closed_inconclusive",
+  "at": "2026-10-12T10:14:21.666901+00:00",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/identity.json",
+    "sha256": "54711f9487fd64ec1d3b5c0760bc3d92d9c8ed7831671d1ee4fb20acb4c427f2"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration_stack/combined_result.json",
+    "sha256": "0ca4e7416d668f715cbba22bd982f5451581aecdb9d47c557506941d2efdd95a"
+  },
+  "audit": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration_stack/independent_audit.json",
+    "sha256": "fb22d0e9ffea958cf3cceba1ba53cbbddb904bb7144ae200f2881e729fde37fe"
+  },
+  "cv": {
+    "three_tabm": 289.7627782102906,
+    "matched_duration": 289.73237641803183,
+    "complete_schedule": 289.73132675173616
+  },
+  "paired": {
+    "matched_duration": {
+      "change": -0.0010496662956427372,
+      "ci95": [
+        -0.023749176317914688,
+        0.01983074456315349
+      ],
+      "decision": "inconclusive"
+    },
+    "three_tabm": {
+      "change": -0.03145145855441456,
+      "ci95": [
+        -0.07222766030788037,
+        0.01180730507526206
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "conclusion": "The fixed24-epoch schedule does not improve the same-trajectory control reliably and July worsens. The selected15-epoch full-year production recipe remains unchanged.",
+  "no_more_fits": true,
+  "no_production": true,
+  "no_submission": true
+}

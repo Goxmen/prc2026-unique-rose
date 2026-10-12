@@ -1,0 +1,43 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_tabm_duration_20261012.py",
+    "sha256": "ac1ad549e7e6f770f6b152ca98f2b7ed79bfbe998b2b19cab89356363334d274"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/identity.json",
+    "sha256": "54711f9487fd64ec1d3b5c0760bc3d92d9c8ed7831671d1ee4fb20acb4c427f2"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration_stack/combined_result.json",
+    "sha256": "0ca4e7416d668f715cbba22bd982f5451581aecdb9d47c557506941d2efdd95a"
+  },
+  "members": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/networks/2025-01_tabm.json",
+      "sha256": "2bcb55a6a6191f0da06dce40e725a92462553156e2b5c1beccc24c8b69e8bfb9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/networks/2025-01_early.json",
+      "sha256": "84693912ef6ab0582a2407c1d7f7425f6a00b428a3cb53a280dff4d49bbdba4c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/networks/2025-07_tabm.json",
+      "sha256": "3c1af9233620e07a557864627ff25f494cddbff82ca64c1ef8b70dee803a8eb4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/networks/2025-07_early.json",
+      "sha256": "8ad8dd67134e8f1bafa2967400de02ed1ec3d5f01a3474dc3ae4c8a569e6f818"
+    }
+  ],
+  "rows": 344419,
+  "all_saved_model_contracts_and_exact_epoch_prefix_curves": true,
+  "all_row_ids_truth_calendar_original_controls_and_integer_transport": true,
+  "independent_SQL_scores": true,
+  "update_parity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/update_parity.json",
+    "sha256": "ee6d27ee71b2a2e057f5c3535b7a289124440787bef8653ef984ab9c0a0bbfca"
+  },
+  "training_guard_and_all_row_model_reloads": "Inherited audited fit receipts",
+  "scope": "Independent provenance and arithmetic audit; training input/model reload already checked by the frozen runner. Reused development data."
+}

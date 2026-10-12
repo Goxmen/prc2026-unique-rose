@@ -13,7 +13,7 @@
   "current_best_version": 79,
   "current_best_rmse": 219.613,
   "current_gap": 14.613,
-  "updated_at": "2026-10-12T09:13:04.778614+00:00",
+  "updated_at": "2026-10-12T10:15:03.290412+00:00",
   "target_history": [
     {
       "at": "2026-10-11T20:18:12.307058+00:00",
@@ -37,7 +37,7 @@
   "resume_authorization": "User: its 2:24. get started",
   "remaining_utc_day_slots": 1,
   "used_utc_day_slots": 4,
-  "desktop": "Two fixed24-epoch TabM duration trajectories, SSH-independent local session9642; matched intermediate21/17 checkpoints",
+  "desktop": "Duration screen audited and closed as inconclusive; waiting for selected production return/build",
   "automatic_upload_queue": [],
   "last_live_check": "2026-10-12T09:13:15+00:00",
   "private_progress_note": "LOCAL_PROGRESS.md (gitignored)",
@@ -52,9 +52,12 @@
     "arrival month-to-month stand drift: all4 training-month tests worsen",
     "Stand-month main tree: no useful effect",
     "Nonuniform score conditioning: inconclusive, January worse",
-    "Cross-date runway evidence: inconclusive versus same-date parent, January worse"
+    "Cross-date runway evidence: inconclusive versus same-date parent, January worse",
+    "Fixed24-epoch TabM schedule: matched effect\u22120.00105, inconclusive; no production"
   ],
   "completion_worker": "tools/finalize_tabm_pool3_20261012.py session36916 waits for laptop export and idle desktop, then returns/builds/audits; no upload",
   "research_registry": "VALIDATION/research_registry.json",
-  "compact_state": "VALIDATION/research_state.json"
+  "compact_state": "VALIDATION/research_state.json",
+  "desktop_duration_status": "closed_inconclusive",
+  "desktop_duration_result": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/closed.json"
 }

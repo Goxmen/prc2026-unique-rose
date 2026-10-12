@@ -64,6 +64,8 @@ def status(remote=False):
     result=RUNS/'v3_20261012_nn_public_tabm_duration_stack/combined_result.json'
     if result.exists():
         r=read(result);value['duration_result']={k:r[k] for k in ['cv','paired','gate_pass']}
+        if (result.parent/'independent_audit.json').exists():
+            value['next'].remove('Score/audit fixed duration comparison')
     completion=RUNS/'v3_20261012_tabm_pool3_completion/execution.json'
     if completion.exists():
         r=read(completion)

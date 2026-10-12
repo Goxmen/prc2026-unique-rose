@@ -125,11 +125,14 @@ Start with `VALIDATION/research_registry.json` and `VALIDATION/research_state.js
 `tools/research_state.py status --remote` prints a compact status; `find <terms>`
 checks previously tested hypotheses. Full logs stay on disk. Update these at
 milestones, avoid full-report rereads and repeated closed experiments.
-The fixed TabM24-epoch screen is running on the desktop (session9642), with
-same-trajectory21/17 snapshots and no stopping search. Original optimizer/update
-AST, exact CPU parameter/RNG prefixes and GPU capacity checks pass. Completion
-worker session36916 waits for laptop export and an idle desktop, then returns,
-builds and audits the selected three-TabM/runway file; it never fits or uploads.
+The fixed TabM24-epoch screen is closed: matched CV change−0.001050,
+interval[−0.023749,+0.019831], with July worse. Independent audits pass; retain
+models and do not expand or submit it. Completion worker session36916 waits
+for laptop export, then returns/builds/audits the selected three-TabM/runway file;
+it never fits or uploads. The separate final route requires
+`unique-rose_final.parquet`. Its four-month public inputs are prepared/audited;
+saved-TabM final inference is prepared but has not run. See
+`VALIDATION/reports/final_route_inventory_20261012.json`.
 
 - **October12, 10:50 Amsterdam: three-TabM pool selected; two full-year fits active.**
   Best/latestv79 **219.6130**, live08:24 Amsterdam, rank9/242; one UTC-day slot remains.

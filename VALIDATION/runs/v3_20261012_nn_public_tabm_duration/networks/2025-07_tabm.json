@@ -1,0 +1,263 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/identity.json",
+    "sha256": "54711f9487fd64ec1d3b5c0760bc3d92d9c8ed7831671d1ee4fb20acb4c427f2"
+  },
+  "design": {
+    "parent": "selected equal three-TabM pool plus robust same-date runway correction",
+    "change": "seed42 completes original24-epoch OneCycle schedule, rather than inherited PLE21/17 stops",
+    "controls": "same-trajectory21/17 snapshots, plus retained laptop seed42 and other two members",
+    "epochs": {
+      "2025-01": 24,
+      "2025-07": 24
+    },
+    "checkpoint_epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "seed": 42,
+    "model": {
+      "original_columns": 156,
+      "public_columns": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "public_transform": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "track": "unchanged physical CNN, masked mean/max64",
+      "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+      "k": 32,
+      "n_blocks": 2,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "normal",
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "loss": "mean squared error over rows AND individual32 heads",
+      "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+      "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+    },
+    "effective_batch": 2048,
+    "microbatch": 512,
+    "architecture_optimizer_inputs_and_loss": "unchanged original public/physical TabM",
+    "checkpoint": "after original epoch update; torch RNG unchanged; no early held inference",
+    "primary": "one-of-three24-epoch replacement versus same-desktop early snapshot",
+    "selected": "same replacement versus actual three-TabM pool, including unchanged runway/v79 transport",
+    "gate": "both primary and actual selected comparisons improve in both months with paired-day upper endpoint below zero",
+    "machine": "desktop RTX3080; same-trajectory duration control, explicit historical laptop difference",
+    "no_epoch_search": true,
+    "no_inner_fit": true,
+    "no_new_feature": true,
+    "no_new_weights": true,
+    "no_upload": true,
+    "caveat": "Reused development months; does not imply optimal training duration or a gain for every seed"
+  },
+  "month": "2025-07",
+  "arm": "tabm",
+  "seed": 42,
+  "epochs": 24,
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-07.pkl",
+      "sha256": "1c44b5007b1cfe70db2387ce37089e55cad7540f8ebb5e9c043f2ee77c3d0f28"
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+      "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+    },
+    "rows": 1140233,
+    "held_rows": 190713,
+    "reference_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.json",
+      "sha256": "c70cea646789fdccd2584f95eca80f072a3666a3dc59888c3e5765eb23bea817"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/models/2025-07_tabm.pt",
+    "sha256": "95a480a9d021e1082dba77b744c9e2d42c6e19300e26b66b1eb3bdcfbd474b66"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/networks/2025-07_tabm.parquet",
+    "sha256": "b9e95b664657c2bee09fba015ad4aaceeafdac6a002acfe570a2cf29b633785e"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+    "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+  },
+  "checkpoint": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/trained/2025-07_tabm.json",
+    "sha256": "aae2fb3dab7eb99283f28f1b3c132de21e4f011f501b900bb61d4bc1502c54f4"
+  },
+  "train_rows": 1140233,
+  "held_rows": 190713,
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.4008619968147472,
+      "seconds": 68.77526608298649
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.2580643594462319,
+      "seconds": 66.21949742198922
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.22979812729368637,
+      "seconds": 65.51332320598885
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.21548747557411804,
+      "seconds": 65.69758851098595
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.20282044874901073,
+      "seconds": 64.15313182599493
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.19361290927224775,
+      "seconds": 63.97674409300089
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.18706255025934168,
+      "seconds": 64.71151088998886
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.1810150253546943,
+      "seconds": 61.97814340199693
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.17645372330391823,
+      "seconds": 65.9497877160029
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.17151319882338203,
+      "seconds": 65.79705497602117
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.16747371187698207,
+      "seconds": 60.77736569501576
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.16332132100244875,
+      "seconds": 67.80733033100842
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.15990799857849114,
+      "seconds": 67.77205089799827
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.15717990435667434,
+      "seconds": 70.301273561985
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.1523556761015941,
+      "seconds": 68.44176822598092
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.14896526468467872,
+      "seconds": 63.65450928598875
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.14613620868121321,
+      "seconds": 64.10222717700526
+    },
+    {
+      "epoch": 18,
+      "train_mse_std": 0.14334727521570428,
+      "seconds": 63.752487119985744
+    },
+    {
+      "epoch": 19,
+      "train_mse_std": 0.14063313411617342,
+      "seconds": 63.72824115198455
+    },
+    {
+      "epoch": 20,
+      "train_mse_std": 0.13823928663027754,
+      "seconds": 66.1884765389841
+    },
+    {
+      "epoch": 21,
+      "train_mse_std": 0.13641305743870977,
+      "seconds": 64.25678830000106
+    },
+    {
+      "epoch": 22,
+      "train_mse_std": 0.13510686662865357,
+      "seconds": 67.83356939599616
+    },
+    {
+      "epoch": 23,
+      "train_mse_std": 0.1341397802609848,
+      "seconds": 65.07605948200217
+    },
+    {
+      "epoch": 24,
+      "train_mse_std": 0.1337101253671192,
+      "seconds": 63.0823421109817
+    }
+  ],
+  "all_held_reloaded_exact": true,
+  "host": "GPC",
+  "gpu": "NVIDIA GeForce RTX 3080",
+  "torch": "2.14.1+cu130"
+}

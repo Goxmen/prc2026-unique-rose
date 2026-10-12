@@ -41,9 +41,9 @@ No final-route validation has been claimed; see `public_refresh_20261012.json`.
 Current work (compact index: `VALIDATION/research_registry.json`; live local
 snapshot: `VALIDATION/research_state.json`):
 
-- **Desktop duration comparison:** two fixed24-epoch TabM trajectories running,
-  with original21/17 checkpoints saved as same-run controls. No epoch search.
-  Unchanged updates, CPU RNG/prefix parity and GPU capacity pass. Session9642.
+- **Desktop duration comparison closed:** matched CV change−0.001050,
+  interval[−0.023749,+0.019831], with July worse. All model/SQL audits pass.
+  Keep the selected15-epoch production recipe; no new fits or candidate.
 - **Finite production completion worker:** session36916 waits for laptop export
   and an idle desktop, then returns/builds/audits the selected pool/runway file.
   It does not fit or upload; source hashes and per-stage receipts are pinned.
