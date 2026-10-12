@@ -1,0 +1,87 @@
+{
+  "design": {
+    "parent": "exact v78; selected184-input main LightGBM retained control",
+    "change": "two within-month leave-own-flight-ID-out IOBT peer-clock features in main LightGBM only",
+    "features": [
+      "idclock_iobt_residual",
+      "idclock_neighbor_span"
+    ],
+    "original_columns": 184,
+    "columns": 186,
+    "seed": 42,
+    "trial": "LB1",
+    "rounds": 10000,
+    "threads": 4,
+    "rows_labels": "all original ordinary training rows and targets; every held row retained",
+    "settings": "exact retained184-input parameters/categories and same desktop machine",
+    "primary": "full main-tree replacement inside unchanged equal3-tree mean through exactv78",
+    "secondary": "separate fixed coefficient-one delta transport onto exactv79",
+    "v78_increment": "unchanged retained joint-minus-departure-only correction based on originalv70 prior",
+    "no_feature_search": true,
+    "no_weight_search": true,
+    "no_stopping_search": true,
+    "no_raw_id_feature": true,
+    "limitations": [
+      "reused Jan/Jul development",
+      "input-only source lead selected after chronology study",
+      "mostly redundant with supplied IOBT; deviations do not prove timestamp errors",
+      "no-ID Rome rows cannot benefit directly from the new clock estimate"
+    ],
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/identity.json",
+    "sha256": "3418b7c4487affc68db80e72d65acb0c8f9c0a08ce193c260c60ad4e0960fc56"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.860607626995,
+      "candidate": 325.8783087308578,
+      "control_v77": 325.826575649057,
+      "candidate_v77": 325.8442969906914
+    },
+    "2025-07": {
+      "control": 255.9996300885311,
+      "candidate": 255.98723366923716,
+      "control_v77": 257.2728446739547,
+      "candidate_v77": 257.2574206256924
+    }
+  },
+  "cv": {
+    "control": 290.93011885776303,
+    "candidate": 290.93277120004745,
+    "control_v77": 291.54971016150586,
+    "candidate_v77": 291.55085880819195
+  },
+  "paired": {
+    "primary": {
+      "change": 0.0026523422844348943,
+      "ci95": [
+        -0.014805594332288407,
+        0.0172324976911522
+      ],
+      "decision": "inconclusive"
+    },
+    "v77": {
+      "change": 0.0011486466860617384,
+      "ci95": [
+        -0.0160886460132204,
+        0.015900749515034444
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "exact_v77_and_v78_controls": true,
+  "rows": 344419,
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/scored.parquet",
+      "sha256": "8e873a67812e613fb37d1758fc78374b81f8d8b2c4ed0b903957a892283e78e2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/cells.parquet",
+      "sha256": "d1e296b0f74ca0aa9dbec1df532c4574eace38b3f593e4bf6979410a77ce3231"
+    }
+  ]
+}

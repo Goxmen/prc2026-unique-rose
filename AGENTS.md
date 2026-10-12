@@ -66,6 +66,8 @@ but identify the result as stale and report its timestamp.
 
 ## Constraints
 
+- **Communication:** on 12 October the user asked for minimal messages, without
+  narrating the process. Keep user-facing updates brief and centered on results.
 - **Laptop network is slow.** When desktop artifacts are needed, transfer only
   necessary files/columns, retain a verified local cache, and reuse it. Avoid
   repeating remote downloads or making experiments depend on remote reads.
@@ -119,20 +121,25 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
-- **October12 morning: private note created; audited production combination ready.**
-  `LOCAL_PROGRESS.md` is gitignored; GitHub verified PRIVATE under the latest
-  user instruction. Best official remainsv79 **219.6130**, one October12 slot
-  left, no new version/queue. One-member TabM+robust other-runway production
-  file passes all-row independent audits, CV**290.228841 (−0.445516)**. Run
-  `v3_20261012_tabm_other_runway_combo_submit`. Four additional-seed TabM CV
-  fits started07:44 on the laptop (`nn_public_tabm_pool3.py`, SSH session57074),
-  with originalseed42 retained. No additional full-year fits authorized yet.
-  Desktop now runs the fixed186-input main-LightGBM screen in
-  `flight_id_clock_lgb.py` (fit→score→audit→separatev79 transport), log
-  `tmp/research_20261012/flight_id_clock_fit.log`. Two relative within-UTC-month
-  ID/IOBT features; no raw ID input. Two cross-file midnight rows were repaired
-  during preflight, before any fit; old cache/identity retained. Linear leaves
-  are closed as inconclusive; punctuality-fraction likelihood closed as noisy.
+- **October12 morning: one submission slot remains; two neural experiments active.**
+  Best/latestv79 **219.6130**, live08:24 Amsterdam, rank9/242. GitHub is PRIVATE;
+  `LOCAL_PROGRESS.md` is gitignored. One-TabM+robust other-runway production
+  file is independently audited, CV**290.228841 (−0.445516)**, unversioned/unuploaded.
+  Four extra-seed TabM CV fits run on the laptop (`nn_public_tabm_pool3.py`,
+  SSH session57074); seed42 retained. Frozen pool+runway comparison and
+  conditional two-fit full-year continuation are prepared; no production
+  expansion before audited three-versus-one gains on both fixed comparisons.
+  Desktop runs matched Rome TabM classifiers with/without learned physical
+  tracks (`rome_tabm_tracks_jan_jul.py`), original R20 rows,75 history-free inputs,
+  clean last-training-month stopping and fixed one-third probability share.
+  Source feasibility passes; this is distinct from the failed plain Rome MLP
+  and frozen regression-encoder tree. Inspect its preflight/receipts before resuming.
+  Flight-ID clock main-tree screen is complete/closed: v78+0.002652, v79+0.007419.
+  Movement-ID arrival-clock pilot has zero coverage for the intended339 rows;
+  pair-Gibbs still fails numerical precision (largest-cohort long-budget MCSE111.7s).
+  Both pilots and their independent audits are retained, no CV/production.
+  Updated51-vector robust affine geometry offers only0.00587s projected gain,
+  also closed. Do not repeat completed fits, broaden closed pilots or upload controls.
   All three retained agents hit their account usage limit; root continues
   from saved reviewed artifacts. Do not spawn replacements to bypass the limit.
 

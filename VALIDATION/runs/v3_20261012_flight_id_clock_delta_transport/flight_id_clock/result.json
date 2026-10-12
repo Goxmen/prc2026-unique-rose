@@ -1,0 +1,75 @@
+{
+  "design": {
+    "parent": "v79",
+    "original_control": "exact v78",
+    "formula": "round_even(max(0,v79 + fixed_arm_on_v78 - exact_v78))",
+    "coefficient": 1.0,
+    "new_bounds": false,
+    "zero_delta_rows": "exact v79",
+    "purpose": "secondary transport check; retain original and same-machine comparisons",
+    "experiments": {
+      "flight_id_clock": {
+        "directory": "v3_20261012_flight_id_clock_lgb",
+        "control": "control",
+        "arms": [
+          "candidate"
+        ]
+      }
+    },
+    "no_fit": true,
+    "no_search": true,
+    "no_submission": true,
+    "limitation": "reused development data and fixed additive transport; not independent confirmation"
+  },
+  "experiment": "flight_id_clock",
+  "rows": 344419,
+  "scores": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "candidate": 325.552075983944
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "candidate": 255.8114759318426
+    }
+  },
+  "cv": {
+    "control": 290.67435711796895,
+    "candidate": 290.6817759578933
+  },
+  "paired": {
+    "candidate": {
+      "change": 0.007418839924355325,
+      "ci95": [
+        -0.008702955380447719,
+        0.02153440947009599
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "all_row_sql_audit": "pass",
+  "exact_v78_control": true,
+  "zero_delta_rows_exact_v79": true,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_flight_id_clock_delta_transport/design.json",
+    "sha256": "ff7273eb5a769b1118da59a32dde0f3bb01c6f1a00243efc67bf718cc13722e9"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/audit.json",
+      "sha256": "1d5b16bd848ae7e0b0aa99734899afe834c5ed906121560737ba75a748390550"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/result.json",
+      "sha256": "9d79d4c62729cd45ddc41de005abe19676fec7f62ea000a478bd3392f669826e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/scored.parquet",
+      "sha256": "8e873a67812e613fb37d1758fc78374b81f8d8b2c4ed0b903957a892283e78e2"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_flight_id_clock_delta_transport/flight_id_clock/scored.parquet",
+    "sha256": "91d934510d9aad413ab9d9d997e22b2a8bc1cfaf81b6a04fe36357a3cc4e7f17"
+  }
+}

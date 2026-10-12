@@ -1,0 +1,169 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_pair_gibbs_20261012.py",
+    "sha256": "d8a61b9b614590bee3c5882858613dd535be7cac8bbaab3af47f676186dcf677"
+  },
+  "identity": {
+    "path": "tmp/research_20261012/error_mechanisms/pair_gibbs_peers/identity.json",
+    "sha256": "f0fb1d8a5ea9a041252a0b45ffcc93b22888e2404f60ec4aebeb1c9d539de8be"
+  },
+  "result": {
+    "path": "tmp/research_20261012/error_mechanisms/pair_gibbs_peers/result.json",
+    "sha256": "c581738b1fe7f71092ea4210d83f449e4fa1626555e828c98b8349777f630708"
+  },
+  "assessment": {
+    "path": "tmp/research_20261012/error_mechanisms/pair_gibbs_peers/precision_assessment.json",
+    "sha256": "a6218111779216e61935709e3c3c66d2b1db826d22fc8afa421144ec287bcbc4"
+  },
+  "checks": [
+    {
+      "target": 182642071,
+      "view": "joint",
+      "chain": 0,
+      "max_absolute_error": 1.3642420526593924e-12
+    },
+    {
+      "target": 182642071,
+      "view": "joint",
+      "chain": 1,
+      "max_absolute_error": 4.092726157978177e-12
+    },
+    {
+      "target": 182642071,
+      "view": "joint",
+      "chain": 2,
+      "max_absolute_error": 4.547473508864641e-13
+    },
+    {
+      "target": 182642071,
+      "view": "joint",
+      "chain": 3,
+      "max_absolute_error": 3.552713678800501e-15
+    },
+    {
+      "target": 182642071,
+      "view": "dep",
+      "chain": 0,
+      "max_absolute_error": 1.1368683772161603e-12
+    },
+    {
+      "target": 182642071,
+      "view": "dep",
+      "chain": 1,
+      "max_absolute_error": 4.547473508864641e-13
+    },
+    {
+      "target": 182642071,
+      "view": "dep",
+      "chain": 2,
+      "max_absolute_error": 1.3642420526593924e-12
+    },
+    {
+      "target": 182642071,
+      "view": "dep",
+      "chain": 3,
+      "max_absolute_error": 6.821210263296962e-13
+    },
+    {
+      "target": 182637087,
+      "view": "joint",
+      "chain": 0,
+      "max_absolute_error": 4.547473508864641e-13
+    },
+    {
+      "target": 182637087,
+      "view": "joint",
+      "chain": 1,
+      "max_absolute_error": 1.8189894035458565e-12
+    },
+    {
+      "target": 182637087,
+      "view": "joint",
+      "chain": 2,
+      "max_absolute_error": 1.1596057447604835e-11
+    },
+    {
+      "target": 182637087,
+      "view": "joint",
+      "chain": 3,
+      "max_absolute_error": 8.881784197001252e-16
+    },
+    {
+      "target": 182637087,
+      "view": "dep",
+      "chain": 0,
+      "max_absolute_error": 2.7284841053187847e-12
+    },
+    {
+      "target": 182637087,
+      "view": "dep",
+      "chain": 1,
+      "max_absolute_error": 5.4569682106375694e-12
+    },
+    {
+      "target": 182637087,
+      "view": "dep",
+      "chain": 2,
+      "max_absolute_error": 8.881784197001252e-16
+    },
+    {
+      "target": 182637087,
+      "view": "dep",
+      "chain": 3,
+      "max_absolute_error": 1.1368683772161603e-12
+    },
+    {
+      "target": 192620817,
+      "view": "joint",
+      "chain": 0,
+      "max_absolute_error": 1.3642420526593924e-12
+    },
+    {
+      "target": 192620817,
+      "view": "joint",
+      "chain": 1,
+      "max_absolute_error": 1.3642420526593924e-12
+    },
+    {
+      "target": 192620817,
+      "view": "joint",
+      "chain": 2,
+      "max_absolute_error": 9.094947017729282e-13
+    },
+    {
+      "target": 192620817,
+      "view": "joint",
+      "chain": 3,
+      "max_absolute_error": 2.2737367544323206e-13
+    },
+    {
+      "target": 192620817,
+      "view": "dep",
+      "chain": 0,
+      "max_absolute_error": 4.547473508864641e-13
+    },
+    {
+      "target": 192620817,
+      "view": "dep",
+      "chain": 1,
+      "max_absolute_error": 4.547473508864641e-13
+    },
+    {
+      "target": 192620817,
+      "view": "dep",
+      "chain": 2,
+      "max_absolute_error": 1.3642420526593924e-12
+    },
+    {
+      "target": 192620817,
+      "view": "dep",
+      "chain": 3,
+      "max_absolute_error": 6.821210263296962e-13
+    }
+  ],
+  "maximum_absolute_error": 1.1596057447604835e-11,
+  "scope": "Root independent explicit-residual/SciPy density reconstruction, not a second agent review; does not repeat chains or claim convergence from arithmetic agreement.",
+  "no_departure_labels": true,
+  "no_cv": true
+}

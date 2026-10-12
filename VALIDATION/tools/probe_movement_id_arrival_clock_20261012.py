@@ -124,7 +124,7 @@ def pilot():
     with duckdb.connect(config={'threads':1,'memory_limit':'256MB'}) as con:
         con.execute("SET TimeZone='UTC'")
         # Input-only query: no departure block/taxi label is present in this projection.
-        rows=con.execute('''SELECT mvt_id,phase,strftime(t,'%Y-%m') month,
+        rows=con.execute('''SELECT mvt_id,phase,strftime(t,'%Y-%m') AS "month",
             epoch(t) landing,epoch(inblock) inblock FROM read_parquet(?)
             WHERE airport='LIRF' AND strftime(t,'%Y-%m') IN (SELECT unnest(?))''',[str(CACHE),MONTHS]).df()
         assert rows.mvt_id.is_unique;frames=[]

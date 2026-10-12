@@ -4,6 +4,32 @@
   "sources": [
     {
       "path": "VALIDATION/nn_public_tabm_pool3_submit.py",
+      "sha256": "02c858c2cf4448612c01460c5d2517ab2478976e63e2067a3fc3b34e97f252aa"
+    },
+    {
+      "path": "VALIDATION/tabm_pool3_other_runway_combo_cv.py",
+      "sha256": "cf871d6c574e09f8c9d526e6a74655bbda4f388ea26d6fed13506392be2990fa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/identity.json",
+      "sha256": "e0357056ade91db7c53da7eff7cdaf1f9d45094ec97bd1f80dbf30c7849ed04c"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_submit_stack.py",
+      "sha256": "2f0fb6eb49400dd80ed8aeb6fd1686f4d99c1c2ee7c2c6c023522ccedf09042b"
+    }
+  ],
+  "checks": [
+    "Three-TabM plus runway formula frozen before first extra seed completed",
+    "Original v78 integer component deltas added to v79 with one clip; equal seeds and coefficients fixed",
+    "Production preparation requires independently audited improvement versus one-TabM in both v78 and v79 comparisons",
+    "Production fit and helper bytecode retained in isolated member namespaces; model/dropout/permutation seeds1042/2042 agree",
+    "No production fit, CV score, version or upload started by preparation"
+  ],
+  "new_full_year_fits_started": false,
+  "initial_sources": [
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_submit.py",
       "sha256": "1605c6518841fa5abca943b54b2112b218e21f9dd669e111d9c726ca8b66e4af"
     },
     {
@@ -15,12 +41,5 @@
       "sha256": "e0357056ade91db7c53da7eff7cdaf1f9d45094ec97bd1f80dbf30c7849ed04c"
     }
   ],
-  "checks": [
-    "Three-TabM plus runway formula frozen before first extra seed completed",
-    "Original v78 integer component deltas added to v79 with one clip; equal seeds and coefficients fixed",
-    "Production preparation requires independently audited improvement versus one-TabM in both v78 and v79 comparisons",
-    "Production fit and helper bytecode retained in isolated member namespaces; model/dropout/permutation seeds1042/2042 agree",
-    "No production fit, CV score, version or upload started by preparation"
-  ],
-  "new_full_year_fits_started": false
+  "followup": "Before aggregate CV results, export adds verified old pool and stack builder specializes only three AST nodes and five CV references; specialization checks pass. No fit/build."
 }

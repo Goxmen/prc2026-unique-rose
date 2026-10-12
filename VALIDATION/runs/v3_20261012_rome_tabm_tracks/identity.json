@@ -1,0 +1,356 @@
+{
+  "design": {
+    "parent": "exact v78 and separately coefficient-one transport onto v79",
+    "change": "one-third TabM Rome copy probability, with matched tabular and learned-physical arms",
+    "primary": "physical versus exact selected parent; tabular diagnoses family versus track benefit",
+    "model": {
+      "tabular_columns": 75,
+      "encoding": "unchanged history-free Rome classifier encoder and32-bin PLE8",
+      "k": 32,
+      "n_blocks": 2,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "normal",
+      "batch": 2048,
+      "micro": 512,
+      "inference_batch": 512,
+      "max_epochs": 48,
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "gradient_clip": 1.0,
+      "seed": 42,
+      "loss": "unweighted BCEWithLogits over rows and all32 individual heads",
+      "inference": "mean of32 sigmoid probabilities, not sigmoid of mean logit",
+      "stopping": "minimum inner-month mean-probability log loss; first epoch on a tie",
+      "schedule": "OneCycle over48 epochs in inner and full fits; refit full at chosen epoch",
+      "physical": "retained physical CNN plus trainable zero-initialized64-to64 projection",
+      "missing": "projected raw-track representation zero for fewer than2points; same9quality inputs in both arms",
+      "arms": [
+        "tabular",
+        "physical"
+      ],
+      "no_search": true
+    },
+    "rows": "original R20 Rome membership and binary abs(gap-y)<=60 target",
+    "inputs": "75 history-free original columns and identical9 track-quality inputs",
+    "inner": "last allowed training month; encoder/bins fit on remaining training months only",
+    "stopping": "minimum inner-month probability logloss; first epoch on a tie; full refit at selected epoch",
+    "probability": "(2/3)*(.5*publicCat3+.5*originalR20)+(1/3)*new; unchanged outside Rome",
+    "arms": [
+      "tabular",
+      "physical"
+    ],
+    "seed": 42,
+    "machine": "desktop RTX3080",
+    "fixed_tracks": "original full2025 sparse physical cache; no source rebuild",
+    "evaluation": "reused Jan/Jul development; one fixed seed, no independent confirmation",
+    "no_blend_search": true,
+    "no_architecture_search": true,
+    "no_label_weighting": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/rome_tabm_tracks_jan_jul.py",
+      "sha256": "ad8fa65dfa0360ef1d42464b13a5a53f50ee2acf79f2defc6d09cbe5974ea186"
+    },
+    {
+      "path": "VALIDATION/rome_tabm_tracks_model.py",
+      "sha256": "82ef052c86082fad8bdb3ac3c73ca43831a873c37f3c393708874cd50c403b8a"
+    },
+    {
+      "path": "VALIDATION/rome_neural_jan_jul.py",
+      "sha256": "1d46f69586268711de5594b68de92c7ad7a616f706b5e7287a13c37fb9fa98d4"
+    },
+    {
+      "path": "VALIDATION/rome_neural_model.py",
+      "sha256": "a33a1a8a70fbf5bd4bb5508dd91cb910efccf3dc2dadb1cda5b820c93628d5d5"
+    },
+    {
+      "path": "VALIDATION/nn_jan_jul.py",
+      "sha256": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766"
+    },
+    {
+      "path": "VALIDATION/nn_track_physical_scales.py",
+      "sha256": "9d62084a0617054a233d08a82655d9990fb6ea153cd3861566530312f80ae998"
+    },
+    {
+      "path": "VALIDATION/nn_sparse_track_prototype.py",
+      "sha256": "9842a81b46395568839556a4f6c5145d0eb91c95fea81109c5c2fd70acfc2c52"
+    },
+    {
+      "path": "VALIDATION/nn_sparse_track_jan_jul.py",
+      "sha256": "b1225096a7f259020823c46d9a53f0acae942cd58f70dd35a535a54a575d9884"
+    },
+    {
+      "path": "VALIDATION/sparse_track_tensors.py",
+      "sha256": "c24577d69eb13edef8b1b64f8d003f195c9ef7b4651811a1e1d3aede1d0ce906"
+    },
+    {
+      "path": "VALIDATION/sparse_track_sequence.py",
+      "sha256": "f51a4f96dbe57fdfddb1403e82cbb14e5474a7c89418f2c96604d4862a71b22e"
+    },
+    {
+      "path": "VALIDATION/rome_tabm_tracks_stack.py",
+      "sha256": "75021effcc644fcbd0c4336fbdae3d305724f392f91920d18b2dd7a8c90c590f"
+    },
+    {
+      "path": "VALIDATION/rome_tabm_tracks_v79_transport.py",
+      "sha256": "4845bdf33b1a1bacb1d785778ce6a20fc029b18eedf04539b0b1f20c515743d8"
+    },
+    {
+      "path": "VALIDATION/flight_id_clock_lgb.py",
+      "sha256": "e02ce53414f026c47b0658cedff2668d03dbbdb753fb19de1928acc539ed3daf"
+    },
+    {
+      "path": "VALIDATION/target205_delta_transport.py",
+      "sha256": "6f7a5762349fe62f58ccbf57e0ca0651f6b1f9db815c679780f4521ece58591c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_track_pilot/identity.json",
+      "sha256": "bca8471be41c4200592142c1a79fc0eb34603a3c86372be47e70bd8e2b3cdcf2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_track_pilot/result.json",
+      "sha256": "fb58e1142874366d03cf2f45accfa4b66a97ac471f73ca29ede568672b43ae2d"
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full.json",
+      "sha256": "723cb02477e53b3c3e6b265fa98d3bd67a8e531b45d37943c6f527de5735d6da"
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_index.parquet",
+      "sha256": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684"
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_points.bin",
+      "sha256": "e24e96f34f4fd536c621a3f5c36dd7fc8eae0f037fb0a32b59c1c1b84392d147"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-01.pkl",
+      "sha256": "fb05a7f13c11573a43962671138ccd8f52e46666112e3f00328159b459870810"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay/inputs/2025-07.pkl",
+      "sha256": "aad64884a10a8cb677ee9026a53e06d38d01ff64eed114be06b06c25a21a62a2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/identity.json",
+      "sha256": "3f9601e298865effb5c65256d119016069f548774fb398d4ed6033b35545a44d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/audit.json",
+      "sha256": "5ee09e0ad374f67eadc147f0461a1398f7c8797ffa271daca749f4a007f8894e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/scored.parquet",
+      "sha256": "ebcb2e5a3456a9615b649dbb49eb4843e076f03360e4706461c0b9c1d6b0ed7c"
+    },
+    {
+      "path": "VALIDATION/daily_main_refinements_cv.py",
+      "sha256": "f4db783eb6a7b27f38194f786173ab30d0f655afba7e903ca4ca071a1382de03"
+    },
+    {
+      "path": "VALIDATION/catboost_refinements_cv.py",
+      "sha256": "7ce1029575a13b3ce2d2ed88bbdf828b3f092f2044f790d461c6aea8173e92c7"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi_lgb.py",
+      "sha256": "8d2c98eaf65b2499da867d6cb47b04292e42e3f74062943051be60599c8ed60c"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi_quality.py",
+      "sha256": "279b1eecf6b441ec68886ae400ead1ed7660b345c530021cc7b7f943d6d3eb72"
+    },
+    {
+      "path": "VALIDATION/public_stack_cv.py",
+      "sha256": "7a07755c65281de72d0d2cb3bd62b4d33c7591f4e9922aa8960bfc546421044a"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_cv/identity.json",
+      "sha256": "8bbbb539abfdef03a1e2954b6aba61a5ca092fbff670c4c7a0b1a5d2a9dd5a19"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_cv/result.json",
+      "sha256": "a955ec016103cbc4e601f4da015bbef0ba2ee41a2d4e4027fc6f6025f46c3ed8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_cv/audit.json",
+      "sha256": "6c24b245fe4cc9c27d2b52c9a3d8a54391fce9a2a444716a5e945ed8e1484e9b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_refinements_cv/scored.parquet",
+      "sha256": "1036c3341dc6afd83b98adc0c90963de4447be0e4f805921e07e61f672425225"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/identity.json",
+      "sha256": "3d1767dfe602ba82ad8f7d4afc337ba49bbdd1fc3acda59ecbe8b784cc3d1471"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/result.json",
+      "sha256": "20f96290ff5e958854c7f881702495e046f1b93973d446ea44fb8920b9f158c8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/audit.json",
+      "sha256": "812c21f3abe47c4024bce7f7341969184561b55afdf9a315a3f4ca36f4fa8d87"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/scored.parquet",
+      "sha256": "05bc3f3e3ad5488ed3c7624a10ae9bad2260bee940375e90caf21c462f05e15b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/scored.parquet",
+      "sha256": "41c07565be9f4225bd9ae0e7f269b079b1407c9e9bd3fe6f5d09b0765154f5f3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_quality/audit.json",
+      "sha256": "21b428acf29db40d8f9827cbeb7e42e7883037850d1c3ad32816525c8041cc1b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/parameters.json",
+      "sha256": "24709b526c045a41ebc33c7b7ccee86f3b3667bb966d5c1cce32958f2ce9500c"
+    },
+    {
+      "path": "tmp/research_20261011/daily_taxi_source/training_rows.parquet",
+      "sha256": "f4c5e9ca9cc863d0540bc17238f299acc6bcd4a2eb4eddf3c7417d331659feea"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_refinements_submission_cv/scored.parquet",
+      "sha256": "251492e2dc2c5ac55e70ee6cdfaa4d9ad403f82bcce202cdf52af034baafd2ee"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_cat/scored.parquet",
+      "sha256": "737a2190873221831c946e76a18a8d5e19b3a4dccbfb30d7f9f4bfb831e5544d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-01_s42.parquet",
+      "sha256": "7025bf609c20aeefc7fca9691759dfafebb848c9630b76849e67f680be74ba7e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-01_s42.parquet",
+      "sha256": "5cf4cd372eaa407bb7bdcf5ada2c5b597aedab5084f87a8088382448dee9943f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/predictions/2025-01_s42.parquet",
+      "sha256": "6e621a98f8152e664d1488a17bc2103d7f7f695289bee3099ea64ec3ebe7bea5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-01_s42.parquet",
+      "sha256": "76acf53b0e5092ceea257f809188e97e18c968ca376d116c6e52c871c20d2b40"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-07_s42.parquet",
+      "sha256": "a0068d91df286ab73d49e89d14166c5514354e6e796e9c49703a47b571035704"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-07_s42.parquet",
+      "sha256": "8425c6890168e6f31d5b86c278c3ffda0f7a0420ec2a2b34ec05ce3331a71ac9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_lgb/predictions/2025-07_s42.parquet",
+      "sha256": "2df421ba5260997c5a03ca093911c9c2db0f6499f01b6517f116e2bf7a753144"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-07_s42.parquet",
+      "sha256": "9dd2b443c5f58806f0d0d4a23868d00a99b9a1edcd7a1724786eed4b4bb5e32a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/identity.json",
+      "sha256": "b1ce9cc59fdd8aae55d47097992e5756d4e228bb14e662645047e1a7523ec5fd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/audit.json",
+      "sha256": "3d065bb05dc4a868fd7ad5634b8907575a640db56b5b612d2904d98be288fff5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments_cv.py",
+      "sha256": "4a790c670c852d54ec8c0df647504d723b45874870dacddff305f1137f3842c0"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_posterior.py",
+      "sha256": "86e5a14489d6804c3957ed2f8a35df14ea6558851baf76de65a21b5855f5454f"
+    },
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+    },
+    {
+      "path": "VALIDATION/daily_delay_reconcile.py",
+      "sha256": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_cv/result.json",
+      "sha256": "74d5befb67c2cd83f547364054e41ae73d89e6a66b03206b0b4947c3c02111ef"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/rows2025.parquet",
+      "sha256": "bc2fd953c3f911bdaa70c6f0a1ab6d9b96d23ef31e07333853175fae9a5c4437"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/scored.parquet",
+      "sha256": "aadc0dd7846faefe9ef30f8edee88f6c42ba61705ed86e9ee2bdf7a310b15095"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/result.json",
+      "sha256": "b78f060f7f5840ccda54a0e231fbbbb75acc870a12a38dc2845b02d80fb69eb0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_heavy_tail/audit.json",
+      "sha256": "ef4947ced53d3bc48069d9469ffef329ab9a29f7039fb1aee9328eef8548ccf0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/parameters.json",
+      "sha256": "b31856b32b1591fb7ba3394880f84137669b5e0a8eb8f4d7e3366925da9233a7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/audit.json",
+      "sha256": "8170d06c8eda53b8b9c6a3822a0067dc3b47726621f7d10f155f75e7356567f2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/screen.json",
+      "sha256": "1b10b8eb811a42e5caa451c2e5baac8ea8e9ae951256a50e6d71ba4d4f09dbd8"
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2025.csv",
+      "sha256": "d742eeb626e5f9f7e0c756e2ae3cf90078f4627e989a2e31b8ed21ba8f5510be"
+    }
+  ]
+}

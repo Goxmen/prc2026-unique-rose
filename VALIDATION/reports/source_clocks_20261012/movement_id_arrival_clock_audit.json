@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_movement_id_arrival_clock_20261012.py",
+    "sha256": "3cc69b585dcedb9d488657ca2b2188cff431f08676b9139244a795c4781a557a"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_movement_id_arrival_clock/identity.json",
+    "sha256": "709dd2b82580b7b343d888a49120f3a82fdc3d4bb5edbbed46093ef40fdf9e44"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_movement_id_arrival_clock/result.json",
+    "sha256": "98144abca36dc2e6cf577d4bc3abc449501bd05ed2452ee0ad3a38f13131aa96"
+  },
+  "rows": 52681,
+  "scalar_clocks_checked": 0,
+  "seconds": 15.182735334994504,
+  "decision": {
+    "retain_for_future_model_design": false,
+    "enough_class_support": false,
+    "interpretation": "Engineering falsifier only, not a necessary mathematical condition or demonstrated incremental prediction gain",
+    "no_secondary_clock_selection": true
+  },
+  "checks": [
+    "Every available clock independently reconstructed with bisect and stdlib medians",
+    "All IDs, source labels/calendar, counts, coverage, error quantiles and SQL tie-aware AUC",
+    "Original frozen success gate reproduced; no secondary clock selection"
+  ],
+  "scope": "Root independent implementation audit; no unavailable subagent review claimed."
+}

@@ -36,7 +36,7 @@ integer SQL, protected-column, identity, hash and Jan/Jul arithmetic checks.
 Its CV remains290.228841 (−0.445516 versusv79); no official gain is claimed.
 No version/upload is assigned while the additional-seed comparison runs.
 Four reviewed/frozen TabM CV fits for1042/2042 started on the laptop at07:44;
-seed42 is reused exactly. Two further production fits are not authorized yet.
+seed42 is reused exactly. Two further production fits depend on audited fixed-comparison gains.
 
 Before the first extra seed completed, `tabm_pool3_other_runway_combo_cv.py`
 froze a coefficient-one combination using original v78 integer component
@@ -47,26 +47,34 @@ the independent pool audit and both three-versus-one comparisons pass. Its
 isolated member namespaces retain the original fit/helper bytecode and the
 reviewed seed specialization; no further production fit has begun.
 
-Two source-only pilots are frozen for a clean desktop window. The coarse
-movement-ID check uses five supplied-arrival anchors on each side of a Rome
-departure, within its actual UTC month. March/September/October/November
-training labels enter only after the clock is built. In-block time is primary;
-landing time is diagnostic, with no clock/threshold selection. This asks a
-different question from exact adjacent-ID monotonicity. Three synthetic
-checks pass. `probe_movement_id_arrival_clock_20261012.py` and its independent
-scalar/SQL auditor are under `tools/`.
+The two source-only pilots are complete and closed. The movement-ID arrival
+clock obtains no valid bracketing anchors for any of339 intended no-ID1–4h
+Rome rows. Independent scalar/SQL audits reproduce all available clocks and
+coverage. No threshold/calendar expansion or model follows.
 
-`joint_public_pair_gibbs_pilot.py` tests a distinct exact target/site block
-kernel, permitting compensating two-flight updates. The original rejected
-single-site sampler remains closed. Priors, source likelihood, three cohorts,
-chains, starts and sweep budgets are retained. A 12-state example proves
-each block's detailed balance and the complete sweep's invariance; every
-compiled trace column matches independently enumerated residual calculations
-for joint and departure-only likelihoods. The pilot additionally requires
-increment Monte Carlo error at most25 seconds in both budgets. This is only a
-numerical screen, not evidence of score improvement or adequate full-scale
-precision. No source pilot, CV or production has run yet. Root reviewed these
-follow-ups; no unavailable subagent review is claimed.
+The exact target/site pair-Gibbs kernel passes finite-state detailed balance,
+full-sweep invariance, compiled-versus-Python checks and24 real-data residual
+reconstructions (maximum error1.16e−11). It improves the target's mixing, but
+largest-cohort long-budget increment MCSE is111.7143seconds, exceeding the
+fixed25-second limit. No extra sweeps, chains, CV or production follows.
+Closure reports are in `all_discrete_peer_20261012/`.
+
+A distinct Rome classifier screen now uses end-to-end physical tracks with
+TabM binary classification. The feasibility check reads only Rome departures
+from four shared training months;39,201 noncopy and10,392 copy rows have at
+least two track observations. A matched TabM control has identical tabular
+and nine quality fields, with the raw representation disabled. A zero-initial
+projection makes initial logits identical. Both retain original R20 rows and
+75 history-free inputs, choose stopping only on the last allowed training
+month, and use a fixed one-third classifier share. Exactv78 and coefficient-one
+v79 scoring are frozen before any fit. No gain is established. The preflight
+initially misstated the pilot's no-ID-long diagnostic as1–4h; it was corrected
+to the pilot's original>1h definition before any training, with originals kept.
+
+The updated51-score robust affine minimax check uses actualv76–v78 scores,
+excluding cancelledv75. It offers only0.00587018seconds projected gain;
+its serialized upper bound219.91644 is worse than the actual incumbent.
+Independent SQL/geometry checks pass; no candidate/version/upload follows.
 
 The final linear-leaf result is inconclusive: matched standardized control
 −0.051480, actualv78−0.032067 and actualv79−0.023679. All four completed
@@ -99,7 +107,10 @@ month boundary. The original cache and failed preflight are retained; grouping
 now spans every original training file before selecting UTC months. No model
 had been fitted. Two synthetic SQL tests and1,400 independent scalar peer/
 interpolation checks pass. Original labels, rows, tree recipe and final stack
-are unchanged; the separatev79 transport is fixed before scores.
+are unchanged; the separatev79 transport is fixed before scores. The completed
+screen is closed: v78+0.00265234 (interval[−0.014806,+0.017233]),
+v79+0.00741884 (interval[−0.008703,+0.021534]). Both10,000-round models,
+all held reloads and independent SQL scores pass; no production or upload.
 
 The three subagents stopped at the account usage limit. Root continues using
 their completed reviews and artifacts. The user requested a brief local note;

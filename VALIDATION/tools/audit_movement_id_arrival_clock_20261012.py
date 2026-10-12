@@ -38,7 +38,7 @@ def main():
     labels = ROOT / 'VALIDATION/runs/v3_20261011_daily_offblock_alignment/rows2025.parquet'
     with duckdb.connect(config={'threads': 1, 'memory_limit': '256MB'}) as con:
         con.execute("SET TimeZone='UTC'")
-        raw = con.execute('''SELECT mvt_id,phase,strftime(t,'%Y-%m') AS month,
+        raw = con.execute('''SELECT mvt_id,phase,strftime(t,'%Y-%m') AS "month",
             epoch(t) AS landing,epoch(inblock) AS inblock FROM read_parquet(?)
             WHERE airport='LIRF' AND strftime(t,'%Y-%m') IN (SELECT unnest(?))''', [str(cache), months]).df()
         clocks = pd.read_parquet(RUN / 'input_clocks.parquet').set_index('mvt_id')

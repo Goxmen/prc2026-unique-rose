@@ -1,0 +1,107 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_flight_id_clock_scores_20261012.py",
+    "sha256": "06299b4021bca949a4188fec2f74ea4e4f620a41ab1d84a1b6c39a7939debd46"
+  },
+  "helper": {
+    "path": "VALIDATION/tools/audit_public_cohort_scores_20261012.py",
+    "sha256": "ad2f04927bc81e766b1b9428b291fa12963731ea63f32d59d6d52cabd4670af4"
+  },
+  "rows": 344419,
+  "seconds": 0.49095395900076255,
+  "members": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/predictions/2025-01_s42.json",
+      "sha256": "d789961e51b22b6f712e8dae094cffd2ba7131f20f9fe42d4fedcf3b5e2d39ad"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/models/2025-01_s42.json",
+      "sha256": "3cdad2cbca69c3ab74b728b81ba0d92a56c0564be6c9975c41f20427711825dc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/predictions/2025-07_s42.json",
+      "sha256": "0ffaea543ec4e457d61bbde803dc738195fcd5a50329d20045db5c53e94fade7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/models/2025-07_s42.json",
+      "sha256": "63e003bf8447c9ae6879e71f34c779e10d482bc7e1bffacec2cabd8ceb5b6442"
+    }
+  ],
+  "effects": {
+    "v78": 0.0026523422844206834,
+    "v79": 0.007418839924355325
+  },
+  "sql_scores": {
+    "control": {
+      "2025-01": 325.860607626995,
+      "2025-07": 255.9996300885311
+    },
+    "candidate": {
+      "2025-01": 325.8783087308578,
+      "2025-07": 255.98723366923716
+    },
+    "control_v77": {
+      "2025-01": 325.826575649057,
+      "2025-07": 257.2728446739547
+    },
+    "candidate_v77": {
+      "2025-01": 325.8442969906914,
+      "2025-07": 257.2574206256924
+    }
+  },
+  "sql_transport_scores": {
+    "control": {
+      "2025-01": 325.53087367112914,
+      "2025-07": 255.81784056480876
+    },
+    "candidate": {
+      "2025-01": 325.552075983944,
+      "2025-07": 255.8114759318426
+    }
+  },
+  "inputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/identity.json",
+      "sha256": "3418b7c4487affc68db80e72d65acb0c8f9c0a08ce193c260c60ad4e0960fc56"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/preflight.json",
+      "sha256": "df5ca0add273546f2317735f98e36e48a815d49be79c72df2af74bdb621d3a80"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/result.json",
+      "sha256": "9d79d4c62729cd45ddc41de005abe19676fec7f62ea000a478bd3392f669826e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/audit.json",
+      "sha256": "1d5b16bd848ae7e0b0aa99734899afe834c5ed906121560737ba75a748390550"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_lgb/scored.parquet",
+      "sha256": "8e873a67812e613fb37d1758fc78374b81f8d8b2c4ed0b903957a892283e78e2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_delta_transport/design.json",
+      "sha256": "ff7273eb5a769b1118da59a32dde0f3bb01c6f1a00243efc67bf718cc13722e9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_delta_transport/flight_id_clock/result.json",
+      "sha256": "d0470dfe13e76bb01668f650fa06b6a39b2d6c59d22c5e1a1cabc53eef69ce3b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_flight_id_clock_delta_transport/flight_id_clock/scored.parquet",
+      "sha256": "91d934510d9aad413ab9d9d997e22b2a8bc1cfaf81b6a04fe36357a3cc4e7f17"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/cv.parquet",
+      "sha256": "8f17490dcefbedc3959a4293b2a68ef7871ecf0d8828d30aad06fefe2299895f"
+    }
+  ],
+  "scope": "Independent saved-model recipes and SQL all-row scores, parent values, truth/calendar and serialization. Large-input, source-feature and complete model-reload checks are inherited from retained receipts.",
+  "interpretation": "Same-desktop fixed two-feature screen on reused development data; no independent holdout."
+}

@@ -43,13 +43,14 @@ Current work:
 - **Laptop:** four fixed additional-seed TabM CV fits started07:44 Amsterdam,
   after the seed42 production fit/export and verified return. Seeds1042/2042
   each use21/17 epochs; seed42 is retained exactly. No extra full-year fits
-  are authorized. Compare the equal3-member pool against both saved pools.
-- **Desktop:** a fixed two-input main-tree screen has started. Flight-ID
-  order closely follows IOBT; deviations and bracketing-clock span are new
-  relative inputs, with no raw ID feature. UTC-month peers span all original
-  files and exclude the query ID. Two boundary rows missed by the initial
-  builder were restored before any fit. All original184 inputs/labels/settings
-  and exactv78 corrections remain fixed; a separatev79 comparison is frozen.
+  have started. Compare the equal3-member pool against both saved pools.
+- **Desktop:** matched Rome TabM classifiers with/without trainable physical
+  tracks are running after preflight. Both retain original R20 memberships,75 history-free
+  inputs and nine track-quality fields. Clean last-training-month stopping;
+  fixed one-third probability share through exactv78 and separatev79 transport.
+  Source-only feasibility passes; this does not establish predictive value.
+- **Flight-ID clock screen closed:** v78+0.002652, v79+0.007419; both inconclusive.
+  All models, held-row reloads and independent score audits are retained.
 - **Linear leaves closed:** all4 models reload exactly, all344,419 rows and
   saved recipes pass independent audits. Candidate versus actualv78−0.032067
   and actualv79−0.023679 are both inconclusive; no production or upload.
@@ -57,15 +58,15 @@ Current work:
   calibrated fraction RMSE0.0232, versus typical prior SD0.0079–0.0101 on the
   separate held-input dates. The arrival witness is weak (correlation−0.119).
   Independent source/SQL/calibration checks pass; no posterior or CV follows.
-- **Prepared follow-ups:** the three-TabM plus runway comparison is frozen
-  before the extra seed results. A production continuation runner can only
-  prepare after audited improvement over one-TabM on both fixed comparisons;
-  no further production fits have started. Two source-only pilots wait for
-  the desktop: coarse movement-ID arrival clocks on four allowed training
-  months, and exact target/site pair updates for the unresolved discrete
-  posterior. The latter passes finite-state invariance and compiled-kernel
-  checks; it must also pass the fixed mixing and 25-second Monte Carlo-error
-  limits before any validation is considered.
+- **Prepared follow-ups:** three-TabM plus runway CV is frozen before seed
+  results. Two additional production fits depend on audited gains over one-TabM
+  on both fixed comparisons; no further production fits have begun.
+- **Source pilots closed:** movement-ID arrival clocks cover none of339 intended
+  no-ID1–4h Rome rows. Exact pair-Gibbs improves mixing but largest-cohort
+  long-budget increment MCSE111.7s exceeds the fixed25s limit. Independent
+  audits pass; neither branch proceeds to CV or production.
+- **Robust affine geometry closed:** the expanded51-score basis adds only0.00587s
+  projected gain beyond v79; serialized robust bound is worse. No submission.
 
 The three retained subagents reached the account usage limit after finishing
 source reviews. Root continues from their saved artifacts; no replacement

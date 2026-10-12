@@ -138,6 +138,11 @@ def export():
         np.testing.assert_array_equal(f.mvt_id, ids)
         assert np.isfinite(f.base).all() and (f.base >= 0).all()
     value = pd.DataFrame(dict(mvt_id=ids, **{f'tabm_k{k}': f.base for k, f in enumerate(frames)}))
+    previous = read(first.MANIFEST)
+    old_members = [pd.read_parquet(verify(previous['parent_members'][str(k)]['prediction'])) for k in range(3)]
+    for f in old_members:
+        np.testing.assert_array_equal(f.mvt_id, ids)
+    value['parent_pool'] = np.mean([f.base.to_numpy(float) for f in old_members], axis=0)
     value['replacement_pool'] = np.mean([f.base.to_numpy(float) for f in frames], axis=0)
     value.to_parquet(OUT / 'replacement_pool.parquet', index=False)
     write(OUT / 'export.json', dict(identity=art(OUT / 'identity.json'),
