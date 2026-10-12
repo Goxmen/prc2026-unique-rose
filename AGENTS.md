@@ -121,6 +121,20 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October 12, 18:18 Amsterdam: 26 historical final components and direct public mixtures audited.**
+  Stand-family v30/v33/v34/v37 now replay all original integers exactly and pass
+  the separate final SQL audit. Original classifier hash matches; ordinary text
+  differs, with exact prediction gates. Audit-only BIGINT/SQL-alias fixes and
+  failures are preserved; no fit/inference was repeated. Four additional saved
+  public vectors (daily main + original PLE3) pass all controls; all13 selected
+  public vectors are ready. `final_public_direct_components.py` also passes old
+  16-column replay and full four-month mixture/correction audit. No complete
+  final affine port or upload yet. Fixed v56 recovery also passes all old/final checks; desktop runs saved weather-model inference. Laptop
+  continues the one-seed full-day cohort Jan/Jul test. Final public posterior
+  and daily-quality ports are being prepared without calibration refits.
+  Incremental novelty index: `tools/index_research.py build` then capped
+  `findall '<terms>'`; use it before proposing variants of historical screens.
+
 **October12,17:34 Amsterdam:21 legacy final components recovered.**
 Two fixed baseline/R3 reconstructions reproduce all original v12–v16 integers;
 independent final audits pass. Together with v1 and prior15,21 versions are ready.

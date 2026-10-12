@@ -1,0 +1,47 @@
+{
+  "purpose": "One missing original v56 R20+flight-number classifier reconstruction, preserved parents reused",
+  "rounds": 1700,
+  "seed": 42,
+  "threads": 8,
+  "features": 70,
+  "training_rows": 160577,
+  "prior_preflight_passed": true,
+  "allocation": "Prepared only; parent root must release desktop after its final-public assembly and audit, allocation.json mandatory",
+  "old_gate": "Every344841 original v56 integer must match before final670790 inference; stop if nonexact, no sweep",
+  "no_upload": true,
+  "sources": [
+    {
+      "path": "VALIDATION/tools/complete_final_missing_flightnumber_20261012.py",
+      "sha256": "0cda5d952f9f6213a60ed99e6c50163ccd408caef576926e17e0059477b95363"
+    },
+    {
+      "path": "VALIDATION/final_missing_flightnumber_reconstruct.py",
+      "sha256": "52b5fb2e6925ad505d6f74e778d17a48a3990070c824762f9b361e1ac737a37d"
+    },
+    {
+      "path": "VALIDATION/tools/audit_final_missing_flightnumber_20261012.py",
+      "sha256": "1338778d46cdb93a91b2781b00796f58dd90ef70355c56286e18533926fb8391"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/identity.json",
+      "sha256": "e51678ae6a7b303c1f4e35274e4c03e53c949fb61aab392bb5bf230c4cbfc499"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/preflight.json",
+      "sha256": "0c2522350391bf5ec27d9089fca1a784198f57dd37110f6ed1e93d30a85b5681"
+    }
+  ],
+  "commands": {
+    "fit": [
+      "VALIDATION/final_missing_flightnumber_reconstruct.py",
+      "fit"
+    ],
+    "infer": [
+      "VALIDATION/final_missing_flightnumber_reconstruct.py",
+      "infer"
+    ],
+    "audit": [
+      "VALIDATION/tools/audit_final_missing_flightnumber_20261012.py"
+    ]
+  }
+}

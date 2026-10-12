@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "checks": {
+    "old": {
+      "rows": 344841,
+      "rome_model_rows": 26899,
+      "fallback_rows": 7765,
+      "independent_SQL_copy_query_inputs_and_model_reload_exact": true,
+      "fallback_parent_parts_and_existing_postprocessor_replay_exact": true,
+      "SQL_ids_dates_rounding_exact": true,
+      "old_integer_original_exact": true
+    },
+    "final": {
+      "rows": 670790,
+      "rome_model_rows": 52146,
+      "fallback_rows": 15356,
+      "independent_SQL_copy_query_inputs_and_model_reload_exact": true,
+      "fallback_parent_parts_and_existing_postprocessor_replay_exact": true,
+      "SQL_ids_dates_rounding_exact": true,
+      "old_integer_original_exact": false
+    }
+  },
+  "source_sha256": "1338778d46cdb93a91b2781b00796f58dd90ef70355c56286e18533926fb8391",
+  "result_sha256": "58a6cf1746b17f0826565dc4b9fc4c6525d0be22daae124db64d2db2d3a328a5",
+  "model_sha256": "0e1d13396430ad76327415a372cfd2e5cccb4e96ce70eac8cab2733bace1c164",
+  "caveats": [
+    "Final base networks reuse the prior audited October8 refits, not a claim of original weight identity.",
+    "Postprocessing uses the unchanged previously audited recipe; its arithmetic is replayed, not independently re-derived here."
+  ]
+}

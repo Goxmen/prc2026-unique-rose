@@ -1,0 +1,75 @@
+{
+  "state": "exact_old_replay_final_inference_complete",
+  "views": {
+    "old": {
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/old_v56.parquet",
+        "sha256": "648f8261715bdd161d6d5b77632af05d7dee1b4865ef0bcd175d78e5676e8014"
+      },
+      "rows": 344841,
+      "months": {
+        "2026-01": 152719,
+        "2026-07": 192122
+      },
+      "parent_parts": [
+        {
+          "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-01.parquet",
+          "sha256": "fe4c0c588387c397eb6cc0365d0449f564b23275c9a0d18af7cb7c271dae4ca1"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-07.parquet",
+          "sha256": "69bf84a9f86ff78ecfc1d2c42d7c0a84836a9cd3f7ff9d06d1f5198cf10a9770"
+        }
+      ],
+      "unseen_counts": {
+        "2026-01": 162,
+        "2026-07": 7603
+      },
+      "loaded_model_prediction_exact": true,
+      "exact_original_integer_replay": true,
+      "changed_rows": 0,
+      "rms_difference": 0.0,
+      "maximum_absolute_difference": 0.0
+    },
+    "final": {
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/final_v56.parquet",
+        "sha256": "408c225b07ffef57d2e8d1586a12b5d2cff24452ab5b8cf9b6b5121630d3a05f"
+      },
+      "rows": 670790,
+      "months": {
+        "2026-01": 152719,
+        "2026-02": 144158,
+        "2026-06": 181791,
+        "2026-07": 192122
+      },
+      "parent_parts": [
+        {
+          "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/nn.parquet",
+          "sha256": "f0a2d9ad78bad98afb1f4f813b0d5913988a8038955bb718b87daf05b2fa13ae"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/trees.parquet",
+          "sha256": "4eb4db3561f9065d3a3768d8e84084faf291b33ee640b9fe2a0d2b7099f5cf9e"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/rome.parquet",
+          "sha256": "0a37d6998bdf3be726bb690b730e30b23dd3cd4030014b6d1ec52898d39d2d98"
+        }
+      ],
+      "unseen_counts": {
+        "2026-01": 162,
+        "2026-02": 324,
+        "2026-06": 7267,
+        "2026-07": 7603
+      },
+      "loaded_model_prediction_exact": true
+    }
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/identity.json",
+    "sha256": "e51678ae6a7b303c1f4e35274e4c03e53c949fb61aab392bb5bf230c4cbfc499"
+  },
+  "no_upload": true,
+  "independent_final_audit_pending": true
+}

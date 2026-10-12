@@ -1,0 +1,59 @@
+{
+  "purpose": "Authorized two absent v30 model fits and exact four-version final reconstruction; no retained fit repeated",
+  "threads": 8,
+  "no_upload": true,
+  "failure_policy": "Stop on upstream/preflight/model/replay/audit failure; preserve all evidence, no seed/thread sweep",
+  "sources": [
+    {
+      "path": "VALIDATION/tools/complete_final_missing_stand_20261012.py",
+      "sha256": "cf683b115565bdc507b42081628ad0f6ee97c505e2c13d5d8a672cb490fca363"
+    },
+    {
+      "path": "VALIDATION/final_missing_stand_reconstruct.py",
+      "sha256": "a0c4ecd78f24ac99adf1bc7fc28c8357c87fbb6e745fa6349d09a43a0eb8e357"
+    },
+    {
+      "path": "VALIDATION/tools/audit_final_missing_stand_20261012.py",
+      "sha256": "953a07a981c5acb0b37ce3eb8665a79a519b491b8b6f45be5f5032c780260c62"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/identity.json",
+      "sha256": "9eef9d0ccd8e6fe8241400c3e80ee4c44f062f14fa787f3cc3dd34c71828f68b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/plan.json",
+      "sha256": "47f0ac552318ee330dc43014a336deffb2d3655de03e69d8d9f6777e83cb8863"
+    }
+  ],
+  "upstream": {
+    "execution": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/execution.json",
+    "audit": "VALIDATION/runs/v3_20261012_final_additional_public_components/audit.json",
+    "plan_sha256": "47f0ac552318ee330dc43014a336deffb2d3655de03e69d8d9f6777e83cb8863",
+    "process": {
+      "pid": 31451,
+      "start_ticks": "277518"
+    }
+  },
+  "commands": {
+    "prepare": [
+      "VALIDATION/final_missing_stand_reconstruct.py",
+      "prepare"
+    ],
+    "fit": [
+      "VALIDATION/final_missing_stand_reconstruct.py",
+      "fit"
+    ],
+    "infer": [
+      "VALIDATION/final_missing_stand_reconstruct.py",
+      "infer"
+    ],
+    "audit": [
+      "VALIDATION/tools/audit_final_missing_stand_20261012.py"
+    ]
+  },
+  "prior_failed_execution": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/prefit_v2/completion/execution.json",
+    "sha256": "c36d6bfc322fb5995d1e0b23ea7bc010289129db94fa030de6e97d9cffcd8668"
+  },
+  "prefit_revision": "Audit-only explicit BIGINT multiplication promotion; AST confirms independent_preflight alone changed"
+}

@@ -1,6 +1,24 @@
 {
-  "state": "waiting_daily_main",
-  "steps": [],
+  "state": "complete",
+  "steps": [
+    {
+      "stage": "daily_main",
+      "completed_at": "2026-10-12T16:02:27.424130+00:00",
+      "receipt": "VALIDATION/runs/v3_20261012_final_daily_main_inference/final.json"
+    },
+    {
+      "stage": "public_PLE",
+      "completed_at": "2026-10-12T16:03:49.213158+00:00",
+      "receipt": "VALIDATION/runs/v3_20261012_final_public_ple_inference/final.json"
+    },
+    {
+      "stage": "independent_SQL",
+      "completed_at": "2026-10-12T16:03:54.225838+00:00",
+      "receipt": "VALIDATION/runs/v3_20261012_final_additional_public_components/audit.json"
+    }
+  ],
   "started_at": "2026-10-12T15:45:22.344396+00:00",
-  "plan_sha256": "47f0ac552318ee330dc43014a336deffb2d3655de03e69d8d9f6777e83cb8863"
+  "plan_sha256": "47f0ac552318ee330dc43014a336deffb2d3655de03e69d8d9f6777e83cb8863",
+  "active_stage": null,
+  "finished_at": "2026-10-12T16:03:54.225939+00:00"
 }

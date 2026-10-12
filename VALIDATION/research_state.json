@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T15:56:26.033849+00:00",
+  "updated_at": "2026-10-12T16:19:50.568982+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
@@ -8,12 +8,10 @@
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 47,
   "desktop": {
-    "stage": "daily_main_then_public_PLE_final_inference",
-    "run": "VALIDATION/runs/v3_20261012_final_daily_main_inference",
+    "stage": "weather_saved_model_final_inference",
     "owner": "root",
-    "session": 3608,
-    "completion_session": 32346,
-    "completion": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/execution.json"
+    "session": 90766,
+    "run": "VALIDATION/runs/v3_20261012_final_weather_inference"
   },
   "next": [
     "Complete fixed full-day peer TabM Jan/Jul experiment after preflight",
@@ -24,19 +22,19 @@
   "active_research": [
     {
       "owner": "root",
-      "scope": "Laptop fixed full-day peer TabM CV; desktop saved-model final inference and correction inputs"
+      "scope": "Research integration and final public direct-model/quality assembly"
     },
     {
       "owner": "final_recovery",
-      "scope": "21 exact historical components ready; prepare stand/flight-number/ordinary missing families"
+      "scope": "Stand-family fixed recovery; missing family recipes and research index"
     },
     {
       "owner": "cohort_learning",
-      "scope": "Final weather inputs audited; saved weather-model inference preparation"
+      "scope": "Fixed full-day peer CV active; exact final public correction port preparation"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Bounded source-only peer spatial congestion pilot and independent postfit audit"
+      "scope": "Independent cohort postfit audit and final direct-component source review"
     }
   ],
   "laptop": {
@@ -44,11 +42,11 @@
     "completed_folds": [],
     "run": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort",
     "preflight_pass": true,
-    "last_epoch_at": "17:55:24",
+    "last_epoch_at": "18:18:34",
     "fold": "2025-01",
-    "epoch": 7,
+    "epoch": 16,
     "epochs": 21,
-    "seconds_per_epoch": 142.27
+    "seconds_per_epoch": 147.1
   },
   "duration_result": {
     "cv": {
@@ -101,10 +99,15 @@
       19,
       20,
       21,
+      30,
+      33,
+      34,
+      37,
       38,
       45,
       46,
       54,
+      56,
       57,
       58,
       64,
@@ -120,7 +123,9 @@
     "additional_receipts": [
       "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/result.json",
       "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/independent_audit.json",
-      "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/independent_audit.json"
+      "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/independent_audit.json",
+      "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/independent_audit.json",
+      "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/independent_audit.json"
     ]
   },
   "depth3_completion": {
@@ -168,5 +173,12 @@
         "candidate": 254.56124011405984
       }
     }
+  },
+  "additional_public_final": {
+    "status": "pass",
+    "components": 4,
+    "audited_values": 2683160,
+    "receipt": "VALIDATION/runs/v3_20261012_final_additional_public_components/audit.json",
+    "complete_affine_port": false
   }
 }

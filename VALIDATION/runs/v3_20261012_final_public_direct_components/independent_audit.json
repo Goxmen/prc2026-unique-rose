@@ -1,0 +1,52 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_final_public_direct_components_20261012.py",
+    "sha256": "436da54198aec6a1c7c7a41a70ad3e67211e90ab3fdc9364749aa11db412f3a1"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_direct_components/identity.json",
+    "sha256": "26716dd0429a3b910a39d8ae19d9ac52accb14d757f06beb1b429f855cbc51d2"
+  },
+  "views": {
+    "old": {
+      "rows": 344841,
+      "months": {
+        "2026-01": 152719,
+        "2026-07": 192122
+      },
+      "SQL_mixture_values_exact": 6207138,
+      "SQL_old_control_values_exact": 5517456,
+      "all_original_correction_values_exact": 2069046,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_public_direct_components/old.parquet",
+        "sha256": "43472279abe646a255287339df9593b14a63cf05fdf7d93099915bba673f1ec5"
+      }
+    },
+    "final": {
+      "rows": 670790,
+      "months": {
+        "2026-01": 152719,
+        "2026-07": 192122,
+        "2026-02": 144158,
+        "2026-06": 181791
+      },
+      "SQL_mixture_values_exact": 12074220,
+      "SQL_old_control_values_exact": 0,
+      "all_original_correction_values_exact": 4024740,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_public_direct_components/final.parquet",
+        "sha256": "287d4a34bdd3e2248fd5d8d4b2bd09d5bc7b463e1523d3502ce79d4c2bc2801f"
+      }
+    }
+  },
+  "source_hashes_checked": 186,
+  "template_order_exact": true,
+  "all_original_receipt_bindings_exact": true,
+  "independent_SQL_mixtures_and_old_controls": true,
+  "independent_original_correction_reconstruction": true,
+  "caveat": "Retained base-network final components retain their October8 refit provenance.",
+  "no_fit_or_model_inference": true,
+  "no_submission": true,
+  "interpretation": "Direct components only; no affine assembly, source posterior port or complete final submission claimed."
+}

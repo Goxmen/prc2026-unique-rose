@@ -1,0 +1,30 @@
+{
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/old_v56.parquet",
+    "sha256": "648f8261715bdd161d6d5b77632af05d7dee1b4865ef0bcd175d78e5676e8014"
+  },
+  "rows": 344841,
+  "months": {
+    "2026-01": 152719,
+    "2026-07": 192122
+  },
+  "parent_parts": [
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-01.parquet",
+      "sha256": "fe4c0c588387c397eb6cc0365d0449f564b23275c9a0d18af7cb7c271dae4ca1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261006_hpo_submit/submission_v54/ranking_2026-07.parquet",
+      "sha256": "69bf84a9f86ff78ecfc1d2c42d7c0a84836a9cd3f7ff9d06d1f5198cf10a9770"
+    }
+  ],
+  "unseen_counts": {
+    "2026-01": 162,
+    "2026-07": 7603
+  },
+  "loaded_model_prediction_exact": true,
+  "exact_original_integer_replay": true,
+  "changed_rows": 0,
+  "rms_difference": 0.0,
+  "maximum_absolute_difference": 0.0
+}

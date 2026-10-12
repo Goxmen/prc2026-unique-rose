@@ -69,7 +69,7 @@ def main():
                     epoch(r.MVT_TIME_UTC_mvt-r.SCHED_TIME_UTC_mvt) gap,
                     epoch(r.MVT_TIME_UTC_mvt-r.LOBT_flt) centre,
                     date_diff('day',timezone('Europe/Rome',cast(r.SCHED_TIME_UTC_mvt AS TIMESTAMPTZ))::DATE,
-                        timezone('Europe/Rome',cast(r.MVT_TIME_UTC_mvt AS TIMESTAMPTZ))::DATE) days,
+                        timezone('Europe/Rome',cast(r.MVT_TIME_UTC_mvt AS TIMESTAMPTZ))::DATE) local_days,
                     CASE WHEN length(r.FLIGHT_mvt)<3 THEN NULL
                         WHEN regexp_full_match(substr(r.FLIGHT_mvt,1,3),'[A-Za-z]{{3}}') THEN substr(r.FLIGHT_mvt,1,3)
                         ELSE substr(r.FLIGHT_mvt,1,2) END airline,
@@ -80,7 +80,7 @@ def main():
                     FROM base b JOIN raw r ON b.mvt_id=r.MVT_ID_mvt WHERE r.PHASE_mvt='DEP'),
                 flags AS (SELECT *,coalesce(airport='LIRF' AND noid AND gap>3600 AND gap<14400,false) late,
                     coalesce(airport='LIRF' AND noid AND gap>=14400,false) fired,
-                    coalesce(airport='LIRF' AND noid AND gap>=50400 AND days>=1,false) hedged FROM r),
+                    coalesce(airport='LIRF' AND noid AND gap>=50400 AND local_days>=1,false) hedged FROM r),
                 mix AS (SELECT *,CASE WHEN airport='LIRF' AND isfinite(gap)
                     THEN greatest(0,p*gap+(1-p)*(CASE WHEN late THEN least(cast({late_mean!r} AS DOUBLE),greatest(gap-3600,60)) ELSE ordinary END))
                     ELSE ordinary END mix FROM flags),
@@ -95,7 +95,7 @@ def main():
                     ELSE (cast({h['format']['clean'][0]} AS DOUBLE)+2.0*(({h['wrong_date']}+1.0)/({h['rows']}+2.0)))/({h['format']['clean'][1]}+2.0) END format_prior FROM v34),
                 prob AS (SELECT prior.*,(coalesce(ah.wrong,0)+2.0*format_prior)/(coalesce(ah.n,0)+2.0) wrong_p
                     FROM prior LEFT JOIN airline_history ah USING(airline))
-                SELECT *,CASE WHEN hedged THEN wrong_p*(days*86400+{h['taxi_sec']})+(1-wrong_p)*gap ELSE e34 END e37 FROM prob""")
+                SELECT *,CASE WHEN hedged THEN wrong_p*(local_days*86400+{h['taxi_sec']})+(1-wrong_p)*gap ELSE e34 END e37 FROM prob""")
             for version, report in versions.items():
                 checked(report['prediction'])
                 con.read_parquet(str(ROOT / report['prediction']['path'])).create_view('p', replace=True)

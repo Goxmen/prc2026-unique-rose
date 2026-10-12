@@ -1,0 +1,34 @@
+{
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/final_v56.parquet",
+    "sha256": "408c225b07ffef57d2e8d1586a12b5d2cff24452ab5b8cf9b6b5121630d3a05f"
+  },
+  "rows": 670790,
+  "months": {
+    "2026-01": 152719,
+    "2026-02": 144158,
+    "2026-06": 181791,
+    "2026-07": 192122
+  },
+  "parent_parts": [
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/nn.parquet",
+      "sha256": "f0a2d9ad78bad98afb1f4f813b0d5913988a8038955bb718b87daf05b2fa13ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/trees.parquet",
+      "sha256": "4eb4db3561f9065d3a3768d8e84084faf291b33ee640b9fe2a0d2b7099f5cf9e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/rome.parquet",
+      "sha256": "0a37d6998bdf3be726bb690b730e30b23dd3cd4030014b6d1ec52898d39d2d98"
+    }
+  ],
+  "unseen_counts": {
+    "2026-01": 162,
+    "2026-02": 324,
+    "2026-06": 7267,
+    "2026-07": 7603
+  },
+  "loaded_model_prediction_exact": true
+}

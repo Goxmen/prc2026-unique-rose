@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T15:56:26.005770+00:00",
+  "updated_at": "2026-10-12T16:19:50.536826+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 0,
     "repository": "PRIVATE",
-    "laptop": "Reserved for fixed full-day peer TabM CV after independent preflight",
-    "desktop": "Reserved for two missing legacy-family recovery fits after preflight",
+    "laptop": "Fixed full-day peer TabM CV training; seed42 only, Jan21/Jul17",
+    "desktop": "Saved weather-model final inference; fixed v56 recovery passes",
     "native_goal_status": "active"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
@@ -870,7 +870,7 @@
       "evidence": [
         {
           "path": "VALIDATION/reports/SCOUT_EXCLUSIONS_20261012.md",
-          "sha256": "fcc2f36aefe21f4483e256f5b91b77d31f1dc65d1687c83246a73ae59995a05e"
+          "sha256": "562b056315241d9856b1d3acbf79ce2dae22802c564e73a3bd13fb371886ca4c"
         },
         {
           "path": "VALIDATION/rome_public_monthly_shift.py",
@@ -887,29 +887,27 @@
   "active_research": [
     {
       "owner": "root",
-      "scope": "Laptop fixed full-day peer TabM CV; desktop saved-model final inference and correction inputs"
+      "scope": "Research integration and final public direct-model/quality assembly"
     },
     {
       "owner": "final_recovery",
-      "scope": "21 exact historical components ready; prepare stand/flight-number/ordinary missing families"
+      "scope": "Stand-family fixed recovery; missing family recipes and research index"
     },
     {
       "owner": "cohort_learning",
-      "scope": "Final weather inputs audited; saved weather-model inference preparation"
+      "scope": "Fixed full-day peer CV active; exact final public correction port preparation"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Bounded source-only peer spatial congestion pilot and independent postfit audit"
+      "scope": "Independent cohort postfit audit and final direct-component source review"
     }
   ],
   "machine_allocation": {
     "desktop": {
-      "stage": "daily_main_then_public_PLE_final_inference",
-      "run": "VALIDATION/runs/v3_20261012_final_daily_main_inference",
+      "stage": "weather_saved_model_final_inference",
       "owner": "root",
-      "session": 3608,
-      "completion_session": 32346,
-      "completion": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/execution.json"
+      "session": 90766,
+      "run": "VALIDATION/runs/v3_20261012_final_weather_inference"
     },
     "laptop": {
       "stage": "full_day_cohort_fixed_CV_running",

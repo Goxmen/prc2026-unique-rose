@@ -117,6 +117,27 @@ def status(remote=False):
             assert len(versions)==len(r['views']['final'])
             value['legacy_final']['versions']=sorted(set(value['legacy_final']['versions']+versions))
             value['legacy_final'].setdefault('additional_receipts',[]).append(str(audit.relative_to(ROOT)))
+    additional=RUNS/'v3_20261012_final_additional_public_components/audit.json'
+    if additional.exists():
+        r=read(additional);assert r['status']=='pass'
+        value['additional_public_final']=dict(status='pass',components=len(r['components']),
+            audited_values=r['total_prediction_values'],receipt=str(additional.relative_to(ROOT)),
+            complete_affine_port=False)
+    stand=RUNS/'v3_20261012_final_missing_stand_reconstruct'
+    if (stand/'independent_audit.json').exists():
+        a=read(stand/'independent_audit.json');r=read(stand/'result.json')
+        assert a['status']=='pass'
+        versions=[int(v) for v,item in r['views']['old'].items() if item['exact_original_integer_replay']]
+        assert len(versions)==len(r['views']['final'])==4
+        value['legacy_final']['versions']=sorted(set(value['legacy_final']['versions']+versions))
+        value['legacy_final'].setdefault('additional_receipts',[]).append(str((stand/'independent_audit.json').relative_to(ROOT)))
+    flight=RUNS/'v3_20261012_final_missing_flightnumber_reconstruct'
+    if (flight/'independent_audit.json').exists():
+        a=read(flight/'independent_audit.json');r=read(flight/'result.json')
+        assert a['status']=='pass' and r['views']['old']['exact_original_integer_replay']
+        assert r['views']['final']['rows']==670790
+        value['legacy_final']['versions']=sorted(set(value['legacy_final']['versions']+[56]))
+        value['legacy_final'].setdefault('additional_receipts',[]).append(str((flight/'independent_audit.json').relative_to(ROOT)))
     allocation=read(REGISTRY).get('machine_allocation',{})
     if 'desktop' in allocation:value['desktop']=allocation['desktop']
     if not remote and 'laptop' in allocation:value['laptop']=dict(allocation['laptop'],stale=True)

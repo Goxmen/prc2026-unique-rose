@@ -1,0 +1,43 @@
+{
+  "state": "complete",
+  "pid": 52129,
+  "started_at": "2026-10-12T16:17:20.718475+00:00",
+  "steps": [
+    {
+      "stage": "fit",
+      "started_at": "2026-10-12T16:17:20.719214+00:00",
+      "completed_at": "2026-10-12T16:17:35.059098+00:00",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/trained.json",
+        "sha256": "d6a45e9ebb664cfaab3fe8198316e4a0e2cb0aea1b279d877f341f8fc8844654"
+      }
+    },
+    {
+      "stage": "infer",
+      "started_at": "2026-10-12T16:17:35.060151+00:00",
+      "completed_at": "2026-10-12T16:17:48.362724+00:00",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/result.json",
+        "sha256": "58a6cf1746b17f0826565dc4b9fc4c6525d0be22daae124db64d2db2d3a328a5"
+      }
+    },
+    {
+      "stage": "audit",
+      "started_at": "2026-10-12T16:17:48.363617+00:00",
+      "completed_at": "2026-10-12T16:18:14.160500+00:00",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/independent_audit.json",
+        "sha256": "cf36e6fe85a555323664376515a5bec25b3c4ed4d20e22b45eb367f1d503be93"
+      }
+    }
+  ],
+  "plan_sha256": "076a4526a4baecbcd0ceb75daed7b5aa12de96d601f6a6f9cdb241bfc42d050c",
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/completion/allocation.json",
+    "sha256": "331e1df6e5624f29efec77708b73e11d3f9d0194587b42a01c2644fc7639972e"
+  },
+  "no_upload": true,
+  "active_stage": null,
+  "child_pid": null,
+  "finished_at": "2026-10-12T16:18:14.160827+00:00"
+}

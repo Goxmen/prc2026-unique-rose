@@ -1,0 +1,61 @@
+{
+  "state": "failed",
+  "pid": 45639,
+  "started_at": "2026-10-12T16:08:14.526287+00:00",
+  "plan_sha256": "7f7ad1061cc11884a36aa7c6b4848c553fcef33ff9233d2ac21e65266a7e1f92",
+  "steps": [
+    {
+      "stage": "prepare",
+      "started_at": "2026-10-12T16:08:14.527329+00:00",
+      "completed_at": "2026-10-12T16:10:03.842082+00:00",
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/preflight.json",
+          "sha256": "d9813a789efd67e3f3260fd76c464b78d002efa396457c03115f49e1fe9c1bc0"
+        }
+      ]
+    },
+    {
+      "stage": "fit",
+      "started_at": "2026-10-12T16:10:03.843018+00:00",
+      "completed_at": "2026-10-12T16:11:27.045883+00:00",
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/ordinary_trained.json",
+          "sha256": "a7be58649b8efc87fc73c435df968b0c9da3256409a280c1ef7d85440b1cb800"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/classifier_trained.json",
+          "sha256": "31180ac65e2d84dcc6cf6ee3e20bd3a23600c9062b9b6d1d2e8dd7b28f4a51fb"
+        }
+      ]
+    },
+    {
+      "stage": "infer",
+      "started_at": "2026-10-12T16:11:27.046844+00:00",
+      "completed_at": "2026-10-12T16:12:27.059311+00:00",
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/result.json",
+          "sha256": "4bee41e0b2b653acc341971daa7c2b1c3b42dc67b4583d05726814371eda19d8"
+        }
+      ]
+    }
+  ],
+  "no_upload": true,
+  "upstream_evidence": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/execution.json",
+      "sha256": "c2a27ac654a2daf5bc210c030db171a782290ecc0a5038177618ed2c3c8de299"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_additional_public_components/audit.json",
+      "sha256": "b2a288b63b6ae45a338658145d0e0905c7c5046270118837b6d51531adc9c6bd"
+    }
+  ],
+  "active_stage": "audit",
+  "child_pid": 48907,
+  "finished_at": "2026-10-12T16:12:28.548122+00:00",
+  "failure": "AssertionError('audit exited 1; preserve log and all checkpoints')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/gunes/PRC/VALIDATION/tools/complete_final_missing_stand_20261012.py\", line 95, in main\n    assert code == 0, f'{stage} exited {code}; preserve log and all checkpoints'\n           ^^^^^^^^^\nAssertionError: audit exited 1; preserve log and all checkpoints\n"
+}

@@ -1,0 +1,102 @@
+{
+  "status": "pass",
+  "old_controls_and_final_reloads_exact": true,
+  "source_hashes_checked": 105,
+  "components": [
+    {
+      "component": "v3_20261012_final_public_ple_inference",
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_public_ple_inference/predictions/final_k0.parquet",
+        "sha256": "e5511432b1ec529724d0a8a4b9007c3ddf581c2c3682eab4636e895f28d7ae50"
+      },
+      "rows": 670790,
+      "months": {
+        "2026-01": 152719,
+        "2026-02": 144158,
+        "2026-06": 181791,
+        "2026-07": 192122
+      },
+      "range": [
+        -0.0,
+        9472.125
+      ]
+    },
+    {
+      "component": "v3_20261012_final_public_ple_inference",
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_public_ple_inference/predictions/final_k1.parquet",
+        "sha256": "36c94e3fe1054de8558420df0b21b0774838f73270e63d9ea67bb836709fc761"
+      },
+      "rows": 670790,
+      "months": {
+        "2026-01": 152719,
+        "2026-02": 144158,
+        "2026-06": 181791,
+        "2026-07": 192122
+      },
+      "range": [
+        -0.0,
+        8692.6455078125
+      ]
+    },
+    {
+      "component": "v3_20261012_final_public_ple_inference",
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_public_ple_inference/predictions/final_k2.parquet",
+        "sha256": "028bb79cc3615b8c2194f5708f0a5b840f57c859a038f7182f74c64cb9df54cf"
+      },
+      "rows": 670790,
+      "months": {
+        "2026-01": 152719,
+        "2026-02": 144158,
+        "2026-06": 181791,
+        "2026-07": 192122
+      },
+      "range": [
+        -0.0,
+        8144.23974609375
+      ]
+    },
+    {
+      "component": "v3_20261012_final_daily_main_inference",
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/final.parquet",
+        "sha256": "60edb7a5473e1606167cf9404b44d5c08041d8be03b01ee9c100567912f6f205"
+      },
+      "rows": 670790,
+      "months": {
+        "2026-01": 152719,
+        "2026-02": 144158,
+        "2026-06": 181791,
+        "2026-07": 192122
+      },
+      "range": [
+        -0.0,
+        9737.322265625
+      ]
+    }
+  ],
+  "receipts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_ple_inference/old.json",
+      "sha256": "f6325b8d91da7e988393a2b6479e876b75de6c410412708e707af149327e246b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_ple_inference/final.json",
+      "sha256": "c6c1240af198c11d2a34fe990340c58534db18ad41b2c661414c455143a2c8d6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/old.json",
+      "sha256": "b7bf07f364a63c4f0352871568005756f024a5599dd88b019dd676566dcf5ef0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/final.json",
+      "sha256": "23e0ad6b1c954440dea5612d74f7ff2dac0676e9c25e764c1c6cbc1917bd5cd6"
+    }
+  ],
+  "total_prediction_values": 2683160,
+  "all_SQL_template_membership_and_domains_exact": true,
+  "interpretation": "Audited components only; no complete affine-stack port or final file is claimed.",
+  "no_fit": true,
+  "no_upload": true
+}

@@ -102,12 +102,22 @@ def main():
             template = ROOT / 'data' / ('submitting.parquet' if view == 'old' else 'final_submitting.parquet')
             con.read_parquet(str(raw_path)).create_view('raw', replace=True)
             con.read_parquet(str(template)).create_view('template', replace=True)
+            assert con.execute('''SELECT count(*) FROM p FULL JOIN template t
+                ON p.mvt_id=t.MVT_ID_mvt WHERE p.mvt_id IS NULL OR t.MVT_ID_mvt IS NULL''').fetchone()[0] == 0
+            assert con.execute('''SELECT count(*) FROM p LEFT JOIN raw r ON p.mvt_id=r.MVT_ID_mvt
+                WHERE r.MVT_ID_mvt IS NULL OR r.PHASE_mvt IS DISTINCT FROM 'DEP'
+                OR p.pred IS NULL OR p.p IS NULL OR NOT isfinite(p.p) OR p.p<0 OR p.p>1
+                OR (r.ADEP_mvt<>'LIRF' AND p.p<>0)''').fetchone()[0] == 0
             n, unique, bad = con.execute('''SELECT count(*),count(distinct p.mvt_id),sum(CASE WHEN
                 NOT isfinite(p.pred) OR p.pred<0 OR p.submitted IS DISTINCT FROM round_even(greatest(0,p.pred),0)
                 OR p.month IS DISTINCT FROM strftime(r.MVT_TIME_UTC_mvt,'%Y-%m') THEN 1 ELSE 0 END)
                 FROM p FULL JOIN template t ON p.mvt_id=t.MVT_ID_mvt
                 JOIN raw r ON p.mvt_id=r.MVT_ID_mvt WHERE r.PHASE_mvt='DEP' ''').fetchone()
             assert n == unique == report['rows'] == (344841 if view == 'old' else 670790) and bad == 0
+            months = dict(con.execute('SELECT month,count(*) FROM p GROUP BY month ORDER BY month').fetchall())
+            expected_months = {'2026-01': 152719, '2026-07': 192122} if view == 'old' else {
+                '2026-01': 152719, '2026-02': 144158, '2026-06': 181791, '2026-07': 192122}
+            assert months == expected_months
             if view == 'old':
                 ref = read(ROOT / 'data/derived/scored_submission_cache_20261011/manifest.json')['56']
                 assert sha(ROOT / ref['file']) == ref['sha256']

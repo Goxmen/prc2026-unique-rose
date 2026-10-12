@@ -1,0 +1,54 @@
+{
+  "purpose": "Authorized two absent v30 model fits and exact four-version final reconstruction; no retained fit repeated",
+  "threads": 8,
+  "no_upload": true,
+  "failure_policy": "Stop on upstream/preflight/model/replay/audit failure; preserve all evidence, no seed/thread sweep",
+  "sources": [
+    {
+      "path": "VALIDATION/tools/complete_final_missing_stand_20261012.py",
+      "sha256": "cf683b115565bdc507b42081628ad0f6ee97c505e2c13d5d8a672cb490fca363"
+    },
+    {
+      "path": "VALIDATION/final_missing_stand_reconstruct.py",
+      "sha256": "75ee74f9f7343092481dd4501e63d8c3029b56730bccafa06178a12dae5c6dab"
+    },
+    {
+      "path": "VALIDATION/tools/audit_final_missing_stand_20261012.py",
+      "sha256": "953a07a981c5acb0b37ce3eb8665a79a519b491b8b6f45be5f5032c780260c62"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/identity.json",
+      "sha256": "7bd70a4d520e872d43f1e3010f7b3404fc956bd8d9f6262c316cf0eddca97f04"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/plan.json",
+      "sha256": "47f0ac552318ee330dc43014a336deffb2d3655de03e69d8d9f6777e83cb8863"
+    }
+  ],
+  "upstream": {
+    "execution": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/execution.json",
+    "audit": "VALIDATION/runs/v3_20261012_final_additional_public_components/audit.json",
+    "plan_sha256": "47f0ac552318ee330dc43014a336deffb2d3655de03e69d8d9f6777e83cb8863",
+    "process": {
+      "pid": 31451,
+      "start_ticks": "277518"
+    }
+  },
+  "commands": {
+    "prepare": [
+      "VALIDATION/final_missing_stand_reconstruct.py",
+      "prepare"
+    ],
+    "fit": [
+      "VALIDATION/final_missing_stand_reconstruct.py",
+      "fit"
+    ],
+    "infer": [
+      "VALIDATION/final_missing_stand_reconstruct.py",
+      "infer"
+    ],
+    "audit": [
+      "VALIDATION/tools/audit_final_missing_stand_20261012.py"
+    ]
+  }
+}

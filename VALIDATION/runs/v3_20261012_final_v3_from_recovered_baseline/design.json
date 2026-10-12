@@ -1,0 +1,23 @@
+{
+  "hypothesis": "Original v3 and recovered v12 raw baseline share documented original27/800/seed42/200000 cap; test existing vectors before considering another missing-model fit",
+  "scope": "One label-free old-integer identity check only; no inference, fit, candidate or upload",
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/old_v12.parquet",
+      "sha256": "6794d72782dec06fd6874b6d6c8ebedd66dd3d50227e38af5d46800e4cc1df3a"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v3.parquet",
+      "sha256": "e1f20f233c1cdcb8abd1e9f2781efad75da3b49addfe4f9f200584dee329fd24"
+    },
+    {
+      "path": "submissions/unique-rose_v3.meta.json",
+      "sha256": "6346f2f50c1ed048427a3e4bec923b95e2a8155e2d16a8987bb8e5421dc47a53"
+    },
+    {
+      "path": "VALIDATION/reports/leaderboard_selected_20260916.json",
+      "sha256": "259fdfc3b437985afb2d7cf84c6919ec283406b08a895d3c63366cb040be98f5"
+    }
+  ],
+  "acceptance": "All344841 original v3 integers exact; otherwise do not alias"
+}

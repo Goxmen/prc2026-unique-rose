@@ -1,5 +1,20 @@
 # Next steps
 
+- **October 12, 18:18 Amsterdam: 26 historical final components and direct public mixtures audited.**
+  Stand-family v30/v33/v34/v37 now replay all original integers exactly and pass
+  the separate final SQL audit. Original classifier hash matches; ordinary text
+  differs, with exact prediction gates. Audit-only BIGINT/SQL-alias fixes and
+  failures are preserved; no fit/inference was repeated. Four additional saved
+  public vectors (daily main + original PLE3) pass all controls; all13 selected
+  public vectors are ready. `final_public_direct_components.py` also passes old
+  16-column replay and full four-month mixture/correction audit. No complete
+  final affine port or upload yet. Fixed v56 recovery also passes all old/final checks; desktop runs saved weather-model inference. Laptop
+  continues the one-seed full-day cohort Jan/Jul test. Final public posterior
+  and daily-quality ports are being prepared without calibration refits.
+  Incremental novelty index: `tools/index_research.py build` then capped
+  `findall '<terms>'`; use it before proposing variants of historical screens.
+
+
 **Active target: 205.00 seconds or lower.** Best/latest is **v80 at218.8525**,
 leaving **13.8525 seconds**. Live 12 October 17:03:41 Amsterdam, rank **9/244**,
 all **344,841 flights**. Autonomous submissions and both machines remain authorized,

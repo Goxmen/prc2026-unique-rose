@@ -169,7 +169,7 @@ def independent_preflight(X, y, raw, arr):
         airline = lambda col: f"CASE WHEN length({col})<3 THEN NULL WHEN regexp_full_match(substr({col},1,3),'[A-Za-z]{{3}}') THEN substr({col},1,3) ELSE substr({col},1,2) END"
         con.execute(f"""CREATE TEMP TABLE stand_arrivals AS
             WITH a AS (SELECT ADES_mvt||':'||STAND_mvt k,
-                epoch_ns(MVT_TIME_UTC_mvt)+cast(round(taxi_sec*1000000000) AS BIGINT) inb,
+                epoch_ns(MVT_TIME_UTC_mvt)+cast(round(cast(taxi_sec AS BIGINT)*1000000000) AS BIGINT) inb,
                 AIRCRAFT_TYPE_mvt typ,{airline('FLIGHT_mvt')} airline,arrival_order
                 FROM arrivals WHERE isfinite(taxi_sec) AND MVT_TIME_UTC_mvt IS NOT NULL
                 AND ADES_mvt IS NOT NULL AND STAND_mvt IS NOT NULL),

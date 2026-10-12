@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "source_sha256": "4dc40396615bb7c583f3cfa454b742b2f8c5a6329b57ebff8d2f5ca812f16698",
+  "result_sha256": "4bee41e0b2b653acc341971daa7c2b1c3b42dc67b4583d05726814371eda19d8",
+  "checks": {
+    "old_v30": {
+      "rows": 344841,
+      "max_SQL_float_error": 0.0,
+      "all_integer_rounding_rules_IDs_dates_exact": true,
+      "original_integer_vector_exact": true
+    },
+    "old_v33": {
+      "rows": 344841,
+      "max_SQL_float_error": 0.0,
+      "all_integer_rounding_rules_IDs_dates_exact": true,
+      "original_integer_vector_exact": true
+    },
+    "old_v34": {
+      "rows": 344841,
+      "max_SQL_float_error": 0.0,
+      "all_integer_rounding_rules_IDs_dates_exact": true,
+      "original_integer_vector_exact": true
+    },
+    "old_v37": {
+      "rows": 344841,
+      "max_SQL_float_error": 0.0,
+      "all_integer_rounding_rules_IDs_dates_exact": true,
+      "original_integer_vector_exact": true
+    },
+    "final_v30": {
+      "rows": 670790,
+      "max_SQL_float_error": 0.0,
+      "all_integer_rounding_rules_IDs_dates_exact": true,
+      "original_integer_vector_exact": false
+    },
+    "final_v33": {
+      "rows": 670790,
+      "max_SQL_float_error": 0.0,
+      "all_integer_rounding_rules_IDs_dates_exact": true,
+      "original_integer_vector_exact": false
+    },
+    "final_v34": {
+      "rows": 670790,
+      "max_SQL_float_error": 0.0,
+      "all_integer_rounding_rules_IDs_dates_exact": true,
+      "original_integer_vector_exact": false
+    },
+    "final_v37": {
+      "rows": 670790,
+      "max_SQL_float_error": 0.0,
+      "all_integer_rounding_rules_IDs_dates_exact": true,
+      "original_integer_vector_exact": false
+    }
+  },
+  "model_hashes": {
+    "ordinary": "90efd7e0ed6e305e64214542e59e92bd47735a05303c530ef547c341519ec7dc",
+    "classifier": "c6d6b1d8dfcdf53af6033a486698818baf1c19bc7d0bfd58b7083b4ebde9355d"
+  },
+  "caveats": [
+    "All original integer vectors exact; original model text identity is reported separately.",
+    "Eight threads are the original validation and CLI default; historical full-year CLI override was not recorded.",
+    "Model reloads were independently executed by producer; SQL auditor independently reconstructs all postprocessing.",
+    "Remaining temporal/weather/queue/handler input values rely on unchanged original source and prior cached-input audits."
+  ]
+}

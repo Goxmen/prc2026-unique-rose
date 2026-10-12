@@ -1,0 +1,23 @@
+{
+  "state": "failed",
+  "pid": 43366,
+  "started_at": "2026-10-12T16:04:35.544761+00:00",
+  "plan_sha256": "8988ff39e62f59cf1cc9aadcb45a3205533cc91138959defc09810efdff91fca",
+  "steps": [],
+  "no_upload": true,
+  "upstream_evidence": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_additional_public_components/completion/execution.json",
+      "sha256": "c2a27ac654a2daf5bc210c030db171a782290ecc0a5038177618ed2c3c8de299"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_additional_public_components/audit.json",
+      "sha256": "b2a288b63b6ae45a338658145d0e0905c7c5046270118837b6d51531adc9c6bd"
+    }
+  ],
+  "active_stage": "prepare",
+  "child_pid": 43368,
+  "finished_at": "2026-10-12T16:06:21.920318+00:00",
+  "failure": "AssertionError('prepare exited 1; preserve log and all checkpoints')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/gunes/PRC/VALIDATION/tools/complete_final_missing_stand_20261012.py\", line 95, in main\n    assert code == 0, f'{stage} exited {code}; preserve log and all checkpoints'\n           ^^^^^^^^^\nAssertionError: prepare exited 1; preserve log and all checkpoints\n"
+}
