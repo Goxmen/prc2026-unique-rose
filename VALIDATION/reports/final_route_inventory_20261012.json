@@ -1,6 +1,6 @@
 {
-  "at": "2026-10-12T09:46:30.696735+00:00",
-  "state": "saved_public_components_inference_in_progress",
+  "at": "2026-10-12T11:02:37.919031+00:00",
+  "state": "selected_public_component_predictions_audited_legacy_port_pending",
   "deadline_utc": "2026-10-14T10:00:00Z",
   "filename": "unique-rose_final.parquet",
   "official_source": "https://prc-data-challenge-2026.netlify.app/ranking.html#final-submission",
@@ -147,6 +147,29 @@
       "all_old_replays_exact": true,
       "all_final_reloads_exact": true,
       "note": "Cached packet uses a different month order; ID sets match template and assembly must join by ID."
+    },
+    "final_public_trees": {
+      "run": "VALIDATION/runs/v3_20261012_final_public_tree_inference",
+      "parts": [
+        "main",
+        "ten_airport_models",
+        "three_Rome_CatBoost_classifiers"
+      ],
+      "old_replays_exact": true,
+      "all_final_reloads_exact": true,
+      "rows_each": 670790
+    },
+    "final_public_catboost": {
+      "receipt": "VALIDATION/runs/v3_20261012_final_public_catboost_inference/final.json",
+      "rows": 670790,
+      "old_replay_exact": true,
+      "final_reload_exact": true
+    },
+    "independent_public_components_SQL": {
+      "receipt": "VALIDATION/runs/v3_20261012_final_public_components/audit.json",
+      "prediction_values": 6037110,
+      "source_hashes": 88,
+      "status": "pass"
     }
   },
   "prepared_code": {
@@ -154,7 +177,10 @@
     "scope": "Executed successfully; all three members returned and all source/output hashes verified."
   },
   "in_progress": [
-    "Saved public main tree old/final replay on desktop",
+    "Recovered v38 booster replay on original IDs; exact equality required before final inference",
     "Historical affine-basis availability inventory"
+  ],
+  "notes": [
+    "An additional selected ordinary CatBoost component was identified in the stack and is now being replayed; the original eight-part inventory was incomplete."
   ]
 }

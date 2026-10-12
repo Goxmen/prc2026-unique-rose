@@ -1,0 +1,105 @@
+{
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20260919_artifact_experiments/models/refit_2025__v38__42.ordinary.txt",
+      "sha256": "d3c7bf28934f6bba6f3b29967a217972a443f4ed498cc5a9e7d2b5222b9a8405"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260919_artifact_experiments/models/refit_2025__v38__42.classifier.txt",
+      "sha256": "c4bb9a2c50e93b05812930385f4c96c53027b3bd5564cbccbe0d8117430cc843"
+    },
+    {
+      "path": "VALIDATION/final_legacy_v38_replay.py",
+      "sha256": "2d938bc15cdecd6cb8312d7cd6576c984ee496cec5a34657c7573c2c26db278d"
+    },
+    {
+      "path": "VALIDATION/artifact_submit.py",
+      "sha256": "c902b469c386335f30f83de59a10447d3fc82397f70b2d5b6caad60c37b3ad8c"
+    },
+    {
+      "path": "VALIDATION/rome_signals.py",
+      "sha256": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7"
+    },
+    {
+      "path": "VALIDATION/artifact_control_run.py",
+      "sha256": "7c572acc8a428a08d36a1527996025e394bd47123d2266f09f187683dbcea89a"
+    },
+    {
+      "path": "VALIDATION/recording_artifacts.py",
+      "sha256": "568fe3244139588a5b48e9adc47fd89c81ad7e6421bf9154ad4b4e2ff90ada97"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20260919_artifact_experiments/submission_v38.json",
+      "sha256": "03bde6a8477f031931b43b3f18539ef968d2ed72da575a463b2c5c8cca511c60"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/manifest.json",
+      "sha256": "712fde2830cd561047b889f0a3c51deb64e0a600f515f59db747d6404367c3ba"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v38.parquet",
+      "sha256": "0edfd59e70514952ac446cd258aea3c083fbf02fecae7a6d5fa59f461f0df649"
+    }
+  ],
+  "rule_parameters": {
+    "parameters": {
+      "late_mean": 1079.532110091743,
+      "late_rows": 654,
+      "dayshift_weight": 0.5789473684210527,
+      "dayshift_rows": 19,
+      "dayshift_shifted": 11
+    },
+    "corrections": {
+      "settings": {
+        "clock_agreement_sec": 1800,
+        "clock_fit_min_sec": 7200,
+        "clock_prior_rows": 25,
+        "day_min_gap_sec": 50400,
+        "day_prior_rows": 5,
+        "handler_threshold": 0.5,
+        "handler_min_arrivals": 20,
+        "handler_min_training_dates": 5,
+        "rule_max_gap_sec": 43200,
+        "rule_max_probability": 0.05
+      },
+      "late_mean": 1079.532110091743,
+      "clock": {
+        "rows": 6,
+        "pooled_residual_sec": -79.3225806451613,
+        "airport_residual_sec": {
+          "EHAM": 45.882133995037215,
+          "LIRF": -253.93548387096774
+        }
+      },
+      "day": {
+        "rows": 19,
+        "dates": 17,
+        "pooled_weight": 0.3249891187781282,
+        "handler_weights": {
+          "low": 0.3249891187781282,
+          "high": 0.3249891187781282
+        },
+        "handler_support": {
+          "low": {
+            "rows": 16,
+            "dates": 14
+          },
+          "high": {
+            "rows": 0,
+            "dates": 0
+          }
+        },
+        "handler_stratified": false
+      },
+      "rule": {
+        "rows": 98,
+        "dates": 78,
+        "weight": 0.07208234513450805
+      }
+    },
+    "training_rows": 2084659
+  },
+  "gate": "All original344841 integer predictions exact; otherwise no final inference",
+  "no_fit": true,
+  "no_upload": true
+}

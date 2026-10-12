@@ -30,16 +30,16 @@ def local_job(path):
 REMOTE="""
 import json,re
 from pathlib import Path
-p=Path('/home/gunes/PRC/VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit')
-done=[k for k in [1,2] if (p/f'k{k}/networks/k0.json').exists()]
-log=p/'fit.log'
+p=Path('/home/gunes/PRC/VALIDATION/runs/v3_20261012_nn_public_tabm_depth3')
+done=[m for m in ['2025-01','2025-07'] if (p/f'k0/networks/{m}_tabm.json').exists()]
+log=Path('/home/gunes/PRC/tmp/tabm_depth3_fit.log')
 with log.open('rb') as f:
  f.seek(max(0,log.stat().st_size-8192));tail=f.read().decode(errors='replace')
-matches=re.findall(r'\\[(\\d+:\\d+:\\d+)\\] full_year tabm epoch(\\d+)/(\\d+): train=([\\d.]+); seconds=([\\d.]+)',tail)
-r=dict(stage='export_complete' if (p/'export.json').exists() else 'fit_or_inference',completed_new_members=done)
+matches=re.findall(r'\\[(\\d+:\\d+:\\d+)\\] (\\S+) tabm epoch(\\d+)/(\\d+): train=([\\d.]+); seconds=([\\d.]+)',tail)
+r=dict(stage='cv_fits_complete' if (p/'audit.json').exists() else 'depth3_fit_or_inference',completed_folds=done)
 if matches:
- clock,epoch,total,loss,seconds=matches[-1]
- r.update(last_epoch_at=clock,epoch=int(epoch),epochs=int(total),seconds_per_epoch=float(seconds))
+ clock,fold,epoch,total,loss,seconds=matches[-1]
+ r.update(last_epoch_at=clock,fold=fold,epoch=int(epoch),epochs=int(total),seconds_per_epoch=float(seconds))
 if 'Traceback (most recent call last)' in tail:r.update(stage='inspect_failure',failure_tail=tail[-500:])
 print(json.dumps(r))
 """
@@ -51,7 +51,9 @@ def status(remote=False):
         best_version=objective['current_best_version'],best_official_rmse=objective['current_best_rmse'],
         official_checked_at=objective['last_live_check'],slots_remaining=objective['remaining_utc_day_slots'],
         registry=str(REGISTRY.relative_to(ROOT)),hypotheses=len(read(REGISTRY)['entries']),
-        desktop=local_job(RUNS/'v3_20261012_nn_public_tabm_duration'),
+        desktop=dict(stage='final_catboost_inference',
+            old_replay=(RUNS/'v3_20261012_final_public_catboost_inference/old.json').exists(),
+            final_replay=(RUNS/'v3_20261012_final_public_catboost_inference/final.json').exists()),
         next=read(REGISTRY)['next'])
     if remote:
         r=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=10','glaptop-wsl',
@@ -64,8 +66,8 @@ def status(remote=False):
     result=RUNS/'v3_20261012_nn_public_tabm_duration_stack/combined_result.json'
     if result.exists():
         r=read(result);value['duration_result']={k:r[k] for k in ['cv','paired','gate_pass']}
-        if (result.parent/'independent_audit.json').exists():
-            value['desktop']['stage']='duration_closed_inconclusive'
+        value['duration_result']['status']='closed_inconclusive'
+    if value['desktop']['final_replay']:value['desktop']['stage']='final_public_models_ready'
     completion=RUNS/'v3_20261012_tabm_pool3_completion/execution.json'
     if completion.exists():
         r=read(completion)

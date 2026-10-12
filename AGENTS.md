@@ -136,6 +136,15 @@ Final route requires `unique-rose_final.parquet`. Four-month public inputs are
 audited; saved-TabM inference is preparing on the original laptop. Every old
 prediction must replay exactly before final predictions. No final upload yet.
 See `VALIDATION/reports/final_route_inventory_20261012.json`.
+At13:03Amsterdam, three final TabM members and public main/airport/Rome models
+are audited on670790rows, with every old prediction exact. Ordinary full-input
+CatBoost final inference is active. Final assembly still needs historical affine
+components; do not substitute absent components silently. Laptop runs a fixed
+TabM depth3 versus2 seed42 screen,21/17epochs, SSH86261 since13:00. Bothother
+members and fullv80stack stay fixed; comparison frozen before fits.
+Newv80geometry projected0.2335gain and failed its gate; no v81. The bounded
+annealed-SMC source-only pilot also failed its precision gate; no CV or tuning.
+
 
 - **October12, 10:50 Amsterdam: three-TabM pool selected; two full-year fits active.**
   Best/latestv79 **219.6130**, live08:24 Amsterdam, rank9/242; one UTC-day slot remains.

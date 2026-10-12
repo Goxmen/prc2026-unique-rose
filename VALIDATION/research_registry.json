@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T10:52:43.811946+00:00",
+  "updated_at": "2026-10-12T11:02:37.919031+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 0,
     "repository": "PRIVATE",
-    "laptop": "Idle; SMC fixed pilot audited and closed",
-    "desktop": "Saved public main tree final inference running"
+    "laptop": "Depth-three TabM Jan/Jul CV active since13:00Amsterdam, SSH86261; no production",
+    "desktop": "Public tree/Rome final replay done; selected ordinary CatBoost replay active"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
   "entries": [
@@ -589,6 +589,23 @@
         {
           "path": "VALIDATION/runs/v3_20261012_joint_public_smc_pilot/audit.json",
           "sha256": "cdb24a07a14f67fc59c20d6feb45eb0b48b5e24139f3e1cdc9638ab7a8e1b589"
+        }
+      ]
+    },
+    {
+      "id": "tabm_three_block_capacity",
+      "hypothesis": "One extra TabM block may improve public/tabular/physical feature interactions",
+      "status": "cv_training",
+      "conclusion": "Fixed seed42 two-to-three-block change; both other TabM members, inputs,21/17 stops and complete v80 corrections unchanged. Both months and paired95% upper<0 required. GPU capacity/gradient/masking checks pass; same laptop as control.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/nn_public_tabm_depth3.py",
+          "sha256": "4bd75d5cabbc87cab1b966071b851ba95272fda81ba2248063ee8435ac5a3ab0"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/identity.json",
+          "sha256": "9107395a60891bc26d87a4e00a4b9adcada10a045dd554a29ec61a8e0863cb23"
         }
       ]
     }

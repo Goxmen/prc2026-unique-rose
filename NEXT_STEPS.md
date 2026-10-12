@@ -38,20 +38,27 @@ Official final-route check (12 October): the separate unique final filename is
 Prepare/audit the four-month final inference after current leaderboard production.
 No final-route validation has been claimed; see `public_refresh_20261012.json`.
 
-Current work (compact index: `VALIDATION/research_registry.json`; live local
-snapshot: `VALIDATION/research_state.json`):
+Current work (compact index: `VALIDATION/research_registry.json`; local snapshot:
+`VALIDATION/research_state.json`):
 
-- **Desktop duration comparison closed:** matched CV change−0.001050,
-  interval[−0.023749,+0.019831], with July worse. All model/SQL audits pass.
-  Keep the selected15-epoch production recipe; no new fits or candidate.
-- **V80 complete:** uploaded once12:23:58, official218.8525, gain0.7605 versusv79.
-  Three TabM members and same-date runway correction pass all audits; production
-  export/return and all seven completion stages are done. Do not refit or reupload.
-- **Final route:** four-month public inputs pass full SQL audit. Run retained
-  TabM inference on the original laptop, requiring exact old-view replay first.
-  Inventory/replay every other required saved component before final assembly.
-- **Feedback:** diagnose the new v80 direction using actual official scores;
-  do not impute cancelled submissions or assign a new version without evidence.
+- **Larger TabM:** one fixed change from two to three blocks for seed42.
+  Same inputs,21/17epochs, two other members and fullv80 corrections. Laptop
+  fits began13:00Amsterdam, SSH86261. GPU capacity/gradients/masking and
+  unchanged-training-AST checks pass. Both months and paired95% upper<0
+  are required; no production or upload is scheduled.
+- **Final components:** three TabM members, public main/airport trees and
+  all selected Rome/ordinary CatBoost models replay old predictions exactly.
+  Every new prediction reloads exactly. Independent SQL checks6,037,110values
+  on the complete670,790-ID template. Final cached packets have a different
+  month order: always join by ID. A complete final affine stack is still pending.
+- **Older models:** v38’s two original boosters recovered from the laptop with
+  manifest hashes. Test old-view replay before using them on final inputs.
+  Other missing historical components must be identified, never silently replaced.
+- **Closed new screens:** actualv80 score geometry projects0.2335seconds,
+  below its fixed gate. Annealed particles improved numerical behavior but
+  one of six cases narrowly failed the fixed precision gate. No retuning/CV
+  follows either closure. Longer TabM schedule remains closed too.
+
 - **Stand context closed:** fixed main-tree screen is complete.
   Original184 inputs plus four same-month stand medians/counts from supplied
   AOBT_3 clocks and arrival taxi-in; each query's own clock is excluded.
