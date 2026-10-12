@@ -102,10 +102,14 @@ retains all their discrete supports, samples peers with scrambled Sobol points,
 and integrates the target exactly. Tiny enumerated cases and independent
 arithmetic pass, but the largest475-peer cohort has effective sample size3.53
 at16,384 draws; two scrambles differ by up to1,068.6seconds. No validation score
-is computed for unstable predictions. One bounded follow-up will test exact
-single-site conditional sampling, first against tiny enumerated distributions,
-then with multiple-chain and doubled-budget convergence checks. No gain is
-claimed and no further expansion is selected.
+is computed for unstable predictions. A fixed single-site Gibbs follow-up
+passes exact tiny-state tests, but also fails convergence on the largest cohort.
+At256burn-in+512retained sweeps, its increment has mean ESS20.13 and Monte Carlo
+standard error1,263seconds; the two budgets change the increment from−253.3
+to+525.1seconds. The1.23-second pilot reads no labels or CV scores. This closes
+the tested numerical branch; it does not establish impossibility of every
+discrete inference algorithm. No outcome-selected cohort gate or further budget
+expansion follows. See [the numerical report](ALL_DISCRETE_PEER_INFERENCE_20261012.md).
 
 **Linear-leaf trees: resource preflight planned.** A newly updated
 [joyous-rainbow solution](https://github.com/radekacar/joyous-rainbow/tree/dbe1eded734da48bdad7cc11b741028794316179)

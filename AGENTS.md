@@ -28,8 +28,9 @@ said "forget the rule of asking approval for uploads. You are free to submit to
 leaderboard as you please". This supersedes every older upload-approval requirement
 below and in historical run guards. Prepare, validate, upload once, verify the
 remote hash, and record the official result without asking again. Keep old approval
-records as history. The active target is **215.00 seconds or lower on the official
-leaderboard**, replacing the achieved 225.00 target (v71: 224.3602). Desktop and laptop
+records as history. The active target is **205.00 seconds or lower on the official
+leaderboard**, replacing the previous 215.00 target. The 225.00 target was achieved
+by v71 at 224.3602. Desktop and laptop
 training are authorized, with one heavy job per machine.
 
 **User rule: keep experimental bookkeeping out of `SUBMISSIONS.md`.** List actual
@@ -69,7 +70,8 @@ but identify the result as stale and report its timestamp.
   necessary files/columns, retain a verified local cache, and reuse it. Avoid
   repeating remote downloads or making experiments depend on remote reads.
 - Repo is private during the challenge but MUST be public under GPLv3 before it
-  ends (11 Oct 2026) for prize eligibility: `gh repo edit Goxmen/PRC --visibility public`.
+  ends (extended to 14 Oct 2026, 10:00 UTC; see README) for prize eligibility:
+  `gh repo edit Goxmen/PRC --visibility public`.
   Write everything as if it were already public.
 - `data/` and `*.parquet` are gitignored; keep it that way. `data/FEATURES.md`
   is the one tracked exception (column docs).
@@ -113,6 +115,29 @@ Training can be split between gunes's desktop and laptop. Agents drive both from
 CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than on the 3080 while it shared the desktop with LightGBM jobs (55–65 min per fit).
 
 ## Current improvement work — handoff
+
+- **October 12, 03:10 Amsterdam: target 205 research is active; best/latest v79 scores 219.6130.**
+  The user explicitly resumed at 02:24 after the requested pause until 02:00.
+  Retained v76/v77/v78 uploaded once at 02:10/02:20/02:30 and scored 221.0948,
+  220.8328 and 220.2933. Feedback-informed v79 uploaded 02:36 after independent
+  checks; live 02:40 reports 219.6130, rank 9/242, 344,841 rows. Four UTC-day slots
+  are used; **one remains** for new evidence. V75 is cancelled permanently;
+  its changes are included in v76. Old geometry/fifth-slot queues requiring
+  its nonexistent score stay cancelled. Do not restart older queues below.
+  Laptop owns four sequential physical TabM/matched-network fits, run
+  `v3_20261012_nn_public_tabm`; desktop owns the 191-input source-clock-phase
+  LightGBM comparison, run `v3_20261012_source_clock_phase_lgb`. One heavy job
+  per host. A 64-round linear-leaf cost probe follows desktop score/audit;
+  no full linear fit is queued. Preserve all frozen sources and checkpoints.
+  Arrival-clock transfer and same-flight endpoint pilots failed; all-discrete
+  Sobol and Gibbs inference failed numerical convergence without reading CV
+  labels. Do not score their unstable predictions. A fixed v79 component-delta
+  comparison was frozen before phase/TabM results. Read
+  [TARGET205_RESEARCH.md](VALIDATION/reports/TARGET205_RESEARCH.md) and
+  [NEXT_STEPS.md](NEXT_STEPS.md) for current state. The 02:00 timer fired but IDE
+  delivery failed because `threadId` was missing; its receipt is preserved.
+  No replacement timer is scheduled. Native goal retains old text/usageLimited;
+  local objective records 205; no native limit/status was changed.
 
 - **October 11, 16:58 Amsterdam: daily-main model and predictions returned; selected production prioritized.**
   Laptop full-year184-input LightGBM is complete (17.66minutes); all344,841

@@ -47,10 +47,15 @@ Two fixed experiments are active:
   The exact-v78 complete-stack comparison determines whether to continue.
 
 The phase inputs are all missing for Rome's no-ID 1–4h group, so they cannot
-directly resolve that costly group. A separate source-only feasibility check of
-arrival landing-clock agreement is exploratory; no departure-label-selected
-feature or fit is justified yet. The error agent is also reviewing genuinely
-new source/label mechanisms while these jobs run.
+directly resolve that costly group. Arrival landing-clock context passed its
+arrival-source pilot but failed the necessary departure transfer check; the
+same-flight endpoint pilot also failed. Both are closed without a taxi-model fit.
+All-discrete Sobol and Gibbs public-source inference failed convergence; no CV
+score or candidate follows. Reapplying existing bounds to v79 changes only nine
+ranking rows and can improve official RMSE by at most 0.088502 seconds, so it is
+also closed. A 64-round training-only linear-leaf cost probe is queued after the
+desktop model's score/audit; no full linear fit is selected yet. A new cross-flight
+context encoder is at input-only feasibility design, with no fit or claimed gain.
 
 See [the current research report](VALIDATION/reports/TARGET205_RESEARCH.md).
 The [11 October report](VALIDATION/reports/TARGET215_RESEARCH.md) retains the
