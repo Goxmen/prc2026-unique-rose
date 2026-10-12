@@ -61,11 +61,11 @@
   "frozen_records": [
     {
       "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/design.json",
-      "sha256": "8838cd7e285a334a36144faa30172eca3c07947556d1ab0d8bba795d0383af5d"
+      "sha256": "9e41228e6352ae11db9af985d004948771f1b2b9364071f6aa338e52704b601f"
     },
     {
       "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/v79/design.json",
-      "sha256": "b3f0eabaa36c6038bab7d4d3e6e34ded76639526f9fbe87dfc212879e8bf4634"
+      "sha256": "64d3f63f3fb830aff73817eb014516de1cb4896230f55274d9ace2f9562d5e68"
     }
   ],
   "independent_review": {
@@ -111,15 +111,30 @@
     "path": "VALIDATION/reports/source_clocks_20261012/linear_leaf_cost.json",
     "sha256": "0438d20e358dc28f709d565e3a0d9746c5e59499b5442c932e56fe7f6d015c60"
   },
-  "execution_state": "Only two lightweight freeze stages completed. No full guard, input preflight, experimental model fit or held score ran.",
+  "execution_state": "Updated primary and secondary freezes complete after preserving v1 sources/designs. No guard, preflight, model fit or held score started.",
   "next_steps_after_explicit_desktop_release": [
     "main guard",
     "main preflight",
-    "main fixed fourfit stage",
+    "main fit --max-new-records 1",
+    "release desktop for TabM scoring",
+    "resume remaining fixed fits after explicit release",
     "main score",
     "main fullstack/SQL audit",
     "separate v79 coefficient1 transport/SQL audit"
   ],
   "no_additional_variants": true,
-  "no_production_or_upload": true
+  "no_production_or_upload": true,
+  "operational_prefit_revision": {
+    "preserved_v1_receipt": {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/prefit_v1/receipt.json",
+      "sha256": "175779834a37c656a7c9ca95350ed837a56029a3c45364563f1c46ca13c4364b"
+    },
+    "change": "Optional fit --max-new-records N pauses only after N new saved model+prediction records; exact resume order and scientific designs unchanged",
+    "source": {
+      "path": "VALIDATION/linear_leaf_main_jan_jul.py",
+      "sha256": "17ebc00ef8029c3bb6e3beb3494d5b2db436f4a96833b719993a74e737fa51eb"
+    },
+    "independent_review": "error_mechanisms static diff review passed; no params/order/scaler/score/DESIGN/secondary changes",
+    "scientific_designs_equal_to_v1": true
+  }
 }

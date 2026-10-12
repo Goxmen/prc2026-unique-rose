@@ -1,0 +1,24 @@
+{
+  "status": "pass_static_operational_diff",
+  "reviewed_at": "2026-10-12T01:51:19.981122+00:00",
+  "reviewer": "error_mechanisms",
+  "current": {
+    "path": "VALIDATION/linear_leaf_main_jan_jul.py",
+    "sha256": "17ebc00ef8029c3bb6e3beb3494d5b2db436f4a96833b719993a74e737fa51eb"
+  },
+  "preserved": {
+    "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/prefit_v1/main_source.py",
+    "sha256": "adac3d479647532cd532f37cd06d7adb2d5b28a561215e765c3061371714fb90"
+  },
+  "secondary": {
+    "path": "VALIDATION/linear_leaf_v79_transport.py",
+    "sha256": "917c049de50fa4d278eb0075f50567dd0ca8def153b64cd00245185125684d1f"
+  },
+  "checks": [
+    "Diff only adds optional positive fit-stage max_new_records, completion counter, clean return and CLI routing.",
+    "Counter increments after saved model, prediction parquet, full held reload equality and completed prediction receipt.",
+    "Completed records skip without counting; staged model resumes inference without refit.",
+    "Original fold/arm ordering, params, scaler, scientific design, score and secondary source unchanged."
+  ],
+  "execution": "Read-only diff/source review; no fits or full data reads."
+}

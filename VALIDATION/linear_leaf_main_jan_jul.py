@@ -201,7 +201,9 @@ def completed(month, arm):
     verify(record['prediction']); return record
 
 
-def fit():
+def fit(max_new_records=None):
+    assert max_new_records is None or max_new_records >= 1
+    newly_completed = 0
     guard(); assert read(OUT/'preflight.json')['identity'] == art(MANIFEST)
     for name in ['models', 'predictions']:
         (OUT/name).mkdir(exist_ok=True)
@@ -252,6 +254,12 @@ def fit():
                 month=month, arm=arm, all_held_reload_exact=True, scaler=d['scaler'],
                 held_rows=len(prediction), inference_reload_minutes=(time.monotonic()-inference_started)/60))
             del model, restored, prediction, replay; gc.collect()
+            newly_completed += 1
+            if max_new_records is not None and newly_completed >= max_new_records:
+                print('Operational pause after', newly_completed, 'new model+prediction records;',
+                    'resume fit to continue the unchanged fold/arm order.', flush=True)
+                del d; gc.collect()
+                return
         del d; gc.collect()
 
 
@@ -359,5 +367,13 @@ def audit():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('stage', choices=['freeze', 'guard', 'preflight', 'fit', 'score', 'audit'])
+    parser.add_argument('--max-new-records', type=int,
+        help='Fit-stage operational pause after N newly completed model+prediction records; resume skips completed records.')
+    args = parser.parse_args()
+    if args.max_new_records is not None and (args.stage != 'fit' or args.max_new_records < 1):
+        parser.error('--max-new-records requires fit and a positive integer')
     with threadpool_limits(1):
-        globals()[parser.parse_args().stage]()
+        if args.stage == 'fit':
+            fit(max_new_records=args.max_new_records)
+        else:
+            globals()[args.stage]()
