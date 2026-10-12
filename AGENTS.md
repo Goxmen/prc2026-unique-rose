@@ -121,8 +121,15 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October 12, 17:03 Amsterdam: research resumed under a new active native goal.**
+The user removed the previous goal and explicitly requested a new one with the
+same protocol. Target remains 205.00; live best/latest is v80 at 218.8525,
+rank 9/244. Today's five slots remain used. Three agents are assessing full-day
+peer learning, source measurement errors and missing final-model recovery.
+No upload is queued. Historical usage-limit notes below describe the old goal.
+
 Start with `VALIDATION/research_registry.json` and `VALIDATION/research_state.json`.
-`tools/research_state.py status --remote` prints a compact status; `find <terms>`
+`VALIDATION/tools/research_state.py status --remote` prints a compact status; `find <terms>`
 checks previously tested hypotheses. Full logs stay on disk. Update these at
 milestones, avoid full-report rereads and repeated closed experiments.
 The fixed TabM24-epoch screen is closed: matched CV change−0.001050,

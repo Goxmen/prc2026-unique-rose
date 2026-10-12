@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-12T12:28:39.544587+00:00",
+  "at": "2026-10-12T15:15:09.033416+00:00",
   "state": "selected_public_component_predictions_audited_legacy_port_pending",
   "deadline_utc": "2026-10-14T10:00:00Z",
   "filename": "unique-rose_final.parquet",
@@ -242,6 +242,15 @@
         15
       ],
       "old_and_final_values_checked": 15234465
+    },
+    "legacy_airport_mean": {
+      "version": 1,
+      "receipt": "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/result.json",
+      "old_rows": 344841,
+      "final_rows": 670790,
+      "old_integer_vector_exact": true,
+      "independent_SQL_values_exact": true,
+      "no_model_fit": true
     }
   },
   "prepared_code": {
@@ -249,7 +258,8 @@
     "scope": "Executed successfully; all three members returned and all source/output hashes verified."
   },
   "in_progress": [
-    "Missing historical affine-basis recovery; backup availability requested"
+    "Recover original baseline/R3 booster families for v12-v16; exact old replay required",
+    "Remaining missing historical affine-basis recovery"
   ],
   "notes": [
     "All nine selected public prediction vectors independently audited.",

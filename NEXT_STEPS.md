@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target: 205.00 seconds or lower.** Best/latest is **v80 at218.8525**,
-leaving **13.8525 seconds**. Live12 October12:27:42 Amsterdam, rank **9/242**,
+leaving **13.8525 seconds**. Live 12 October 17:03:41 Amsterdam, rank **9/244**,
 all **344,841 flights**. Autonomous submissions and both machines remain authorized,
 with one heavy job per host. **All five October12 UTC submission slots are used.**
 
@@ -29,9 +29,9 @@ Preserve their artifacts and do not impute that score or restart them.
 Research resumed only after the user's 02:24 instruction. The 02:00 timer fired,
 but its IDE message was rejected because the request omitted `threadId`;
 no inference ran from the timer. Its failed receipt is retained. No replacement
-timer is currently scheduled. The native goal object remains `usageLimited`
-with its old text; no native limit or status was changed. The local project
-objective records the user's current 205 target.
+timer is currently scheduled. At 17:02 the user removed the old goal and
+explicitly requested a new one. A new native goal is active for 205.00 or lower;
+the old usage-limited goal was not modified.
 
 Official final-route check (12 October): the separate unique final filename is
 `unique-rose_final.parquet`; a versioned old-population upload does not satisfy it.
@@ -41,6 +41,10 @@ No final-route validation has been claimed; see `public_refresh_20261012.json`.
 Current work (compact index: `VALIDATION/research_registry.json`; local snapshot:
 `VALIDATION/research_state.json`):
 
+- **New research:** full-day peer context has passed a source-only information
+  audit; prepare a fixed TabM comparison. Audit reference-time totals as an
+  additional source-error sensor. Recover missing final-model families;
+  approximate substitutes require explicit fidelity evidence.
 - **Larger TabM closed:** the fixed three-block seed42 comparison finished
  14:23Amsterdam. CV+0.023315, interval[−0.008073,+0.055784]; July worsens.
   Both models returned and the independent audit passes. No seed expansion,

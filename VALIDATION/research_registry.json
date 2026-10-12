@@ -1,14 +1,15 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T12:28:39.544587+00:00",
+  "updated_at": "2026-10-12T15:15:09.033416+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 0,
     "repository": "PRIVATE",
-    "laptop": "Idle; fixed deeper TabM screen complete and closed; artifacts returned and audited",
-    "desktop": "Idle;15 archived final components audited; source covariance and neural weight screens closed"
+    "laptop": "Reserved for fixed full-day peer TabM CV after independent preflight",
+    "desktop": "Reserved for two missing legacy-family recovery fits after preflight",
+    "native_goal_status": "active"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
   "entries": [
@@ -709,11 +710,91 @@
           "sha256": "72f3503b37a04072c51afed7379d8f0749edc90a54c656ce5e44fa2f33c50976"
         }
       ]
+    },
+    {
+      "id": "reference_population_coherence",
+      "hypothesis": "Cross-fitted public reference-total discrepancy predicts daily taxi source population bias",
+      "status": "closed_source_gate",
+      "conclusion": "One source window is inconclusive and the other regresses; the frozen 5% source gate fails. No taxi CV, tuning, production or candidate.",
+      "metrics": {
+        "2025-01": {
+          "cells": 5374,
+          "months": 9,
+          "baseline_rmse": 24.04408944885565,
+          "conditional_rmse": 24.031851513504982,
+          "relative_improvement": 0.0005089789478907036,
+          "change": -0.01223793535066875,
+          "paired_month_ci95": [
+            -0.033217280838320117,
+            0.02305327424546392
+          ],
+          "gate": false,
+          "residual_reference_corr": -0.0036320515072659726
+        },
+        "2025-07": {
+          "cells": 4098,
+          "months": 7,
+          "baseline_rmse": 47.04703015107157,
+          "conditional_rmse": 47.07362806880263,
+          "relative_improvement": -0.0005653474331037689,
+          "change": 0.026597917731059795,
+          "paired_month_ci95": [
+            0.007342304533530353,
+            0.04053497697670503
+          ],
+          "gate": false,
+          "residual_reference_corr": 0.04490887337608604
+        }
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/REFERENCE_POPULATION_COHERENCE_20261012.md",
+          "sha256": "1e90c66fc4bcc9b7e41d7220ad5fdc135ea982ba03a49bf99d78de382be4dc38"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_reference_population_coherence/audit.json",
+          "sha256": "e768694f0add29ab3db98ad185f030e0bb40630daa24f5b1f155c4aeeabb1ffc"
+        }
+      ]
+    },
+    {
+      "id": "full_day_peer_context",
+      "hypothesis": "A learned full-day joint distribution of peer clocks and physical sensors adds information beyond local context and 12 public summaries",
+      "status": "preparing_fixed_cv",
+      "conclusion": "Label-free coverage and collision proof establish distinct information, not a predictive gain. Fixed one-of-three TabM seed42 comparison is being prepared; no fit or candidate yet.",
+      "metrics": {
+        "jan_without_own_physical_extra_witness": 0.7254660174075841,
+        "jul_without_own_physical_extra_witness": 0.839907156552993
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/cohort_learning_20261012/pilot_identity.json",
+          "sha256": "ffa3914a7f651bddf78ba6b54e4e46d158c1c6aea3f58f5125783203c04ddb01"
+        },
+        {
+          "path": "VALIDATION/reports/cohort_learning_20261012/pilot_result.json",
+          "sha256": "3b8a3613a092027f95d89f480cdeb13b658821a38adfc44aa5003665658488e8"
+        }
+      ]
     }
   ],
   "next": [
-    "Recover missing historical model backups for final assembly; existing user question pending",
-    "Assess genuinely distinct supported hypotheses; do not reopen closed capacity, weight or covariance screens",
-    "Keep205 target unachieved and native usage limit unchanged; no uploads queued"
+    "Review distinct source-only diagnostics before allocating fixed Jan/Jul experiments",
+    "Resolve final ensemble missing-component portability without silent substitution",
+    "Prepare independently audited candidates for October13 submission slots; none queued"
+  ],
+  "active_research": [
+    {
+      "owner": "cohort_learning",
+      "scope": "Source-only full-day peer-context feasibility and design"
+    },
+    {
+      "owner": "final_recovery",
+      "scope": "Recover missing v12-v16 families with two sequential original-recipe fits; require exact old replay"
+    },
+    {
+      "owner": "new_signal_audit",
+      "scope": "Independent review of new cohort model and data; reference-source pilot closed"
+    }
   ]
 }

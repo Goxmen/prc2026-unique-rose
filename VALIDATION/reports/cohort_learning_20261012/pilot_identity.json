@@ -1,0 +1,56 @@
+{
+  "design": {
+    "task": "input-only full-day donor coverage and non-identifiability of retained summaries",
+    "cohort": "airport and UTC takeoff day, the existing public departure-delay population",
+    "donors": "explicit VFR excluded; unknown flight rule retained, as in selected public features",
+    "paired": "valid original clock and at least one gated OPDI/ADSB own physical clock",
+    "new_donors": "strictly more than 30 minutes away inside the same airport UTC day",
+    "aliases": "far donors automatically fail the earlier <=120-second input-alias criteria",
+    "population": "all 2025 cached departure inputs; ordinary routing does not remove context donors",
+    "scope": "daily groups cannot mix disjoint allowed UTC months; exact original fold membership retained",
+    "comparison": "closed 16-neighbor local encoder and retained 12 public scalar features",
+    "interpretation": "coverage/identifiability only; no fitted model, predictive gain, or CV claim",
+    "no_labels": true,
+    "no_predictions": true,
+    "no_fit": true,
+    "no_upload": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tools/pilot_daily_cohort_learning_20261012.py",
+      "sha256": "d2ae88a63e56d7de7852d486654225ad01a4bf4361af35eced3e9ffd8f70c55e",
+      "bytes": 9601
+    },
+    {
+      "path": "VALIDATION/flight_cohort_context.py",
+      "sha256": "28255a6101f113e5462bc4aa916260d5bc67e2a0f51c28b32c4acf1a7a307e1e",
+      "bytes": 14151
+    },
+    {
+      "path": "VALIDATION/public_delay_features.py",
+      "sha256": "9f7407e5d291ae2c9b1010abe74fadee7f648695c25cca08ac735d90b3ef04df",
+      "bytes": 4760
+    },
+    {
+      "path": "data/derived/flight_cohort_context_20261012/train/manifest.json",
+      "sha256": "32316dc19f86857149109ad41d0048c91670117f387314ea32c53f93db63999b",
+      "bytes": 30629
+    },
+    {
+      "path": "data/derived/flight_cohort_context_20261012/train/meta.npy",
+      "sha256": "6a2f03022055a6fab2b23c28a1814297e4c25fdc23879359d7024c024b0eeb24",
+      "bytes": 100082384
+    },
+    {
+      "path": "data/derived/flight_cohort_context_20261012/train/values.npy",
+      "sha256": "4ab969226b87374cc245169023e82fa6e4d41bbbaf4e7304a103f5bb5d2de9d2",
+      "bytes": 125102948
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_features/inputs2025.parquet",
+      "sha256": "637e7c54b1c7e0eb4b91e3dc826edff8e71c69c162158859f19b74e3ad4a769c",
+      "bytes": 16276746
+    }
+  ],
+  "before_loading_values": true
+}

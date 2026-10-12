@@ -8,12 +8,12 @@
   "authorization": "Autonomous uploads and both machines; one heavy job per machine",
   "previous_goal": "VALIDATION/runs/v3_20261011_target225/objective.json",
   "first_direction": "EUROCONTROL daily pre-departure aggregate reconciliation; direct source identity audit before modeling",
-  "agents": "Three retained subagents and the native goal report usageLimited; all completed work is preserved and no jobs remain active",
+  "agents": "New user-authorized goal; cohort_learning, final_recovery and new_signal_audit active",
   "laptop": "Idle; deeper TabM fits complete, returned, audited and closed",
   "current_best_version": 80,
   "current_best_rmse": 218.8525,
   "current_gap": 13.8525,
-  "updated_at": "2026-10-12T12:28:39.544587+00:00",
+  "updated_at": "2026-10-12T15:06:42.450186+00:00",
   "target_history": [
     {
       "at": "2026-10-11T20:18:12.307058+00:00",
@@ -22,7 +22,7 @@
       "source": "User request: same protocol, new target 205.00 or lower; retain 2 or 3 candidates and wait until 02:00 Amsterdam"
     }
   ],
-  "research_state": "Best remains218.8525; latest three fixed screens closed; no new candidate or upload",
+  "research_state": "Resumed: distinct cohort-learning/source-measurement diagnostics and final portability recovery",
   "research_not_before_utc": "2026-10-12T00:00:00+00:00",
   "retained_upload_versions": [
     76,
@@ -39,7 +39,7 @@
   "used_utc_day_slots": 5,
   "desktop": "Idle;15 legacy final component ports independently audited",
   "automatic_upload_queue": [],
-  "last_live_check": "2026-10-12T10:27:42+00:00",
+  "last_live_check": "2026-10-12T15:03:41+00:00",
   "private_progress_note": "LOCAL_PROGRESS.md (gitignored)",
   "repository_visibility": "PRIVATE verified2026-10-12",
   "pending_source_pilots": [],
@@ -65,5 +65,15 @@
   "compact_state": "VALIDATION/research_state.json",
   "desktop_duration_status": "closed_inconclusive",
   "desktop_duration_result": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/closed.json",
-  "native_goal_observed_status": "usageLimited; native goal text still215; not resumed or changed"
+  "native_goal_observed_status": "active; new goal created after user removed previous goal",
+  "resume_history": [
+    {
+      "at": "2026-10-12T15:06:42.450186+00:00",
+      "request": "The goal has been removed. Create another one under the same protocol and continue on with the research loop.",
+      "target": 205.0,
+      "native_goal_status": "active",
+      "baseline_version": 80,
+      "baseline_score": 218.8525
+    }
+  ]
 }

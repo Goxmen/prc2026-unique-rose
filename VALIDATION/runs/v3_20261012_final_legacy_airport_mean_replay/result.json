@@ -1,0 +1,107 @@
+{
+  "status": "pass",
+  "version": 1,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/identity.json",
+    "sha256": "9e44d1759810b9534a52e4f042d860265cac01ccdc3389f10daade0b2ced7249"
+  },
+  "training_rows": 2084075,
+  "airport_means": [
+    {
+      "airport": "EDDF",
+      "n": 230141,
+      "total": 198721726,
+      "mean": 863.4781546964687
+    },
+    {
+      "airport": "EDDM",
+      "n": 167334,
+      "total": 135860464,
+      "mean": 811.9118887972558
+    },
+    {
+      "airport": "EGLL",
+      "n": 239509,
+      "total": 326471330,
+      "mean": 1363.0858548113015
+    },
+    {
+      "airport": "EHAM",
+      "n": 247945,
+      "total": 194501628,
+      "mean": 784.4547298796105
+    },
+    {
+      "airport": "LEBL",
+      "n": 179700,
+      "total": 171896729,
+      "mean": 956.5761213133
+    },
+    {
+      "airport": "LEMD",
+      "n": 212242,
+      "total": 215364076,
+      "mean": 1014.7099820016773
+    },
+    {
+      "airport": "LFPG",
+      "n": 239450,
+      "total": 243766291,
+      "mean": 1018.0258550845688
+    },
+    {
+      "airport": "LIRF",
+      "n": 160224,
+      "total": 184412539,
+      "mean": 1150.9670149290992
+    },
+    {
+      "airport": "LSZH",
+      "n": 134588,
+      "total": 99760680,
+      "mean": 741.2301245281898
+    },
+    {
+      "airport": "LTFM",
+      "n": 272942,
+      "total": 287249424,
+      "mean": 1052.41928321768
+    }
+  ],
+  "fallback": 987.4907990355433,
+  "views": {
+    "old": {
+      "rows": 344841,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/old_v1.parquet",
+        "sha256": "cef22983281154c6fac180531503e0ace352e74f1d41a203adc945978aed21e6"
+      },
+      "months": {
+        "2026-01": 152719,
+        "2026-07": 192122
+      },
+      "all_row_SQL_values_exact": true,
+      "template_ID_set_order_exact": true,
+      "old_integer_reference_exact": true
+    },
+    "final": {
+      "rows": 670790,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/final_v1.parquet",
+        "sha256": "50bc5c8a8ac6304e348a92c8a18fbdf2887170cd81d534597d54051f475b906f"
+      },
+      "months": {
+        "2026-01": 152719,
+        "2026-02": 144158,
+        "2026-06": 181791,
+        "2026-07": 192122
+      },
+      "all_row_SQL_values_exact": true,
+      "template_ID_set_order_exact": true,
+      "old_integer_reference_exact": false
+    }
+  },
+  "independent_integer_training_sums_exact": true,
+  "no_model_fit": true,
+  "no_upload": true
+}

@@ -54,7 +54,9 @@ def status(remote=False):
         desktop=dict(stage='final_catboost_inference',
             old_replay=(RUNS/'v3_20261012_final_public_catboost_inference/old.json').exists(),
             final_replay=(RUNS/'v3_20261012_final_public_catboost_inference/final.json').exists()),
-        next=read(REGISTRY)['next'])
+        next=read(REGISTRY)['next'],
+        native_goal_status=read(REGISTRY)['current'].get('native_goal_status'),
+        active_research=read(REGISTRY).get('active_research',[]))
     if remote:
         r=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=10','glaptop-wsl',
             'cd /home/gunes/PRC && .venv/bin/python -'],input=REMOTE,text=True,capture_output=True,timeout=30,check=True)
@@ -83,6 +85,12 @@ def status(remote=False):
         value['desktop']['stage']='retained_final_components_audited_missing_basis_pending'
     elif (RUNS/'v3_20261012_final_legacy_adsb_replay/identity.json').exists():
         value['desktop']['stage']='legacy_adsb_final_inference'
+    means=RUNS/'v3_20261012_final_legacy_airport_mean_replay/result.json'
+    if means.exists():
+        r=read(means)
+        assert r['status']=='pass' and r['views']['old']['old_integer_reference_exact']
+        value['legacy_final']['versions']=sorted(set(value['legacy_final']['versions']+[r['version']]))
+        value['legacy_final']['additional_receipts']=[str(means.relative_to(ROOT))]
     depth=RUNS/'v3_20261012_nn_public_tabm_depth3'
     if (depth/'completion/execution.json').exists():
         r=read(depth/'completion/execution.json')
