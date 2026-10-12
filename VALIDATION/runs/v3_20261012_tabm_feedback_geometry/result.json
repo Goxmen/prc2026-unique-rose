@@ -1,0 +1,321 @@
+{
+  "design": {
+    "parent": "51 retained actually scored vectors plus v80",
+    "new_version": 80,
+    "excluded": [
+      75,
+      79
+    ],
+    "bounds": [
+      -3.0,
+      4.0
+    ],
+    "ridge_mse": 1.0,
+    "sum_weights": 1.0,
+    "interpretation": "Selection on own official aggregate scores; CV is reused development",
+    "no_fits": true,
+    "no_new_version": true,
+    "no_upload": true,
+    "no_score_imputation": true
+  },
+  "versions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    26,
+    27,
+    28,
+    29,
+    30,
+    33,
+    34,
+    37,
+    38,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    53,
+    54,
+    56,
+    57,
+    58,
+    60,
+    61,
+    64,
+    70,
+    72,
+    74,
+    76,
+    77,
+    78,
+    80
+  ],
+  "official_scores": {
+    "1": 661.5737,
+    "2": 533.3759,
+    "3": 405.6987,
+    "4": 405.7838,
+    "5": 518.3068,
+    "6": 498.3336,
+    "7": 486.0517,
+    "8": 472.7133,
+    "9": 433.6797,
+    "12": 406.4281,
+    "13": 354.4303,
+    "14": 354.0004,
+    "15": 344.3114,
+    "16": 344.4821,
+    "17": 345.8984,
+    "18": 342.5049,
+    "19": 338.1113,
+    "20": 345.3113,
+    "21": 342.4009,
+    "26": 333.8712,
+    "27": 329.1609,
+    "28": 322.6253,
+    "29": 314.4667,
+    "30": 309.9872,
+    "33": 282.4525,
+    "34": 280.4658,
+    "37": 280.1743,
+    "38": 279.3805,
+    "43": 274.766,
+    "44": 269.5533,
+    "45": 254.9163,
+    "46": 248.7124,
+    "47": 245.3758,
+    "48": 239.7731,
+    "49": 242.9764,
+    "50": 239.0108,
+    "51": 238.277,
+    "53": 237.7683,
+    "54": 236.3328,
+    "56": 236.5988,
+    "57": 236.9652,
+    "58": 236.1895,
+    "60": 237.3022,
+    "61": 236.6319,
+    "64": 232.7751,
+    "70": 231.9066,
+    "72": 226.5719,
+    "74": 221.6881,
+    "76": 221.0948,
+    "77": 220.8328,
+    "78": 220.2933,
+    "80": 218.8525
+  },
+  "checked_at": "2026-10-12T10:31:52+00:00",
+  "solution": {
+    "weights": {
+      "1": -0.0026900402920868186,
+      "2": 0.0027413476461407766,
+      "3": 0.009631545068386066,
+      "4": -0.0036545568123229726,
+      "5": 0.0010100310508989478,
+      "6": 0.006878599990292487,
+      "7": -0.0027520069886229318,
+      "8": -0.004718863054600948,
+      "9": -0.005210621623255207,
+      "12": -0.0006576325523086884,
+      "13": -0.011978770870452512,
+      "14": 0.007575512506642284,
+      "15": 0.017440083009606564,
+      "16": -0.0034150585113031633,
+      "17": -0.0015773521919003751,
+      "18": 0.0034702970445498896,
+      "19": -0.006938230874205154,
+      "20": -0.0030227077473158215,
+      "21": 0.003719580795523773,
+      "26": 0.005505751305417153,
+      "27": 0.0002702713678457163,
+      "28": 0.00015490920428979494,
+      "29": -0.016950034999899683,
+      "30": 0.003709313041442056,
+      "33": 0.012118601809503875,
+      "34": -0.008676718984190429,
+      "37": 0.004129401645507433,
+      "38": -0.011045253461842203,
+      "43": 0.007726714932198483,
+      "44": -0.00890666957448718,
+      "45": -0.009305035368743574,
+      "46": -0.007129402568591343,
+      "47": 0.03869108152969709,
+      "48": 0.04404112446095903,
+      "49": -0.053188190544249836,
+      "50": -0.0458409728543406,
+      "51": 0.01752172782752028,
+      "53": 0.014264874424126156,
+      "54": -0.38816321003839316,
+      "56": -0.044058368679508936,
+      "57": 0.031356474788960996,
+      "58": 0.3330560253412927,
+      "60": -0.020132329320636216,
+      "61": 0.018975272429234524,
+      "64": -0.12560761421034297,
+      "70": 0.21268495948820643,
+      "72": 0.009458993833980921,
+      "74": -0.5180977075148662,
+      "76": 0.49565667866346336,
+      "77": 0.15502593091560984,
+      "78": -0.375945028445552,
+      "80": 1.2228472739627223
+    },
+    "projected_rmse": 218.61901371877863,
+    "score_rounding_rmse_interval": [
+      218.61878380792794,
+      218.61924362938757
+    ],
+    "negative_predictions": 6,
+    "minimum_prediction": -124.17967629671293,
+    "maximum_prediction": 103501.60979375463,
+    "coefficient_l1": 4.3593247561680375,
+    "optimizer_message": "Optimization terminated successfully",
+    "iterations": 127,
+    "constraints": {
+      "lower": -3.0,
+      "upper": 4.0,
+      "ridge_mse": 1.0
+    },
+    "note": "Projection before output clipping and integer serialization; leaderboard-selected."
+  },
+  "independent_sql": {
+    "rows": 344841,
+    "unique_ids": 344841,
+    "sql_projected_rmse": 218.61901371877903,
+    "reference_mse": 47794.27315937169,
+    "expanded_mse": 47794.273159409175,
+    "maximum_raw_reconstruction_difference": 2.1827872842550278e-11,
+    "serialization_rms": 0.40326168850036287,
+    "maximum_rounding_distance": 0.4999989377986367,
+    "numerical_mse_allowance": 0.002760034304556187,
+    "coefficient_l1": 4.3593247561680375,
+    "effective_reference_weight": -0.12560761421034305,
+    "bounds": {
+      "nearest_four_decimals": {
+        "score_halfwidth": 5e-05,
+        "score_mse_radius": 0.10052571398806058,
+        "raw_rmse_interval": [
+          218.6187774954919,
+          218.6192499418109
+        ],
+        "serialized_rmse_interval": [
+          218.21551580699156,
+          219.02251163031124
+        ]
+      },
+      "conservative_last_decimal": {
+        "score_halfwidth": 0.0001,
+        "score_mse_radius": 0.20105144977274494,
+        "raw_rmse_interval": [
+          218.61854758434293,
+          218.61947985222122
+        ],
+        "serialized_rmse_interval": [
+          218.21528589584258,
+          219.02274154072157
+        ]
+      }
+    },
+    "legacy_interval_without_numerical_allowance": [
+      218.21552211942796,
+      219.0225053178883
+    ]
+  },
+  "months": {
+    "2025-01": {
+      "control": 325.02854196957753,
+      "pred": 325.1199541214618
+    },
+    "2025-07": {
+      "control": 254.49701445100365,
+      "pred": 254.28408466718338
+    }
+  },
+  "cv": 289.7020193943226,
+  "paired": {
+    "change": -0.0607588159680148,
+    "ci95": [
+      -0.29804837317850996,
+      0.19607553748353865
+    ],
+    "decision": "inconclusive"
+  },
+  "current_best": 218.8525,
+  "conservative_gain": -0.1702415407215767,
+  "clears_fixed_quarter_second_gate": false,
+  "source_artifacts": [
+    {
+      "path": "VALIDATION/tabm_feedback_geometry.py",
+      "sha256": "e7fbb8566ffb3485c397fafff4d3d99cfe18d682d41198a3c8df9a3a600813d5"
+    },
+    {
+      "path": "VALIDATION/tools/audit_target205_geometry.py",
+      "sha256": "acc7dd5c1c819189d1f84144df488060b50b1b0552b7d80b7b39ed8786a3d9b3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_geometry/prepared.json",
+      "sha256": "f2ed12d69c0bd9c39ef6b862f469b791ee41e24c3df19bdce67b67b3e2ca2440"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_geometry/result.json",
+      "sha256": "49104049298a208a0e08568ec04565e322a9a7fa1ac9f2cdd85b21bfb93d8c1c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_geometry/independent_solve_audit.json",
+      "sha256": "561cb5d1f56ca5d232d64d6723272c1abdbdb6a684468e3e119dd1da5b5efa90"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_candidate/submission_v80/manifest.json",
+      "sha256": "8f04994d90ea2704c2cf808f3ef93744bec8f258c876df1568536f72ff9e3dd4"
+    },
+    {
+      "path": "submissions/unique-rose_v80.parquet",
+      "sha256": "50b986030af2efaab89b69bb69522ade6b060cc7f58fa324954e3fb06e0ef6f4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/cv_basis.parquet",
+      "sha256": "415a49694b984fb65e28e0bee76cb831e959ef9ab8bdcd5ee2850287bc96b4f0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/diagnostic_cv.parquet",
+      "sha256": "7d3e7ba6d339cebe0c68f09ef2d0add28bfd80c8c0ae225f1de0223e4ce767a6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/diagnostic_ranking.parquet",
+      "sha256": "d4f373f958cc980590f93b0948ef2c0cfa1e862a306df2c1b93f23eab2b7bbbd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/ranking_basis.parquet",
+      "sha256": "2409ac2017a05a0e72525bee11eabef39adcd7ae5d84050e4803521010e12e5b"
+    }
+  ],
+  "historical_cv_caveat": "v3-v9 use an archived original27 implementation; missing exact historical source is explicit in raw runner identity"
+}

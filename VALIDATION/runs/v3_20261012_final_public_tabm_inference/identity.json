@@ -1,0 +1,1122 @@
+{
+  "design": {
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "epochs": 15,
+    "views": [
+      "old",
+      "final"
+    ],
+    "preprocessing": "Saved full-year Encoder.transform, numeric layout, bins and target scaling",
+    "public_inputs": "Unchanged fixed twelve-input transform; audited separate final view",
+    "control": "All three old-view predictions replay exactly on original laptop/GPU/Torch",
+    "prediction": "Original 512-row inference chunks and head mean; no fitting",
+    "no_new_training": true,
+    "no_new_selection": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "execution": {
+    "host": "GLAPTOP",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "torch": "2.14.1+cu130"
+  },
+  "members": [
+    {
+      "seed": 42,
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/identity.json",
+        "sha256": "48002e43d9fc6743d228f417ecba51a28dced0ed759d19f0b9ce6cee3c105785"
+      },
+      "trained": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/trained/k0.json",
+        "sha256": "c95f1730deb8cdb46532e7f0e15ababa21fe20fa18e67e24104077c984e01a4e"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/models/k0.pt",
+        "sha256": "003298fbc8d540a7659d1bd744cc472d67e2eda0ef26e75dff07c4b94155c049"
+      },
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/preprocessing/full_year.pkl",
+        "sha256": "b8e3f5a7fca26194ad6f3def033ef2ca77e12ef96f50361e7c2dbcac94a4c23a"
+      },
+      "old_prediction": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/networks/old_k0.parquet",
+        "sha256": "a6e5d09c2f3eb3be8d33455e2fef50d21bf5705aa2fffeb3e363f5d2789ed087"
+      },
+      "design": {
+        "choice": "replace_public_k0_with_tabm42",
+        "model": {
+          "original_columns": 156,
+          "public_columns": [
+            "pub_dep_count_gap",
+            "pub_dep_mean",
+            "pub_dep_long_count",
+            "pub_dep_long_gap_sum",
+            "pub_dep_resid900_mean",
+            "pub_dep_resid1800_mean",
+            "pub_dep_resid_clock_mean",
+            "pub_dep_own900_left",
+            "pub_dep_own1800_left",
+            "pub_dep_own900_fraction",
+            "pub_dep_own1800_fraction",
+            "pub_dep_long900_fraction"
+          ],
+          "public_transform": {
+            "features": [
+              "pub_dep_count_gap",
+              "pub_dep_mean",
+              "pub_dep_long_count",
+              "pub_dep_long_gap_sum",
+              "pub_dep_resid900_mean",
+              "pub_dep_resid1800_mean",
+              "pub_dep_resid_clock_mean",
+              "pub_dep_own900_left",
+              "pub_dep_own1800_left",
+              "pub_dep_own900_fraction",
+              "pub_dep_own1800_fraction",
+              "pub_dep_long900_fraction"
+            ],
+            "scales": [
+              5.0,
+              600.0,
+              20.0,
+              72000.0,
+              100.0,
+              100.0,
+              100.0,
+              3600.0,
+              3600.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+            "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+            "initialization": "original physical seed42; zero new final head; no pretrained weights",
+            "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+          },
+          "track": "unchanged physical CNN, masked mean/max64",
+          "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+          "k": 32,
+          "n_blocks": 2,
+          "d_block": 512,
+          "dropout": 0.1,
+          "activation": "ReLU",
+          "arch_type": "tabm",
+          "start_scaling_init": "normal",
+          "lr": 0.002,
+          "weight_decay": 0.0003,
+          "loss": "mean squared error over rows AND individual32 heads",
+          "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+          "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+        },
+        "seed": 42,
+        "epochs": 15,
+        "stop_source": "unchanged N09 full-year group42 and selected public production stop",
+        "schedule_epochs": 24,
+        "effective_batch": 2048,
+        "microbatch": 512,
+        "target": "min(raw taxi-out,10800), unchanged population mean/std",
+        "population": 2051327,
+        "ranking_view": "old",
+        "ranking_rows": 344841,
+        "columns": 156,
+        "public_columns": 12,
+        "preprocessing": "exact original full-year encoder; append frozen public transform",
+        "track": "unchanged separately bound train and old ranking stores",
+        "execution": "identical nn_public_tabm_jan_jul.train bytecode, only output directory replaced",
+        "optimizer": "AdamW lr .002, weight decay .0003; individual-head MSE",
+        "inference": "fixed 512-row chunks, head mean then original seconds scaling/nonnegative clip",
+        "retained": "original public/physical seeds1042 and2042, saved predictions unchanged",
+        "export": "one TabM member plus equal mean of [TabM42,original1042,original2042]",
+        "machine": "laptop RTX5060; same host/GPU as passing TabM CV family screen",
+        "no_early_stopping": true,
+        "no_extra_seed": true,
+        "no_weight_search": true,
+        "no_whole_pool_substitution": true,
+        "no_candidate_stack_or_submission_build": true,
+        "no_upload": true
+      }
+    },
+    {
+      "seed": 1042,
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/identity.json",
+        "sha256": "2fdb98a5a03bb8705489560e4c92d2aeb3482db54dbd29b3908554c5e6e80381"
+      },
+      "trained": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/trained/k0.json",
+        "sha256": "36c9dbbf15254a74e04ae284d57764013e6e3bcae478cf7dfe31be24eeb456dc"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/models/k0.pt",
+        "sha256": "3f98e2f9fce169744e63bb2382026c5aee7dfd8825a818bc6dea5f1a2bd86ec1"
+      },
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/preprocessing/full_year.pkl",
+        "sha256": "c06a014bc423e03add78e4fc2f89739cde4a8625385aba097a796edd8d59b8fd"
+      },
+      "old_prediction": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/networks/old_k0.parquet",
+        "sha256": "e8efe9d35802ff631c71a31278df399d7f039d0460e6ff58b0059afbc85b4b84"
+      },
+      "design": {
+        "choice": "additional_full_year_tabm_seed1042",
+        "model": {
+          "original_columns": 156,
+          "public_columns": [
+            "pub_dep_count_gap",
+            "pub_dep_mean",
+            "pub_dep_long_count",
+            "pub_dep_long_gap_sum",
+            "pub_dep_resid900_mean",
+            "pub_dep_resid1800_mean",
+            "pub_dep_resid_clock_mean",
+            "pub_dep_own900_left",
+            "pub_dep_own1800_left",
+            "pub_dep_own900_fraction",
+            "pub_dep_own1800_fraction",
+            "pub_dep_long900_fraction"
+          ],
+          "public_transform": {
+            "features": [
+              "pub_dep_count_gap",
+              "pub_dep_mean",
+              "pub_dep_long_count",
+              "pub_dep_long_gap_sum",
+              "pub_dep_resid900_mean",
+              "pub_dep_resid1800_mean",
+              "pub_dep_resid_clock_mean",
+              "pub_dep_own900_left",
+              "pub_dep_own1800_left",
+              "pub_dep_own900_fraction",
+              "pub_dep_own1800_fraction",
+              "pub_dep_long900_fraction"
+            ],
+            "scales": [
+              5.0,
+              600.0,
+              20.0,
+              72000.0,
+              100.0,
+              100.0,
+              100.0,
+              3600.0,
+              3600.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+            "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+            "initialization": "original physical seed42; zero new final head; no pretrained weights",
+            "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+          },
+          "track": "unchanged physical CNN, masked mean/max64",
+          "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+          "k": 32,
+          "n_blocks": 2,
+          "d_block": 512,
+          "dropout": 0.1,
+          "activation": "ReLU",
+          "arch_type": "tabm",
+          "start_scaling_init": "normal",
+          "lr": 0.002,
+          "weight_decay": 0.0003,
+          "loss": "mean squared error over rows AND individual32 heads",
+          "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+          "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+        },
+        "seed": 1042,
+        "epochs": 15,
+        "stop_source": "unchanged N09 full-year group42 and selected public production stop",
+        "schedule_epochs": 24,
+        "effective_batch": 2048,
+        "microbatch": 512,
+        "target": "min(raw taxi-out,10800), unchanged population mean/std",
+        "population": 2051327,
+        "ranking_view": "old",
+        "ranking_rows": 344841,
+        "columns": 156,
+        "public_columns": 12,
+        "preprocessing": "exact original full-year encoder; append frozen public transform",
+        "track": "unchanged separately bound train and old ranking stores",
+        "execution": "unchanged production fit; reviewed CV permutation-seed specialization",
+        "optimizer": "AdamW lr .002, weight decay .0003; individual-head MSE",
+        "inference": "fixed 512-row chunks, head mean then original seconds scaling/nonnegative clip",
+        "retained": "seed42 production retained exactly; other TabM seed fitted separately",
+        "export": "three-seed equal pool exported by outer continuation runner",
+        "machine": "laptop RTX5060; same host/GPU as passing TabM CV family screen",
+        "no_early_stopping": true,
+        "no_extra_seed": false,
+        "no_weight_search": true,
+        "no_whole_pool_substitution": false,
+        "no_candidate_stack_or_submission_build": true,
+        "no_upload": true,
+        "member": 1
+      }
+    },
+    {
+      "seed": 2042,
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/identity.json",
+        "sha256": "401a084344469cf21e521518733cce959949ce8b47ee500c0b9acd9b2cf7520b"
+      },
+      "trained": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/trained/k0.json",
+        "sha256": "c6dee76409c6d541dd433bcf8200e26928b5e94a9ccd32bdd46ddda1f8612f7b"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/models/k0.pt",
+        "sha256": "8f2079ce360b8ea972a96a0b6ba17b7eeeb5277aa2e0e35c245bdef30df8761d"
+      },
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/preprocessing/full_year.pkl",
+        "sha256": "b0a015918a11cf78bce52f271e30b796a4970468963e9537cceea28fae84db66"
+      },
+      "old_prediction": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/networks/old_k0.parquet",
+        "sha256": "b389ce5fad01fdb35fb2a1b50482975a3dc17cfc9d7e06988f14f063cef170c3"
+      },
+      "design": {
+        "choice": "additional_full_year_tabm_seed2042",
+        "model": {
+          "original_columns": 156,
+          "public_columns": [
+            "pub_dep_count_gap",
+            "pub_dep_mean",
+            "pub_dep_long_count",
+            "pub_dep_long_gap_sum",
+            "pub_dep_resid900_mean",
+            "pub_dep_resid1800_mean",
+            "pub_dep_resid_clock_mean",
+            "pub_dep_own900_left",
+            "pub_dep_own1800_left",
+            "pub_dep_own900_fraction",
+            "pub_dep_own1800_fraction",
+            "pub_dep_long900_fraction"
+          ],
+          "public_transform": {
+            "features": [
+              "pub_dep_count_gap",
+              "pub_dep_mean",
+              "pub_dep_long_count",
+              "pub_dep_long_gap_sum",
+              "pub_dep_resid900_mean",
+              "pub_dep_resid1800_mean",
+              "pub_dep_resid_clock_mean",
+              "pub_dep_own900_left",
+              "pub_dep_own1800_left",
+              "pub_dep_own900_fraction",
+              "pub_dep_own1800_fraction",
+              "pub_dep_long900_fraction"
+            ],
+            "scales": [
+              5.0,
+              600.0,
+              20.0,
+              72000.0,
+              100.0,
+              100.0,
+              100.0,
+              3600.0,
+              3600.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+            "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+            "initialization": "original physical seed42; zero new final head; no pretrained weights",
+            "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+          },
+          "track": "unchanged physical CNN, masked mean/max64",
+          "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+          "k": 32,
+          "n_blocks": 2,
+          "d_block": 512,
+          "dropout": 0.1,
+          "activation": "ReLU",
+          "arch_type": "tabm",
+          "start_scaling_init": "normal",
+          "lr": 0.002,
+          "weight_decay": 0.0003,
+          "loss": "mean squared error over rows AND individual32 heads",
+          "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+          "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+        },
+        "seed": 2042,
+        "epochs": 15,
+        "stop_source": "unchanged N09 full-year group42 and selected public production stop",
+        "schedule_epochs": 24,
+        "effective_batch": 2048,
+        "microbatch": 512,
+        "target": "min(raw taxi-out,10800), unchanged population mean/std",
+        "population": 2051327,
+        "ranking_view": "old",
+        "ranking_rows": 344841,
+        "columns": 156,
+        "public_columns": 12,
+        "preprocessing": "exact original full-year encoder; append frozen public transform",
+        "track": "unchanged separately bound train and old ranking stores",
+        "execution": "unchanged production fit; reviewed CV permutation-seed specialization",
+        "optimizer": "AdamW lr .002, weight decay .0003; individual-head MSE",
+        "inference": "fixed 512-row chunks, head mean then original seconds scaling/nonnegative clip",
+        "retained": "seed42 production retained exactly; other TabM seed fitted separately",
+        "export": "three-seed equal pool exported by outer continuation runner",
+        "machine": "laptop RTX5060; same host/GPU as passing TabM CV family screen",
+        "no_early_stopping": true,
+        "no_extra_seed": false,
+        "no_weight_search": true,
+        "no_whole_pool_substitution": false,
+        "no_candidate_stack_or_submission_build": true,
+        "no_upload": true,
+        "member": 2
+      }
+    }
+  ],
+  "original_public": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/ranking_features.parquet",
+    "sha256": "4f46d20a5463792ca80987f4481ec31bb84f2257152ebe30e116544216f54f0e"
+  },
+  "final_public": {
+    "path": "data/derived/final_public_20261012/features.parquet",
+    "sha256": "f12b58b7b3e632cb0979038729ef42171b3b13a72bdf7ad65c27f78d87472118"
+  },
+  "packet": {
+    "design": {
+      "parent_runner": "VALIDATION/callsign_submit.py",
+      "original_columns": 156,
+      "packet_schema": [
+        "view",
+        "Vn",
+        "rank_ids"
+      ],
+      "view_order": [
+        "old",
+        "final"
+      ],
+      "old_view": "reuse original Vn/rank_ids in verified cached hs.INPUTS",
+      "groups": [
+        42,
+        142,
+        242
+      ],
+      "nets": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "epochs": {
+        "42": 15,
+        "142": 21,
+        "242": 16
+      },
+      "target": "unchanged clipped direct mean",
+      "training": "original shared.train; no inner fit",
+      "portable_scope": "Portable worker: exact cached original training matrix, transferred ranking matrices, feature tables, training IDs, recipe, source and helper hashes. Original ranking/raw sources fully checked on desktop prepare; desktop audit/build checks them again.",
+      "original_runner_unchanged": true
+    },
+    "worker_source_sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c",
+    "cached_training_inputs": {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+      "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9"
+    },
+    "columns": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "hour",
+      "dow",
+      "month",
+      "mvt_minus_sched_sec",
+      "mvt_minus_lobt_sec",
+      "mvt_minus_iobt_sec",
+      "mvt_minus_eobt1_sec",
+      "mvt_minus_aobt3_sec",
+      "op_taxi_30d",
+      "op_taxi_30d_n",
+      "rwy_taxi_30d",
+      "stand_taxi_90d",
+      "aphour_taxi_30d",
+      "arr_taxiin_7d",
+      "dep_actual_30m_before",
+      "arr_actual_30m_before",
+      "dep_sched_60m_around",
+      "clock_aobt3_minus_schedule_sec",
+      "clock_aobt3_minus_eobt1_sec",
+      "clock_eobt1_minus_iobt_sec",
+      "clock_iobt_minus_lobt_sec",
+      "clock_schedule_available",
+      "clock_lobt_available",
+      "clock_iobt_available",
+      "clock_eobt1_available",
+      "clock_aobt3_available",
+      "clock_raw_flight_id_missing",
+      "clock_raw_plan_block_missing",
+      "clock_raw_aobt3_missing",
+      "clock_available_count",
+      "clock_span_sec",
+      "clock_std_sec",
+      "clock_median_sec",
+      "clock_baseline_sec",
+      "clock_baseline_source",
+      "wx_temp_c",
+      "wx_dewpoint_spread_c",
+      "wx_wind_kt",
+      "wx_gust_kt",
+      "wx_wind_dir",
+      "wx_visibility_m",
+      "wx_ceiling_ft",
+      "wx_thunder",
+      "wx_snow",
+      "wx_freezing",
+      "wx_fog",
+      "wx_rain",
+      "wx_heavy",
+      "wx_deicing",
+      "wx_age_min",
+      "wx_2h_min_visibility_m",
+      "wx_2h_min_ceiling_ft",
+      "wx_2h_max_gust_kt",
+      "wx_2h_thunder",
+      "wx_2h_snow_or_freezing",
+      "wx_2h_fog",
+      "q_rwy_prev_takeoff_gap_sec",
+      "q_rwy_takeoffs_prev30",
+      "q_apt_takeoffs_prev30",
+      "q_rwy_others_gap_prev60",
+      "q_apt_others_gap_prev60",
+      "q_queue_ahead_since_aobt3",
+      "q_rwy_landings_prev30",
+      "q_rwy_next_takeoff_gap_sec",
+      "q_rwy_takeoffs_next30",
+      "q_rwy_others_gap_pm30",
+      "q_apt_others_gap_pm30",
+      "airline",
+      "st_last_arr_sec",
+      "st_prev_arr_sec",
+      "st_same_type",
+      "st_same_airline",
+      "st_inblock_minus_sched_sec",
+      "op_matched",
+      "op_fs_ground",
+      "op_fs_sec",
+      "op_own_stand_sec",
+      "op_first_stand_sec",
+      "op_first_apron_sec",
+      "op_first_twy_sec",
+      "op_rwy_sec",
+      "op_deice_sec",
+      "op_ground_sec",
+      "nb_op_ground_mean_60",
+      "nb_op_ground_n_60",
+      "nb_op_ground_mean_pm30",
+      "nb_op_deice_share_60",
+      "dis_snow_6h_fraction",
+      "dis_snow_6h_coverage",
+      "dis_snow_24h_fraction",
+      "dis_snow_24h_coverage",
+      "dis_arr_60m_count",
+      "dis_arr_60m_mean_sec",
+      "dis_arr_60m_over30_share",
+      "dis_arr_60m_over60_share",
+      "dis_arr_180m_count",
+      "dis_arr_180m_mean_sec",
+      "dis_arr_180m_over30_share",
+      "dis_arr_180m_over60_share",
+      "sc_x_m",
+      "sc_y_m",
+      "sc_rwy_end_m",
+      "ab_matched",
+      "ab_seg_sec",
+      "ab_move_sec",
+      "ab_still_end_sec",
+      "ab_seg_n",
+      "ab_first_gs",
+      "ab_last_gnd_sec",
+      "ab_prev_gap_sec",
+      "ab_moving_10",
+      "ab_moving_30",
+      "ab_ground_10",
+      "ab_low_air_10",
+      "ab_nb_seg_mean_60",
+      "ab_nb_seg_n_60",
+      "ab_stand_min_m",
+      "ab_stand_n",
+      "ab_stand_exit_sec",
+      "ab_exit_gap_sec",
+      "ab_seg_stand_m",
+      "ab_seg_rwy_m",
+      "ab_nb_exit_mean_60",
+      "ab_nb_exit_n_60",
+      "sa_last_taxiin_sec",
+      "sa_prev_taxiin_sec",
+      "ra_last_taxiin_sec",
+      "ra_last_land_age_sec",
+      "pc_apt_mean_pm30",
+      "pc_apt_std_pm30",
+      "pc_apt_n_pm30",
+      "pc_apt_mean_next30",
+      "pc_rwy_mean_pm30",
+      "pc_rwy_n_pm30",
+      "pc_zone_mean_pm60",
+      "pc_zone_n_pm60",
+      "pc_rwy_prev_proxy",
+      "pc_rwy_next_proxy",
+      "pc_own_minus_apt",
+      "rc_burst_prev",
+      "rc_burst_next",
+      "rc_rwy_streak_sec",
+      "rc_dep_rwys_60",
+      "rc_arr_rwys_60",
+      "rc_dep_set_60",
+      "rc_arr_set_60"
+    ],
+    "views": {
+      "old": {
+        "storage": "cached_training_inputs",
+        "rows": 344841,
+        "original_source": {
+          "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_old.pkl",
+          "sha256": "22e91f3aee2a614aba8ee626de366fa1edb281a1a35a5f660d70664463cf9821"
+        },
+        "exact_matrix_and_ids_verified_by_parent_prepare": true
+      },
+      "final": {
+        "storage": "portable_pickle",
+        "packet": {
+          "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+          "sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033"
+        },
+        "rows": 670790,
+        "original_source": {
+          "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_final.pkl",
+          "sha256": "4432bb7eaa886e69a5f0b84a1bc5baff3b62cf8d179280da980fdb1d4bdf44ae"
+        },
+        "exact_matrix_and_ids_verified": true
+      }
+    },
+    "training_ids": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/training_ids.parquet",
+      "sha256": "e97c401274cd7656408100e5aeed1397db839d838d734bbba895ccfea990a923"
+    },
+    "feature_records": {
+      "train": {
+        "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+        "artifact": {
+          "path": "data/derived/callsign_submit_20261010/train.parquet",
+          "sha256": "baed91fcdea27de1e021409bd234888bd0cfad0dfb09987f30be04ff01896e6f"
+        },
+        "rows": 2085047,
+        "reference_months": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ],
+        "sources": [
+          {
+            "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+            "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f"
+          },
+          {
+            "path": "data/derived/callsign_clocks_20261010/shared.parquet",
+            "sha256": "91145d4829e3568cc5de9a8e870d8eaab162c1581683b6cca2c660ef83a4b089"
+          }
+        ],
+        "nonmissing": {
+          "cc_call_start_sec": 1750340,
+          "cc_squawk_start_sec": 1754308,
+          "cc_previous_call_end_sec": 1252310,
+          "cc_before_own_arrival": 1726279,
+          "cc_ambiguous": 1756519,
+          "cc_censored": 1756519
+        },
+        "elapsed_sec": 15.029482178000762
+      },
+      "old": {
+        "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+        "artifact": {
+          "path": "data/derived/callsign_submit_20261010/old.parquet",
+          "sha256": "563b3e20714efaff9cf5e9b58bb5cae9a33abab4722e8d7f1f63042546714b5e"
+        },
+        "rows": 344841,
+        "ranking_view": "old",
+        "per_query_month_reference_months": {
+          "2026-01": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-01"
+          ],
+          "2026-07": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-07"
+          ]
+        },
+        "sources": [
+          {
+            "path": "data/derived/callsign_submit_20261010/old/identity.parquet",
+            "sha256": "0fb05b4bab4e6ba265f897294eb09587a51e060dfa3d87ca97d3fd81fe268a0b"
+          },
+          {
+            "path": "data/derived/callsign_submit_20261010/old/shared.parquet",
+            "sha256": "f438a6784311cf2abba6b4986d37d1a930ff7c9cdcd59b106125aaa7fe707eca"
+          },
+          {
+            "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+            "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f"
+          }
+        ],
+        "nonmissing": {
+          "cc_call_start_sec": 296865,
+          "cc_squawk_start_sec": 297578,
+          "cc_previous_call_end_sec": 209615,
+          "cc_before_own_arrival": 291676,
+          "cc_ambiguous": 298020,
+          "cc_censored": 298020
+        },
+        "elapsed_sec": 20.41864543599877
+      },
+      "final": {
+        "design_sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b",
+        "artifact": {
+          "path": "data/derived/callsign_submit_20261010/final.parquet",
+          "sha256": "a6d67be5b4427b45dff6cb6b6c00a61485d120cdf15231114791448bbac68ce4"
+        },
+        "rows": 670790,
+        "ranking_view": "final",
+        "per_query_month_reference_months": {
+          "2026-01": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-01"
+          ],
+          "2026-02": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-02"
+          ],
+          "2026-06": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-06"
+          ],
+          "2026-07": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08",
+            "2025-09",
+            "2025-10",
+            "2025-11",
+            "2025-12",
+            "2026-07"
+          ]
+        },
+        "sources": [
+          {
+            "path": "data/derived/callsign_submit_20261010/final/identity.parquet",
+            "sha256": "ec5fd03fca49d7c881c43eb0eb2dc24a8d883b96201058eb526aa9ac79672b20"
+          },
+          {
+            "path": "data/derived/callsign_submit_20261010/final/shared.parquet",
+            "sha256": "3227fc52b1bb84f8b8d8bba9927c719767a199a820bed81efb1ce9a810ddf343"
+          },
+          {
+            "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+            "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f"
+          }
+        ],
+        "nonmissing": {
+          "cc_call_start_sec": 574459,
+          "cc_squawk_start_sec": 575895,
+          "cc_previous_call_end_sec": 405315,
+          "cc_before_own_arrival": 563213,
+          "cc_ambiguous": 576773,
+          "cc_censored": 576773
+        },
+        "elapsed_sec": 41.052646225998615
+      }
+    },
+    "files": [
+      {
+        "path": "VALIDATION/callsign_submit.py",
+        "sha256": "e9b954cb484502f223c87fef370ba2396ea98a908c76c612e742eaf805b4c954"
+      },
+      {
+        "path": "VALIDATION/callsign_submit_features.py",
+        "sha256": "843d8d664f75c094afad03b02dcc4ef75c4930368cd6fbdf66c5f5ef7d811af9"
+      },
+      {
+        "path": "VALIDATION/callsign_submit_portable.py",
+        "sha256": "ab7cbc05c1a8eaf7e45a2dd88cd057299675e57d4fbba86a3c0e423fd8464a6c"
+      },
+      {
+        "path": "VALIDATION/final_submit.py",
+        "sha256": "60820fe3be984b14f47e1a6db09585842d93c42dd49014a936d6ebac7433679c"
+      },
+      {
+        "path": "VALIDATION/hpo_submit.py",
+        "sha256": "5e47e979b2f97d86173495fff683b1aa74e3a6188edd28d4ab466ebe4186fcfe"
+      },
+      {
+        "path": "VALIDATION/nn_callsign_clocks_jan_jul.py",
+        "sha256": "4763756ce09d4e6da4e3c47d8dd844f063a29ae5addee6d56fc4a6ec60d74132"
+      },
+      {
+        "path": "VALIDATION/nn_callsign_pool_resume.py",
+        "sha256": "015c108ee6ffa1b05a7442af966fc55c79699ef6241b82c68582fccf677f47e5"
+      },
+      {
+        "path": "VALIDATION/nn_improve_jan_jul.py",
+        "sha256": "d6c8b63f328bfa45ef0306778cdd3d79581ce16878ebe5c449a8d3001c4a4f20"
+      },
+      {
+        "path": "VALIDATION/nn_improve_submit.py",
+        "sha256": "10aea4b461a7aa9da3ee880283349fb84cab23490177765b32a9f591d5f379e5"
+      },
+      {
+        "path": "VALIDATION/nn_jan_jul.py",
+        "sha256": "2f76f8c6d3d8cb218f5d2497bec1a9b8a3ad1210e666247baeb64d0662f7b766"
+      },
+      {
+        "path": "VALIDATION/nn_residual_jan_jul.py",
+        "sha256": "e5cf29800ca49dbea75882e3587bd970d66b6845481ef1d8c9578367b9322f8b"
+      },
+      {
+        "path": "VALIDATION/nn_sensor_differences_jan_jul.py",
+        "sha256": "acbee310db0fd9421f4ee9850e6d5cc48f9999e88c07577fd1907571a8072a75"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261006_hpo_submit/work/parts/nn.json",
+        "sha256": "55cf40ef18c4cf88b037f6b475981c71503b37b84e5bbc59d5fb131e295810a1"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/design.json",
+        "sha256": "95d66c8b9336c77242f428baf3f7fda97a877051200736cd0da02eb79385db3e"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+        "sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/prepared.json",
+        "sha256": "84baa8c78bf9fb171e1aba4516e658bbd6091aae54d9dea42676fc106553c58a"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/training_ids.parquet",
+        "sha256": "e97c401274cd7656408100e5aeed1397db839d838d734bbba895ccfea990a923"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/callsign_pool15_manifest.json",
+        "sha256": "28c4562db7a015d2d119a9733b8b3f92f6ff69bdd699d571a2ad0fac4c8a2642"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261010_nn_callsign_clocks_jan_jul/score_g42_142_242_k0_1_2_3_4.json",
+        "sha256": "1406db0bfc6aa481a5837b780a06aa09a2a525cf9a180c1b72e1bf15fb3930ff"
+      },
+      {
+        "path": "data/derived/callsign_submit_20261010/design.json",
+        "sha256": "b1e016accd2d022dc3c75cd25aaae6c6896d091ec13bddab69876cb7a03bc51b"
+      },
+      {
+        "path": "data/derived/callsign_submit_20261010/final.parquet",
+        "sha256": "a6d67be5b4427b45dff6cb6b6c00a61485d120cdf15231114791448bbac68ce4"
+      },
+      {
+        "path": "data/derived/callsign_submit_20261010/old.parquet",
+        "sha256": "563b3e20714efaff9cf5e9b58bb5cae9a33abab4722e8d7f1f63042546714b5e"
+      },
+      {
+        "path": "data/derived/callsign_submit_20261010/train.parquet",
+        "sha256": "baed91fcdea27de1e021409bd234888bd0cfad0dfb09987f30be04ff01896e6f"
+      }
+    ],
+    "full_desktop_source_validation_complete": true
+  },
+  "tracks": {
+    "old": {
+      "directory": "data/derived/sparse_track_submit_20261010/old",
+      "files": [
+        {
+          "path": "data/derived/sparse_track_submit_20261010/old/full_index.parquet",
+          "sha256": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98"
+        },
+        {
+          "path": "data/derived/sparse_track_submit_20261010/old/full_points.bin",
+          "sha256": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a"
+        }
+      ],
+      "identity": {
+        "ranking_view": "old",
+        "manifest": {
+          "path": "data/derived/sparse_track_submit_20261010/old/full.json",
+          "sha256": "925a04bb6daa72d77869096e0acd2db464f889e5218ec57caa86732df65688a3"
+        },
+        "design": {
+          "path": "data/derived/sparse_track_submit_20261010/old/full_design.json",
+          "sha256": "0da5b09393525c7983fb733e78db93181e35200d2ec0ca1158aaca161a7bf049"
+        },
+        "outputs": {
+          "full_index.parquet": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98",
+          "full_points.bin": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a"
+        },
+        "rows": 344841,
+        "stored_points": 16165071
+      }
+    },
+    "final": {
+      "directory": "data/derived/sparse_track_submit_20261010/final",
+      "files": [
+        {
+          "path": "data/derived/sparse_track_submit_20261010/final/full_index.parquet",
+          "sha256": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2"
+        },
+        {
+          "path": "data/derived/sparse_track_submit_20261010/final/full_points.bin",
+          "sha256": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a"
+        }
+      ],
+      "identity": {
+        "ranking_view": "final",
+        "manifest": {
+          "path": "data/derived/sparse_track_submit_20261010/final/full.json",
+          "sha256": "2f2037dbd051e1eea6834fb605dfba89aa0cc7119cfb7c025b18c3dfc9d00f19"
+        },
+        "design": {
+          "path": "data/derived/sparse_track_submit_20261010/final/full_design.json",
+          "sha256": "a8e576a72199bc50734f388acb3c1a34a1821fa593e2252dd966754da7698acd"
+        },
+        "outputs": {
+          "full_index.parquet": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2",
+          "full_points.bin": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a"
+        },
+        "rows": 670790,
+        "stored_points": 31252680
+      }
+    }
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/chunked_direct_data.py",
+      "sha256": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9"
+    },
+    {
+      "path": "VALIDATION/final_public_features.py",
+      "sha256": "e6a0a665b2d30981292e3a7a30d6e9e2fada03329a797b039e292fba94d6d945"
+    },
+    {
+      "path": "VALIDATION/final_public_tabm_inference.py",
+      "sha256": "54b397a91a4cc2ba6e0695921d94520dc6b41cb6f0eec9c8ddaf0cdbc0f38209"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm.py",
+      "sha256": "9372661a5b92ed9708e90f8c0226d1d203d868997e1e8c6ac352ac6f9f9bbc19"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_jan_jul.py",
+      "sha256": "c28cc9686c8acccd1e215e03fb6b7ee4b6a51909ae68f412ed2cd15b56b82775"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_submit.py",
+      "sha256": "02c858c2cf4448612c01460c5d2517ab2478976e63e2067a3fc3b34e97f252aa"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_submit.py",
+      "sha256": "89c94123dec051bad44bd843f068d62bd3f9705109a5b32824b1b6cb162c1b83"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+      "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+      "sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_track_physical_submit/portable.json",
+      "sha256": "f35ee26e8c50e49229197d7ec2fa110ca3367f44e090805b605c874543f53cda"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/ranking_features.parquet",
+      "sha256": "4f46d20a5463792ca80987f4481ec31bb84f2257152ebe30e116544216f54f0e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_features/audit.json",
+      "sha256": "7f7a1cd9ff9c4938ea9da8616acfda4d8e8cc92166ddf1cce479ff8f2cda6a4c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/export.json",
+      "sha256": "a5278dd879e3b0085d99405a80cbc638487f59f2a65b38e40cbff50398c40f02"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/identity.json",
+      "sha256": "d223e62b463b6a6cd38b67fef8e125d709fabd12ad2e0540862dc97a0fc8c2f6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/identity.json",
+      "sha256": "2fdb98a5a03bb8705489560e4c92d2aeb3482db54dbd29b3908554c5e6e80381"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/models/k0.pt",
+      "sha256": "3f98e2f9fce169744e63bb2382026c5aee7dfd8825a818bc6dea5f1a2bd86ec1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/networks/old_k0.parquet",
+      "sha256": "e8efe9d35802ff631c71a31278df399d7f039d0460e6ff58b0059afbc85b4b84"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/preprocessing/full_year.pkl",
+      "sha256": "c06a014bc423e03add78e4fc2f89739cde4a8625385aba097a796edd8d59b8fd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/trained/k0.json",
+      "sha256": "36c9dbbf15254a74e04ae284d57764013e6e3bcae478cf7dfe31be24eeb456dc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/identity.json",
+      "sha256": "401a084344469cf21e521518733cce959949ce8b47ee500c0b9acd9b2cf7520b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/models/k0.pt",
+      "sha256": "8f2079ce360b8ea972a96a0b6ba17b7eeeb5277aa2e0e35c245bdef30df8761d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/networks/old_k0.parquet",
+      "sha256": "b389ce5fad01fdb35fb2a1b50482975a3dc17cfc9d7e06988f14f063cef170c3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/preprocessing/full_year.pkl",
+      "sha256": "b0a015918a11cf78bce52f271e30b796a4970468963e9537cceea28fae84db66"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/trained/k0.json",
+      "sha256": "c6dee76409c6d541dd433bcf8200e26928b5e94a9ccd32bdd46ddda1f8612f7b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/identity.json",
+      "sha256": "48002e43d9fc6743d228f417ecba51a28dced0ed759d19f0b9ce6cee3c105785"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/models/k0.pt",
+      "sha256": "003298fbc8d540a7659d1bd744cc472d67e2eda0ef26e75dff07c4b94155c049"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/networks/old_k0.parquet",
+      "sha256": "a6e5d09c2f3eb3be8d33455e2fef50d21bf5705aa2fffeb3e363f5d2789ed087"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/preprocessing/full_year.pkl",
+      "sha256": "b8e3f5a7fca26194ad6f3def033ef2ca77e12ef96f50361e7c2dbcac94a4c23a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/trained/k0.json",
+      "sha256": "c95f1730deb8cdb46532e7f0e15ababa21fe20fa18e67e24104077c984e01a4e"
+    },
+    {
+      "path": "data/derived/final_public_20261012/features.parquet",
+      "sha256": "f12b58b7b3e632cb0979038729ef42171b3b13a72bdf7ad65c27f78d87472118"
+    },
+    {
+      "path": "data/derived/final_public_20261012/manifest.json",
+      "sha256": "843772b7994673fb5f9649e5894861260f34a52c8788ad153c4fd19c5a793c58"
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/final/full_index.parquet",
+      "sha256": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2"
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/final/full_points.bin",
+      "sha256": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a"
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/old/full_index.parquet",
+      "sha256": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98"
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/old/full_points.bin",
+      "sha256": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a"
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    }
+  ]
+}

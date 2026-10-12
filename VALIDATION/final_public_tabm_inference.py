@@ -93,8 +93,11 @@ def data_for_view(manifest, pre, view):
     expected = 344841 if view == 'old' else 670790
     assert len(ids) == len(frame) == expected and pd.Index(ids).is_unique
     template = 'submitting.parquet' if view == 'old' else 'final_submitting.parquet'
-    np.testing.assert_array_equal(ids, pd.read_parquet(ROOT / 'data' / template,
-        columns=['MVT_ID_mvt']).MVT_ID_mvt)
+    template_ids = pd.read_parquet(ROOT / 'data' / template, columns=['MVT_ID_mvt']).MVT_ID_mvt
+    # The final cached packet is Jan/Jul/Feb/Jun, while the template is Jan/Feb/Jun/Jul.
+    # Models consume their retained packet order; every consumer must join by ID.
+    np.testing.assert_array_equal(ids if view == 'old' else np.sort(ids),
+        template_ids if view == 'old' else np.sort(template_ids))
     with tempfile.TemporaryDirectory(prefix=f'encode_{view}_', dir=OUT) as tmp:
         cat, num = old.adapter.encode(pre['encoder'], frame, tmp, 'inference')
         held = (old.adapter.tensor_columns(cat, None, 'cuda'),

@@ -1,6 +1,6 @@
 {
   "at": "2026-10-12T09:46:30.696735+00:00",
-  "state": "final_public_inputs_audited_saved_model_inference_pending",
+  "state": "saved_public_components_inference_in_progress",
   "deadline_utc": "2026-10-14T10:00:00Z",
   "filename": "unique-rose_final.parquet",
   "official_source": "https://prc-data-challenge-2026.netlify.app/ranking.html#final-submission",
@@ -139,10 +139,22 @@
       "values_audited": 8049480,
       "all_old_view_features_exact": true,
       "maximum_SQL_error": 4.656612873077393e-10
+    },
+    "final_public_tabm": {
+      "receipt": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/return_audit.json",
+      "models": 3,
+      "rows_each": 670790,
+      "all_old_replays_exact": true,
+      "all_final_reloads_exact": true,
+      "note": "Cached packet uses a different month order; ID sets match template and assembly must join by ID."
     }
   },
   "prepared_code": {
     "path": "VALIDATION/final_public_tabm_inference.py",
-    "scope": "Inference-only three retained fifteen-epoch models, same original laptop environment; all old predictions must replay exactly before new final outputs. Not yet prepared or executed."
-  }
+    "scope": "Executed successfully; all three members returned and all source/output hashes verified."
+  },
+  "in_progress": [
+    "Saved public main tree old/final replay on desktop",
+    "Historical affine-basis availability inventory"
+  ]
 }

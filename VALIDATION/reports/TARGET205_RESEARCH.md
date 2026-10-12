@@ -37,6 +37,17 @@ additional production fits and seven-step completion worker are finished.
 Retain every model/prediction and do not repeat them. The separate final route
 now proceeds with saved-model inference; its four-month feature audit is done.
 
+## Actual v80 feedback: fixed geometry closed
+
+Appending the genuinely new v80 vector to the retained51-vector basis projects
+218.619014, a0.233486-second gain. The unchanged quarter-second selection gate
+fails even before serialization; the independent conservative upper bound is
+219.022742. CV289.702019 changes−0.060759, interval[−0.298048,+0.196076].
+No v79 rounding direction or cancelled v75 score was added. All52 official
+scores, full vector joins, expanded SQL score identities and344419 CV rows pass.
+No new candidate number, fit, queue or upload follows. See
+`../runs/v3_20261012_tabm_feedback_geometry/result.json`.
+
 ## Longer TabM training: closed after matched comparison
 
 The fixed24-epoch comparison completed and passed the independent model/SQL audit.

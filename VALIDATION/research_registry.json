@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T10:29:10.700836+00:00",
+  "updated_at": "2026-10-12T10:35:00.344888+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 0,
     "repository": "PRIVATE",
-    "laptop": "Preparing saved-model final inference",
-    "desktop": "Duration closed; production assembly complete"
+    "laptop": "Bounded source-only SMC pilot; final TabM inference complete and returned",
+    "desktop": "Saved public main tree final inference running"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
   "entries": [
@@ -538,11 +538,49 @@
           "sha256": "f2c6fdd38f69d68d75cce380877d538d4118e35b22c50c8888f2f4c6bb0d1f56"
         }
       ]
+    },
+    {
+      "id": "actual_v80_feedback_geometry",
+      "hypothesis": "Recombine retained scored basis with new v80 direction using unchanged bounds/ridge",
+      "status": "closed_no_candidate",
+      "conclusion": "Projected gain0.233486 seconds is below fixed0.25 gate; conservative bound does not improve best. CV change is inconclusive. No version or upload.",
+      "metrics": {
+        "projected_rmse": 218.61901371877863,
+        "conservative_gain": -0.1702415407215767,
+        "cv": 289.7020193943226,
+        "paired": {
+          "change": -0.0607588159680148,
+          "ci95": [
+            -0.29804837317850996,
+            0.19607553748353865
+          ],
+          "decision": "inconclusive"
+        }
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/result.json",
+          "sha256": "f5e2074eb9caa9eb57ca6d5a7d2569c036403c471dcccb79eb0794243c5358ea"
+        }
+      ]
+    },
+    {
+      "id": "annealed_particle_public_inference",
+      "hypothesis": "Adaptive annealed SMC preserves posterior peer dependencies missed by independent prior proposals",
+      "status": "source_only_pilot_running",
+      "conclusion": "Same three frozen input-only cohorts, original finite priors and t5 likelihood. Four512/2048-particle replicates, fixed240-second cap. Exact finite transitions and tempering identities pass; no labels/CV/candidate.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/joint_public_smc_pilot.py",
+          "sha256": "e227793e644e01265884ff791655570dbcc3fe9087658eae895eb3045a22b127"
+        }
+      ]
     }
   ],
   "next": [
-    "Audited saved-model four-month inference and separate final-route preparation",
-    "Evaluate updated score geometry using actual v80 feedback",
-    "Develop distinct supported hypotheses; no redundant controls or uploads"
+    "Complete audited saved-model final inference",
+    "Inventory historical affine components and source constraints before final assembly",
+    "Develop distinct supported hypotheses; no repeated closed geometry"
   ]
 }
