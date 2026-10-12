@@ -1,0 +1,75 @@
+{
+  "design": {
+    "parent": "v79",
+    "original_control": "exact v78",
+    "formula": "round_even(max(0,v79 + fixed_arm_on_v78 - exact_v78))",
+    "coefficient": 1.0,
+    "new_bounds": false,
+    "zero_delta_rows": "exact v79",
+    "purpose": "secondary transport check; retain original and same-machine comparisons",
+    "experiments": {
+      "other_runway": {
+        "directory": "v3_20261012_joint_public_other_runway",
+        "control": "control",
+        "arms": [
+          "candidate"
+        ]
+      }
+    },
+    "no_fit": true,
+    "no_search": true,
+    "no_submission": true,
+    "limitation": "reused development data and fixed additive transport; not independent confirmation"
+  },
+  "experiment": "other_runway",
+  "rows": 344419,
+  "scores": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "candidate": 325.46076737113816
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "candidate": 255.57962131266686
+    }
+  },
+  "cv": {
+    "control": 290.67435711796895,
+    "candidate": 290.52019434190254
+  },
+  "paired": {
+    "candidate": {
+      "change": -0.15416277606644258,
+      "ci95": [
+        -0.30643238381790816,
+        -0.03502208076551421
+      ],
+      "decision": "improvement"
+    }
+  },
+  "all_row_sql_audit": "pass",
+  "exact_v78_control": true,
+  "zero_delta_rows_exact_v79": true,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_other_runway_delta_transport/design.json",
+    "sha256": "f82a06dc4cb2a5a35e03fa0ad4a197dd26375773a15bbfa753abc9ae77e58df9"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/audit.json",
+      "sha256": "1054bfbe919ebedf43ab4e994ed5035b8050bd52bbd5ade025c43bbdd450b839"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/result.json",
+      "sha256": "6ad04715f1a54164d863a32b72d8d19bfa60f08999caf1f545bc8227f1c817b1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/scored.parquet",
+      "sha256": "d37c07d8eb1e2641ff3dd98f3cbcf3232a54f432b86f1f42a56e70f06e1c2d3f"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_other_runway_delta_transport/other_runway/scored.parquet",
+    "sha256": "14b490987e472f9a4ad95481dfbc7d955d62fd2b738905c3591b1b5e9ac0031e"
+  }
+}

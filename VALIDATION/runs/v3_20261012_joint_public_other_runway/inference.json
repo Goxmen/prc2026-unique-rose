@@ -1,0 +1,42 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/identity.json",
+    "sha256": "adf7f1c023d7565f1a96a4014e45fb8980ab3513feb8a4bb2aadc6392c671c37"
+  },
+  "host": "GPC",
+  "seconds": 24.910647410986712,
+  "checks": [
+    {
+      "month": "2025-01",
+      "rows": 11317,
+      "touched": 275,
+      "extra_observation_rows": 145,
+      "old_joint_replay_max_absolute_sec": 1.0913936421275139e-11,
+      "old_joint_replay_atol_sec": 1e-08,
+      "delta_uses_saved_old_joint": true,
+      "no_extra_rows_saved_exact": true
+    },
+    {
+      "month": "2025-07",
+      "rows": 15211,
+      "touched": 2061,
+      "extra_observation_rows": 1455,
+      "old_joint_replay_max_absolute_sec": 2.9103830456733704e-11,
+      "old_joint_replay_atol_sec": 1e-08,
+      "delta_uses_saved_old_joint": true,
+      "no_extra_rows_saved_exact": true
+    }
+  ],
+  "no_label_or_score_values_loaded_or_used": true,
+  "provenance_scope": "Guards hash frozen source/score artifacts; numerical inference loads only input allowlists, public sources, frozen calibration and cached posterior controls.",
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/predictions.parquet",
+      "sha256": "9c68b32257b2b33ff8bb252e08a91701bc359d1469934b50a6e6c2b5cc75bc94"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/cells.parquet",
+      "sha256": "65f3d04ee6ccceb75f0ebe6c3ba85f046ea1a1d828d90457ec8a44ed706d5113"
+    }
+  ]
+}

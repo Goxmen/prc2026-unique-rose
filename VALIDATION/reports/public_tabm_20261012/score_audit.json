@@ -1,0 +1,159 @@
+{
+  "status": "pass",
+  "rows": 344419,
+  "seconds": 0.5233945840154774,
+  "source": {
+    "path": "VALIDATION/tools/audit_public_tabm_scores_20261012.py",
+    "sha256": "507804810af963a847413ac6fde5f965215cc2af886de791c48e3db31785f988"
+  },
+  "helper": {
+    "path": "VALIDATION/tools/audit_public_cohort_scores_20261012.py",
+    "sha256": "ad2f04927bc81e766b1b9428b291fa12963731ea63f32d59d6d52cabd4670af4"
+  },
+  "members": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-01_tabm.json",
+      "sha256": "de792ea70ae9c8ea8ceddaae6604b922e4c9e5ca3697e05c030603d2bafd4373"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-01_control.json",
+      "sha256": "9a4f45400f9149bbec9aaad18806da9106506957e2812af8d5e547361aa871f9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-07_tabm.json",
+      "sha256": "db5d9245cdca9856e15698bd5ec34b48776879fe441026342e95359a43c6a0ff"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-07_control.json",
+      "sha256": "430bc9129739ee348362f0329282faabceac738184d2ee96c3c194e3a9e6460e"
+    }
+  ],
+  "machine": [
+    "GLAPTOP",
+    "NVIDIA GeForce RTX 5060 Laptop GPU"
+  ],
+  "remote_return_receipt": {
+    "path": "tmp/research_20261012/model_diversity/tabm_return_audit.json",
+    "sha256": "8be0fa1bbe319fac4bc5c65eb0655426fd088a721dca70b4287cb362e862bced"
+  },
+  "matrix_scope": {
+    "2025-01": {
+      "record": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-01.pkl",
+        "sha256": "b60ab60fcc058ce3cf8ca5b8488cc7c802c5cc43f8066621833f1ab3417a8bba",
+        "audited_candidate_record": {
+          "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.json",
+          "sha256": "3c582a659a0627c02a9b29404f34a33b7f331f54b7614487f460b1254121d04d"
+        }
+      },
+      "available_on_desktop": false
+    },
+    "2025-07": {
+      "record": {
+        "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-07.pkl",
+        "sha256": "888a51db63d881d247b7d6f89a2014ac0e0865da1fc680d410abd2c5ab8fb835",
+        "audited_candidate_record": {
+          "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.json",
+          "sha256": "6895725874f13b83a901f242734ee2eb31655e6dd93cde1ad218e5e36fe1e8ac"
+        }
+      },
+      "available_on_desktop": false
+    }
+  },
+  "input_validation_scope": "Full training matrix byte hashes and semantic fingerprints were verified on the laptop. This independent desktop audit verifies returned sources, models, predictions, preprocessing, checkpoint receipts and scored arithmetic. It does not claim the desktop training-input guard passed; the unchanged laptop-specific matrix paths are absent locally.",
+  "inputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/portable.json",
+      "sha256": "8938eba291928651c59ee6cad47a0a3a1d920b9ed2b35e387df11946817c1909"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/audit.json",
+      "sha256": "33cdc23414994eb11acd1c13c13ec788c10dbf5933c78c1ef4bc1cc54a4162be"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/result.json",
+      "sha256": "8275186109273df0c87e446dc3f88ad59bc8a7956205ff874005c0177c57c55c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/audit.json",
+      "sha256": "265fd57db8b07620be76a8f9dc0bffd07972ffca92e18947faa9389c0f02a6ee"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/scored.parquet",
+      "sha256": "e41fb29c950566934bdb832c00a1ee6384bc5fb92fce602381a534be42a37196"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_delta_transport/design.json",
+      "sha256": "0781081fc36fc713dbf1d8e532995d007e09a9c0ad2ca6abe465d6dea7b20119"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_delta_transport/tabm/result.json",
+      "sha256": "367e5a70a748257c7bca2851ff13737a3c057b0f4701e26d4190dbf28da49377"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_delta_transport/tabm/scored.parquet",
+      "sha256": "e13266160c558dc4bf683e2b6d1da22fc44ab8c1133f2bf1d5bd0bc3e48310d1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/cv.parquet",
+      "sha256": "8f17490dcefbedc3959a4293b2a68ef7871ecf0d8828d30aad06fefe2299895f"
+    }
+  ],
+  "sql_scores": {
+    "historical_single": {
+      "2025-01": 326.10648980938095,
+      "2025-07": 256.49768721325097
+    },
+    "laptop_control": {
+      "2025-01": 326.49843291970456,
+      "2025-07": 256.6247809407476
+    },
+    "tabm_single": {
+      "2025-01": 325.55059086807455,
+      "2025-07": 255.30876871222642
+    },
+    "selected": {
+      "2025-01": 325.860607626995,
+      "2025-07": 255.9996300885311
+    },
+    "replace_control": {
+      "2025-01": 325.96627776730827,
+      "2025-07": 256.00743569091276
+    },
+    "replace_tabm": {
+      "2025-01": 325.73516630246377,
+      "2025-07": 255.6193428545173
+    }
+  },
+  "sql_transport_scores": {
+    "control": {
+      "2025-01": 325.53087367112914,
+      "2025-07": 255.81784056480876
+    },
+    "replace_tabm": {
+      "2025-01": 325.3587726348833,
+      "2025-07": 255.4087354501978
+    },
+    "replace_control": {
+      "2025-01": 325.6247229707092,
+      "2025-07": 255.8520345727887
+    }
+  },
+  "effects": {
+    "actual_v78_replacement": -0.2528642792725009,
+    "matched_laptop_replacement": -0.3096021506199804,
+    "matched_laptop_single": -1.131927140075561,
+    "historical_machine_execution_single": 0.25951841891009053,
+    "historical_machine_execution_replacement": 0.05673787134747954,
+    "actual_v79_transport": -0.29060307542840746,
+    "matched_laptop_v79_transport": -0.35462472920841037
+  },
+  "full_row_truth_calendar_ids_and_v78_exact": true,
+  "all_row_v79_transport_and_zero_delta_exact": true,
+  "interpretation": "Matched same-laptop contrasts measure the fixed family/decay comparison under common microbatch execution. Historical differences also include GPU/execution effects; they are not a clean architecture estimate. All comparisons reuse development data.",
+  "scope": "Independent artifact binding, SQL error arithmetic and serialization. Inherited corrections are covered by reviewed frozen scorer and exact parent replay, not independently reimplemented. No repeated model inference, fit, bootstrap or independent-confirmation claim."
+}

@@ -1,0 +1,743 @@
+{
+  "status": "complete_source_only_opportunity",
+  "source": {
+    "path": "VALIDATION/joint_public_other_runway_pilot.py",
+    "sha256": "fcae9ae8dccbbc7c217db070c577ccf95c020cc6585d47efb03e0bf5af72b620"
+  },
+  "design": {
+    "path": "tmp/research_20261012/error_mechanisms/other_runway/design.json",
+    "sha256": "e5247d453d92cc79e627beea4f099ce9e5ea368f1e3961f45dd6858f200880a1"
+  },
+  "result": {
+    "path": "tmp/research_20261012/error_mechanisms/other_runway/result.json",
+    "sha256": "b3bd42487ffe2fdb1a8baf68b048160b4fc5de656bc19f7cd2202358febd7dd8"
+  },
+  "seconds": 3.0664758440107107,
+  "incremental_workspace_mib": 51.375,
+  "checks": {
+    "no_extra_exact": true,
+    "disconnected_exact": true,
+    "direct_solve_parity": true,
+    "permutation": true
+  },
+  "months": {
+    "2025-01": {
+      "cohorts": 6,
+      "cohorts_with_extra": 3,
+      "targets": 52,
+      "targets_with_extra": 41,
+      "all": {
+        "delay_peer_variance_covered": {
+          "min": 0.0,
+          "median": 0.06062130185456595,
+          "max": 0.8871858164041657
+        },
+        "delay_variance_reduction": {
+          "min": 0.0,
+          "median": 0.0633257379690355,
+          "max": 0.4908307890529192
+        },
+        "standardized_shift_norm": {
+          "min": 0.0,
+          "median": 0.2740076618083971,
+          "max": 0.7100192927385586
+        },
+        "extra_mahalanobis": {
+          "min": 0.0,
+          "median": 7.167081055921379,
+          "max": 313.4738714325702
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.0,
+          "median": 0.21366421993106163,
+          "max": 0.4615891209249657
+        },
+        "common15_cross_norm": {
+          "min": 0.0,
+          "median": 0.0955125495398916,
+          "max": 0.39854344308999995
+        }
+      },
+      "with_extra": {
+        "delay_peer_variance_covered": {
+          "min": 0.06018824522754138,
+          "median": 0.06086425804294724,
+          "max": 0.8871858164041657
+        },
+        "delay_variance_reduction": {
+          "min": 0.06289972803562659,
+          "median": 0.0635645935257567,
+          "max": 0.4908307890529192
+        },
+        "standardized_shift_norm": {
+          "min": 0.2732618960731414,
+          "median": 0.2744330501052062,
+          "max": 0.7100192927385586
+        },
+        "extra_mahalanobis": {
+          "min": 1.4400256308919828,
+          "median": 7.167081055921379,
+          "max": 313.4738714325702
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.21294435688270621,
+          "median": 0.21406683539649526,
+          "max": 0.4615891209249657
+        },
+        "common15_cross_norm": {
+          "min": 0.09496173398941947,
+          "median": 0.096108589005166,
+          "max": 0.39854344308999995
+        }
+      }
+    },
+    "2025-07": {
+      "cohorts": 6,
+      "cohorts_with_extra": 6,
+      "targets": 114,
+      "targets_with_extra": 114,
+      "all": {
+        "delay_peer_variance_covered": {
+          "min": 0.000235260568147925,
+          "median": 0.349333360505966,
+          "max": 0.8079669498596386
+        },
+        "delay_variance_reduction": {
+          "min": 0.0012235670222381654,
+          "median": 0.22363081987070052,
+          "max": 0.5663660255562827
+        },
+        "standardized_shift_norm": {
+          "min": 0.006245567488439684,
+          "median": 0.22772009019048567,
+          "max": 9.316743670693668
+        },
+        "extra_mahalanobis": {
+          "min": 0.3204742928952763,
+          "median": 0.5478514746070224,
+          "max": 283.82066808858235
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.0,
+          "median": 0.30166478974820643,
+          "max": 0.6405095024936464
+        },
+        "common15_cross_norm": {
+          "min": 0.04586849065111621,
+          "median": 0.0780561917231615,
+          "max": 0.19972292788429902
+        }
+      },
+      "with_extra": {
+        "delay_peer_variance_covered": {
+          "min": 0.000235260568147925,
+          "median": 0.349333360505966,
+          "max": 0.8079669498596386
+        },
+        "delay_variance_reduction": {
+          "min": 0.0012235670222381654,
+          "median": 0.22363081987070052,
+          "max": 0.5663660255562827
+        },
+        "standardized_shift_norm": {
+          "min": 0.006245567488439684,
+          "median": 0.22772009019048567,
+          "max": 9.316743670693668
+        },
+        "extra_mahalanobis": {
+          "min": 0.3204742928952763,
+          "median": 0.5478514746070224,
+          "max": 283.82066808858235
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.0,
+          "median": 0.30166478974820643,
+          "max": 0.6405095024936464
+        },
+        "common15_cross_norm": {
+          "min": 0.04586849065111621,
+          "median": 0.0780561917231615,
+          "max": 0.19972292788429902
+        }
+      }
+    }
+  },
+  "cohorts": [
+    {
+      "month": "2025-01",
+      "local_day": "2025-01-02",
+      "runway": "25",
+      "assigned_day": "2025-01-02",
+      "extra_runways": [],
+      "extra_cells": 0,
+      "delay_rows": 418,
+      "target_taxi_rows": 398,
+      "extra_taxi_rows": 0,
+      "extra_shared_delay_rows": 0,
+      "full_correlation_condition": 22.853554537298834,
+      "targets": 8,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "delay_variance_reduction": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "standardized_shift_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "extra_mahalanobis": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "common15_cross_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "month": "2025-01",
+      "local_day": "2025-01-06",
+      "runway": "25",
+      "assigned_day": "2025-01-06",
+      "extra_runways": [
+        "16R"
+      ],
+      "extra_cells": 1,
+      "delay_rows": 428,
+      "target_taxi_rows": 172,
+      "extra_taxi_rows": 259,
+      "extra_shared_delay_rows": 259,
+      "full_correlation_condition": 6.929753703799554,
+      "targets": 3,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.8742531008951044,
+          "median": 0.8802933356838593,
+          "max": 0.8871858164041657
+        },
+        "delay_variance_reduction": {
+          "min": 0.48481687947289415,
+          "median": 0.4876292081804191,
+          "max": 0.4908307890529192
+        },
+        "standardized_shift_norm": {
+          "min": 0.6947523935690431,
+          "median": 0.7018146606823361,
+          "max": 0.7100192927385586
+        },
+        "extra_mahalanobis": {
+          "min": 313.4738714325702,
+          "median": 313.4738714325702,
+          "max": 313.4738714325702
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.458752592636133,
+          "median": 0.46008123603846257,
+          "max": 0.4615891209249657
+        },
+        "common15_cross_norm": {
+          "min": 0.30833155566822,
+          "median": 0.3103334882884537,
+          "max": 0.31264630386771386
+        }
+      }
+    },
+    {
+      "month": "2025-01",
+      "local_day": "2025-01-13",
+      "runway": "34L",
+      "assigned_day": "2025-01-13",
+      "extra_runways": [
+        "25"
+      ],
+      "extra_cells": 1,
+      "delay_rows": 380,
+      "target_taxi_rows": 344,
+      "extra_taxi_rows": 36,
+      "extra_shared_delay_rows": 35,
+      "full_correlation_condition": 3.4064046094823595,
+      "targets": 25,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.06018824522754138,
+          "median": 0.0605210003346436,
+          "max": 0.21510400812121389
+        },
+        "delay_variance_reduction": {
+          "min": 0.06289972803562659,
+          "median": 0.06322710479699849,
+          "max": 0.1954766343223417
+        },
+        "standardized_shift_norm": {
+          "min": 0.2732618960731414,
+          "median": 0.27383629387583214,
+          "max": 0.6538943097192598
+        },
+        "extra_mahalanobis": {
+          "min": 7.167081055921379,
+          "median": 7.167081055921379,
+          "max": 7.167081055921379
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.21294435688270621,
+          "median": 0.21349779774656355,
+          "max": 0.37539560016586554
+        },
+        "common15_cross_norm": {
+          "min": 0.09496173398941947,
+          "median": 0.0953985633357859,
+          "max": 0.108529833699046
+        }
+      }
+    },
+    {
+      "month": "2025-01",
+      "local_day": "2025-01-19",
+      "runway": "16R",
+      "assigned_day": "2025-01-19",
+      "extra_runways": [
+        "25"
+      ],
+      "extra_cells": 1,
+      "delay_rows": 370,
+      "target_taxi_rows": 120,
+      "extra_taxi_rows": 248,
+      "extra_shared_delay_rows": 248,
+      "full_correlation_condition": 19.128259680246465,
+      "targets": 13,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.2329392868904581,
+          "median": 0.2374507322997246,
+          "max": 0.2698703066007255
+        },
+        "delay_variance_reduction": {
+          "min": 0.3205208170720886,
+          "median": 0.325277828958895,
+          "max": 0.3582580191841294
+        },
+        "standardized_shift_norm": {
+          "min": 0.2877486236255768,
+          "median": 0.28828939533888454,
+          "max": 0.29513207043591394
+        },
+        "extra_mahalanobis": {
+          "min": 1.4400256308919828,
+          "median": 1.4400256308919828,
+          "max": 1.4400256308919828
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.22963940953589315,
+          "median": 0.2313372306113342,
+          "max": 0.24278187497299544
+        },
+        "common15_cross_norm": {
+          "min": 0.37372064031308844,
+          "median": 0.37666590611527956,
+          "max": 0.39854344308999995
+        }
+      }
+    },
+    {
+      "month": "2025-01",
+      "local_day": "2025-01-24",
+      "runway": "25",
+      "assigned_day": "2025-01-23",
+      "extra_runways": [],
+      "extra_cells": 0,
+      "delay_rows": 339,
+      "target_taxi_rows": 362,
+      "extra_taxi_rows": 0,
+      "extra_shared_delay_rows": 0,
+      "full_correlation_condition": 2.047036082410989,
+      "targets": 1,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "delay_variance_reduction": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "standardized_shift_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "extra_mahalanobis": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "common15_cross_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "month": "2025-01",
+      "local_day": "2025-01-30",
+      "runway": "25",
+      "assigned_day": "2025-01-30",
+      "extra_runways": [],
+      "extra_cells": 0,
+      "delay_rows": 351,
+      "target_taxi_rows": 335,
+      "extra_taxi_rows": 0,
+      "extra_shared_delay_rows": 0,
+      "full_correlation_condition": 7.1594078328250506,
+      "targets": 2,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "delay_variance_reduction": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "standardized_shift_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "extra_mahalanobis": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "common15_cross_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "month": "2025-07",
+      "local_day": "2025-07-02",
+      "runway": "16R",
+      "assigned_day": "2025-07-02",
+      "extra_runways": [
+        "25"
+      ],
+      "extra_cells": 1,
+      "delay_rows": 482,
+      "target_taxi_rows": 29,
+      "extra_taxi_rows": 445,
+      "extra_shared_delay_rows": 445,
+      "full_correlation_condition": 4.915873019719011,
+      "targets": 5,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.5592817518590728,
+          "median": 0.5630725632302895,
+          "max": 0.5806194546415502
+        },
+        "delay_variance_reduction": {
+          "min": 0.3876038765852973,
+          "median": 0.3899952862940424,
+          "max": 0.4010270936854657
+        },
+        "standardized_shift_norm": {
+          "min": 0.5283538887401391,
+          "median": 0.5304585113876467,
+          "max": 0.5364086801554862
+        },
+        "extra_mahalanobis": {
+          "min": 0.7468690785325929,
+          "median": 0.7468690785325929,
+          "max": 0.7468690785325929
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.41070534731216285,
+          "median": 0.41197036882996346,
+          "max": 0.4177564450222425
+        },
+        "common15_cross_norm": {
+          "min": 0.1934106948451244,
+          "median": 0.1951926284812836,
+          "max": 0.19972292788429902
+        }
+      }
+    },
+    {
+      "month": "2025-07",
+      "local_day": "2025-07-07",
+      "runway": "25",
+      "assigned_day": "2025-07-06",
+      "extra_runways": [
+        "16R"
+      ],
+      "extra_cells": 1,
+      "delay_rows": 515,
+      "target_taxi_rows": 474,
+      "extra_taxi_rows": 30,
+      "extra_shared_delay_rows": 2,
+      "full_correlation_condition": 1.9930763310801152,
+      "targets": 3,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.00042621873984307365,
+          "median": 0.0004403433055288844,
+          "max": 0.00047108717309004693
+        },
+        "delay_variance_reduction": {
+          "min": 0.0012235670222381654,
+          "median": 0.0012591786777422182,
+          "max": 0.0013357384227480967
+        },
+        "standardized_shift_norm": {
+          "min": 0.006245567488439684,
+          "median": 0.006278617006828501,
+          "max": 0.0063981576097705065
+        },
+        "extra_mahalanobis": {
+          "min": 2.9154944834924623,
+          "median": 2.9154944834924623,
+          "max": 2.9154944834924623
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.0006325617653258597,
+          "median": 0.0006417010303736765,
+          "max": 0.0006609213259923316
+        },
+        "common15_cross_norm": {
+          "min": 0.06317170489365208,
+          "median": 0.06404068841007518,
+          "max": 0.06414472079756164
+        }
+      }
+    },
+    {
+      "month": "2025-07",
+      "local_day": "2025-07-13",
+      "runway": "25",
+      "assigned_day": "2025-07-13",
+      "extra_runways": [
+        "16R"
+      ],
+      "extra_cells": 1,
+      "delay_rows": 485,
+      "target_taxi_rows": 184,
+      "extra_taxi_rows": 238,
+      "extra_shared_delay_rows": 238,
+      "full_correlation_condition": 7.276299661436672,
+      "targets": 43,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.6934806301801925,
+          "median": 0.6944858685969196,
+          "max": 0.6996385244764954
+        },
+        "delay_variance_reduction": {
+          "min": 0.508513438528061,
+          "median": 0.5092472004778317,
+          "max": 0.5130081691418599
+        },
+        "standardized_shift_norm": {
+          "min": 9.280013031422255,
+          "median": 9.28007974778445,
+          "max": 9.316743670693668
+        },
+        "extra_mahalanobis": {
+          "min": 283.82066808858235,
+          "median": 283.82066808858235,
+          "max": 283.82066808858235
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.6376974114369656,
+          "median": 0.638157329883596,
+          "max": 0.6405095024936464
+        },
+        "common15_cross_norm": {
+          "min": 0.04586849065111621,
+          "median": 0.046224051635609345,
+          "max": 0.04759460047564396
+        }
+      }
+    },
+    {
+      "month": "2025-07",
+      "local_day": "2025-07-19",
+      "runway": "25",
+      "assigned_day": "2025-07-19",
+      "extra_runways": [
+        "16R"
+      ],
+      "extra_cells": 1,
+      "delay_rows": 469,
+      "target_taxi_rows": 441,
+      "extra_taxi_rows": 27,
+      "extra_shared_delay_rows": 27,
+      "full_correlation_condition": 6.334287600761759,
+      "targets": 53,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.11829716057755524,
+          "median": 0.11913069392593668,
+          "max": 0.13938496915285908
+        },
+        "delay_variance_reduction": {
+          "min": 0.051425255705147804,
+          "median": 0.051755553692278855,
+          "max": 0.05965776315610374
+        },
+        "standardized_shift_norm": {
+          "min": 0.13413188371691423,
+          "median": 0.1343562057283502,
+          "max": 0.14870564984579765
+        },
+        "extra_mahalanobis": {
+          "min": 0.5478514746070224,
+          "median": 0.5478514746070224,
+          "max": 0.5478514746070224
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.17884041447372845,
+          "median": 0.17941383001327219,
+          "max": 0.19262423218424995
+        },
+        "common15_cross_norm": {
+          "min": 0.07790769637710232,
+          "median": 0.07820330850023412,
+          "max": 0.07943533220715926
+        }
+      }
+    },
+    {
+      "month": "2025-07",
+      "local_day": "2025-07-25",
+      "runway": "16R",
+      "assigned_day": "2025-07-25",
+      "extra_runways": [
+        "25"
+      ],
+      "extra_cells": 1,
+      "delay_rows": 505,
+      "target_taxi_rows": 34,
+      "extra_taxi_rows": 469,
+      "extra_shared_delay_rows": 463,
+      "full_correlation_condition": 9.894344661194983,
+      "targets": 9,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.7885445149101263,
+          "median": 0.7948321471035891,
+          "max": 0.8079669498596386
+        },
+        "delay_variance_reduction": {
+          "min": 0.55427291148979,
+          "median": 0.5581951012559527,
+          "max": 0.5663660255562827
+        },
+        "standardized_shift_norm": {
+          "min": 0.3067345305351737,
+          "median": 0.3067970800738477,
+          "max": 0.30695518871792027
+        },
+        "extra_mahalanobis": {
+          "min": 0.3204742928952763,
+          "median": 0.3204742928952763,
+          "max": 0.3204742928952763
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.5083218268889018,
+          "median": 0.5101171699362425,
+          "max": 0.5138371828962218
+        },
+        "common15_cross_norm": {
+          "min": 0.1944930567008479,
+          "median": 0.19576563977074507,
+          "max": 0.19867393931106445
+        }
+      }
+    },
+    {
+      "month": "2025-07",
+      "local_day": "2025-07-31",
+      "runway": "25",
+      "assigned_day": "2025-07-30",
+      "extra_runways": [
+        "16R"
+      ],
+      "extra_cells": 1,
+      "delay_rows": 491,
+      "target_taxi_rows": 473,
+      "extra_taxi_rows": 27,
+      "extra_shared_delay_rows": 1,
+      "full_correlation_condition": 2.1624010139548058,
+      "targets": 1,
+      "summaries": {
+        "delay_peer_variance_covered": {
+          "min": 0.000235260568147925,
+          "median": 0.000235260568147925,
+          "max": 0.000235260568147925
+        },
+        "delay_variance_reduction": {
+          "min": 0.0029532517410502876,
+          "median": 0.0029532517410502876,
+          "max": 0.0029532517410502876
+        },
+        "standardized_shift_norm": {
+          "min": 0.05461143436500115,
+          "median": 0.05461143436500115,
+          "max": 0.05461143436500115
+        },
+        "extra_mahalanobis": {
+          "min": 4.247546130918528,
+          "median": 4.247546130918528,
+          "max": 4.247546130918528
+        },
+        "shared_flight_cross_norm": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "common15_cross_norm": {
+          "min": 0.10550097933913309,
+          "median": 0.10550097933913309,
+          "max": 0.10550097933913309
+        }
+      }
+    }
+  ],
+  "conclusion": "Extra same-day runway observations exist in 9 of 12 fixed cohorts and cover 155 of 166 targets. Target-weighted median delay-variance contraction is 6.33% in January and 22.36% in July. Two 2D extra innovations have squared Mahalanobis distances 313.47 and 283.82; the July 13 cohort induces a median 9.28-standard-deviation 3D mean shift while contracting delay variance by 50.9%. This is a material overconfidence risk. No posterior or score gain has been calculated; cross-runway source-error covariance is uncalibrated.",
+  "independent_static_review": {
+    "reviewer": "model_diversity",
+    "status": "pass",
+    "scope": "Original 3D assembly/noise, complete extra taxi memberships, shared-flight versus common covariance, target removal and Schur/no-extra/disconnected identities."
+  }
+}

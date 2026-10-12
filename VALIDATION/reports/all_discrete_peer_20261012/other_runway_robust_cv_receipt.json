@@ -1,0 +1,119 @@
+{
+  "status": "fixed_cv_screen_passed_internal_audits_independent_block_audit_pending",
+  "formula": "w=min(1,(5+k)/(3+q)); robust Schur moments; original3D t5; half(newjoint-savedoldjoint) on exactv78",
+  "source_review": "Root and model_diversity reviewed core, runner, isolated transport and final pre-freeze portability guard.",
+  "review_history": "Plain Gaussian pilot rejected before scoring. Initial unexecuted5+q denominator corrected to variance-matched3+q before robust freeze; no scans or outcome-driven thresholds.",
+  "sources": [
+    {
+      "path": "VALIDATION/joint_public_other_runway.py",
+      "sha256": "e12479a286f7f4445e399a921d48aea0ca0e3fd6a11d7cf3e264fac970274321"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway_cv.py",
+      "sha256": "458c39150969ae726ad87c638affbd1c14edaeb1fe9eb0a71b89c05c6da825ae"
+    },
+    {
+      "path": "VALIDATION/other_runway_v79_transport.py",
+      "sha256": "03e7b812cd05141f4c69dd31572ff604e99db90a271583f4369012e8fa71f595"
+    }
+  ],
+  "receipts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/identity.json",
+      "sha256": "adf7f1c023d7565f1a96a4014e45fb8980ab3513feb8a4bb2aadc6392c671c37"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/ready.json",
+      "sha256": "315851ce5f69b05606ab2e2d771cac34b447766f1919ca779cf1343e0f0630da"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/checks.json",
+      "sha256": "8bf67b55f0b167354890a5bc3a5005316b5fa28392c7fdb1435fc9803b727583"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/inference.json",
+      "sha256": "e25be768973fe2a3b1691c99f8c034a357161494d2a890b27d5d98823eb64aa2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/result.json",
+      "sha256": "6ad04715f1a54164d863a32b72d8d19bfa60f08999caf1f545bc8227f1c817b1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/audit.json",
+      "sha256": "1054bfbe919ebedf43ab4e994ed5035b8050bd52bbd5ade025c43bbdd450b839"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_other_runway_delta_transport/design.json",
+      "sha256": "f82a06dc4cb2a5a35e03fa0ad4a197dd26375773a15bbfa753abc9ae77e58df9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_other_runway_delta_transport/other_runway/result.json",
+      "sha256": "62af8c62d5be3a1013e5d8325596a21d8f3b293ed123347784a0254bf3d167db"
+    }
+  ],
+  "cv": {
+    "control": 290.93011885776303,
+    "candidate": 290.7934734354418
+  },
+  "paired": {
+    "change": -0.1366454223212088,
+    "ci95": [
+      -0.2817051341611968,
+      -0.020364635860583416
+    ],
+    "decision": "improvement"
+  },
+  "monthly": {
+    "2025-01": {
+      "control": 325.860607626995,
+      "candidate": 325.7986999518615
+    },
+    "2025-07": {
+      "control": 255.9996300885311,
+      "candidate": 255.78824691902213
+    }
+  },
+  "v79_cv": {
+    "control": 290.67435711796895,
+    "candidate": 290.52019434190254
+  },
+  "v79_paired": {
+    "candidate": {
+      "change": -0.15416277606644258,
+      "ci95": [
+        -0.30643238381790816,
+        -0.03502208076551421
+      ],
+      "decision": "improvement"
+    }
+  },
+  "active_rows": 1600,
+  "changed_rows": 1179,
+  "inference_seconds": 24.910647410986712,
+  "floating_replay": [
+    {
+      "month": "2025-01",
+      "rows": 11317,
+      "touched": 275,
+      "extra_observation_rows": 145,
+      "old_joint_replay_max_absolute_sec": 1.0913936421275139e-11,
+      "old_joint_replay_atol_sec": 1e-08,
+      "delta_uses_saved_old_joint": true,
+      "no_extra_rows_saved_exact": true
+    },
+    {
+      "month": "2025-07",
+      "rows": 15211,
+      "touched": 2061,
+      "extra_observation_rows": 1455,
+      "old_joint_replay_max_absolute_sec": 2.9103830456733704e-11,
+      "old_joint_replay_atol_sec": 1e-08,
+      "delta_uses_saved_old_joint": true,
+      "no_extra_rows_saved_exact": true
+    }
+  ],
+  "scopes": "Only existing long-gap Rome touched population; original supports/calibration/quality/months unchanged. Full same-local-day other-runway taxi cells intersecting assigned delay cohort.",
+  "interpretation": "Exploratory gain on repeatedly reused Jan/Jul development data. Hybrid covariance approximation, uncertain cross-runway source-error dependence; no independent confirmation or official-score claim.",
+  "production": false,
+  "upload": false
+}

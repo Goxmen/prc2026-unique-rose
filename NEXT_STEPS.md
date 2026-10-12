@@ -35,16 +35,23 @@ objective records the user's current 205 target.
 
 Current work:
 
-- **Laptop GPU:** full-input physical-track TabM (168 tabular inputs, 32 heads),
-  seed42, fixed 21/17 epochs, against same-laptop original-network controls.
-  Four fits run sequentially; preflight and independent loss/update/stack review
-  pass. See `v3_20261012_nn_public_tabm/`. No HPO or extra seeds are authorized
-  by this design; preserve completed checkpoints and preprocessing.
-- **Desktop:** fixed linear-leaf comparison started at 04:01, PID1349929.
-  Both original 184-column input/scaler views pass. The first command stops
-  after the saved January constant-control record, allowing TabM scoring on
-  the desktop before resuming the other three arms. The pause amendment was
-  reviewed and refrozen before any fit; original sources/designs are retained.
+- **TabM passed:** all four laptop fits and independent score audits are
+  complete. One-of-three replacement improves v78 by 0.252864 seconds and the
+  fixed v79 comparison by 0.290603, interval [−0.421282, −0.206950], with both
+  months better. A single seed-42 full-year replacement is being prepared for
+  the laptop; retain the other two members. No production fit or upload yet.
+  See `PUBLIC_TABM_RESULT_20261012.json` for the separate machine/execution
+  difference and desktop path-only training-guard limitation.
+- **Other-runway totals:** the fixed robust message improves v78 by 0.136645
+  seconds and v79 by 0.154163, interval [−0.306432, −0.035022], with both months
+  better. All-row score checks pass; an independent block-solve audit is underway.
+  No production inference or upload yet. The joint combination with TabM is
+  unscored; individual gains need not add.
+- **Desktop linear-leaf comparison:** January's constant control is saved,
+  with exact reload of all 153,706 held predictions. It took 16.93 minutes to
+  train and 3.41 minutes for inference/reload. The other three arms resume
+  after the short source audit. The pause amendment was reviewed and refrozen
+  before any fit; original sources/designs remain under `prefit_v1/`.
 - **Paired-flight context: closed.** Both fits and all-row audits pass, but
   v78 improves only 0.03275 seconds and v79 only 0.02112, with both intervals
   spanning zero. No extra seeds, production fit or upload follow.

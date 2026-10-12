@@ -1,0 +1,232 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/portable.json",
+    "sha256": "8938eba291928651c59ee6cad47a0a3a1d920b9ed2b35e387df11946817c1909"
+  },
+  "design": {
+    "parent": "exactv78 selected complete stack",
+    "model": {
+      "original_columns": 156,
+      "public_columns": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "public_transform": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "track": "unchanged physical CNN, masked mean/max64",
+      "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+      "k": 32,
+      "n_blocks": 2,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "normal",
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "loss": "mean squared error over rows AND individual32 heads",
+      "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+      "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+    },
+    "control": "same-laptop original public/physical PLE seed42, same microbatch execution",
+    "seed": 42,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "schedule_epochs": 24,
+    "effective_batch": 2048,
+    "microbatch": 512,
+    "loss_weighting": "microbatch row count / actual logical batch count; one optimizer/scheduler update",
+    "optimizer": "AdamW lr.002; fixed original TabM wd.0003, original N09 control wd.00001",
+    "raw_label_cap": 10800.0,
+    "public_transform": "unchanged12, appended after exact original156 encoder",
+    "sequence": "unchanged audited physical scales and original sparse selection",
+    "inference_chunk": 512,
+    "monitoring": "no per-epoch held inference; fixed train epochs; final mean only",
+    "primary": "one-of-three replacement in exactv78 versus selected pool",
+    "fair_control": "same-laptop candidate/control single and one-of-three replacements",
+    "caveat": "architecture family screen includes fixed architecture-specific decay and microbatch dropout trajectory",
+    "no_hpo": true,
+    "no_weight_search": true,
+    "no_new_gate": true,
+    "no_extra_seed": true,
+    "no_upload": true,
+    "evidence": "extensively reused development months, not independent confirmation"
+  },
+  "month": "2025-07",
+  "arm": "control",
+  "seed": 42,
+  "epochs": 17,
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-07.pkl",
+      "sha256": "888a51db63d881d247b7d6f89a2014ac0e0865da1fc680d410abd2c5ab8fb835",
+      "audited_candidate_record": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.json",
+        "sha256": "6895725874f13b83a901f242734ee2eb31655e6dd93cde1ad218e5e36fe1e8ac"
+      }
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+      "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+    },
+    "rows": 1140233,
+    "held_rows": 190713,
+    "reference_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.json",
+      "sha256": "c70cea646789fdccd2584f95eca80f072a3666a3dc59888c3e5765eb23bea817"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/models/2025-07_control.pt",
+    "sha256": "a3dfcd26fbf2320cdddbc6b5e66d0fb654b1636207f74169065991d39fd91115"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-07_control.parquet",
+    "sha256": "2384eda14c71da8a9efb20a4a507b25408236d901442c7e8f8bb7bfe94bc98b6"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+    "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+  },
+  "checkpoint": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/trained/2025-07_control.json",
+    "sha256": "8d145c6735ecab4a41c83b876aeb757a5688b541e2bb766b51a762f9f8284941"
+  },
+  "train_rows": 1140233,
+  "held_rows": 190713,
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.34319102470112045,
+      "seconds": 39.60514447999594
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.24438846744068957,
+      "seconds": 38.22083787200245
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.21557819756164392,
+      "seconds": 41.7982365459975
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.1995902430292583,
+      "seconds": 40.01694553199923
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.1872110213626835,
+      "seconds": 36.55053505199612
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.19044242733070402,
+      "seconds": 41.67952322199562
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.1764068228235998,
+      "seconds": 40.3777267559999
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.16731650445710386,
+      "seconds": 37.456895713999984
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.1613877348557627,
+      "seconds": 42.42231418099982
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.1551824083630955,
+      "seconds": 38.91271496399713
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.1499094163959947,
+      "seconds": 38.06076077599573
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.1397493156851886,
+      "seconds": 40.4353529229993
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.13464471859774665,
+      "seconds": 40.622223008998844
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.13152238064279637,
+      "seconds": 38.49351509100234
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.12317409497324343,
+      "seconds": 42.75910715799546
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.11484787451786603,
+      "seconds": 37.591284018002625
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.11090955431688264,
+      "seconds": 40.10095369800547
+    }
+  ],
+  "all_held_reloaded_exact": true,
+  "host": "GLAPTOP",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.14.1+cu130"
+}

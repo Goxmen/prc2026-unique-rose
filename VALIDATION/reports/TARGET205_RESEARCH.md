@@ -52,7 +52,7 @@ declared source hash passes independent geometry and final-file checks. See
 
 ## New experiments
 
-**Laptop: full-input physical TabM.** The fixed model has the original 156
+**Full-input physical TabM: positive fixed comparison, production preparation.** The fixed model has the original 156
 tabular inputs plus twelve public inputs, the retained physical-track encoder,
 and 32 TabM heads with two 512-wide layers. Per-head MSE is averaged over rows
 and heads; inference averages heads. Microbatches of 512 preserve effective
@@ -62,10 +62,27 @@ fits and two same-laptop original-network controls run sequentially. No search,
 held-out stopping or additional seeds is part of this comparison. Independent
 review passes loss, update, preprocessing and exact-v78 scoring, with a fixed
 parent-result hash check added before acceptance. CPU/CUDA preflight passed;
-actual first updates use 3.64 GiB of GPU memory. The four-fit worker started
-encoding at 02:39 on the laptop, PID14874. Reuse the existing verified cache;
-only 60.25 MB of missing compact inputs/sources was transferred. Artifacts:
-`../runs/v3_20261012_nn_public_tabm/`.
+actual first updates use 3.64 GiB of GPU memory. The four-fit worker ran on the
+laptop from 02:39 to 04:24, with 98.4 minutes of epoch training. Only 60.25 MB
+of missing compact inputs/sources was transferred; the existing cache was
+reused. All four saved models reproduce every held prediction. Replacing one
+of the three physical members improves v78 CV 290.930119→290.677255,
+−0.252864 seconds, interval [−0.367777, −0.173798]. The fixed v79 transport
+improves 290.674357→290.383754, −0.290603 seconds, interval
+[−0.421282, −0.206950]; January improves 0.172101 and July 0.409105. The
+same-laptop single-family comparison improves 1.131927 seconds. Historical
+desktop versus matched laptop control differs by +0.259518 seconds as a single
+member, so that execution difference is kept separate from the model comparison.
+
+All 344,419 scored rows pass the independent SQL, identity, truth, calendar,
+parent replay and transport audit. The laptop training-input hashes pass.
+The desktop training guard fails because a frozen laptop-specific cache path
+is absent locally; it was not patched or claimed to pass. Returned artifacts
+and semantic fingerprints are verified. These are single-seed results on
+reused development data, not a demonstrated official gain. One seed-42
+full-year replacement is being prepared, retaining the other two physical
+members. No production fit or upload has started. See
+`PUBLIC_TABM_RESULT_20261012.json` and `../runs/v3_20261012_nn_public_tabm/`.
 
 **Original flight-plan timestamp phases: closed.** Seven fixed additions to
 the selected 184-input main LightGBM are the seconds of minute of AOBT3, LOBT,
@@ -131,6 +148,58 @@ enumeration and saved-error arithmetic pass. This closes the tested design,
 with no real-cohort inference, held score, tuning or upload. Retained evidence:
 `all_discrete_peer_20261012/ep_toy_closure.json`.
 
+**Other-runway observations: positive robust comparison, production preparation.** This adds
+information rather than changing the discrete inference solver. The selected
+joint message sees only the query's own runway taxi count/sum and its assigned
+day's airport departure-delay total. Other runway totals can constrain peers
+inside that same delay total. Earlier calendar and discrete-peer tests do not
+add these observations.
+
+A frozen input-only pilot selects six existing cohorts per month before reading
+the added-source residuals. It runs in 3.07 seconds with 51.4 MiB additional
+memory. Nine of twelve cohorts have an eligible extra runway, covering 155 of
+166 sampled targets. Median target-weighted delay-variance contraction is
+6.33% in January and 22.36% in July under the proposed Gaussian conditioning.
+These are sampled model-information diagnostics, not measured prediction gains.
+Every original three-coordinate covariance block, target subtraction and
+no-extra/disconnected/positive-definite check passes.
+
+The plain Gaussian proposal is rejected before CV: two added-source squared
+Mahalanobis residuals are 313.47 and 283.82, and one induced standardized mean
+shift has norm 9.28. Retaining the original Student likelihood afterwards would
+not repair an already excessive shift. A single robust alternative is being
+prepared, with weight `min(1, (5+k)/(3+q))`, where `k` is the added dimension and
+`q` its original predictive Mahalanobis residual. This is the variance-matched
+t5 score weight with a conservative cap, used for a Gaussian Schur update;
+it is explicitly an approximation, not exact Student conditioning. The earlier
+unexecuted `5+q` denominator was corrected during mathematical review before
+freezing or any posterior calculation. No weight search is planned.
+
+The weight can suppress useful evidence when the prior is wrong; one anomalous
+cell also weakens the whole added set. Exact disconnected recovery applies to
+an entirely zero-cross-covariance added set, not to appending disconnected
+blocks alongside informative ones. Cross-runway reporting-error correlations
+remain uncalibrated. The selected supports, source scopes, original t5 message,
+half-delta transfer and final corrections remain fixed.
+
+The frozen comparison completes inference in 24.91 seconds. Exact-v78 CV
+improves 290.930119→290.793473, −0.136645 seconds, interval
+[−0.281705, −0.020365]. The fixed v79 transport improves
+290.674357→290.520194, −0.154163 seconds, interval [−0.306432, −0.035022],
+with both months better. Extra evidence covers 1,600 targets and changes 1,179
+serialized predictions. The cached integer v78 control replays exactly;
+floating old-posterior replay differs by at most 2.91e−11 seconds, within the
+1e−8 tolerance fixed before inference. Deltas use the saved old posterior.
+
+All-row score/source checks and a separate six-target block-solve audit pass.
+The latter independently assembles shared-flight covariance and support
+likelihoods, agreeing within 1.14e−11 seconds. Production preparation reuses
+the existing 26,899-row Rome ranking packet and full-year calibration, with
+no downloads or taxi-model fits. A separately frozen additive combination
+with TabM is being prepared; this is post-selection development evidence and
+the individual gains need not add. No production file or upload exists yet.
+Evidence is under `all_discrete_peer_20261012/other_runway_*`.
+
 **Linear-leaf trees: resource preflight passed; full comparison authorized.** A newly updated
 [joyous-rainbow solution](https://github.com/radekacar/joyous-rainbow/tree/dbe1eded734da48bdad7cc11b741028794316179)
 reports gains from linear leaves on a substantially weaker, different pipeline.
@@ -155,11 +224,14 @@ a fresh standardized constant-leaf control and its linear-leaf counterpart,
 with 10,000 rounds and the original settings. Expected total runtime is roughly
 1.3–2.5 hours before allowing for full inference, with substantial uncertainty
 from extrapolating early-tree costs. No held score was read in either probe.
-Both full input/scaler views pass; the first fit started at 04:01 on the desktop,
-PID1349929. A reviewed operational option stops after each requested number of
-newly saved model/prediction records, preserving the four-fit order and resume
-behavior. The first January constant control will release the desktop for TabM
-scoring before the remaining three arms. Previous frozen designs and source
+Both full input/scaler views pass. January's constant control completed on the
+desktop, taking 16.93 minutes for training and 3.41 minutes for full inference
+and exact saved-model reload. Its 10,000-round model and all 153,706 held
+predictions are retained. A reviewed operational option stops after each
+requested number of newly saved model/prediction records, preserving fit order
+and resume behavior. The desktop was released for the completed TabM audit
+and the short other-runway comparison before the remaining three arms.
+Previous frozen designs and source
 versions remain under `v3_20261012_linear_leaf_main/prefit_v1/`; all scientific
 choices are unchanged and were refrozen before any fit.
 No public code was executed or copied. See

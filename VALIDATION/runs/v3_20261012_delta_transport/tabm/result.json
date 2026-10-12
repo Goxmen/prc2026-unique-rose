@@ -1,0 +1,94 @@
+{
+  "design": {
+    "parent": "v79",
+    "original_control": "exact v78",
+    "formula": "round_even(max(0,v79 + fixed_arm_on_v78 - exact_v78))",
+    "coefficient": 1.0,
+    "new_bounds": false,
+    "zero_delta_rows": "exact v79",
+    "purpose": "secondary transport check; retain original and same-machine comparisons",
+    "experiments": {
+      "phase": {
+        "directory": "v3_20261012_source_clock_phase_lgb",
+        "control": "control",
+        "arms": [
+          "candidate"
+        ]
+      },
+      "tabm": {
+        "directory": "v3_20261012_nn_public_tabm_stack",
+        "control": "selected",
+        "arms": [
+          "replace_tabm",
+          "replace_control"
+        ]
+      }
+    },
+    "no_fit": true,
+    "no_search": true,
+    "no_submission": true,
+    "limitation": "reused development data and fixed additive transport; not independent confirmation"
+  },
+  "experiment": "tabm",
+  "rows": 344419,
+  "scores": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "replace_tabm": 325.3587726348833,
+      "replace_control": 325.6247229707092
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "replace_tabm": 255.4087354501978,
+      "replace_control": 255.8520345727887
+    }
+  },
+  "cv": {
+    "control": 290.67435711796895,
+    "replace_tabm": 290.38375404254055,
+    "replace_control": 290.73837877174896
+  },
+  "paired": {
+    "replace_tabm": {
+      "change": -0.29060307542840746,
+      "ci95": [
+        -0.42128220184296516,
+        -0.20695021184214113
+      ],
+      "decision": "improvement"
+    },
+    "replace_control": {
+      "change": 0.0640216537799887,
+      "ci95": [
+        -0.006138410021617346,
+        0.13883301547238883
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "all_row_sql_audit": "pass",
+  "exact_v78_control": true,
+  "zero_delta_rows_exact_v79": true,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_delta_transport/design.json",
+    "sha256": "0781081fc36fc713dbf1d8e532995d007e09a9c0ad2ca6abe465d6dea7b20119"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/audit.json",
+      "sha256": "265fd57db8b07620be76a8f9dc0bffd07972ffca92e18947faa9389c0f02a6ee"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/result.json",
+      "sha256": "8275186109273df0c87e446dc3f88ad59bc8a7956205ff874005c0177c57c55c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/scored.parquet",
+      "sha256": "e41fb29c950566934bdb832c00a1ee6384bc5fb92fce602381a534be42a37196"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_delta_transport/tabm/scored.parquet",
+    "sha256": "e13266160c558dc4bf683e2b6d1da22fc44ab8c1133f2bf1d5bd0bc3e48310d1"
+  }
+}

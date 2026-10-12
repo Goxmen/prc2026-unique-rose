@@ -1,0 +1,103 @@
+{
+  "design": {
+    "settings": {
+      "ordinary_sigma": 200.0,
+      "common_day_sigma": 15.0,
+      "cutoff": 7200.0,
+      "df": 5,
+      "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+      "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+      "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+      "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+      "comparison": "new_joint minus original_joint; original departure-only comparator unchanged",
+      "transfer": "fixed0.5 additional increment on exactv78; separately frozen coefficient-one v79 transport",
+      "common_error": "one shared15-second outer product over the bounded message, exact original3D marginal",
+      "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+      "no_iteration": true,
+      "no_parameter_search": true,
+      "no_new_fit": true,
+      "additional": "all supported same-local-day other runway taxi cells intersecting the assigned-day delay cohort; full taxi membership",
+      "conditioning": "Gaussian Schur moments with one capped variance-matched t5 score weight; unchanged original 3D t5 target likelihood",
+      "robust_weight": "min(1,(5+k)/(3+q)); q=r_B.T C_BB^-1 r_B, k=extra dimension",
+      "review_history": "unexecuted 5+q denominator corrected to variance-matched 3+q before any robust prediction; no weight scan",
+      "caveat": "hybrid approximation; unknown cross-runway source-error covariance and possible prior-error suppression",
+      "disconnected": "exact recovery when the entire C_AB is zero; adding disconnected coordinates beside informative ones may change global q/k/weight",
+      "no_new_gate": true
+    },
+    "parent": "exactv78",
+    "primary": "exactv78 plus0.5*(new_joint-old_joint), then unchanged matched/recovered constraints and rounding",
+    "comparator": "original departure-only message unchanged; additional taxi evidence is not subtracted from it",
+    "scopes": "same original touched rows, source support and monthly quality; unchanged local/assigned calendars",
+    "calibration": "all original fold-specific priors/noise/support calibration reused",
+    "robust": "one global capped variance-matched t5 score weight; no per-cell alternatives",
+    "control_portability": "recomputed floating old_joint versus saved GLAPTOP old_joint atol1e-8 seconds rtol0, record max; exact cached integer v78 control; delta against saved old_joint",
+    "secondary": "separately frozen coefficient-one delta transport onto exactv79",
+    "caveats": [
+      "hybrid approximation, not exact Bayesian Student conditioning",
+      "uncalibrated cross-runway source-error covariance",
+      "prior error may cause downweighting of valid evidence",
+      "global q/k/weight can change when disconnected coordinates accompany informative coordinates",
+      "reused Jan/Jul development evidence, not independent confirmation"
+    ],
+    "no_fit": true,
+    "no_weight_search": true,
+    "no_gate_search": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/identity.json",
+    "sha256": "adf7f1c023d7565f1a96a4014e45fb8980ab3513feb8a4bb2aadc6392c671c37"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/inference.json",
+    "sha256": "e25be768973fe2a3b1691c99f8c034a357161494d2a890b27d5d98823eb64aa2"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/scored.parquet",
+    "sha256": "d37c07d8eb1e2641ff3dd98f3cbcf3232a54f432b86f1f42a56e70f06e1c2d3f"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.860607626995,
+      "candidate": 325.7986999518615
+    },
+    "2025-07": {
+      "control": 255.9996300885311,
+      "candidate": 255.78824691902213
+    }
+  },
+  "cv": {
+    "control": 290.93011885776303,
+    "candidate": 290.7934734354418
+  },
+  "paired": {
+    "change": -0.1366454223212088,
+    "ci95": [
+      -0.2817051341611968,
+      -0.020364635860583416
+    ],
+    "decision": "improvement"
+  },
+  "exact_v78_replayed": true,
+  "active": 1600,
+  "changed": 1179,
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    }
+  ]
+}

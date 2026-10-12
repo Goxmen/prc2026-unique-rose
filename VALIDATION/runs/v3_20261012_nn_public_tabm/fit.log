@@ -1,0 +1,94 @@
+[02:39:26] fit original encoder; RSS_MiB=3500.4; peak_RSS_MiB=3706.2
+[02:39:33] transform train rows in chunks; RSS_MiB=3504.5; peak_RSS_MiB=3706.2
+[02:39:45] transform ranking rows in chunks; RSS_MiB=5996.9; peak_RSS_MiB=6277.8
+[02:39:51] copy encoded tensor partitions to device; RSS_MiB=6233.9; peak_RSS_MiB=6516.7
+[02:39:58] bounded DirectData ready; RSS_MiB=3516.9; peak_RSS_MiB=6516.7
+[02:40:03] {'month': '2025-01', 'arm': 'tabm', 'step_seconds': 0.1836620612997649, 'rows_per_second': 11150.914813361194, 'peak_allocated_bytes': 3907373056, 'effective_batch': 2048, 'microbatch': 512}
+[02:42:08] 2025-01 tabm epoch1/21: train=0.390357; seconds=122.65
+[02:44:17] 2025-01 tabm epoch2/21: train=0.275218; seconds=122.84
+[02:46:24] 2025-01 tabm epoch3/21: train=0.251420; seconds=122.68
+[02:48:34] 2025-01 tabm epoch4/21: train=0.235903; seconds=123.39
+[02:50:42] 2025-01 tabm epoch5/21: train=0.225083; seconds=122.79
+[02:52:52] 2025-01 tabm epoch6/21: train=0.217580; seconds=123.30
+[02:55:00] 2025-01 tabm epoch7/21: train=0.211236; seconds=122.41
+[02:57:08] 2025-01 tabm epoch8/21: train=0.207297; seconds=123.11
+[02:59:16] 2025-01 tabm epoch9/21: train=0.200176; seconds=122.11
+[03:01:24] 2025-01 tabm epoch10/21: train=0.195999; seconds=122.56
+[03:03:33] 2025-01 tabm epoch11/21: train=0.192250; seconds=122.57
+[03:05:41] 2025-01 tabm epoch12/21: train=0.189155; seconds=122.49
+[03:07:50] 2025-01 tabm epoch13/21: train=0.184923; seconds=123.14
+[03:09:59] 2025-01 tabm epoch14/21: train=0.180441; seconds=122.75
+[03:12:08] 2025-01 tabm epoch15/21: train=0.176802; seconds=122.93
+[03:14:15] 2025-01 tabm epoch16/21: train=0.173455; seconds=122.43
+[03:16:24] 2025-01 tabm epoch17/21: train=0.170615; seconds=123.40
+[03:18:33] 2025-01 tabm epoch18/21: train=0.167391; seconds=122.16
+[03:20:42] 2025-01 tabm epoch19/21: train=0.164720; seconds=122.90
+[03:22:50] 2025-01 tabm epoch20/21: train=0.162379; seconds=122.16
+[03:24:58] 2025-01 tabm epoch21/21: train=0.160696; seconds=122.96
+[03:25:10] 2025-01 tabm: saved and all153706 held predictions reloaded exactly
+[03:25:11] {'month': '2025-01', 'arm': 'control', 'step_seconds': 0.06309862559974136, 'rows_per_second': 32457.12534202005, 'peak_allocated_bytes': 3486297600, 'effective_batch': 2048, 'microbatch': 512}
+[03:26:06] 2025-01 control epoch1/21: train=0.349251; seconds=54.35
+[03:27:05] 2025-01 control epoch2/21: train=0.258519; seconds=55.70
+[03:28:03] 2025-01 control epoch3/21: train=0.238012; seconds=55.31
+[03:29:02] 2025-01 control epoch4/21: train=0.224419; seconds=55.62
+[03:29:58] 2025-01 control epoch5/21: train=0.213814; seconds=54.51
+[03:30:59] 2025-01 control epoch6/21: train=0.209799; seconds=57.58
+[03:31:56] 2025-01 control epoch7/21: train=0.206334; seconds=54.22
+[03:32:55] 2025-01 control epoch8/21: train=0.202597; seconds=56.08
+[03:33:51] 2025-01 control epoch9/21: train=0.192628; seconds=54.73
+[03:34:53] 2025-01 control epoch10/21: train=0.183328; seconds=58.14
+[03:35:49] 2025-01 control epoch11/21: train=0.179772; seconds=53.06
+[03:36:46] 2025-01 control epoch12/21: train=0.175485; seconds=55.91
+[03:37:43] 2025-01 control epoch13/21: train=0.174134; seconds=54.23
+[03:38:45] 2025-01 control epoch14/21: train=0.161289; seconds=58.72
+[03:39:40] 2025-01 control epoch15/21: train=0.155715; seconds=51.79
+[03:40:38] 2025-01 control epoch16/21: train=0.151209; seconds=56.53
+[03:41:36] 2025-01 control epoch17/21: train=0.143130; seconds=54.86
+[03:42:38] 2025-01 control epoch18/21: train=0.137649; seconds=58.52
+[03:43:31] 2025-01 control epoch19/21: train=0.132548; seconds=51.74
+[03:44:31] 2025-01 control epoch20/21: train=0.128538; seconds=56.36
+[03:45:29] 2025-01 control epoch21/21: train=0.125136; seconds=54.82
+[03:45:33] 2025-01 control: saved and all153706 held predictions reloaded exactly
+[03:45:36] fit original encoder; RSS_MiB=6495.5; peak_RSS_MiB=6516.7
+[03:45:41] transform train rows in chunks; RSS_MiB=6496.0; peak_RSS_MiB=6516.7
+[03:45:48] transform ranking rows in chunks; RSS_MiB=8299.6; peak_RSS_MiB=8569.2
+[03:45:54] copy encoded tensor partitions to device; RSS_MiB=8549.0; peak_RSS_MiB=8869.0
+[03:45:57] bounded DirectData ready; RSS_MiB=6477.5; peak_RSS_MiB=8869.0
+[03:46:01] {'month': '2025-07', 'arm': 'tabm', 'step_seconds': 0.1554980187498586, 'rows_per_second': 13170.58581495182, 'peak_allocated_bytes': 3197703168, 'effective_batch': 2048, 'microbatch': 512}
+[03:47:28] 2025-07 tabm epoch1/17: train=0.400453; seconds=87.36
+[03:49:02] 2025-07 tabm epoch2/17: train=0.258147; seconds=89.00
+[03:50:34] 2025-07 tabm epoch3/17: train=0.228845; seconds=87.12
+[03:52:06] 2025-07 tabm epoch4/17: train=0.214234; seconds=87.44
+[03:53:37] 2025-07 tabm epoch5/17: train=0.202748; seconds=87.07
+[03:55:10] 2025-07 tabm epoch6/17: train=0.195731; seconds=89.11
+[03:56:42] 2025-07 tabm epoch7/17: train=0.187692; seconds=87.24
+[03:58:13] 2025-07 tabm epoch8/17: train=0.179961; seconds=87.15
+[03:59:45] 2025-07 tabm epoch9/17: train=0.175756; seconds=87.53
+[04:01:18] 2025-07 tabm epoch10/17: train=0.171983; seconds=88.51
+[04:02:51] 2025-07 tabm epoch11/17: train=0.166824; seconds=87.87
+[04:04:21] 2025-07 tabm epoch12/17: train=0.164026; seconds=87.40
+[04:05:53] 2025-07 tabm epoch13/17: train=0.160062; seconds=86.87
+[04:07:26] 2025-07 tabm epoch14/17: train=0.155603; seconds=87.94
+[04:08:57] 2025-07 tabm epoch15/17: train=0.152470; seconds=87.93
+[04:10:29] 2025-07 tabm epoch16/17: train=0.148995; seconds=86.83
+[04:12:01] 2025-07 tabm epoch17/17: train=0.145559; seconds=87.51
+[04:12:14] 2025-07 tabm: saved and all190713 held predictions reloaded exactly
+[04:12:15] {'month': '2025-07', 'arm': 'control', 'step_seconds': 0.071283559999938, 'rows_per_second': 28730.32716101414, 'peak_allocated_bytes': 2773282816, 'effective_batch': 2048, 'microbatch': 512}
+[04:12:56] 2025-07 control epoch1/17: train=0.343191; seconds=39.61
+[04:13:36] 2025-07 control epoch2/17: train=0.244388; seconds=38.22
+[04:14:19] 2025-07 control epoch3/17: train=0.215578; seconds=41.80
+[04:15:01] 2025-07 control epoch4/17: train=0.199590; seconds=40.02
+[04:15:39] 2025-07 control epoch5/17: train=0.187211; seconds=36.55
+[04:16:24] 2025-07 control epoch6/17: train=0.190442; seconds=41.68
+[04:17:05] 2025-07 control epoch7/17: train=0.176407; seconds=40.38
+[04:17:44] 2025-07 control epoch8/17: train=0.167317; seconds=37.46
+[04:18:28] 2025-07 control epoch9/17: train=0.161388; seconds=42.42
+[04:19:10] 2025-07 control epoch10/17: train=0.155182; seconds=38.91
+[04:19:50] 2025-07 control epoch11/17: train=0.149909; seconds=38.06
+[04:20:32] 2025-07 control epoch12/17: train=0.139749; seconds=40.44
+[04:21:14] 2025-07 control epoch13/17: train=0.134645; seconds=40.62
+[04:21:54] 2025-07 control epoch14/17: train=0.131522; seconds=38.49
+[04:22:40] 2025-07 control epoch15/17: train=0.123174; seconds=42.76
+[04:23:19] 2025-07 control epoch16/17: train=0.114848; seconds=37.59
+[04:24:00] 2025-07 control epoch17/17: train=0.110910; seconds=40.10
+[04:24:08] 2025-07 control: saved and all190713 held predictions reloaded exactly

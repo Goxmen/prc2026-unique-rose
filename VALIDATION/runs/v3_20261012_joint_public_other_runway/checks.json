@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/joint_public_other_runway.py",
+    "sha256": "e12479a286f7f4445e399a921d48aea0ca0e3fd6a11d7cf3e264fac970274321"
+  },
+  "checks": {
+    "variance_matched_t_score_derivative": true,
+    "threshold_continuity": true,
+    "PSD_without_repair": true,
+    "independent_inflated_noise_equivalence": true,
+    "bounded_and_vanishing_influence": true,
+    "no_extra_disconnected_exact": true,
+    "coordinate_and_row_permutation": true,
+    "label_poison_invariant": true,
+    "synthetic_source_membership_and_target_fallback": true
+  }
+}

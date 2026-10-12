@@ -1,0 +1,133 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_other_runway_blocks_20261012.py",
+    "sha256": "d03137358c89b0e445a2a7cf0adf4cfae0ceec337b9db265555994fa0ef25b3c"
+  },
+  "seconds": 1.0672566640132573,
+  "selection": "first/middle/last previously input-selected cohort per month; minimum touched movement ID",
+  "checks": [
+    {
+      "month": "2025-01",
+      "mvt_id": 182636718,
+      "key": {
+        "month": "2025-01",
+        "local_day": "2025-01-02",
+        "runway": "25",
+        "assigned_day": "2025-01-02"
+      },
+      "extra_cells": 0,
+      "rows": 420,
+      "mean_abs_error_sec": 0.0,
+      "weight_abs_error": 0.0,
+      "q_abs_error": 0.0
+    },
+    {
+      "month": "2025-01",
+      "mvt_id": 182646416,
+      "key": {
+        "month": "2025-01",
+        "local_day": "2025-01-19",
+        "runway": "16R",
+        "assigned_day": "2025-01-19"
+      },
+      "extra_cells": 1,
+      "rows": 370,
+      "mean_abs_error_sec": 3.865352482534945e-12,
+      "weight_abs_error": 0.0,
+      "q_abs_error": 0.0
+    },
+    {
+      "month": "2025-01",
+      "mvt_id": 182647007,
+      "key": {
+        "month": "2025-01",
+        "local_day": "2025-01-30",
+        "runway": "25",
+        "assigned_day": "2025-01-30"
+      },
+      "extra_cells": 0,
+      "rows": 353,
+      "mean_abs_error_sec": 0.0,
+      "weight_abs_error": 0.0,
+      "q_abs_error": 0.0
+    },
+    {
+      "month": "2025-07",
+      "mvt_id": 192615292,
+      "key": {
+        "month": "2025-07",
+        "local_day": "2025-07-02",
+        "runway": "16R",
+        "assigned_day": "2025-07-02"
+      },
+      "extra_cells": 1,
+      "rows": 483,
+      "mean_abs_error_sec": 5.9117155615240335e-12,
+      "weight_abs_error": 0.0,
+      "q_abs_error": 2.220446049250313e-16
+    },
+    {
+      "month": "2025-07",
+      "mvt_id": 192623633,
+      "key": {
+        "month": "2025-07",
+        "local_day": "2025-07-19",
+        "runway": "25",
+        "assigned_day": "2025-07-19"
+      },
+      "extra_cells": 1,
+      "rows": 472,
+      "mean_abs_error_sec": 1.3642420526593924e-12,
+      "weight_abs_error": 0.0,
+      "q_abs_error": 0.0
+    },
+    {
+      "month": "2025-07",
+      "mvt_id": 192629456,
+      "key": {
+        "month": "2025-07",
+        "local_day": "2025-07-31",
+        "runway": "25",
+        "assigned_day": "2025-07-30"
+      },
+      "extra_cells": 1,
+      "rows": 985,
+      "mean_abs_error_sec": 1.1368683772161603e-11,
+      "weight_abs_error": 1.1102230246251565e-16,
+      "q_abs_error": 8.881784197001252e-16
+    }
+  ],
+  "inputs": [
+    {
+      "path": "tmp/research_20261012/error_mechanisms/other_runway/design.json",
+      "sha256": "e5247d453d92cc79e627beea4f099ce9e5ea368f1e3961f45dd6858f200880a1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/inputs.parquet",
+      "sha256": "fd68d2697514820f35e5abde5277629198aebe3d1168d1705f0ff97785a7c9b9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/taxi_source.parquet",
+      "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/delay_source.parquet",
+      "sha256": "0297c445250693f4f1bc93b94a4bc409920aab5db4b55e84b39f20118000c52d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/parameters.json",
+      "sha256": "d4c54a7374f67797ee1b7da8c0283d849a73cd0abf6b16be3e7224eb56299989"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/identity.json",
+      "sha256": "adf7f1c023d7565f1a96a4014e45fb8980ab3513feb8a4bb2aadc6392c671c37"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/predictions.parquet",
+      "sha256": "9c68b32257b2b33ff8bb252e08a91701bc359d1469934b50a6e6c2b5cc75bc94"
+    }
+  ],
+  "scope": "Independent per-flight projection covariance, direct block solves and t5 normalized support mean. Reuses audited original support and analytic ordinary moments. No labels, CV results or target selection by predictions.",
+  "posterior_atol_sec": 1e-07
+}
