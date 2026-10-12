@@ -1,0 +1,62 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_cohort/identity.json",
+    "sha256": "012779e3bec9bd2c47599067a80642311b744473a96e81506ee01e3a4e2074d8"
+  },
+  "input_audit": {
+    "path": "tmp/research_20261012/error_mechanisms/cohort_input_audit.json",
+    "sha256": "e22f06cf641f1a412b6e08c5b75a923b4c36a480f74a7ce4b69ec81a084c5ef7"
+  },
+  "checks": [
+    {
+      "device": "cpu",
+      "initial_parameters_outputs_gradients_rng_exact": true,
+      "own_track_absent_context_active": true,
+      "no_peers_exact_parent": true,
+      "complete_donor_permutation_and_gradients": true,
+      "padding_nan_invariant": true,
+      "equal_marginal_different_pairing_distinguished": true,
+      "bank_nonpersistent": true
+    },
+    {
+      "device": "cuda",
+      "initial_parameters_outputs_gradients_rng_exact": true,
+      "own_track_absent_context_active": true,
+      "no_peers_exact_parent": true,
+      "complete_donor_permutation_and_gradients": true,
+      "padding_nan_invariant": true,
+      "equal_marginal_different_pairing_distinguished": true,
+      "bank_nonpersistent": true
+    },
+    {
+      "device": "cuda",
+      "partial_batch_updates_exact": true,
+      "loss_weights_predictions_exact": true,
+      "numpy_cpu_cuda_rng_exact": true,
+      "original_namespace_unchanged": true
+    }
+  ],
+  "fast_bytecode_exact": true,
+  "benchmark": [
+    {
+      "month": "2025-01",
+      "step_seconds": 0.03226819424889982,
+      "rows_per_second": 63468.06964786468,
+      "reserved_input_bytes": 2953843016,
+      "peak_allocated_bytes": 4224218624,
+      "estimated_training_minutes": 8.80921702994965
+    },
+    {
+      "month": "2025-07",
+      "step_seconds": 0.03038555950479349,
+      "rows_per_second": 67400.43735830886,
+      "reserved_input_bytes": 2246636848,
+      "peak_allocated_bytes": 3511083008,
+      "estimated_training_minutes": 4.79534771584816
+    }
+  ],
+  "gpu": "NVIDIA GeForce RTX 3080",
+  "no_production_updates": true,
+  "production_backend_unchanged": true
+}

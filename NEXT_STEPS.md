@@ -40,8 +40,8 @@ Current work:
   Four fits run sequentially; preflight and independent loss/update/stack review
   pass. See `v3_20261012_nn_public_tabm/`. No HPO or extra seeds are authorized
   by this design; preserve completed checkpoints and preprocessing.
-- **Desktop:** allocated to full cohort-context input preparation, audits and
-  GPU preflight, followed by one fixed two-fold screen after review. Linear-leaf
+- **Desktop:** fixed cohort-context January/July fits started at 03:40 Amsterdam,
+  PID1337640, after independent source and CUDA audits passed. Linear-leaf
   full-row probes also pass: 7.159 GiB cumulative peak memory and 1.14× late-tree
   cost. The fixed four-fit matched linear comparison passed independent review
   and is frozen; it will follow after the desktop is released.

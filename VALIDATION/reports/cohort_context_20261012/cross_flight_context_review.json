@@ -1,0 +1,102 @@
+{
+  "status": "mechanistically_distinct_pending_input_only_coverage",
+  "scope": "Read-only source and compact existing-summary review; no source-data scan, held-label selection, model fit or new numerical experiment.",
+  "proposed_design": "Original168/public/physical model plus K16 nearest other same-airport departures within +/-30min, deterministic time/ID ties, per-peer original-clock/physical-witness/missingness/relative-geometry tokens, 32-wide encoder and zero residual, seed42/fixed21/17.",
+  "existing_information": [
+    {
+      "source": "extra_features.py pc_*",
+      "present": "Airport/runway/stand-zone AOBT clock means, variance, counts, previous/next same-runway scalar clocks; most gaps filtered to 0..10800s.",
+      "missing": "Clock-to-physical-witness pairing for each peer and query-conditioned joint geometry."
+    },
+    {
+      "source": "runway_queue.py q_*",
+      "present": "Runway/airport takeoff and landing counts/gaps, mean AOBT taxi proxies, takeoffs since query AOBT.",
+      "missing": "Physical witness and clock on the same individual donor."
+    },
+    {
+      "source": "opdi.py nb_op_*; adsblol.py ab_nb_*",
+      "present": "Separate airport physical-age means/counts and deicing share; airport ADSB traffic counts.",
+      "missing": "Donor-level alignment between physical ages, clock ages, geometry and relative takeoff."
+    },
+    {
+      "source": "stand_day.py st_*; dd_*",
+      "present": "Own stand prior arrival ages/type/airline and dirty-day reporting summaries. Dirty-day inputs absent from ordinary156 but present in Rome classifier.",
+      "missing": "Not a new source of missingness-share information; new branch should not claim that."
+    },
+    {
+      "source": "nn_track_attention.py; nn_public_attention_pool.py",
+      "present": "Attention over the query aircraft own temporal track states only.",
+      "missing": "No cross-aircraft context; these failed/inconclusive pooling screens do not test donor-level pairing."
+    }
+  ],
+  "why_new_information_survives": "Separate clock and physical marginal summaries are invariant to permuting the physical witnesses among donor clocks. The proposed tokens retain that pairing and its runway/stand/time relationship to the query. Thus they can distinguish coherent same-route queue evidence from stale clocks or badly observed donors with identical existing marginals.",
+  "prior_negative_evidence": "The retained same-airline prior2h physical-clock median study failed versus airport/static airline references; whole-day medians were nearly redundant. Recent same-airport arrival recorder lags also failed to transfer to departure errors. Therefore broad clock calibration or missing-share reconstruction is not a credible new claim; query-conditioned paired physical context remains untested.",
+  "best_applicable_population": "Ordinary departures whose own physical evidence is sparse but whose local same-runway/near-stand departures have both genuine AOBT and valid physical witnesses. Also potential witnessed-queue disagreement on well-observed queries. This is a diagnostic population, not a selected inference gate.",
+  "cost_context_not_gain_forecast": {
+    "source_recipe": "Saved v77-era remaining_error_cost, not v79 and not a new scoring pass.",
+    "july_has_id_rows": 186779,
+    "july_has_id_sse_share": 0.6848,
+    "july_ltfm_unusable_rows": 25158,
+    "july_ltfm_unusable_sse_share": 0.1444,
+    "july_lfpg_airborne_rows": 13791,
+    "july_lfpg_airborne_sse_share": 0.0601,
+    "july_egll_airborne_rows": 11468,
+    "july_egll_airborne_sse_share": 0.0552,
+    "limits": "LTFM may have airport-wide sensor blindness, so its error share is not recoverable capacity without donor coverage. January gross cost is dominated by two previously closed LFPG extreme labels. Rome copied-label errors are largely governed by a separate classifier/rule stack, and Rome ground-observation coverage reverses across years. None implies a14.6s expected gain."
+  },
+  "required_source_only_pilot_readouts": [
+    "Donors with jointly available genuine AOBT and independently gated physical witness, not merely any nearby flight.",
+    "Same-runway and nearby-stand physical donor counts; query-own poor/missing physical evidence strata.",
+    "K16 truncation frequency and actual maximum donor time distance in dense airports.",
+    "2025/2026 January/July sensor-coverage shift; existing physical reliability gates retained."
+  ],
+  "fairness_and_leakage_contract": [
+    "Peer selection uses only time/airport/ID and leaves query out even if duplicate raw occurrences exist.",
+    "Train references only outer allowed months; held references allowed train plus own held month; no donor departure BLOCK/y/model prediction tokens.",
+    "Old/final overlapping IDs retain independent query clocks/identities and namespaces.",
+    "Any peer scaling fitted on training inputs only, with saved state.",
+    "Original backbone initialization, predictions, gradients and RNG retained by forked initialization; same optimizer/stops/seed.",
+    "Peer residual gate is peer presence, not query own-track count; original own-track branch gate remains unchanged; empty peer set gives exactly zero residual.",
+    "Scoring uses matched original168/public/physical control through complete unchanged stack, with same-machine comparison; no label-chosen airport/coverage gates."
+  ],
+  "implementation_risk": "Materializing N x16 x~20 float32 tokens can require multiple GB. Retain compact node bank plus neighbor indices and batch gather. Physical ages are censored witnesses, not true off-block labels. K16 time truncation may mostly expose near-simultaneous departures already represented by queue counts.",
+  "recommendation": "Proceed only to the fixed input-only coverage pilot. The mechanism is new enough for one matched fixed screen if paired witness coverage is broad; current evidence does not establish predictive value or justify a promised high-headroom gain.",
+  "sources": [
+    {
+      "path": "VALIDATION/extra_features.py",
+      "sha256": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67"
+    },
+    {
+      "path": "VALIDATION/runway_queue.py",
+      "sha256": "8c3627ffa3f41bc8634a86ebcf174954a343c1eb1470879113bad15bdc7a70c6"
+    },
+    {
+      "path": "VALIDATION/stand_day.py",
+      "sha256": "ee596bcaf16e0b53d8249fefe1978696d8136495d1b63e057f99e8115c4e28ad"
+    },
+    {
+      "path": "VALIDATION/opdi.py",
+      "sha256": "10acfd0ed69fdf33200c73879207cdf814f3a2074d6e63375e230452fb7eb869"
+    },
+    {
+      "path": "VALIDATION/adsblol.py",
+      "sha256": "9b1153c345c5520d6e3dccd96c549253d8f83370e728a18f21393472070a1a90"
+    },
+    {
+      "path": "VALIDATION/nn_track_attention.py",
+      "sha256": "f7a2af905bcce991dc62734e1269f9e5c7e44cef2db93f6d5ec8a2106e46a57f"
+    },
+    {
+      "path": "VALIDATION/nn_public_attention_pool.py",
+      "sha256": "f4c5304801342d40e879fc5b7db824c0ec64001e2d88b56a54c5c0429949b11f"
+    },
+    {
+      "path": "VALIDATION/reports/research_network_20261010/peer_physical_clock.json",
+      "sha256": "0c5d1612900039e1800bef7be9de7f16aaf4134a7e424764c7f72df94e739ee9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_remaining_error_cost/result.json",
+      "sha256": "a7c57d93c03163829cdf947a43723d18bd346a1e377e5fcebee729c9076591b3"
+    }
+  ]
+}

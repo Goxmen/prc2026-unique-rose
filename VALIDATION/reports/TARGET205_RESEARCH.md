@@ -156,7 +156,7 @@ frozen before either result existed. See `../target205_delta_transport.py` and
 `../runs/v3_20261012_delta_transport/design.json`. This remains reused development
 evidence, not independent confirmation or an uploadable candidate.
 
-**Cross-flight context: one fixed comparison authorized for preparation.**
+**Cross-flight context: fixed comparison running on the desktop.**
 The proposed encoder keeps each nearby flight's observed plan clock paired with
 that same flight's physical witnesses and relative time/runway/stand geometry.
 Existing peer-clock and sensor features summarize those sources separately;
@@ -171,18 +171,26 @@ airport-wide observation gaps remain. Between 85% and 95% of the ±30-minute
 neighborhoods have more than 16 peers; their median size is 30–37. These four dates are descriptive
 coverage evidence, not representative error estimates or validation gains.
 
-The fixed comparison will retain the original 168-input physical network,
+The fixed comparison retains the original 168-input physical network,
 training rows, seed 42 and 21/17 epochs, adding a compact context branch. Its
 final head combines 64 pooled context values with the existing 256-dimensional
 query representation, so interpretation can depend on the query's known regime.
 This choice was made before freezing or reading held scores. The original
-public-input branch remains unchanged. Before
-any fit, independent checks must establish permitted sources, query/alias
-exclusion, training-only scaling, complete-tuple permutation invariance,
-empty-context fallback and original initialization/RNG parity. A fixture with
-identical marginal summaries but different donor pairings must distinguish
-the intended new information. Large preparation and fits await an allocated
-host after the existing jobs; there is no candidate or upload.
+public-input branch remains unchanged. Independent checks establish permitted
+sources, query/alias exclusion, training-only scaling, complete-tuple permutation
+invariance, empty-context fallback and original initialization/RNG parity. A
+fixture with identical marginal summaries but different donor pairings
+distinguishes the intended new information.
+
+The full bank contains 2,085,047 flights. An independent audit checks all source
+identities and clocks, all 48,924,633 allowed neighbor links, 1,037 reconstructed
+neighbor lists and 125,190 scalar source values. CUDA checks preserve the
+original initial outputs, gradients and random state, including native batch
+updates. The full-bank preflight peaks at 3.93 GiB, with 30–32 ms per update.
+The two fixed fits started at 03:40 Amsterdam, desktop PID1337640; estimated
+completion with inference and scoring is 04:00–04:05. This is an estimate,
+not a completed result. No candidate or upload exists. See
+`COHORT_CONTEXT_PREFLIGHT_20261012.json` and `cohort_context_20261012/`.
 
 Completed negative screens and their retained models are documented in
 [the 11 October report](TARGET215_RESEARCH.md). Do not repeat those fits,

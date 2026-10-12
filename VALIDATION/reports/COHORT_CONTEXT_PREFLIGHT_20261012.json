@@ -1,0 +1,956 @@
+{
+  "status": "Complete input audit and CPU/CUDA parity/resource preflight passed; root authorized fixed two-fold fit.",
+  "hypothesis": "Preserve each nearby flight original-AOBT and physical-witness pairing, conditioned on the query representation and relative time/geometry; existing scalar summaries separate these marginals.",
+  "fixed_final_design": {
+    "neighbors": 16,
+    "window_seconds": 1800,
+    "clocks": [
+      "genuine original AOBT",
+      "OPDI ground",
+      "OPDI own stand",
+      "ADSB stand exit"
+    ],
+    "token_channels": 27,
+    "head": "shared27->32->32; masked attention mean and max64 + query hidden256 ->32->1; final zero",
+    "backbone": "unchanged original156 + existing12 public inputs + own-track physical CNN",
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "seed": 42,
+    "batch": 2048,
+    "exclusions": "query ID, known same aircraft within120s, exact known clock/stand/runway aliases before selection",
+    "training_references": "explicit training months only; held queries use training plus own held month",
+    "residual_gate": "peer presence only; no own-track gate on new residual",
+    "no_new_schedule_input": true,
+    "no_peer_labels_predictions_or_hidden_block": true,
+    "production": "disabled; requires future explicit train+own-month view-specific builder"
+  },
+  "pilot": {
+    "source": {
+      "path": "VALIDATION/tools/pilot_flight_cohort_context_20261012.py",
+      "bytes": 9634,
+      "sha256": "4c56ac71322b8b2af1d0edf42d7a67bf4b40d0e39ca129e763c88a0f0b94fed8"
+    },
+    "input_sources": [
+      {
+        "path": "data/derived/sparse_track_sequence_20261010/full_index.parquet",
+        "bytes": 59178304,
+        "sha256": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684"
+      },
+      {
+        "path": "data/external/opdi/opdi_features.parquet",
+        "bytes": 37061372,
+        "sha256": "c1b6e3372403b909e5a69ee7487d7bf04e7a408165097f4725e6d396db8fb5b6"
+      },
+      {
+        "path": "data/external/adsblol_heatmap/adsb_features.parquet",
+        "bytes": 58854661,
+        "sha256": "50c544d3e5c4fde7af30a3e5358bcaef224cc3b6c36fbc9bc5ae6dddd4ee7da6"
+      },
+      {
+        "path": "data/external/adsblol_heatmap/adsb_stand_features.parquet",
+        "bytes": 56183898,
+        "sha256": "4d78bc0c98a4e2812ab86bf8d04508cf54d36aedb87976c06bbb314aa78353fc"
+      },
+      {
+        "path": "data/derived/sparse_track_submit_20261010/old/full_index.parquet",
+        "bytes": 10450780,
+        "sha256": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98"
+      },
+      {
+        "path": "data/derived/final_tables/old/opdi.parquet",
+        "bytes": 7619256,
+        "sha256": "f8641b518d701cd56456066a145538209bc74bbaf49879f2033e53ece74ecd5e"
+      },
+      {
+        "path": "data/derived/final_tables/old/adsb.parquet",
+        "bytes": 9385433,
+        "sha256": "24e27a0d2082eddcbffb445be6659e138a8c624093379c12e16ec39bc33f7052"
+      },
+      {
+        "path": "data/derived/final_tables/old/adsb_stand.parquet",
+        "bytes": 9293355,
+        "sha256": "f77bc0dfdf0224084ec2c7bbd25ca805107a2192a536386232ba635b9b49046c"
+      }
+    ],
+    "seconds": 6.56743389199255,
+    "checks": {
+      "input_only_allowlist": true,
+      "label_poisoning_invariance": true,
+      "row_order_invariance": true,
+      "query_and_known_alias_removal": true,
+      "inclusive_time_boundaries": true,
+      "same_airport": true,
+      "no_context": true,
+      "exact_physical_gates": true
+    },
+    "dates": [
+      "2025-01-10",
+      "2025-07-10",
+      "2026-01-10",
+      "2026-07-10"
+    ],
+    "reports": [
+      {
+        "day": "2025-01-10",
+        "all": {
+          "rows": 5153,
+          "any_neighbor": 0.9990296914418785,
+          "median_neighbors": 16.0,
+          "truncated_share": 0.9019988356297303,
+          "median_full_pool": 33.0,
+          "aliases_removed": 0,
+          "any_paired": 0.5631670871337086,
+          "median_paired": 1.0,
+          "paired_same_runway": 0.5261013002134679,
+          "paired_stand300m": 0.29846691247816803,
+          "paired_disagreement120": 0.5583155443431012,
+          "median_span_sec": 1569.0,
+          "median_furthest_sec": 842.0
+        },
+        "strata": {
+          "no_original_AOBT": {
+            "rows": 40,
+            "any_neighbor": 1.0,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9,
+            "median_full_pool": 31.5,
+            "aliases_removed": 0,
+            "any_paired": 0.575,
+            "median_paired": 1.0,
+            "paired_same_runway": 0.425,
+            "paired_stand300m": 0.175,
+            "paired_disagreement120": 0.575,
+            "median_span_sec": 1778.5,
+            "median_furthest_sec": 965.0
+          },
+          "no_own_physical": {
+            "rows": 3686,
+            "any_neighbor": 0.9989148128052089,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.919153553988063,
+            "median_full_pool": 36.0,
+            "aliases_removed": 0,
+            "any_paired": 0.39636462289744984,
+            "median_paired": 0.0,
+            "paired_same_runway": 0.35160065111231686,
+            "paired_stand300m": 0.12398263700488334,
+            "paired_disagreement120": 0.3909386869234943,
+            "median_span_sec": 1493.0,
+            "median_furthest_sec": 781.0
+          },
+          "under2_own_points": {
+            "rows": 1025,
+            "any_neighbor": 1.0,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9102439024390244,
+            "median_full_pool": 37.0,
+            "aliases_removed": 0,
+            "any_paired": 0.09853658536585366,
+            "median_paired": 0.0,
+            "paired_same_runway": 0.08097560975609756,
+            "paired_stand300m": 0.026341463414634145,
+            "paired_disagreement120": 0.0975609756097561,
+            "median_span_sec": 1440.0,
+            "median_furthest_sec": 776.0
+          },
+          "missing_AOBT_and_no_own_physical": {
+            "rows": 33,
+            "any_neighbor": 1.0,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9090909090909091,
+            "median_full_pool": 35.0,
+            "aliases_removed": 0,
+            "any_paired": 0.48484848484848486,
+            "median_paired": 0.0,
+            "paired_same_runway": 0.30303030303030304,
+            "paired_stand300m": 0.09090909090909091,
+            "paired_disagreement120": 0.48484848484848486,
+            "median_span_sec": 1623.0,
+            "median_furthest_sec": 901.0
+          }
+        },
+        "airport_paired": {
+          "EDDF": {
+            "rows": 534,
+            "any_paired": 0.8932584269662921,
+            "paired_same_runway": 0.6554307116104869,
+            "paired_stand300m": 0.17228464419475656
+          },
+          "EDDM": {
+            "rows": 369,
+            "any_paired": 0.997289972899729,
+            "paired_same_runway": 0.994579945799458,
+            "paired_stand300m": 0.7181571815718157
+          },
+          "EGLL": {
+            "rows": 639,
+            "any_paired": 0.9029733959311425,
+            "paired_same_runway": 0.9014084507042254,
+            "paired_stand300m": 0.18466353677621283
+          },
+          "EHAM": {
+            "rows": 613,
+            "any_paired": 1.0,
+            "paired_same_runway": 0.964110929853181,
+            "paired_stand300m": 0.6590538336052202
+          },
+          "LEBL": {
+            "rows": 414,
+            "any_paired": 0.9951690821256038,
+            "paired_same_runway": 0.9903381642512077,
+            "paired_stand300m": 0.8333333333333334
+          },
+          "LEMD": {
+            "rows": 553,
+            "any_paired": 0.0759493670886076,
+            "paired_same_runway": 0.05786618444846293,
+            "paired_stand300m": 0.0216998191681736
+          },
+          "LFPG": {
+            "rows": 607,
+            "any_paired": 0.12191103789126853,
+            "paired_same_runway": 0.10049423393739704,
+            "paired_stand300m": 0.039538714991762765
+          },
+          "LIRF": {
+            "rows": 389,
+            "any_paired": 0.0,
+            "paired_same_runway": 0.0,
+            "paired_stand300m": 0.0
+          },
+          "LSZH": {
+            "rows": 325,
+            "any_paired": 1.0,
+            "paired_same_runway": 0.9753846153846154,
+            "paired_stand300m": 0.8461538461538461
+          },
+          "LTFM": {
+            "rows": 710,
+            "any_paired": 0.01971830985915493,
+            "paired_same_runway": 0.009859154929577466,
+            "paired_stand300m": 0.004225352112676056
+          }
+        }
+      },
+      {
+        "day": "2025-07-10",
+        "all": {
+          "rows": 6313,
+          "any_neighbor": 0.9992079835260573,
+          "median_neighbors": 16.0,
+          "truncated_share": 0.9480437193093616,
+          "median_full_pool": 37.0,
+          "aliases_removed": 0,
+          "any_paired": 0.594170758751782,
+          "median_paired": 2.0,
+          "paired_same_runway": 0.5433233011246634,
+          "paired_stand300m": 0.3133217170917155,
+          "paired_disagreement120": 0.5814984951686996,
+          "median_span_sec": 1440.0,
+          "median_furthest_sec": 774.0
+        },
+        "strata": {
+          "no_original_AOBT": {
+            "rows": 69,
+            "any_neighbor": 1.0,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.927536231884058,
+            "median_full_pool": 35.0,
+            "aliases_removed": 0,
+            "any_paired": 0.6956521739130435,
+            "median_paired": 5.0,
+            "paired_same_runway": 0.5072463768115942,
+            "paired_stand300m": 0.2463768115942029,
+            "paired_disagreement120": 0.6956521739130435,
+            "median_span_sec": 1592.0,
+            "median_furthest_sec": 837.0
+          },
+          "no_own_physical": {
+            "rows": 4437,
+            "any_neighbor": 0.9993238674780257,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9528961009691232,
+            "median_full_pool": 38.0,
+            "aliases_removed": 0,
+            "any_paired": 0.4295695289610097,
+            "median_paired": 0.0,
+            "paired_same_runway": 0.3698444895199459,
+            "paired_stand300m": 0.14063556457065585,
+            "paired_disagreement120": 0.415596123506874,
+            "median_span_sec": 1385.0,
+            "median_furthest_sec": 726.0
+          },
+          "under2_own_points": {
+            "rows": 1125,
+            "any_neighbor": 1.0,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9404444444444444,
+            "median_full_pool": 42.0,
+            "aliases_removed": 0,
+            "any_paired": 0.08622222222222223,
+            "median_paired": 0.0,
+            "paired_same_runway": 0.06933333333333333,
+            "paired_stand300m": 0.020444444444444446,
+            "paired_disagreement120": 0.08266666666666667,
+            "median_span_sec": 1323.0,
+            "median_furthest_sec": 714.0
+          },
+          "missing_AOBT_and_no_own_physical": {
+            "rows": 55,
+            "any_neighbor": 1.0,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9454545454545454,
+            "median_full_pool": 39.0,
+            "aliases_removed": 0,
+            "any_paired": 0.6363636363636364,
+            "median_paired": 4.0,
+            "paired_same_runway": 0.43636363636363634,
+            "paired_stand300m": 0.23636363636363636,
+            "paired_disagreement120": 0.6363636363636364,
+            "median_span_sec": 1388.0,
+            "median_furthest_sec": 720.0
+          }
+        },
+        "airport_paired": {
+          "EDDF": {
+            "rows": 706,
+            "any_paired": 0.9844192634560907,
+            "paired_same_runway": 0.9192634560906515,
+            "paired_stand300m": 0.33994334277620397
+          },
+          "EDDM": {
+            "rows": 525,
+            "any_paired": 0.2914285714285714,
+            "paired_same_runway": 0.17714285714285713,
+            "paired_stand300m": 0.11238095238095239
+          },
+          "EGLL": {
+            "rows": 676,
+            "any_paired": 0.25443786982248523,
+            "paired_same_runway": 0.25443786982248523,
+            "paired_stand300m": 0.02514792899408284
+          },
+          "EHAM": {
+            "rows": 752,
+            "any_paired": 0.9986702127659575,
+            "paired_same_runway": 0.9680851063829787,
+            "paired_stand300m": 0.824468085106383
+          },
+          "LEBL": {
+            "rows": 568,
+            "any_paired": 0.9947183098591549,
+            "paired_same_runway": 0.9788732394366197,
+            "paired_stand300m": 0.6355633802816901
+          },
+          "LEMD": {
+            "rows": 619,
+            "any_paired": 0.8045234248788369,
+            "paired_same_runway": 0.555735056542811,
+            "paired_stand300m": 0.11631663974151858
+          },
+          "LFPG": {
+            "rows": 735,
+            "any_paired": 0.00816326530612245,
+            "paired_same_runway": 0.00816326530612245,
+            "paired_stand300m": 0.0013605442176870747
+          },
+          "LIRF": {
+            "rows": 495,
+            "any_paired": 0.9878787878787879,
+            "paired_same_runway": 0.9474747474747475,
+            "paired_stand300m": 0.5353535353535354
+          },
+          "LSZH": {
+            "rows": 422,
+            "any_paired": 1.0,
+            "paired_same_runway": 0.9786729857819905,
+            "paired_stand300m": 0.8127962085308057
+          },
+          "LTFM": {
+            "rows": 815,
+            "any_paired": 0.0,
+            "paired_same_runway": 0.0,
+            "paired_stand300m": 0.0
+          }
+        }
+      },
+      {
+        "day": "2026-01-10",
+        "all": {
+          "rows": 4702,
+          "any_neighbor": 0.9976605699702255,
+          "median_neighbors": 16.0,
+          "truncated_share": 0.8455976180348788,
+          "median_full_pool": 30.0,
+          "aliases_removed": 0,
+          "any_paired": 0.7128881327094854,
+          "median_paired": 4.0,
+          "paired_same_runway": 0.6695023394300298,
+          "paired_stand300m": 0.3881327094853254,
+          "paired_disagreement120": 0.6967247979583157,
+          "median_span_sec": 1738.5,
+          "median_furthest_sec": 910.5
+        },
+        "strata": {
+          "no_original_AOBT": {
+            "rows": 100,
+            "any_neighbor": 0.99,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.87,
+            "median_full_pool": 27.5,
+            "aliases_removed": 0,
+            "any_paired": 0.77,
+            "median_paired": 4.0,
+            "paired_same_runway": 0.66,
+            "paired_stand300m": 0.28,
+            "paired_disagreement120": 0.74,
+            "median_span_sec": 1846.5,
+            "median_furthest_sec": 990.5
+          },
+          "no_own_physical": {
+            "rows": 3087,
+            "any_neighbor": 0.9977324263038548,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.858114674441205,
+            "median_full_pool": 32.0,
+            "aliases_removed": 0,
+            "any_paired": 0.5694849368318756,
+            "median_paired": 2.0,
+            "paired_same_runway": 0.5183025591188857,
+            "paired_stand300m": 0.21282798833819241,
+            "paired_disagreement120": 0.550696469063816,
+            "median_span_sec": 1671.0,
+            "median_furthest_sec": 892.0
+          },
+          "under2_own_points": {
+            "rows": 884,
+            "any_neighbor": 0.997737556561086,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.920814479638009,
+            "median_full_pool": 36.0,
+            "aliases_removed": 0,
+            "any_paired": 0.08710407239819004,
+            "median_paired": 0.0,
+            "paired_same_runway": 0.07239819004524888,
+            "paired_stand300m": 0.033936651583710405,
+            "paired_disagreement120": 0.083710407239819,
+            "median_span_sec": 1498.0,
+            "median_furthest_sec": 784.0
+          },
+          "missing_AOBT_and_no_own_physical": {
+            "rows": 80,
+            "any_neighbor": 0.9875,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.85,
+            "median_full_pool": 24.0,
+            "aliases_removed": 0,
+            "any_paired": 0.7125,
+            "median_paired": 2.5,
+            "paired_same_runway": 0.5875,
+            "paired_stand300m": 0.2375,
+            "paired_disagreement120": 0.675,
+            "median_span_sec": 1979.0,
+            "median_furthest_sec": 1086.0
+          }
+        },
+        "airport_paired": {
+          "EDDF": {
+            "rows": 519,
+            "any_paired": 0.9171483622350675,
+            "paired_same_runway": 0.7186897880539499,
+            "paired_stand300m": 0.1676300578034682
+          },
+          "EDDM": {
+            "rows": 335,
+            "any_paired": 0.9970149253731343,
+            "paired_same_runway": 0.991044776119403,
+            "paired_stand300m": 0.7582089552238805
+          },
+          "EGLL": {
+            "rows": 603,
+            "any_paired": 1.0,
+            "paired_same_runway": 1.0,
+            "paired_stand300m": 0.5024875621890548
+          },
+          "EHAM": {
+            "rows": 507,
+            "any_paired": 0.9960552268244576,
+            "paired_same_runway": 0.980276134122288,
+            "paired_stand300m": 0.8481262327416174
+          },
+          "LEBL": {
+            "rows": 320,
+            "any_paired": 0.965625,
+            "paired_same_runway": 0.940625,
+            "paired_stand300m": 0.565625
+          },
+          "LEMD": {
+            "rows": 526,
+            "any_paired": 0.9923954372623575,
+            "paired_same_runway": 0.9239543726235742,
+            "paired_stand300m": 0.36311787072243346
+          },
+          "LFPG": {
+            "rows": 567,
+            "any_paired": 0.0,
+            "paired_same_runway": 0.0,
+            "paired_stand300m": 0.0
+          },
+          "LIRF": {
+            "rows": 333,
+            "any_paired": 0.975975975975976,
+            "paired_same_runway": 0.9159159159159159,
+            "paired_stand300m": 0.6066066066066066
+          },
+          "LSZH": {
+            "rows": 278,
+            "any_paired": 1.0,
+            "paired_same_runway": 0.9028776978417267,
+            "paired_stand300m": 0.6366906474820144
+          },
+          "LTFM": {
+            "rows": 714,
+            "any_paired": 0.0,
+            "paired_same_runway": 0.0,
+            "paired_stand300m": 0.0
+          }
+        }
+      },
+      {
+        "day": "2026-07-10",
+        "all": {
+          "rows": 6372,
+          "any_neighbor": 0.9993722536095417,
+          "median_neighbors": 16.0,
+          "truncated_share": 0.9544883866917765,
+          "median_full_pool": 37.0,
+          "aliases_removed": 0,
+          "any_paired": 0.6853421217827997,
+          "median_paired": 10.0,
+          "paired_same_runway": 0.6734149403640929,
+          "paired_stand300m": 0.47002510985561835,
+          "paired_disagreement120": 0.6826741996233522,
+          "median_span_sec": 1474.0,
+          "median_furthest_sec": 777.0
+        },
+        "strata": {
+          "no_original_AOBT": {
+            "rows": 114,
+            "any_neighbor": 1.0,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9649122807017544,
+            "median_full_pool": 34.0,
+            "aliases_removed": 0,
+            "any_paired": 0.6578947368421053,
+            "median_paired": 8.5,
+            "paired_same_runway": 0.5789473684210527,
+            "paired_stand300m": 0.32456140350877194,
+            "paired_disagreement120": 0.6403508771929824,
+            "median_span_sec": 1572.0,
+            "median_furthest_sec": 838.0
+          },
+          "no_own_physical": {
+            "rows": 3118,
+            "any_neighbor": 0.9996792815907634,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9547787042976267,
+            "median_full_pool": 38.0,
+            "aliases_removed": 0,
+            "any_paired": 0.3627325208466966,
+            "median_paired": 0.0,
+            "paired_same_runway": 0.34797947402180884,
+            "paired_stand300m": 0.15811417575368827,
+            "paired_disagreement120": 0.35728030788967285,
+            "median_span_sec": 1438.0,
+            "median_furthest_sec": 769.0
+          },
+          "under2_own_points": {
+            "rows": 994,
+            "any_neighbor": 1.0,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9446680080482898,
+            "median_full_pool": 44.0,
+            "aliases_removed": 0,
+            "any_paired": 0.052313883299798795,
+            "median_paired": 0.0,
+            "paired_same_runway": 0.04527162977867203,
+            "paired_stand300m": 0.02716297786720322,
+            "paired_disagreement120": 0.05130784708249497,
+            "median_span_sec": 1254.0,
+            "median_furthest_sec": 657.0
+          },
+          "missing_AOBT_and_no_own_physical": {
+            "rows": 82,
+            "any_neighbor": 1.0,
+            "median_neighbors": 16.0,
+            "truncated_share": 0.9634146341463414,
+            "median_full_pool": 37.0,
+            "aliases_removed": 0,
+            "any_paired": 0.524390243902439,
+            "median_paired": 1.5,
+            "paired_same_runway": 0.45121951219512196,
+            "paired_stand300m": 0.25609756097560976,
+            "paired_disagreement120": 0.5,
+            "median_span_sec": 1502.5,
+            "median_furthest_sec": 797.5
+          }
+        },
+        "airport_paired": {
+          "EDDF": {
+            "rows": 681,
+            "any_paired": 1.0,
+            "paired_same_runway": 0.9985315712187959,
+            "paired_stand300m": 0.6240822320117474
+          },
+          "EDDM": {
+            "rows": 510,
+            "any_paired": 1.0,
+            "paired_same_runway": 1.0,
+            "paired_stand300m": 0.8215686274509804
+          },
+          "EGLL": {
+            "rows": 668,
+            "any_paired": 0.9985029940119761,
+            "paired_same_runway": 0.9985029940119761,
+            "paired_stand300m": 0.7140718562874252
+          },
+          "EHAM": {
+            "rows": 701,
+            "any_paired": 1.0,
+            "paired_same_runway": 0.9757489300998573,
+            "paired_stand300m": 0.8316690442225392
+          },
+          "LEBL": {
+            "rows": 599,
+            "any_paired": 0.991652754590985,
+            "paired_same_runway": 0.9766277128547579,
+            "paired_stand300m": 0.7963272120200334
+          },
+          "LEMD": {
+            "rows": 668,
+            "any_paired": 0.9895209580838323,
+            "paired_same_runway": 0.9341317365269461,
+            "paired_stand300m": 0.27844311377245506
+          },
+          "LFPG": {
+            "rows": 733,
+            "any_paired": 0.10368349249658936,
+            "paired_same_runway": 0.0941336971350614,
+            "paired_stand300m": 0.04365620736698499
+          },
+          "LIRF": {
+            "rows": 524,
+            "any_paired": 0.04580152671755725,
+            "paired_same_runway": 0.04389312977099236,
+            "paired_stand300m": 0.007633587786259542
+          },
+          "LSZH": {
+            "rows": 453,
+            "any_paired": 1.0,
+            "paired_same_runway": 0.9911699779249448,
+            "paired_stand300m": 0.8653421633554084
+          },
+          "LTFM": {
+            "rows": 835,
+            "any_paired": 0.0,
+            "paired_same_runway": 0.0,
+            "paired_stand300m": 0.0
+          }
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Own-track-empty paired coverage only5\u201310%; no broad missing-track rescue demonstrated.",
+    "LTFM paired physical coverage essentially zero; LFPG poor; Rome coverage changes across years.",
+    "Range/match-valid physical witnesses are censored observations, not verified pushbacks; ADSB can reflect previous arrival.",
+    "K16 truncates85\u201395% of time-window pools; no label-driven neighbor selection or gate.",
+    "Same Jan/Jul development months repeatedly reused; no expected gain claim."
+  ],
+  "independent_critique": {
+    "status": "mechanistically_distinct_pending_input_only_coverage",
+    "scope": "Read-only source and compact existing-summary review; no source-data scan, held-label selection, model fit or new numerical experiment.",
+    "proposed_design": "Original168/public/physical model plus K16 nearest other same-airport departures within +/-30min, deterministic time/ID ties, per-peer original-clock/physical-witness/missingness/relative-geometry tokens, 32-wide encoder and zero residual, seed42/fixed21/17.",
+    "existing_information": [
+      {
+        "source": "extra_features.py pc_*",
+        "present": "Airport/runway/stand-zone AOBT clock means, variance, counts, previous/next same-runway scalar clocks; most gaps filtered to 0..10800s.",
+        "missing": "Clock-to-physical-witness pairing for each peer and query-conditioned joint geometry."
+      },
+      {
+        "source": "runway_queue.py q_*",
+        "present": "Runway/airport takeoff and landing counts/gaps, mean AOBT taxi proxies, takeoffs since query AOBT.",
+        "missing": "Physical witness and clock on the same individual donor."
+      },
+      {
+        "source": "opdi.py nb_op_*; adsblol.py ab_nb_*",
+        "present": "Separate airport physical-age means/counts and deicing share; airport ADSB traffic counts.",
+        "missing": "Donor-level alignment between physical ages, clock ages, geometry and relative takeoff."
+      },
+      {
+        "source": "stand_day.py st_*; dd_*",
+        "present": "Own stand prior arrival ages/type/airline and dirty-day reporting summaries. Dirty-day inputs absent from ordinary156 but present in Rome classifier.",
+        "missing": "Not a new source of missingness-share information; new branch should not claim that."
+      },
+      {
+        "source": "nn_track_attention.py; nn_public_attention_pool.py",
+        "present": "Attention over the query aircraft own temporal track states only.",
+        "missing": "No cross-aircraft context; these failed/inconclusive pooling screens do not test donor-level pairing."
+      }
+    ],
+    "why_new_information_survives": "Separate clock and physical marginal summaries are invariant to permuting the physical witnesses among donor clocks. The proposed tokens retain that pairing and its runway/stand/time relationship to the query. Thus they can distinguish coherent same-route queue evidence from stale clocks or badly observed donors with identical existing marginals.",
+    "prior_negative_evidence": "The retained same-airline prior2h physical-clock median study failed versus airport/static airline references; whole-day medians were nearly redundant. Recent same-airport arrival recorder lags also failed to transfer to departure errors. Therefore broad clock calibration or missing-share reconstruction is not a credible new claim; query-conditioned paired physical context remains untested.",
+    "best_applicable_population": "Ordinary departures whose own physical evidence is sparse but whose local same-runway/near-stand departures have both genuine AOBT and valid physical witnesses. Also potential witnessed-queue disagreement on well-observed queries. This is a diagnostic population, not a selected inference gate.",
+    "cost_context_not_gain_forecast": {
+      "source_recipe": "Saved v77-era remaining_error_cost, not v79 and not a new scoring pass.",
+      "july_has_id_rows": 186779,
+      "july_has_id_sse_share": 0.6848,
+      "july_ltfm_unusable_rows": 25158,
+      "july_ltfm_unusable_sse_share": 0.1444,
+      "july_lfpg_airborne_rows": 13791,
+      "july_lfpg_airborne_sse_share": 0.0601,
+      "july_egll_airborne_rows": 11468,
+      "july_egll_airborne_sse_share": 0.0552,
+      "limits": "LTFM may have airport-wide sensor blindness, so its error share is not recoverable capacity without donor coverage. January gross cost is dominated by two previously closed LFPG extreme labels. Rome copied-label errors are largely governed by a separate classifier/rule stack, and Rome ground-observation coverage reverses across years. None implies a14.6s expected gain."
+    },
+    "required_source_only_pilot_readouts": [
+      "Donors with jointly available genuine AOBT and independently gated physical witness, not merely any nearby flight.",
+      "Same-runway and nearby-stand physical donor counts; query-own poor/missing physical evidence strata.",
+      "K16 truncation frequency and actual maximum donor time distance in dense airports.",
+      "2025/2026 January/July sensor-coverage shift; existing physical reliability gates retained."
+    ],
+    "fairness_and_leakage_contract": [
+      "Peer selection uses only time/airport/ID and leaves query out even if duplicate raw occurrences exist.",
+      "Train references only outer allowed months; held references allowed train plus own held month; no donor departure BLOCK/y/model prediction tokens.",
+      "Old/final overlapping IDs retain independent query clocks/identities and namespaces.",
+      "Any peer scaling fitted on training inputs only, with saved state.",
+      "Original backbone initialization, predictions, gradients and RNG retained by forked initialization; same optimizer/stops/seed.",
+      "Peer residual gate is peer presence, not query own-track count; original own-track branch gate remains unchanged; empty peer set gives exactly zero residual.",
+      "Scoring uses matched original168/public/physical control through complete unchanged stack, with same-machine comparison; no label-chosen airport/coverage gates."
+    ],
+    "implementation_risk": "Materializing N x16 x~20 float32 tokens can require multiple GB. Retain compact node bank plus neighbor indices and batch gather. Physical ages are censored witnesses, not true off-block labels. K16 time truncation may mostly expose near-simultaneous departures already represented by queue counts.",
+    "recommendation": "Proceed only to the fixed input-only coverage pilot. The mechanism is new enough for one matched fixed screen if paired witness coverage is broad; current evidence does not establish predictive value or justify a promised high-headroom gain.",
+    "sources": [
+      {
+        "path": "VALIDATION/extra_features.py",
+        "sha256": "5f3e0b80190d46e603d482c5a1e24d0e10432b3590b37c6cd2b31c07cee13d67"
+      },
+      {
+        "path": "VALIDATION/runway_queue.py",
+        "sha256": "8c3627ffa3f41bc8634a86ebcf174954a343c1eb1470879113bad15bdc7a70c6"
+      },
+      {
+        "path": "VALIDATION/stand_day.py",
+        "sha256": "ee596bcaf16e0b53d8249fefe1978696d8136495d1b63e057f99e8115c4e28ad"
+      },
+      {
+        "path": "VALIDATION/opdi.py",
+        "sha256": "10acfd0ed69fdf33200c73879207cdf814f3a2074d6e63375e230452fb7eb869"
+      },
+      {
+        "path": "VALIDATION/adsblol.py",
+        "sha256": "9b1153c345c5520d6e3dccd96c549253d8f83370e728a18f21393472070a1a90"
+      },
+      {
+        "path": "VALIDATION/nn_track_attention.py",
+        "sha256": "f7a2af905bcce991dc62734e1269f9e5c7e44cef2db93f6d5ec8a2106e46a57f"
+      },
+      {
+        "path": "VALIDATION/nn_public_attention_pool.py",
+        "sha256": "f4c5304801342d40e879fc5b7db824c0ec64001e2d88b56a54c5c0429949b11f"
+      },
+      {
+        "path": "VALIDATION/reports/research_network_20261010/peer_physical_clock.json",
+        "sha256": "0c5d1612900039e1800bef7be9de7f16aaf4134a7e424764c7f72df94e739ee9"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261011_remaining_error_cost/result.json",
+        "sha256": "a7c57d93c03163829cdf947a43723d18bd346a1e377e5fcebee729c9076591b3"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "tmp/research_20261012/model_diversity/cohort_context_pilot.json",
+      "sha256": "1e98003b3e2265cc9b7e7c679029038257687bdd1de9462702b98d73faf96254"
+    },
+    {
+      "path": "tmp/research_20261012/error_mechanisms/cross_flight_context_review.json",
+      "sha256": "50bf0472e3964daeca2431cbef480eda603b95cf32657f14e25009de8627b297"
+    }
+  ],
+  "validation_plan": "Exact same-desktop seed42 and one-of-three replacement on completev78; separate frozen coefficient1 v79 transport; no weight search.",
+  "model_review": {
+    "device": "cpu",
+    "initial_parameters_outputs_gradients_rng_exact": true,
+    "own_track_absent_context_active": true,
+    "no_peers_exact_parent": true,
+    "complete_donor_permutation_and_gradients": true,
+    "padding_nan_invariant": true,
+    "equal_marginal_different_pairing_distinguished": true,
+    "bank_nonpersistent": true,
+    "independent_scalar_tokens_checked": 9531,
+    "independent_scalar_max_error": 5.960464477539063e-08,
+    "bank_row_permutation_and_index_rebinding_exact": true,
+    "seconds": 0.5432494249835145,
+    "sources": [
+      {
+        "path": "VALIDATION/nn_public_cohort.py",
+        "sha256": "82636bf561d802c82e7587e38369494f7b8a5b13ee81f055680fe5a4f543b6fe"
+      },
+      {
+        "path": "VALIDATION/flight_cohort_context.py",
+        "sha256": "28255a6101f113e5462bc4aa916260d5bc67e2a0f51c28b32c4acf1a7a307e1e"
+      }
+    ],
+    "scope": "Tiny synthetic CPU only; no source data or matrix loaded",
+    "softmax_hardening": {
+      "source_sha256": "965956a9d03da271754c23d0ec3156bfe2e9b675137c82c4d3903e8eabdaf027",
+      "all_original_cpu_checks": {
+        "device": "cpu",
+        "initial_parameters_outputs_gradients_rng_exact": true,
+        "own_track_absent_context_active": true,
+        "no_peers_exact_parent": true,
+        "complete_donor_permutation_and_gradients": true,
+        "padding_nan_invariant": true,
+        "equal_marginal_different_pairing_distinguished": true,
+        "bank_nonpersistent": true
+      },
+      "extreme_common_logit_shift_exact": true,
+      "seconds": 0.5825199650134891
+    },
+    "query_conditioning": {
+      "source_sha256": "b9d274e34c8082c1a9a07e3f6494dac950108fde3bffae83fc67b2620e267d2c",
+      "checks": {
+        "device": "cpu",
+        "initial_parameters_outputs_gradients_rng_exact": true,
+        "own_track_absent_context_active": true,
+        "no_peers_exact_parent": true,
+        "complete_donor_permutation_and_gradients": true,
+        "padding_nan_invariant": true,
+        "equal_marginal_different_pairing_distinguished": true,
+        "bank_nonpersistent": true
+      },
+      "original_branch_calls": {
+        "inputs": 1,
+        "mean_head": 1,
+        "track": 1,
+        "fusion": 1,
+        "public": 1
+      },
+      "nonzero_query_conditioning_and_gradients": true,
+      "empty_peer_suppresses_query_head": true,
+      "seconds": 0.6008887710049748
+    }
+  },
+  "execution_check": "CPU original vs fast loop exact weights/loss/predictions/NumPy+Torch RNG across partial batches;2 tests pass1.633s.",
+  "build": {
+    "rows": 2085047,
+    "wall_seconds": 26.93,
+    "peak_rss_kib": 2275364,
+    "exit_code": 0
+  },
+  "independent_input_audit": {
+    "status": "pass",
+    "scope": "CV training bank only; no labels/models/raw points read",
+    "rows": 2085047,
+    "sample_queries": 688,
+    "source_rows": 8346,
+    "all_source_ids_takeoff_original_clock_exact": true,
+    "independently_recomputed_scalar_values": 125190,
+    "folds": {
+      "2025-01": {
+        "all_selected_edges": 27827495,
+        "exact_window_queries": 575
+      },
+      "2025-07": {
+        "all_selected_edges": 21097138,
+        "exact_window_queries": 462
+      }
+    },
+    "source": {
+      "path": "VALIDATION/tools/audit_flight_cohort_context_20261012.py",
+      "sha256": "ee3de6763fab27244ced68e1249d7849074ebfceeb0868eecd991b1af66ca645",
+      "bytes": 9986
+    },
+    "builder": {
+      "path": "VALIDATION/flight_cohort_context.py",
+      "sha256": "28255a6101f113e5462bc4aa916260d5bc67e2a0f51c28b32c4acf1a7a307e1e",
+      "bytes": 14151
+    },
+    "manifest": {
+      "path": "data/derived/flight_cohort_context_20261012/train/manifest.json",
+      "sha256": "32316dc19f86857149109ad41d0048c91670117f387314ea32c53f93db63999b",
+      "bytes": 30629
+    },
+    "seconds": 12.744926807994489
+  },
+  "preflight": {
+    "status": "pass",
+    "identity": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_cohort/identity.json",
+      "sha256": "012779e3bec9bd2c47599067a80642311b744473a96e81506ee01e3a4e2074d8"
+    },
+    "input_audit": {
+      "path": "tmp/research_20261012/error_mechanisms/cohort_input_audit.json",
+      "sha256": "e22f06cf641f1a412b6e08c5b75a923b4c36a480f74a7ce4b69ec81a084c5ef7"
+    },
+    "checks": [
+      {
+        "device": "cpu",
+        "initial_parameters_outputs_gradients_rng_exact": true,
+        "own_track_absent_context_active": true,
+        "no_peers_exact_parent": true,
+        "complete_donor_permutation_and_gradients": true,
+        "padding_nan_invariant": true,
+        "equal_marginal_different_pairing_distinguished": true,
+        "bank_nonpersistent": true
+      },
+      {
+        "device": "cuda",
+        "initial_parameters_outputs_gradients_rng_exact": true,
+        "own_track_absent_context_active": true,
+        "no_peers_exact_parent": true,
+        "complete_donor_permutation_and_gradients": true,
+        "padding_nan_invariant": true,
+        "equal_marginal_different_pairing_distinguished": true,
+        "bank_nonpersistent": true
+      },
+      {
+        "device": "cuda",
+        "partial_batch_updates_exact": true,
+        "loss_weights_predictions_exact": true,
+        "numpy_cpu_cuda_rng_exact": true,
+        "original_namespace_unchanged": true
+      }
+    ],
+    "fast_bytecode_exact": true,
+    "benchmark": [
+      {
+        "month": "2025-01",
+        "step_seconds": 0.03226819424889982,
+        "rows_per_second": 63468.06964786468,
+        "reserved_input_bytes": 2953843016,
+        "peak_allocated_bytes": 4224218624,
+        "estimated_training_minutes": 8.80921702994965
+      },
+      {
+        "month": "2025-07",
+        "step_seconds": 0.03038555950479349,
+        "rows_per_second": 67400.43735830886,
+        "reserved_input_bytes": 2246636848,
+        "peak_allocated_bytes": 3511083008,
+        "estimated_training_minutes": 4.79534771584816
+      }
+    ],
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "no_production_updates": true,
+    "production_backend_unchanged": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_cohort/identity.json",
+    "sha256": "012779e3bec9bd2c47599067a80642311b744473a96e81506ee01e3a4e2074d8"
+  }
+}
