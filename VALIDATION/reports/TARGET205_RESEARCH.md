@@ -103,6 +103,19 @@ excluding cancelledv75. It offers only0.00587018seconds projected gain;
 its serialized upper bound219.91644 is worse than the actual incumbent.
 Independent SQL/geometry checks pass; no candidate/version/upload follows.
 
+A distinct fixed read-only comparison is frozen: distribute the existing
+score-difference constraints using nonuniform row uncertainty. The reference
+is v78, before score-based recombination. Variance across seven recent recipes
+sets a bounded diagonal weight; its normalization uses ranking predictions
+only. A robust convex solve retains the original score precision and ridge1.
+The same frozen coefficients and ranking normalization then apply to Jan/Jul.
+The primary checks compare with v79 and an otherwise identical equal-variance
+solve. This creates directions outside the affine span, so its leaderboard
+RMSE cannot be derived from the available scores. No forecast or upload is
+authorized by this diagnostic. It awaits the desktop's active stand fits.
+Source: `../heteroscedastic_score_conditioning.py`; a separate Fenchel-dual
+optimizer and all-row arithmetic/SQL auditor are prepared.
+
 The final linear-leaf result is inconclusive: matched standardized control
 −0.051480, actualv78−0.032067 and actualv79−0.023679. All four completed
 models and all344,419 scored rows pass independent saved-model/provenance/
