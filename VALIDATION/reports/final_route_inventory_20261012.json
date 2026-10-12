@@ -128,8 +128,21 @@
     "Keep repository private under current user instruction."
   ],
   "not_started": [
-    "Final production feature preparation",
     "Full selected final-view replay",
     "Final candidate assembly/audit/upload"
-  ]
+  ],
+  "completed": {
+    "final_public_features": {
+      "prepared": "VALIDATION/runs/v3_20261012_final_public_features/prepared.json",
+      "audit": "VALIDATION/runs/v3_20261012_final_public_features/audit.json",
+      "rows": 670790,
+      "values_audited": 8049480,
+      "all_old_view_features_exact": true,
+      "maximum_SQL_error": 4.656612873077393e-10
+    }
+  },
+  "prepared_code": {
+    "path": "VALIDATION/final_public_tabm_inference.py",
+    "scope": "Inference-only three retained fifteen-epoch models, same original laptop environment; all old predictions must replay exactly before new final outputs. Not yet prepared or executed."
+  }
 }

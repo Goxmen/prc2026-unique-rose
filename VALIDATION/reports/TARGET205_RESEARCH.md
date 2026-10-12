@@ -58,6 +58,14 @@ old/final input namespaces and prepare an audited four-month final file before
 the deadline, after the active leaderboard production work. No final upload or
 new final-route acceptance is claimed. See `public_refresh_20261012.json`.
 
+The separate final public-input table is now prepared. Its 670,790 rows retain
+all twelve selected formulas; every old-view value replays exactly. Independent
+SQL checks all 8,049,480 final feature values, maximum absolute error 4.66e-10.
+No label values, training or upload are used. `final_public_tabm_inference.py`
+is prepared for inference with saved weights/encoders on the original laptop;
+its execution will wait until the active production and artifact return finish.
+This does not yet provide a complete final model stack.
+
 ## Three-TabM breakthrough and cross-date closure, 10:50 Amsterdam
 
 The four extra-seed CV fits completed on the laptop; the original seed42 is

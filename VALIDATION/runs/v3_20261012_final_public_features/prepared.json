@@ -1,0 +1,81 @@
+{
+  "design": {
+    "recipe": "Unchanged twelve selected public daily-departure inputs",
+    "source_year": 2026,
+    "views": [
+      "old",
+      "final"
+    ],
+    "final_rows": 670790,
+    "months": [
+      "2026-01",
+      "2026-02",
+      "2026-06",
+      "2026-07"
+    ],
+    "controls": "All old-view feature values replay exactly against retained production inputs",
+    "audit": "Retained independent SQL equations; only input and output locations changed",
+    "no_label_reads": true,
+    "no_fit": true,
+    "no_candidate": true,
+    "no_upload": true
+  },
+  "source": {
+    "path": "VALIDATION/final_public_features.py",
+    "sha256": "e6a0a665b2d30981292e3a7a30d6e9e2fada03329a797b039e292fba94d6d945"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/final_public_features.py",
+      "sha256": "e6a0a665b2d30981292e3a7a30d6e9e2fada03329a797b039e292fba94d6d945"
+    },
+    {
+      "path": "VALIDATION/public_delay_features.py",
+      "sha256": "9f7407e5d291ae2c9b1010abe74fadee7f648695c25cca08ac735d90b3ef04df"
+    },
+    {
+      "path": "VALIDATION/daily_delay_reconcile.py",
+      "sha256": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06"
+    },
+    {
+      "path": "VALIDATION/tools/audit_public_delay_features.py",
+      "sha256": "d9106f40eebb18c3c8a4e014fee0186a996d1cdc7273610271828772ceabb1f0"
+    },
+    {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "path": "data/final_ranking.parquet",
+      "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/ranking_features.parquet",
+      "sha256": "4f46d20a5463792ca80987f4481ec31bb84f2257152ebe30e116544216f54f0e"
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2026.csv",
+      "sha256": "5952d20ef5f9c4245018dd6986064c5c4aa15d568a6c0c2dcdcbc73bf8a43fd2"
+    }
+  ],
+  "rows": 670790,
+  "months": {
+    "2026-01": 152719,
+    "2026-02": 144158,
+    "2026-06": 181791,
+    "2026-07": 192122
+  },
+  "old_all_row_exact_replay": true,
+  "output": {
+    "path": "data/derived/final_public_20261012/features.parquet",
+    "sha256": "f12b58b7b3e632cb0979038729ef42171b3b13a72bdf7ad65c27f78d87472118"
+  },
+  "raw": {
+    "path": "data/derived/final_public_20261012/inputs.parquet",
+    "sha256": "ab272b019f60cd481da34af6be963425f13cf88c3276094c9b7ddc59e29a96d6"
+  }
+}
