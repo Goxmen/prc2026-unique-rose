@@ -116,7 +116,7 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
-- **October 12, 04:36 Amsterdam: target 205 research is active; best/latest v79 scores 219.6130.**
+- **October 12, 04:53 Amsterdam: target 205 research is active; best/latest v79 scores 219.6130.**
   The user explicitly resumed at 02:24 after the requested pause until 02:00.
   Retained v76/v77/v78 uploaded once at 02:10/02:20/02:30 and scored 221.0948,
   220.8328 and 220.2933. Feedback-informed v79 uploaded 02:36 after independent
@@ -128,13 +128,17 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   Independent all-row audits pass. One-of-three replacement improves v78 CV
   by 0.252864 seconds and fixed v79 CV by 0.290603, with both months better.
   See `PUBLIC_TABM_RESULT_20261012.json` for execution/machine caveats and the
-  desktop path-only training-guard failure. The model agent is preparing one
-  seed-42 full-year replacement on the laptop; no production fit yet.
+  desktop path-only training-guard failure. One seed-42 full-year replacement
+  started on the laptop at04:48, PID17027, after reviewed source, exact CPU
+  update/RNG parity and full-width memory preflight. Keep the other two members.
   Robust other-runway aggregate evidence also passes: v79 CV −0.154163,
   interval [−0.306432, −0.035022]. All-row and separate block-solve audits pass.
-  Production preparation and a fixed additive combination check are underway;
-  individual gains are not assumed additive. No version or upload yet.
-  Desktop belongs to the remaining three arms of `v3_20261012_linear_leaf_main`.
+  Production runner and separate auditor pass review; inference awaits a clean
+  host. The fixed additive combination passes all-row SQL checks: v79 CV
+  −0.445516, interval[−0.655109,−0.288599], both months improve. This is
+  post-selection evidence on reused development data, not independent
+  confirmation. No version or upload yet. Desktop belongs to the remaining
+  three arms of `v3_20261012_linear_leaf_main`, PID1369670 since04:35.
   January's constant control is complete, including exact full prediction
   reload. Resume skips that retained model; do not repeat completed fits.
   The operational pause change was reviewed and refrozen before fitting; older

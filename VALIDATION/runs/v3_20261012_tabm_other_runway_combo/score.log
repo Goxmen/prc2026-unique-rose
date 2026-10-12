@@ -1,0 +1,76 @@
+{
+  "design": {
+    "parent": "exactv79",
+    "formula": "rint(max(0,v79+(TabM_v78-exactv78)+(other_runway_v78-exactv78)))",
+    "coefficients": [
+      1,
+      1
+    ],
+    "new_bounds": false,
+    "no_fit": true,
+    "no_search": true,
+    "no_upload": true,
+    "selection": "Post-selection combination of two individually positive directions on reused Jan/Jul data; not independent confirmation.",
+    "comparisons": [
+      "combined versus v79",
+      "combined versus TabM-only",
+      "combined versus runway-only"
+    ]
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo/identity.json",
+    "sha256": "e30ac4699df91c08dc7e487a8fc4d931afac6156678a83f71f26f648d446a4b0"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo/scored.parquet",
+    "sha256": "de912af54e3bfce5dc7209eb8f36c3d90f7e34377bb5c55ceba9a06136b8ae42"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "tabm": 325.3587726348833,
+      "runway": 325.46076737113816,
+      "combined": 325.2886986252673
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "tabm": 255.4087354501978,
+      "runway": 255.57962131266686,
+      "combined": 255.16898338173462
+    }
+  },
+  "cv": {
+    "control": 290.67435711796895,
+    "tabm": 290.38375404254055,
+    "runway": 290.52019434190254,
+    "combined": 290.228841003501
+  },
+  "paired": {
+    "control": {
+      "change": -0.4455161144680062,
+      "ci95": [
+        -0.655108686831333,
+        -0.28859937798536356
+      ],
+      "decision": "improvement"
+    },
+    "tabm": {
+      "change": -0.15491303903959874,
+      "ci95": [
+        -0.30736234892593683,
+        -0.03457876331598668
+      ],
+      "decision": "improvement"
+    },
+    "runway": {
+      "change": -0.29135333840156363,
+      "ci95": [
+        -0.42176695199398007,
+        -0.2079756812672848
+      ],
+      "decision": "improvement"
+    }
+  },
+  "rows": 344419,
+  "all_row_sql_arithmetic_truth_calendar_scores": "pass"
+}

@@ -38,19 +38,25 @@ Current work:
 - **TabM passed:** all four laptop fits and independent score audits are
   complete. One-of-three replacement improves v78 by 0.252864 seconds and the
   fixed v79 comparison by 0.290603, interval [−0.421282, −0.206950], with both
-  months better. A single seed-42 full-year replacement is being prepared for
-  the laptop; retain the other two members. No production fit or upload yet.
+  months better. A single seed-42 full-year replacement started on the laptop
+  at 04:48 Amsterdam, PID17027, after source review, update-parity checks and
+  memory preflight. Retain the other two members. No production upload yet.
   See `PUBLIC_TABM_RESULT_20261012.json` for the separate machine/execution
   difference and desktop path-only training-guard limitation.
 - **Other-runway totals:** the fixed robust message improves v78 by 0.136645
   seconds and v79 by 0.154163, interval [−0.306432, −0.035022], with both months
-  better. All-row score checks pass; an independent block-solve audit is underway.
-  No production inference or upload yet. The joint combination with TabM is
-  unscored; individual gains need not add.
+  better. All-row score checks and an independent block-solve audit pass.
+  Production source and its separate auditor are reviewed, awaiting a clean
+  host for inference. No production inference or upload yet.
+- **Fixed combination:** adding both original v78 deltas to v79 improves CV
+  290.674357→290.228841, −0.445516, interval [−0.655109, −0.288599]. January
+  improves0.242175 and July0.648857. All-row SQL checks pass. This is a
+  post-selection combination on reused development data, not independent
+  confirmation or an official gain. No version is assigned yet.
 - **Desktop linear-leaf comparison:** January's constant control is saved,
   with exact reload of all 153,706 held predictions. It took 16.93 minutes to
-  train and 3.41 minutes for inference/reload. The other three arms resume
-  after the short source audit. The pause amendment was reviewed and refrozen
+  train and 3.41 minutes for inference/reload. The other three arms resumed
+  at04:35 Amsterdam, PID1369670. The pause amendment was reviewed and refrozen
   before any fit; original sources/designs remain under `prefit_v1/`.
 - **Paired-flight context: closed.** Both fits and all-row audits pass, but
   v78 improves only 0.03275 seconds and v79 only 0.02112, with both intervals

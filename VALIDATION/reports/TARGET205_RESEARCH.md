@@ -80,8 +80,14 @@ The desktop training guard fails because a frozen laptop-specific cache path
 is absent locally; it was not patched or claimed to pass. Returned artifacts
 and semantic fingerprints are verified. These are single-seed results on
 reused development data, not a demonstrated official gain. One seed-42
-full-year replacement is being prepared, retaining the other two physical
-members. No production fit or upload has started. See
+full-year replacement started on the laptop at04:48 Amsterdam, PID17027,
+retaining the other two physical members. It uses15epochs on the original
+24-epoch schedule. Independent source review, exact CPU update/RNG parity and
+full-width GPU preflight pass; peak GPU allocation is4.80GB. All157 cached
+dependencies are verified; only10.94MB of missing files was transferred.
+The runner checks old-view template and all three parent prediction identities
+before training, saves completed weights before inference and requires exact
+all-row checkpoint reload. No production upload has occurred. See
 `PUBLIC_TABM_RESULT_20261012.json` and `../runs/v3_20261012_nn_public_tabm/`.
 
 **Original flight-plan timestamp phases: closed.** Seven fixed additions to
@@ -195,9 +201,17 @@ All-row score/source checks and a separate six-target block-solve audit pass.
 The latter independently assembles shared-flight covariance and support
 likelihoods, agreeing within 1.14e−11 seconds. Production preparation reuses
 the existing 26,899-row Rome ranking packet and full-year calibration, with
-no downloads or taxi-model fits. A separately frozen additive combination
-with TabM is being prepared; this is post-selection development evidence and
-the individual gains need not add. No production file or upload exists yet.
+no downloads or taxi-model fits. The production runner and its independent
+auditor pass review, awaiting a clean host for execution.
+
+The separately frozen additive combination uses exactly
+`rint(max(0,v79+(TabM_v78-v78)+(other_runway_v78-v78)))`.
+All344,419 rows pass source, truth, calendar, formula and SQL score checks.
+CV improves290.674357→290.228841, −0.445516 seconds, interval
+[−0.655109,−0.288599]; January improves0.242175 and July0.648857.
+It also improves over TabM alone by0.154913 and over the runway change alone
+by0.291353. This is a post-selection combination on reused development data,
+not independent confirmation. No production file or upload exists yet.
 Evidence is under `all_discrete_peer_20261012/other_runway_*`.
 
 **Linear-leaf trees: resource preflight passed; full comparison authorized.** A newly updated
@@ -230,7 +244,8 @@ and exact saved-model reload. Its 10,000-round model and all 153,706 held
 predictions are retained. A reviewed operational option stops after each
 requested number of newly saved model/prediction records, preserving fit order
 and resume behavior. The desktop was released for the completed TabM audit
-and the short other-runway comparison before the remaining three arms.
+and the short other-runway comparison before the remaining three arms,
+which resumed at04:35 Amsterdam under PID1369670.
 Previous frozen designs and source
 versions remain under `v3_20261012_linear_leaf_main/prefit_v1/`; all scientific
 choices are unchanged and were refrozen before any fit.

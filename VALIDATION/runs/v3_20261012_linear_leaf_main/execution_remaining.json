@@ -1,0 +1,25 @@
+{
+  "stage": "remaining three fixed arms then independent fixed scores/audits",
+  "pid": 1369670,
+  "exec_session": 40625,
+  "command": ".venv/bin/python VALIDATION/linear_leaf_main_jan_jul.py fit",
+  "log": "tmp/research_20261012/signal_scout/linear_leaf_fit_remaining.log",
+  "started_utc": "2026-10-12T02:35:57.445169+00:00",
+  "skip_retained_January_constant": {
+    "model": {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/models/2025-01_constant.txt",
+      "sha256": "635480278344cf0722c5ea3732c1fb71122c10fea4773e2757765c8eb62bffea"
+    },
+    "prediction": {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/predictions/2025-01_constant.parquet",
+      "sha256": "f872144af27ad63f62bd4cc5c8418fe0a642584f0e2d6e28e76a5d966d930e8e"
+    }
+  },
+  "order": [
+    "2025-01 candidate",
+    "2025-07 constant",
+    "2025-07 candidate"
+  ],
+  "status": "running",
+  "no_other_heavy_desktop_job": true
+}

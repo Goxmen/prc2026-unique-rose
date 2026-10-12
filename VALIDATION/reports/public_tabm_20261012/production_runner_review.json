@@ -1,0 +1,37 @@
+{
+  "status": "pass_static_and_bounded_cpu_review",
+  "reviewer": "error_mechanisms",
+  "sources": [
+    {
+      "path": "VALIDATION/nn_public_tabm_submit.py",
+      "sha256": "89c94123dec051bad44bd843f068d62bd3f9705109a5b32824b1b6cb162c1b83"
+    },
+    {
+      "path": "VALIDATION/tests/test_public_tabm_submit.py",
+      "sha256": "7c0fc4aebc4c765a6ca75041db37b1cdd7f209465b67f1f6cb96bdf85a648705"
+    }
+  ],
+  "checks": [
+    "One fixed seed42, original full-year15/24epoch schedule and 2051327-row population.",
+    "Exact selected CV train bytecode; memberwise32-head MSE,512microbatch/2048logical updates unchanged.",
+    "Original full-year encoder parity; fixed12public transform; separate train/old track manifests.",
+    "Original old packet loader plus exact template/all3 parent prediction IDs before encoding.",
+    "Selected CV source/design/all frozen files and retained parent helper/audit bindings checked before new identity.",
+    "Checkpoint retained before inference, strict resume guards and entire ranking reload.",
+    "Original1042/2042 predictions retained, float64 equal-pool export only; no candidate/upload."
+  ],
+  "independent_cpu_test": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -s VALIDATION/tests -p test_public_tabm_submit.py",
+    "exit_code": 0,
+    "seconds": 1.305,
+    "exact": [
+      "partial-batch trained weights",
+      "losses",
+      "Torch RNG",
+      "NumPy RNG"
+    ]
+  },
+  "followup": "Model agent reran unchanged scientific test after provenance additions: exit0,1.346s.",
+  "scope": "No full cache load or GPU preflight performed by reviewer; those are separately allocated.",
+  "remaining": "Root-authorized laptop full-input verification/preflight, then final readiness before one fit."
+}

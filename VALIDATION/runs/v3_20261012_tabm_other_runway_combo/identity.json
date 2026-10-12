@@ -1,0 +1,87 @@
+{
+  "design": {
+    "parent": "exactv79",
+    "formula": "rint(max(0,v79+(TabM_v78-exactv78)+(other_runway_v78-exactv78)))",
+    "coefficients": [
+      1,
+      1
+    ],
+    "new_bounds": false,
+    "no_fit": true,
+    "no_search": true,
+    "no_upload": true,
+    "selection": "Post-selection combination of two individually positive directions on reused Jan/Jul data; not independent confirmation.",
+    "comparisons": [
+      "combined versus v79",
+      "combined versus TabM-only",
+      "combined versus runway-only"
+    ]
+  },
+  "source": {
+    "path": "VALIDATION/tabm_other_runway_combo_cv.py",
+    "sha256": "b2189f5aec18925b5b4cfd1f0a6e8afbc1f8d4e8395ce50573a70417148d131d"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tabm_other_runway_combo_cv.py",
+      "sha256": "b2189f5aec18925b5b4cfd1f0a6e8afbc1f8d4e8395ce50573a70417148d131d"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/manifest.json",
+      "sha256": "4f07e45515bbb93ed981d4ae073ed95946002c5f3111b87266ca559d3e1f12bc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/cv.parquet",
+      "sha256": "8f17490dcefbedc3959a4293b2a68ef7871ecf0d8828d30aad06fefe2299895f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/result.json",
+      "sha256": "fde5d7e92f2fe0be138f208f43ceda7036eef24a48447a36b9abed03ac46802a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/audit.json",
+      "sha256": "3d065bb05dc4a868fd7ad5634b8907575a640db56b5b612d2904d98be288fff5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/result.json",
+      "sha256": "8275186109273df0c87e446dc3f88ad59bc8a7956205ff874005c0177c57c55c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/audit.json",
+      "sha256": "265fd57db8b07620be76a8f9dc0bffd07972ffca92e18947faa9389c0f02a6ee"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/scored.parquet",
+      "sha256": "e41fb29c950566934bdb832c00a1ee6384bc5fb92fce602381a534be42a37196"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/result.json",
+      "sha256": "6ad04715f1a54164d863a32b72d8d19bfa60f08999caf1f545bc8227f1c817b1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/audit.json",
+      "sha256": "1054bfbe919ebedf43ab4e994ed5035b8050bd52bbd5ade025c43bbdd450b839"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/scored.parquet",
+      "sha256": "d37c07d8eb1e2641ff3dd98f3cbcf3232a54f432b86f1f42a56e70f06e1c2d3f"
+    },
+    {
+      "path": "VALIDATION/reports/public_tabm_20261012/score_audit.json",
+      "sha256": "17d38dd53b6c251906ca724facf35aaeb1d4fcb4042065e5355a0ddb3558b10a"
+    },
+    {
+      "path": "VALIDATION/reports/all_discrete_peer_20261012/other_runway_block_audit.json",
+      "sha256": "de4986b46014708addea3cb53552d4954c899719b594796cb9ce1aaaffa12390"
+    }
+  ],
+  "small_arithmetic_check": "unchanged rows, negative sum clipping and both fixed deltas pass"
+}

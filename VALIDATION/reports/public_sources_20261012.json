@@ -1,0 +1,75 @@
+{
+  "checked_at": "2026-10-12T02:44:20.760802+00:00",
+  "access": "Read-only public GitHub repository search and primary README/documentation API; no external code executed or copied into implementation",
+  "search_receipt": {
+    "path": "tmp/research_20261012/root_public_sources/search.json",
+    "sha256": "b1d7276fba76cc917e7dc5b1ff1fae024c2cb4ad543099c7b2d076385b0ab279"
+  },
+  "sources": [
+    {
+      "repo": "e-seet/fearless-barn",
+      "url": "https://github.com/e-seet/fearless-barn/blob/master/README.md",
+      "path": "tmp/research_20261012/root_public_sources/e-seet__fearless-barn.md",
+      "sha256": "e952deac9a3552cb23e94af421fb04f422aaaab62c8a0d459b38e85e4dd33515",
+      "bytes": 3675
+    },
+    {
+      "repo": "il-miscusi/prc-2026-gracious-tornado",
+      "url": "https://github.com/il-miscusi/prc-2026-gracious-tornado/blob/main/README.md",
+      "path": "tmp/research_20261012/root_public_sources/il-miscusi__prc-2026-gracious-tornado.md",
+      "sha256": "4bb0e1e1471f487954aae8f2b9d5998700278d443b2f46668fdc5c8943cf4710",
+      "bytes": 11007
+    },
+    {
+      "repo": "AbdullahKhan-x/PRC-2026",
+      "url": "https://github.com/AbdullahKhan-x/PRC-2026/blob/main/README.md",
+      "path": "tmp/research_20261012/root_public_sources/AbdullahKhan-x__PRC-2026.md",
+      "sha256": "c5c5baeee8eaf55ad8691bc3f7a7617889dfbe246cd3f48581551e5e287fb5f5",
+      "bytes": 8514
+    },
+    {
+      "repo": "Dreamlone/Dreamlone",
+      "url": "https://github.com/Dreamlone/Dreamlone/blob/main/README.md",
+      "path": "tmp/research_20261012/root_public_sources/Dreamlone__Dreamlone.md",
+      "sha256": "f45b9b6ddc4cbacfacf24a5ad64f4bcbc24132a231a96824790e2118f180cd3f",
+      "bytes": 11064
+    },
+    {
+      "repo": "RxV00/RxV00",
+      "url": "https://github.com/RxV00/RxV00/blob/main/README.md",
+      "path": "tmp/research_20261012/root_public_sources/RxV00__RxV00.md",
+      "sha256": "11c9eaaf5739e8013270fbfa71b0c4f0a54712fdbb738bdc3e967a5ffdc7a256",
+      "bytes": 1401
+    }
+  ],
+  "findings": [
+    {
+      "repository": "e-seet/fearless-barn",
+      "reported_rmse": 269.9888,
+      "notes": "Published model diversification and physical-track correction largely overlap existing work. FT-Transformer on the full current public/physical inputs remains untested locally; their results concern a different, weaker baseline."
+    },
+    {
+      "repository": "il-miscusi/prc-2026-gracious-tornado",
+      "reported_rmse": 233.1717,
+      "notes": "Published aggregate reconciliation, recovered flight-plan bounds and physical correction are already represented in the current selected recipe. No stronger new mechanism identified."
+    },
+    {
+      "repository": "AbdullahKhan-x/PRC-2026",
+      "reported_rmse": 259.17,
+      "notes": "Updated flight-code/airline-destination rule and date-stamp discussion overlap retained Rome format features, classifier and previously investigated long-gap exceptions. No broad threshold replacement selected from this write-up."
+    },
+    {
+      "repository": "WhemDev/prc-data-challenge-2026-taxi-out",
+      "notes": "New profile link returns HTTP404; no private access attempted."
+    },
+    {
+      "repository": "Dreamlone/Dreamlone",
+      "notes": "Profile still references a prior-year challenge; no new 2026 implementation identified."
+    }
+  ],
+  "limitations": [
+    "Reported scores are authors claims, not independently matched to the live leaderboard in this search.",
+    "Search absence does not establish that no stronger public solution exists."
+  ],
+  "decision": "Prioritize validated TabM and robust aggregate production plus the running linear-leaf comparison. No extra source-inspired experiment launched from this search."
+}

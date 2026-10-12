@@ -1,5 +1,5 @@
 {
-  "status": "designs_frozen_reviewed_waiting_for_desktop_allocation",
+  "status": "first_constant_record_complete_desktop_released_for_TabM_remaining_three_arms_paused",
   "main_design": {
     "features": "unchanged original184; no source-phase features",
     "columns": 184,
@@ -111,13 +111,9 @@
     "path": "VALIDATION/reports/source_clocks_20261012/linear_leaf_cost.json",
     "sha256": "0438d20e358dc28f709d565e3a0d9746c5e59499b5442c932e56fe7f6d015c60"
   },
-  "execution_state": "Updated primary and secondary freezes complete after preserving v1 sources/designs. No guard, preflight, model fit or held score started.",
+  "execution_state": "Full frozen guard and both-fold preflight passed. Only January constant10000round model and153706heldpredictions saved; all-held disk reload exact. Desktop explicitly released; no heldscore or remaining fit started.",
   "next_steps_after_explicit_desktop_release": [
-    "main guard",
-    "main preflight",
-    "main fit --max-new-records 1",
-    "release desktop for TabM scoring",
-    "resume remaining fixed fits after explicit release",
+    "resume exact three remaining fixed fits, skipping completed January constant",
     "main score",
     "main fullstack/SQL audit",
     "separate v79 coefficient1 transport/SQL audit"
@@ -140,5 +136,13 @@
       "path": "VALIDATION/reports/source_clocks_20261012/linear_leaf_operational_pause_review.json",
       "sha256": "24f54b8b38231716ecfdf8810e544af7227f44f6086ebb563d6a100a733283a4"
     }
+  },
+  "execution_first_arm": {
+    "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/execution_first_arm.json",
+    "sha256": "059e48e30b4c0e56a7985ac42b0ef817b273ff9ceda43f538180ec7d555115bf"
+  },
+  "preflight": {
+    "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/preflight.json",
+    "sha256": "e9ac9a6a3f5b05d08271b87e1806eaefae0f3a5b00f452e5effe748f2f20723d"
   }
 }
