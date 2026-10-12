@@ -58,9 +58,10 @@ Hosted on OpenSky Network's MinIO object store (S3-compatible), endpoint `https:
 
 The final files were released on 8 October. Shared old/final movements have
 jittered timestamps, so retain separate flight-keyed features and predictions.
-The first four-month upload, v63, was rejected because the scorer still had
-the old truth population. Check the accepted population before choosing a
-template; see [AGENTS.md](AGENTS.md) for current submission state.
+The first four-month upload, v63, was rejected by the versioned leaderboard
+route, which scores the old population. The separately named final route is
+documented below; its acceptance has not yet been verified by this team.
+See [AGENTS.md](AGENTS.md) for current submission state.
 
 Each row carries movement fields (`*_mvt`: airport, phase, times, aircraft type, runway, stand, taxi time) joined with flight-plan fields (`*_flt`: callsign, operator, market segment, wake category, OBT/ARVT timestamps). Note from the organizers: *"Real world data is messy. You will find some inconsistencies between movement and flight information."*
 
@@ -71,6 +72,11 @@ Each row carries movement fields (`*_mvt`: airport, phase, times, aircraft type,
 3. Upload it to the team's own MinIO bucket (ours: `prc-2026-unique-rose`).
 
 The ranking script **rejects** submissions with mismatched `MVT_ID_mvt` values, missing rows, or extra rows — always start from the template.
+
+The [official final-submission instructions](https://prc-data-challenge-2026.netlify.app/ranking.html#final-submission),
+checked 12 October, specify **`unique-rose_final.parquet`** for the unique final
+submission. Prepare this separately using the four-month final template; a
+versioned January/July leaderboard upload does not satisfy this requirement.
 
 ### Eligibility & open-science requirements (prize conditions)
 

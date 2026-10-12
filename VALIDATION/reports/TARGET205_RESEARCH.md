@@ -26,6 +26,38 @@ receipt remains unchanged; work began after the explicit user resumption.
 The native goal retains its old text/status; the local project objective records
 205 and no native usage limit was altered.
 
+## Fixed TabM duration screen and research state, 11:33 Amsterdam
+
+The selected three-member production pool is running on the laptop. The desktop
+runs one fixed alternative: seed42 completes the original24-epoch OneCycle
+schedule in both folds. Checkpoints at21/17epochs provide same-trajectory controls;
+held predictions are computed only after training ends. Architecture, loss,
+optimizer, inputs, other members and all correction weights stay unchanged.
+Exact training-AST restoration, CPU update/RNG parity, desktop/laptop input
+fingerprints and GPU capacity checks pass. This is not a stopping-epoch search.
+Both the actual selected pool and matched-duration comparisons must improve
+in both months with paired-day upper endpoints below zero. Results are pending.
+
+The persistent index is `../research_registry.json`; `../research_state.json`
+records the two active jobs and the last official score. Run
+`tools/research_state.py status --remote` for a compact refresh. A finite worker
+will return verified laptop artifacts, build and independently audit the selected
+combination after the desktop becomes free. It never fits or uploads.
+
+The updated descriptive error table confirms the known concentration: the largest
+10 CV residuals contribute44.25% of equal-month squared error; the two previously
+investigated January LFPG rows still dominate. This is not evidence of the same
+errors in2026, and no new recording rule, clipping or weighting follows. Full
+input-group and airport tables are in `current_error_concentration_20261012/`.
+
+A public-repository refresh found no selected new technique. It did establish
+that the [official final route](https://prc-data-challenge-2026.netlify.app/ranking.html#final-submission)
+requires `unique-rose_final.parquet`, separate from versioned leaderboard uploads.
+The earlier v63 rejection does not test that separately named route. Preserve
+old/final input namespaces and prepare an audited four-month final file before
+the deadline, after the active leaderboard production work. No final upload or
+new final-route acceptance is claimed. See `public_refresh_20261012.json`.
+
 ## Three-TabM breakthrough and cross-date closure, 10:50 Amsterdam
 
 The four extra-seed CV fits completed on the laptop; the original seed42 is

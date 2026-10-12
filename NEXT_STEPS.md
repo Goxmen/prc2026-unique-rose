@@ -33,6 +33,11 @@ timer is currently scheduled. The native goal object remains `usageLimited`
 with its old text; no native limit or status was changed. The local project
 objective records the user's current 205 target.
 
+Official final-route check (12 October): the separate unique final filename is
+`unique-rose_final.parquet`; a versioned old-population upload does not satisfy it.
+Prepare/audit the four-month final inference after current leaderboard production.
+No final-route validation has been claimed; see `public_refresh_20261012.json`.
+
 Current work (compact index: `VALIDATION/research_registry.json`; live local
 snapshot: `VALIDATION/research_state.json`):
 

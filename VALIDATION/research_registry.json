@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T09:13:04.777947+00:00",
+  "updated_at": "2026-10-12T09:28:12.121160+00:00",
   "current": {
     "target": 205.0,
     "best_version": 79,
@@ -490,7 +490,7 @@
     },
     {
       "id": "tabm_duration",
-      "hypothesis": "Complete TabM’s24-epoch schedule instead of inherited PLE21/17 stops",
+      "hypothesis": "Complete TabM\u2019s24-epoch schedule instead of inherited PLE21/17 stops",
       "status": "running",
       "conclusion": "Fixed24/24 test running after CPU update/RNG parity and GPU capacity checks; intermediate21/17 snapshots are matched controls. No held-label stopping search.",
       "metrics": {},
@@ -502,6 +502,17 @@
         {
           "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/identity.json",
           "sha256": "54711f9487fd64ec1d3b5c0760bc3d92d9c8ed7831671d1ee4fb20acb4c427f2"
+        }
+      ]
+    },
+    {
+      "id": "public_repository_refresh_oct12",
+      "status": "reviewed_no_new_candidate",
+      "conclusion": "New funny-firefly review overlaps existing geometry, sensor fusion, Rome and planning constraints; official separate final filename recorded.",
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/public_refresh_20261012.json",
+          "sha256": "f2c6fdd38f69d68d75cce380877d538d4118e35b22c50c8888f2f4c6bb0d1f56"
         }
       ]
     }

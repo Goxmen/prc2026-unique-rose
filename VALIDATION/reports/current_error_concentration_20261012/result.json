@@ -1,0 +1,140 @@
+{
+  "status": "descriptive_only",
+  "created_at": "2026-10-12T09:30:52.041667+00:00",
+  "rows": 344419,
+  "cv": 289.7627782102906,
+  "monthly_rmse": {
+    "2025-01": 325.02854196957753,
+    "2025-07": 254.49701445100365
+  },
+  "top_k_balanced_sse_fraction": {
+    "1": 0.26667471492957856,
+    "10": 0.44249764197328023,
+    "100": 0.5218883159569376,
+    "1000": 0.6457387732245663
+  },
+  "top_groups": [
+    {
+      "airport": "LFPG",
+      "has_id": false,
+      "gap_band": "<=1h",
+      "rows": 56,
+      "balanced_sse_share": 0.3919565203905589,
+      "rmse": 13540.613781852198,
+      "old_rmse": 13535.918595800687,
+      "mean_residual": -2383.125,
+      "oracle_cv_gain": 63.95667065025009,
+      "label_over_4h": 2,
+      "days": 42
+    },
+    {
+      "airport": "LTFM",
+      "has_id": true,
+      "gap_band": "<=1h",
+      "rows": 41997,
+      "balanced_sse_share": 0.06604782558097558,
+      "rmse": 216.41718949639224,
+      "old_rmse": 217.6036395130566,
+      "mean_residual": 4.959378050813154,
+      "oracle_cv_gain": 10.229739578761098,
+      "label_over_4h": 0,
+      "days": 62
+    },
+    {
+      "airport": "LIRF",
+      "has_id": false,
+      "gap_band": ">4h",
+      "rows": 45,
+      "balanced_sse_share": 0.06401053797591713,
+      "rmse": 6622.942618906895,
+      "old_rmse": 6622.950456975769,
+      "mean_residual": -1542.4444444444443,
+      "oracle_cv_gain": 10.378357008511841,
+      "label_over_4h": 41,
+      "days": 21
+    },
+    {
+      "airport": "LIRF",
+      "has_id": true,
+      "gap_band": "1-4h",
+      "rows": 3679,
+      "balanced_sse_share": 0.0560202630737623,
+      "rmse": 692.0267842560373,
+      "old_rmse": 693.2502008578139,
+      "mean_residual": -61.362054906224515,
+      "oracle_cv_gain": 9.300083122207752,
+      "label_over_4h": 0,
+      "days": 62
+    },
+    {
+      "airport": "LIRF",
+      "has_id": true,
+      "gap_band": "<=1h",
+      "rows": 22340,
+      "balanced_sse_share": 0.053679103607826344,
+      "rmse": 267.82061835644913,
+      "old_rmse": 267.66595401066024,
+      "mean_residual": -6.26230975828111,
+      "oracle_cv_gain": 8.305790749589221,
+      "label_over_4h": 0,
+      "days": 62
+    },
+    {
+      "airport": "LFPG",
+      "has_id": true,
+      "gap_band": "<=1h",
+      "rows": 32892,
+      "balanced_sse_share": 0.04440570072933182,
+      "rmse": 198.26372607520122,
+      "old_rmse": 200.16046182178852,
+      "mean_residual": 20.589049008877538,
+      "oracle_cv_gain": 6.6466826490307085,
+      "label_over_4h": 0,
+      "days": 62
+    },
+    {
+      "airport": "LIRF",
+      "has_id": false,
+      "gap_band": "1-4h",
+      "rows": 330,
+      "balanced_sse_share": 0.04252621289112574,
+      "rmse": 2023.764579373617,
+      "old_rmse": 2042.7729542032423,
+      "mean_residual": 90.77575757575758,
+      "oracle_cv_gain": 7.108898631998102,
+      "label_over_4h": 0,
+      "days": 53
+    },
+    {
+      "airport": "EGLL",
+      "has_id": true,
+      "gap_band": "<=1h",
+      "rows": 34702,
+      "balanced_sse_share": 0.03832744643010758,
+      "rmse": 179.41144983070507,
+      "old_rmse": 180.3933559383315,
+      "mean_residual": 2.0641461587228402,
+      "oracle_cv_gain": 5.733738241490187,
+      "label_over_4h": 0,
+      "days": 62
+    }
+  ],
+  "interpretation": "Reused held-out 2025 errors; group oracle gains are unattainable diagnostic bounds, not candidate gains. No attribution to hidden 2026 errors.",
+  "sources": [
+    {
+      "path": "VALIDATION/tools/current_error_concentration_20261012.py",
+      "sha256": "57ae69ba3f529bc50d7137b0a79442bf3992161d55675a253d7ac3a74cb8b2e8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    }
+  ],
+  "no_fit": true,
+  "no_candidate": true,
+  "no_upload": true
+}
