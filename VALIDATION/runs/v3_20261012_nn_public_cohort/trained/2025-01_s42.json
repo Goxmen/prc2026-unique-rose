@@ -1,0 +1,154 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_cohort/identity.json",
+    "sha256": "012779e3bec9bd2c47599067a80642311b744473a96e81506ee01e3a4e2074d8"
+  },
+  "design": {
+    "parent": "exactv78 public/physical seed42 and one-of-three selected pool replacement",
+    "model": {
+      "context": {
+        "k": 16,
+        "window_ms": 1800000,
+        "alias_ms": 120000,
+        "order": "absolute takeoff distance, takeoff timestamp, movement ID",
+        "aliases": "same movement ID; known same aircraft within120seconds; exact known takeoff/AOBT/stand/runway tuple",
+        "source_rows": "all supplied departure inputs, regardless ordinary-model training routing",
+        "values": [
+          "actual_clock",
+          "op_ground",
+          "op_stand",
+          "ab_stand",
+          "actual_valid",
+          "op_ground_valid",
+          "op_stand_valid",
+          "ab_stand_valid",
+          "actual_present",
+          "stand_x",
+          "stand_y",
+          "stand_known",
+          "log_raw_count",
+          "ground_fraction",
+          "ground_known"
+        ],
+        "meta": [
+          "mvt_id",
+          "to_ms",
+          "airport",
+          "stand",
+          "runway",
+          "hex"
+        ],
+        "clock_range": [
+          0,
+          10800
+        ],
+        "physical_gates": "OPDI matched1; ADSB matched1 and stand_n>0; finite clock in[0,10800]",
+        "geometry": "R6371000 equirectangular airport-origin meters; missing explicit",
+        "count": "log1p(min(raw_count,4096))/log4097",
+        "contexts": "train only exact allowed months; held allowed train plus own month",
+        "views": "independent train/old/final source banks and neighbor construction",
+        "no_departure_labels": true,
+        "no_peer_predictions": true,
+        "no_arrival_labels": true,
+        "no_sensor_quality_neighbor_selection": true,
+        "no_raw_neighbor_points": true
+      },
+      "channels": [
+        "relative_takeoff",
+        "actual_clock",
+        "op_ground",
+        "op_stand",
+        "ab_stand",
+        "actual_valid",
+        "op_ground_valid",
+        "op_stand_valid",
+        "ab_stand_valid",
+        "actual_minus_op_ground",
+        "actual_minus_op_stand",
+        "actual_minus_ab_stand",
+        "ground_pair_known",
+        "op_stand_pair_known",
+        "ab_stand_pair_known",
+        "query_minus_peer_actual",
+        "query_peer_actual_known",
+        "same_stand",
+        "stand_keys_known",
+        "same_runway",
+        "runway_keys_known",
+        "stand_distance",
+        "stand_coordinates_known",
+        "peer_log_raw_count",
+        "peer_ground_fraction",
+        "peer_ground_known",
+        "peer_original_clock_present"
+      ],
+      "width": 32,
+      "encoder": "27->32ReLU->32ReLU; scalar masked attention plus masked max; pooled64+originalqueryhidden256->32ReLU->1",
+      "seconds": "asinh(value/600)/asinh18 for bounded four clocks and differences",
+      "time": "signed takeoff difference/1800",
+      "distance": "min(stand_distance_m/40000,1)",
+      "zero_initialization": "original parent parameters and RNG exact; fork_rng for new modules; final linear all zero",
+      "no_new_dropout": true,
+      "no_query_track_gate": true,
+      "missing_context": "separate donor mask; no donors gives exact zero residual",
+      "query_index": "integer-valued final plain slot used only for verified context lookup; stripped before parent"
+    },
+    "seed": 42,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "original_columns": 156,
+    "public_columns": 12,
+    "context_index": "lookup-only appended integer row index, stripped before original network",
+    "target": "same original min(y,10800) standardized target",
+    "training": "audited fast sparse train bytecode, original native2048 AdamW/OneCycle24 updates",
+    "monitor": "first1024 held inputs, eval-only, no held labels or stopping",
+    "machine": "desktop RTX3080; saved same-desktop original public/physical control",
+    "primary": "replace seed42 in selected3; retain1042/2042 and all downstream v78 stack",
+    "secondary": "matched seed42 complete stack",
+    "no_hpo": true,
+    "no_new_gate": true,
+    "no_weight_search": true,
+    "no_neighbor_labels": true,
+    "no_production": true,
+    "no_upload": true,
+    "reused_development_months": true
+  },
+  "month": "2025-01",
+  "seed": 42,
+  "epochs": 21,
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261008_open_meteo_jan_jul/inputs/2025-01.pkl",
+      "sha256": "ee1239362fd6b4a32c412931465be86a928b9c0904f7ec64b5b74291435ab2c7"
+    },
+    "control_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-01_s42.json",
+      "sha256": "45d0e9fb7cf6f3b2b93fd612be0ed95a8d876951287ebe45eeb4334ec7c4f75b"
+    },
+    "control_prediction": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-01_s42.parquet",
+      "sha256": "539845eb72be933a7c89b06e2c3de2aa2becf170d8542124d1aa1d3a41d8e9dd"
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+      "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+    },
+    "rows": 1596201,
+    "held_rows": 153706
+  },
+  "bank": {
+    "path": "data/derived/flight_cohort_context_20261012/train/manifest.json",
+    "sha256": "32316dc19f86857149109ad41d0048c91670117f387314ea32c53f93db63999b"
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_cohort/models/2025-01_s42.pt",
+    "sha256": "33dd89837e5b6b721942de777cd47697bcb236d2a6f7935a1bd1a4f280ed1e80"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+    "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+  },
+  "updates_completed_before_inference": true
+}

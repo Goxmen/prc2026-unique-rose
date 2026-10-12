@@ -1,0 +1,143 @@
+{
+  "design": {
+    "parent": "exactv78",
+    "primary": "replace_cohort versus selected",
+    "matched": "cohort_single versus parent_single on same desktop",
+    "replacement": "one of selected three public/physical members; others1042/2042 unchanged",
+    "retained": "calls15,all3trees,Rome,serialization,public constraints,daily quality and fixed joint increment",
+    "no_new_weights": true,
+    "no_new_gate": true,
+    "no_hpo": true,
+    "no_upload": true,
+    "caveat": "reused Jan/Jul development; saved same-hardware control and unchanged native2048 updates"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_cohort/identity.json",
+      "sha256": "012779e3bec9bd2c47599067a80642311b744473a96e81506ee01e3a4e2074d8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_cohort/audit.json",
+      "sha256": "3032f248031ab3eae2031af7730f2b382b8ab46cd1eb330b5bcc203b60323556"
+    },
+    {
+      "path": "VALIDATION/nn_public_cohort_stack.py",
+      "sha256": "044b2d9dc35bbd12b26c5cdfe0eda58f88074f2c4e8e25df1681ab7a263dc186"
+    },
+    {
+      "path": "VALIDATION/attention_v77_stack.py",
+      "sha256": "0f0573bc580141f5dff8f730acc7d97ad4fd471b3bda92f475485b6956f51b3a"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments_cv.py",
+      "sha256": "4a790c670c852d54ec8c0df647504d723b45874870dacddff305f1137f3842c0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/result.json",
+      "sha256": "fde5d7e92f2fe0be138f208f43ceda7036eef24a48447a36b9abed03ac46802a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-01_s42.parquet",
+      "sha256": "539845eb72be933a7c89b06e2c3de2aa2becf170d8542124d1aa1d3a41d8e9dd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-01_k1.parquet",
+      "sha256": "d31236f5b2fdd637592fcaf17d7fbd9dc2a67a41ac687540acb7b5a20b77f016"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-01_k2.parquet",
+      "sha256": "b7e71c0fae892936ed60562fd0f8f449b31e39425778a4bfca000d1ed7cb72bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_cohort/networks/2025-01_s42.parquet",
+      "sha256": "eba4500fb6aa25e1633e76910cf6592153541455c29a33d138f6c3fac6717e67"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-01_s42.parquet",
+      "sha256": "7025bf609c20aeefc7fca9691759dfafebb848c9630b76849e67f680be74ba7e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-01_s42.parquet",
+      "sha256": "76acf53b0e5092ceea257f809188e97e18c968ca376d116c6e52c871c20d2b40"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-01_s42.parquet",
+      "sha256": "5cf4cd372eaa407bb7bdcf5ada2c5b597aedab5084f87a8088382448dee9943f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.parquet",
+      "sha256": "50a011cdb0998e2b50c86ab97c35c1640be7d01dbd97c8d298976982d5165278"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-07_k1.parquet",
+      "sha256": "05d34a32df574b5bf3392130646f517110cace2b71a64ac3952da445ddc1e109"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-07_k2.parquet",
+      "sha256": "013820082aa68965017781982e54a010b5d3d4df3cfa3032dfd20a79cfdae816"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_cohort/networks/2025-07_s42.parquet",
+      "sha256": "ad448542212842ee714127841aee47c23453a74790c6bc08d8282c89a4ce85ea"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-07_s42.parquet",
+      "sha256": "a0068d91df286ab73d49e89d14166c5514354e6e796e9c49703a47b571035704"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-07_s42.parquet",
+      "sha256": "9dd2b443c5f58806f0d0d4a23868d00a99b9a1edcd7a1724786eed4b4bb5e32a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-07_s42.parquet",
+      "sha256": "8425c6890168e6f31d5b86c278c3ffda0f7a0420ec2a2b34ec05ce3331a71ac9"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_cohort_stack/scored.parquet",
+    "sha256": "49b697433ef496f3de2f12017eb164c25b7982548247d1656c821c6e3c7f2cd3"
+  },
+  "scores": {
+    "2025-01": {
+      "parent_single": 326.10648980938095,
+      "cohort_single": 325.9407557974302,
+      "selected": 325.860607626995,
+      "replace_cohort": 325.81539312428356
+    },
+    "2025-07": {
+      "parent_single": 256.49768721325097,
+      "cohort_single": 256.5352425591627,
+      "selected": 255.9996300885311,
+      "replace_cohort": 255.97934285192457
+    }
+  },
+  "cv": {
+    "parent_single": 291.30208851131596,
+    "cohort_single": 291.2379991782965,
+    "selected": 290.93011885776303,
+    "replace_cohort": 290.89736798810407
+  },
+  "paired": {
+    "replace_cohort_vs_selected": {
+      "change": -0.032750869658968895,
+      "ci95": [
+        -0.10512141253870766,
+        0.03559615468085509
+      ],
+      "decision": "inconclusive"
+    },
+    "cohort_single_vs_parent_single": {
+      "change": -0.0640893330194956,
+      "ci95": [
+        -0.28642025089140405,
+        0.13722570951694632
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "exact_v78_replayed": true
+}

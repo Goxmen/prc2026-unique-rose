@@ -155,8 +155,13 @@ a fresh standardized constant-leaf control and its linear-leaf counterpart,
 with 10,000 rounds and the original settings. Expected total runtime is roughly
 1.3–2.5 hours before allowing for full inference, with substantial uncertainty
 from extrapolating early-tree costs. No held score was read in either probe.
-The desktop is currently allocated to the shorter cohort-context preparation
-and screen. Linear fits wait for that resource to be released.
+Both full input/scaler views pass; the first fit started at 04:01 on the desktop,
+PID1349929. A reviewed operational option stops after each requested number of
+newly saved model/prediction records, preserving the four-fit order and resume
+behavior. The first January constant control will release the desktop for TabM
+scoring before the remaining three arms. Previous frozen designs and source
+versions remain under `v3_20261012_linear_leaf_main/prefit_v1/`; all scientific
+choices are unchanged and were refrozen before any fit.
 No public code was executed or copied. See
 `source_clocks_20261012/linear_leaf_cost.json` and
 `source_clocks_20261012/linear_leaf_design.json`.
@@ -170,7 +175,7 @@ frozen before either result existed. See `../target205_delta_transport.py` and
 `../runs/v3_20261012_delta_transport/design.json`. This remains reused development
 evidence, not independent confirmation or an uploadable candidate.
 
-**Cross-flight context: fixed comparison running on the desktop.**
+**Cross-flight context: closed after an inconclusive comparison.**
 The proposed encoder keeps each nearby flight's observed plan clock paired with
 that same flight's physical witnesses and relative time/runway/stand geometry.
 Existing peer-clock and sensor features summarize those sources separately;
@@ -201,10 +206,17 @@ identities and clocks, all 48,924,633 allowed neighbor links, 1,037 reconstructe
 neighbor lists and 125,190 scalar source values. CUDA checks preserve the
 original initial outputs, gradients and random state, including native batch
 updates. The full-bank preflight peaks at 3.93 GiB, with 30–32 ms per update.
-The two fixed fits started at 03:40 Amsterdam, desktop PID1337640; estimated
-completion with inference and scoring is 04:00–04:05. This is an estimate,
-not a completed result. No candidate or upload exists. See
-`COHORT_CONTEXT_PREFLIGHT_20261012.json` and `cohort_context_20261012/`.
+The two fixed fits ran from 03:40 to 03:58, taking 17 min 52 s and peaking at
+8.22 GiB CPU memory. All held predictions reload exactly. Replacing one of the
+three pool members changes v78 CV 290.930119→290.897368, −0.032751 seconds,
+interval [−0.105121,+0.035596]. The matched single model changes −0.064089,
+interval [−0.286420,+0.137226], with July worse by 0.03756 seconds. The fixed
+v79 transport changes 290.674357→290.653242, −0.021115 seconds, interval
+[−0.092287,+0.047115]. All 344,419 rows pass independent identity, truth,
+calendar, control, serialization and score checks. These small differences
+are inconclusive. No extra seeds, variants, production fits or upload follow.
+Retain both models and predictions. See `COHORT_CONTEXT_RESULT_20261012.json`
+and `cohort_context_20261012/`.
 
 Completed negative screens and their retained models are documented in
 [the 11 October report](TARGET215_RESEARCH.md). Do not repeat those fits,

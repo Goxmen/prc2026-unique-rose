@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/identity.json",
+    "sha256": "d546da1ea6b70abde2b314e5ef343576b4d5c5b012d248955661c69da2d6013b"
+  },
+  "checks": [
+    {
+      "month": "2025-01",
+      "train_rows": 1596201,
+      "held_rows": 153706,
+      "scaler": {
+        "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/scalers/2025-01.json",
+        "sha256": "a5288e0b566687c1b1dd9d347e56d0bfa8922999918fd2970d830bd4b98afa3a"
+      },
+      "columns": 184,
+      "exact_original_memberships_and_uncapped_targets": true,
+      "train_only_scaling": true,
+      "exact_nan_masks_categories_and_order": true
+    },
+    {
+      "month": "2025-07",
+      "train_rows": 1140233,
+      "held_rows": 190713,
+      "scaler": {
+        "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/scalers/2025-07.json",
+        "sha256": "dd4eca5e0f646128c57ab52096bf794c8321b47a15166fb2605447ce4bfce320"
+      },
+      "columns": 184,
+      "exact_original_memberships_and_uncapped_targets": true,
+      "train_only_scaling": true,
+      "exact_nan_masks_categories_and_order": true
+    }
+  ]
+}

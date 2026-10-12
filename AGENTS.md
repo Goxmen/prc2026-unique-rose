@@ -116,7 +116,7 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
-- **October 12, 03:10 Amsterdam: target 205 research is active; best/latest v79 scores 219.6130.**
+- **October 12, 04:02 Amsterdam: target 205 research is active; best/latest v79 scores 219.6130.**
   The user explicitly resumed at 02:24 after the requested pause until 02:00.
   Retained v76/v77/v78 uploaded once at 02:10/02:20/02:30 and scored 221.0948,
   220.8328 and 220.2933. Feedback-informed v79 uploaded 02:36 after independent
@@ -124,14 +124,22 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   are used; **one remains** for new evidence. V75 is cancelled permanently;
   its changes are included in v76. Old geometry/fifth-slot queues requiring
   its nonexistent score stay cancelled. Do not restart older queues below.
-  Laptop owns four sequential physical TabM/matched-network fits, run
-  `v3_20261012_nn_public_tabm`; desktop owns the 191-input source-clock-phase
-  LightGBM comparison, run `v3_20261012_source_clock_phase_lgb`. One heavy job
-  per host. A 64-round linear-leaf cost probe follows desktop score/audit;
-  no full linear fit is queued. Preserve all frozen sources and checkpoints.
+  Laptop owns four sequential physical TabM/matched-network fits, PID14874,
+  run `v3_20261012_nn_public_tabm`; completion expected around 04:24. Desktop
+  owns the reviewed four-fit linear-leaf comparison, PID1349929, run
+  `v3_20261012_linear_leaf_main`. The first command uses `fit --max-new-records 1`
+  and stops after January's constant control, leaving a desktop window to score
+  TabM. Resume the remaining three arms afterwards; do not repeat completed fits.
+  The operational pause change was reviewed and refrozen before fitting; older
+  sources/designs remain under `prefit_v1/`. One heavy job per host.
+  Source-clock phases failed CV. Paired-flight context fits are complete and
+  inconclusive: v78 −0.03275 seconds, v79 −0.02112, both intervals cross zero.
+  Preserve all models, predictions, audits and frozen sources; no expansion,
+  production or upload for either branch.
   Arrival-clock transfer and same-flight endpoint pilots failed; all-discrete
-  Sobol and Gibbs inference failed numerical convergence without reading CV
-  labels. Do not score their unstable predictions. A fixed v79 component-delta
+  Sobol/Gibbs inference and the distinct tiny EP numerical test failed without
+  reading CV labels. EP also has unresolved quadrature error; no real-cohort
+  expansion or tuning follows. A fixed v79 component-delta
   comparison was frozen before phase/TabM results. Read
   [TARGET205_RESEARCH.md](VALIDATION/reports/TARGET205_RESEARCH.md) and
   [NEXT_STEPS.md](NEXT_STEPS.md) for current state. The 02:00 timer fired but IDE

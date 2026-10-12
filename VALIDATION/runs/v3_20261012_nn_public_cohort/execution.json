@@ -1,9 +1,9 @@
 {
-  "state": "fitting",
+  "state": "complete_closed_inconclusive",
   "started_at": "2026-10-12T03:40:40+02:00",
-  "updated_at": "2026-10-12T01:41:44.055763+00:00",
+  "updated_at": "2026-10-12T02:00:33.014894+00:00",
   "machine": "gpc",
-  "pid": 1337640,
+  "pid": null,
   "session": 52499,
   "command": "OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -u VALIDATION/nn_public_cohort_jan_jul.py fit",
   "frozen_identity": "identity.json",
@@ -19,5 +19,7 @@
     "cohort_v79_transport.py score",
     "independent result review",
     "explicit desktop release"
-  ]
+  ],
+  "desktop_released_to": "root/signal_scout after independent audit",
+  "score_report": "VALIDATION/reports/COHORT_CONTEXT_RESULT_20261012.json"
 }

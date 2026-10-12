@@ -40,11 +40,14 @@ Current work:
   Four fits run sequentially; preflight and independent loss/update/stack review
   pass. See `v3_20261012_nn_public_tabm/`. No HPO or extra seeds are authorized
   by this design; preserve completed checkpoints and preprocessing.
-- **Desktop:** fixed cohort-context January/July fits started at 03:40 Amsterdam,
-  PID1337640, after independent source and CUDA audits passed. Linear-leaf
-  full-row probes also pass: 7.159 GiB cumulative peak memory and 1.14× late-tree
-  cost. The fixed four-fit matched linear comparison passed independent review
-  and is frozen; it will follow after the desktop is released.
+- **Desktop:** fixed linear-leaf comparison started at 04:01, PID1349929.
+  Both original 184-column input/scaler views pass. The first command stops
+  after the saved January constant-control record, allowing TabM scoring on
+  the desktop before resuming the other three arms. The pause amendment was
+  reviewed and refrozen before any fit; original sources/designs are retained.
+- **Paired-flight context: closed.** Both fits and all-row audits pass, but
+  v78 improves only 0.03275 seconds and v79 only 0.02112, with both intervals
+  spanning zero. No extra seeds, production fit or upload follow.
 - **Timestamp features: closed.** Exact-v78 CV worsens0.012388seconds,
   interval[−0.004784,+0.027121]; frozen-v79 transport worsens0.017603seconds,
   interval[+0.000630,+0.032125]. Both original controls, saved candidate model
@@ -54,12 +57,11 @@ The phase inputs are all missing for Rome's no-ID 1–4h group, so they cannot
 directly resolve that costly group. Arrival landing-clock context passed its
 arrival-source pilot but failed the necessary departure transfer check; the
 same-flight endpoint pilot also failed. Both are closed without a taxi-model fit.
-All-discrete Sobol and Gibbs public-source inference failed convergence; no CV
-score or candidate follows. Reapplying existing bounds to v79 changes only nine
+All-discrete Sobol/Gibbs and the distinct tiny EP numerical test failed; no CV
+score or candidate follows. EP's unresolved quadrature errors are retained.
+Reapplying existing bounds to v79 changes only nine
 ranking rows and can improve official RMSE by at most 0.088502 seconds, so it is
-also closed. A new cross-flight context encoder has passed an input-only
-four-date coverage pilot and is authorized for one fixed comparison, pending
-implementation audits and an allocated host. No fit or gain is claimed yet.
+also closed.
 
 See [the current research report](VALIDATION/reports/TARGET205_RESEARCH.md).
 The [11 October report](VALIDATION/reports/TARGET215_RESEARCH.md) retains the

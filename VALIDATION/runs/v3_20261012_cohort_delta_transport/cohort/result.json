@@ -1,0 +1,75 @@
+{
+  "design": {
+    "parent": "v79",
+    "original_control": "exact v78",
+    "formula": "round_even(max(0,v79 + fixed_arm_on_v78 - exact_v78))",
+    "coefficient": 1.0,
+    "new_bounds": false,
+    "zero_delta_rows": "exact v79",
+    "purpose": "secondary transport check; retain original and same-machine comparisons",
+    "experiments": {
+      "cohort": {
+        "directory": "v3_20261012_nn_public_cohort_stack",
+        "control": "selected",
+        "arms": [
+          "replace_cohort"
+        ]
+      }
+    },
+    "no_fit": true,
+    "no_search": true,
+    "no_submission": true,
+    "limitation": "reused development data and fixed additive transport; not independent confirmation"
+  },
+  "experiment": "cohort",
+  "rows": 344419,
+  "scores": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "replace_cohort": 325.4931400973793
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "replace_cohort": 255.81334391845812
+    }
+  },
+  "cv": {
+    "control": 290.67435711796895,
+    "replace_cohort": 290.6532420079187
+  },
+  "paired": {
+    "replace_cohort": {
+      "change": -0.021115110050246244,
+      "ci95": [
+        -0.09228676949940322,
+        0.047115494977043315
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "all_row_sql_audit": "pass",
+  "exact_v78_control": true,
+  "zero_delta_rows_exact_v79": true,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_cohort_delta_transport/design.json",
+    "sha256": "6ea824e3810144a849107b648812c56e205ecc6e91fd7571f3f10620e52f47b2"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_cohort_stack/audit.json",
+      "sha256": "d8eb2913f6cce80c5aaa4e68d313a98777bd901603b511c86fe3b6e8402016fe"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_cohort_stack/result.json",
+      "sha256": "e1e7bf0550e394ae7799c73e2e4aecf9dd1dfbfd9bb86443afa67b56cc9937b1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_cohort_stack/scored.parquet",
+      "sha256": "49b697433ef496f3de2f12017eb164c25b7982548247d1656c821c6e3c7f2cd3"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_cohort_delta_transport/cohort/scored.parquet",
+    "sha256": "a300c28d0330a7c750db5159ec1c44e48a241d9fccd0dbdb4242fd8b559d8f1d"
+  }
+}
