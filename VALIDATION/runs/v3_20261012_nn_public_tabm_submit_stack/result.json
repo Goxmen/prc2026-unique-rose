@@ -1,0 +1,81 @@
+{
+  "design": {
+    "parent": "exact integer v78 with fixed coefficient-one transport onto integer v79",
+    "change": "replace only public/physical member seed42 with selected full-input K32 TabM",
+    "retained_members": [
+      1042,
+      2042
+    ],
+    "neural": "unchanged half calls15 plus half equal three-member physical pool",
+    "ordinary": "unchanged .71 neural plus .29 three-tree mean; original Rome/rules",
+    "daily": "recompute original quality-gated daily correction using unchanged full2025 calibration",
+    "joint": "unchanged saved v78 increment at .5 after original v77 integer stage",
+    "transport": "rint(max(0,v79+(tabm_v78-v78))); zero integer delta retains exact v79",
+    "rows": 344841,
+    "ranking_view": "old",
+    "cv": "frozen nn_public_tabm_stack plus original coefficient-one v79 transport",
+    "no_new_fit": true,
+    "no_new_calibration": true,
+    "no_new_weight": true,
+    "no_new_gate": true,
+    "no_robust_runway_addition": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit_stack/identity.json",
+    "sha256": "e573ec1a53a8b77245ced4e4e5b97189f1f1872d205835bbe50ee7a522984231"
+  },
+  "rows": 344841,
+  "original_pool_and_all_v77_stages_exact": true,
+  "integer_v78_exact": true,
+  "zero_delta_v79_exact": true,
+  "unchanged_calibration": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/parameters.json",
+    "sha256": "e59983c3c875a8161a484a2531e27add8d86e058e89b2f72218bcea39ca589b0"
+  },
+  "unchanged_joint_increment": {
+    "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/predictions.parquet",
+    "sha256": "4291e6348c938224af5cc5d9d421ca5a4073f0583c4d611a2feb4a8ec47eb792"
+  },
+  "cv_v78": 290.67725457849053,
+  "paired_v78": {
+    "change": -0.2528642792725009,
+    "ci95": [
+      -0.3677770302937926,
+      -0.17379751169291993
+    ],
+    "decision": "improvement"
+  },
+  "cv_v79": 290.38375404254055,
+  "paired_v79": {
+    "change": -0.29060307542840746,
+    "ci95": [
+      -0.42128220184296516,
+      -0.20695021184214113
+    ],
+    "decision": "improvement"
+  },
+  "changed_v78": 313081,
+  "changed_v79": 313081,
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit_stack/predictions.parquet",
+      "sha256": "acd9aa3654f65afa27d5df5e3ac0f629505670e120a3b9e52da068a2fab62cc9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit_stack/cells.parquet",
+      "sha256": "ea66fb73d01396e53bf1c5ccfae85ab275d55287a7e2a72ed63ac42ba002764d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit_stack/candidate_v78.parquet",
+      "sha256": "2446133b25c4010166e4f6f8b53d7886a95bf4b3e2e4c65ba91d9958fef5651b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit_stack/candidate_v79.parquet",
+      "sha256": "eb5cce3d2d1886501ea22a3f9948e96b51eccf16daffd22866f3a131dd756b0b"
+    }
+  ],
+  "no_version": true,
+  "no_upload": true
+}

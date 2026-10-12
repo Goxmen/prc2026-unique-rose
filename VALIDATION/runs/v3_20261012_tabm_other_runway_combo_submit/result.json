@@ -1,0 +1,76 @@
+{
+  "design": {
+    "formula": "rint(max(0,v79+(TabM_v78-exactv78)+(other_runway_v78-exactv78)))",
+    "coefficients": [
+      1,
+      1
+    ],
+    "rows": 344841,
+    "inputs": "audited fixed TabM one-of-three replacement and robust other-runway serialized deltas versus exactv78",
+    "clipping": "sum original integer v78 deltas onto exactv79, then one nonnegative clip and rounding",
+    "standalone_transports": "independently verify each; do not substitute the separately clipped v79 deltas",
+    "selection": "Post-selection combination of two individually positive directions on reused Jan/Jul data; not independent confirmation.",
+    "new_bounds": false,
+    "no_fit": true,
+    "no_search": true,
+    "no_version": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo_submit/identity.json",
+    "sha256": "f133fe363e34c36ac96a3e5c810a4985267bdb1146d0b658dfcbb6a6be405c7c"
+  },
+  "rows": 344841,
+  "cv": {
+    "control": 290.67435711796895,
+    "tabm": 290.38375404254055,
+    "runway": 290.52019434190254,
+    "combined": 290.228841003501
+  },
+  "paired": {
+    "control": {
+      "change": -0.4455161144680062,
+      "ci95": [
+        -0.655108686831333,
+        -0.28859937798536356
+      ],
+      "decision": "improvement"
+    },
+    "tabm": {
+      "change": -0.15491303903959874,
+      "ci95": [
+        -0.30736234892593683,
+        -0.03457876331598668
+      ],
+      "decision": "improvement"
+    },
+    "runway": {
+      "change": -0.29135333840156363,
+      "ci95": [
+        -0.42176695199398007,
+        -0.2079756812672848
+      ],
+      "decision": "improvement"
+    }
+  },
+  "cv_source": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo/result.json",
+    "sha256": "b4c319d3c6346ec3363b19a1bfb9491732b6f0c696dcacc91aa5ad04ce734410"
+  },
+  "changed": 313110,
+  "standalone_transports_exact": true,
+  "separately_clipped_deltas_would_differ_rows": 0,
+  "clipping_note": "Diagnostic only; no alternative candidate produced or selected.",
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo_submit/candidate.parquet",
+      "sha256": "16311828b8041338e94b0174b599e0394c73dc1ba0978e21c0a221fe654b9969"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo_submit/predictions.parquet",
+      "sha256": "dfa336a869b63babddf3585950dcc56dfaff3d2bf7bd845ea2737cb25083be61"
+    }
+  ],
+  "no_version": true,
+  "no_upload": true
+}

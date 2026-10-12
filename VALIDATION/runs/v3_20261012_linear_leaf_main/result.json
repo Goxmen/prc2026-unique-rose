@@ -1,0 +1,119 @@
+{
+  "design": {
+    "features": "unchanged original184; no source-phase features",
+    "columns": 184,
+    "rows_targets": "exact permitted ordinary-training population and original uncapped targets",
+    "normalization": "training-only finite mean/population SD; constant scale1; exact NaNs/categories/index retained",
+    "control": "new constant-leaf LightGBM on the same standardized inputs",
+    "candidate_change": {
+      "linear_tree": true,
+      "linear_lambda": 1.0
+    },
+    "folds": [
+      "2025-01",
+      "2025-07"
+    ],
+    "arms": [
+      "constant",
+      "candidate"
+    ],
+    "seed": 42,
+    "trial": "LB1",
+    "leaves": 127,
+    "rounds": 10000,
+    "threads": 4,
+    "other_settings": "all retained original184-control parameters unchanged",
+    "order": "January constant then candidate; July constant then candidate; same desktop",
+    "primary": "candidate minus matched standardized constant through full exactv78 correction stack",
+    "actual_selected": "both arms separately versus retained exactv78",
+    "secondary_v79": "separate predeclared adapter: round_even(max(0,v79+arm_on_v78-exactv78)); coefficient1",
+    "predictions": "nonnegative float32 as parent; save model first; allheld in-memory/reloaded equality",
+    "no_hpo": true,
+    "no_stopping_search": true,
+    "no_weight_search": true,
+    "no_production": true,
+    "no_upload": true,
+    "caveats": [
+      "extensively reused Jan/Jul development; not independent confirmation",
+      "competitor gains came from a different pipeline and are not transferable evidence",
+      "missing numeric path features can force constant-leaf fallback"
+    ]
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/identity.json",
+    "sha256": "d546da1ea6b70abde2b314e5ef343576b4d5c5b012d248955661c69da2d6013b"
+  },
+  "scores": {
+    "2025-01": {
+      "selected": 325.860607626995,
+      "constant": 325.87862750041444,
+      "candidate": 325.85437694513416
+    },
+    "2025-07": {
+      "selected": 255.9996300885311,
+      "constant": 256.02043678838555,
+      "candidate": 255.94172716119223
+    }
+  },
+  "cv": {
+    "selected": 290.93011885776303,
+    "constant": 290.9495321444,
+    "candidate": 290.8980520531632
+  },
+  "paired": {
+    "matched": {
+      "change": -0.05148009123679742,
+      "ci95": [
+        -0.12196237002453927,
+        0.009223633646659783
+      ],
+      "decision": "inconclusive"
+    },
+    "candidate_vs_selected": {
+      "change": -0.03206680459983602,
+      "ci95": [
+        -0.10197259363329891,
+        0.027379429181186042
+      ],
+      "decision": "inconclusive"
+    },
+    "constant_vs_selected": {
+      "change": 0.019413286636961402,
+      "ci95": [
+        -0.002162480788041776,
+        0.038883792932026026
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "exact_v77_and_v78_controls": true,
+  "rows": 344419,
+  "model_records": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/predictions/2025-01_constant.json",
+      "sha256": "87e6443fc911f4b1f0fb85f13302478f3805cba0edbb8ce8596b0a27fcf404d4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/predictions/2025-01_candidate.json",
+      "sha256": "05b2070198b9940262c8476e49039daa65ade62d4137399c64e8468cde36bffd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/predictions/2025-07_constant.json",
+      "sha256": "95c3d41d0b9711dc5545194e5c44d615ad516ae0e7c64faad18064cf9c902288"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/predictions/2025-07_candidate.json",
+      "sha256": "30791afa812a9f4bc3bcf2d5e445622100d4a38043482b1d582f4d54bbbf04e9"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/scored.parquet",
+      "sha256": "c9d3dece551064142d9c36cbce30ba924a87c004fc0587c01b21aa375c5057bd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/cells.parquet",
+      "sha256": "d1b49ac9ad0d428ea9b0e4104425868014adaeb23a3537188f79640490ca3f0f"
+    }
+  ]
+}

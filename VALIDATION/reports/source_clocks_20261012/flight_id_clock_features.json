@@ -1,0 +1,158 @@
+{
+  "design": {
+    "features": [
+      "idclock_iobt_residual",
+      "idclock_neighbor_span"
+    ],
+    "population": "all original2025 departures and accepted old Jan/Jul2026 departures; phases retained only for source consistency checks",
+    "eligible": "Within each movement UTC month, unique positive integral IDs <=2**53 with exactly one DEP, <=one ARR, consistent route, and <=one known value per plan clock.",
+    "reference": "same movement-UTC-month eligible departures across all origins; known original IOBT only",
+    "peers": "nearest strictly smaller/larger numeric flight ID, exclude own entire flight ID, require both sides, no extrapolation",
+    "idclock_iobt_residual": "interpolated peer IOBT minus own supplied IOBT, seconds",
+    "idclock_neighbor_span": "larger-ID peer IOBT minus smaller-ID peer IOBT, seconds; signed, no clipping",
+    "missing": "NaN for ineligible/missing identifiers or absent bracketing peers; residual alsoNaN when own IOBT missing",
+    "availability": "uses only supplied within-month inputs; transductive calendar context, no departure labels",
+    "no_raw_id_feature": true,
+    "no_labels": true,
+    "no_date_thresholds": true,
+    "no_source_redownload": true,
+    "interpretation": "relative schedule-order anomalies; numeric ID is not asserted to encode a creation time"
+  },
+  "source": {
+    "path": "VALIDATION/flight_id_clock_features.py",
+    "sha256": "1cb8079fef8b9531ff37075d0703f51dea132d752689e952226f7c7cc8a71aa8"
+  },
+  "identity": {
+    "path": "data/derived/flight_id_clock_20261012/identity.json",
+    "sha256": "f95d47fc9b5ffef5ba654386172e6a350efd3a50d258748669610e0948aee8f2"
+  },
+  "outputs": [
+    {
+      "path": "data/derived/flight_id_clock_20261012/features_training.parquet",
+      "sha256": "596e876f9f9d303d92e4b518087974e03233057fb6d69dd9e5dbc327a29a6261"
+    },
+    {
+      "path": "data/derived/flight_id_clock_20261012/features_old.parquet",
+      "sha256": "53090d9a18c2746ba48e9a625e47b2f5a9385c2977541acf829f3d7f36b8cc54"
+    }
+  ],
+  "coverage": [
+    {
+      "month": "2025-01",
+      "rows": 153706,
+      "available": {
+        "idclock_iobt_residual": 152066,
+        "idclock_neighbor_span": 152066
+      }
+    },
+    {
+      "month": "2025-02",
+      "rows": 143732,
+      "available": {
+        "idclock_iobt_residual": 142417,
+        "idclock_neighbor_span": 142417
+      }
+    },
+    {
+      "month": "2025-03",
+      "rows": 164449,
+      "available": {
+        "idclock_iobt_residual": 163162,
+        "idclock_neighbor_span": 163162
+      }
+    },
+    {
+      "month": "2025-04",
+      "rows": 175288,
+      "available": {
+        "idclock_iobt_residual": 173982,
+        "idclock_neighbor_span": 173982
+      }
+    },
+    {
+      "month": "2025-05",
+      "rows": 185202,
+      "available": {
+        "idclock_iobt_residual": 183367,
+        "idclock_neighbor_span": 183367
+      }
+    },
+    {
+      "month": "2025-06",
+      "rows": 183142,
+      "available": {
+        "idclock_iobt_residual": 180412,
+        "idclock_neighbor_span": 180412
+      }
+    },
+    {
+      "month": "2025-07",
+      "rows": 190713,
+      "available": {
+        "idclock_iobt_residual": 186538,
+        "idclock_neighbor_span": 186538
+      }
+    },
+    {
+      "month": "2025-08",
+      "rows": 191182,
+      "available": {
+        "idclock_iobt_residual": 188636,
+        "idclock_neighbor_span": 188636
+      }
+    },
+    {
+      "month": "2025-09",
+      "rows": 183950,
+      "available": {
+        "idclock_iobt_residual": 181256,
+        "idclock_neighbor_span": 181256
+      }
+    },
+    {
+      "month": "2025-10",
+      "rows": 185674,
+      "available": {
+        "idclock_iobt_residual": 183506,
+        "idclock_neighbor_span": 183506
+      }
+    },
+    {
+      "month": "2025-11",
+      "rows": 162332,
+      "available": {
+        "idclock_iobt_residual": 160719,
+        "idclock_neighbor_span": 160722
+      }
+    },
+    {
+      "month": "2025-12",
+      "rows": 165677,
+      "available": {
+        "idclock_iobt_residual": 163791,
+        "idclock_neighbor_span": 163791
+      }
+    },
+    {
+      "month": "2026-01",
+      "rows": 152719,
+      "available": {
+        "idclock_iobt_residual": 150018,
+        "idclock_neighbor_span": 150018
+      }
+    },
+    {
+      "month": "2026-07",
+      "rows": 192122,
+      "available": {
+        "idclock_iobt_residual": 189031,
+        "idclock_neighbor_span": 189031
+      }
+    }
+  ],
+  "scalar_checks": 1400,
+  "no_target_column_projected": true,
+  "monthly_peers_only": true,
+  "own_id_excluded": true,
+  "manifest_sha256": "4259edfc3fde45c5493796ce65250ab16816e9d62104a968ceaf90915831fa44"
+}

@@ -3,7 +3,7 @@
 ## Official progress
 
 The user resumed research at 02:24 Amsterdam after the requested pause until
-02:00. At 02:40:30, best/latest v79 scores **219.6130**, rank **9/242**, on all
+02:00. At the 05:16:08 live check, best/latest v79 scores **219.6130**, rank **9/242**, on all
 344,841 original January/July departures. The **205.00** target remains
 14.6130 seconds away. Autonomous submissions and both hosts remain authorized.
 
@@ -25,6 +25,57 @@ the request lacked `threadId`. It did not start inference. The original failure
 receipt remains unchanged; work began after the explicit user resumption.
 The native goal retains its old text/status; the local project objective records
 205 and no native usage limit was altered.
+
+## Completed production and follow-ups, 12 October morning
+
+The one-member TabM full-year fit completed15 epochs at05:30 and reloaded all
+344,841 ranking predictions exactly. After verified artifact return, its stack
+and the robust other-runway stack were built sequentially on the desktop.
+The fixed combined file changes313,110 predictions and passes independent
+integer SQL, protected-column, identity, hash and Jan/Jul arithmetic checks.
+Its CV remains290.228841 (−0.445516 versusv79); no official gain is claimed.
+No version/upload is assigned while the additional-seed comparison runs.
+Four reviewed/frozen TabM CV fits for1042/2042 started on the laptop at07:44;
+seed42 is reused exactly. Two further production fits are not authorized yet.
+
+The final linear-leaf result is inconclusive: matched standardized control
+−0.051480, actualv78−0.032067 and actualv79−0.023679. All four completed
+models and all344,419 scored rows pass independent saved-model/provenance/
+SQL audits. Retain the models without production expansion.
+
+The fractional punctuality pilot uses52,681 departures across122 permitted
+training dates. Leave-month-out median-bias calibration gives fraction
+RMSE0.023215; monthly RMSE ranges0.014312–0.034676. Typical declared prior
+SD on the separate Jan/Jul input dates is0.007937/0.010141, so source error is
+1.41–4.37 times as large. The arrival-source witness correlation is−0.118906.
+All source fractions, allowed departure/arrival daily summaries, calibration
+and correlations pass independent SQL/arithmetic checks. This closes the
+proposed source likelihood without posterior scoring, calendar/threshold
+search or CV. It does not prove every punctuality method impossible.
+
+Flight-ID ordering passes its input-only chronology study: median fixed-date/
+airport Spearman with IOBT isabout0.99996 in each of the four sampled months.
+An independent audit rebuilds all264 group/clock comparisons. This does not
+establish a creation timestamp. A predeclared nearest-peer interpolation
+follow-up on64,892 fixed-date departures finds mostly redundant clock values,
+but39–152 rows per month differ by over300seconds. No missing IOBT is recovered
+in that sample. A fixed model screen adds only interpolated-peer-minus-own-IOBT
+and signed bracketing IOBT span to the selected184-input main tree.
+
+Both peer IDs must be strictly outside the query's own ID and lie within its
+actual UTC month. The first implementation's coverage check found two
+training departures stored in the next file, three seconds before the UTC
+month boundary. The original cache and failed preflight are retained; grouping
+now spans every original training file before selecting UTC months. No model
+had been fitted. Two synthetic SQL tests and1,400 independent scalar peer/
+interpolation checks pass. Original labels, rows, tree recipe and final stack
+are unchanged; the separatev79 transport is fixed before scores.
+
+The three subagents stopped at the account usage limit. Root continues using
+their completed reviews and artifacts. The user requested a brief local note;
+`LOCAL_PROGRESS.md` is gitignored and never committed. GitHub `Goxmen/PRC`
+was verified PRIVATE, and the current user instruction supersedes automatic
+publication. Historical work descriptions below retain their original timing.
 
 ## Updated scored mixture: v79
 

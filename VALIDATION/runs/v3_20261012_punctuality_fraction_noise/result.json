@@ -1,0 +1,282 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_punctuality_fraction_noise/identity.json",
+    "sha256": "79cf7ed182937de117a9a5b15954c8913045769348f26675eeaa34129f5d3721"
+  },
+  "source": {
+    "path": "VALIDATION/punctuality_fraction_noise.py",
+    "sha256": "d4203d045f2613850e91098f2c614ca33eac98af0a3057cd23683583efe671a4"
+  },
+  "label_rows": 52681,
+  "label_months": [
+    "2025-03",
+    "2025-09",
+    "2025-10",
+    "2025-11"
+  ],
+  "calibration_folds": [
+    {
+      "query_month": "2025-03",
+      "reference_months": [
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "reference_days": 91,
+      "query_days": 31,
+      "bias": -0.05811438630252097,
+      "reference_mad": 0.017938006867895116,
+      "query_mad": 0.03608783897689975,
+      "query_rmse": 0.034676206530102026,
+      "query_mae": 0.027260968401481223,
+      "query_mean": -0.0034802047480730113
+    },
+    {
+      "query_month": "2025-09",
+      "reference_months": [
+        "2025-03",
+        "2025-10",
+        "2025-11"
+      ],
+      "reference_days": 92,
+      "query_days": 30,
+      "bias": -0.05679468140687999,
+      "reference_mad": 0.021083403544389735,
+      "query_mad": 0.01782739673692197,
+      "query_rmse": 0.018580194163339996,
+      "query_mae": 0.014480804651368289,
+      "query_mean": -0.010944215088848658
+    },
+    {
+      "query_month": "2025-10",
+      "reference_months": [
+        "2025-03",
+        "2025-09",
+        "2025-11"
+      ],
+      "reference_days": 91,
+      "query_days": 31,
+      "bias": -0.057760457108433694,
+      "reference_mad": 0.022995375106395446,
+      "query_mad": 0.011968796958885242,
+      "query_rmse": 0.014312326969374605,
+      "query_mae": 0.01159822987297566,
+      "query_mean": -0.00293159747150824
+    },
+    {
+      "query_month": "2025-11",
+      "reference_months": [
+        "2025-03",
+        "2025-09",
+        "2025-10"
+      ],
+      "reference_days": 92,
+      "query_days": 30,
+      "bias": -0.06194872091240111,
+      "reference_mad": 0.017811455047781147,
+      "query_mad": 0.015667093589754967,
+      "query_rmse": 0.019807215824422686,
+      "query_mae": 0.017085436819498822,
+      "query_mean": 0.013086659932286523
+    }
+  ],
+  "noise_vs_prior": [
+    {
+      "noise_query_month": "2025-03",
+      "prior_reference_month": "2025-01",
+      "noise_rmse": 0.034676206530102026,
+      "noise_mad": 0.03608783897689975,
+      "prior_sd_median": 0.007937356383220356,
+      "prior_sd_p90": 0.009018310157552122,
+      "independent_max_sd_median": 0.025889018653924886,
+      "rmse_to_median_prior_sd": 4.368734986299449
+    },
+    {
+      "noise_query_month": "2025-03",
+      "prior_reference_month": "2025-07",
+      "noise_rmse": 0.034676206530102026,
+      "noise_mad": 0.03608783897689975,
+      "prior_sd_median": 0.01014117420280786,
+      "prior_sd_p90": 0.011000568900666448,
+      "independent_max_sd_median": 0.022680460581325723,
+      "rmse_to_median_prior_sd": 3.4193482763071925
+    },
+    {
+      "noise_query_month": "2025-09",
+      "prior_reference_month": "2025-01",
+      "noise_rmse": 0.018580194163339996,
+      "noise_mad": 0.01782739673692197,
+      "prior_sd_median": 0.007937356383220356,
+      "prior_sd_p90": 0.009018310157552122,
+      "independent_max_sd_median": 0.025889018653924886,
+      "rmse_to_median_prior_sd": 2.3408542172326667
+    },
+    {
+      "noise_query_month": "2025-09",
+      "prior_reference_month": "2025-07",
+      "noise_rmse": 0.018580194163339996,
+      "noise_mad": 0.01782739673692197,
+      "prior_sd_median": 0.01014117420280786,
+      "prior_sd_p90": 0.011000568900666448,
+      "independent_max_sd_median": 0.022680460581325723,
+      "rmse_to_median_prior_sd": 1.8321541265108692
+    },
+    {
+      "noise_query_month": "2025-10",
+      "prior_reference_month": "2025-01",
+      "noise_rmse": 0.014312326969374605,
+      "noise_mad": 0.011968796958885242,
+      "prior_sd_median": 0.007937356383220356,
+      "prior_sd_p90": 0.009018310157552122,
+      "independent_max_sd_median": 0.025889018653924886,
+      "rmse_to_median_prior_sd": 1.8031604325630377
+    },
+    {
+      "noise_query_month": "2025-10",
+      "prior_reference_month": "2025-07",
+      "noise_rmse": 0.014312326969374605,
+      "noise_mad": 0.011968796958885242,
+      "prior_sd_median": 0.01014117420280786,
+      "prior_sd_p90": 0.011000568900666448,
+      "independent_max_sd_median": 0.022680460581325723,
+      "rmse_to_median_prior_sd": 1.4113086594461466
+    },
+    {
+      "noise_query_month": "2025-11",
+      "prior_reference_month": "2025-01",
+      "noise_rmse": 0.019807215824422686,
+      "noise_mad": 0.015667093589754967,
+      "prior_sd_median": 0.007937356383220356,
+      "prior_sd_p90": 0.009018310157552122,
+      "independent_max_sd_median": 0.025889018653924886,
+      "rmse_to_median_prior_sd": 2.4954424203876395
+    },
+    {
+      "noise_query_month": "2025-11",
+      "prior_reference_month": "2025-07",
+      "noise_rmse": 0.019807215824422686,
+      "noise_mad": 0.015667093589754967,
+      "prior_sd_median": 0.01014117420280786,
+      "prior_sd_p90": 0.011000568900666448,
+      "independent_max_sd_median": 0.022680460581325723,
+      "rmse_to_median_prior_sd": 1.9531481688716597
+    }
+  ],
+  "training_fraction_noise": {
+    "lomo_rmse": 0.02321535396685447,
+    "lomo_mad": 0.021526667038369973
+  },
+  "arrival_witness": {
+    "statistics": [
+      {
+        "month": "ALL",
+        "days": 122,
+        "statistics": {
+          "error": {
+            "covariance": -4.2626477500734e-05,
+            "correlation": -0.12703857788620188
+          },
+          "lomo_error": {
+            "covariance": -4.104634247461482e-05,
+            "correlation": -0.11890579545007245
+          }
+        }
+      },
+      {
+        "month": "2025-03",
+        "days": 31,
+        "statistics": {
+          "error": {
+            "covariance": -5.883498239404834e-05,
+            "correlation": -0.11476720866854014
+          },
+          "lomo_error": {
+            "covariance": -5.883498239404832e-05,
+            "correlation": -0.11476720866854008
+          }
+        }
+      },
+      {
+        "month": "2025-09",
+        "days": 30,
+        "statistics": {
+          "error": {
+            "covariance": -7.86046511908097e-05,
+            "correlation": -0.35888579639470225
+          },
+          "lomo_error": {
+            "covariance": -7.86046511908097e-05,
+            "correlation": -0.35888579639470225
+          }
+        }
+      },
+      {
+        "month": "2025-10",
+        "days": 31,
+        "statistics": {
+          "error": {
+            "covariance": -6.673019975570607e-05,
+            "correlation": -0.31635864426593274
+          },
+          "lomo_error": {
+            "covariance": -6.673019975570604e-05,
+            "correlation": -0.3163586442659326
+          }
+        }
+      },
+      {
+        "month": "2025-11",
+        "days": 30,
+        "statistics": {
+          "error": {
+            "covariance": -8.610347374024023e-06,
+            "correlation": -0.038535430760083825
+          },
+          "lomo_error": {
+            "covariance": -8.610347374024027e-06,
+            "correlation": -0.03853543076008384
+          }
+        }
+      }
+    ],
+    "arrivals": 52630,
+    "valid_arrivals": 52630,
+    "calendar": "UTC landing date",
+    "population": "All supplied Rome arrivals with known in-block and schedule; flight-rule filtering unavailable in retained cache; no aircraft-identity filtering.",
+    "interpretation": "Descriptive common-day source-bias witness only; mismatched arrival/departure populations and source calendars remain unresolved. No regression fitted."
+  },
+  "calendars": {
+    "otp": "UTC takeoff",
+    "taxi": "Europe/Rome local takeoff/runway",
+    "delay": "recorded off-block UTC from permitted common-month departure labels"
+  },
+  "overlap_scope": "Descriptive memberships and raw source errors only; no joint covariance estimated. Off-block cells may lack flights taking off outside common months; first/last dates flagged, no denominator inference.",
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_punctuality_fraction_noise/days.parquet",
+      "sha256": "d08043d59dced633c29d71b53ba534685f6436338451020c5997182d9e0bdda5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_punctuality_fraction_noise/prior_uncertainty.parquet",
+      "sha256": "2fc791a04240e4ac6e50d9bd51423fdffd42fed5be27f887892b59bab18c35a0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_punctuality_fraction_noise/taxi_overlaps.parquet",
+      "sha256": "47a648f861d7e144b5fc2f907824d98b4cad530ec19538f6255b3ce97334061f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_punctuality_fraction_noise/delay_overlaps.parquet",
+      "sha256": "5e828fb295b89553f0705cb54dc420aea7ec915b81828232509032dc0d95f3ab"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_punctuality_fraction_noise/arrival_witness.parquet",
+      "sha256": "f248d2e5fa57b1b59597a84e8b93379fe3344429733c4920ec9fcdbd913074b8"
+    }
+  ],
+  "seconds": 10.67346659998293,
+  "no_held_labels": true,
+  "no_posterior": true,
+  "no_cv": true,
+  "no_count_selected": true,
+  "interpretation": "Fixed source-noise falsifier. Prior uncertainty reference dates differ from calibration months; no gain or scoring conclusion follows directly."
+}

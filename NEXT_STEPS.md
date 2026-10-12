@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target: 205.00 seconds or lower.** Best/latest is **v79 at 219.6130**,
-leaving **14.6130 seconds**. Live check: **12 October 02:40:30 Amsterdam**,
+leaving **14.6130 seconds**. Live check: **12 October 05:16:08 Amsterdam**,
 rank **9/242**, all **344,841 flights**. Autonomous submissions and both machines
 remain authorized, with one heavy job per host. Four October 12 UTC submission
 slots are used; **one remains for a new candidate after experimental feedback**.
@@ -35,39 +35,34 @@ objective records the user's current 205 target.
 
 Current work:
 
-- **TabM passed:** all four laptop fits and independent score audits are
-  complete. One-of-three replacement improves v78 by 0.252864 seconds and the
-  fixed v79 comparison by 0.290603, interval [−0.421282, −0.206950], with both
-  months better. A single seed-42 full-year replacement started on the laptop
-  at 04:48 Amsterdam, PID17027, after source review, update-parity checks and
-  memory preflight. Retain the other two members. No production upload yet.
-  See `PUBLIC_TABM_RESULT_20261012.json` for the separate machine/execution
-  difference and desktop path-only training-guard limitation.
-  Four fixed CV fits for TabM seeds1042/2042 are reviewed, frozen and authorized
-  after this production job and verified artifact return. They test the equal
-  three-TabM pool against both existing pools; no extra full-year fits yet.
-- **Other-runway totals:** the fixed robust message improves v78 by 0.136645
-  seconds and v79 by 0.154163, interval [−0.306432, −0.035022], with both months
-  better. All-row score checks and an independent block-solve audit pass.
-  Production source and its separate auditor are reviewed, awaiting a clean
-  host for inference. No production inference or upload yet.
-- **Fixed combination:** adding both original v78 deltas to v79 improves CV
-  290.674357→290.228841, −0.445516, interval [−0.655109, −0.288599]. January
-  improves0.242175 and July0.648857. All-row SQL checks pass. This is a
-  post-selection combination on reused development data, not independent
-  confirmation or an official gain. No version is assigned yet.
-- **Desktop linear-leaf comparison:** January's constant control is saved,
-  with exact reload of all 153,706 held predictions. It took 16.93 minutes to
-  train and 3.41 minutes for inference/reload. The other three arms resumed
-  at04:35 Amsterdam, PID1369670. The pause amendment was reviewed and refrozen
-  before any fit; original sources/designs remain under `prefit_v1/`.
-- **Paired-flight context: closed.** Both fits and all-row audits pass, but
-  v78 improves only 0.03275 seconds and v79 only 0.02112, with both intervals
-  spanning zero. No extra seeds, production fit or upload follow.
-- **Timestamp features: closed.** Exact-v78 CV worsens0.012388seconds,
-  interval[−0.004784,+0.027121]; frozen-v79 transport worsens0.017603seconds,
-  interval[+0.000630,+0.032125]. Both original controls, saved candidate model
-  reloads and all344,419 final score rows pass. Retain fits; no production.
+- **Audited production combination ready:** one-of-three TabM replacement plus
+  robust other-runway evidence improves Jan/Jul CV290.674357→290.228841
+  (−0.445516; interval[−0.655109,−0.288599]). The original344,841-row
+  production file passes component and independent combination audits.
+  No version or upload is assigned. This is reused development evidence.
+- **Laptop:** four fixed additional-seed TabM CV fits started07:44 Amsterdam,
+  after the seed42 production fit/export and verified return. Seeds1042/2042
+  each use21/17 epochs; seed42 is retained exactly. No extra full-year fits
+  are authorized. Compare the equal3-member pool against both saved pools.
+- **Desktop:** a fixed two-input main-tree screen has started. Flight-ID
+  order closely follows IOBT; deviations and bracketing-clock span are new
+  relative inputs, with no raw ID feature. UTC-month peers span all original
+  files and exclude the query ID. Two boundary rows missed by the initial
+  builder were restored before any fit. All original184 inputs/labels/settings
+  and exactv78 corrections remain fixed; a separatev79 comparison is frozen.
+- **Linear leaves closed:** all4 models reload exactly, all344,419 rows and
+  saved recipes pass independent audits. Candidate versus actualv78−0.032067
+  and actualv79−0.023679 are both inconclusive; no production or upload.
+- **Punctuality source closed:**122 fixed permitted training days have
+  calibrated fraction RMSE0.0232, versus typical prior SD0.0079–0.0101 on the
+  separate held-input dates. The arrival witness is weak (correlation−0.119).
+  Independent source/SQL/calibration checks pass; no posterior or CV follows.
+
+The three retained subagents reached the account usage limit after finishing
+source reviews. Root continues from their saved artifacts; no replacement
+agents were spawned to bypass that limit. GitHub remains PRIVATE per the
+12October user instruction. `LOCAL_PROGRESS.md` is gitignored and updated
+when results materially change.
 
 The phase inputs are all missing for Rome's no-ID 1–4h group, so they cannot
 directly resolve that costly group. Arrival landing-clock context passed its
@@ -79,8 +74,9 @@ Reapplying existing bounds to v79 changes only nine
 ranking rows and can improve official RMSE by at most 0.088502 seconds, so it is
 also closed.
 
-Two source-only checks are in preparation: relative flight-plan ID order, and
-fractional public punctuality evidence calibrated on permitted training months.
+The two source-only checks are complete: relative flight-plan ID order passed
+its chronology audit and is followed by the fixed model screen above;
+fractional public punctuality evidence was closed after its noise audit.
 The punctuality rational probe and independent audit find multiple compatible
 denominators on every sampled day; no exact count is inferred. Tempered discrete
 inference is deferred because its numerical precision remains unsupported.

@@ -1,0 +1,57 @@
+{
+  "design": {
+    "parent": "passed monotonic flight-ID chronology pilot",
+    "sources": "unchanged original January/July2025 and January/July2026 inputs",
+    "query_dates": [
+      "2025-01-05",
+      "2025-01-15",
+      "2025-01-25",
+      "2025-07-05",
+      "2025-07-15",
+      "2025-07-25",
+      "2026-01-05",
+      "2026-01-15",
+      "2026-01-25",
+      "2026-07-05",
+      "2026-07-15",
+      "2026-07-25"
+    ],
+    "membership": "unchanged per-month unique, consistent flight-ID eligibility",
+    "estimate": "linear interpolation between the nearest strictly smaller and larger eligible flight IDs with known original IOBT; remove the query ID entirely; no extrapolation",
+    "clocks": "Compare interpolated IOBT to supplied IOBT and EOBT1; compare EOBT1-IOBT to EOBT1-interpolated IOBT.",
+    "strata": "each fixed month and origin, missingness; fixed absolute residual cutoffs60/300/900seconds",
+    "purpose": "Detect redundant minute-resolution ordering versus a distinct clock anomaly; no creation-time assertion.",
+    "no_target_columns": true,
+    "no_fit": true,
+    "no_cv": true,
+    "no_feature_promotion": true,
+    "no_threshold_search": true,
+    "resources": {
+      "threads": 1,
+      "duckdb_memory": "256MB",
+      "external_timeout_seconds": 60
+    }
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tools/probe_flight_id_clock_residual_20261012.py",
+      "sha256": "e73f8bb03c39dc3fa1a98f211dffd47a41932c4a5f5874e02b401f702cf2024a"
+    },
+    {
+      "path": "VALIDATION/tools/research_flight_id_order_20261012.py",
+      "sha256": "184b3a1e67ecccb8b2284da8739d55425589f0eb72c6b771eae7d69b622fc0c7"
+    },
+    {
+      "path": "tmp/research_20261012/signal_scout/flight_id_order/design.json",
+      "sha256": "3ab1671ea7a54bc42693fa2e7833b7baedd14c08b2c619168db3cb8f2d0dec12"
+    },
+    {
+      "path": "tmp/research_20261012/signal_scout/flight_id_order/result.json",
+      "sha256": "f75fb5f357847716b0bdc4e787239cc43a805551e551648e5d8bd41211e1d74c"
+    },
+    {
+      "path": "VALIDATION/reports/source_clocks_20261012/flight_id_order_audit.json",
+      "sha256": "cac2de156d27bf268227680ffff4ef24b9627b644b80534dc21af0a768eb356a"
+    }
+  ]
+}

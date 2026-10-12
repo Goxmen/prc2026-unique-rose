@@ -1,0 +1,50 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/identity.json",
+    "sha256": "48002e43d9fc6743d228f417ecba51a28dced0ed759d19f0b9ce6cee3c105785"
+  },
+  "member": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/networks/k0.json",
+    "sha256": "f498e5cfe797f86436c69ba500845f9d25cebbf92d5689db4d33dfd918394ff2"
+  },
+  "retained_members": {
+    "1": {
+      "seed": 1042,
+      "trained": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/trained/k1.json",
+        "sha256": "10ec58d5fbadf8c2abe8e702cf4ffc6069807fb2ce5e4b127fdf58be007931b3"
+      },
+      "record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k1.json",
+        "sha256": "29370700cfcf1ff8f07cee0662827a9b8c7a12aaa5412648a6d0904d8119c4b3"
+      },
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/old_k1.parquet",
+        "sha256": "f8f770af800482276ea6c6135cc64ac12b6e821ccd701ffe66cbb77fcc5c600f"
+      }
+    },
+    "2": {
+      "seed": 2042,
+      "trained": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/trained/k2.json",
+        "sha256": "91b288b293bdd0ee0fc536c6f6784c1223a020e7a08a3e6300b92a1825f31968"
+      },
+      "record": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/k2.json",
+        "sha256": "99b1a14e52c91393f500e1d7bb006513a7027a9acdb49c179291c64b3a693486"
+      },
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261011_nn_public_submit/networks/old_k2.parquet",
+        "sha256": "1e032a6633f6dd16743118e1fa08e4199b0773f019812fbfe144fd0315ec5351"
+      }
+    }
+  },
+  "pool": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/replacement_pool.parquet",
+    "sha256": "ed04ba983864ccbdf0c7cb5afff650361efa9a652f3be6f159b8d6b6cb5e9a15"
+  },
+  "rows": 344841,
+  "view": "old",
+  "formula": "float64 equal mean of saved float32 member predictions",
+  "scope": "Standalone network replacement only; no final stack, candidate file or upload"
+}

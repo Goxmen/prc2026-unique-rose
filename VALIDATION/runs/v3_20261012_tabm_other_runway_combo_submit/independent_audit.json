@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_tabm_runway_combination_20261012.py",
+    "sha256": "6a39ba707146b56498db888174c0f76ea8f1355796a7e5d87bdc1d6e36373ba0"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo_submit/identity.json",
+    "sha256": "f133fe363e34c36ac96a3e5c810a4985267bdb1146d0b658dfcbb6a6be405c7c"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo_submit/result.json",
+    "sha256": "1952aef0c4dab116d48f8fa992b564a6dff19b26533af20e20081867600a22fa"
+  },
+  "file": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo_submit/candidate.parquet",
+    "sha256": "16311828b8041338e94b0174b599e0394c73dc1ba0978e21c0a221fe654b9969"
+  },
+  "component_audits": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit_stack/audit.json",
+      "sha256": "3a19c0db59a1a25bdb404712bf4b0391a42507096cbb3ba350ae36fd62810bd0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/audit.json",
+      "sha256": "593b4b60bd9ab5cebb70959f42b13ad5d8be0a029836831e024e30e5d53474c6"
+    }
+  ],
+  "rows": 344841,
+  "cv_rows": 344419,
+  "changed_rows": 313110,
+  "cv": {
+    "control": 290.67435711796895,
+    "combined": 290.228841003501
+  },
+  "checks": [
+    "Integer-only independent SQL combination from exact scored v78/v79 files",
+    "All source/component bindings and complete ID joins",
+    "No separate-component clipping substituted into the frozen formula",
+    "Original template schema and every non-target column preserved",
+    "Independent monthly and equally averaged Jan/Jul CV arithmetic"
+  ],
+  "scope": "Final composition/file audit; component model/source and raw CV truth checks remain in their prior audits.",
+  "no_fit": true,
+  "no_upload": true
+}

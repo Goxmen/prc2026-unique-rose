@@ -119,6 +119,24 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+- **October12 morning: private note created; audited production combination ready.**
+  `LOCAL_PROGRESS.md` is gitignored; GitHub verified PRIVATE under the latest
+  user instruction. Best official remainsv79 **219.6130**, one October12 slot
+  left, no new version/queue. One-member TabM+robust other-runway production
+  file passes all-row independent audits, CV**290.228841 (−0.445516)**. Run
+  `v3_20261012_tabm_other_runway_combo_submit`. Four additional-seed TabM CV
+  fits started07:44 on the laptop (`nn_public_tabm_pool3.py`, SSH session57074),
+  with originalseed42 retained. No additional full-year fits authorized yet.
+  Desktop now runs the fixed186-input main-LightGBM screen in
+  `flight_id_clock_lgb.py` (fit→score→audit→separatev79 transport), log
+  `tmp/research_20261012/flight_id_clock_fit.log`. Two relative within-UTC-month
+  ID/IOBT features; no raw ID input. Two cross-file midnight rows were repaired
+  during preflight, before any fit; old cache/identity retained. Linear leaves
+  are closed as inconclusive; punctuality-fraction likelihood closed as noisy.
+  All three retained agents hit their account usage limit; root continues
+  from saved reviewed artifacts. Do not spawn replacements to bypass the limit.
+
+
 - **October 12, 04:53 Amsterdam: target 205 research is active; best/latest v79 scores 219.6130.**
   The user explicitly resumed at 02:24 after the requested pause until 02:00.
   Retained v76/v77/v78 uploaded once at 02:10/02:20/02:30 and scored 221.0948,

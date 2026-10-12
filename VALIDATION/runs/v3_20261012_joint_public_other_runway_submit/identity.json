@@ -1,0 +1,363 @@
+{
+  "design": {
+    "settings": {
+      "ordinary_sigma": 200.0,
+      "common_day_sigma": 15.0,
+      "cutoff": 7200.0,
+      "df": 5,
+      "prior": "retained v70 means, original training quantiles/copy/broad support; no public-input networks",
+      "likelihood": "variance-matched multivariate t5 with peer moments and shared-flight covariance",
+      "measurement": "retained taxi2 covariance plus retained departure t3 scale converted to variance",
+      "calendars": "own local takeoff runway cell; own once-estimated UTC off-block day",
+      "comparison": "new_joint minus original_joint; original departure-only comparator unchanged",
+      "transfer": "fixed0.5 additional increment on exactv78; separately frozen coefficient-one v79 transport",
+      "common_error": "one shared15-second outer product over the bounded message, exact original3D marginal",
+      "scope": "existing ambiguous Rome gap gate, original monthly quality gate, supported sources",
+      "no_iteration": true,
+      "no_parameter_search": true,
+      "no_new_fit": true,
+      "additional": "all supported same-local-day other runway taxi cells intersecting the assigned-day delay cohort; full taxi membership",
+      "conditioning": "Gaussian Schur moments with one capped variance-matched t5 score weight; unchanged original 3D t5 target likelihood",
+      "robust_weight": "min(1,(5+k)/(3+q)); q=r_B.T C_BB^-1 r_B, k=extra dimension",
+      "review_history": "unexecuted 5+q denominator corrected to variance-matched 3+q before any robust prediction; no weight scan",
+      "caveat": "hybrid approximation; unknown cross-runway source-error covariance and possible prior-error suppression",
+      "disconnected": "exact recovery when the entire C_AB is zero; adding disconnected coordinates beside informative ones may change global q/k/weight",
+      "no_new_gate": true
+    },
+    "rows": 344841,
+    "months": [
+      "2026-01",
+      "2026-07"
+    ],
+    "calibration": "reuse frozen full2025 parameters and old2026 v78 inference packet; no calibration refit",
+    "original_clock": "original ranking namespace, once-assigned v70 dates; no final-ranking jitter mixing",
+    "posterior_reference": "saved original old_joint; recomputed control atol1e-8 seconds rtol0, log max",
+    "v78": "unchanged matched/recovered bounds and rounding applied to exactv78+0.5*(new_joint-saved_old_joint)",
+    "v79": "unchanged coefficient-one transport: rint(max(0,v79+robust_v78-exactv78))",
+    "retained": "same public/quality/calendar memberships, all supports and noise; same source and helper bytes as CV",
+    "combination": "none; any TabM combination is a separate fixed additive-delta design",
+    "no_fit": true,
+    "no_version": true,
+    "no_upload": true,
+    "no_weight_search": true,
+    "no_new_bounds": true
+  },
+  "source": {
+    "path": "VALIDATION/joint_public_other_runway_submit.py",
+    "sha256": "a5533be1fa637cc79110506cefaf179a98860abddda926b6a6dd4ed5464fa65d"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+    },
+    {
+      "path": "VALIDATION/daily_delay_reconcile.py",
+      "sha256": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06"
+    },
+    {
+      "path": "VALIDATION/daily_main_refinements_cv.py",
+      "sha256": "f4db783eb6a7b27f38194f786173ab30d0f655afba7e903ca4ca071a1382de03"
+    },
+    {
+      "path": "VALIDATION/daily_main_refinements_submit.py",
+      "sha256": "867ae62e00b3a5be71c0ec601c30574a31316bb805d293b3f462f1f8ac1540c1"
+    },
+    {
+      "path": "VALIDATION/daily_offblock_alignment.py",
+      "sha256": "08f48001e826e1442a4fe188d05a88a2e69a1ce1d3ad87b1b144158243a9afec"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments_cv.py",
+      "sha256": "4a790c670c852d54ec8c0df647504d723b45874870dacddff305f1137f3842c0"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments_submit.py",
+      "sha256": "00fbb3cb363faf92d59223169a76c8e5bc373bb431181a5f799aa92110149ed0"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway.py",
+      "sha256": "e12479a286f7f4445e399a921d48aea0ca0e3fd6a11d7cf3e264fac970274321"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway_cv.py",
+      "sha256": "458c39150969ae726ad87c638affbd1c14edaeb1fe9eb0a71b89c05c6da825ae"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway_pilot.py",
+      "sha256": "fcae9ae8dccbbc7c217db070c577ccf95c020cc6585d47efb03e0bf5af72b620"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway_submit.py",
+      "sha256": "a5533be1fa637cc79110506cefaf179a98860abddda926b6a6dd4ed5464fa65d"
+    },
+    {
+      "path": "VALIDATION/monthly_taxi_reconcile.py",
+      "sha256": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572"
+    },
+    {
+      "path": "VALIDATION/other_runway_v79_transport.py",
+      "sha256": "03e7b812cd05141f4c69dd31572ff604e99db90a271583f4369012e8fa71f595"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/reports/all_discrete_peer_20261012/other_runway_block_audit.json",
+      "sha256": "de4986b46014708addea3cb53552d4954c899719b594796cb9ce1aaaffa12390"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/ranking_inputs.parquet",
+      "sha256": "872c0c62847b25fc97700c32e14239d5a990228fef2cc960b9ec5be17c95e9bf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay_submit/submission_v72/parameters.json",
+      "sha256": "530d036319e8c425dd407c8c40f46a81f9d4267f5a23e825295b18766f5ad4f5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/audit.json",
+      "sha256": "619fa53f9d1035aa7ca9f6e05c4cdc22a807aa4e78c7538b6a03cb3e9de56518"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_main_refinements_submit/predictions.parquet",
+      "sha256": "1f4cd0aae217d3f5b6372af43945ad419c92c6db2c71d1c932d7632bf2bc5d7b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/rows2025.parquet",
+      "sha256": "bc2fd953c3f911bdaa70c6f0a1ab6d9b96d23ef31e07333853175fae9a5c4437"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_candidate/submission_v78/manifest.json",
+      "sha256": "4e58afbc5d12181a52ab682c657b9a378d9780ce23f611f3aec8c2ccb5c821e4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/audit.json",
+      "sha256": "3d065bb05dc4a868fd7ad5634b8907575a640db56b5b612d2904d98be288fff5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/delay_source.parquet",
+      "sha256": "0297c445250693f4f1bc93b94a4bc409920aab5db4b55e84b39f20118000c52d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/identity.json",
+      "sha256": "b1ce9cc59fdd8aae55d47097992e5756d4e228bb14e662645047e1a7523ec5fd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/inference.json",
+      "sha256": "4e7c70b7d841e9b586beb7a4fc0bb21a43290185b1b0c757316a12f4a4084b27"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/input_audit.json",
+      "sha256": "e3ef90bbadfad80a07185aa04ee1610642c296eb417f16c55a2e41803da516a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/inputs.parquet",
+      "sha256": "fd68d2697514820f35e5abde5277629198aebe3d1168d1705f0ff97785a7c9b9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/parameters.json",
+      "sha256": "d4c54a7374f67797ee1b7da8c0283d849a73cd0abf6b16be3e7224eb56299989"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/predictions.parquet",
+      "sha256": "d1a99ca1e558432a5650a14dcd6f8edda427dbeeeefb9575b5aa3ec1554397e9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/result.json",
+      "sha256": "fde5d7e92f2fe0be138f208f43ceda7036eef24a48447a36b9abed03ac46802a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/taxi_source.parquet",
+      "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/audit.json",
+      "sha256": "e80562fa3bb7b8201d1eb79e1db96f6ae7b63a45c34fda6438a9fe29d3681e37"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/candidate.parquet",
+      "sha256": "ef806d537d1317bb224a0be2c44451486b4bed309c72a0096babf80a16ebd6c4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/delay_calibration_rows.parquet",
+      "sha256": "0003097549a37974b8b5664c4035b9a8cf253a4c36419518c3cd0c6c9bfd5369"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/delay_source.parquet",
+      "sha256": "2293d25c36c0dec0ad21898135b8fdee8b62023f148b13e7dd469185db1682ca"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/identity.json",
+      "sha256": "cb028883d966db2e3a4ae58154a92d7609910ae9aa2169ac53cc326c6d42c5be"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/inference.json",
+      "sha256": "6bd71385e5608b739d0f71e84b28ca40f9666f29d1694a172b5e0460b45ace1e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/inference.parquet",
+      "sha256": "39ed678947b57c98d35ec65b263ff3feb0270af4bdd25be438ee168e417b15e9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/inputs.parquet",
+      "sha256": "caf9e2094daa24e785d8cc32d2c2289dd778389f50a8dc152f3289e867cb49d8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/parameters.json",
+      "sha256": "d210d62aa0196b2080e566fbd667c70684876cea94c4a5651fc70a7432c1a785"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/parent_v77_snapshot.json",
+      "sha256": "dbf7ed321006ecb07d09814775c040b771d1b0dda811de50d2e4ac4603e2776b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/result.json",
+      "sha256": "1ccec5a9f08f715ccb0d6f9330c52f4f2e56d4611ad18bb14f9642ce78956f32"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/taxi_calibration.parquet",
+      "sha256": "d7a20370ed473401b3c84a47d61df5008c0372a5e075f64e900028295eda28fa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/taxi_source.parquet",
+      "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/ranking_matches.parquet",
+      "sha256": "4631ed21c1d79ec9fb00e0522a3ba405558de6afc0a8190eb8047d8e6b8e11b0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/audit.json",
+      "sha256": "1054bfbe919ebedf43ab4e994ed5035b8050bd52bbd5ade025c43bbdd450b839"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/checks.json",
+      "sha256": "8bf67b55f0b167354890a5bc3a5005316b5fa28392c7fdb1435fc9803b727583"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/identity.json",
+      "sha256": "adf7f1c023d7565f1a96a4014e45fb8980ab3513feb8a4bb2aadc6392c671c37"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/inference.json",
+      "sha256": "e25be768973fe2a3b1691c99f8c034a357161494d2a890b27d5d98823eb64aa2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/result.json",
+      "sha256": "6ad04715f1a54164d863a32b72d8d19bfa60f08999caf1f545bc8227f1c817b1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_other_runway_delta_transport/design.json",
+      "sha256": "f82a06dc4cb2a5a35e03fa0ad4a197dd26375773a15bbfa753abc9ae77e58df9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_other_runway_delta_transport/other_runway/result.json",
+      "sha256": "62af8c62d5be3a1013e5d8325596a21d8f3b293ed123347784a0254bf3d167db"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_other_runway_delta_transport/other_runway/scored.parquet",
+      "sha256": "14b490987e472f9a4ad95481dfbc7d955d62fd2b738905c3591b1b5e9ac0031e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/manifest.json",
+      "sha256": "4f07e45515bbb93ed981d4ae073ed95946002c5f3111b87266ca559d3e1f12bc"
+    },
+    {
+      "path": "VALIDATION/submit.py",
+      "sha256": "09fe62fe3840d457bdbf25d961b7b20f909b78f2521d05ea61a2369bb0f6aee4"
+    },
+    {
+      "path": "VALIDATION/target205_delta_transport.py",
+      "sha256": "6f7a5762349fe62f58ccbf57e0ca0651f6b1f9db815c679780f4521ece58591c"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_jan_jul.py",
+      "sha256": "770aed0e2502912bbae5559ad968eeec3f46fdb804eef6f5cb94f5598b6058ec"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_posterior.py",
+      "sha256": "86e5a14489d6804c3957ed2f8a35df14ea6558851baf76de65a21b5855f5454f"
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5"
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2025.csv",
+      "sha256": "d742eeb626e5f9f7e0c756e2ae3cf90078f4627e989a2e31b8ed21ba8f5510be"
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2026.csv",
+      "sha256": "5952d20ef5f9c4245018dd6986064c5c4aa15d568a6c0c2dcdcbc73bf8a43fd2"
+    },
+    {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    },
+    {
+      "path": "submissions/unique-rose_v70.parquet",
+      "sha256": "0f9138d78d54be829ebb090b57a15eb989262876098eca9ce2ade57a21ba6d97"
+    },
+    {
+      "path": "submissions/unique-rose_v77.parquet",
+      "sha256": "e8381979532aded6d795f84963c842bf31592713dbdd58c275f9006276364ae1"
+    },
+    {
+      "path": "submissions/unique-rose_v78.parquet",
+      "sha256": "ef806d537d1317bb224a0be2c44451486b4bed309c72a0096babf80a16ebd6c4"
+    },
+    {
+      "path": "submissions/unique-rose_v79.parquet",
+      "sha256": "8d96135f7e92d025f1e3d6c30d6e4c14d541acd616f5c4d78e80bea32bc052b0"
+    },
+    {
+      "path": "tmp/research_20261011/daily_taxi_source/training_rows.parquet",
+      "sha256": "f4c5e9ca9cc863d0540bc17238f299acc6bcd4a2eb4eddf3c7417d331659feea"
+    }
+  ],
+  "v78_file": {
+    "path": "submissions/unique-rose_v78.parquet",
+    "sha256": "ef806d537d1317bb224a0be2c44451486b4bed309c72a0096babf80a16ebd6c4"
+  },
+  "v79_file": {
+    "path": "submissions/unique-rose_v79.parquet",
+    "sha256": "8d96135f7e92d025f1e3d6c30d6e4c14d541acd616f5c4d78e80bea32bc052b0"
+  },
+  "rome_rows": 26899,
+  "training_calibration_reused": true,
+  "old_posterior_ids_exact": true,
+  "actual_v78_file_exact": true
+}

@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "review": "Independent static model_diversity review, plus local synthetic checks; competition pilot remains unexecuted",
+  "source": {
+    "path": "VALIDATION/punctuality_fraction_noise.py",
+    "sha256": "d4203d045f2613850e91098f2c614ca33eac98af0a3057cd23683583efe671a4"
+  },
+  "tests": {
+    "path": "VALIDATION/tests/test_punctuality_fraction_noise.py",
+    "sha256": "7cf4f3b40de9b7fcf88a9b4175bab5a23ec61392314bc9686f02d9df868ff3d5"
+  },
+  "checks": [
+    "Four fixed shared-training months only for departure noise labels",
+    "Each month excluded entirely from its calibration bias/noise references",
+    "Held OTP prior uncertainty reads only strict input-only packet and historical support parameters/helpers",
+    "Exact P(Y>=gap-900) and ordinary/common15-second variance arithmetic",
+    "Arrival witness uses supplied observations, UTC landing date, no aircraft identity filtering, explicit population mismatch",
+    "Other taxi/off-block source calendars kept separate, no joint covariance fit",
+    "Five synthetic tests passed; last run 0.101 seconds"
+  ],
+  "historical_helper_verification_added": true,
+  "no_fits": true,
+  "no_posterior": true,
+  "no_cv": true
+}

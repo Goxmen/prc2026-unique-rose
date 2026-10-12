@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_punctuality_fraction_noise_20261012.py",
+    "sha256": "ae64e805c457b91c4e913a876c140845596547ca862608ad1d6f3fe996237a66"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_punctuality_fraction_noise/result.json",
+    "sha256": "bbf8b3d89273f492c6914e5b2331a7f92910786ede5bc458a441c2b60de86dd3"
+  },
+  "days": 122,
+  "departure_rows": 52681,
+  "arrival_rows": 52630,
+  "all_permitted_departure_and_arrival_daily_values_rebuilt_in_sql": true,
+  "every_public_fraction_and_lomo_calibration_exact": true,
+  "arrival_correlations_and_prior_variance_arithmetic_checked": true,
+  "scope": "Source noise and aggregation audit. Individual retained-support prior probabilities and membership-overlap diagnostics retain their separate reviewed implementation; not independently reimplemented here.",
+  "no_held_departure_labels": true,
+  "no_fit": true,
+  "no_cv": true
+}

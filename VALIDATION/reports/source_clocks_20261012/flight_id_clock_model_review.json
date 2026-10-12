@@ -1,0 +1,52 @@
+{
+  "status": "root_static_review_pass",
+  "scope": "No subagent review claimed: retained agents reached account usage limit.",
+  "sources": [
+    {
+      "path": "VALIDATION/flight_id_clock_lgb.py",
+      "sha256": "e02ce53414f026c47b0658cedff2668d03dbbdb753fb19de1928acc539ed3daf"
+    },
+    {
+      "path": "VALIDATION/source_clock_phase_lgb.py",
+      "sha256": "b0d7c8593cb900a61c3c5d69ddf8025104c28d29ecc75b891754cd8a5364340b"
+    },
+    {
+      "path": "VALIDATION/flight_id_clock_features.py",
+      "sha256": "1cb8079fef8b9531ff37075d0703f51dea132d752689e952226f7c7cc8a71aa8"
+    },
+    {
+      "path": "VALIDATION/flight_id_clock_v79_transport.py",
+      "sha256": "41397075707386a06169b79c9c02f1cb8981d5193c71f3a34f17256fc15e8d2e"
+    }
+  ],
+  "checks": [
+    "Exact original score/audit AST retained",
+    "Original184 columns/categories/labels/memberships and same-machine controls asserted",
+    "Only2 relative within-month clock features; raw flight ID never enters model",
+    "2 synthetic SQL source tests and1400 independent scalar bracketing/interpolation checks pass",
+    "All models saved before new held inference; resume skips fits and reloads saved checkpoint",
+    "Separate coefficient-one v79 comparison frozen before predictions/scores",
+    "UTC-month peers pooled across all frozen training files, including two next-file boundary departures; definitions unchanged and no model fit had started"
+  ],
+  "no_training_started": true,
+  "no_production": true,
+  "initial_sources": [
+    {
+      "path": "VALIDATION/flight_id_clock_lgb.py",
+      "sha256": "e02ce53414f026c47b0658cedff2668d03dbbdb753fb19de1928acc539ed3daf"
+    },
+    {
+      "path": "VALIDATION/source_clock_phase_lgb.py",
+      "sha256": "b0d7c8593cb900a61c3c5d69ddf8025104c28d29ecc75b891754cd8a5364340b"
+    },
+    {
+      "path": "VALIDATION/flight_id_clock_features.py",
+      "sha256": "e5c1a21748c24e7c18b0b38c29a13fe5db7817710d1cadf073b23f75b68dbc08"
+    },
+    {
+      "path": "VALIDATION/flight_id_clock_v79_transport.py",
+      "sha256": "41397075707386a06169b79c9c02f1cb8981d5193c71f3a34f17256fc15e8d2e"
+    }
+  ],
+  "calendar_fix": "flight_id_clock_calendar_fix.json"
+}

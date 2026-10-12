@@ -1,0 +1,118 @@
+{
+  "status": "frozen_source_only_pilot_not_run",
+  "design": {
+    "hypothesis": "Undocumented numeric flight-ID relative order may retain plan-generation chronology; not a timestamp or IFPLID claim.",
+    "months": [
+      "2025-01",
+      "2025-07",
+      "2026-01",
+      "2026-07"
+    ],
+    "query_dates": [
+      "2025-01-05",
+      "2025-01-15",
+      "2025-01-25",
+      "2025-07-05",
+      "2025-07-15",
+      "2025-07-25",
+      "2026-01-05",
+      "2026-01-15",
+      "2026-01-25",
+      "2026-07-05",
+      "2026-07-15",
+      "2026-07-25"
+    ],
+    "source_columns": [
+      "MVT_ID_mvt",
+      "FLIGHT_ID_mvt",
+      "PHASE_mvt",
+      "ADEP_mvt",
+      "ADES_mvt",
+      "MVT_TIME_UTC_mvt",
+      "IOBT_flt",
+      "EOBT_1_flt"
+    ],
+    "views": "2025 January/July original monthly training inputs; accepted old January/July2026 ranking only; no final view.",
+    "clocks": [
+      "original IOBT_flt",
+      "original EOBT_1_flt"
+    ],
+    "timezone": "UTC",
+    "targets": "No BLOCK_TIME_UTC_mvt or TAXITIME_SEC_mvt projection, loading, association, or model fit.",
+    "reference": "Within each movement UTC month, unique positive integral IDs <=2**53 with exactly one DEP, <=one ARR, consistent route, and <=one known value per plan clock.",
+    "missing": "Null/invalid IDs, phase duplicates, cross-endpoint null mismatches, conflicting clocks/routes reported separately. Missing clocks remain missing; no schedule fill.",
+    "rank": "ID percentile among eligible departures in its month; clock rank only among rows with that clock; average tie ranks for Spearman. Raw absolute ID never enters a model.",
+    "endpoint": "Within-month same-ID DEP/ARR only; clock equality and null disagreement are descriptive checks, not matching proof; cross-month endpoints are not available.",
+    "chronology": "All-month Spearman plus fixed-date and fixed-date x origin Spearman, >=100 valid observations per supported group. Report both clocks independently.",
+    "format_checks": "Decimal digit lengths and first-three-decimal-digit frequency by month/origin are diagnostics only. Report month-relative ID rank quartiles by origin and clock-rank quintile.",
+    "falsification": {
+      "meaning": "Necessary evidence for simple monotonic chronology only; passing does not establish creation time, stale-plan detection, incremental target information, or CV gain.",
+      "eligible_known_id_share_min": 0.8,
+      "min_both_known_endpoint_pairs_each_month": 100,
+      "max_endpoint_known_clock_conflict_share": 0.01,
+      "min_supported_airport_day_groups_per_month": 10,
+      "min_abs_median_signed_airport_day_spearman_each_month": 0.2,
+      "min_paired_year_same_season_airport_day_sign_agreement": 0.8,
+      "both_clocks_required": true,
+      "missing_support": "Fail feasibility; no threshold repair or alternative encoding search."
+    },
+    "resources": {
+      "threads": 1,
+      "duckdb_memory": "256MB",
+      "external_timeout_seconds": 60,
+      "expected_seconds": "5\u201320, unmeasured",
+      "incremental_workspace_budget_mib": 512
+    },
+    "previous_movement_id_evidence": "VALIDATION/reports/research_network_20261010/id_clock_order.json",
+    "public_semantic_caveat": [
+      "https://www.nm.eurocontrol.int/HELP/Filing.html",
+      "https://www.nm.eurocontrol.int/HELP/Operational_Log.html"
+    ],
+    "no_feature_build": true,
+    "no_fit": true,
+    "no_held_score": true,
+    "no_download": true
+  },
+  "source_sha256": "184b3a1e67ecccb8b2284da8739d55425589f0eb72c6b771eae7d69b622fc0c7",
+  "frozen_receipt": {
+    "path": "tmp/research_20261012/signal_scout/flight_id_order/design.json",
+    "sha256": "3ab1671ea7a54bc42693fa2e7833b7baedd14c08b2c619168db3cb8f2d0dec12"
+  },
+  "source_records": [
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "bytes": 21218481,
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94",
+      "source_rows": 307257,
+      "selected_column_compressed_bytes": 7611155,
+      "mtime_ns": 1788708871251774925
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "bytes": 26014977,
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d",
+      "source_rows": 381161,
+      "selected_column_compressed_bytes": 9360416,
+      "mtime_ns": 1788708876820884931
+    },
+    {
+      "path": "data/ranking.parquet",
+      "bytes": 43564605,
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86",
+      "source_rows": 689534,
+      "selected_column_compressed_bytes": 16343201,
+      "mtime_ns": 1788708892431764116
+    }
+  ],
+  "review": "Root and error_mechanisms static review passed before metadata-only freeze. No source chronology or targets read.",
+  "execution": "Pending explicit clean desktop handoff; /usr/bin/time -v timeout 60s, one thread; no threshold/format retries.",
+  "synthetic_tests": {
+    "count": 2,
+    "seconds": 0.045,
+    "status": "pass",
+    "source_sha256": "50e22c77a2e93156e156a72414566e8918df15052332ab918cdc1da99b338992",
+    "log": "tmp/research_20261012/signal_scout/flight_id_tests.log",
+    "log_sha256": "620f780683229b6add312ee1df9a5e32da79afaf30f8423a4e3f20e82ea0cb9a",
+    "no_competition_rows": true
+  }
+}

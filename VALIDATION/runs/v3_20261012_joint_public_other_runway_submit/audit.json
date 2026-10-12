@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_other_runway_submit_20261012.py",
+    "sha256": "98034d07e2f325a8a8e071364983c58893e9d560ef0f3d89b2e54bf1b6adb2e2"
+  },
+  "helper": {
+    "path": "VALIDATION/tools/audit_public_cohort_scores_20261012.py",
+    "sha256": "ad2f04927bc81e766b1b9428b291fa12963731ea63f32d59d6d52cabd4670af4"
+  },
+  "seconds": 0.5524648170103319,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/identity.json",
+    "sha256": "ebd9fdaaaf4f6a6623e57c003d67a8202b515442aaa1db4c21733390b3e488d5"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/result.json",
+    "sha256": "28fbf58a3c9a7367f7d7372408c45b9207781ca9a53ddd8a368e4824345b87be"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/inference.json",
+    "sha256": "5939492afddd6388c906c1ce8deced7556a0f98f5f7a7c563da6a0aabf7c7f17"
+  },
+  "rows": 344841,
+  "rome_rows": 26899,
+  "old_float_max_error_sec": 0.0,
+  "exact_inputs_memberships_saved_control_deltas": true,
+  "independent_final_bounds_and_transport": true,
+  "every_serialized_value_and_protected_column_exact": true,
+  "scope": "Independent source linkage/raw input clocks, every delta/ID, old scalar control and all output constraints. Full2025 calibration and old inputs inherit the hash-bound original independent audit; new posterior arithmetic inherits the separately retained CV block audit and identical frozen core. No production scalar posterior or model refit is claimed."
+}

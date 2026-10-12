@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "review": "Static independent review; no execution or data scan",
+  "source": {
+    "path": "VALIDATION/tools/audit_tabm_runway_combination_20261012.py",
+    "sha256": "6a39ba707146b56498db888174c0f76ea8f1355796a7e5d87bdc1d6e36373ba0"
+  },
+  "checks": [
+    "Imports no candidate runner",
+    "Verifies immutable component/source/result/audit bindings",
+    "Computes one integer formula from exact v78/v79 and both original v78 components",
+    "Rejects nonintegral/nonfinite component predictions and requires complete joined IDs",
+    "Checks original template schema and all non-target columns",
+    "Independently recomputes monthly and equally averaged Jan/Jul CV arithmetic",
+    "Does not substitute separately clipped component transports or add bounds/coefficients"
+  ],
+  "scope": "Final composition/file/CV arithmetic; underlying model, posterior and raw CV truth checks remain in retained component audits.",
+  "reviewer": "model_diversity"
+}
