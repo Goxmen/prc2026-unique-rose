@@ -1,5 +1,5 @@
 {
-  "state": "waiting",
+  "state": "scored",
   "manifest": "VALIDATION/runs/v3_20261011_daily_refinements_candidate/submission_v77/manifest.json",
   "manifest_sha256": "dbf7ed321006ecb07d09814775c040b771d1b0dda811de50d2e4ac4603e2776b",
   "not_before_utc": "2026-10-12T00:20:05+00:00",
@@ -9,6 +9,19 @@
   "cancel_file": "VALIDATION/runs/v3_20261011_target215/cancel_upload_v77",
   "created_at": "2026-10-11T15:30:38.322563+00:00",
   "runner_sha256": "f5b5104da747bb1dff7fafb545e27d30f34e141d657f3a609ea9bd8b05161d6f",
-  "updated_at": "2026-10-11T15:30:39.212290+00:00",
-  "pid": 990172
+  "updated_at": "2026-10-12T00:21:12.659572+00:00",
+  "pid": 990172,
+  "uploaded_manifest_sha256": "e94da5fddc45c910c77c60448fd914cac32a0a736d2ff48a4cf56b533e4b2f1e",
+  "score": 220.8328,
+  "result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v77.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 220.8328
+  }
 }

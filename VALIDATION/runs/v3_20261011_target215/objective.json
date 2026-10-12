@@ -8,12 +8,12 @@
   "authorization": "Autonomous uploads and both machines; one heavy job per machine",
   "previous_goal": "VALIDATION/runs/v3_20261011_target225/objective.json",
   "first_direction": "EUROCONTROL daily pre-departure aggregate reconciliation; direct source identity audit before modeling",
-  "agents": "Three retained agents report account usage limit; not restarted",
-  "laptop": "Online; verified code-only synchronization and isolated follow-up tests complete",
-  "current_best_version": 74,
-  "current_best_rmse": 221.6881,
-  "current_gap": 16.6881,
-  "updated_at": "2026-10-11T20:18:12.307058+00:00",
+  "agents": "All three retained agents running after explicit user resumption",
+  "laptop": "Full-input physical TabM and matched controls running sequentially; PID14874",
+  "current_best_version": 79,
+  "current_best_rmse": 219.613,
+  "current_gap": 14.613,
+  "updated_at": "2026-10-12T00:42:28.142321+00:00",
   "target_history": [
     {
       "at": "2026-10-11T20:18:12.307058+00:00",
@@ -22,7 +22,7 @@
       "source": "User request: same protocol, new target 205.00 or lower; retain 2 or 3 candidates and wait until 02:00 Amsterdam"
     }
   ],
-  "research_state": "waiting_until_reset",
+  "research_state": "active",
   "research_not_before_utc": "2026-10-12T00:00:00+00:00",
   "retained_upload_versions": [
     76,
@@ -32,5 +32,10 @@
   "cancelled_upload_versions": [
     75
   ],
-  "reserved_next_window_slots": 2
+  "reserved_next_window_slots": 2,
+  "resumed_at": "2026-10-12T00:27:05.027720+00:00",
+  "resume_authorization": "User: its 2:24. get started",
+  "remaining_utc_day_slots": 1,
+  "used_utc_day_slots": 4,
+  "desktop": "Fixed source-clock-phase main LightGBM screen authorized after passed input audit"
 }

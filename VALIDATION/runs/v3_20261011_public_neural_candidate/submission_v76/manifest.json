@@ -1,6 +1,6 @@
 {
   "version": 76,
-  "state": "prepared",
+  "state": "scored",
   "parent": "v75",
   "change": "Public daily inputs in physical neural pool and main LightGBM",
   "with_main": true,
@@ -140,5 +140,20 @@
       },
       "scope": "All final arithmetic and constraints replayed; retained production stages reload all new model predictions"
     }
-  }
+  },
+  "uploaded_at": "2026-10-12T00:10:41+00:00",
+  "remote_sha256": "17d66918de307849c7afbb6522f257d6c2f9eef3e3ffde478a8995ab84d1b425",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v76.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 221.0948
+  },
+  "checked_at": "2026-10-12T00:11:11+00:00",
+  "score": 221.0948
 }

@@ -4,7 +4,7 @@ Predicting taxi-out times at major European airports for the [PRC Data Challenge
 
 Current experiments, retained models and submission approvals are tracked in
 [AGENTS.md](AGENTS.md), [SUBMISSIONS.md](SUBMISSIONS.md) and the
-[October 10 research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md).
+[current research report](VALIDATION/reports/TARGET205_RESEARCH.md).
 
 ## Competition rules & key information
 
@@ -32,7 +32,8 @@ Predict the **taxi-out time** (`TAXITIME_SEC_mvt`, in seconds) of departing flig
 - A team's rank is its **best RMSE across its scored submissions**. The user
   authorized autonomous uploads on 11 October; the **225.00** target was achieved
   with **v71 at 224.3602** on the accepted original January/July population.
-  The user subsequently set the active target to **215.00 or lower**.
+  The active target is now **205.00 or lower**. Best/latest is **v79 at 219.6130**
+  on all 344,841 original departures (live check 12 October 02:40 Amsterdam).
 - Leaderboard REST API: `https://datacomp.opensky-network.org/api/competitions/bb3693e1-26bc-4a9e-8619-4fe78b4eab0c/leaderboard` (paginate via `nextCursor`; Swagger docs at `https://datacomp.opensky-network.org/api/swagger-ui/`).
 
 ### Timeline & prizes

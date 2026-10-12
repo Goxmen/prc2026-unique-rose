@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_target205_candidate.py",
+    "sha256": "9462727b0b364493c87fe5c0629c8c99c78a2ed9306a563f6b9f4484bfdcf6e8"
+  },
+  "file": {
+    "path": "submissions/unique-rose_v79.parquet",
+    "sha256": "8d96135f7e92d025f1e3d6c30d6e4c14d541acd616f5c4d78e80bea32bc052b0"
+  },
+  "independent_reference_form_sql_geometry": {
+    "rows": 344841,
+    "projected_rmse": 219.61335743844066,
+    "serialization_rms": 0.3093183516785528,
+    "conservative": [
+      219.30374232088155,
+      219.92297255559873
+    ],
+    "maximum_rounding_distance": 0.4999970925263142
+  },
+  "all_ranking_rows": 344841,
+  "all_cv_rows": 344419,
+  "independent_raw_truth_calendar_weights_and_cv": true,
+  "cv": 290.67435711796895,
+  "actual_basis_scores_checked": true,
+  "clipping_and_rounding_bound_checked": true,
+  "diagnostic_integer_predictions_all_rows_exact": true,
+  "diagnostic_cv_bytes_exact": true,
+  "no_v75_weight_or_score": true,
+  "cautious_serialized_upper": 219.92327766289444,
+  "cautious_minimum_gain_guard_checked": true,
+  "template_schema_and_unchanged_columns_exact": true,
+  "scope": "Separate root-authored arithmetic/SQL audit; leaderboard-selected weights, not independent validation"
+}

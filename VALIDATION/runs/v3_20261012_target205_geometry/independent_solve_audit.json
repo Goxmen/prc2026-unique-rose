@@ -1,0 +1,133 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_target205_geometry.py",
+    "sha256": "acc7dd5c1c819189d1f84144df488060b50b1b0552b7d80b7b39ed8786a3d9b3"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_target205_geometry/result.json",
+    "sha256": "49104049298a208a0e08568ec04565e322a9a7fa1ac9f2cdd85b21bfb93d8c1c"
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261012_target205_geometry/prepared.json",
+    "sha256": "f2ed12d69c0bd9c39ef6b862f469b791ee41e24c3df19bdce67b67b3e2ca2440"
+  },
+  "live_snapshot": {
+    "path": "VALIDATION/runs/v3_20261012_target205_geometry/live_for_independent_audit.json",
+    "sha256": "16d105c97ea29a92e49ae567b833d25f184886d64566857b70f9949bfbace5e7"
+  },
+  "versions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    26,
+    27,
+    28,
+    29,
+    30,
+    33,
+    34,
+    37,
+    38,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    53,
+    54,
+    56,
+    57,
+    58,
+    60,
+    61,
+    64,
+    70,
+    72,
+    74,
+    76,
+    77,
+    78
+  ],
+  "no_v75_score_or_vector": true,
+  "v75_ancestry_preserved": true,
+  "all_active_scores_live_verified": true,
+  "geometry": {
+    "rows": 344841,
+    "unique_ids": 344841,
+    "sql_projected_rmse": 219.61335743844066,
+    "reference_mse": 48230.0267653843,
+    "expanded_mse": 48230.026765399845,
+    "maximum_raw_reconstruction_difference": 4.3655745685100555e-11,
+    "serialization_rms": 0.3093183516785528,
+    "maximum_rounding_distance": 0.4999970925263142,
+    "numerical_mse_allowance": 0.0036641077073381306,
+    "coefficient_l1": 5.382611424818235,
+    "effective_reference_weight": -0.38825456232305156,
+    "bounds": {
+      "nearest_four_decimals": {
+        "score_halfwidth": 5e-05,
+        "score_mse_radius": 0.13034741473646022,
+        "raw_rmse_interval": [
+          219.61305233037004,
+          219.61366254608737
+        ],
+        "serialized_rmse_interval": [
+          219.3037339786915,
+          219.9229808977659
+        ]
+      },
+      "conservative_last_decimal": {
+        "score_halfwidth": 0.0001,
+        "score_mse_radius": 0.2606948563859775,
+        "raw_rmse_interval": [
+          219.6127555640159,
+          219.6139593112159
+        ],
+        "serialized_rmse_interval": [
+          219.30343721233737,
+          219.92327766289444
+        ]
+      }
+    },
+    "legacy_interval_without_numerical_allowance": [
+      219.30374232088155,
+      219.92297255559873
+    ]
+  },
+  "cv": 290.67435711796895,
+  "months": {
+    "2025-01": {
+      "control": 325.860607626995,
+      "pred": 325.53087367112914
+    },
+    "2025-07": {
+      "control": 255.9996300885311,
+      "pred": 255.81784056480876
+    }
+  },
+  "official_best": 220.2933,
+  "cautious_conservative_gain": 0.3700223371055529,
+  "target205_bound_cleared": false,
+  "scope": "Independent read-only arithmetic/source/population audit, not independent validation or upload approval"
+}

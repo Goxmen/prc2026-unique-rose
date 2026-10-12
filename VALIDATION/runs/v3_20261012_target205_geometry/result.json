@@ -1,0 +1,216 @@
+{
+  "design": {
+    "parent": "retained 52-vector basis with cancelled v75 removed",
+    "additions": [
+      70,
+      72,
+      74,
+      76,
+      77,
+      78
+    ],
+    "new_directions": "actual scores for retained public, daily/tree and joint-source candidates",
+    "bounds": [
+      -3.0,
+      4.0
+    ],
+    "ridge_mse": 1.0,
+    "sum_weights": 1.0,
+    "no_model_fit": true,
+    "score_selection": "own official aggregate RMSE; reused Jan/Jul reported separately",
+    "no_score_imputation": true,
+    "no_rounding_directions": true,
+    "output": "read-only diagnosis; no submission or version reservation",
+    "required_rows": 344841,
+    "required_cv_rows": 344419,
+    "target": 205.0,
+    "removed_versions": [
+      75
+    ],
+    "preparation": "preserve all 51 retained ranking/CV columns exactly; no refits or new weight limits"
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261012_target205_geometry/prepared.json",
+    "sha256": "f2ed12d69c0bd9c39ef6b862f469b791ee41e24c3df19bdce67b67b3e2ca2440"
+  },
+  "solution": {
+    "weights": {
+      "1": -0.012372775093328686,
+      "2": -0.026443395496420774,
+      "3": -0.001680512468211108,
+      "4": 0.015998550226170687,
+      "5": 0.0023540451688102734,
+      "6": 0.02044192159794886,
+      "7": 0.022661415423031864,
+      "8": 0.007887994216434543,
+      "9": -0.006492234599679964,
+      "12": -0.018439418944360107,
+      "13": 0.06219784697437458,
+      "14": -0.05604298485864104,
+      "15": -0.05098503899012082,
+      "16": 0.0500810137264403,
+      "17": -0.014879985315297222,
+      "18": 0.015333968351203152,
+      "19": 0.004129948391099904,
+      "20": -0.016917410406603075,
+      "21": 0.008001580570915873,
+      "26": -0.0002431554578588593,
+      "27": -0.0011197146194220603,
+      "28": 0.012809326844247215,
+      "29": 0.0050134011060515935,
+      "30": -0.01806101000953578,
+      "33": 0.018622531144598164,
+      "34": -0.03473879282604398,
+      "37": -0.002374424527641611,
+      "38": 0.022749527680432743,
+      "43": -0.008790776442709286,
+      "44": -0.0019859559056423374,
+      "45": 0.008553907563673156,
+      "46": 0.026189696277823225,
+      "47": -0.04778167450952245,
+      "48": -0.03589625803984836,
+      "49": -0.07841764146143497,
+      "50": 0.09741971919712852,
+      "51": -0.03438750329858973,
+      "53": -0.043790867707215075,
+      "54": -0.4413056931992898,
+      "56": 0.00758033056509875,
+      "57": 0.2689479816195686,
+      "58": 0.16062956359424213,
+      "60": 0.132162111293695,
+      "61": -0.06700904386789933,
+      "64": -0.38825456232305133,
+      "70": 0.40224265575842316,
+      "72": -0.14935134130728936,
+      "74": 0.2556225363519864,
+      "76": 0.3281101551313043,
+      "77": -0.6335435407334599,
+      "78": 1.235563983634414
+    },
+    "projected_rmse": 219.61335743844063,
+    "score_rounding_rmse_interval": [
+      219.61306067256007,
+      219.61365420392016
+    ],
+    "negative_predictions": 2,
+    "minimum_prediction": -64.60312812662866,
+    "maximum_prediction": 103529.39272502129,
+    "coefficient_l1": 5.382611424818234,
+    "optimizer_message": "Optimization terminated successfully",
+    "iterations": 122,
+    "constraints": {
+      "lower": -3.0,
+      "upper": 4.0,
+      "ridge_mse": 1.0
+    },
+    "note": "Projection before output clipping and integer serialization; leaderboard-selected."
+  },
+  "official": {
+    "70": {
+      "status": "Succeeded",
+      "file": "unique-rose_v70.parquet",
+      "bucket": "prc-2026-unique-rose",
+      "used_pairs": 344841,
+      "inputs": {
+        "test_set_bucket": "prc-2026-testsets",
+        "test_set_file": "truthing.parquet"
+      },
+      "score": 231.9066
+    },
+    "72": {
+      "status": "Succeeded",
+      "file": "unique-rose_v72.parquet",
+      "bucket": "prc-2026-unique-rose",
+      "used_pairs": 344841,
+      "inputs": {
+        "test_set_bucket": "prc-2026-testsets",
+        "test_set_file": "truthing.parquet"
+      },
+      "score": 226.5719
+    },
+    "74": {
+      "status": "Succeeded",
+      "file": "unique-rose_v74.parquet",
+      "bucket": "prc-2026-unique-rose",
+      "used_pairs": 344841,
+      "inputs": {
+        "test_set_bucket": "prc-2026-testsets",
+        "test_set_file": "truthing.parquet"
+      },
+      "score": 221.6881
+    },
+    "76": {
+      "status": "Succeeded",
+      "file": "unique-rose_v76.parquet",
+      "bucket": "prc-2026-unique-rose",
+      "used_pairs": 344841,
+      "inputs": {
+        "test_set_bucket": "prc-2026-testsets",
+        "test_set_file": "truthing.parquet"
+      },
+      "score": 221.0948
+    },
+    "77": {
+      "status": "Succeeded",
+      "file": "unique-rose_v77.parquet",
+      "bucket": "prc-2026-unique-rose",
+      "used_pairs": 344841,
+      "inputs": {
+        "test_set_bucket": "prc-2026-testsets",
+        "test_set_file": "truthing.parquet"
+      },
+      "score": 220.8328
+    },
+    "78": {
+      "status": "Succeeded",
+      "file": "unique-rose_v78.parquet",
+      "bucket": "prc-2026-unique-rose",
+      "used_pairs": 344841,
+      "inputs": {
+        "test_set_bucket": "prc-2026-testsets",
+        "test_set_file": "truthing.parquet"
+      },
+      "score": 220.2933
+    }
+  },
+  "checked_at": "2026-10-12T00:32:14+00:00",
+  "current_best_version": 78,
+  "current_best_score": 220.2933,
+  "cv": 290.67435711796895,
+  "months": {
+    "2025-01": {
+      "control": 325.860607626995,
+      "pred": 325.53087367112914
+    },
+    "2025-07": {
+      "control": 255.9996300885311,
+      "pred": 255.81784056480876
+    }
+  },
+  "paired": {
+    "change": -0.2557617397940817,
+    "ci95": [
+      -0.6214155090959987,
+      0.04914189550798875
+    ],
+    "decision": "inconclusive"
+  },
+  "serialization_rms": 0.3093183516785523,
+  "conservative_rmse_interval": [
+    219.30374232088153,
+    219.9229725555987
+  ],
+  "clears_current_best_with_serialization_bound": true,
+  "independent_mse_identity": true,
+  "diagnostic_cv": {
+    "path": "VALIDATION/runs/v3_20261012_target205_geometry/diagnostic_cv.parquet",
+    "sha256": "8f17490dcefbedc3959a4293b2a68ef7871ecf0d8828d30aad06fefe2299895f"
+  },
+  "diagnostic_ranking": {
+    "path": "VALIDATION/runs/v3_20261012_target205_geometry/diagnostic_ranking.parquet",
+    "sha256": "3f6e7c9815093dc202c6a0ac450ad9961be92c37425d92b0c0fe66d0c7000621"
+  },
+  "historical_cv_caveat": "v3-v9 use an archived original27 implementation; missing exact historical source is explicit in raw runner identity",
+  "eligible_for_upload": false,
+  "next": "Review projected gain and CV; any selected file needs independent final arithmetic/schema/source audit"
+}

@@ -1,6 +1,6 @@
 {
   "version": 77,
-  "state": "prepared",
+  "state": "scored",
   "parent": "v76",
   "change": "Selected airport/main/CatBoost inputs and daily/monthly aggregate refinements",
   "file": "submissions/unique-rose_v77.parquet",
@@ -469,5 +469,20 @@
       "scope": "Separate root-authored arithmetic/constraint/CV review; completed source/model/daily-shift audits reused",
       "reviewer": "root; no independent subagent available"
     }
-  }
+  },
+  "uploaded_at": "2026-10-12T00:20:42+00:00",
+  "remote_sha256": "e8381979532aded6d795f84963c842bf31592713dbdd58c275f9006276364ae1",
+  "official_result": {
+    "status": "Succeeded",
+    "file": "unique-rose_v77.parquet",
+    "bucket": "prc-2026-unique-rose",
+    "used_pairs": 344841,
+    "inputs": {
+      "test_set_bucket": "prc-2026-testsets",
+      "test_set_file": "truthing.parquet"
+    },
+    "score": 220.8328
+  },
+  "checked_at": "2026-10-12T00:21:12+00:00",
+  "score": 220.8328
 }

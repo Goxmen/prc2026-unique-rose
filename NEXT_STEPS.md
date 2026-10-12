@@ -1,75 +1,60 @@
 # Next steps
 
-**Active target: 205.00 seconds or lower.** Best/latest is **v74 at 221.6881**,
-leaving **16.6881 seconds**. Live check: **11 October 20:23 Amsterdam**,
-rank **12/242**, all **344,841 flights**. All five October 11 UTC upload slots
-are used. Autonomous submissions and both machines remain authorized.
+**Active target: 205.00 seconds or lower.** Best/latest is **v79 at 219.6130**,
+leaving **14.6130 seconds**. Live check: **12 October 02:40:30 Amsterdam**,
+rank **9/242**, all **344,841 flights**. Autonomous submissions and both machines
+remain authorized, with one heavy job per host. Four October 12 UTC submission
+slots are used; **one remains for a new candidate after experimental feedback**.
 
-The user requested no research before **12 October 02:00 Amsterdam**. Three
-selected candidates remain prepared and audited for the next UTC window:
+| Candidate | Change | Jan/Jul CV | Official RMSE |
+| --- | --- | ---: | ---: |
+| v76 | v75 adds public daily inputs to the main tree and physical networks. | 292.4494 | 221.0948 |
+| v77 | v76 adds the selected daily and tree refinements. | 291.5497 | 220.8328 |
+| v78 | v77 adds a joint public taxi-count, taxi-sum and departure-delay correction. | 290.9301 | 220.2933 |
+| v79 | v78 is recombined with earlier scored predictions using updated affine weights. | 290.6744 | 219.6130 |
 
-| Candidate | Change | Jan/Jul CV | Earliest upload, Amsterdam |
-| --- | --- | ---: | --- |
-| v76 | v75 adds public daily inputs to the main tree and physical networks. | 292.4494 | 12 October 02:10 |
-| v77 | v76 adds the selected daily and tree refinements. | 291.5497 | 12 October 02:20 |
-| v78 | v77 adds a joint public taxi-count, taxi-sum and departure-delay correction. | 290.9301 | 12 October 02:30 |
+V76, v77 and v78 uploaded once at 02:10, 02:20 and 02:30. After their feedback,
+the new 51-vector diagnosis excluded unsubmitted v75 and used only actual
+successful scores. V79 uploaded at 02:36 after independent geometry and final
+file audits; its remote hash matches. These four submissions improve v74 by
+**2.0751 seconds**. The v79 weights are selected using the leaderboard;
+its Jan/Jul change of −0.2558 has interval [−0.6214, +0.0491] on reused development
+data. Do not describe that CV result as independent confirmation.
 
-V75 was removed from the upload queue at the user's request. Its Rome changes
-are included in v76; preserve its prepared artifacts, but **do not submit v75**.
-V76, v77 and v78 form successive comparisons with larger combined improvements
-and separate feedback on the tree/daily refinements and joint-source correction.
-The automatic fifth-slot follow-up is cancelled. **Two slots remain reserved**
-for future candidates selected after the retained candidates' actual feedback.
+**V75 remains cancelled and must not be submitted.** Its prepared changes are
+included in v76. The old 50-/51-/52-vector evaluation queues and automatic
+fifth-slot coordinator stay cancelled; they require v75's unavailable score.
+Preserve their artifacts and do not impute that score or restart them.
 
-The one-shot wake-up is scheduled for **12 October 02:00 Amsterdam (00:00 UTC)**.
-It requests continuation of this existing IDE thread, preserving permissions and
-account limits; the IDE must stay open. The local message interface passed a
-read-only preflight. The account/goal currently reports `usageLimited`, so the
-wake-up cannot guarantee inference availability. The three upload jobs operate
-independently. See [queue selection](VALIDATION/runs/v3_20261012_target205/queue_selection.json)
-and [wake-up plan](VALIDATION/runs/v3_20261012_target205/wakeup_plan.json).
-No training, screening or candidate iteration is authorized before that time.
+Research resumed only after the user's 02:24 instruction. The 02:00 timer fired,
+but its IDE message was rejected because the request omitted `threadId`;
+no inference ran from the timer. Its failed receipt is retained. No replacement
+timer is currently scheduled. The native goal object remains `usageLimited`
+with its old text; no native limit or status was changed. The local project
+objective records the user's current 205 target.
 
-None has an official score yet. All uploads require unchanged audited sources,
-exact file/schema/IDs, available quota and the same accepted population. Do not
-upload duplicate predictions. V77 changes 331,381 rows versus v76 and improves
-both validation months, but its development data has been reused extensively.
-Its final main-tree increment is only 0.0398 seconds; keep it within this combined
-candidate. The full174 CatBoost and daily184 main tree were trained on the
-laptop, returned with verified hashes and reloaded exactly on all ranking rows
-on the desktop. Both production fits are complete; do not repeat them.
+Two fixed experiments are active:
 
-V77's original packaging attempt failed before creating a file because one old
-manifest used mapping-form provenance. The corrected packager verifies both
-retained formats; all predictions remain unchanged. Component, package and
-separate root-authored final arithmetic/constraint/raw-truth audits pass.
-The prepared 51-vector score basis also passes its all-row audit. All three
-50-/51-/52-vector evaluation queues are now cancelled because their frozen bases
-require v75's score. Preserve their artifacts. After the wake-up, any replacement
-must exclude unsubmitted v75 and use only actual successful official scores;
-never impute a score. A later selected blend needs its own final file audit.
+- **Laptop GPU:** full-input physical-track TabM (168 tabular inputs, 32 heads),
+  seed42, fixed 21/17 epochs, against same-laptop original-network controls.
+  Four fits run sequentially; preflight and independent loss/update/stack review
+  pass. See `v3_20261012_nn_public_tabm/`. No HPO or extra seeds are authorized
+  by this design; preserve completed checkpoints and preprocessing.
+- **Desktop CPU:** the selected 184-input main LightGBM plus seven original
+  flight-plan timestamp phases. Every new value/null mask on 3,100,678 source
+  rows passes independent checks. All shared old/final phase values agree.
+  Original folds, seed42 and settings remain fixed. See `source_clock_phase_lgb.py`.
+  The exact-v78 complete-stack comparison determines whether to continue.
 
-V78 improves v77 CV by **0.6196 seconds**, paired-day interval
-**[−1.0279, −0.2138]**. July improves1.2732; January worsens0.0340.
-It uses one simultaneous leave-one-out update from the two public source
-populations, preserving each calendar and accounting for shared flights.
-CV inference ran on the laptop. All raw inputs, calibration rows, prediction
-arithmetic, final constraints and CV scores pass the separate audits.
-The production auditor's first SciPy density check differed by four microseconds
-because counts and sums have different units; standardizing its covariance
-removes the discrepancy without changing production predictions. All154 scalar
-checks then agree within2.4e-10 seconds. Retain the original failure log.
-V78 changes1,734 ranking rows. These are reused development months, and the
-moment approximation and transfer onto v77 remain limitations.
+The phase inputs are all missing for Rome's no-ID 1–4h group, so they cannot
+directly resolve that costly group. A separate source-only feasibility check of
+arrival landing-clock agreement is exploratory; no departure-label-selected
+feature or fit is justified yet. The error agent is also reviewing genuinely
+new source/label mechanisms while these jobs run.
 
-The retained 51-/52-vector blend packagers, separate SQL auditors and synthetic
-tests are historical completed work. Their original specifications targeted 215
-and required v75. The automatic fifth-slot coordinator and its evaluator are
-cancelled; **do not restart them**. No v79 or later blend submission exists.
-A new feedback-driven candidate may be considered only after 02:00, with a new
-specification reflecting the 205 target and the actual scored candidates. Preserve
-the source diagnosis's integer vectors: recomputing half-integer ties can differ
-with floating reduction order. Report Jan/Jul CV for every selected candidate.
+See [the current research report](VALIDATION/reports/TARGET205_RESEARCH.md).
+The [11 October report](VALIDATION/reports/TARGET215_RESEARCH.md) retains the
+historical queue decisions and completed screens. Recent closed branches follow.
 
 The fixed learned attention-pooling screen is complete and closed. Replacing
 one of three pool members changes exact-v78 CV by−0.0109 seconds, interval
@@ -93,13 +78,6 @@ quadrature, all92,386 support-state calendar assignments, all scope gates,
 58 independent scalar messages and all344,419 SQL score rows pass. Only10
 targets have support on multiple days, although uncertain peers can affect
 other targets. No expansion, production or submission follows.
-
-Queue pruning is complete: only the v76/v77/v78 upload watchers remain live.
-V75, the three geometry evaluators and the automatic follow-up have exited with
-state `cancelled`. The desktop and laptop have finished the current research jobs.
-The objective path remains `v3_20261011_target215/objective.json` for compatibility
-with retained upload jobs; its target is 205. The uploader gate stays active while
-research has a separate not-before time.
 
 The explicit-neighbour public-source screen is complete and closed. Retaining
 one largest-variance peer's full discrete support changes v78 CV by−0.0500,
