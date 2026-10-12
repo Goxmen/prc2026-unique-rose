@@ -45,9 +45,10 @@ def main():
     for record in identity['sources']:
         if record['path'].endswith(('.py','.json')):verify(record)
     raw=pd.read_parquet(RAW).set_index('mvt_id');members=[]
-    packets=[verify(r) for r in identity['sources'] if '/inputs/' in r['path'] and r['path'].endswith('.pkl')]
+    packets=[ROOT/r['path'] for r in identity['sources'] if '/inputs/' in r['path'] and r['path'].endswith('.pkl')]
     assert len(packets)==2
     for packet in packets:
+        verify(next(r for r in identity['sources'] if ROOT/r['path']==packet))
         month=packet.stem;d=pd.read_pickle(packet);r=raw.loc[d['train_ids']]
         assert r.airport.eq('LIRF').all() and month not in set(r.month)
         np.testing.assert_array_equal(d['target'],(r.gap-r.y).abs().le(60).astype(int))
@@ -66,14 +67,15 @@ def main():
                 assert rec['device']=='NVIDIA GeForce RTX 3080' and rec['saved_before_held_inference']
                 assert len(rec['columns'])==len(set(rec['columns']))==75
                 for key in ['model','preprocessing','training_ids']:verify(rec[key])
-                np.testing.assert_array_equal(pd.read_parquet(verify(rec['training_ids'])).mvt_id,ids)
+                np.testing.assert_array_equal(pd.read_parquet(ROOT/rec['training_ids']['path']).mvt_id,ids)
                 assert rec['rows']==len(ids) and rec['months']==sorted(set(raw.loc[ids,'month']))
                 members.append(art(TRAIN/f'{month}_{arm}_{phase}.json'))
             rec=read(TRAIN/f'{month}_{arm}_predictions.json')
             assert rec['full_model']==art(TRAIN/f'{month}_{arm}_full.json')
             assert rec['inner_model']==art(TRAIN/f'{month}_{arm}_inner.json')
             assert rec['all_rome_reload_exact'] and rec['selected_epoch']==selected and rec['selection_month']==last
-            p=pd.read_parquet(verify(rec['prediction']));np.testing.assert_array_equal(p.mvt_id,d['ids'])
+            verify(rec['prediction'])
+            p=pd.read_parquet(ROOT/rec['prediction']['path']);np.testing.assert_array_equal(p.mvt_id,d['ids'])
             assert len(p)==rec['rows'] and int(np.sum(d['use']))==rec['rome_rows']
             assert p.p.between(0,1).all() and (p.loc[~d['use'],'p']==0).all()
             members.append(art(TRAIN/f'{month}_{arm}_predictions.json'))

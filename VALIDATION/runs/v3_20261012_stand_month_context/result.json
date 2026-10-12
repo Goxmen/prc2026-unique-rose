@@ -1,0 +1,30 @@
+{
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261012_stand_month_context/manifest.json",
+    "sha256": "dbf90615950300b2122c33aa9b03ec7ac6ec653bb013fcc7666c6943b7639e61"
+  },
+  "rows": {
+    "training": 2085047,
+    "old": 344841
+  },
+  "outputs": {
+    "old": {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context/features_old.parquet",
+      "sha256": "6100e8c1794dff234f8a3292f68d01c63b91e9cc3ae23e3d4dcca715025dec06"
+    },
+    "training": {
+      "path": "VALIDATION/runs/v3_20261012_stand_month_context/features_training.parquet",
+      "sha256": "5991562e58ed72e785460575fb0efb259bd31130d6ae44207cf147b98d8f876f"
+    }
+  },
+  "coverage": {
+    "old": {
+      "stand_month_peer_clock_median": 344524,
+      "stand_month_arrival_median": 344645
+    },
+    "training": {
+      "stand_month_peer_clock_median": 2083037,
+      "stand_month_arrival_median": 2083915
+    }
+  }
+}

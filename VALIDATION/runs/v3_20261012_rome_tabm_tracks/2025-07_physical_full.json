@@ -1,0 +1,229 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/identity.json",
+    "sha256": "66fce29e341ce0b7c0706666c2183337e30b2f6786650d1f33be2dee7b29a35b"
+  },
+  "month": "2025-07",
+  "arm": "physical",
+  "phase": "full",
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-07_physical_full.pt",
+    "sha256": "1f865311abe52cf5ae83954c2bec20c9f18198280c33450bf8d06dd2ea0db68f"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-07_physical_full.pkl",
+    "sha256": "ca4c89ef0a375cb3b1c144b2176169c861883d5cafab64f45dfeda8a6ebb7fa6"
+  },
+  "training_ids": {
+    "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-07_physical_full_ids.parquet",
+    "sha256": "d211a196751ba7fd1eb6ff4d2e828bcd44435ed6f1b08825579626bcf3a8b91c"
+  },
+  "rows": 86723,
+  "epochs": 23,
+  "months": [
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+  ],
+  "curve": [
+    {
+      "epoch": 1,
+      "training_logloss": 0.6206279178892979,
+      "seconds": 4.106585935020121
+    },
+    {
+      "epoch": 2,
+      "training_logloss": 0.5169672688743502,
+      "seconds": 4.053502141003264
+    },
+    {
+      "epoch": 3,
+      "training_logloss": 0.48246562901347406,
+      "seconds": 4.236105132004013
+    },
+    {
+      "epoch": 4,
+      "training_logloss": 0.44095237110206903,
+      "seconds": 4.141492633993039
+    },
+    {
+      "epoch": 5,
+      "training_logloss": 0.4105455937384239,
+      "seconds": 3.981088758999249
+    },
+    {
+      "epoch": 6,
+      "training_logloss": 0.39465683361121556,
+      "seconds": 4.069836859998759
+    },
+    {
+      "epoch": 7,
+      "training_logloss": 0.3858569540341919,
+      "seconds": 3.7595073789998423
+    },
+    {
+      "epoch": 8,
+      "training_logloss": 0.3779020538841209,
+      "seconds": 3.5095508719969075
+    },
+    {
+      "epoch": 9,
+      "training_logloss": 0.37122272955360014,
+      "seconds": 3.936034546000883
+    },
+    {
+      "epoch": 10,
+      "training_logloss": 0.3679402288732764,
+      "seconds": 3.7114801550051197
+    },
+    {
+      "epoch": 11,
+      "training_logloss": 0.361898001392473,
+      "seconds": 3.680090740992455
+    },
+    {
+      "epoch": 12,
+      "training_logloss": 0.3590512400344376,
+      "seconds": 3.46668434998719
+    },
+    {
+      "epoch": 13,
+      "training_logloss": 0.3567577178264381,
+      "seconds": 3.978547463018913
+    },
+    {
+      "epoch": 14,
+      "training_logloss": 0.3525017872845356,
+      "seconds": 4.314107829006389
+    },
+    {
+      "epoch": 15,
+      "training_logloss": 0.3506800441205135,
+      "seconds": 3.955914168007439
+    },
+    {
+      "epoch": 16,
+      "training_logloss": 0.34691231186954086,
+      "seconds": 4.158874159009429
+    },
+    {
+      "epoch": 17,
+      "training_logloss": 0.34505042932683533,
+      "seconds": 3.9975890869973227
+    },
+    {
+      "epoch": 18,
+      "training_logloss": 0.3417751252116496,
+      "seconds": 4.062450288998662
+    },
+    {
+      "epoch": 19,
+      "training_logloss": 0.3391512170161312,
+      "seconds": 4.152072725992184
+    },
+    {
+      "epoch": 20,
+      "training_logloss": 0.3361548296220174,
+      "seconds": 4.356956856005127
+    },
+    {
+      "epoch": 21,
+      "training_logloss": 0.33420214177898977,
+      "seconds": 4.0808475090016145
+    },
+    {
+      "epoch": 22,
+      "training_logloss": 0.3321350373153931,
+      "seconds": 4.522613723005634
+    },
+    {
+      "epoch": 23,
+      "training_logloss": 0.32943058564958116,
+      "seconds": 4.815587007993599
+    }
+  ],
+  "seed": 42,
+  "device": "NVIDIA GeForce RTX 3080",
+  "columns": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "arr_taxiin_7d",
+    "dep_actual_30m_before",
+    "arr_actual_30m_before",
+    "dep_sched_60m_around",
+    "clock_aobt3_minus_schedule_sec",
+    "clock_aobt3_minus_eobt1_sec",
+    "clock_eobt1_minus_iobt_sec",
+    "clock_iobt_minus_lobt_sec",
+    "clock_schedule_available",
+    "clock_lobt_available",
+    "clock_iobt_available",
+    "clock_eobt1_available",
+    "clock_aobt3_available",
+    "clock_raw_flight_id_missing",
+    "clock_raw_plan_block_missing",
+    "clock_raw_aobt3_missing",
+    "clock_available_count",
+    "clock_span_sec",
+    "clock_std_sec",
+    "clock_median_sec",
+    "clock_baseline_sec",
+    "clock_baseline_source",
+    "airline",
+    "handler_arr_sched_share",
+    "handler_arr_n",
+    "flight_number_format",
+    "st_last_arr_sec",
+    "st_prev_arr_sec",
+    "st_same_type",
+    "st_same_airline",
+    "st_inblock_minus_sched_sec",
+    "op_matched",
+    "op_fs_ground",
+    "op_fs_sec",
+    "op_own_stand_sec",
+    "op_first_stand_sec",
+    "op_first_apron_sec",
+    "op_first_twy_sec",
+    "op_rwy_sec",
+    "op_deice_sec",
+    "op_ground_sec",
+    "nb_op_ground_mean_60",
+    "nb_op_ground_n_60",
+    "nb_op_ground_mean_pm30",
+    "nb_op_deice_share_60",
+    "pub_dep_count_gap",
+    "pub_dep_mean",
+    "pub_dep_long_count",
+    "pub_dep_long_gap_sum",
+    "pub_dep_resid900_mean",
+    "pub_dep_resid1800_mean",
+    "pub_dep_resid_clock_mean",
+    "pub_dep_own900_left",
+    "pub_dep_own1800_left",
+    "pub_dep_own900_fraction",
+    "pub_dep_own1800_fraction",
+    "pub_dep_long900_fraction"
+  ],
+  "saved_before_held_inference": true
+}

@@ -1,0 +1,140 @@
+{
+  "status": "pass",
+  "rows": 344419,
+  "seconds": 1.8714825960050803,
+  "source": {
+    "path": "VALIDATION/tools/audit_rome_tabm_tracks_20261012.py",
+    "sha256": "fa98b02bd86029d08ee5f1c18e87f49926d63fcea96d906e414e18518c57e586"
+  },
+  "members": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-01_tabular_inner.json",
+      "sha256": "32d0e2d3f780d80e8753631569c3fdcecaa280a8c914889e124e2a7381ce9831"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-01_tabular_full.json",
+      "sha256": "da472dcad3294522689465e43a9583bb5619d6fff0c4fbb97b519154ca421c60"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-01_tabular_predictions.json",
+      "sha256": "de45273a515fee787e388c6a06687a17bc645813a96b06e2aa035aa7113d0e40"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-01_physical_inner.json",
+      "sha256": "10963d8323166460616f15e5a6698ed50c6ca8927abb8ee8aad97127e23e6bf6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-01_physical_full.json",
+      "sha256": "ca419c5ffa1c5154a1633d81128df729fcf6a3c3de1f7c990f310d8eb8a3a7f5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-01_physical_predictions.json",
+      "sha256": "597a570c2c4e703725bc4e158f99abcb2a3c67332c7e2216be99ac1a458c934b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-07_tabular_inner.json",
+      "sha256": "cd09f8c9826f780b8d847b31907fb180685fa1a4f7f202afa78579b86f95ad92"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-07_tabular_full.json",
+      "sha256": "b28d0b405d57ddd10fd15687fe77ae77527c64db5789c030428f95ccde44ae16"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-07_tabular_predictions.json",
+      "sha256": "6ac297f1a019e4ad394e3291c2ab0266050e44453b7a83370568503c312d7b6a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-07_physical_inner.json",
+      "sha256": "2a63cb6a0e01a66777c29036a7e3a988b8c118a6baeba47af39936938b9e6d73"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-07_physical_full.json",
+      "sha256": "edc8fc2fd1ad038aece123c60efea1157117872aae8f6828de788449b90cbddd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/2025-07_physical_predictions.json",
+      "sha256": "60af3cb901e7524e9c54a619a8e8b4d9178ac820db0d79e88008098397ffd851"
+    }
+  ],
+  "effects": {
+    "v78": {
+      "tabular": -0.0846003075279782,
+      "physical": -0.1599503656080401
+    },
+    "v79": {
+      "tabular": -0.13356658192338955,
+      "physical": -0.19998308645858742
+    }
+  },
+  "sql_scores": {
+    "control": {
+      "2025-01": 325.860607626995,
+      "2025-07": 255.9996300885311
+    },
+    "tabular": {
+      "2025-01": 325.6856725737538,
+      "2025-07": 256.00536452671633
+    },
+    "physical": {
+      "2025-01": 325.59873329836427,
+      "2025-07": 255.9416036859457
+    }
+  },
+  "sql_transport_scores": {
+    "control": {
+      "2025-01": 325.53087367112914,
+      "2025-07": 255.81784056480876
+    },
+    "tabular": {
+      "2025-01": 325.3633205003107,
+      "2025-07": 255.71826057178046
+    },
+    "physical": {
+      "2025-01": 325.26268750391387,
+      "2025-07": 255.68606055910686
+    }
+  },
+  "inputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/identity.json",
+      "sha256": "66fce29e341ce0b7c0706666c2183337e30b2f6786650d1f33be2dee7b29a35b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks/preflight.json",
+      "sha256": "d063db14948b84c605ac5b269a29345bbb04e24ae7c008e4cd92d44510614fe2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_stack/result.json",
+      "sha256": "af89e0f8130aa0867a51eb8f3c6d484028538fed659def9819b0c42320e4fcf9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_stack/audit.json",
+      "sha256": "1a6ca14287c565dc2bf8bafba6126e84f320b2464733e855c5c9aced40bca796"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_stack/scored.parquet",
+      "sha256": "fdf64fa188421a3932fa4e4e39bb84aa28664ace73a734b6ddd5829ca6694501"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_delta_transport/design.json",
+      "sha256": "789e7043613261b549eaa691eb77b7e926d776231d1d60c6f3635f71d0ac9d01"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_delta_transport/rome_tabm_tracks/result.json",
+      "sha256": "02e3cf25ca06eaef03bfffbaceeaeeb9337199f057524844c5bee223897c3a35"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_delta_transport/rome_tabm_tracks/scored.parquet",
+      "sha256": "84c2b765b0ad65f7497d57d9ad82550be185fb41c79a9075b21555f4029553a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_offblock_alignment/rows2025.parquet",
+      "sha256": "bc2fd953c3f911bdaa70c6f0a1ab6d9b96d23ef31e07333853175fae9a5c4437"
+    }
+  ],
+  "original_binary_targets_and_inner_full_memberships": true,
+  "inner_only_stopping_and_frozen_recipes": true,
+  "all_row_truth_calendar_integer_transport_and_nonrome_invariance": true,
+  "scope": "Separate saved-artifact, membership, selection and SQL arithmetic checks. Raw track transforms, encoder fitting, GPU checks and model reloads remain in their retained preflight/fit receipts.",
+  "limitation": "Fixed-seed reused development experiment, not independent confirmation."
+}

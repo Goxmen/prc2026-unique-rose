@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_arrival_stand_transfer_20261012.py",
+    "sha256": "9eb6704b07b3dac1393c2677819498b24673b1005c32e9cdd68f04f89ba084f4"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_arrival_stand_transfer/identity.json",
+    "sha256": "82cb1d9ca2a592dd2f2fd8cbe394daaae99dc73685d64a4860b20f7bdbbb291f"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_arrival_stand_transfer/result.json",
+    "sha256": "b92c018f04bfcacf86bf5e555006c320951790f63bbd25cfceb72f508df7cc09"
+  },
+  "source_rows": 1391748,
+  "phase_cells": 12700,
+  "common_stands": 1369,
+  "folds": [
+    {
+      "month": "2025-03",
+      "slope": 0.049877737842581336,
+      "mse_delta": 77.47112030477464
+    },
+    {
+      "month": "2025-09",
+      "slope": -0.10793884233026124,
+      "mse_delta": 35.19040403575207
+    },
+    {
+      "month": "2025-10",
+      "slope": -0.09158228400659177,
+      "mse_delta": 18.073024854949143
+    },
+    {
+      "month": "2025-11",
+      "slope": -0.09722061966671369,
+      "mse_delta": 12.575995417527466
+    }
+  ],
+  "independent_window_medians_counts_and_centering": true,
+  "scalar_training_only_references_and_slopes": true,
+  "all_saved_deltas_predictions_and_scores": true,
+  "passes_fixed_transfer_gate": false,
+  "scope": "Training-only feasibility arithmetic. No claim of taxi-model improvement or independent heldout validation."
+}

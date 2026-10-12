@@ -129,11 +129,16 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
   SSH session57074); seed42 retained. Frozen pool+runway comparison and
   conditional two-fit full-year continuation are prepared; no production
   expansion before audited three-versus-one gains on both fixed comparisons.
-  Desktop runs matched Rome TabM classifiers with/without learned physical
-  tracks (`rome_tabm_tracks_jan_jul.py`), original R20 rows,75 history-free inputs,
-  clean last-training-month stopping and fixed one-third probability share.
-  Source feasibility passes; this is distinct from the failed plain Rome MLP
-  and frozen regression-encoder tree. Inspect its preflight/receipts before resuming.
+  Rome TabM is complete/closed: physical v78−0.159950, v79−0.199983,
+  both inconclusive; tabular and physical-minus-tabular comparisons also inconclusive.
+  All8 models and independent audits retained; no production or upload.
+  Arrival stand-drift transfer failed all4 training months across1369 stands;
+  no multi-task/adaptation fit follows. Separate static stand context now runs
+  in `stand_month_context_lgb.py`: original184 inputs plus4 monthly stand
+  medians/counts from other departures' supplied AOBT_3 clocks and provided
+  arrival taxi-in. Query clocks excluded, no departure target/block read.
+  Independent1200-query source audit and exact188-column preflight pass.
+  Desktop session42884 runs fit→score→audit→fixedv79 transport; do not duplicate.
   Flight-ID clock main-tree screen is complete/closed: v78+0.002652, v79+0.007419.
   Movement-ID arrival-clock pilot has zero coverage for the intended339 rows;
   pair-Gibbs still fails numerical precision (largest-cohort long-budget MCSE111.7s).

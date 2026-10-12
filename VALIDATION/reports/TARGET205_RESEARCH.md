@@ -59,17 +59,44 @@ largest-cohort long-budget increment MCSE is111.7143seconds, exceeding the
 fixed25-second limit. No extra sweeps, chains, CV or production follows.
 Closure reports are in `all_discrete_peer_20261012/`.
 
-A distinct Rome classifier screen now uses end-to-end physical tracks with
-TabM binary classification. The feasibility check reads only Rome departures
-from four shared training months;39,201 noncopy and10,392 copy rows have at
-least two track observations. A matched TabM control has identical tabular
-and nine quality fields, with the raw representation disabled. A zero-initial
-projection makes initial logits identical. Both retain original R20 rows and
-75 history-free inputs, choose stopping only on the last allowed training
-month, and use a fixed one-third classifier share. Exactv78 and coefficient-one
-v79 scoring are frozen before any fit. No gain is established. The preflight
-initially misstated the pilot's no-ID-long diagnostic as1–4h; it was corrected
-to the pilot's original>1h definition before any training, with originals kept.
+The Rome TabM screen is complete and closed as inconclusive. Four inner/full
+pairs preserve original R20 rows,75 history-free inputs and identical quality
+fields. The physical arm changes v78−0.159950 (interval[−0.523327,+0.186250])
+and v79−0.199983 (interval[−0.556818,+0.132167]); the tabular arm changes
+v78−0.084600 and v79−0.133567, also inconclusive. Physical versus tabular is
+−0.075350, interval[−0.241696,+0.074012]. All8 models, full saved-model reloads,
+original labels/memberships, inner stopping and344,419 scored rows pass the
+separate audit. No extra seeds, production or upload follows. The preflight's
+pilot diagnostic was corrected to the original>1h definition before training;
+the separate auditor's path-helper adaptation was fixed before any receipt.
+See `rome_tabm_tracks_20261012/{audit,closed}.json`.
+
+A new arrival-duration lead first tested stand drift on March/September/
+October/November training months. For1369 stands, a slope fitted on the other
+three months predicts the held month's airport-centered median change from
+arrival changes. Training contrasts exclude the held departure month entirely.
+Every month worsens (weighted cell MSE+77.47,+35.19,+18.07,+12.58); three
+fitted slopes are negative. Independent SQL window medians and scalar isolated
+references reproduce the result. This closes the proposed direct drift
+transfer, without a multi-task fit or any Jan/Jul departure-label use.
+
+A separate static-context screen is running: same-month stand medians and
+counts of other departures' supplied takeoff-minus-AOBT_3 clocks and supplied
+arrival taxi-in. It encodes typical stand conditions rather than transferring
+month-to-month arrival changes. It can populate stand context when a stand
+category is absent from the departure model's training. Related within-frame
+stand features appear in [gracious-tornado's fs8 description](https://github.com/il-miscusi/prc-2026-gracious-tornado/blob/main/docs/METHOD.md);
+our implementation and model test are independent, and no gain is inherited.
+
+The four inputs use actual UTC months and separate original training/ranking
+views. Valid clocks/durations are1..7200s; null/blank stand gets no group. The
+query's clock is removed using exact odd/even order statistics, including ties,
+and counts use log1p. No departure target or block timestamp enters features.
+All2,085,047 training and344,841 ranking departures are retained;1200 raw-source
+scalar reconstructions and synthetic edge cases pass. The main-tree screen
+keeps original184 columns, labels, rows, settings and10,000 rounds; exactv78
+scoring and coefficient-one v79 transport are fixed before fits. No result yet.
+Sources: `../stand_month_context.py`, `../stand_month_context_lgb.py`.
 
 The updated51-score robust affine minimax check uses actualv76–v78 scores,
 excluding cancelledv75. It offers only0.00587018seconds projected gain;

@@ -1,0 +1,84 @@
+{
+  "status": "closed_inconclusive_no_production_or_upload",
+  "effects": {
+    "v78": {
+      "tabular": -0.0846003075279782,
+      "physical": -0.1599503656080401
+    },
+    "v79": {
+      "tabular": -0.13356658192338955,
+      "physical": -0.19998308645858742
+    }
+  },
+  "paired_v78": {
+    "physical_vs_control": {
+      "change": -0.1599503656080543,
+      "ci95": [
+        -0.5233270768264286,
+        0.18625035624411934
+      ],
+      "decision": "inconclusive"
+    },
+    "tabular_vs_control": {
+      "change": -0.0846003075279782,
+      "ci95": [
+        -0.423816780564476,
+        0.2599414544596132
+      ],
+      "decision": "inconclusive"
+    },
+    "physical_vs_tabular": {
+      "change": -0.07535005808007611,
+      "ci95": [
+        -0.24169602098992016,
+        0.07401239654410607
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "paired_v79": {
+    "tabular": {
+      "change": -0.13356658192337534,
+      "ci95": [
+        -0.4541347788049169,
+        0.20116559595307734
+      ],
+      "decision": "inconclusive"
+    },
+    "physical": {
+      "change": -0.19998308645858742,
+      "ci95": [
+        -0.5568183132717113,
+        0.13216725931900974
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "months_v78": {
+    "2025-01": {
+      "control": 325.860607626995,
+      "tabular": 325.6856725737538,
+      "physical": 325.59873329836427
+    },
+    "2025-07": {
+      "control": 255.9996300885311,
+      "tabular": 256.00536452671633,
+      "physical": 255.9416036859457
+    }
+  },
+  "months_v79": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "tabular": 325.3633205003107,
+      "physical": 325.26268750391387
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "tabular": 255.71826057178046,
+      "physical": 255.68606055910686
+    }
+  },
+  "audit": "pass",
+  "retain": "all8 models, preprocessing, inner curves, exact held reloads and scoring artifacts",
+  "interpretation": "The physical arm has a small, uncertain average gain. Neither model family nor raw tracks establishes a reliable improvement on the reused development months."
+}

@@ -1,0 +1,87 @@
+{
+  "design": {
+    "parent": "v79",
+    "original_control": "exact v78",
+    "formula": "round_even(max(0,v79 + fixed_arm_on_v78 - exact_v78))",
+    "coefficient": 1.0,
+    "new_bounds": false,
+    "zero_delta_rows": "exact v79",
+    "purpose": "secondary transport check; retain original and same-machine comparisons",
+    "experiments": {
+      "rome_tabm_tracks": {
+        "directory": "v3_20261012_rome_tabm_tracks_stack",
+        "control": "control",
+        "arms": [
+          "tabular",
+          "physical"
+        ]
+      }
+    },
+    "no_fit": true,
+    "no_search": true,
+    "no_submission": true,
+    "limitation": "reused development data and fixed additive transport; not independent confirmation"
+  },
+  "experiment": "rome_tabm_tracks",
+  "rows": 344419,
+  "scores": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "tabular": 325.3633205003107,
+      "physical": 325.26268750391387
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "tabular": 255.71826057178046,
+      "physical": 255.68606055910686
+    }
+  },
+  "cv": {
+    "control": 290.67435711796895,
+    "tabular": 290.54079053604556,
+    "physical": 290.47437403151037
+  },
+  "paired": {
+    "tabular": {
+      "change": -0.13356658192337534,
+      "ci95": [
+        -0.4541347788049169,
+        0.20116559595307734
+      ],
+      "decision": "inconclusive"
+    },
+    "physical": {
+      "change": -0.19998308645858742,
+      "ci95": [
+        -0.5568183132717113,
+        0.13216725931900974
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "all_row_sql_audit": "pass",
+  "exact_v78_control": true,
+  "zero_delta_rows_exact_v79": true,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_delta_transport/design.json",
+    "sha256": "789e7043613261b549eaa691eb77b7e926d776231d1d60c6f3635f71d0ac9d01"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_stack/audit.json",
+      "sha256": "1a6ca14287c565dc2bf8bafba6126e84f320b2464733e855c5c9aced40bca796"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_stack/result.json",
+      "sha256": "af89e0f8130aa0867a51eb8f3c6d484028538fed659def9819b0c42320e4fcf9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_stack/scored.parquet",
+      "sha256": "fdf64fa188421a3932fa4e4e39bb84aa28664ace73a734b6ddd5829ca6694501"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_rome_tabm_tracks_delta_transport/rome_tabm_tracks/scored.parquet",
+    "sha256": "84c2b765b0ad65f7497d57d9ad82550be185fb41c79a9075b21555f4029553a3"
+  }
+}

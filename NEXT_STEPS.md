@@ -44,11 +44,18 @@ Current work:
   after the seed42 production fit/export and verified return. Seeds1042/2042
   each use21/17 epochs; seed42 is retained exactly. No extra full-year fits
   have started. Compare the equal3-member pool against both saved pools.
-- **Desktop:** matched Rome TabM classifiers with/without trainable physical
-  tracks are running after preflight. Both retain original R20 memberships,75 history-free
-  inputs and nine track-quality fields. Clean last-training-month stopping;
-  fixed one-third probability share through exactv78 and separatev79 transport.
-  Source-only feasibility passes; this does not establish predictive value.
+- **Desktop:** fixed stand-context main-tree screen is running (session42884).
+  Original184 inputs plus four same-month stand medians/counts from supplied
+  AOBT_3 clocks and arrival taxi-in; each query's own clock is excluded.
+  All IDs,1200 scalar reconstructions and exact188-column preflight pass.
+  This tests typical stand context, including new stands, without an arrival
+  drift correction. Two10,000-round fits retain the complete selected stack.
+- **Rome TabM closed:** physical versusv78−0.159950 and versusv79−0.199983,
+  both inconclusive. The tabular control and raw-track difference are also
+  inconclusive. All8 models/inner curves/reload/SQL audits retained, no expansion.
+- **Arrival stand-drift pilot closed:** all4 training-month tests worsen across
+ 1369 shared stands. Independent raw medians and isolated training references
+  reproduce exactly; no direct adaptation or multi-task model follows.
 - **Flight-ID clock screen closed:** v78+0.002652, v79+0.007419; both inconclusive.
   All models, held-row reloads and independent score audits are retained.
 - **Linear leaves closed:** all4 models reload exactly, all344,419 rows and
