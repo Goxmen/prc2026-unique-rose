@@ -1,0 +1,41 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/identity.json",
+    "sha256": "6d3407efeab7643aa6be3a0c4c11935210aaad3263267c22f063a920528c2696"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/inference.json",
+    "sha256": "118c4f037aefda54fd3dae6cab77533b17e542d29f3eaabc7d703dc14edc20c9"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/scored.parquet",
+    "sha256": "16b4b53cb44b0e2c6053a6a23489911bc91329285920df9c7997ec42821be359"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.02854196957753,
+      "candidate": 325.01969831875255
+    },
+    "2025-07": {
+      "control": 254.49701445100365,
+      "candidate": 254.47623550392115
+    }
+  },
+  "cv": {
+    "control": 289.7627782102906,
+    "candidate": 289.74796691133685
+  },
+  "paired": {
+    "change": -0.014811298953745222,
+    "ci95": [
+      -0.035174803234015076,
+      0.009368243036992031
+    ],
+    "decision": "inconclusive"
+  },
+  "gate": false,
+  "exact_v80_control": true,
+  "all_row_SQL_ids_truth_calendar_transport_scores": true,
+  "changed": 1424,
+  "no_production_or_upload": true
+}

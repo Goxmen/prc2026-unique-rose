@@ -680,3 +680,37 @@ waits for the desktop legacy audit, returns only missing artifacts, then runs
 the frozen exact-v80 comparison and independent architecture/model/SQL/day
 bootstrap audit. It records the result and gate in the registry/report; it
 starts no fits or uploads. State: `../runs/v3_20261012_nn_public_tabm_depth3/completion/execution.json`.
+
+
+## Fifteen archived final components audited
+
+Completed at 2026-10-12T11:39:56.070518+00:00. Retained versions: v17, v18, v19, v20, v21, v38, v45, v46, v54, v57, v58, v64, v66, v68, v70.
+Independent SQL checks cover15,234,465 old/final values, original-file equality, ID membership, integer serialization and four-month populations. V12/v13/v15 control substitutions remain excluded. The15 archived October8 base-network arrays also reconstruct their final mean exactly; their recorded old-input RMS difference of2.39918e-6seconds is independently reproduced and explicitly retained as refit provenance. No new fit, complete affine port, final candidate or upload follows. Receipt: `../runs/v3_20261012_final_legacy_audit/audit.json`.
+
+
+## Runway-dependent public-source uncertainty: closed
+
+The existing measurement model already scales taxi covariance by cohort size
+and departure noise by count mismatch. A distinct fixed screen partially pools
+each runway's taxi covariance with the existing global covariance, using100
+pseudo-cells, while preserving Huber bias, three-MAD filtering and t5 likelihood.
+Blocked inner-month source validation improves mean negative log likelihood
+by0.385245/0.225097 in the two allowed training windows; both day intervals
+exclude zero. This source-level improvement is not a taxi prediction gain.
+
+Exact-v80 CV289.762778 →289.747967 changes−0.014811seconds, interval
+[−0.035175,+0.009368]. January−0.008844 and July−0.020779 are both tiny.
+The frozen gate fails; no tuning, production, new candidate or upload follows.
+The existing native source component receives the fixed half posterior change,
+original bounds and integer serialization; its integer delta is transported
+once onto v80. No taxi model was refitted. Source covariance estimation and
+replay of the original calibration coefficients are the only fitting operations.
+
+Independent checks cover all810 source cells, inner-month/DST exclusions,
+SQL covariance/shrinkage, SciPy source densities, every344,419 CV row, exact
+v80/native controls and a separately reconstructed paired-day interval.
+Covariance lookup is the only AST change in the two inherited inference
+functions; original controls replay within2.91e-11seconds, and shuffled rows
+with poisoned extraneous labels reproduce predictions. Preserve both runs:
+`../runs/v3_20261012_public_runway_covariance_pilot/` and
+`../runs/v3_20261012_public_runway_covariance_cv/`.

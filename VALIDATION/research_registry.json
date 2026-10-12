@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T11:33:35.647668+00:00",
+  "updated_at": "2026-10-12T11:53:07.213718+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -8,7 +8,7 @@
     "slots_remaining": 0,
     "repository": "PRIVATE",
     "laptop": "Fixed three-block TabM Jan/Jul training; completion worker returns/scores/audits automatically without fits or uploads",
-    "desktop": "Thirteen legacy final components rebuilt; v45/v46 final inference then independent SQL audit active"
+    "desktop": "All15 retained legacy final components audited; missing original affine basis still pending"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
   "entries": [
@@ -608,11 +608,42 @@
           "sha256": "9107395a60891bc26d87a4e00a4b9adcada10a045dd554a29ec61a8e0863cb23"
         }
       ]
+    },
+    {
+      "id": "public_runway_source_covariance",
+      "hypothesis": "Runway-specific partial pooling improves public taxi source error covariance",
+      "status": "closed_inconclusive",
+      "conclusion": "Training-source likelihood improves in both windows, but exact-v80 taxi CV gain is tiny and inconclusive. No covariance/shrinkage tuning, production, candidate or upload.",
+      "metrics": {
+        "control_cv": 289.7627782102906,
+        "candidate_cv": 289.74796691133685,
+        "change": -0.014811298953745222,
+        "ci95": [
+          -0.035174803234015076,
+          0.009368243036992031
+        ],
+        "changed": 1424,
+        "source_cells_audited": 810
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/identity.json",
+          "sha256": "6d3407efeab7643aa6be3a0c4c11935210aaad3263267c22f063a920528c2696"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/result.json",
+          "sha256": "dcf75d5340506dccc24cc661d9aecf9e6dce5a54baf60c86e48b009f47d6c8c9"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/audit.json",
+          "sha256": "c33fc12e16b17fd2bcf54848d4a527588a5e008a750936a894a9fca0fe8ae2b7"
+        }
+      ]
     }
   ],
   "next": [
-    "Complete audited saved-model final inference",
-    "Inventory historical affine components and source constraints before final assembly",
-    "Develop distinct supported hypotheses; no repeated closed geometry"
+    "Review frozen deeper-TabM comparison after automatic completion",
+    "Recover missing historical model backups before claiming an exact final ensemble",
+    "Continue distinct supported research; all October12 submission slots used"
   ]
 }

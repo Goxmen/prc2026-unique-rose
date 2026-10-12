@@ -1,0 +1,50 @@
+{
+  "design": {
+    "change": "Runway-specific taxi measurement covariance, partially pooled with original global matrix",
+    "retained": "Original Huber bias, sqrt(count) normalization, three-MAD covariance filter, t5 likelihood, diagonal floor",
+    "shrinkage": "Selected runway training cell count divided by itself plus100; unseen/under3cell runway uses global",
+    "validation": "Leave one calendar month out inside each allowed outer training window; drop new boundary days",
+    "score": "Mean per-month held source negative t5 log likelihood; all held source cells including untrimmed tails",
+    "gate": "Both outer windows improve and each paired whole-day95% interval upper endpoint below0",
+    "bootstrap": {
+      "reps": 2000,
+      "seed": 0
+    },
+    "covariance_pseudocells": 100,
+    "continuation": "Only a passing fixed source screen permits challenge Jan/Jul evaluation",
+    "no_hyperparameter_search": true,
+    "no_challenge_cv_predictions": true,
+    "no_taxi_model_fit": true,
+    "no_production": true,
+    "no_upload": true,
+    "failure": "Close; do not tune shrinkage or trim thresholds",
+    "caveat": "Source calibration validation is not taxi prediction validation; outer training windows may overlap"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/public_runway_covariance_pilot.py",
+      "sha256": "013760cfdcf66eaf7637761c37650ec3bbcf3809f9762ea4c619cd356c020e46"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_jan_jul.py",
+      "sha256": "770aed0e2502912bbae5559ad968eeec3f46fdb804eef6f5cb94f5598b6058ec"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/calibration.parquet",
+      "sha256": "9774d4140c65ce1582196b7f18ebc5ee8cdfc0e03edb5ba71fc46b0e0ee628db"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/parameters.json",
+      "sha256": "b31856b32b1591fb7ba3394880f84137669b5e0a8eb8f4d7e3366925da9233a7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/audit.json",
+      "sha256": "8170d06c8eda53b8b9c6a3822a0067dc3b47726621f7d10f155f75e7356567f2"
+    }
+  ],
+  "before_source_comparison": true
+}

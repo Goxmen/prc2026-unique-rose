@@ -1,30 +1,32 @@
 {
-  "updated_at": "2026-10-12T11:30:43.789708+00:00",
+  "updated_at": "2026-10-12T11:53:07.239018+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-12T10:27:42+00:00",
   "slots_remaining": 0,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 40,
+  "hypotheses": 41,
   "desktop": {
-    "stage": "legacy_adsb_final_inference",
+    "stage": "retained_final_components_audited_missing_basis_pending",
     "old_replay": true,
     "final_replay": true
   },
   "next": [
-    "Complete audited saved-model final inference",
-    "Inventory historical affine components and source constraints before final assembly",
-    "Develop distinct supported hypotheses; no repeated closed geometry"
+    "Review frozen deeper-TabM comparison after automatic completion",
+    "Recover missing historical model backups before claiming an exact final ensemble",
+    "Continue distinct supported research; all October12 submission slots used"
   ],
   "laptop": {
     "stage": "depth3_fit_or_inference",
-    "completed_folds": [],
-    "last_epoch_at": "13:30:17",
+    "completed_folds": [
+      "2025-01"
+    ],
+    "last_epoch_at": "13:52:07",
     "fold": "2025-01",
-    "epoch": 12,
+    "epoch": 21,
     "epochs": 21,
-    "seconds_per_epoch": 136.41
+    "seconds_per_epoch": 136.87
   },
   "duration_result": {
     "cv": {
@@ -62,6 +64,31 @@
   "final_tabm_local_receipts": {
     "old": true,
     "final": true
+  },
+  "legacy_final": {
+    "status": "pass",
+    "versions": [
+      38,
+      17,
+      18,
+      19,
+      20,
+      21,
+      54,
+      57,
+      58,
+      64,
+      66,
+      68,
+      70,
+      45,
+      46
+    ],
+    "excluded_mappings": [
+      12,
+      13,
+      15
+    ]
   },
   "depth3_completion": {
     "state": "waiting_for_existing_jobs",

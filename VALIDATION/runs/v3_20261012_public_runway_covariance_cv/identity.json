@@ -1,0 +1,134 @@
+{
+  "design": {
+    "parent": "exactv80",
+    "change": "Runway-specific taxi measurement covariance, partially pooled with original global matrix",
+    "covariance_pseudocells": 100,
+    "calibration": "Same allowed training cells and unchanged full-window Huber bias/global covariance; new shrinkage only by runway",
+    "source": "Selected robust all-same-date-runway posterior; update every taxi measurement block consistently",
+    "transfer": "Constrain old native runway component plus0.5*(new_full_posterior-old_full_posterior); add its integer difference once to v80 and clip/round",
+    "gate": "Both Jan/Jul RMSEs improve and paired-day95% upper<0 against exactv80",
+    "retained": "All taxi models, priors, source gates, delay noise, common15-second term, calendars and other v80 components",
+    "no_weight_search": true,
+    "no_extra_fits": true,
+    "no_production": true,
+    "no_upload": true,
+    "caveat": "Source calibration pilot is not independent confirmation; Jan/Jul development is reused"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/public_runway_covariance_cv.py",
+      "sha256": "c32c32f07382c37372f39a170d67ff6030ae13ddf9741343910198ae14577436"
+    },
+    {
+      "path": "VALIDATION/public_runway_covariance_pilot.py",
+      "sha256": "013760cfdcf66eaf7637761c37650ec3bbcf3809f9762ea4c619cd356c020e46"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway_cv.py",
+      "sha256": "458c39150969ae726ad87c638affbd1c14edaeb1fe9eb0a71b89c05c6da825ae"
+    },
+    {
+      "path": "VALIDATION/joint_public_other_runway.py",
+      "sha256": "e12479a286f7f4445e399a921d48aea0ca0e3fd6a11d7cf3e264fac970274321"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_pilot/identity.json",
+      "sha256": "1d2503e9823df9c79ba1c0d99a5e28eb781c375e8eb0e6f2c321d1323349bba4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_pilot/result.json",
+      "sha256": "fd2c272ab64d58f2a115c109cbab00835310c1d6a72e3d42332203549b3d6c29"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_pilot/scored_source_cells.parquet",
+      "sha256": "f4c6cf88f3896c9e11e47e2a403d0e9ec2a32a6690a502b120b238b15dbaf4ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_pilot/fits.json",
+      "sha256": "b5618f2fd54991d1e55e9da7712cbafcae40d62e6e35efa74caaa363b42e6dea"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_taxi_count_sum/calibration.parquet",
+      "sha256": "9774d4140c65ce1582196b7f18ebc5ee8cdfc0e03edb5ba71fc46b0e0ee628db"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/predictions.parquet",
+      "sha256": "9c68b32257b2b33ff8bb252e08a91701bc359d1469934b50a6e6c2b5cc75bc94"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/scored.parquet",
+      "sha256": "d37c07d8eb1e2641ff3dd98f3cbcf3232a54f432b86f1f42a56e70f06e1c2d3f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/result.json",
+      "sha256": "6ad04715f1a54164d863a32b72d8d19bfa60f08999caf1f545bc8227f1c817b1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/audit.json",
+      "sha256": "1054bfbe919ebedf43ab4e994ed5035b8050bd52bbd5ade025c43bbdd450b839"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
+      "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/inputs.parquet",
+      "sha256": "fd68d2697514820f35e5abde5277629198aebe3d1168d1705f0ff97785a7c9b9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/taxi_source.parquet",
+      "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/delay_source.parquet",
+      "sha256": "0297c445250693f4f1bc93b94a4bc409920aab5db4b55e84b39f20118000c52d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/parameters.json",
+      "sha256": "d4c54a7374f67797ee1b7da8c0283d849a73cd0abf6b16be3e7224eb56299989"
+    },
+    {
+      "path": "VALIDATION/daily_main_refinements_cv.py",
+      "sha256": "f4db783eb6a7b27f38194f786173ab30d0f655afba7e903ca4ca071a1382de03"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/public_constraints_candidate.py",
+      "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+    },
+    {
+      "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+      "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+    },
+    {
+      "path": "VALIDATION/monthly_taxi_reconcile.py",
+      "sha256": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+      "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+      "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/parameters.json",
+      "sha256": "2a6e14a4ad676336f94324fc0ba52e3753701af44adb17679ab617aa98a886fb"
+    }
+  ],
+  "original_global_calibration_exact": true,
+  "inherited_AST_restoration_exact": true,
+  "before_inference": true
+}

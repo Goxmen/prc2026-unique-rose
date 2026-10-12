@@ -45,19 +45,26 @@ Current work (compact index: `VALIDATION/research_registry.json`; local snapshot
   Same inputs,21/17epochs, two other members and fullv80 corrections. Laptop
   fits began13:00Amsterdam, SSH86261. GPU capacity/gradients/masking and
   unchanged-training-AST checks pass. Both months and paired95% upper<0
-  are required; no production or upload is scheduled.
+  are required; no production or upload is scheduled. January is complete.
+  The existing completion worker61058 will return/score/audit/register the
+  result; inspect its `completion/execution.json` before starting anything.
 - **Final components:** three TabM members, public main/airport trees and
   all selected Rome/ordinary CatBoost models replay old predictions exactly.
   Every new prediction reloads exactly. Independent SQL checks6,037,110values
   on the complete670,790-ID template. Final cached packets have a different
   month order: always join by ID. A complete final affine stack is still pending.
-- **Older models:** v38’s two original boosters recovered from the laptop with
-  manifest hashes. Test old-view replay before using them on final inputs.
-  Other missing historical components must be identified, never silently replaced.
+- **Older models:**15 version components are now audited on the final set:
+  v17–v21,v38,v45/v46,v54/v57/v58,v64/v66/v68/v70. The original integer vectors
+  replay exactly. Base-neural final arrays retain their October8 refit provenance.
+  V12/v13/v15 control substitutions are excluded; missing original backups
+  are still needed for other components. Never silently replace them.
 - **Closed new screens:** actualv80 score geometry projects0.2335seconds,
   below its fixed gate. Annealed particles improved numerical behavior but
   one of six cases narrowly failed the fixed precision gate. No retuning/CV
   follows either closure. Longer TabM schedule remains closed too.
+- **Runway covariance closed:** better source likelihood did not yield a
+  reliable taxi gain:CV−0.014811, interval[−0.035175,+0.009368]. All810 source
+  cells and344419 CV rows pass independent checks. No production or upload.
 
 - **Stand context closed:** fixed main-tree screen is complete.
   Original184 inputs plus four same-month stand medians/counts from supplied

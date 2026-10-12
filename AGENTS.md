@@ -132,18 +132,29 @@ models and do not expand or submit it. All seven completion-worker stages are do
 The audited three-TabM/runway combination improves v79 by0.7605 officially;
 CV289.762778 (−0.911579). Upload12:23:58, remote hash exact. All five UTC-day
 slots used. No queued upload. Production returned and saved; never refit/reupload.
-Final route requires `unique-rose_final.parquet`. Four-month public inputs are
-audited; saved-TabM inference is preparing on the original laptop. Every old
-prediction must replay exactly before final predictions. No final upload yet.
+Final route requires `unique-rose_final.parquet`. Four-month public inputs and
+all nine selected public-model prediction vectors are independently audited.
+No final upload or complete affine-ensemble port exists yet.
 See `VALIDATION/reports/final_route_inventory_20261012.json`.
-At13:03Amsterdam, three final TabM members and public main/airport/Rome models
-are audited on670790rows, with every old prediction exact. Ordinary full-input
-CatBoost final inference is active. Final assembly still needs historical affine
-components; do not substitute absent components silently. Laptop runs a fixed
+At13:53Amsterdam,15 archived version components also have audited final views:
+v17–v21,v38,v45/v46,v54/v57/v58,v64/v66/v68/v70. Original integer vectors replay
+exactly; the old base-neural final parts retain October8 refit provenance, with
+old-input float RMS2.39918e-6seconds. Do not repeat these inferences. V12/v13/v15
+substitutions fail exact replay and remain excluded. Missing older models were
+not found on either PC or in git history; backup availability was requested.
+Do not substitute absent components silently. Laptop runs a fixed
 TabM depth3 versus2 seed42 screen,21/17epochs, SSH86261 since13:00. Bothother
-members and fullv80stack stay fixed; comparison frozen before fits.
+members and fullv80stack stay fixed; comparison frozen before fits. January is
+complete and July follows. `VALIDATION/tools/finish_tabm_depth3_20261012.py` is
+already waiting (SSH/local session61058) to return, score, audit and register
+the screen; inspect `...nn_public_tabm_depth3/completion/execution.json` before
+doing any of those operations. It starts no fits or uploads.
 Newv80geometry projected0.2335gain and failed its gate; no v81. The bounded
 annealed-SMC source-only pilot also failed its precision gate; no CV or tuning.
+Runway-specific source covariance passed source calibration but failed actual
+CV:−0.014811seconds, interval[−0.035175,+0.009368]. Its full source/SQL/bootstrap
+audit passes. Both runs `v3_20261012_public_runway_covariance_{pilot,cv}` are
+closed without production, tuning, a candidate or upload.
 
 
 - **October12, 10:50 Amsterdam: three-TabM pool selected; two full-year fits active.**

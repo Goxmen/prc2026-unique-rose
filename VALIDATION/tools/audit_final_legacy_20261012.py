@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 
 import duckdb
+import numpy as np
+import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 RUNS = ROOT / 'VALIDATION/runs'
@@ -89,7 +91,40 @@ def main():
                 assert months == {'2026-01': 152719, '2026-02': 144158, '2026-06': 181791, '2026-07': 192122}
                 rows.append(dict(version=version, final_prediction=r['prediction'], old_exact_in_SQL=True,
                                  final_rows=670790, months=months))
+    # The base-network final arrays predate this work and came from October8
+    # refits. Their tiny floating-point difference must not become a claim of
+    # bitwise original-weight reproduction merely because blend replay passes.
+    folder = RUNS / 'v3_20261008_final_submit/work'
+    networks, neural_sources = [], []
+    ids = views = None
+    for group in [42, 142, 242]:
+        for member in range(5):
+            path = folder / f'nn/n{group}_{member}.parquet'
+            frame = pd.read_parquet(path)
+            if ids is None:
+                ids, views = frame.mvt_id.to_numpy(), frame['set'].to_numpy()
+            else:
+                np.testing.assert_array_equal(frame.mvt_id, ids)
+                np.testing.assert_array_equal(frame['set'], views)
+            networks.append(frame.pred.to_numpy(float))
+            neural_sources.append(art(path))
+    mean = np.mean(networks, axis=0)
+    final_nn = pd.read_parquet(folder / 'parts/nn.parquet')
+    np.testing.assert_array_equal(final_nn.mvt_id, ids[views == 'final'])
+    np.testing.assert_array_equal(final_nn.pred, mean[views == 'final'].astype(np.float32))
+    old_path = RUNS / 'v3_20261006_hpo_submit/work/parts/nn.parquet'
+    old_nn = pd.read_parquet(old_path)
+    np.testing.assert_array_equal(old_nn.mvt_id, ids[views == 'old'])
+    difference = mean[views == 'old'] - old_nn.drop(columns='mvt_id').to_numpy(float).mean(axis=1)
+    metadata = read(folder / 'parts/nn.json')
+    rms = float(np.sqrt(np.mean(difference ** 2)))
+    np.testing.assert_allclose(rms, metadata['against_v54_old_inputs']['rms_diff'], atol=1e-12, rtol=0)
+    lineage = dict(prior_refit_date='2026-10-08', members=15, final_mean_recomputed_exact=True,
+                   old_input_float_rms_difference=rms, old_original_weights_bitwise_reproduced=False,
+                   sources=neural_sources + [art(old_path), art(folder / 'parts/nn.json'), art(folder / 'parts/nn.parquet')],
+                   scope='v54/v57/v58 final neural parts reuse these archived refits; this audit performs no fitting.')
     result = dict(status='pass', sources_verified=len(verified), predictions=rows, excluded_mappings=excluded,
+                  archived_base_network_provenance=lineage,
                   source=art(Path(__file__)), all_SQL_id_joins_and_rounding_exact=True,
                   interpretation='Only listed archived components ported; missing affine basis remains unresolved.',
                   no_fit=True, no_upload=True)

@@ -1,0 +1,27 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/identity.json",
+    "sha256": "6d3407efeab7643aa6be3a0c4c11935210aaad3263267c22f063a920528c2696"
+  },
+  "checks": [
+    {
+      "month": "2025-01",
+      "rows": 11317,
+      "touched": 275,
+      "old_replay_max": 9.549694368615746e-12,
+      "row_permutation_and_poisoned_extraneous_labels_exact_within_1e8": true
+    },
+    {
+      "month": "2025-07",
+      "rows": 15211,
+      "touched": 2061,
+      "old_replay_max": 2.9103830456733704e-11,
+      "row_permutation_and_poisoned_extraneous_labels_exact_within_1e8": true
+    }
+  ],
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/predictions.parquet",
+    "sha256": "0942723da645637e08f8a54d38ce43826096e666899a379e0fda54aadde22364"
+  },
+  "no_challenge_labels_loaded": true
+}

@@ -1,0 +1,121 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_pilot/identity.json",
+    "sha256": "1d2503e9823df9c79ba1c0d99a5e28eb781c375e8eb0e6f2c321d1323349bba4"
+  },
+  "controls": [
+    {
+      "fold": "2025-01",
+      "original_bias_and_covariance_exact": true,
+      "cells": 471
+    },
+    {
+      "fold": "2025-07",
+      "original_bias_and_covariance_exact": true,
+      "cells": 339
+    }
+  ],
+  "folds": {
+    "2025-01": {
+      "control": 10.564426136489253,
+      "candidate": 10.17918159204266,
+      "change": -0.3852445444465913,
+      "ci95": [
+        -0.4199131700390578,
+        -0.34697400230209174
+      ],
+      "months": {
+        "2025-03": {
+          "control": 11.155767565971503,
+          "candidate": 10.878285630468161
+        },
+        "2025-04": {
+          "control": 11.187393156897635,
+          "candidate": 10.800963535856662
+        },
+        "2025-05": {
+          "control": 10.195264759119711,
+          "candidate": 9.871477262779546
+        },
+        "2025-06": {
+          "control": 10.941441950542766,
+          "candidate": 10.48067590897538
+        },
+        "2025-07": {
+          "control": 11.157074253933077,
+          "candidate": 10.64940542021925
+        },
+        "2025-08": {
+          "control": 9.315656074070084,
+          "candidate": 8.972477936916771
+        },
+        "2025-09": {
+          "control": 9.241828431488502,
+          "candidate": 8.803513954176072
+        },
+        "2025-10": {
+          "control": 10.542300040559557,
+          "candidate": 10.212940874631771
+        },
+        "2025-11": {
+          "control": 11.343108995820437,
+          "candidate": 10.942893804360336
+        }
+      },
+      "cells": 471,
+      "pass_gate": true
+    },
+    "2025-07": {
+      "control": 10.370707510047852,
+      "candidate": 10.1456104798156,
+      "change": -0.22509703023224986,
+      "ci95": [
+        -0.2570769808665105,
+        -0.19082312019939396
+      ],
+      "months": {
+        "2025-01": {
+          "control": 11.909594432186699,
+          "candidate": 11.708371329387322
+        },
+        "2025-02": {
+          "control": 10.101362451475921,
+          "candidate": 9.825600252194164
+        },
+        "2025-03": {
+          "control": 11.207272175683176,
+          "candidate": 10.972707706624908
+        },
+        "2025-09": {
+          "control": 8.96989353054238,
+          "candidate": 8.725030883255402
+        },
+        "2025-10": {
+          "control": 10.004880704441614,
+          "candidate": 9.799628023022535
+        },
+        "2025-11": {
+          "control": 10.882341708209276,
+          "candidate": 10.606408569924948
+        },
+        "2025-12": {
+          "control": 9.519607567795893,
+          "candidate": 9.381526594299933
+        }
+      },
+      "cells": 339,
+      "pass_gate": true
+    }
+  },
+  "gate": true,
+  "source_density_scipy_exact": true,
+  "predictions": {
+    "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_pilot/scored_source_cells.parquet",
+    "sha256": "f4c6cf88f3896c9e11e47e2a403d0e9ec2a32a6690a502b120b238b15dbaf4ae"
+  },
+  "fits": {
+    "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_pilot/fits.json",
+    "sha256": "b5618f2fd54991d1e55e9da7712cbafcae40d62e6e35efa74caaa363b42e6dea"
+  },
+  "no_challenge_cv_or_production": true
+}
