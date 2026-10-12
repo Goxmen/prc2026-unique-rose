@@ -64,6 +64,11 @@ def status(remote=False):
     result=RUNS/'v3_20261012_nn_public_tabm_duration_stack/combined_result.json'
     if result.exists():
         r=read(result);value['duration_result']={k:r[k] for k in ['cv','paired','gate_pass']}
+    completion=RUNS/'v3_20261012_tabm_pool3_completion/execution.json'
+    if completion.exists():
+        r=read(completion)
+        value['completion']={k:r[k] for k in ['state','active_stage','candidate','failure'] if k in r}
+        value['completion']['completed_steps']=len(r['steps'])
     destination=STATE.with_suffix('.json.tmp');destination.write_text(json.dumps(value,indent=2)+'\n');destination.replace(STATE)
     print(json.dumps(value,separators=(',',':')))
 
@@ -76,4 +81,14 @@ if __name__=='__main__':
         terms=a.query.lower().split()
         for row in read(REGISTRY)['entries']:
             if all(term in json.dumps(row).lower() for term in terms):
-                print(json.dumps({k:row[k] for k in ['id','hypothesis','status','conclusion','metrics']}))
+                print(json.dumps({k:row[k] for k in ['id','hypothesis','status','conclusion','metrics'] if k in row}))
+        # Index the earlier comparison tables without bringing whole reports
+        # into conversational context. These are evidence pointers, not new
+        # experiments or automatically inferred decisions.
+        hits=[]
+        for name in ['RESEARCH_NETWORK_20261010.md','TARGET215_RESEARCH.md']:
+            path=ROOT/'VALIDATION/reports'/name
+            for lineno,line in enumerate(path.read_text().splitlines(),1):
+                if line.startswith('|') and all(term in line.lower() for term in terms):
+                    hits.append(dict(report=str(path.relative_to(ROOT)),line=lineno,evidence=line))
+        if hits:print(json.dumps(dict(historical_table_matches=len(hits),matches=hits[:8],truncated=len(hits)>8)))
