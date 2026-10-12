@@ -80,13 +80,54 @@ keeps those choices, seed42, folds and main-tree settings unchanged. A matched
 184-input saved-control replay, saved-model reloads and exact-v78 complete-stack
 comparison are required. Source: `../source_clock_phase_lgb.py`.
 
-**Exploratory source check:** airport arrival landing time versus the same
-arrival's ARVT3 plan endpoint may expose current source-clock disagreement.
-This differs from arrival taxi-in/delay and the failed ADS-B physical-stop lag.
-Coverage, time stability and split-half predictability must pass a source-only
-feasibility check before any departure-label association or fit. No gain is
-established. The error agent is separately checking unexplored recording and
-flight-linkage mechanisms while the two hosts run their fixed jobs.
+**Arrival clock context: closed.** On twelve fixed training dates, prior-two-hour
+airport arrival context predicts arrival landing-minus-ARVT3 disagreement:
+clipped RMSE40.156→37.939 across66,828 queries. The necessary departure transfer
+check then fails: clipped error RMSE323.2905→323.4246, raw335.3769→335.5072
+across65,632 eligible ordinary departures, with regressions in both halves.
+Separate source/window/target/arithmetic audits pass. No January/July departure
+labels, full feature build or taxi-out fit follow. The retained receipt is
+`source_clocks_20261012/arrival_context_closed.json`.
+
+**Same-flight endpoint check: closed.** Linking each departure to its unique
+arrival covers about15% of ranking departures. On10,245 eligible training
+pairs, landing and departure clock errors have correlation−0.00992. The natural
+shared-clock correction worsens the proxy RMSE384.90→392.70 and every checked
+month. Identical flight-plan copies at the two endpoints do not establish a
+common timestamp error. No model fit follows.
+
+**All-discrete public peers: numerical rejection.** The current approximation
+represents other long flights by Gaussian moments. A source-only pilot instead
+retains all their discrete supports, samples peers with scrambled Sobol points,
+and integrates the target exactly. Tiny enumerated cases and independent
+arithmetic pass, but the largest475-peer cohort has effective sample size3.53
+at16,384 draws; two scrambles differ by up to1,068.6seconds. No validation score
+is computed for unstable predictions. One bounded follow-up will test exact
+single-site conditional sampling, first against tiny enumerated distributions,
+then with multiple-chain and doubled-budget convergence checks. No gain is
+claimed and no further expansion is selected.
+
+**Linear-leaf trees: resource preflight planned.** A newly updated
+[joyous-rainbow solution](https://github.com/radekacar/joyous-rainbow/tree/dbe1eded734da48bdad7cc11b741028794316179)
+reports gains from linear leaves on a substantially weaker, different pipeline.
+That result is motivation, not evidence of a gain here. Our proposed comparison
+keeps the original184inputs and main-model recipe, with training-only numeric
+standardization and fresh matched constant-leaf controls. The sole model
+change is `linear_tree=True, linear_lambda=1`. The
+[LightGBM documentation](https://lightgbm.readthedocs.io/en/stable/Parameters.html#linear_tree)
+recommends comparable numeric scales and warns of higher memory use. A fixed
+64-round training-only probe will measure cost and the fraction of rows that
+actually use linear coefficients before any full experiment. Missing path
+features can force constant fallbacks. No public code was executed or copied.
+
+**Current-parent comparison frozen before results.** The timestamp and TabM
+tests retain their exact-v78 primary comparisons. A secondary read-only check
+adds each unchanged component delta to integer v79, with coefficient1 and the
+same nonnegative integer serialization. It fits no weights or new bounds;
+zero-delta rows remain exactv79. Source hashes and the two experiment arms were
+frozen before either result existed. See `../target205_delta_transport.py` and
+`../runs/v3_20261012_delta_transport/design.json`. This remains reused development
+evidence, not independent confirmation or an uploadable candidate.
 
 Completed negative screens and their retained models are documented in
 [the 11 October report](TARGET215_RESEARCH.md). Do not repeat those fits,
