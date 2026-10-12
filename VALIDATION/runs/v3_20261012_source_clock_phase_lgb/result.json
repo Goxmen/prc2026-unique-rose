@@ -1,0 +1,91 @@
+{
+  "design": {
+    "parent": "exact v78; selected184-input main LightGBM retained control",
+    "change": "seven original raw plan phases in main LightGBM only",
+    "features": [
+      "scp_aobt3_second",
+      "scp_lobt_second",
+      "scp_iobt_second",
+      "scp_eobt1_second",
+      "scp_arvt3_second",
+      "scp_aobt3_minute_mod5",
+      "scp_aobt3_minute_mod15"
+    ],
+    "original_columns": 184,
+    "columns": 191,
+    "seed": 42,
+    "trial": "LB1",
+    "rounds": 10000,
+    "threads": 4,
+    "rows_labels": "all original ordinary training rows and targets; every held row retained",
+    "settings": "exact retained184-input model parameters/categories and same desktop machine",
+    "primary": "full replacement of main tree inside unchanged equal3-tree mean through exactv78",
+    "secondary": "same replacement through exactv77 before fixedv78 increment",
+    "v78_increment": "unchanged retained joint-minus-departure-only correction based on originalv70 prior",
+    "no_feature_search": true,
+    "no_weight_search": true,
+    "no_stopping_search": true,
+    "limitations": [
+      "extensively reused Jan/Jul development",
+      "phase variation concentrated in ARVT3 and EHAM AOBT3",
+      "phase observes alignment, not actual source precision",
+      "constant IOBT phase retained as frozen"
+    ],
+    "no_production": true,
+    "no_upload": true
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_source_clock_phase_lgb/identity.json",
+    "sha256": "69a74944d87694fe2d25026fd2290e0cbe8262a7f9f048d8765d78f1f0ea9921"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.860607626995,
+      "candidate": 325.8748166395575,
+      "control_v77": 325.826575649057,
+      "candidate_v77": 325.8406491249592
+    },
+    "2025-07": {
+      "control": 255.9996300885311,
+      "candidate": 256.0101966470403,
+      "control_v77": 257.2728446739547,
+      "candidate_v77": 257.28147273916926
+    }
+  },
+  "cv": {
+    "control": 290.93011885776303,
+    "candidate": 290.9425066432989,
+    "control_v77": 291.54971016150586,
+    "candidate_v77": 291.56106093206427
+  },
+  "paired": {
+    "primary": {
+      "change": 0.012387785535850071,
+      "ci95": [
+        -0.0047841678712781995,
+        0.027120683911231312
+      ],
+      "decision": "inconclusive"
+    },
+    "v77": {
+      "change": 0.011350770558379963,
+      "ci95": [
+        -0.005649144059866629,
+        0.0257771903818746
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "exact_v77_and_v78_controls": true,
+  "rows": 344419,
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_source_clock_phase_lgb/scored.parquet",
+      "sha256": "ed7614f49f1400b72392f28cde90cf18453afc2d004827c8dcfb8663d9d8270f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_source_clock_phase_lgb/cells.parquet",
+      "sha256": "c364517de5457aed1cd2149a2970dc920b2b6a92f052116bd340b46005cad2cd"
+    }
+  ]
+}

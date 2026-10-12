@@ -33,18 +33,21 @@ timer is currently scheduled. The native goal object remains `usageLimited`
 with its old text; no native limit or status was changed. The local project
 objective records the user's current 205 target.
 
-Two fixed experiments are active:
+Current work:
 
 - **Laptop GPU:** full-input physical-track TabM (168 tabular inputs, 32 heads),
   seed42, fixed 21/17 epochs, against same-laptop original-network controls.
   Four fits run sequentially; preflight and independent loss/update/stack review
   pass. See `v3_20261012_nn_public_tabm/`. No HPO or extra seeds are authorized
   by this design; preserve completed checkpoints and preprocessing.
-- **Desktop CPU:** the selected 184-input main LightGBM plus seven original
-  flight-plan timestamp phases. Every new value/null mask on 3,100,678 source
-  rows passes independent checks. All shared old/final phase values agree.
-  Original folds, seed42 and settings remain fixed. See `source_clock_phase_lgb.py`.
-  The exact-v78 complete-stack comparison determines whether to continue.
+- **Desktop CPU:** a training-only64-round linear-leaf resource probe on the
+  full January training population. Its65,536-row sample is finite, fits in
+  7.154GiB cumulative peak memory, and runs at1.16× the late-tree control cost.
+  No full scored linear experiment is queued pending full-row resource evidence.
+- **Timestamp features: closed.** Exact-v78 CV worsens0.012388seconds,
+  interval[−0.004784,+0.027121]; frozen-v79 transport worsens0.017603seconds,
+  interval[+0.000630,+0.032125]. Both original controls, saved candidate model
+  reloads and all344,419 final score rows pass. Retain fits; no production.
 
 The phase inputs are all missing for Rome's no-ID 1–4h group, so they cannot
 directly resolve that costly group. Arrival landing-clock context passed its
@@ -53,9 +56,9 @@ same-flight endpoint pilot also failed. Both are closed without a taxi-model fit
 All-discrete Sobol and Gibbs public-source inference failed convergence; no CV
 score or candidate follows. Reapplying existing bounds to v79 changes only nine
 ranking rows and can improve official RMSE by at most 0.088502 seconds, so it is
-also closed. A 64-round training-only linear-leaf cost probe is queued after the
-desktop model's score/audit; no full linear fit is selected yet. A new cross-flight
-context encoder is at input-only feasibility design, with no fit or claimed gain.
+also closed. A new cross-flight context encoder has passed an input-only
+four-date coverage pilot and is authorized for one fixed comparison, pending
+implementation audits and an allocated host. No fit or gain is claimed yet.
 
 See [the current research report](VALIDATION/reports/TARGET205_RESEARCH.md).
 The [11 October report](VALIDATION/reports/TARGET215_RESEARCH.md) retains the

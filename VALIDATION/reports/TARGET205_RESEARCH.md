@@ -67,7 +67,7 @@ encoding at 02:39 on the laptop, PID14874. Reuse the existing verified cache;
 only 60.25 MB of missing compact inputs/sources was transferred. Artifacts:
 `../runs/v3_20261012_nn_public_tabm/`.
 
-**Desktop: original flight-plan timestamp phases.** Seven fixed additions to
+**Original flight-plan timestamp phases: closed.** Seven fixed additions to
 the selected 184-input main LightGBM are the seconds of minute of AOBT3, LOBT,
 IOBT, EOBT1 and ARVT3, plus AOBT3 minute modulo 5 and 15. Original missingness
 is retained; there is no movement-time fallback or target-derived timestamp.
@@ -76,9 +76,15 @@ arithmetic audit. Every shared old/final row preserves plan phases exactly,
 whereas movement timestamps were jittered. The feature population is narrower
 than initially hoped: IOBT seconds are constant where observed, and all seven
 features are missing for Rome's no-ID 1–4h group. The authorized fixed test
-keeps those choices, seed42, folds and main-tree settings unchanged. A matched
-184-input saved-control replay, saved-model reloads and exact-v78 complete-stack
-comparison are required. Source: `../source_clock_phase_lgb.py`.
+keeps those choices, seed42, folds and main-tree settings unchanged. Both fits
+are complete. The184-input control replays, both candidate model reloads and
+all344,419 final arithmetic/truth/score rows pass their independent checks.
+Exact-v78 CV changes290.930119→290.942507, +0.012388seconds, interval
+[−0.004784,+0.027121], with both months worse. The predeclared v79 transport
+also worsens290.674357→290.691960, +0.017603seconds, interval
+[+0.000630,+0.032125]. No seed expansion, production or submission follows.
+Source: `../source_clock_phase_lgb.py`; retained closure
+`source_clocks_20261012/phase_closed.json`.
 
 **Arrival clock context: closed.** On twelve fixed training dates, prior-two-hour
 airport arrival context predicts arrival landing-minus-ARVT3 disagreement:
@@ -111,7 +117,7 @@ the tested numerical branch; it does not establish impossibility of every
 discrete inference algorithm. No outcome-selected cohort gate or further budget
 expansion follows. See [the numerical report](ALL_DISCRETE_PEER_INFERENCE_20261012.md).
 
-**Linear-leaf trees: resource preflight planned.** A newly updated
+**Linear-leaf trees: resource preflight in progress.** A newly updated
 [joyous-rainbow solution](https://github.com/radekacar/joyous-rainbow/tree/dbe1eded734da48bdad7cc11b741028794316179)
 reports gains from linear leaves on a substantially weaker, different pipeline.
 That result is motivation, not evidence of a gain here. Our proposed comparison
@@ -120,9 +126,14 @@ standardization and fresh matched constant-leaf controls. The sole model
 change is `linear_tree=True, linear_lambda=1`. The
 [LightGBM documentation](https://lightgbm.readthedocs.io/en/stable/Parameters.html#linear_tree)
 recommends comparable numeric scales and warns of higher memory use. A fixed
-64-round training-only probe will measure cost and the fraction of rows that
-actually use linear coefficients before any full experiment. Missing path
-features can force constant fallbacks. No public code was executed or copied.
+64-round training-only sample probe takes24.49seconds including input assembly,
+scaling and hash checks, with cumulative peak memory7.154GiB. On65,536 rows,
+constant/linear arms take1.082/1.157seconds; late-tree costs differ by1.16×.
+Linear coefficients apply without missing-feature fallback on62.806% of sampled
+row/tree pairs, and outputs are finite. A full-January64-round resource probe
+is now running before selecting a full experiment; no held score is read.
+Missing path features can force constant fallbacks. No public code was executed
+or copied.
 
 **Current-parent comparison frozen before results.** The timestamp and TabM
 tests retain their exact-v78 primary comparisons. A secondary read-only check
@@ -132,6 +143,30 @@ zero-delta rows remain exactv79. Source hashes and the two experiment arms were
 frozen before either result existed. See `../target205_delta_transport.py` and
 `../runs/v3_20261012_delta_transport/design.json`. This remains reused development
 evidence, not independent confirmation or an uploadable candidate.
+
+**Cross-flight context: one fixed comparison authorized for preparation.**
+The proposed encoder keeps each nearby flight's observed plan clock paired with
+that same flight's physical witnesses and relative time/runway/stand geometry.
+Existing peer-clock and sensor features summarize those sources separately;
+earlier attention models attended to the query aircraft's own points. The
+potential novelty is the joint donor tuple, not another missingness count.
+
+A four-date, input-only pilot takes 6.57 seconds on one thread and reads no
+labels, raw point tensors or model matrices. With 16 peers, paired observations
+cover 56.3%/59.4% of January/July 2025 queries and 71.3%/68.5% in 2026. Among queries
+with fewer than two own track points, coverage is only 9.9%/8.6% and 8.7%/5.2%:
+airport-wide observation gaps remain. Between 85% and 95% of the ±30-minute
+neighborhoods have more than 16 peers; their median size is 30–37. These four dates are descriptive
+coverage evidence, not representative error estimates or validation gains.
+
+The fixed comparison will retain the original 168-input physical network,
+training rows, seed 42 and 21/17 epochs, adding a compact context branch. Before
+any fit, independent checks must establish permitted sources, query/alias
+exclusion, training-only scaling, complete-tuple permutation invariance,
+empty-context fallback and original initialization/RNG parity. A fixture with
+identical marginal summaries but different donor pairings must distinguish
+the intended new information. Large preparation and fits await an allocated
+host after the existing jobs; there is no candidate or upload.
 
 Completed negative screens and their retained models are documented in
 [the 11 October report](TARGET215_RESEARCH.md). Do not repeat those fits,

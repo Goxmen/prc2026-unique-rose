@@ -1,0 +1,83 @@
+{
+  "design": {
+    "parent": "v79",
+    "original_control": "exact v78",
+    "formula": "round_even(max(0,v79 + fixed_arm_on_v78 - exact_v78))",
+    "coefficient": 1.0,
+    "new_bounds": false,
+    "zero_delta_rows": "exact v79",
+    "purpose": "secondary transport check; retain original and same-machine comparisons",
+    "experiments": {
+      "phase": {
+        "directory": "v3_20261012_source_clock_phase_lgb",
+        "control": "control",
+        "arms": [
+          "candidate"
+        ]
+      },
+      "tabm": {
+        "directory": "v3_20261012_nn_public_tabm_stack",
+        "control": "selected",
+        "arms": [
+          "replace_tabm",
+          "replace_control"
+        ]
+      }
+    },
+    "no_fit": true,
+    "no_search": true,
+    "no_submission": true,
+    "limitation": "reused development data and fixed additive transport; not independent confirmation"
+  },
+  "experiment": "phase",
+  "rows": 344419,
+  "scores": {
+    "2025-01": {
+      "control": 325.53087367112914,
+      "candidate": 325.54917349278224
+    },
+    "2025-07": {
+      "control": 255.81784056480876,
+      "candidate": 255.8347474134256
+    }
+  },
+  "cv": {
+    "control": 290.67435711796895,
+    "candidate": 290.6919604531039
+  },
+  "paired": {
+    "candidate": {
+      "change": 0.017603335134964482,
+      "ci95": [
+        0.0006295130438076058,
+        0.032124915165065104
+      ],
+      "decision": "regression"
+    }
+  },
+  "all_row_sql_audit": "pass",
+  "exact_v78_control": true,
+  "zero_delta_rows_exact_v79": true,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_delta_transport/design.json",
+    "sha256": "0781081fc36fc713dbf1d8e532995d007e09a9c0ad2ca6abe465d6dea7b20119"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_source_clock_phase_lgb/audit.json",
+      "sha256": "88ffb20278642bddeda2bb678f84273322e8bb86522add87b89105a328d64bdd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_source_clock_phase_lgb/result.json",
+      "sha256": "85df7edc20978fc80480f67cd8433827a0c9b7cb7b9fbb1822c88458ae37f8ab"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_source_clock_phase_lgb/scored.parquet",
+      "sha256": "ed7614f49f1400b72392f28cde90cf18453afc2d004827c8dcfb8663d9d8270f"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_delta_transport/phase/scored.parquet",
+    "sha256": "c3256480f14d838b09b56a6fe124b1bfcee37dbcb5d5b9d06a9d3a1da07246da"
+  }
+}
