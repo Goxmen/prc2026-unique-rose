@@ -1,0 +1,597 @@
+{
+  "status": "arrival_context_closed_after_negative_training_only_transfer",
+  "source_pilot": {
+    "design": {
+      "signal": "ARR MVT_TIME_UTC_mvt minus original ARVT_3_flt; seconds",
+      "source_columns": [
+        "MVT_ID_mvt",
+        "ADES_mvt",
+        "PHASE_mvt",
+        "MVT_TIME_UTC_mvt",
+        "ARVT_3_flt",
+        "FLIGHT_mvt"
+      ],
+      "descriptive": "all2025 and old/final2026 airport/month; raw availability,median,IQR,>60s,>600s",
+      "pilot_dates": [
+        "2025-03-05",
+        "2025-03-15",
+        "2025-03-25",
+        "2025-09-05",
+        "2025-09-15",
+        "2025-09-25",
+        "2025-10-05",
+        "2025-10-15",
+        "2025-10-25",
+        "2025-11-05",
+        "2025-11-15",
+        "2025-11-25"
+      ],
+      "pilot_target": "observable arrival landing-clock residual clipped[-600,600]; no value-based row exclusion",
+      "static": "leave-whole-date-out airport mean, then movement-airline mean with K20 airport prior",
+      "current": "strictly earlier sameUTCdate arrivals in prior2h; airport K20 or movement-airline K10 shrinkage to static",
+      "scope": "finite original ARVT3 and landing; queries after02:00UTC ensure full same-day2h support",
+      "comparison": "MAE/RMSE against static on exact same rows; whole,eachairport,firstsix/lastsixdates",
+      "interpretation": "current source-clock predictability is necessary feasibility evidence, not a taxi-out gain",
+      "no_departure_labels": true,
+      "no_movement_blocks": true,
+      "no_taxi_labels": true,
+      "no_threshold_selection": true,
+      "no_model_fit": true,
+      "no_download": true
+    },
+    "pilot": {
+      "all": {
+        "rows": 66828,
+        "airport_context": 66763,
+        "airline_context": 48883,
+        "airport_median_support": 65.0,
+        "airline_median_support": 7.0,
+        "static": {
+          "mae": 25.107634053185592,
+          "rmse": 40.15631731990944
+        },
+        "recent_airport": {
+          "mae": 22.516472223493974,
+          "rmse": 37.939178846511254
+        },
+        "recent_airline": {
+          "mae": 23.40595914202016,
+          "rmse": 38.62896847286345
+        }
+      },
+      "by_airport": {
+        "EDDF": {
+          "rows": 7708,
+          "airport_context": 7695,
+          "airline_context": 5857,
+          "airport_median_support": 76.0,
+          "airline_median_support": 13.0,
+          "static": {
+            "mae": 30.425555480079495,
+            "rmse": 41.794749296415944
+          },
+          "recent_airport": {
+            "mae": 26.847704886195242,
+            "rmse": 37.906264908807614
+          },
+          "recent_airline": {
+            "mae": 26.384046805447166,
+            "rmse": 37.72472576277516
+          }
+        },
+        "EDDM": {
+          "rows": 5549,
+          "airport_context": 5537,
+          "airline_context": 3823,
+          "airport_median_support": 54.0,
+          "airline_median_support": 4.0,
+          "static": {
+            "mae": 20.045562907543996,
+            "rmse": 30.10002659653921
+          },
+          "recent_airport": {
+            "mae": 20.02127943149334,
+            "rmse": 30.045812958330878
+          },
+          "recent_airline": {
+            "mae": 20.05419987301356,
+            "rmse": 30.04991160637255
+          }
+        },
+        "EGLL": {
+          "rows": 7780,
+          "airport_context": 7768,
+          "airline_context": 6024,
+          "airport_median_support": 76.0,
+          "airline_median_support": 5.0,
+          "static": {
+            "mae": 25.787127986230242,
+            "rmse": 31.904901172982452
+          },
+          "recent_airport": {
+            "mae": 20.060731856063388,
+            "rmse": 28.326429602243934
+          },
+          "recent_airline": {
+            "mae": 22.565878699154474,
+            "rmse": 29.690772706784106
+          }
+        },
+        "EHAM": {
+          "rows": 8002,
+          "airport_context": 7994,
+          "airline_context": 6106,
+          "airport_median_support": 77.0,
+          "airline_median_support": 12.0,
+          "static": {
+            "mae": 25.301918865341435,
+            "rmse": 32.500578988569856
+          },
+          "recent_airport": {
+            "mae": 20.756681706011474,
+            "rmse": 28.371416883249125
+          },
+          "recent_airline": {
+            "mae": 22.263091654452534,
+            "rmse": 29.66105680167114
+          }
+        },
+        "LEBL": {
+          "rows": 5615,
+          "airport_context": 5612,
+          "airline_context": 3902,
+          "airport_median_support": 52.0,
+          "airline_median_support": 4.0,
+          "static": {
+            "mae": 26.76533817558286,
+            "rmse": 37.84764148626526
+          },
+          "recent_airport": {
+            "mae": 20.845207464142316,
+            "rmse": 32.51737923197518
+          },
+          "recent_airline": {
+            "mae": 23.65551597321874,
+            "rmse": 34.821779089998415
+          }
+        },
+        "LEMD": {
+          "rows": 6676,
+          "airport_context": 6676,
+          "airline_context": 4863,
+          "airport_median_support": 63.0,
+          "airline_median_support": 5.0,
+          "static": {
+            "mae": 24.67285951708169,
+            "rmse": 41.202761666296176
+          },
+          "recent_airport": {
+            "mae": 23.339392751465887,
+            "rmse": 39.16458797373817
+          },
+          "recent_airline": {
+            "mae": 23.998593505882184,
+            "rmse": 40.046075215577865
+          }
+        },
+        "LFPG": {
+          "rows": 7681,
+          "airport_context": 7676,
+          "airline_context": 5527,
+          "airport_median_support": 67.0,
+          "airline_median_support": 15.0,
+          "static": {
+            "mae": 19.499901965696708,
+            "rmse": 39.034289936788326
+          },
+          "recent_airport": {
+            "mae": 16.26194583756817,
+            "rmse": 36.106637409135914
+          },
+          "recent_airline": {
+            "mae": 17.356260201203177,
+            "rmse": 37.246225110553596
+          }
+        },
+        "LIRF": {
+          "rows": 4989,
+          "airport_context": 4989,
+          "airline_context": 3270,
+          "airport_median_support": 46.0,
+          "airline_median_support": 2.0,
+          "static": {
+            "mae": 42.89102255826958,
+            "rmse": 63.6600174086102
+          },
+          "recent_airport": {
+            "mae": 42.479469862316314,
+            "rmse": 63.642505068952744
+          },
+          "recent_airline": {
+            "mae": 42.658854836266435,
+            "rmse": 63.9391139171035
+          }
+        },
+        "LSZH": {
+          "rows": 4365,
+          "airport_context": 4353,
+          "airline_context": 2735,
+          "airport_median_support": 43.0,
+          "airline_median_support": 3.0,
+          "static": {
+            "mae": 14.358930503258888,
+            "rmse": 24.80445945990211
+          },
+          "recent_airport": {
+            "mae": 14.100307282689036,
+            "rmse": 24.606317065620207
+          },
+          "recent_airline": {
+            "mae": 14.11746626478803,
+            "rmse": 24.590666508061883
+          }
+        },
+        "LTFM": {
+          "rows": 8463,
+          "airport_context": 8463,
+          "airline_context": 6776,
+          "airport_median_support": 76.0,
+          "airline_median_support": 51.0,
+          "static": {
+            "mae": 22.168022405548324,
+            "rmse": 47.275166066247486
+          },
+          "recent_airport": {
+            "mae": 22.837954359150235,
+            "rmse": 46.60435413696501
+          },
+          "recent_airline": {
+            "mae": 23.042788598436257,
+            "rmse": 46.925728452139744
+          }
+        }
+      },
+      "by_half": {
+        "first_six_dates": {
+          "rows": 33640,
+          "airport_context": 33608,
+          "airline_context": 24675,
+          "airport_median_support": 64.0,
+          "airline_median_support": 7.0,
+          "static": {
+            "mae": 25.254379685275946,
+            "rmse": 41.14370109058094
+          },
+          "recent_airport": {
+            "mae": 22.15158774620911,
+            "rmse": 38.75923016987713
+          },
+          "recent_airline": {
+            "mae": 23.205561767315015,
+            "rmse": 39.480626688706884
+          }
+        },
+        "last_six_dates": {
+          "rows": 33188,
+          "airport_context": 33155,
+          "airline_context": 24208,
+          "airport_median_support": 65.0,
+          "airline_median_support": 7.0,
+          "static": {
+            "mae": 24.958889836495242,
+            "rmse": 39.130067920619744
+          },
+          "recent_airport": {
+            "mae": 22.886326201313143,
+            "rmse": 37.08946004693035
+          },
+          "recent_airline": {
+            "mae": 23.609085804822417,
+            "rmse": 37.74610614556454
+          }
+        }
+      },
+      "raw_rows": 67741,
+      "known_clock_rows": 67478,
+      "complete_queries": 66828,
+      "no_comparison_prior_rows": 0,
+      "month_start_source_boundary": "same-date complete2h only"
+    },
+    "result": {
+      "path": "tmp/research_20261012/signal_scout/arrival_landing_clock/result.json",
+      "sha256": "29b50bb535df5e3103f2143c95dc8347e55b89b1a3fd821f4a1f00b08f9cdc38"
+    },
+    "arithmetic_audit": {
+      "status": "pass",
+      "all_query_rows": 66828,
+      "scalar_causal_queries": 136,
+      "scalar_values": 952,
+      "max_scalar_error": 0.0,
+      "all_reported_metrics_recomputed": true,
+      "all_raw_sources_and_output_hashes_verified": true,
+      "no_departure_labels_blocks_or_taxi_labels": true,
+      "seconds": 1.297246599016944,
+      "source_sha256": "2e0df04794afdcab53908a704f04cd726d36df2ff2b0527d427b0957c4f8c78b",
+      "result_sha256": "29b50bb535df5e3103f2143c95dc8347e55b89b1a3fd821f4a1f00b08f9cdc38"
+    }
+  },
+  "transfer_falsifier": {
+    "design": {
+      "dates": [
+        "2025-03-05",
+        "2025-03-15",
+        "2025-03-25",
+        "2025-09-05",
+        "2025-09-15",
+        "2025-09-25",
+        "2025-10-05",
+        "2025-10-15",
+        "2025-10-25",
+        "2025-11-05",
+        "2025-11-15",
+        "2025-11-25"
+      ],
+      "allowed_months": [
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "population": "exact retained original ordinary-training IDs; raw AOBT3/BLOCK present; takeoff after02:00UTC",
+      "target": "departure BLOCK_TIME_UTC_mvt minus genuine original AOBT_3_flt; raw plus fixedclip[-3600,3600]",
+      "predictor": "causal prior2h airport arrival landing-minus-ARVT3 clip[-600,600] mean shrunkK20 to other-date airport/airlineK20; subtract that static mean",
+      "static_target": "airport/airline K20 mean of clipped departure clock error; fitted excluding entire query date",
+      "conditional_association": "demean x and target within airport/airline/month; descriptive only",
+      "linear_falsifier": "one common through-origin OLS coefficient on other-date residuals relative to their fitted static baseline; no held-date targets in any fitted quantity",
+      "fixed_scopes": [
+        "all",
+        "eachairport",
+        "firstsixdates",
+        "lastsixdates"
+      ],
+      "limitations": [
+        "training-only diagnostic, not taxi-out CV",
+        "does not establish incremental signal beyond existing full model",
+        "known-AOBT scope cannot test no-plan departure target transfer"
+      ],
+      "no_held_Jan_Jul_departure_labels": true,
+      "no_parameter_or_feature_search": true,
+      "no_competition_model_fit": true
+    },
+    "scope": {
+      "all_twelve_date_departures": 67720,
+      "original_ordinary_ids": 66669,
+      "ordinary_known_clock": 65933,
+      "eligible": 65632
+    },
+    "all": {
+      "rows": 65632,
+      "context_rows": 65606,
+      "median_support": 66.0,
+      "raw_correlation": -0.0007765506202919436,
+      "within_airport_airline_month_correlation": 0.017316034971344298,
+      "x_sd": 12.346960178557572,
+      "x_abs_p95": 25.256661406942825,
+      "target": {
+        "baseline": {
+          "rmse": 323.290533845763,
+          "mae": 209.50264116317493
+        },
+        "candidate": {
+          "rmse": 323.42460373112993,
+          "mae": 209.5438476656253
+        }
+      },
+      "raw_target": {
+        "baseline": {
+          "rmse": 335.3769119000614,
+          "mae": 210.33887958345773
+        },
+        "candidate": {
+          "rmse": 335.50719895767435,
+          "mae": 210.38008608590806
+        }
+      }
+    },
+    "by_half": {
+      "first_six_dates": {
+        "rows": 32982,
+        "context_rows": 32971,
+        "median_support": 65.0,
+        "raw_correlation": -0.04004484333466651,
+        "within_airport_airline_month_correlation": 0.029142387500502288,
+        "x_sd": 12.886238996118268,
+        "x_abs_p95": 26.55843610664604,
+        "target": {
+          "baseline": {
+            "rmse": 324.2475701434076,
+            "mae": 210.02412992887662
+          },
+          "candidate": {
+            "rmse": 324.48114930987947,
+            "mae": 210.0768184346198
+          }
+        },
+        "raw_target": {
+          "baseline": {
+            "rmse": 337.8082767125107,
+            "mae": 210.94696662768203
+          },
+          "candidate": {
+            "rmse": 338.03372042388236,
+            "mae": 210.99965513342522
+          }
+        }
+      },
+      "last_six_dates": {
+        "rows": 32650,
+        "context_rows": 32635,
+        "median_support": 66.0,
+        "raw_correlation": 0.041504958123225785,
+        "within_airport_airline_month_correlation": 0.005375789275656765,
+        "x_sd": 11.751509470708514,
+        "x_abs_p95": 24.000323485236052,
+        "target": {
+          "baseline": {
+            "rmse": 322.3208808571178,
+            "mae": 208.9758496633167
+          },
+          "candidate": {
+            "rmse": 322.3537988094472,
+            "mae": 209.00545740825993
+          }
+        },
+        "raw_target": {
+          "baseline": {
+            "rmse": 332.90279504768785,
+            "mae": 209.7246092345265
+          },
+          "candidate": {
+            "rmse": 332.9355210032889,
+            "mae": 209.75421697946973
+          }
+        }
+      }
+    },
+    "coefficients": [
+      {
+        "held_date": "2025-03-05",
+        "training_rows": 60508,
+        "held_rows": 5124,
+        "beta": -0.00318117899761285
+      },
+      {
+        "held_date": "2025-03-15",
+        "training_rows": 60723,
+        "held_rows": 4909,
+        "beta": -0.39702891236365495
+      },
+      {
+        "held_date": "2025-03-25",
+        "training_rows": 60589,
+        "held_rows": 5043,
+        "beta": 0.13169001149402618
+      },
+      {
+        "held_date": "2025-09-05",
+        "training_rows": 59610,
+        "held_rows": 6022,
+        "beta": 0.27012252861736197
+      },
+      {
+        "held_date": "2025-09-15",
+        "training_rows": 59764,
+        "held_rows": 5868,
+        "beta": 0.04914869135051091
+      },
+      {
+        "held_date": "2025-09-25",
+        "training_rows": 59616,
+        "held_rows": 6016,
+        "beta": 0.14371029852421083
+      },
+      {
+        "held_date": "2025-10-05",
+        "training_rows": 59671,
+        "held_rows": 5961,
+        "beta": 0.08666173911801991
+      },
+      {
+        "held_date": "2025-10-15",
+        "training_rows": 59709,
+        "held_rows": 5923,
+        "beta": 0.01473680538652855
+      },
+      {
+        "held_date": "2025-10-25",
+        "training_rows": 60010,
+        "held_rows": 5622,
+        "beta": -0.05839075241272157
+      },
+      {
+        "held_date": "2025-11-05",
+        "training_rows": 60373,
+        "held_rows": 5259,
+        "beta": -0.135537795040418
+      },
+      {
+        "held_date": "2025-11-15",
+        "training_rows": 60668,
+        "held_rows": 4964,
+        "beta": 0.07201894526116219
+      },
+      {
+        "held_date": "2025-11-25",
+        "training_rows": 60711,
+        "held_rows": 4921,
+        "beta": -0.007119250532460479
+      }
+    ],
+    "result": {
+      "path": "tmp/research_20261012/signal_scout/arrival_departure_transfer/result.json",
+      "sha256": "3f84a08f1e690ebee098a6685278cdcc56bb51d742c26aa9f55ff04eff98f1ce"
+    },
+    "independent_arithmetic_audit": {
+      "status": "pass",
+      "source_sha256": "6249010e0866cd1045d2fc48fe65367dbbe77dbd2afe2a34877e89c86accd30f",
+      "result_sha256": "3f84a08f1e690ebee098a6685278cdcc56bb51d742c26aa9f55ff04eff98f1ce",
+      "rows": 65632,
+      "all_saved_projection_target_relationships_exact": true,
+      "causal_context_queries": 36,
+      "manual_dictionary_static_and_slope_checks": [
+        {
+          "date": "2025-03-05",
+          "beta": -0.003181178997612986,
+          "held_rows": 5124
+        },
+        {
+          "date": "2025-11-25",
+          "beta": -0.007119250532460674,
+          "held_rows": 4921
+        }
+      ],
+      "maximum_context_difference": 0.0,
+      "scope": "saved-projection independent arithmetic; raw-source binding inherited from prior audited pass",
+      "seconds": 1.4707930799922906
+    },
+    "assessment": {
+      "status": "not_supported_by_frozen_training_falsifier",
+      "decision": "No full-year feature build or taxi-model fit",
+      "upstream": "Causal airport arrival-source clock context predicts later arrival-source discrepancy, but transfer to departure clock error is not demonstrated.",
+      "scope": {
+        "all_twelve_date_departures": 67720,
+        "original_ordinary_ids": 66669,
+        "ordinary_known_clock": 65933,
+        "eligible": 65632
+      },
+      "proxy_metric_warning": "These clock-error metrics are not Jan/Jul taxi-out CV, and do not establish incremental residual signal beyond the existing predictor.",
+      "clipped_rmse_delta": 0.13406988536695508,
+      "raw_rmse_delta": 0.13028705761297488,
+      "both_frozen_halves_worsen": true,
+      "within_airport_airline_month_correlation": 0.017316034971344298,
+      "positive_slopes": 7,
+      "negative_slopes": 5,
+      "result_sha256": "3f84a08f1e690ebee098a6685278cdcc56bb51d742c26aa9f55ff04eff98f1ce"
+    }
+  },
+  "interpretation": "Prior2h arrival landing-minus-ARVT3 context predicts subsequent arrival-source discrepancies, but does not reliably predict departure BLOCK-minus-AOBT3 after fixed airport/airline baseline. Do not build full-year features or fit a taxi model from this lead. These are clock-proxy errors, not Jan/Jul taxi-out CV.",
+  "known_audit_correction": "The first arrival-source auditor wrongly assumed nanosecond pandas integer units for microsecond source timestamps. The pilot used DuckDB epoch correctly; only auditor conversion was fixed to scalar UTC timestamp(), then all rows and independent causal arithmetic passed. Initial failure log is retained.",
+  "sources": [
+    {
+      "path": "VALIDATION/tools/research_arrival_landing_clock_20261012.py",
+      "sha256": "519c9ccafbee64620e64938144f920c54e4bb98cf85ad46c6afbf9270805654d"
+    },
+    {
+      "path": "VALIDATION/tools/audit_arrival_landing_clock_20261012.py",
+      "sha256": "2e0df04794afdcab53908a704f04cd726d36df2ff2b0527d427b0957c4f8c78b"
+    },
+    {
+      "path": "VALIDATION/tools/research_arrival_departure_transfer_20261012.py",
+      "sha256": "180f747633ab0183eab71f863f57537370ac796f94ee70b6674331f5cbfd62a2"
+    },
+    {
+      "path": "VALIDATION/tools/audit_arrival_transfer_20261012.py",
+      "sha256": "6249010e0866cd1045d2fc48fe65367dbbe77dbd2afe2a34877e89c86accd30f"
+    }
+  ]
+}
