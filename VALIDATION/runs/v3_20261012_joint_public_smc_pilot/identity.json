@@ -1,0 +1,67 @@
+{
+  "design": {
+    "method": "Adaptive likelihood-tempered SMC; systematic resampling; exact tempered Gibbs rejuvenation",
+    "cohorts": "Same frozen7/69/475-peer cohorts as rejected Gibbs pilot",
+    "particles": [
+      512,
+      2048
+    ],
+    "replicates": [
+      1701,
+      2701,
+      3701,
+      4701
+    ],
+    "incremental_ess_fraction": 0.8,
+    "sweeps_per_temperature": 2,
+    "max_temperatures": 128,
+    "final_sweeps": 8,
+    "max_runtime_seconds": 240,
+    "target": "Original product finite prior times unchanged t5 likelihood; separate joint/departure-only views",
+    "means": "Exact conditional target mean at beta1, averaged over final sweeps",
+    "precision_gate": "Independent replicate SE<=max(1second,1% posterior target SD); cross-budget difference<=3 combined SE; all cohorts and views",
+    "limitation": "Particle ESS is not independent posterior ESS; ancestry and between-replicate error retained. Passing only permits broader numerical assessment, never CV directly.",
+    "no_departure_labels": true,
+    "no_cv": true,
+    "no_model_selection": true,
+    "no_upload": true,
+    "failure": "Close this fixed screen; no particle/temperature tuning or easier cohort gate"
+  },
+  "proof": {
+    "tempered_detailed_balance": true,
+    "finite_sweep_invariance": true,
+    "compiled_explicit_transition_and_RB_parity": true,
+    "exact_incremental_importance_identity": true,
+    "max_invariance_error": 1.1102230246251565e-16
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/joint_public_smc_pilot.py",
+      "sha256": "e227793e644e01265884ff791655570dbcc3fe9087658eae895eb3045a22b127"
+    },
+    {
+      "path": "VALIDATION/joint_public_gibbs_pilot.py",
+      "sha256": "798f904a027ed74680cbf8ca5272d567f3cfb02d27f443729238e52e2f8226b8"
+    },
+    {
+      "path": "VALIDATION/joint_public_gibbs_kernel.c",
+      "sha256": "25cec557f85577b6935f584d49aa51b71171211aa87244d725b4e7b8c4b1f2c7"
+    },
+    {
+      "path": "tmp/research_20261012/error_mechanisms/gibbs_peers/groups.pkl",
+      "sha256": "0d1d8a7f97eff09260410849f3e305e91fab1871c3e913a64bd1cdc10eca20cf"
+    },
+    {
+      "path": "tmp/research_20261012/error_mechanisms/gibbs_peers/identity.json",
+      "sha256": "296ca4504139d6b7d3115e50a3335f0a15db84620da6eb90853ece7f264d2153"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_smc_pilot/kernel.c",
+      "sha256": "ea9119d9141b4045750423678f3c7d42405eadf9dcc8641dc0de91bd75c3f0d6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_smc_pilot/kernel.so",
+      "sha256": "bb219814eb7cad3764b2e1818ce17b7100aa07467322505a015b39e7d301307d"
+    }
+  ]
+}

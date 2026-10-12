@@ -48,6 +48,26 @@ scores, full vector joins, expanded SQL score identities and344419 CV rows pass.
 No new candidate number, fit, queue or upload follows. See
 `../runs/v3_20261012_tabm_feedback_geometry/result.json`.
 
+## Annealed particle inference: source-only screen closed
+
+The new method anneals the unchanged t5 likelihood with adaptive0.8N-ESS
+steps, systematic resampling and two exact tempered Gibbs sweeps per step.
+Unlike product prior sampling, its particle states retain induced peer dependence.
+The same frozen7/69/475-peer cohorts use four512/2048-particle replicates,
+maximum128 temperatures and a240-second total cap; no departure labels are read.
+Finite-state detailed balance, deterministic-sweep invariance, explicit compiled
+transition/Rao–Blackwell parity and incremental importance identities pass.
+
+The pilot finishes in84.81seconds. Five of six cohort/view comparisons pass.
+The largest joint estimate is2171.9910 with replicate SE35.9666; the largest
+departure-only estimate is2087.4464 with SE39.3191, narrowly above its fixed
+39.0939 threshold. Thus the numerical gate **fails**. Better numerical behavior
+than the earlier sampler is not a predictive improvement. No threshold change,
+extra particles, broader cohort screen, CV score, production or candidate follows.
+An independent audit checks61,440 saved particle states, original source/kernel
+identities, replicate/gate arithmetic and direct SciPy t5 likelihoods (maximum
+error1.07e-14). All artifacts are retained in `../runs/v3_20261012_joint_public_smc_pilot/`.
+
 ## Longer TabM training: closed after matched comparison
 
 The fixed24-epoch comparison completed and passed the independent model/SQL audit.

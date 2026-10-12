@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T10:35:00.344888+00:00",
+  "updated_at": "2026-10-12T10:52:43.811946+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 0,
     "repository": "PRIVATE",
-    "laptop": "Bounded source-only SMC pilot; final TabM inference complete and returned",
+    "laptop": "Idle; SMC fixed pilot audited and closed",
     "desktop": "Saved public main tree final inference running"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
@@ -567,13 +567,28 @@
     {
       "id": "annealed_particle_public_inference",
       "hypothesis": "Adaptive annealed SMC preserves posterior peer dependencies missed by independent prior proposals",
-      "status": "source_only_pilot_running",
-      "conclusion": "Same three frozen input-only cohorts, original finite priors and t5 likelihood. Four512/2048-particle replicates, fixed240-second cap. Exact finite transitions and tempering identities pass; no labels/CV/candidate.",
-      "metrics": {},
+      "status": "closed_numerical_precision",
+      "conclusion": "84.81-second source-only pilot greatly improves prior-sampling/Gibbs stability, but largest departure-only SE39.3191 exceeds fixed39.0939 threshold. All other cases pass. Gate remains failed; no tuning, broader pilot, CV, production or candidate.",
+      "metrics": {
+        "runtime_seconds": 84.80794277899258,
+        "largest_joint_mean": 2171.991017543304,
+        "largest_joint_se": 35.96662456186132,
+        "largest_dep_mean": 2087.4464048165264,
+        "largest_dep_se": 39.319131227202455,
+        "largest_dep_limit": 39.093921646811246
+      },
       "evidence": [
         {
           "path": "VALIDATION/joint_public_smc_pilot.py",
           "sha256": "e227793e644e01265884ff791655570dbcc3fe9087658eae895eb3045a22b127"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_joint_public_smc_pilot/result.json",
+          "sha256": "e1a78e2b677e39ba4c2951f61e33e5507cc0165b08d5a7339f252fde1c9991b9"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_joint_public_smc_pilot/audit.json",
+          "sha256": "cdb24a07a14f67fc59c20d6feb45eb0b48b5e24139f3e1cdc9638ab7a8e1b589"
         }
       ]
     }

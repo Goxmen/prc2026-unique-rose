@@ -93,6 +93,6 @@ if __name__=='__main__':
         for name in ['RESEARCH_NETWORK_20261010.md','TARGET215_RESEARCH.md']:
             path=ROOT/'VALIDATION/reports'/name
             for lineno,line in enumerate(path.read_text().splitlines(),1):
-                if line.startswith('|') and all(term in line.lower() for term in terms):
-                    hits.append(dict(report=str(path.relative_to(ROOT)),line=lineno,evidence=line))
-        if hits:print(json.dumps(dict(historical_table_matches=len(hits),matches=hits[:8],truncated=len(hits)>8)))
+                if terms and all(term in line.lower() for term in terms):
+                    hits.append(dict(report=str(path.relative_to(ROOT)),line=lineno,evidence=line[:500]))
+        if hits:print(json.dumps(dict(historical_matches=len(hits),matches=hits[:8],truncated=len(hits)>8)))
