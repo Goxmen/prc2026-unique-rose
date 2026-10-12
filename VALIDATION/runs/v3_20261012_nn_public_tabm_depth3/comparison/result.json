@@ -1,0 +1,36 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/identity.json",
+    "sha256": "9107395a60891bc26d87a4e00a4b9adcada10a045dd554a29ec61a8e0863cb23"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.02854196957753,
+      "candidate": 325.01094623785195
+    },
+    "2025-07": {
+      "control": 254.49701445100365,
+      "candidate": 254.56124011405984
+    }
+  },
+  "paired": {
+    "change": 0.023314965665306886,
+    "ci95": [
+      -0.008072507442251364,
+      0.05578354358615838
+    ],
+    "decision": "inconclusive"
+  },
+  "cv": {
+    "control": 289.7627782102906,
+    "candidate": 289.7860931759559
+  },
+  "gate": false,
+  "exact_v80_replay": true,
+  "all_row_independent_SQL_exact": true,
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/scored.parquet",
+    "sha256": "3c785875cde1038dd1ba17cfa07e6b6f31ea113e98497e0a7a8368fff4a5744d"
+  },
+  "no_production_or_upload": true
+}

@@ -142,19 +142,23 @@ exactly; the old base-neural final parts retain October8 refit provenance, with
 old-input float RMS2.39918e-6seconds. Do not repeat these inferences. V12/v13/v15
 substitutions fail exact replay and remain excluded. Missing older models were
 not found on either PC or in git history; backup availability was requested.
-Do not substitute absent components silently. Laptop runs a fixed
-TabM depth3 versus2 seed42 screen,21/17epochs, SSH86261 since13:00. Bothother
-members and fullv80stack stay fixed; comparison frozen before fits. January is
-complete and July follows. `VALIDATION/tools/finish_tabm_depth3_20261012.py` is
-already waiting (SSH/local session61058) to return, score, audit and register
-the screen; inspect `...nn_public_tabm_depth3/completion/execution.json` before
-doing any of those operations. It starts no fits or uploads.
+Do not substitute absent components silently. The fixed TabM depth3 versus2
+screen finished14:23Amsterdam: exact-v80 CV+0.023315, interval
+[−0.008073,+0.055784], with July worse. Both models returned,21.56MB hashed;
+independent architecture/curve/SQL/bootstrap audit passes. Gate fails, so no
+seed expansion, capacity tuning, production or candidate. Completion worker
+61058 is finished; preserve `...nn_public_tabm_depth3/completion/execution.json`
+and never repeat its completed stages. Both machines are idle.
 Newv80geometry projected0.2335gain and failed its gate; no v81. The bounded
 annealed-SMC source-only pilot also failed its precision gate; no CV or tuning.
 Runway-specific source covariance passed source calibration but failed actual
 CV:−0.014811seconds, interval[−0.035175,+0.009368]. Its full source/SQL/bootstrap
 audit passes. Both runs `v3_20261012_public_runway_covariance_{pilot,cv}` are
 closed without production, tuning, a candidate or upload.
+The fixed post-TabM total-neural-share0.85 screen also regresses: CV+0.483480,
+interval[+0.404983,+0.617888], both months worse. Retain0.71; do not scan other
+weights after this closed screen. Sources, original arms and SQL/bootstrap
+checks pass. Best remainsv80; no v81 or upload is queued.
 
 
 - **October12, 10:50 Amsterdam: three-TabM pool selected; two full-year fits active.**

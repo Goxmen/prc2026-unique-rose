@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/identity.json",
+    "sha256": "521e669b38fde41859ca3a957c4b3d2762cd501ff8fbb21cd22ba6119ab0a56c"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/result.json",
+    "sha256": "5d100600762b8956e0505a7ac3d76146fddfbf13e8b2ae34f538caadd96a7621"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_tabm_depth3_20261012.py",
+    "sha256": "72c40c1de5c7384804d701b433a9bdfcb99c4298e278eb0ee7b957eb4d7dce86"
+  },
+  "members": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/k0/networks/2025-01_tabm.json",
+      "sha256": "9e0e48a7b02714562176c04b1a7338237f442616cf0795b6e24d52d0916566fd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/k0/networks/2025-07_tabm.json",
+      "sha256": "1ad733dc3245a1f111d3eb3944515ad3d435f9040f5f8a7d03183dd9eb6a0c48"
+    }
+  ],
+  "rows": 344419,
+  "independent_SQL_and_bootstrap": true,
+  "architecture_changes_exactly_one_extra_block": true,
+  "complete_curve_and_all_parameter_finite": true,
+  "training_reload_scope": "Full held-row GPU reload verified by immutable fit receipts",
+  "gate": false,
+  "interpretation": "Reused development folds; this is a fixed screen, not independent confirmation."
+}

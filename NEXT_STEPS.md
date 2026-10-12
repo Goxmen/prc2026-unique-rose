@@ -41,13 +41,10 @@ No final-route validation has been claimed; see `public_refresh_20261012.json`.
 Current work (compact index: `VALIDATION/research_registry.json`; local snapshot:
 `VALIDATION/research_state.json`):
 
-- **Larger TabM:** one fixed change from two to three blocks for seed42.
-  Same inputs,21/17epochs, two other members and fullv80 corrections. Laptop
-  fits began13:00Amsterdam, SSH86261. GPU capacity/gradients/masking and
-  unchanged-training-AST checks pass. Both months and paired95% upper<0
-  are required; no production or upload is scheduled. January is complete.
-  The existing completion worker61058 will return/score/audit/register the
-  result; inspect its `completion/execution.json` before starting anything.
+- **Larger TabM closed:** the fixed three-block seed42 comparison finished
+ 14:23Amsterdam. CV+0.023315, interval[−0.008073,+0.055784]; July worsens.
+  Both models returned and the independent audit passes. No seed expansion,
+  tuning, production or candidate. The completion worker is finished.
 - **Final components:** three TabM members, public main/airport trees and
   all selected Rome/ordinary CatBoost models replay old predictions exactly.
   Every new prediction reloads exactly. Independent SQL checks6,037,110values
@@ -65,6 +62,9 @@ Current work (compact index: `VALIDATION/research_registry.json`; local snapshot
 - **Runway covariance closed:** better source likelihood did not yield a
   reliable taxi gain:CV−0.014811, interval[−0.035175,+0.009368]. All810 source
   cells and344419 CV rows pass independent checks. No production or upload.
+- **Neural weight closed:** fixed total share0.85 regresses+0.483480seconds,
+  interval[+0.404983,+0.617888], with both months worse. Retain0.71; no further
+  weight scan, production or upload. Both hosts are idle; no candidate is queued.
 
 - **Stand context closed:** fixed main-tree screen is complete.
   Original184 inputs plus four same-month stand medians/counts from supplied

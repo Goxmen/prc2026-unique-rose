@@ -8,12 +8,12 @@
   "authorization": "Autonomous uploads and both machines; one heavy job per machine",
   "previous_goal": "VALIDATION/runs/v3_20261011_target225/objective.json",
   "first_direction": "EUROCONTROL daily pre-departure aggregate reconciliation; direct source identity audit before modeling",
-  "agents": "Three retained subagents stopped at account usage limit; root continues from saved reviewed sources",
-  "laptop": "Depth-three TabM seed42 Jan/Jul fits active since13:00Amsterdam; SSH86261; no production",
+  "agents": "Three retained subagents and the native goal report usageLimited; all completed work is preserved and no jobs remain active",
+  "laptop": "Idle; deeper TabM fits complete, returned, audited and closed",
   "current_best_version": 80,
   "current_best_rmse": 218.8525,
   "current_gap": 13.8525,
-  "updated_at": "2026-10-12T11:02:37.919031+00:00",
+  "updated_at": "2026-10-12T12:28:39.544587+00:00",
   "target_history": [
     {
       "at": "2026-10-11T20:18:12.307058+00:00",
@@ -22,7 +22,7 @@
       "source": "User request: same protocol, new target 205.00 or lower; retain 2 or 3 candidates and wait until 02:00 Amsterdam"
     }
   ],
-  "research_state": "v80 best218.8525; fixed depth-three capacity comparison running; final-route components being assembled",
+  "research_state": "Best remains218.8525; latest three fixed screens closed; no new candidate or upload",
   "research_not_before_utc": "2026-10-12T00:00:00+00:00",
   "retained_upload_versions": [
     76,
@@ -37,7 +37,7 @@
   "resume_authorization": "User: its 2:24. get started",
   "remaining_utc_day_slots": 0,
   "used_utc_day_slots": 5,
-  "desktop": "Saved-model final ordinary CatBoost inference; other final public components complete",
+  "desktop": "Idle;15 legacy final component ports independently audited",
   "automatic_upload_queue": [],
   "last_live_check": "2026-10-12T10:27:42+00:00",
   "private_progress_note": "LOCAL_PROGRESS.md (gitignored)",
@@ -55,11 +55,15 @@
     "Cross-date runway evidence: inconclusive versus same-date parent, January worse",
     "Fixed24-epoch TabM schedule: matched effect\u22120.00105, inconclusive; no production",
     "Actualv80 affine recombination: projected0.2335gain belowfixed gate; no candidate",
-    "AnnealedSMC fixed source-only precision screen fails one case; audited and closed"
+    "AnnealedSMC fixed source-only precision screen fails one case; audited and closed",
+    "Runway-conditioned source covariance: source likelihood improves, taxi CV\u22120.014811 inconclusive",
+    "Total neural share0.85: CV+0.483480 regression; retain0.71 without another weight scan",
+    "Three-block TabM: CV+0.023315 inconclusive, July worse; no seed or production expansion"
   ],
-  "completion_worker": "Public tree/Rome final inference worker complete; all old/final checks pass",
+  "completion_worker": "All retained workers complete; do not repeat fits, inference, returns or uploads",
   "research_registry": "VALIDATION/research_registry.json",
   "compact_state": "VALIDATION/research_state.json",
   "desktop_duration_status": "closed_inconclusive",
-  "desktop_duration_result": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/closed.json"
+  "desktop_duration_result": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/closed.json",
+  "native_goal_observed_status": "usageLimited; native goal text still215; not resumed or changed"
 }

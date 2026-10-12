@@ -1,0 +1,126 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/identity.json",
+    "sha256": "521e669b38fde41859ca3a957c4b3d2762cd501ff8fbb21cd22ba6119ab0a56c"
+  },
+  "design": {
+    "parent": "v80 equal three-TabM pool and selected runway evidence",
+    "architecture": {
+      "original_columns": 156,
+      "public_columns": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "public_transform": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "track": "unchanged physical CNN, masked mean/max64",
+      "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+      "k": 32,
+      "n_blocks": 3,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "normal",
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "loss": "mean squared error over rows AND individual32 heads",
+      "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+      "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+    },
+    "change": "n_blocks2 to3 for seed42; retain1042/2042 unchanged",
+    "seed": 42,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "schedule_epochs": 24,
+    "effective_batch": 2048,
+    "microbatch": 512,
+    "inference_chunk": 512,
+    "primary": "Exact v80 with only this one member replaced; unchanged stack and runway stage",
+    "gate": "Improve both months and paired-day95% upper endpoint below0 versus exactv80",
+    "continuation": "Only a passing fixed comparison may justify confirmation with other seeds",
+    "caveat": "Reused Jan/Jul development data; one architecture comparison, no independent confirmation",
+    "no_epoch_selection": true,
+    "no_new_features": true,
+    "no_new_weight": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "month": "2025-07",
+  "member": 0,
+  "seed": 42,
+  "epochs": 17,
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-07.pkl",
+      "sha256": "888a51db63d881d247b7d6f89a2014ac0e0865da1fc680d410abd2c5ab8fb835",
+      "audited_candidate_record": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.json",
+        "sha256": "6895725874f13b83a901f242734ee2eb31655e6dd93cde1ad218e5e36fe1e8ac"
+      }
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+      "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+    },
+    "rows": 1140233,
+    "held_rows": 190713,
+    "reference_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.json",
+      "sha256": "c70cea646789fdccd2584f95eca80f072a3666a3dc59888c3e5765eb23bea817"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/k0/models/2025-07_tabm.pt",
+    "sha256": "398d6dcafdddef749fe6f6195a9f52af89c528d7659e560423e95fe244daa2f6"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+    "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+  },
+  "updates_completed_before_inference": true
+}

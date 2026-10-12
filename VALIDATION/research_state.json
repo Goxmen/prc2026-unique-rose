@@ -1,32 +1,25 @@
 {
-  "updated_at": "2026-10-12T11:53:07.239018+00:00",
+  "updated_at": "2026-10-12T12:31:09.116749+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-12T10:27:42+00:00",
   "slots_remaining": 0,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 41,
+  "hypotheses": 42,
   "desktop": {
     "stage": "retained_final_components_audited_missing_basis_pending",
     "old_replay": true,
     "final_replay": true
   },
   "next": [
-    "Review frozen deeper-TabM comparison after automatic completion",
-    "Recover missing historical model backups before claiming an exact final ensemble",
-    "Continue distinct supported research; all October12 submission slots used"
+    "Recover missing historical model backups for final assembly; existing user question pending",
+    "Assess genuinely distinct supported hypotheses; do not reopen closed capacity, weight or covariance screens",
+    "Keep205 target unachieved and native usage limit unchanged; no uploads queued"
   ],
   "laptop": {
-    "stage": "depth3_fit_or_inference",
-    "completed_folds": [
-      "2025-01"
-    ],
-    "last_epoch_at": "13:52:07",
-    "fold": "2025-01",
-    "epoch": 21,
-    "epochs": 21,
-    "seconds_per_epoch": 136.87
+    "stage": "fixed_depth3_screen_complete",
+    "training_receipt": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/audit.json"
   },
   "duration_result": {
     "cv": {
@@ -91,7 +84,49 @@
     ]
   },
   "depth3_completion": {
-    "state": "waiting_for_existing_jobs",
-    "steps": []
+    "state": "complete",
+    "active_stage": null,
+    "steps": [
+      {
+        "stage": "return",
+        "completed_at": "2026-10-12T12:23:04.644688+00:00",
+        "receipt": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/return_audit.json"
+      },
+      {
+        "stage": "score",
+        "completed_at": "2026-10-12T12:23:25.098395+00:00",
+        "receipt": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/result.json"
+      },
+      {
+        "stage": "audit",
+        "completed_at": "2026-10-12T12:23:27.141220+00:00",
+        "receipt": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/independent_audit.json"
+      }
+    ]
+  },
+  "depth3_result": {
+    "cv": {
+      "control": 289.7627782102906,
+      "candidate": 289.7860931759559
+    },
+    "paired": {
+      "change": 0.023314965665306886,
+      "ci95": [
+        -0.008072507442251364,
+        0.05578354358615838
+      ],
+      "decision": "inconclusive"
+    },
+    "gate": false,
+    "scores": {
+      "2025-01": {
+        "control": 325.02854196957753,
+        "candidate": 325.01094623785195
+      },
+      "2025-07": {
+        "control": 254.49701445100365,
+        "candidate": 254.56124011405984
+      }
+    }
   }
 }

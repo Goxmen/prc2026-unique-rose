@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T12:08:54.494261+00:00",
+  "updated_at": "2026-10-12T12:28:39.544587+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 0,
     "repository": "PRIVATE",
-    "laptop": "Fixed three-block TabM Jan/Jul training; completion worker returns/scores/audits automatically without fits or uploads",
-    "desktop": "All15 retained legacy final components audited; missing original affine basis still pending"
+    "laptop": "Idle; fixed deeper TabM screen complete and closed; artifacts returned and audited",
+    "desktop": "Idle;15 archived final components audited; source covariance and neural weight screens closed"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
   "entries": [
@@ -595,9 +595,33 @@
     {
       "id": "tabm_three_block_capacity",
       "hypothesis": "One extra TabM block may improve public/tabular/physical feature interactions",
-      "status": "cv_training",
-      "conclusion": "Fixed seed42 two-to-three-block change; both other TabM members, inputs,21/17 stops and complete v80 corrections unchanged. Both months and paired95% upper<0 required. GPU capacity/gradient/masking checks pass; same laptop as control.",
-      "metrics": {},
+      "status": "closed_fixed_screen",
+      "conclusion": "The fixed extra-block screen fails its frozen gate. No epoch/architecture tuning, seed expansion, production or candidate follows.",
+      "metrics": {
+        "cv": {
+          "control": 289.7627782102906,
+          "candidate": 289.7860931759559
+        },
+        "paired": {
+          "change": 0.023314965665306886,
+          "ci95": [
+            -0.008072507442251364,
+            0.05578354358615838
+          ],
+          "decision": "inconclusive"
+        },
+        "scores": {
+          "2025-01": {
+            "control": 325.02854196957753,
+            "candidate": 325.01094623785195
+          },
+          "2025-07": {
+            "control": 254.49701445100365,
+            "candidate": 254.56124011405984
+          }
+        },
+        "gate": false
+      },
       "evidence": [
         {
           "path": "VALIDATION/nn_public_tabm_depth3.py",
@@ -607,7 +631,9 @@
           "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/identity.json",
           "sha256": "9107395a60891bc26d87a4e00a4b9adcada10a045dd554a29ec61a8e0863cb23"
         }
-      ]
+      ],
+      "result": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/result.json",
+      "audit": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/independent_audit.json"
     },
     {
       "id": "public_runway_source_covariance",
@@ -686,8 +712,8 @@
     }
   ],
   "next": [
-    "Review frozen deeper-TabM comparison after automatic completion",
-    "Recover missing historical model backups before claiming an exact final ensemble",
-    "Continue distinct supported research; all October12 submission slots used"
+    "Recover missing historical model backups for final assembly; existing user question pending",
+    "Assess genuinely distinct supported hypotheses; do not reopen closed capacity, weight or covariance screens",
+    "Keep205 target unachieved and native usage limit unchanged; no uploads queued"
   ]
 }

@@ -1,0 +1,251 @@
+{
+  "design": {
+    "parent": "v80 equal three-TabM pool and selected runway evidence",
+    "architecture": {
+      "original_columns": 156,
+      "public_columns": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "public_transform": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "track": "unchanged physical CNN, masked mean/max64",
+      "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+      "k": 32,
+      "n_blocks": 3,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "normal",
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "loss": "mean squared error over rows AND individual32 heads",
+      "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+      "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+    },
+    "change": "n_blocks2 to3 for seed42; retain1042/2042 unchanged",
+    "seed": 42,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "schedule_epochs": 24,
+    "effective_batch": 2048,
+    "microbatch": 512,
+    "inference_chunk": 512,
+    "primary": "Exact v80 with only this one member replaced; unchanged stack and runway stage",
+    "gate": "Improve both months and paired-day95% upper endpoint below0 versus exactv80",
+    "continuation": "Only a passing fixed comparison may justify confirmation with other seeds",
+    "caveat": "Reused Jan/Jul development data; one architecture comparison, no independent confirmation",
+    "no_epoch_selection": true,
+    "no_new_features": true,
+    "no_new_weight": true,
+    "no_production": true,
+    "no_upload": true,
+    "formula": "integer v80 plus new-minus-old serialized TabM v78 component, then one nonnegative clip and rounding",
+    "reference": "v80 retains three selected TabM seeds and same-date runway correction",
+    "guard": "Every original one-TabM/v78 control, raw truth, current v80 and component source must remain exact"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/identity.json",
+      "sha256": "521e669b38fde41859ca3a957c4b3d2762cd501ff8fbb21cd22ba6119ab0a56c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/audit.json",
+      "sha256": "60db66b728424976ca1e14cc760577365bee9b9b2949f2a90e784f9fb1b67a38"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_depth3_score.py",
+      "sha256": "fe1336ac61f6c10178d6e4da7eb069834a08fd907b3edac32c54cd8954ded50a"
+    },
+    {
+      "path": "VALIDATION/attention_v77_stack.py",
+      "sha256": "0f0573bc580141f5dff8f730acc7d97ad4fd471b3bda92f475485b6956f51b3a"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments_cv.py",
+      "sha256": "4a790c670c852d54ec8c0df647504d723b45874870dacddff305f1137f3842c0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/result.json",
+      "sha256": "fde5d7e92f2fe0be138f208f43ceda7036eef24a48447a36b9abed03ac46802a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+      "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/result.json",
+      "sha256": "8275186109273df0c87e446dc3f88ad59bc8a7956205ff874005c0177c57c55c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_stack/scored.parquet",
+      "sha256": "e41fb29c950566934bdb832c00a1ee6384bc5fb92fce602381a534be42a37196"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-01_s42.parquet",
+      "sha256": "539845eb72be933a7c89b06e2c3de2aa2becf170d8542124d1aa1d3a41d8e9dd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-01_k1.parquet",
+      "sha256": "d31236f5b2fdd637592fcaf17d7fbd9dc2a67a41ac687540acb7b5a20b77f016"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-01_k2.parquet",
+      "sha256": "b7e71c0fae892936ed60562fd0f8f449b31e39425778a4bfca000d1ed7cb72bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/k0/networks/2025-01_tabm.parquet",
+      "sha256": "bcdd3d249d108659387c7bc0bbb1b3175c72a6f77e5cd44e44e100831422473a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-01_tabm.parquet",
+      "sha256": "10958dbc91bb4e65afbcff6721abfc788e2344afc57df3542da741d0886d03ca"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-01_tabm.parquet",
+      "sha256": "2e838bd77a3bab855279d2d65b5a1979e8833a1c6c4b4d86eb312a79e41cab4a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-01_s42.parquet",
+      "sha256": "7025bf609c20aeefc7fca9691759dfafebb848c9630b76849e67f680be74ba7e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-01_s42.parquet",
+      "sha256": "76acf53b0e5092ceea257f809188e97e18c968ca376d116c6e52c871c20d2b40"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-01_s42.parquet",
+      "sha256": "5cf4cd372eaa407bb7bdcf5ada2c5b597aedab5084f87a8088382448dee9943f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.parquet",
+      "sha256": "50a011cdb0998e2b50c86ab97c35c1640be7d01dbd97c8d298976982d5165278"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-07_k1.parquet",
+      "sha256": "05d34a32df574b5bf3392130646f517110cace2b71a64ac3952da445ddc1e109"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_pool3/networks/2025-07_k2.parquet",
+      "sha256": "013820082aa68965017781982e54a010b5d3d4df3cfa3032dfd20a79cfdae816"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/k0/networks/2025-07_tabm.parquet",
+      "sha256": "2aa40c651d2b9388a6dbb1a5c8edc4e5d9cb66e46907605b09ec191fd184bed5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-07_tabm.parquet",
+      "sha256": "85782c5f0a0bc66a750534f418b6455c5742963b94500d06dfa3769ed51d5d65"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-07_tabm.parquet",
+      "sha256": "892099d8a1f863fe22c72d7f8a396ed6cffb049e77d5c9e94f18dbcffd58e3d2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_lgb/predictions/2025-07_s42.parquet",
+      "sha256": "a0068d91df286ab73d49e89d14166c5514354e6e796e9c49703a47b571035704"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_public_airport_trees/predictions/2025-07_s42.parquet",
+      "sha256": "9dd2b443c5f58806f0d0d4a23868d00a99b9a1edcd7a1724786eed4b4bb5e32a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_catboost_full_inputs/predictions/2025-07_s42.parquet",
+      "sha256": "8425c6890168e6f31d5b86c278c3ffda0f7a0420ec2a2b34ec05ce3331a71ac9"
+    }
+  ],
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/component/scored.parquet",
+    "sha256": "6c833ac6e0a6af8cf29c0a29fbb8a7a404a61383845ef0db3428eb6d8bade98e"
+  },
+  "scores": {
+    "2025-01": {
+      "selected": 325.860607626995,
+      "one_tabm": 325.73516630246377,
+      "three_tabm": 325.52316482762745
+    },
+    "2025-07": {
+      "selected": 255.9996300885311,
+      "one_tabm": 255.6193428545173,
+      "three_tabm": 255.1344709265479
+    }
+  },
+  "cv": {
+    "selected": 290.93011885776303,
+    "one_tabm": 290.67725457849053,
+    "three_tabm": 290.32881787708766
+  },
+  "paired": {
+    "three_tabm_vs_one_tabm": {
+      "change": -0.34843670140286065,
+      "ci95": [
+        -0.5659900483794239,
+        -0.18119873897046834
+      ],
+      "decision": "improvement"
+    },
+    "three_tabm_vs_selected": {
+      "change": -0.6013009806753615,
+      "ci95": [
+        -0.9094784548784478,
+        -0.3906059448647472
+      ],
+      "decision": "improvement"
+    },
+    "one_tabm_vs_selected": {
+      "change": -0.2528642792725009,
+      "ci95": [
+        -0.3677770302937926,
+        -0.17379751169291993
+      ],
+      "decision": "improvement"
+    }
+  },
+  "exact_v78_replayed": true,
+  "exact_one_tabm_replayed": true
+}

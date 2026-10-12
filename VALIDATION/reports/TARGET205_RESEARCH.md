@@ -735,3 +735,10 @@ Artifacts: `../runs/v3_20261012_tabm_neural_share/`.
 A local archive check found two PRC transfer tar files from Ioana. Both hold
 only inputs/validation predictions, with no missing full-year boosters. No
 relevant model backup was found in the52 archive filenames examined.
+
+
+## Fixed three-block TabM screen complete
+
+Completed at 2026-10-12T12:23:27.142625+00:00. Exact v80 CV 289.762778 → 289.786093; change +0.023315, paired-day95% interval [-0.008072507442251364, 0.05578354358615838]. Frozen gate: False. The fixed extra-block screen fails its frozen gate. No epoch/architecture tuning, seed expansion, production or candidate follows.
+
+Both saved models, complete epoch curves, all-row GPU reloads, source hashes, SQL transport and independent bootstrap checks pass. The development folds were reused; this is not independent confirmation. All artifacts are retained in `../runs/v3_20261012_nn_public_tabm_depth3/`. No upload ran.
