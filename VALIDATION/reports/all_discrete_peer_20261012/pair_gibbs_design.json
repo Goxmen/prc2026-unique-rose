@@ -1,0 +1,28 @@
+{
+  "status": "frozen_unexecuted",
+  "source": {
+    "path": "VALIDATION/joint_public_pair_gibbs_pilot.py",
+    "sha256": "1491b72f6e902b3e72f2128b1cc40ea60f1b5ba4d6a3c8c522c4b2f36065285c"
+  },
+  "kernel": {
+    "path": "VALIDATION/joint_public_pair_gibbs_kernel.c",
+    "sha256": "c232f16db5d39c6e426c385e54f8253ca71d66f11ce6635363795e901b0f087a"
+  },
+  "identity": {
+    "path": "tmp/research_20261012/error_mechanisms/pair_gibbs_peers/identity.json",
+    "sha256": "f0fb1d8a5ea9a041252a0b45ffcc93b22888e2404f60ec4aebeb1c9d539de8be"
+  },
+  "proof": {
+    "each_block_detailed_balance": true,
+    "fixed_sweep_invariant": true,
+    "compiled_all_trace_columns_match_explicit_residual_enumeration": true,
+    "max_stationarity_error": 8.326672684688674e-17,
+    "no_full_sweep_reversibility_claim": true
+  },
+  "distinctness": "Exact target/site block refresh permits simultaneous compensating changes; rejected single-site sampler is not resumed",
+  "same_model_and_budget": true,
+  "precision_gate_seconds": 25,
+  "queue": "After desktop tree pipeline and movement-ID source pilot",
+  "review": "Root static review and exact finite-state proof; no unavailable agent review claimed",
+  "cli_preflight_fix": "Original unexecuted identity/source retained in prepilot_cli_fix; only check-command dispatch corrected before this identity"
+}

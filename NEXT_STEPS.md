@@ -1,7 +1,7 @@
 # Next steps
 
 **Active target: 205.00 seconds or lower.** Best/latest is **v79 at 219.6130**,
-leaving **14.6130 seconds**. Live check: **12 October 05:16:08 Amsterdam**,
+leaving **14.6130 seconds**. Live check: **12 October 08:24:12 Amsterdam**,
 rank **9/242**, all **344,841 flights**. Autonomous submissions and both machines
 remain authorized, with one heavy job per host. Four October 12 UTC submission
 slots are used; **one remains for a new candidate after experimental feedback**.
@@ -57,6 +57,15 @@ Current work:
   calibrated fraction RMSE0.0232, versus typical prior SD0.0079–0.0101 on the
   separate held-input dates. The arrival witness is weak (correlation−0.119).
   Independent source/SQL/calibration checks pass; no posterior or CV follows.
+- **Prepared follow-ups:** the three-TabM plus runway comparison is frozen
+  before the extra seed results. A production continuation runner can only
+  prepare after audited improvement over one-TabM on both fixed comparisons;
+  no further production fits have started. Two source-only pilots wait for
+  the desktop: coarse movement-ID arrival clocks on four allowed training
+  months, and exact target/site pair updates for the unresolved discrete
+  posterior. The latter passes finite-state invariance and compiled-kernel
+  checks; it must also pass the fixed mixing and 25-second Monte Carlo-error
+  limits before any validation is considered.
 
 The three retained subagents reached the account usage limit after finishing
 source reviews. Root continues from their saved artifacts; no replacement
@@ -176,7 +185,7 @@ was created. Broad offset probes are deprioritized on this evidence.
 
 All three existing subagents remain unavailable due to the account usage limit.
 The root goal also reports `usageLimited`; no replacement agents or account-limit
-overrides are authorized. Research is on hold until the requested wake-up. Sources, failures, recovery
+overrides are authorized. The earlier pause ended with the user's 02:24 resumption. Sources, failures, recovery
 receipts and limitations are in the [215-second research report](VALIDATION/reports/TARGET215_RESEARCH.md).
 The earlier 225.00 goal is complete; its result remains below.
 

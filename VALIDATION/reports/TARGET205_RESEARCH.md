@@ -3,7 +3,7 @@
 ## Official progress
 
 The user resumed research at 02:24 Amsterdam after the requested pause until
-02:00. At the 05:16:08 live check, best/latest v79 scores **219.6130**, rank **9/242**, on all
+02:00. At the 08:24:12 live check, best/latest v79 scores **219.6130**, rank **9/242**, on all
 344,841 original January/July departures. The **205.00** target remains
 14.6130 seconds away. Autonomous submissions and both hosts remain authorized.
 
@@ -37,6 +37,36 @@ Its CV remains290.228841 (−0.445516 versusv79); no official gain is claimed.
 No version/upload is assigned while the additional-seed comparison runs.
 Four reviewed/frozen TabM CV fits for1042/2042 started on the laptop at07:44;
 seed42 is reused exactly. Two further production fits are not authorized yet.
+
+Before the first extra seed completed, `tabm_pool3_other_runway_combo_cv.py`
+froze a coefficient-one combination using original v78 integer component
+deltas and a single clip on v79. Its primary comparison is three-TabM/runway
+versus the already audited one-TabM/runway combination. No score exists yet.
+`nn_public_tabm_pool3_submit.py` prepares two full-year continuations only if
+the independent pool audit and both three-versus-one comparisons pass. Its
+isolated member namespaces retain the original fit/helper bytecode and the
+reviewed seed specialization; no further production fit has begun.
+
+Two source-only pilots are frozen for a clean desktop window. The coarse
+movement-ID check uses five supplied-arrival anchors on each side of a Rome
+departure, within its actual UTC month. March/September/October/November
+training labels enter only after the clock is built. In-block time is primary;
+landing time is diagnostic, with no clock/threshold selection. This asks a
+different question from exact adjacent-ID monotonicity. Three synthetic
+checks pass. `probe_movement_id_arrival_clock_20261012.py` and its independent
+scalar/SQL auditor are under `tools/`.
+
+`joint_public_pair_gibbs_pilot.py` tests a distinct exact target/site block
+kernel, permitting compensating two-flight updates. The original rejected
+single-site sampler remains closed. Priors, source likelihood, three cohorts,
+chains, starts and sweep budgets are retained. A 12-state example proves
+each block's detailed balance and the complete sweep's invariance; every
+compiled trace column matches independently enumerated residual calculations
+for joint and departure-only likelihoods. The pilot additionally requires
+increment Monte Carlo error at most25 seconds in both budgets. This is only a
+numerical screen, not evidence of score improvement or adequate full-scale
+precision. No source pilot, CV or production has run yet. Root reviewed these
+follow-ups; no unavailable subagent review is claimed.
 
 The final linear-leaf result is inconclusive: matched standardized control
 −0.051480, actualv78−0.032067 and actualv79−0.023679. All four completed

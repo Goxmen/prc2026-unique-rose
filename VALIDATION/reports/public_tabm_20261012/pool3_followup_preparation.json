@@ -1,0 +1,26 @@
+{
+  "status": "prepared_not_executed",
+  "review": "Root source review; no unavailable subagent review claimed",
+  "sources": [
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_submit.py",
+      "sha256": "1605c6518841fa5abca943b54b2112b218e21f9dd669e111d9c726ca8b66e4af"
+    },
+    {
+      "path": "VALIDATION/tabm_pool3_other_runway_combo_cv.py",
+      "sha256": "cf871d6c574e09f8c9d526e6a74655bbda4f388ea26d6fed13506392be2990fa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/identity.json",
+      "sha256": "e0357056ade91db7c53da7eff7cdaf1f9d45094ec97bd1f80dbf30c7849ed04c"
+    }
+  ],
+  "checks": [
+    "Three-TabM plus runway formula frozen before first extra seed completed",
+    "Original v78 integer component deltas added to v79 with one clip; equal seeds and coefficients fixed",
+    "Production preparation requires independently audited improvement versus one-TabM in both v78 and v79 comparisons",
+    "Production fit and helper bytecode retained in isolated member namespaces; model/dropout/permutation seeds1042/2042 agree",
+    "No production fit, CV score, version or upload started by preparation"
+  ],
+  "new_full_year_fits_started": false
+}

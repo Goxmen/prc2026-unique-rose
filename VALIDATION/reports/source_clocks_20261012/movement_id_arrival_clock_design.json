@@ -1,0 +1,17 @@
+{
+  "status": "frozen_unexecuted",
+  "source_sha256": "8fee92af9463f5bdfa42e0ae65cdbb477c9e7b9f3df9b1a095daad40e4a70105",
+  "identity_sha256": "468aa920f3c0e3113bb9a877c5b74d242354b52f305d151db8544669740d05bf",
+  "review": "Root static scientific review; no independent agent review claimed because account usage limit stopped all agents.",
+  "checks": [
+    "Fixed4 common training months and Rome only; no Jan/Jul departure labels",
+    "Input clock built before permitted training labels are joined",
+    "Same-month arrival peers, strictly5 each side, no extrapolation, no aircraft or copy-label filtering",
+    "Primary in-block anchor and diagnostic landing anchor fixed, no clock selection",
+    "Three synthetic tests cover interpolation, missing edges, identity exclusion, robust medians and AUC orientation/ties",
+    "Explicit screening thresholds frozen before source outcome"
+  ],
+  "execution": "Wait for clean desktop after current model pipeline; external60second timeout",
+  "no_model_fit": true,
+  "no_cv": true
+}

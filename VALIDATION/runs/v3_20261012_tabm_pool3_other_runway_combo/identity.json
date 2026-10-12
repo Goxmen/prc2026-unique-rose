@@ -1,0 +1,75 @@
+{
+  "design": {
+    "parent": "exact v79",
+    "primary": "three_tabm_runway versus one_tabm_runway",
+    "secondary": "three_tabm_runway versus v79 and three_tabm alone",
+    "formula": "rint(max(0,v79+(TabM_v78-exactv78)+(other_runway_v78-exactv78)))",
+    "seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "coefficients": [
+      1,
+      1
+    ],
+    "new_bounds": false,
+    "frozen_before_extra_seed_results": true,
+    "no_fit": true,
+    "no_search": true,
+    "no_production_fit": true,
+    "no_upload": true,
+    "caveat": "Fixed combination on reused Jan/Jul development; not independent confirmation."
+  },
+  "source": {
+    "path": "VALIDATION/tabm_pool3_other_runway_combo_cv.py",
+    "sha256": "cf871d6c574e09f8c9d526e6a74655bbda4f388ea26d6fed13506392be2990fa"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tabm_pool3_other_runway_combo_cv.py",
+      "sha256": "cf871d6c574e09f8c9d526e6a74655bbda4f388ea26d6fed13506392be2990fa"
+    },
+    {
+      "path": "VALIDATION/tabm_other_runway_combo_cv.py",
+      "sha256": "b2189f5aec18925b5b4cfd1f0a6e8afbc1f8d4e8395ce50573a70417148d131d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo/identity.json",
+      "sha256": "e30ac4699df91c08dc7e487a8fc4d931afac6156678a83f71f26f648d446a4b0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo/result.json",
+      "sha256": "b4c319d3c6346ec3363b19a1bfb9491732b6f0c696dcacc91aa5ad04ce734410"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo/scored.parquet",
+      "sha256": "de912af54e3bfce5dc7209eb8f36c3d90f7e34377bb5c55ceba9a06136b8ae42"
+    },
+    {
+      "path": "VALIDATION/tools/audit_tabm_runway_combination_20261012.py",
+      "sha256": "6a39ba707146b56498db888174c0f76ea8f1355796a7e5d87bdc1d6e36373ba0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_other_runway_combo_submit/independent_audit.json",
+      "sha256": "e71f1d79a927654858100bf21bfd39815325be52f3b1f51b8f76199175e1d913"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/identity.json",
+      "sha256": "47828f7cad2238954cf85d0786ea04e64ed1bed3d62a4f7c03ebdd14fa228fe6"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_stack.py",
+      "sha256": "f55d193f387c05d084a4240bd785f504186dcd4ab1c49fb91bc86860908d0214"
+    },
+    {
+      "path": "VALIDATION/tabm_pool3_v79_transport.py",
+      "sha256": "de01197736fce65d8f6ebec7fd0d36a9972e6f17a70b3bb21956e0789373eaa4"
+    },
+    {
+      "path": "VALIDATION/tools/audit_public_tabm_pool3_scores_20261012.py",
+      "sha256": "191e51dbcc82cf87f072f8e8656ff573bc2861a932463b44cb57415abaf9659b"
+    }
+  ],
+  "pending": "four extra seed fits and audited pool scores"
+}
