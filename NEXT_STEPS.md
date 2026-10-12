@@ -43,6 +43,9 @@ Current work:
   memory preflight. Retain the other two members. No production upload yet.
   See `PUBLIC_TABM_RESULT_20261012.json` for the separate machine/execution
   difference and desktop path-only training-guard limitation.
+  Four fixed CV fits for TabM seeds1042/2042 are reviewed, frozen and authorized
+  after this production job and verified artifact return. They test the equal
+  three-TabM pool against both existing pools; no extra full-year fits yet.
 - **Other-runway totals:** the fixed robust message improves v78 by 0.136645
   seconds and v79 by 0.154163, interval [−0.306432, −0.035022], with both months
   better. All-row score checks and an independent block-solve audit pass.
@@ -75,6 +78,12 @@ score or candidate follows. EP's unresolved quadrature errors are retained.
 Reapplying existing bounds to v79 changes only nine
 ranking rows and can improve official RMSE by at most 0.088502 seconds, so it is
 also closed.
+
+Two source-only checks are in preparation: relative flight-plan ID order, and
+fractional public punctuality evidence calibrated on permitted training months.
+The punctuality rational probe and independent audit find multiple compatible
+denominators on every sampled day; no exact count is inferred. Tempered discrete
+inference is deferred because its numerical precision remains unsupported.
 
 See [the current research report](VALIDATION/reports/TARGET205_RESEARCH.md).
 The [11 October report](VALIDATION/reports/TARGET215_RESEARCH.md) retains the

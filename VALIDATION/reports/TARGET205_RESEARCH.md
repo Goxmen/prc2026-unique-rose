@@ -253,6 +253,50 @@ No public code was executed or copied. See
 `source_clocks_20261012/linear_leaf_cost.json` and
 `source_clocks_20261012/linear_leaf_design.json`.
 
+## Follow-ups prepared during the two active jobs
+
+**Additional TabM members: frozen, awaiting the laptop.** Retain seed42 and
+add only1042/2042, with unchanged21/17 epoch stops,24-epoch schedule,
+preprocessing and update recipe. Compare the fixed equal three-TabM pool with
+both the one-TabM/two-PLE pool and the original three-PLE pool, requiring exact
+existing replays. A separate coefficient-one v79 transport is frozen before
+outcomes. Source review and CPU update/RNG tests pass. Four CV fits are
+authorized after the current production member completes and its artifacts
+return with verified hashes. All new fits must use the same laptop/GPU/Torch
+as seed42. Original controls remain desktop artifacts, an explicit execution
+caveat. No new full-year fits or seed/weight selection are authorized yet.
+
+**Public punctuality: exact-count interpretation is unsupported.** A fixed
+JSON-only probe reads eight Rome records, days10/20 in January/July2025/2026.
+Every fraction admits multiple denominators between1 and3000:5–69 per record.
+An unverified integer-minute mean-delay assumption leaves no compatible
+value for10July2025. An independent exact-rational audit reproduces all24,000
+checks. No count is selected; no movement rows, departure labels or CV scores
+are read. The fraction may still be a noisy observation of the proportion
+with `gap-y<=900`, distinct from taxi count/sum and positive delay sum.
+A source-noise pilot is being prepared for common permitted training months
+March/September/October/November2025, with whole-month exclusions for scalar
+bias calibration. It will compare noise with existing input-only prior OTP
+uncertainty, retaining population/schedule/calendar mismatch and covariance
+with existing source errors. Rational fractions do not establish binomial
+precision. See `punctuality_counts_20261012/`.
+
+**Relative flight-plan ID order: unverified input hypothesis.** The earlier
+movement-ID clock probe failed. A new fixed-date pilot examines flight-plan
+ID order against original IOBT/EOBT clocks, including missingness, duplicates,
+format and shared endpoint consistency. These numeric IDs are not documented
+as creation timestamps and are not equated with IFPLID. No absolute-ID
+feature, labels or model fit is involved. Execution awaits a clean host.
+
+**Tempered discrete inference: deferred without implementation.** Replica
+exchange could address the single-site chain's mode mixing, but does not
+establish adequate posterior precision. The retained error scale is itself
+uncertain because mixing failed. Any future proposal needs whole-score Monte
+Carlo error bounds and independent-chain stability; a10-second per-flight
+tolerance is not required in principle. No implementation, pilot, held score
+or parameter search follows. See
+`all_discrete_peer_20261012/replica_exchange_assessment.json`.
+
 **Current-parent comparison frozen before results.** The timestamp and TabM
 tests retain their exact-v78 primary comparisons. A secondary read-only check
 adds each unchanged component delta to integer v79, with coefficient1 and the

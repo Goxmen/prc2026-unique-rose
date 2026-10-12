@@ -1,5 +1,5 @@
 {
-  "status": "first_constant_record_complete_desktop_released_for_TabM_remaining_three_arms_paused",
+  "status": "remaining_three_arms_resumed_January_candidate_complete_July_constant_running",
   "main_design": {
     "features": "unchanged original184; no source-phase features",
     "columns": 184,
@@ -144,5 +144,29 @@
   "preflight": {
     "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/preflight.json",
     "sha256": "e9ac9a6a3f5b05d08271b87e1806eaefae0f3a5b00f452e5effe748f2f20723d"
+  },
+  "resumed_execution_record": "VALIDATION/runs/v3_20261012_linear_leaf_main/execution_remaining.json",
+  "January_candidate_record": {
+    "identity": {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/identity.json",
+      "sha256": "d546da1ea6b70abde2b314e5ef343576b4d5c5b012d248955661c69da2d6013b"
+    },
+    "staged_model": {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/models/2025-01_candidate.json",
+      "sha256": "86ca955e5d9026a4643b7730379f5cdde535d7b9a20c2cd99e828b96e0b2df05"
+    },
+    "prediction": {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/predictions/2025-01_candidate.parquet",
+      "sha256": "d398600186298f10820d15674be7aa6252ea98e9dcd958030fa98164574486cb"
+    },
+    "month": "2025-01",
+    "arm": "candidate",
+    "all_held_reload_exact": true,
+    "scaler": {
+      "path": "VALIDATION/runs/v3_20261012_linear_leaf_main/scalers/2025-01.json",
+      "sha256": "a5288e0b566687c1b1dd9d347e56d0bfa8922999918fd2970d830bd4b98afa3a"
+    },
+    "held_rows": 153706,
+    "inference_reload_minutes": 4.418621123349779
   }
 }

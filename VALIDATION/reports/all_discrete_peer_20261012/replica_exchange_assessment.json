@@ -1,0 +1,93 @@
+{
+  "status": "source_only_feasibility_assessment_no_implementation",
+  "recommendation": "Deprioritize for the current score target. A short source-only mixing falsifier is technically feasible, but this does not establish adequate posterior-mean precision or a useful predictive gain.",
+  "sources": [
+    {
+      "path": "VALIDATION/joint_public_gibbs_pilot.py",
+      "sha256": "798f904a027ed74680cbf8ca5272d567f3cfb02d27f443729238e52e2f8226b8"
+    },
+    {
+      "path": "VALIDATION/joint_public_gibbs_kernel.c",
+      "sha256": "25cec557f85577b6935f584d49aa51b71171211aa87244d725b4e7b8c4b1f2c7"
+    },
+    {
+      "path": "VALIDATION/reports/ALL_DISCRETE_PEER_INFERENCE_20261012.md",
+      "sha256": "aaddb732c2078d2fd489d56c26122428f782dcd2662d97591414dbe2384692f8"
+    },
+    {
+      "path": "VALIDATION/reports/all_discrete_peer_20261012/gibbs_receipt.json",
+      "sha256": "536e2ccbdf4f47c4991dfe7fca2bf72ecd06729de7e7ff1561791ac9579cf797"
+    },
+    {
+      "path": "VALIDATION/reports/all_discrete_peer_20261012/ep_toy_result_audit.json",
+      "sha256": "9c4d72196d4ab6828d67d1b65f4a8add522aff0073b8bdddd255ba857d08459f"
+    }
+  ],
+  "previous_failure": {
+    "gibbs": "Correct exact discrete target/conditional arithmetic independently reconstructed to6.37e-12; rare-mode mixing and Monte Carlo precision failed. No quadrature is used.",
+    "qmc": "Prior importance sampling collapsed; independent explicit residual likelihood audit passed.",
+    "ep": "Fixed quadrature failed its reference check, separately from Gibbs. Those EP errors do not imply a bug in the Gibbs target.",
+    "worst_target": 192620817,
+    "worst_joint": {
+      "mean": 2583.59448937431,
+      "sd": 4681.771318397522,
+      "rhat": 1.0582029342551116,
+      "bulk_ess": 101.67808051403523,
+      "mean_ess": 17.39271178997105,
+      "mcse": 1122.6038996034486,
+      "constant": false
+    },
+    "worst_increment": {
+      "mean": 525.0561932827018,
+      "sd": 5667.206535301925,
+      "rhat": 1.0555142137969138,
+      "bulk_ess": 70.29395175784038,
+      "mean_ess": 20.12939055750064,
+      "mcse": 1263.14651206206,
+      "constant": false
+    }
+  },
+  "mathematical_contract": {
+    "tempered_target": "pi_beta(x) proportional to product_i p_i(x_i) times L(x)^beta; priors and retained supports stay unchanged; beta=1 is the original target and beta=0 the independent prior.",
+    "site_update": "Exact heat-bath p_i(s)*exp(beta*logL(x_-i,s)); each site kernel satisfies detailed balance. Systematic scan is a composition of invariant kernels, not claimed reversible.",
+    "whole_replica_swap": "For fixed adjacent beta_a,beta_b and complete states x_a,x_b, accept min(1,exp((beta_a-beta_b)*(logL(x_b)-logL(x_a)))). Fixed symmetric swap proposal satisfies detailed balance for the product of tempered targets.",
+    "coordinated_block_swap": "Swap the same fixed peer-coordinate subset between replicas, never arbitrary taxi values across different peers. Independent identical priors across temperatures cancel; acceptance log ratio is beta_a*(logL(x_a_new)-logL(x_a))+beta_b*(logL(x_b_new)-logL(x_b)). The simplified whole-replica ratio is invalid for partial swaps.",
+    "proof_if_authorized": "Enumerate two/three-peer finite supports and two replicas; verify every site/swap kernel detailed balance and full-sweep stationarity to numerical tolerance, then cold marginal and Rao-Blackwell mean against exact enumeration. Check beta0, identical-temperature swaps and support validity.",
+    "estimator": "Use only beta1 cold states; compute original beta1 target conditional/Rao-Blackwell summary after all swaps. Hot samples are not posterior samples. Keep joint/dep views separate."
+  },
+  "cost_and_precision": {
+    "old_three_cohort_four_chain_two_view_seconds": 1.23,
+    "illustrative_fixed_ladder": [
+      1,
+      0.5,
+      0.25,
+      0.125,
+      0.0625,
+      0.03125,
+      0.015625,
+      0
+    ],
+    "pilot_sampler_seconds_estimate": [
+      10,
+      20
+    ],
+    "cost_caveat": "Unmeasured extrapolation from the retained C sampler; a fresh bounded pilot would need authorization and a fixed timeout. Full replica sweeps cost approximately linearly in temperature count; exact two-peer heat-bath blocks add support-product cost.",
+    "illustrative_cold_draws": 2048,
+    "worst_increment_observed_sd_seconds": 5667.206535301925,
+    "iid_mcse_at_old_budget_seconds": 125.2287553592722,
+    "iid_draws_for_10_second_mcse": 321173,
+    "precision_caveat": "The SD comes from a nonconverged trace, so this is an illustrative capacity calculation, not an established posterior variance or rigorous lower bound. Better mixing alone does not guarantee accurate posterior means.",
+    "workspace_plan_if_authorized": "Generate uniforms sequentially by independent ladder, retain cold summaries/replica identities only, and share immutable support arrays; an eight-temperature version of the old budget fits below256MiB incremental memory."
+  },
+  "strongest_objections": [
+    "Tempering broadens away from a narrow feasible aggregate shell. Low overlap between temperatures may prevent cold/hot round trips; adding temperatures increases runtime.",
+    "Compensating within-shell allocations can stay difficult even when aggregate totals and log likelihood mix. Target/copy modes must be monitored separately.",
+    "Whole-state swaps reassign existing configurations; they do not create compensated moves. Fixed coordinated blocks may help but can miss relevant peer combinations.",
+    "Even exact numerical integration would retain potentially misspecified priors/source noise and local-cohort factorization. It contributes no new information and the prior exact largest-peer screen was near-flat."
+  ],
+  "bounded_test_if_later_authorized": "Reuse the frozen7/69/475-peer cohorts, four overdispersed ladders, original two burn/sweep budgets and original scopes. Predeclare one temperature ladder/swap schedule; monitor cold target/copy/aggregate Rhat and both bulk/mean ESS, cross-budget means/MCSE, edge swap rates and replica round trips. Report all cohorts and stop at one fixed runtime budget; no ladder search, easier-cohort gate, held labels, CV or production.",
+  "peer_review": "model_diversity agrees the retained Gibbs failure is mixing, not target arithmetic, and that narrow-shell overlap plus compensating moves are the main tempering risks.",
+  "execution": "Only retained source code and compact report JSONs read. No raw inputs, inference draws, new numerical test, implementation, fit, held scoring or upload.",
+  "root_decision": "Retain assessment; no tempered implementation or pilot for now.",
+  "score_scale_distinction": "A10-second per-flight Monte Carlo tolerance is an illustration, not a required scientific acceptance threshold. It can be stricter than needed for a useful whole-score increment, especially for sparse affected rows. Any future design would need a prediction-vector/score-scale Monte Carlo error bound, affected-row coverage and independent-chain stability, rather than cold ESS or one-flight MCSE alone. Current poor mixing and nonconverged variance estimates are inadequate; no scoring or new data scan was performed to infer such a bound."
+}

@@ -1,0 +1,36 @@
+{
+  "design": {
+    "airport": "Rome Fiumicino",
+    "dates": [
+      "2025-01-10",
+      "2025-01-20",
+      "2025-07-10",
+      "2025-07-20",
+      "2026-01-10",
+      "2026-01-20",
+      "2026-07-10",
+      "2026-07-20"
+    ],
+    "denominator_bounds": [
+      1,
+      3000
+    ],
+    "observation": "Departure Punctuality %",
+    "precision": "half the last published decimal unit; nearest numerator",
+    "sum_probes": "integer minute and integer second sums, unverified granularity",
+    "selection": "fixed dates and airport before source-value inspection",
+    "no_labels": true,
+    "no_model_fit": true,
+    "no_cv": true,
+    "no_count_selection": true
+  },
+  "source": {
+    "path": "data/external/eurocontrol_performance_20261011/pun_apt_data.json",
+    "sha256": "c239cd2fc7ae8b274fad56ab100d7bf4401e07bd238e4f7e8d91f4048318e4f1"
+  },
+  "runner": {
+    "path": "VALIDATION/tools/probe_punctuality_rationals_20261012.py",
+    "sha256": "860810bd884deec93167352deaa92ac8f09ed272631ab0aaaa78fd22b159012a"
+  },
+  "at": "2026-10-12T02:59:44.346112+00:00"
+}

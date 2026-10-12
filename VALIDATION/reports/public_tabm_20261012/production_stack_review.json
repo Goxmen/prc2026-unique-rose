@@ -1,0 +1,36 @@
+{
+  "status": "pass_static_review",
+  "reviewer": "error_mechanisms",
+  "sources": [
+    {
+      "path": "VALIDATION/nn_public_tabm_submit_stack.py",
+      "sha256": "b52f97e8ecf8109bde4017236cf89a3290957825b83c921e767a732dce2b88c3"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_submit.py",
+      "sha256": "89c94123dec051bad44bd843f068d62bd3f9705109a5b32824b1b6cb162c1b83"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_stack.py",
+      "sha256": "6aac66bc16ea994baeb43b68f1eb3cb16cc0b58bb4495ed4a99de744722585c5"
+    },
+    {
+      "path": "VALIDATION/daily_main_refinements_submit.py",
+      "sha256": "867ae62e00b3a5be71c0ec601c30574a31316bb805d293b3f462f1f8ac1540c1"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments_submit.py",
+      "sha256": "00fbb3cb363faf92d59223169a76c8e5bc373bb431181a5f799aa92110149ed0"
+    }
+  ],
+  "checks": [
+    "Only selected seed42 member replaced; original1042/2042 retained and old/new float64 means recomputed independently from saved member predictions.",
+    "Unchanged half calls15/half physical3 neural recipe, original .71 ordinary blend, saved three-tree mean, Rome probabilities and rules.",
+    "Frozen full2025 daily calibration recomputed after changed ordinary predictions; original quality mask, matched bounds and recovered exclusion retained.",
+    "Every original direct/refined/shift/applied/bounded/v77 value and integerv78 must replay exactly.",
+    "Original saved v78 joint increment retained; original integerv78 delta transported once onto integerv79, with zero-delta exact recovery.",
+    "Production/CV identities, source records, completed model/preprocessor/prediction, result/audit bindings and protected template IDs/schema checked.",
+    "Built-in SQL checks every row and serialized output; replay scope is explicitly separate from independent source review."
+  ],
+  "scope": "Code-only independent review. No model inference, source scan, stack freeze/build/audit, candidate version or upload performed."
+}
