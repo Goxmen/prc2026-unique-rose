@@ -52,7 +52,7 @@ def status(remote=False):
         official_checked_at=objective['last_live_check'],slots_remaining=objective['remaining_utc_day_slots'],
         registry=str(REGISTRY.relative_to(ROOT)),hypotheses=len(read(REGISTRY)['entries']),
         desktop=local_job(RUNS/'v3_20261012_nn_public_tabm_duration'),
-        next=['Return/audit selected production ensemble','Score/audit fixed duration comparison','Submit one audited candidate'])
+        next=read(REGISTRY)['next'])
     if remote:
         r=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=10','glaptop-wsl',
             'cd /home/gunes/PRC && .venv/bin/python -'],input=REMOTE,text=True,capture_output=True,timeout=30,check=True)
@@ -65,12 +65,14 @@ def status(remote=False):
     if result.exists():
         r=read(result);value['duration_result']={k:r[k] for k in ['cv','paired','gate_pass']}
         if (result.parent/'independent_audit.json').exists():
-            value['next'].remove('Score/audit fixed duration comparison')
+            value['desktop']['stage']='duration_closed_inconclusive'
     completion=RUNS/'v3_20261012_tabm_pool3_completion/execution.json'
     if completion.exists():
         r=read(completion)
         value['completion']={k:r[k] for k in ['state','active_stage','candidate','failure'] if k in r}
         value['completion']['completed_steps']=len(r['steps'])
+    final=RUNS/'v3_20261012_final_public_tabm_inference'
+    value['final_tabm_local_receipts']={view:(final/f'{view}.json').exists() for view in ['old','final']}
     destination=STATE.with_suffix('.json.tmp');destination.write_text(json.dumps(value,indent=2)+'\n');destination.replace(STATE)
     print(json.dumps(value,separators=(',',':')))
 

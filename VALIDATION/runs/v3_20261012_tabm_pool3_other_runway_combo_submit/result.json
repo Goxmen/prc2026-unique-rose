@@ -1,0 +1,81 @@
+{
+  "design": {
+    "formula": "rint(max(0,v79+(TabM_v78-exactv78)+(other_runway_v78-exactv78)))",
+    "coefficients": [
+      1,
+      1
+    ],
+    "rows": 344841,
+    "inputs": "audited equal TabM seeds42/1042/2042 and robust other-runway integer deltas versus v78",
+    "clipping": "sum original integer v78 deltas onto exactv79, then one nonnegative clip and rounding",
+    "standalone_transports": "independently verify each; do not substitute the separately clipped v79 deltas",
+    "selection": "three-versus-one passes both standalone comparisons and the frozen runway combination",
+    "new_bounds": false,
+    "no_fit": true,
+    "no_search": true,
+    "no_version": true,
+    "no_upload": true,
+    "seeds": [
+      42,
+      1042,
+      2042
+    ]
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/identity.json",
+    "sha256": "1dfcc6130912d3b872908c7df524fa7ccd87ae4d21130cb3b3b83b99e0cd8173"
+  },
+  "rows": 344841,
+  "cv": {
+    "control": 290.67435711796895,
+    "one_tabm_runway": 290.228841003501,
+    "three_tabm": 289.91908993383646,
+    "three_tabm_runway": 289.7627782102906
+  },
+  "paired": {
+    "control": {
+      "change": -0.9115789076783614,
+      "ci95": [
+        -1.3225601276131331,
+        -0.6460758117638034
+      ],
+      "decision": "improvement"
+    },
+    "one_tabm_runway": {
+      "change": -0.46606279321035515,
+      "ci95": [
+        -0.688582491079272,
+        -0.3001304559805235
+      ],
+      "decision": "improvement"
+    },
+    "three_tabm": {
+      "change": -0.15631172354586909,
+      "ci95": [
+        -0.31060528302982604,
+        -0.036095347100276676
+      ],
+      "decision": "improvement"
+    }
+  },
+  "cv_source": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
+    "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+  },
+  "changed": 329023,
+  "standalone_transports_exact": true,
+  "separately_clipped_deltas_would_differ_rows": 0,
+  "clipping_note": "Diagnostic only; no alternative candidate produced or selected.",
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/candidate.parquet",
+      "sha256": "50b986030af2efaab89b69bb69522ade6b060cc7f58fa324954e3fb06e0ef6f4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/predictions.parquet",
+      "sha256": "e9e4d3afb18bd99adf02c91bfc2b2977889a24eae96677ff40fa73bb568c29fb"
+    }
+  ],
+  "no_version": true,
+  "no_upload": true
+}

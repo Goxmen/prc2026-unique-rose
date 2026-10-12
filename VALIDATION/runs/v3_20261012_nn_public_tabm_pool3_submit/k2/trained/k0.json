@@ -1,0 +1,219 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/identity.json",
+    "sha256": "401a084344469cf21e521518733cce959949ce8b47ee500c0b9acd9b2cf7520b"
+  },
+  "design": {
+    "choice": "additional_full_year_tabm_seed2042",
+    "model": {
+      "original_columns": 156,
+      "public_columns": [
+        "pub_dep_count_gap",
+        "pub_dep_mean",
+        "pub_dep_long_count",
+        "pub_dep_long_gap_sum",
+        "pub_dep_resid900_mean",
+        "pub_dep_resid1800_mean",
+        "pub_dep_resid_clock_mean",
+        "pub_dep_own900_left",
+        "pub_dep_own1800_left",
+        "pub_dep_own900_fraction",
+        "pub_dep_own1800_fraction",
+        "pub_dep_long900_fraction"
+      ],
+      "public_transform": {
+        "features": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "scales": [
+          5.0,
+          600.0,
+          20.0,
+          72000.0,
+          100.0,
+          100.0,
+          100.0,
+          3600.0,
+          3600.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+        "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+        "initialization": "original physical seed42; zero new final head; no pretrained weights",
+        "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+      },
+      "track": "unchanged physical CNN, masked mean/max64",
+      "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+      "k": 32,
+      "n_blocks": 2,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "normal",
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "loss": "mean squared error over rows AND individual32 heads",
+      "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+      "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+    },
+    "seed": 2042,
+    "epochs": 15,
+    "stop_source": "unchanged N09 full-year group42 and selected public production stop",
+    "schedule_epochs": 24,
+    "effective_batch": 2048,
+    "microbatch": 512,
+    "target": "min(raw taxi-out,10800), unchanged population mean/std",
+    "population": 2051327,
+    "ranking_view": "old",
+    "ranking_rows": 344841,
+    "columns": 156,
+    "public_columns": 12,
+    "preprocessing": "exact original full-year encoder; append frozen public transform",
+    "track": "unchanged separately bound train and old ranking stores",
+    "execution": "unchanged production fit; reviewed CV permutation-seed specialization",
+    "optimizer": "AdamW lr .002, weight decay .0003; individual-head MSE",
+    "inference": "fixed 512-row chunks, head mean then original seconds scaling/nonnegative clip",
+    "retained": "seed42 production retained exactly; other TabM seed fitted separately",
+    "export": "three-seed equal pool exported by outer continuation runner",
+    "machine": "laptop RTX5060; same host/GPU as passing TabM CV family screen",
+    "no_early_stopping": true,
+    "no_extra_seed": false,
+    "no_weight_search": true,
+    "no_whole_pool_substitution": false,
+    "no_candidate_stack_or_submission_build": true,
+    "no_upload": true,
+    "member": 2
+  },
+  "seed": 2042,
+  "epochs": 15,
+  "training_rows": 2051327,
+  "resources": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+      "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9"
+    },
+    "training_ids": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/training_ids.parquet",
+      "sha256": "e97c401274cd7656408100e5aeed1397db839d838d734bbba895ccfea990a923"
+    },
+    "reference_preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/preprocessing/full_year.pkl",
+      "sha256": "6d3fa0207b94f45324ab928a1f969be6b016a5de7ab93311ee6937ffbed726c4"
+    },
+    "training_features": {
+      "path": "VALIDATION/runs/v3_20261011_public_delay_features/features2025.parquet",
+      "sha256": "28fc54ff31c5ccb41817c649eea963a9a3cd3e037d2adb400e3fd00cfaa7be0d"
+    },
+    "ranking_features": {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/ranking_features.parquet",
+      "sha256": "4f46d20a5463792ca80987f4481ec31bb84f2257152ebe30e116544216f54f0e"
+    },
+    "template": {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/models/k0.pt",
+    "sha256": "8f2079ce360b8ea972a96a0b6ba17b7eeeb5277aa2e0e35c245bdef30df8761d"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/preprocessing/full_year.pkl",
+    "sha256": "b0a015918a11cf78bce52f271e30b796a4970468963e9537cceea28fae84db66"
+  },
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.3722896493601882,
+      "seconds": 157.6361209450115
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.2599147912848348,
+      "seconds": 157.9245623379975
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.2348694043720552,
+      "seconds": 155.52162900699477
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.22153688558001655,
+      "seconds": 156.4166570189991
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.21166188530134508,
+      "seconds": 155.6435403170035
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.2049204346680428,
+      "seconds": 155.1223705500015
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.19938488771004403,
+      "seconds": 155.6104975000053
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.19328324333275657,
+      "seconds": 153.81874374499603
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.18984666727265184,
+      "seconds": 156.58314577899
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.18471558342525946,
+      "seconds": 156.18125887100177
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.18108397436789775,
+      "seconds": 154.69332783100253
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.17672763946709877,
+      "seconds": 156.39207669300959
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.1727846440405709,
+      "seconds": 154.85131976599223
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.1701039242238625,
+      "seconds": 154.7006643670029
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.16633106752915752,
+      "seconds": 155.71049502599635
+    }
+  ],
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "host": "GLAPTOP",
+  "torch": "2.14.1+cu130",
+  "updates_completed_before_inference": true
+}

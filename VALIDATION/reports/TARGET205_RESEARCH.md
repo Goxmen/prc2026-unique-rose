@@ -3,9 +3,9 @@
 ## Official progress
 
 The user resumed research at 02:24 Amsterdam after the requested pause until
-02:00. At the 08:24:12 live check, best/latest v79 scores **219.6130**, rank **9/242**, on all
+02:00. At the12:27:42 live check, best/latest v80 scores **218.8525**, rank **9/242**, on all
 344,841 original January/July departures. The **205.00** target remains
-14.6130 seconds away. Autonomous submissions and both hosts remain authorized.
+13.8525 seconds away. Autonomous submissions and both hosts remain authorized.
 
 | Version | Change | Jan/Jul CV | Official RMSE |
 | --- | --- | ---: | ---: |
@@ -13,18 +13,29 @@ The user resumed research at 02:24 Amsterdam after the requested pause until
 | v77 | v76 adds the selected daily and tree refinements. | 291.5497 | 220.8328 |
 | v78 | v77 adds the joint public-source correction. | 290.9301 | 220.2933 |
 | v79 | v78 is recombined with earlier scored predictions using updated affine weights. | 290.6744 | 219.6130 |
+| v80 | v79 uses the selected TabM and runway update. | 289.7628 | 218.8525 |
 
 V76–v78 were the three retained uploads requested by the user. All succeeded
 once at 02:10/02:20/02:30; v75 remains cancelled. V79 used their actual feedback
-and uploaded at 02:36. Together they improve v74 by 2.0751 seconds. All remote
-hashes match. Four October12 UTC slots are used; one remains for a future
-candidate selected from new evidence. No duplicate or cancelled upload is queued.
+and uploaded at 02:36. Together they improve v74 by 2.0751 seconds. V80 uploaded at12:23:58 and scored218.8525, gaining0.7605 more. All remote
+hashes match. All five October12 UTC slots are used. No duplicate or cancelled upload is queued.
 
 The 02:00 one-shot timer fired but its message was rejected by the IDE because
 the request lacked `threadId`. It did not start inference. The original failure
 receipt remains unchanged; work began after the explicit user resumption.
 The native goal retains its old text/status; the local project objective records
 205 and no native usage limit was altered.
+
+## V80 official breakthrough,12:27 Amsterdam
+
+All three full-year TabM members and the robust same-date runway component
+passed the production/reload/independent SQL audits. V80 uploaded once at
+12:23:58 and scored **218.8525**, improving v79 by **0.7605 seconds**. The total
+October12 gain versus v74 is2.8356. Latest and best agree, rank9/242,344841rows.
+The final slot is consumed; no v81 or automatic upload is assigned. The two
+additional production fits and seven-step completion worker are finished.
+Retain every model/prediction and do not repeat them. The separate final route
+now proceeds with saved-model inference; its four-month feature audit is done.
 
 ## Longer TabM training: closed after matched comparison
 

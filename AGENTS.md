@@ -127,12 +127,15 @@ checks previously tested hypotheses. Full logs stay on disk. Update these at
 milestones, avoid full-report rereads and repeated closed experiments.
 The fixed TabM24-epoch screen is closed: matched CV change−0.001050,
 interval[−0.023749,+0.019831], with July worse. Independent audits pass; retain
-models and do not expand or submit it. Completion worker session36916 waits
-for laptop export, then returns/builds/audits the selected three-TabM/runway file;
-it never fits or uploads. The separate final route requires
-`unique-rose_final.parquet`. Its four-month public inputs are prepared/audited;
-saved-TabM final inference is prepared but has not run. See
-`VALIDATION/reports/final_route_inventory_20261012.json`.
+models and do not expand or submit it. All seven completion-worker stages are done.
+**October12,12:27 Amsterdam: v80 scored218.8525, best/latest, rank9/242.**
+The audited three-TabM/runway combination improves v79 by0.7605 officially;
+CV289.762778 (−0.911579). Upload12:23:58, remote hash exact. All five UTC-day
+slots used. No queued upload. Production returned and saved; never refit/reupload.
+Final route requires `unique-rose_final.parquet`. Four-month public inputs are
+audited; saved-TabM inference is preparing on the original laptop. Every old
+prediction must replay exactly before final predictions. No final upload yet.
+See `VALIDATION/reports/final_route_inventory_20261012.json`.
 
 - **October12, 10:50 Amsterdam: three-TabM pool selected; two full-year fits active.**
   Best/latestv79 **219.6130**, live08:24 Amsterdam, rank9/242; one UTC-day slot remains.

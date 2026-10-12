@@ -1,0 +1,27 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/identity.json",
+    "sha256": "2fdb98a5a03bb8705489560e4c92d2aeb3482db54dbd29b3908554c5e6e80381"
+  },
+  "checks": [
+    {
+      "device": "cuda",
+      "heads": 32,
+      "member_loss_not_mean_loss": true,
+      "padding_ignored": true,
+      "fewer_than_two_track_representation_zero": true,
+      "all_gradients_finite": true,
+      "physical_gradient_nonzero": true,
+      "partial_microbatch_gradient_weighting": true
+    }
+  ],
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "host": "GLAPTOP",
+  "torch": "2.14.1+cu130",
+  "reserved_input_bytes": 4033767548,
+  "peak_allocated_bytes": 4797157888,
+  "logical_step_seconds": 0.13181259466606812,
+  "estimated_fit_minutes": 33.01905496385007,
+  "capacity_adjustment": false,
+  "training_only_dense128point_probe": true
+}

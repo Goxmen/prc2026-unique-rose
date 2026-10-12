@@ -1,29 +1,31 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T10:14:21.666901+00:00",
+  "updated_at": "2026-10-12T10:29:10.700836+00:00",
   "current": {
     "target": 205.0,
-    "best_version": 79,
-    "best_official_rmse": 219.613,
-    "slots_remaining": 1,
+    "best_version": 80,
+    "best_official_rmse": 218.8525,
+    "slots_remaining": 0,
     "repository": "PRIVATE",
-    "laptop": "Two final TabM fits active; one heavy job at a time",
-    "desktop": "Fixed24-epoch duration screen running; matched21/17 trajectory snapshots"
+    "laptop": "Preparing saved-model final inference",
+    "desktop": "Duration closed; production assembly complete"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
   "entries": [
     {
       "id": "public_tabm_pool3",
       "hypothesis": "Replace the public/physical PLE pool with three TabM seeds",
-      "status": "selected",
-      "conclusion": "Audited CV improvement; two full-year members running, original seed42 reused. No official gain yet.",
+      "status": "submitted_v80",
+      "conclusion": "Combined candidate v80 scored218.8525, improving v79 by0.7605. Individual official contributions are not identified.",
       "metrics": {
         "cv": 289.76277821,
         "change_vs_v79": -0.911578908,
         "ci95": [
           -1.322560128,
           -0.646075812
-        ]
+        ],
+        "combined_official_score": 218.8525,
+        "combined_official_change": -0.7605
       },
       "evidence": [
         {
@@ -33,6 +35,10 @@
         {
           "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
           "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_pool3_candidate/submission_v80/official_result.json",
+          "sha256": "3012d136e96382ea32a544dcc9c88c56593e06c5b52a7b96dfcd4a8d5157d242"
         }
       ]
     },
@@ -55,15 +61,21 @@
     {
       "id": "same_date_other_runway",
       "hypothesis": "Other runway taxi totals constrain shared delay peers",
-      "status": "selected",
-      "conclusion": "Audited production correction; included in selected TabM combination.",
+      "status": "submitted_v80",
+      "conclusion": "Combined candidate v80 scored218.8525, improving v79 by0.7605. Individual official contributions are not identified.",
       "metrics": {
-        "change_v79": -0.154162776
+        "change_v79": -0.154162776,
+        "combined_official_score": 218.8525,
+        "combined_official_change": -0.7605
       },
       "evidence": [
         {
           "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/result.json",
           "sha256": "6ad04715f1a54164d863a32b72d8d19bfa60f08999caf1f545bc8227f1c817b1"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_pool3_candidate/submission_v80/official_result.json",
+          "sha256": "3012d136e96382ea32a544dcc9c88c56593e06c5b52a7b96dfcd4a8d5157d242"
         }
       ]
     },
@@ -529,8 +541,8 @@
     }
   ],
   "next": [
-    "Complete and audit three-TabM/runway production; submit one selected candidate",
-    "Test fixed TabM training duration with same-trajectory controls",
-    "Use official feedback before further score-based recombination"
+    "Audited saved-model four-month inference and separate final-route preparation",
+    "Evaluate updated score geometry using actual v80 feedback",
+    "Develop distinct supported hypotheses; no redundant controls or uploads"
   ]
 }

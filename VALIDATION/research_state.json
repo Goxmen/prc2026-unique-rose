@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-10-12T10:14:21.732652+00:00",
+  "updated_at": "2026-10-12T10:29:28.815959+00:00",
   "target": 205.0,
-  "best_version": 79,
-  "best_official_rmse": 219.613,
-  "official_checked_at": "2026-10-12T09:13:15+00:00",
-  "slots_remaining": 1,
+  "best_version": 80,
+  "best_official_rmse": 218.8525,
+  "official_checked_at": "2026-10-12T10:27:42+00:00",
+  "slots_remaining": 0,
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 37,
   "desktop": {
-    "stage": "fits_complete",
+    "stage": "duration_closed_inconclusive",
     "completed_records": 4,
     "last_epoch_at": "12:12:34",
     "fold": "2025-07",
@@ -17,19 +17,20 @@
     "seconds_per_epoch": 63.08
   },
   "next": [
-    "Return/audit selected production ensemble",
-    "Score/audit fixed duration comparison",
-    "Submit one audited candidate"
+    "Audited saved-model four-month inference and separate final-route preparation",
+    "Evaluate updated score geometry using actual v80 feedback",
+    "Develop distinct supported hypotheses; no redundant controls or uploads"
   ],
   "laptop": {
-    "stage": "fit_or_inference",
+    "stage": "export_complete",
     "completed_new_members": [
-      1
+      1,
+      2
     ],
-    "last_epoch_at": "12:12:44",
-    "epoch": 12,
+    "last_epoch_at": "12:21:00",
+    "epoch": 15,
     "epochs": 15,
-    "seconds_per_epoch": 156.39
+    "seconds_per_epoch": 155.71
   },
   "duration_result": {
     "cv": {
@@ -58,7 +59,13 @@
     "gate_pass": false
   },
   "completion": {
-    "state": "waiting",
-    "completed_steps": 0
+    "state": "complete",
+    "active_stage": null,
+    "candidate": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/candidate.parquet",
+    "completed_steps": 7
+  },
+  "final_tabm_local_receipts": {
+    "old": false,
+    "final": false
   }
 }

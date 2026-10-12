@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_tabm_pool3_runway_combination_20261012.py",
+    "sha256": "adc137bf4383a12e0df43479b4726807735a407e6c882746cf729e04f2233eb8"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/identity.json",
+    "sha256": "1dfcc6130912d3b872908c7df524fa7ccd87ae4d21130cb3b3b83b99e0cd8173"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/result.json",
+    "sha256": "dc850c56c993ff230b8b7b73eb8daba01e2303f3b2e58b99868d3c1a434f60d6"
+  },
+  "file": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/candidate.parquet",
+    "sha256": "50b986030af2efaab89b69bb69522ade6b060cc7f58fa324954e3fb06e0ef6f4"
+  },
+  "component_audits": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit_stack/audit.json",
+      "sha256": "8b77471cf6da4771ee2ee6426e75078983451f10aa7d10c2bf8be1d6092427ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/audit.json",
+      "sha256": "593b4b60bd9ab5cebb70959f42b13ad5d8be0a029836831e024e30e5d53474c6"
+    }
+  ],
+  "rows": 344841,
+  "cv_rows": 344419,
+  "changed_rows": 329023,
+  "cv": {
+    "control": 290.67435711796895,
+    "three_tabm_runway": 289.7627782102906
+  },
+  "checks": [
+    "Integer-only independent SQL combination from exact scored v78/v79 files",
+    "All source/component bindings and complete ID joins",
+    "No separate-component clipping substituted into the frozen formula",
+    "Original template schema and every non-target column preserved",
+    "Independent monthly and equally averaged Jan/Jul CV arithmetic"
+  ],
+  "scope": "Final composition/file audit; component model/source and raw CV truth checks remain in their prior audits.",
+  "no_fit": true,
+  "no_upload": true,
+  "original_auditor": {
+    "path": "VALIDATION/tools/audit_tabm_runway_combination_20261012.py",
+    "sha256": "6a39ba707146b56498db888174c0f76ea8f1355796a7e5d87bdc1d6e36373ba0"
+  },
+  "specialization": "Only three CV column-name literals and three source folders changed"
+}

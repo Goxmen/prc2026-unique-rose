@@ -1,0 +1,34 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/identity.json",
+    "sha256": "d223e62b463b6a6cd38b67fef8e125d709fabd12ad2e0540862dc97a0fc8c2f6"
+  },
+  "members": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/networks/old_k0.parquet",
+      "sha256": "a6e5d09c2f3eb3be8d33455e2fef50d21bf5705aa2fffeb3e363f5d2789ed087"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/networks/old_k0.parquet",
+      "sha256": "e8efe9d35802ff631c71a31278df399d7f039d0460e6ff58b0059afbc85b4b84"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/networks/old_k0.parquet",
+      "sha256": "b389ce5fad01fdb35fb2a1b50482975a3dc17cfc9d7e06988f14f063cef170c3"
+    }
+  ],
+  "pool": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/replacement_pool.parquet",
+    "sha256": "143c18b1169ee5cbefc175451f08f981ce4bca4e07610d966bc63caecb42ec21"
+  },
+  "rows": 344841,
+  "seeds": [
+    42,
+    1042,
+    2042
+  ],
+  "view": "old",
+  "formula": "float64 equal mean of float32 predictions",
+  "no_final_stack": true,
+  "no_upload": true
+}

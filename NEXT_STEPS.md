@@ -1,10 +1,9 @@
 # Next steps
 
-**Active target: 205.00 seconds or lower.** Best/latest is **v79 at 219.6130**,
-leaving **14.6130 seconds**. Live check: **12 October 08:24:12 Amsterdam**,
-rank **9/242**, all **344,841 flights**. Autonomous submissions and both machines
-remain authorized, with one heavy job per host. Four October 12 UTC submission
-slots are used; **one remains for a new candidate after experimental feedback**.
+**Active target: 205.00 seconds or lower.** Best/latest is **v80 at218.8525**,
+leaving **13.8525 seconds**. Live12 October12:27:42 Amsterdam, rank **9/242**,
+all **344,841 flights**. Autonomous submissions and both machines remain authorized,
+with one heavy job per host. **All five October12 UTC submission slots are used.**
 
 | Candidate | Change | Jan/Jul CV | Official RMSE |
 | --- | --- | ---: | ---: |
@@ -12,6 +11,7 @@ slots are used; **one remains for a new candidate after experimental feedback**.
 | v77 | v76 adds the selected daily and tree refinements. | 291.5497 | 220.8328 |
 | v78 | v77 adds a joint public taxi-count, taxi-sum and departure-delay correction. | 290.9301 | 220.2933 |
 | v79 | v78 is recombined with earlier scored predictions using updated affine weights. | 290.6744 | 219.6130 |
+| v80 | v79 uses the selected TabM and runway update. | 289.7628 | 218.8525 |
 
 V76, v77 and v78 uploaded once at 02:10, 02:20 and 02:30. After their feedback,
 the new 51-vector diagnosis excluded unsubmitted v75 and used only actual
@@ -44,19 +44,14 @@ snapshot: `VALIDATION/research_state.json`):
 - **Desktop duration comparison closed:** matched CV change−0.001050,
   interval[−0.023749,+0.019831], with July worse. All model/SQL audits pass.
   Keep the selected15-epoch production recipe; no new fits or candidate.
-- **Finite production completion worker:** session36916 waits for laptop export
-  and an idle desktop, then returns/builds/audits the selected pool/runway file.
-  It does not fit or upload; source hashes and per-stage receipts are pinned.
-
-- **Selected three-TabM combination:** CV290.674357→289.762778 versus v79,
-  −0.911579, interval[−1.322560,−0.646076]. It improves the audited one-TabM
-  combination by0.466063. All frozen pool/transport/combination audits pass.
-  No version or upload is assigned; this is reused development evidence.
-- **Laptop:** two additional full-year fits started10:36 Amsterdam, seeds1042/
-  2042,15epochs each. Reuse completed seed42. SSH session52213/PID21028;
-  never duplicate fits or update its sources midfit. Return only new artifacts
-  with `tools/return_tabm_pool3_submit_20261012.py`, then run the prepared
-  three-member stack, runway combination and independent final-file audit.
+- **V80 complete:** uploaded once12:23:58, official218.8525, gain0.7605 versusv79.
+  Three TabM members and same-date runway correction pass all audits; production
+  export/return and all seven completion stages are done. Do not refit or reupload.
+- **Final route:** four-month public inputs pass full SQL audit. Run retained
+  TabM inference on the original laptop, requiring exact old-view replay first.
+  Inventory/replay every other required saved component before final assembly.
+- **Feedback:** diagnose the new v80 direction using actual official scores;
+  do not impute cancelled submissions or assign a new version without evidence.
 - **Stand context closed:** fixed main-tree screen is complete.
   Original184 inputs plus four same-month stand medians/counts from supplied
   AOBT_3 clocks and arrival taxi-in; each query's own clock is excluded.
