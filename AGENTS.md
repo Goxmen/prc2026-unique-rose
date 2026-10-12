@@ -69,10 +69,13 @@ but identify the result as stale and report its timestamp.
 - **Laptop network is slow.** When desktop artifacts are needed, transfer only
   necessary files/columns, retain a verified local cache, and reuse it. Avoid
   repeating remote downloads or making experiments depend on remote reads.
-- Repo is private during the challenge but MUST be public under GPLv3 before it
-  ends (extended to 14 Oct 2026, 10:00 UTC; see README) for prize eligibility:
-  `gh repo edit Goxmen/PRC --visibility public`.
-  Write everything as if it were already public.
+- **User instruction, 12 October: keep the repository private.** GitHub
+  `Goxmen/PRC` was verified PRIVATE. This supersedes the earlier automatic
+  publication instruction. Public GPLv3 source is a prize-eligibility condition
+  (deadline 14 Oct 2026, 10:00 UTC); explain that reason to the user before any
+  proposed visibility change. Do not publish automatically.
+- Keep a very brief local progress note in `LOCAL_PROGRESS.md`, which is
+  gitignored and must never be committed. Update it after material results.
 - `data/` and `*.parquet` are gitignored; keep it that way. `data/FEATURES.md`
   is the one tracked exception (column docs).
 - Team: gunes (GitHub `Goxmen`, WSL) and Ioana (GitHub `ioana2303`, macOS).
