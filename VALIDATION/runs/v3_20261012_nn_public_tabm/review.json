@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "reviewer": "error_mechanisms",
+  "sources": {
+    "VALIDATION/nn_public_tabm.py": "9372661a5b92ed9708e90f8c0226d1d203d868997e1e8c6ac352ac6f9f9bbc19",
+    "VALIDATION/nn_public_tabm_jan_jul.py": "c28cc9686c8acccd1e215e03fb6b7ee4b6a51909ae68f412ed2cd15b56b82775",
+    "VALIDATION/nn_public_tabm_stack.py": "6aac66bc16ea994baeb43b68f1eb3cb16cc0b58bb4495ed4a99de744722585c5"
+  },
+  "checks": [
+    "individual32-head MSE, inference mean",
+    "partial microbatch sample weighting and one optimizer/scheduler update",
+    "original156 preprocessing and frozen21/17",
+    "input cache hashes and exact whole-month folds",
+    "checkpoint before inference",
+    "complete v78 replay and symmetric same-laptop replacements",
+    "explicit frozen-v78 result binding"
+  ],
+  "scope": "Independent static source review; model CPU/CUDA preflight separately retained"
+}

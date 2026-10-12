@@ -117,7 +117,7 @@ the tested numerical branch; it does not establish impossibility of every
 discrete inference algorithm. No outcome-selected cohort gate or further budget
 expansion follows. See [the numerical report](ALL_DISCRETE_PEER_INFERENCE_20261012.md).
 
-**Linear-leaf trees: resource preflight in progress.** A newly updated
+**Linear-leaf trees: resource preflight passed; full comparison authorized.** A newly updated
 [joyous-rainbow solution](https://github.com/radekacar/joyous-rainbow/tree/dbe1eded734da48bdad7cc11b741028794316179)
 reports gains from linear leaves on a substantially weaker, different pipeline.
 That result is motivation, not evidence of a gain here. Our proposed comparison
@@ -130,10 +130,22 @@ recommends comparable numeric scales and warns of higher memory use. A fixed
 scaling and hash checks, with cumulative peak memory7.154GiB. On65,536 rows,
 constant/linear arms take1.082/1.157seconds; late-tree costs differ by1.16×.
 Linear coefficients apply without missing-feature fallback on62.806% of sampled
-row/tree pairs, and outputs are finite. A full-January64-round resource probe
-is now running before selecting a full experiment; no held score is read.
-Missing path features can force constant fallbacks. No public code was executed
-or copied.
+row/tree pairs, and outputs are finite. On all1,596,201 January training rows,
+the64-round constant/linear probes take18.23/20.83seconds, with late-tree means
+0.2043/0.2334seconds and cumulative peak memory7.159GiB. Outputs remain finite.
+The first8,192 training rows have54.13% linear-active row/tree pairs; this is
+not a representative full-year or test-set active-rate estimate.
+
+The fixed four-fit comparison has passed independent review and is frozen: each month gets
+a fresh standardized constant-leaf control and its linear-leaf counterpart,
+with 10,000 rounds and the original settings. Expected total runtime is roughly
+1.3–2.5 hours before allowing for full inference, with substantial uncertainty
+from extrapolating early-tree costs. No held score was read in either probe.
+The desktop is currently allocated to the shorter cohort-context preparation
+and screen. Linear fits wait for that resource to be released.
+No public code was executed or copied. See
+`source_clocks_20261012/linear_leaf_cost.json` and
+`source_clocks_20261012/linear_leaf_design.json`.
 
 **Current-parent comparison frozen before results.** The timestamp and TabM
 tests retain their exact-v78 primary comparisons. A secondary read-only check
@@ -160,7 +172,11 @@ neighborhoods have more than 16 peers; their median size is 30–37. These four 
 coverage evidence, not representative error estimates or validation gains.
 
 The fixed comparison will retain the original 168-input physical network,
-training rows, seed 42 and 21/17 epochs, adding a compact context branch. Before
+training rows, seed 42 and 21/17 epochs, adding a compact context branch. Its
+final head combines 64 pooled context values with the existing 256-dimensional
+query representation, so interpretation can depend on the query's known regime.
+This choice was made before freezing or reading held scores. The original
+public-input branch remains unchanged. Before
 any fit, independent checks must establish permitted sources, query/alias
 exclusion, training-only scaling, complete-tuple permutation invariance,
 empty-context fallback and original initialization/RNG parity. A fixture with

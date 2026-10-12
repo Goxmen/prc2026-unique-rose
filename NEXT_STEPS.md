@@ -40,10 +40,11 @@ Current work:
   Four fits run sequentially; preflight and independent loss/update/stack review
   pass. See `v3_20261012_nn_public_tabm/`. No HPO or extra seeds are authorized
   by this design; preserve completed checkpoints and preprocessing.
-- **Desktop CPU:** a training-only64-round linear-leaf resource probe on the
-  full January training population. Its65,536-row sample is finite, fits in
-  7.154GiB cumulative peak memory, and runs at1.16× the late-tree control cost.
-  No full scored linear experiment is queued pending full-row resource evidence.
+- **Desktop:** allocated to full cohort-context input preparation, audits and
+  GPU preflight, followed by one fixed two-fold screen after review. Linear-leaf
+  full-row probes also pass: 7.159 GiB cumulative peak memory and 1.14× late-tree
+  cost. The fixed four-fit matched linear comparison passed independent review
+  and is frozen; it will follow after the desktop is released.
 - **Timestamp features: closed.** Exact-v78 CV worsens0.012388seconds,
   interval[−0.004784,+0.027121]; frozen-v79 transport worsens0.017603seconds,
   interval[+0.000630,+0.032125]. Both original controls, saved candidate model

@@ -1,0 +1,24 @@
+{
+  "state": "fitting",
+  "updated_at": "2026-10-12T00:46:57.236776+00:00",
+  "machine": "glaptop-wsl",
+  "pid": 14874,
+  "ssh_session": 10174,
+  "watch_session": 50061,
+  "command": "OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python -u VALIDATION/nn_public_tabm_jan_jul.py fit",
+  "sequence": [
+    "2025-01 tabm",
+    "2025-01 control",
+    "2025-07 tabm",
+    "2025-07 control"
+  ],
+  "epochs": {
+    "2025-01": 21,
+    "2025-07": 17
+  },
+  "source_frozen": true,
+  "progress": "January TabM epoch3/21 complete02:46:24Amsterdam; ~123sec/epoch",
+  "fit_log": "VALIDATION/runs/v3_20261012_nn_public_tabm/fit.log",
+  "authorization": "root explicit four-fit laptop allocation after preflight; no more fits/seeds authorized",
+  "next": "Return models/predictions; score exactv78 in allocated desktop CPU window; no uploads"
+}
