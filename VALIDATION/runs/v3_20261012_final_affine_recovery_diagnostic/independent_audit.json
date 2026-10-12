@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "source_sha256": "60c12a3509995d0f0ee71b4503271d649d31ca3efd8c935f9429b93605519166",
+  "result_sha256": "3731bf4aa121898085408d59f0f22bc04022656f2e63b758e382619e4d313788",
+  "independent_symbolic_nested_expansion": true,
+  "checks": {
+    "ranking_all_rows": {
+      "rows": 344841,
+      "teacher_max_error": 3.637978807091713e-12,
+      "prediction_max_error": 9.094947017729282e-13
+    },
+    "2026-01->2026-07": {
+      "held_rms": 58.07922387626811,
+      "maximum_training_normal_equation_error": 2.1242815839705997e-10
+    },
+    "2026-07->2026-01": {
+      "held_rms": 44.25888623403362,
+      "maximum_training_normal_equation_error": 1.5153026056147212e-10
+    },
+    "historical_all_rows": {
+      "rows": 344419,
+      "teacher_max_error": 3.637978807091713e-12,
+      "prediction_max_error": 9.094947017729282e-13
+    }
+  },
+  "scope": "Portability fidelity only; no new taxi-out score or candidate is supported"
+}

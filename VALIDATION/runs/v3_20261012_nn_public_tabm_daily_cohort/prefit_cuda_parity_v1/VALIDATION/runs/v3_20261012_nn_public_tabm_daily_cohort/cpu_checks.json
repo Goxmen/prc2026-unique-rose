@@ -1,0 +1,38 @@
+{
+  "source": {
+    "path": "VALIDATION/nn_public_tabm_daily_cohort.py",
+    "sha256": "5e3f651971f378832555db4fdd281280dcad7b4ee439eea95df2feb8faec7422"
+  },
+  "model_source": {
+    "path": "VALIDATION/nn_public_tabm_daily_cohort_model.py",
+    "sha256": "fef74a36c5e38d3b31fa794c73d0a5b316397823ef7e28f8f52526473a1b4092"
+  },
+  "bank_source": {
+    "path": "VALIDATION/daily_cohort_bank.py",
+    "sha256": "41fa243dfff8855797159d622feb2ac5ef85894ff8cdb8e7d5d69402c4239b1a"
+  },
+  "model": {
+    "device": "cpu",
+    "initialization_exact": true,
+    "original_forward_exact": true,
+    "original_gradient_exact": true,
+    "original_dropout_and_constructor_RNG_exact": true,
+    "first_original_AdamW_update_exact": true,
+    "zero_initial_donor_gradients_expected": true,
+    "active_donor_gradients_finite_nonzero": true,
+    "complete_tuple_permutation": true,
+    "query_alias_and_padding_invariant": true,
+    "empty_branch_exact_zero": true
+  },
+  "bank": {
+    "query_and_shared_aircraft_aliases": true,
+    "exact_signature_alias": true,
+    "inclusive_120_second_boundary": true,
+    "unknown_identity_not_alias": true,
+    "VFR_excluded_unknown_included": true,
+    "fixed_finite_scaling": true
+  },
+  "training_AST_restores_exactly": true,
+  "original_microbatch": 512,
+  "original_predict_chunk": 512
+}

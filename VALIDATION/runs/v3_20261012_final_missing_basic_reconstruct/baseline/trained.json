@@ -1,0 +1,54 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/identity.json",
+    "sha256": "a69fc281d09f4106a9c1048f12d73c50b776a21ab29f2126e6c53467e8b90754"
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/model.txt",
+    "sha256": "49bb72ae1c58fa5ca550bf8bf55dab2fc46f36652d5f9142956f106530919dfc"
+  },
+  "categories": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/categories.json",
+    "sha256": "441c1487df1747c8f4a20b3e0c18c951aa3e534e2e3dff384f2aff91073eb85d"
+  },
+  "preflight": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/preflight.json",
+    "sha256": "9d74205d7a77b1c40a6452748d67877df857b33d78594d5721049a40891038c8"
+  },
+  "same_original_model_hash": false,
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "minutes": 2.193861376800002,
+  "source": {
+    "path": "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/source/VALIDATION/modeling.py",
+    "sha256": "6070559071c24b222a31dc259fa44ca87191f6bd8b4a6f695423194d95cfab23"
+  }
+}

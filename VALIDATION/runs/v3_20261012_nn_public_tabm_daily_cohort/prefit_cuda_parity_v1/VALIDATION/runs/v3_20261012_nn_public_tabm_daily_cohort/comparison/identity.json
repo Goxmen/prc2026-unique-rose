@@ -1,0 +1,180 @@
+{
+  "design": {
+    "parent": "v80 selected three TabM seeds and same-date runway evidence",
+    "change": "zero-initialized complete airport/UTC-day input-only peer encoder for seed42 only",
+    "architecture": {
+      "original": {
+        "original_columns": 156,
+        "public_columns": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "public_transform": {
+          "features": [
+            "pub_dep_count_gap",
+            "pub_dep_mean",
+            "pub_dep_long_count",
+            "pub_dep_long_gap_sum",
+            "pub_dep_resid900_mean",
+            "pub_dep_resid1800_mean",
+            "pub_dep_resid_clock_mean",
+            "pub_dep_own900_left",
+            "pub_dep_own1800_left",
+            "pub_dep_own900_fraction",
+            "pub_dep_own1800_fraction",
+            "pub_dep_long900_fraction"
+          ],
+          "scales": [
+            5.0,
+            600.0,
+            20.0,
+            72000.0,
+            100.0,
+            100.0,
+            100.0,
+            3600.0,
+            3600.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+          "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+          "initialization": "original physical seed42; zero new final head; no pretrained weights",
+          "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+        },
+        "track": "unchanged physical CNN, masked mean/max64",
+        "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+        "k": 32,
+        "n_blocks": 2,
+        "d_block": 512,
+        "dropout": 0.1,
+        "activation": "ReLU",
+        "arch_type": "tabm",
+        "start_scaling_init": "normal",
+        "lr": 0.002,
+        "weight_decay": 0.0003,
+        "loss": "mean squared error over rows AND individual32 heads",
+        "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+        "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+      },
+      "bank": {
+        "cohort": "airport and UTC takeoff day",
+        "width": 17,
+        "original_scalar_columns": [
+          "actual_clock",
+          "op_ground",
+          "op_stand",
+          "ab_stand",
+          "actual_valid",
+          "op_ground_valid",
+          "op_stand_valid",
+          "ab_stand_valid",
+          "actual_present",
+          "stand_x",
+          "stand_y",
+          "stand_known",
+          "log_raw_count",
+          "ground_fraction",
+          "ground_known"
+        ],
+        "extras": [
+          "scheduled_takeoff_gap",
+          "scheduled_takeoff_gap_present"
+        ],
+        "fixed_scaling": "clock asinh(seconds/3600); geometry clip(meters/2000,-10,10); gap asinh(seconds/7200) clip[-10,10]; explicit masks unchanged",
+        "donor_population": "all input departures except explicit VFR; unknown retained",
+        "aliases": "same movement ID; known same aircraft within120seconds; exact known takeoff/AOBT/stand/runway tuple",
+        "no_labels": true,
+        "no_predictions": true,
+        "allowed_scope": "same UTC day only, exact non-contiguous original outer-fold months",
+        "order": "sorted (airport code, UTC day), donor movement ID ascending",
+        "production": "separate old/final input banks required; this bank is 2025 only"
+      },
+      "encoder": "17 ->32 SiLU ->32 SiLU, no dropout",
+      "pooling": "leave-query-and-alias-out mean32, second-moment32, log1p(count)/log853",
+      "projection": "65 to unchanged joined-input width; weight and bias initially zero",
+      "position": "addition immediately before original TabM ensemble view",
+      "no_new_random_stream": "constructor uses fork_rng; no context dropout",
+      "empty": "exactly zero context branch including learned projection bias",
+      "training": "original individual32-head MSE, row permutation, microbatch and optimizer"
+    },
+    "seed": 42,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "schedule_epochs": 24,
+    "effective_batch": 2048,
+    "microbatch": 512,
+    "inference_chunk": 512,
+    "retained_pool_members": [
+      1042,
+      2042
+    ],
+    "control": "same-laptop saved seed42; replay every held prediction plus zero-branch outputs before each fit",
+    "cohort_identity": "existing UTC takeoff-day feature grouping; exact published cohort/calendar identity not established",
+    "scaler": "old training-only preprocessing exact; donor fixed physical transforms with no fitted statistics",
+    "randomness": "unchanged initialization, row-permutation/dropout streams; no added stochastic operation",
+    "training": "unchanged original train AST; only nonrandom scalar packet added through track adapter",
+    "primary": "one replacement in three-TabM native component; integer component delta once onto exact v80",
+    "gate": "both months improve and paired-day95% upper endpoint below0 versus exactv80",
+    "continuation": "passing fixed comparison required before any extra seeds; otherwise close",
+    "source_scope": "training donor day belongs to exact allowed months; held donor day belongs only to held month",
+    "caution": "repeatedly reused development data; no independent confirmation",
+    "no_loss_change": true,
+    "no_weight_search": true,
+    "no_epoch_selection": true,
+    "no_parameter_scan": true,
+    "no_production": true,
+    "no_upload": true,
+    "formula": "integer v80 plus new-minus-old serialized TabM v78 component, then one nonnegative clip and rounding",
+    "reference": "v80 retains three selected TabM seeds and same-date runway correction",
+    "guard": "Every original one-TabM/v78 control, raw truth, current v80 and component source must remain exact"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/nn_public_tabm_daily_cohort_score.py",
+      "sha256": "b00d5b971cb89bf26e45917f216399aa621147f498e42aff101aa08baebc40f6"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_stack.py",
+      "sha256": "f55d193f387c05d084a4240bd785f504186dcd4ab1c49fb91bc86860908d0214"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/identity.json",
+      "sha256": "edc2755a579e81b82e297f312798800d39b8b8390ee1f6ac6ccda976e7598717"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/scored.parquet",
+      "sha256": "e4cc52b31b606b24a263eacb5c0d086378cd5eaaa174a55f14e50082723a524f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/result.json",
+      "sha256": "2ffb7010ed2a35f5738ccb6753be5567d5a92cc6c09aedf1410ff0f28605dedd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/audit.json",
+      "sha256": "05fc66238bd3f73ffbd7199d056407c51f6a924da44062a5ee78a39431ef39e7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
+      "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+    }
+  ],
+  "before_fitting": true
+}

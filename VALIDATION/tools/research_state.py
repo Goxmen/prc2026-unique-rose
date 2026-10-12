@@ -30,13 +30,20 @@ def local_job(path):
 REMOTE="""
 import json,re
 from pathlib import Path
-p=Path('/home/gunes/PRC/VALIDATION/runs/v3_20261012_nn_public_tabm_depth3')
+root=Path('/home/gunes/PRC')
+p=root/'VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort'
+daily=p.exists()
+if not daily:p=root/'VALIDATION/runs/v3_20261012_nn_public_tabm_depth3'
 done=[m for m in ['2025-01','2025-07'] if (p/f'k0/networks/{m}_tabm.json').exists()]
-log=Path('/home/gunes/PRC/tmp/tabm_depth3_fit.log')
-with log.open('rb') as f:
- f.seek(max(0,log.stat().st_size-8192));tail=f.read().decode(errors='replace')
+log=root/('tmp/daily_cohort_fit.log' if daily else 'tmp/tabm_depth3_fit.log')
+tail=''
+if log.exists():
+ with log.open('rb') as f:
+  f.seek(max(0,log.stat().st_size-8192));tail=f.read().decode(errors='replace')
 matches=re.findall(r'\\[(\\d+:\\d+:\\d+)\\] (\\S+) tabm epoch(\\d+)/(\\d+): train=([\\d.]+); seconds=([\\d.]+)',tail)
-r=dict(stage='cv_fits_complete' if (p/'audit.json').exists() else 'depth3_fit_or_inference',completed_folds=done)
+r=dict(stage='cv_fits_complete' if (p/'audit.json').exists() else ('daily_cohort_fit_or_inference' if daily else 'depth3_fit_or_inference'),completed_folds=done)
+if not log.exists():r['stage']='preflight_pending'
+r.update(run=str(p.relative_to(root)),preflight_pass=(p/'preflight.json').exists())
 if matches:
  clock,fold,epoch,total,loss,seconds=matches[-1]
  r.update(last_epoch_at=clock,fold=fold,epoch=int(epoch),epochs=int(total),seconds_per_epoch=float(seconds))
@@ -98,7 +105,21 @@ def status(remote=False):
     if (depth/'comparison/independent_audit.json').exists():
         r=read(depth/'comparison/result.json')
         value['depth3_result']={k:r[k] for k in ['cv','paired','gate','scores']}
-        value['laptop']=dict(stage='fixed_depth3_screen_complete',training_receipt=str((depth/'audit.json').relative_to(ROOT)))
+        if not remote and not (RUNS/'v3_20261012_nn_public_tabm_daily_cohort/identity.json').exists():
+            value['laptop']=dict(stage='fixed_depth3_screen_complete',training_receipt=str((depth/'audit.json').relative_to(ROOT)))
+    basic=RUNS/'v3_20261012_final_missing_basic_reconstruct'
+    for family in ['baseline','recovery']:
+        result=basic/family/'result.json';audit=basic/family/'independent_audit.json'
+        if result.exists() and audit.exists():
+            r=read(result);a=read(audit)
+            assert a['status']=='pass'
+            versions=[int(v) for v,t in r['views']['old'].items() if t['exact_original_integer_replay']]
+            assert len(versions)==len(r['views']['final'])
+            value['legacy_final']['versions']=sorted(set(value['legacy_final']['versions']+versions))
+            value['legacy_final'].setdefault('additional_receipts',[]).append(str(audit.relative_to(ROOT)))
+    allocation=read(REGISTRY).get('machine_allocation',{})
+    if 'desktop' in allocation:value['desktop']=allocation['desktop']
+    if not remote and 'laptop' in allocation:value['laptop']=dict(allocation['laptop'],stale=True)
     destination=STATE.with_suffix('.json.tmp');destination.write_text(json.dumps(value,indent=2)+'\n');destination.replace(STATE)
     print(json.dumps(value,separators=(',',':')))
 

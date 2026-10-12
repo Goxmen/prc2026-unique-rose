@@ -1,0 +1,74 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/identity.json",
+    "sha256": "ae492d62698617a8c735713cdbfb90855d7f0b2d505a9549fa58e2781c9482aa"
+  },
+  "checks": [
+    {
+      "device": "cpu",
+      "initialization_exact": true,
+      "original_forward_exact": true,
+      "original_gradient_exact": true,
+      "original_dropout_and_constructor_RNG_exact": true,
+      "first_original_AdamW_update_exact": true,
+      "zero_initial_donor_gradients_expected": true,
+      "active_donor_gradients_finite_nonzero": true,
+      "complete_tuple_permutation": true,
+      "query_alias_and_padding_invariant": true,
+      "empty_branch_exact_zero": true
+    },
+    {
+      "device": "cuda",
+      "initialization_exact": true,
+      "original_forward_exact": true,
+      "original_gradient_exact": true,
+      "original_dropout_and_constructor_RNG_exact": true,
+      "first_original_AdamW_update_exact": true,
+      "zero_initial_donor_gradients_expected": true,
+      "active_donor_gradients_finite_nonzero": true,
+      "complete_tuple_permutation": true,
+      "query_alias_and_padding_invariant": true,
+      "empty_branch_exact_zero": true
+    }
+  ],
+  "capacity": [
+    {
+      "month": "2025-01",
+      "peak_allocated_bytes": 4370331136,
+      "step_seconds": 0.16247736200000418,
+      "donor_groups": 512,
+      "donors_each": 852,
+      "scalar_bank_reserved": 214576200,
+      "original_matrix_bytes_reserved": 2946843388,
+      "original_track_geometry_quality_reserved": 191824324,
+      "training_and_inference_width": 512
+    },
+    {
+      "month": "2025-07",
+      "peak_allocated_bytes": 3671258624,
+      "step_seconds": 0.1639744535000318,
+      "donor_groups": 512,
+      "donors_each": 852,
+      "scalar_bank_reserved": 214576200,
+      "original_matrix_bytes_reserved": 2241313064,
+      "original_track_geometry_quality_reserved": 191824324,
+      "training_and_inference_width": 512
+    }
+  ],
+  "training_ast_exact": true,
+  "parity_backend": {
+    "scope": "model_type.check CPU/CUDA only",
+    "deterministic": true,
+    "benchmark": false,
+    "original_flags": [
+      false,
+      false
+    ],
+    "restored_flags": [
+      false,
+      false
+    ],
+    "restored": true,
+    "capacity_and_fitting_unchanged": true
+  }
+}

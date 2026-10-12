@@ -1,0 +1,17 @@
+{
+  "status": "pass_context_math_only",
+  "source_sha256": "fef74a36c5e38d3b31fa794c73d0a5b316397823ef7e28f8f52526473a1b4092",
+  "explicit_per_query_gather_agrees": true,
+  "max_standardized_context_difference": 1.862645149230957e-08,
+  "excluded_and_padding_gradient_cancellation_fp32_bound": true,
+  "maximum_cancelled_input_gradient": 1.5717157575423357e-09,
+  "maximum_relative_cancelled_gradient": 3.329721129210526e-08,
+  "unrelated_cohort_input_gradients_exact_zero": true,
+  "all_present_donor_input_gradients_active": true,
+  "active_parameter_gradients_finite": true,
+  "zero_donor_and_all_excluded_context_exact_zero": true,
+  "no_fit": true,
+  "no_candidate": true,
+  "audit_correction": "Initial exact-zero assertion failed at2.40545e-10; corrected to64*fp32_epsilon times maximum query gradient, with no model change",
+  "pending": "Original full-model constructor/update/RNG parity and GPU execution are separate preflights"
+}

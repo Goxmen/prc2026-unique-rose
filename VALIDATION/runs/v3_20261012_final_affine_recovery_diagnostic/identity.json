@@ -1,0 +1,42 @@
+{
+  "design": {
+    "scope": "Descriptive model portability; no candidate, score optimization or final prediction",
+    "target": "Effective missing weighted version residual, anchored at portable v38",
+    "inputs": "All fifteen previously audited portable integer versions; differences from v38",
+    "ridge": "No intercept; solve (X.T X/n + I) beta = X.T residual/n; one fixed ridge=1 second squared",
+    "tests": [
+      "Train Jan2026, hold out Jul2026",
+      "Train Jul2026, hold out Jan2026",
+      "Train both ranking months2026, inspect historical Jan/Jul2025 fidelity"
+    ],
+    "no_label_columns": true,
+    "no_gate_or_hyperparameter_search": true,
+    "no_final_inference": true,
+    "retained_nonlinearity": "Exact stage differences and separate v71/v73/v79 serialization residuals",
+    "caveats": [
+      "Existing CV versions3-9 use the archived original27 implementation.",
+      "Historical CV fidelity is not taxi-out performance or independent model validation.",
+      "Replacing the missing affine term alone does not replay changed nonlinear public corrections.",
+      "Approximated missing models remain approximations; old forecasts cannot be copied to jittered final inputs."
+    ]
+  },
+  "sources": {
+    "VALIDATION/final_affine_recovery_diagnostic.py": "9d8ca1f2170e4cf84bcb92b06782c0abf7268abb52bd15ebfb5b52bdd772b4a0",
+    "VALIDATION/runs/v3_20261012_target205_geometry/prepared.json": "f2ed12d69c0bd9c39ef6b862f469b791ee41e24c3df19bdce67b67b3e2ca2440",
+    "VALIDATION/runs/v3_20261012_target205_geometry/ranking_basis.parquet": "51e7dd25234d17d4bafa5e54a5314af62748adfdfdafd4c79be61390e61afe9f",
+    "VALIDATION/runs/v3_20261012_target205_geometry/cv_basis.parquet": "3485b8b1effbceb1b44f9e88670e50a7a3ba9e8da31da4b785b291c7d8e8dee2",
+    "VALIDATION/runs/v3_20261011_physical_affine/submission_v71/geometry.json": "8089b497353df3fe5691b42a6ecaa7ce54df35d537fe870f6d64f0b32ea56dce",
+    "VALIDATION/runs/v3_20261011_expanded_affine/submission_v73/geometry.json": "e55b1a55eeeb15c7e94b17eab770994f57b90c1b19394e09d5fd52163824d45a",
+    "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/manifest.json": "4f07e45515bbb93ed981d4ae073ed95946002c5f3111b87266ca559d3e1f12bc",
+    "data/ranking.parquet": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86",
+    "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb",
+    "VALIDATION/runs/v3_20261011_physical_candidate/single/cv/predictions.parquet": "cefd7cdbfab47cc4f31e4bb834569972cd7068c68359e451f00e10a500c09ea6",
+    "VALIDATION/runs/v3_20261011_calls_only_candidate/submission_v68/cv.parquet": "becca1a874344a33f986af82593cfcaba95e5b438cad6e4f338c85f56175d858",
+    "submissions/unique-rose_v66.parquet": "63ad13a978bf1a87daddeccd0069b3d8a2046e7189659a5a8830abbed2a7534b",
+    "submissions/unique-rose_v68.parquet": "9718afa9546f9a93d06d46a838fefbb1ffee22a457457dfe4989d06f2da6ac56",
+    "submissions/unique-rose_v71.parquet": "3afd4ece7b581ca7bb86ea0f2c9976b951b47fe64ed1e00dd123c2c4341df76d",
+    "submissions/unique-rose_v73.parquet": "b6f3bdea63d3b54db1376c27b086bf67e6761519e54fabf2f632a02381f21b29",
+    "submissions/unique-rose_v79.parquet": "8d96135f7e92d025f1e3d6c30d6e4c14d541acd616f5c4d78e80bea32bc052b0",
+    "submissions/unique-rose_v80.parquet": "50b986030af2efaab89b69bb69522ade6b060cc7f58fa324954e3fb06e0ef6f4"
+  }
+}

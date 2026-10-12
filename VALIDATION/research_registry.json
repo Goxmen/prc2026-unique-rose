@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T15:15:09.033416+00:00",
+  "updated_at": "2026-10-12T15:37:22.288756+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -760,8 +760,8 @@
     {
       "id": "full_day_peer_context",
       "hypothesis": "A learned full-day joint distribution of peer clocks and physical sensors adds information beyond local context and 12 public summaries",
-      "status": "preparing_fixed_cv",
-      "conclusion": "Label-free coverage and collision proof establish distinct information, not a predictive gain. Fixed one-of-three TabM seed42 comparison is being prepared; no fit or candidate yet.",
+      "status": "fixed_cv_running",
+      "conclusion": "Frozen two-fold seed42 replacement launched on laptop after exact CPU/scoped CUDA parity and capacity checks. All donor-bank and prefit reviews pass; no result yet.",
       "metrics": {
         "jan_without_own_physical_extra_witness": 0.7254660174075841,
         "jul_without_own_physical_extra_witness": 0.839907156552993
@@ -774,27 +774,98 @@
         {
           "path": "VALIDATION/reports/cohort_learning_20261012/pilot_result.json",
           "sha256": "3b8a3613a092027f95d89f480cdeb13b658821a38adfc44aa5003665658488e8"
+        },
+        {
+          "path": "VALIDATION/reports/cohort_learning_20261012/independent_bank_audit.json",
+          "sha256": "0bd0b6b7677dd6ed1be624b227702eba9b1feba7f175dd5de2f95ab799fcf4ba"
+        },
+        {
+          "path": "VALIDATION/reports/cohort_learning_20261012/independent_context_model_audit.json",
+          "sha256": "0da11b6d0d9526c980812fc725eeff26ac5a1d06cc06d922c604a05a447c8000"
+        },
+        {
+          "path": "VALIDATION/reports/cohort_learning_20261012/independent_prefit_review.md",
+          "sha256": "b40cb2d5d71548dbb853518ffdfb112182ad093f9208985513aa795ca017d2ab"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/identity.json",
+          "sha256": "ae492d62698617a8c735713cdbfb90855d7f0b2d505a9549fa58e2781c9482aa"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/preflight.json",
+          "sha256": "bd5f0705cdc278cfc181de612b9b1ec3045d834a6e000bfd7f45641974da9285"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/identity.json",
+          "sha256": "6b1b92b71fffbcb243aab0af8616f015d3adae7401634055c07ea260e263b824"
+        }
+      ]
+    },
+    {
+      "id": "final_affine_missing_proxy",
+      "hypothesis": "Fifteen verified portable versions can reconstruct the aggregate missing legacy prediction direction",
+      "status": "closed_fidelity_failure",
+      "conclusion": "Fixed prediction-only proxy has large cross-month and historical errors. No final prediction or candidate; recover original missing families. This measures portability, not taxi performance.",
+      "metrics": {
+        "cross_month_rms": {
+          "2026-01->2026-07": 58.079223876268266,
+          "2026-07->2026-01": 44.258886234033426
+        },
+        "historical_rms": {
+          "2025-01": 27.063624837274045,
+          "2025-07": 83.32915999332391
+        }
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_affine_recovery_diagnostic/identity.json",
+          "sha256": "54340fe3a09d96c967a6f66b18fa228caa37a346866fc30a7b2d3f5675f0c40f"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_affine_recovery_diagnostic/result.json",
+          "sha256": "3731bf4aa121898085408d59f0f22bc04022656f2e63b758e382619e4d313788"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_affine_recovery_diagnostic/independent_audit.json",
+          "sha256": "c111c633e21097cd643947f183af667b2eff4213d03efc7999212e0373eebb96"
         }
       ]
     }
   ],
   "next": [
-    "Review distinct source-only diagnostics before allocating fixed Jan/Jul experiments",
-    "Resolve final ensemble missing-component portability without silent substitution",
-    "Prepare independently audited candidates for October13 submission slots; none queued"
+    "Complete fixed full-day peer TabM Jan/Jul experiment after preflight",
+    "Recover remaining final ensemble components and selected daily/public correction stages without substitutions",
+    "Prepare audited candidates for October13 slots; none queued"
   ],
   "active_research": [
     {
-      "owner": "cohort_learning",
-      "scope": "Source-only full-day peer-context feasibility and design"
+      "owner": "root",
+      "scope": "Frozen full-day peer TabM on laptop, explicit CUDA preflight review, no training yet"
     },
     {
       "owner": "final_recovery",
-      "scope": "Recover missing v12-v16 families with two sequential original-recipe fits; require exact old replay"
+      "scope": "Exact old-model recovery and four-month inference; baseline12/13/15 final audited, R3 old replay exact"
+    },
+    {
+      "owner": "cohort_learning",
+      "scope": "Inventory remaining selected final correction stages and daily-main184-input view"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent review of new cohort model and data; reference-source pilot closed"
+      "scope": "Independent cohort CUDA parity diagnosis and result audit"
     }
-  ]
+  ],
+  "machine_allocation": {
+    "desktop": {
+      "stage": "daily_main_final_inference_preparing",
+      "run": "VALIDATION/runs/v3_20261012_final_daily_main_inference",
+      "owner": "root"
+    },
+    "laptop": {
+      "stage": "full_day_cohort_fixed_CV_running",
+      "run": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort",
+      "session": 61872,
+      "preflight_peak_GiB": 4.07018780708313
+    }
+  }
 }

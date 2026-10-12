@@ -1,0 +1,459 @@
+{
+  "source_sha256": "d4bff0cd4c22b7a75f7fe068a8f6cfa15bfa2574f96e9b4b4ec88f3d62edb1c8",
+  "diagnostic_sha256": "3731bf4aa121898085408d59f0f22bc04022656f2e63b758e382619e4d313788",
+  "ranking_basis_sha256": "51e7dd25234d17d4bafa5e54a5314af62748adfdfdafd4c79be61390e61afe9f",
+  "purpose": "Next missing-family recovery allocation; descriptive residual norms are not expected score gains",
+  "families": [
+    {
+      "name": "weather_saved_models",
+      "versions": [
+        60,
+        61
+      ],
+      "anchor": 58,
+      "original_recipe": "v60 changes Rome weather classifier; v61 weather in allfive parts.",
+      "missing_fits": "None: Rome/main/airport/CatBoost and all15 neural checkpoints are retained.",
+      "known_cv_runner": "VALIDATION/open_meteo_submit.py",
+      "runtime": "Inference only;15small network evaluations plus retained trees. Need extra20airport-month ERA5 cache files for February/June, then matched old replay.",
+      "priority": 0,
+      "notes": [
+        "Existing hourly weather cache covers2025,January2026 andJuly2026 (June29onward only from July request). No repeated downloads of existing files.",
+        "New weather records must be hashed and independently joined; preserve old source namespace and all current weather controls."
+      ],
+      "effective_weights": {
+        "60": -0.19800404835538035,
+        "61": 0.48245679267538377
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 13.9718844402733,
+        "mean": 0.712305969876896,
+        "absolute_q99": 45.833395304161456,
+        "max_abs": 4616.9524930579755
+      }
+    },
+    {
+      "name": "flight_number_rome",
+      "versions": [
+        56
+      ],
+      "anchor": 54,
+      "original_recipe": "v54 with1700-round R20+two flight-number copy inputs, retaining v54 probabilities for unseen numbers.",
+      "missing_fits": "One Rome classifier; base/tree/network components already final-ready.",
+      "known_cv_runner": "VALIDATION/rome_fn_submit.py",
+      "runtime": "Small classifier fit; allow5-15minutes for feature/history reconstruction and replay.",
+      "priority": 1,
+      "notes": [
+        "Original script did not save the new classifier. No need repeat its original R20 control fit: saved final R20 components already reproduce the parent.",
+        "Keep unseen-number fallback exactly; the no-fallback alternative was rejected."
+      ],
+      "effective_weights": {
+        "56": -0.27514099111481366
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 3.646341568210909,
+        "mean": 0.014274034500085592,
+        "absolute_q99": 3.3016918933777637,
+        "max_abs": 641.3536502886307
+      }
+    },
+    {
+      "name": "stand_correction_family",
+      "versions": [
+        30,
+        33,
+        34,
+        37
+      ],
+      "anchor": 38,
+      "original_recipe": "v30 ordinary+classifier; v33 plan-window, v34 no-ID-cap, v37 dayshift-hedge are deterministic descendants.",
+      "missing_fits": "One800-round ordinary and one300-round classifier; reuse this pair for all four versions.",
+      "known_cv_runner": "VALIDATION/legacy_hybrid_jan_jul.py",
+      "runtime": "Original ordinary+classifier about1-2minutes; allow10-20minutes including feature/calibration reconstruction and all-view replay.",
+      "priority": 2,
+      "notes": [
+        "Retained v38 is not an exact substitute: its historical control differed on304637 old rows.",
+        "Replay v30 first before admitting any descendant. Reuse frozen correction parameters when available."
+      ],
+      "effective_weights": {
+        "30": 0.07612344946035869,
+        "33": -0.01494613035753379,
+        "34": 0.3625171115504324,
+        "37": 0.3807664428545117
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 21.420575894841736,
+        "mean": -0.14674597034723916,
+        "absolute_q99": 18.50260009067869,
+        "max_abs": 7700.002371484723
+      }
+    },
+    {
+      "name": "original_ple_pool",
+      "versions": [
+        48,
+        49,
+        50
+      ],
+      "anchor": 54,
+      "original_recipe": "v48/v49 share five PLE models; v50 extends same134-input architecture to15 networks.",
+      "missing_fits": "Fifteen full-year PLE fits total, reusing appropriate five for v48/v49; no repeat epoch selection.",
+      "known_cv_runner": "VALIDATION/ideas_submit.py",
+      "runtime": "GPU workload likely larger than tree families; derive epoch counts from saved group receipts, then benchmark first member once.",
+      "priority": 3,
+      "notes": [
+        "All original weights absent in documented model directories; old prediction parts and stopping receipts remain.",
+        "First-five identity/order must be checked against v48 before assuming shared members."
+      ],
+      "effective_weights": {
+        "48": -0.15898326670327048,
+        "49": 0.1622211712577098,
+        "50": 0.7019220249850316
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 36.119536969851765,
+        "mean": -3.019498627036112,
+        "absolute_q99": 105.4045316018807,
+        "max_abs": 11445.450816355153
+      }
+    },
+    {
+      "name": "raw_early",
+      "versions": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "anchor": 1,
+      "original_recipe": "v2: clipped1..7200,3000 rounds. v3-v9: original27 inputs,800 rounds; v4 adds FPL flag and v5-v9 vary label ceiling.",
+      "missing_fits": "Eight ordinary LightGBMs, with original seed/config; original v3-v9 full source hash is unavailable.",
+      "known_cv_runner": "VALIDATION/legacy_raw_jan_jul.py",
+      "runtime": "Original800-round fits approximately1 minute each after shared preparation; v2 several minutes. Estimate15-30minutes including replay.",
+      "priority": 4,
+      "notes": [
+        "Use one source/config attempt per recipe; source approximation remains explicit until exact old prediction acceptance.",
+        "Original v4-v9 use8 threads, so coordinate host/thread allocation before execution."
+      ],
+      "effective_weights": {
+        "2": 0.012419787217003733,
+        "3": -0.0008824262003766034,
+        "4": -0.13520539277359458,
+        "5": 0.11085306090748592,
+        "6": 0.0510911430221106,
+        "7": 0.10078433688208699,
+        "8": -0.27934900652690936,
+        "9": 0.020826179550925982
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 75.77850162971419,
+        "mean": -5.636097978850149,
+        "absolute_q99": 184.84200756251596,
+        "max_abs": 7099.827763321231
+      }
+    },
+    {
+      "name": "early_hybrids",
+      "versions": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "anchor": 38,
+      "original_recipe": "v26 clock, v27 weather, v28 queue; they share one identical classifier hash. v29 changes ordinary and classifier inputs.",
+      "missing_fits": "Four800-round ordinary models and two distinct small classifiers.",
+      "known_cv_runner": "VALIDATION/legacy_hybrid_jan_jul.py",
+      "runtime": "Recorded each pair1.22-1.40minutes; allow15-25minutes including shared feature preparation/replay.",
+      "priority": 5,
+      "notes": [
+        "Do not fit three duplicate v26-v28 classifiers: original hash56c3a57e83b22446ef4cf580f43c2624bdee233cb9afaed8784f8b7b48d06ed4 is shared."
+      ],
+      "effective_weights": {
+        "26": -0.06509092539636191,
+        "27": 0.04229571061029584,
+        "28": -0.03828038830904984,
+        "29": -0.12257901024889822
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 26.68012615722784,
+        "mean": 0.32067589325753815,
+        "absolute_q99": 47.48506354847917,
+        "max_abs": 12603.696672757036
+      }
+    },
+    {
+      "name": "stand_coordinate_tuning",
+      "versions": [
+        43,
+        44
+      ],
+      "anchor": 45,
+      "original_recipe": "v43 original800-round ordinary model; v44 tuned5000-round ordinary model. Identical saved classifier is present under v46.",
+      "missing_fits": "Two ordinary LightGBMs only; reuse exact classifier9501e34314f919425cc74cc345eef9562e895f1516002847fba1583afa97d31e.",
+      "known_cv_runner": "VALIDATION/tuned_submit.py",
+      "runtime": "Recorded ordinary fits97.4s and435.9s; allow15-25minutes including matched input preparation/replay.",
+      "priority": 6,
+      "notes": [
+        "No repeated classifier fit is necessary."
+      ],
+      "effective_weights": {
+        "43": 0.005634057438753284,
+        "44": 0.023361752699178298
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 2.6563816451898106,
+        "mean": -0.27893001867836664,
+        "absolute_q99": 9.58855766091647,
+        "max_abs": 43.53290649870609
+      }
+    },
+    {
+      "name": "single_plain_network",
+      "versions": [
+        47
+      ],
+      "anchor": 46,
+      "original_recipe": "One original MLP in0.3neural/0.7tree mixture, using retained v46 trees and corrections.",
+      "missing_fits": "One full-year neural model; original weights were not saved.",
+      "known_cv_runner": "VALIDATION/nn_submit.py",
+      "runtime": "Requires one GPU fit; record exact original stopping/schedule from retained manifest before allocation.",
+      "priority": 8,
+      "notes": [
+        "Original recipe explicitly notes GPU nondeterminism; old-vector equality is acceptance, otherwise retain quantified approximation."
+      ],
+      "effective_weights": {
+        "47": -0.19966403135251465
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 5.967571866618767,
+        "mean": 0.3467238879100658,
+        "absolute_q99": 23.760019730949242,
+        "max_abs": 210.24622501419793
+      }
+    },
+    {
+      "name": "combo_ple_pool",
+      "versions": [
+        51,
+        53
+      ],
+      "anchor": 54,
+      "original_recipe": "Shared15 PLE networks with22added inputs and original combo tree pool; v53 changes Rome classifier.",
+      "missing_fits": "Fifteen original-combo neural fits; tree models are retained. v53 needs existing R20 final probabilities, with its one-flight old hold handled explicitly.",
+      "known_cv_runner": "VALIDATION/ideas_submit.py",
+      "runtime": "GPU workload; reuse saved stopping decisions and retained12 tree checkpoints, not refit tree controls.",
+      "priority": 9,
+      "notes": [
+        "HPO v54 networks are not an exact substitute. Already-refitted October8 base networks only support v54 lineage.",
+        "v53 held original ITA flight202681908; define final-view semantics explicitly from the recorded rule."
+      ],
+      "effective_weights": {
+        "51": -0.10981173712984842,
+        "53": 0.0002857444999768005
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 4.84262306992783,
+        "mean": 0.5541736779628259,
+        "absolute_q99": 11.50022922613652,
+        "max_abs": 1777.716386375446
+      }
+    }
+  ],
+  "documented_model_directories": {
+    "v3_20261003_ideas_submit/work/models": [
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/catboost.cbm",
+        "bytes": 355707236
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo.txt",
+        "bytes": 78649731
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_EDDF.txt",
+        "bytes": 30491794
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_EDDM.txt",
+        "bytes": 30731677
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_EGLL.txt",
+        "bytes": 31212053
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_EHAM.txt",
+        "bytes": 32277370
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_LEBL.txt",
+        "bytes": 31033094
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_LEMD.txt",
+        "bytes": 32130306
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_LFPG.txt",
+        "bytes": 33199908
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_LIRF.txt",
+        "bytes": 31416243
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_LSZH.txt",
+        "bytes": 31458595
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/models/lgb_combo_airport_LTFM.txt",
+        "bytes": 35008393
+      }
+    ],
+    "v3_20261008_open_meteo_submit/work/models": [
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_EDDF.txt",
+        "bytes": 29764383
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_EDDM.txt",
+        "bytes": 30033837
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_EGLL.txt",
+        "bytes": 30264813
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_EHAM.txt",
+        "bytes": 30954162
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_LEBL.txt",
+        "bytes": 30068443
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_LEMD.txt",
+        "bytes": 31096617
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_LFPG.txt",
+        "bytes": 32285488
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_LIRF.txt",
+        "bytes": 30457616
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_LSZH.txt",
+        "bytes": 30349482
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/airport_LTFM.txt",
+        "bytes": 33207977
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/catboost.cbm",
+        "bytes": 344379952
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/lgb.txt",
+        "bytes": 141931611
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_142_0.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_142_1.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_142_2.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_142_3.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_142_4.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_242_0.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_242_1.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_242_2.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_242_3.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_242_4.pt",
+        "bytes": 7479538
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_42_0.pt",
+        "bytes": 7479257
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_42_1.pt",
+        "bytes": 7479257
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_42_2.pt",
+        "bytes": 7479257
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_42_3.pt",
+        "bytes": 7479257
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/nn_42_4.pt",
+        "bytes": 7479257
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261008_open_meteo_submit/work/models/rome.txt",
+        "bytes": 28730695
+      }
+    ],
+    "v3_20261006_rome_fn_submit/submission_v56": [],
+    "v3_20261003_nn_improve_submit/submission_v48/models": [],
+    "v3_20261002_nn_submit/submission_v47/models": []
+  },
+  "retained_shared_classifier": {
+    "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/models/refit2025__classifier__42.txt",
+    "sha256": "9501e34314f919425cc74cc345eef9562e895f1516002847fba1583afa97d31e"
+  },
+  "weather_cache_example": {
+    "EHAM_2025.json": {
+      "first": "2024-12-29T00:00",
+      "last": "2025-12-31T23:00",
+      "rows": 8832
+    },
+    "EHAM_2026-01.json": {
+      "first": "2025-12-29T00:00",
+      "last": "2026-01-31T23:00",
+      "rows": 816
+    },
+    "EHAM_2026-07.json": {
+      "first": "2026-06-29T00:00",
+      "last": "2026-07-31T23:00",
+      "rows": 792
+    }
+  },
+  "no_fit_started": true,
+  "no_new_download": true,
+  "acceptance": "Every admitted exact recovery must replay all original old integers; nonexact cases remain explicitly approximated, with no parameter sweep."
+}

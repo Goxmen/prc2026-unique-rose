@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "family": "baseline",
+  "source_sha256": "929b9567771195c678e24ee796817eaef41e73ee9dc86b87755eeb952b78c43d",
+  "result_sha256": "e33c1cf7c0493a3726808aa4dff0043959170ed940cf481755f01eacb93c8f6e",
+  "checks": {
+    "old_v12": {
+      "rows": 344841,
+      "all_SQL_rule_rounding_ids_dates_values_pass": true,
+      "original_vector_exact": true
+    },
+    "old_v13": {
+      "rows": 344841,
+      "all_SQL_rule_rounding_ids_dates_values_pass": true,
+      "original_vector_exact": true
+    },
+    "old_v15": {
+      "rows": 344841,
+      "all_SQL_rule_rounding_ids_dates_values_pass": true,
+      "original_vector_exact": true
+    },
+    "final_v12": {
+      "rows": 670790,
+      "all_SQL_rule_rounding_ids_dates_values_pass": true,
+      "original_vector_exact": false
+    },
+    "final_v13": {
+      "rows": 670790,
+      "all_SQL_rule_rounding_ids_dates_values_pass": true,
+      "original_vector_exact": false
+    },
+    "final_v15": {
+      "rows": 670790,
+      "all_SQL_rule_rounding_ids_dates_values_pass": true,
+      "original_vector_exact": false
+    }
+  },
+  "source_and_model_hashes_pass": true,
+  "original_feature_preflight_checked": true,
+  "caveats": [
+    "Original B0 source equivalence is documented, not byte identity.",
+    "Original integer replay is exact; reconstructed model text hash need not be identical.",
+    "Held model outputs were independently reloaded by the producer; this auditor independently verifies rule arithmetic and source identity."
+  ]
+}

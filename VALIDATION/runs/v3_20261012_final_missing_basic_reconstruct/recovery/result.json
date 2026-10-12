@@ -1,0 +1,81 @@
+{
+  "state": "exact_old_replay_final_inference_complete",
+  "family": "recovery",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/identity.json",
+    "sha256": "a69fc281d09f4106a9c1048f12d73c50b776a21ab29f2126e6c53467e8b90754"
+  },
+  "views": {
+    "old": {
+      "14": {
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/old_v14.parquet",
+          "sha256": "88c57871e3b143d5f0d0635159177ff063ec2699c7c72da502bb66bb6d63c423"
+        },
+        "rows": 344841,
+        "months": {
+          "2026-01": 152719,
+          "2026-07": 192122
+        },
+        "all_model_reload_predictions_exact": true,
+        "template_order_exact": true,
+        "exact_original_integer_replay": true,
+        "changed_rows": 0,
+        "rms_difference": 0.0,
+        "maximum_absolute_difference": 0.0
+      },
+      "16": {
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/old_v16.parquet",
+          "sha256": "a469ced4af3473eea7dc10aa377f4835aa647c11004d56cc922ed57a071f3d97"
+        },
+        "rows": 344841,
+        "months": {
+          "2026-01": 152719,
+          "2026-07": 192122
+        },
+        "all_model_reload_predictions_exact": true,
+        "template_order_exact": true,
+        "exact_original_integer_replay": true,
+        "changed_rows": 0,
+        "rms_difference": 0.0,
+        "maximum_absolute_difference": 0.0
+      }
+    },
+    "final": {
+      "14": {
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/final_v14.parquet",
+          "sha256": "d46a928e3196ad2dd11be86a93ef3535ccf125afbc934c0b47c63d8d04a58830"
+        },
+        "rows": 670790,
+        "months": {
+          "2026-01": 152719,
+          "2026-02": 144158,
+          "2026-06": 181791,
+          "2026-07": 192122
+        },
+        "all_model_reload_predictions_exact": true,
+        "template_order_exact": true
+      },
+      "16": {
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/final_v16.parquet",
+          "sha256": "1bf12592533adf05f975eb4cb7b08a9dbef778908de470eece9a9557f14495a3"
+        },
+        "rows": 670790,
+        "months": {
+          "2026-01": 152719,
+          "2026-02": 144158,
+          "2026-06": 181791,
+          "2026-07": 192122
+        },
+        "all_model_reload_predictions_exact": true,
+        "template_order_exact": true
+      }
+    }
+  },
+  "original_model_hash_exact": false,
+  "no_upload": true,
+  "independent_final_audit_pending": true
+}

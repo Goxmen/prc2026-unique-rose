@@ -1,0 +1,238 @@
+{
+  "design": {
+    "purpose": "Recover absent original B0/R3 full-year models, one fixed reconstruction each",
+    "rounds": 800,
+    "seed": 42,
+    "threads": 6,
+    "train_rows": 2084659,
+    "features": 27,
+    "freeze": "2025-12-31",
+    "source": "Exact R3 implementation, with previously audited B0 recovery-off equivalence",
+    "original_machine": "Intel i7-13650HX laptop; current reconstruction on AMD desktop is recorded",
+    "success": "All original integer version vectors exact before any final inference",
+    "failure": "Preserve reconstructed model and mismatch, stop; no seed/thread/library search or silent substitution",
+    "scope": "No CV refits, weights changed, version assigned, upload or original artifact overwritten"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/features_time.py",
+      "sha256": "94f1273ae3edc32e2799e6bb1ebcc819c0a18bf8a61dcda444514d643f944c2c"
+    },
+    {
+      "path": "VALIDATION/final_missing_basic_reconstruct.py",
+      "sha256": "171f286080449407abb652889fd306e93ed0f1c049cef3c234634a04f87150fe"
+    },
+    {
+      "path": "VALIDATION/movement_data.py",
+      "sha256": "2a0a97392e4ba6fd1a3ff64a8165700ae6b4ea466cffe80c3cfa9e92290c79cf"
+    },
+    {
+      "path": "VALIDATION/protocol.py",
+      "sha256": "d459495795bb04451e887b3cdfe9714faa2d72f657331842886321b10a8b68ae"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/reports/leaderboard_selected_20260916.json",
+      "sha256": "259fdfc3b437985afb2d7cf84c6919ec283406b08a895d3c63366cb040be98f5"
+    },
+    {
+      "path": "VALIDATION/reports/stage1_off_equivalence.json",
+      "sha256": "49488a527b2db694cda67317e54837ce95088f9e3b3c3fa7e1cfb23d9b2bf1d9"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025.categories.json",
+      "sha256": "441c1487df1747c8f4a20b3e0c18c951aa3e534e2e3dff384f2aff91073eb85d"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__control.train_ids.parquet",
+      "sha256": "e5b0b1245596a7b6367de0306dc4686e17016aaa10c4bfd047108ee1f84a5e19"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/progress.json",
+      "sha256": "ed37ada2873d01cc1b841d0f85b0263ab768c95841bf92f79b6d2d855b4cfd08"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/identity.json",
+      "sha256": "64a15471a40317e7f371c7c31045ecf62dc8d1ca387c10b554b3c224caae8584"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_legacy_basic_jan_jul/source/VALIDATION/modeling.py",
+      "sha256": "6070559071c24b222a31dc259fa44ca87191f6bd8b4a6f695423194d95cfab23"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/manifest.json",
+      "sha256": "712fde2830cd561047b889f0a3c51deb64e0a600f515f59db747d6404367c3ba"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v12.parquet",
+      "sha256": "9dc3348486c1e3e37bcbd25431e02911b7aec61e42059059fa557e8770c23abc"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v13.parquet",
+      "sha256": "f71710fb9a78a7135507a5e00e0b874cd6bcd20298d49dc0d98bca730e2d4c5f"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v14.parquet",
+      "sha256": "44256df312e203f537a17385326010066ee7dadb093d4c5f27b2cb16b6c7e249"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v15.parquet",
+      "sha256": "6d5a7f51c8c291ba06ba664cffc16d20edc35edd5d48c2473a54eae62e37c402"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v16.parquet",
+      "sha256": "64f3414b6c911d456ee693c3fdf444d23f54418e3465446b92c5c19f430301ca"
+    },
+    {
+      "path": "data/final_ranking.parquet",
+      "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    },
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4"
+    },
+    {
+      "path": "pipeline/prediction_rules.py",
+      "sha256": "62613801875506dcc7f4078e0e136398b6694ee8b1eb0398e9a05612c7b4e560"
+    },
+    {
+      "path": "pipeline/recovery.py",
+      "sha256": "0b553a792daccf3af732b1071e5c4e2ac06b12e29ae806c84ff5754e8b13cf0f"
+    },
+    {
+      "path": "pipeline/recovery_history.py",
+      "sha256": "8130aaa782963055cd1d654e629a0a9e90e5885a9c635ae6aceb8e059946b358"
+    },
+    {
+      "path": "pipeline/recovery_relaxed.py",
+      "sha256": "5bc898670077de5045bc5fd41e35cd81a6dd34609c4af509c725506eb2e59836"
+    },
+    {
+      "path": "pipeline/registered_rules.py",
+      "sha256": "5bc8da8c9ce29fa83dddeb76093d82ebfeab8e48b62ef9dc1c31d5f5d288d163"
+    }
+  ],
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "mappings": {
+    "baseline": [
+      [
+        12,
+        "off"
+      ],
+      [
+        13,
+        "rome_6h"
+      ],
+      [
+        15,
+        "rome_4h"
+      ]
+    ],
+    "recovery": [
+      [
+        14,
+        "rome_6h"
+      ],
+      [
+        16,
+        "rome_4h"
+      ]
+    ]
+  },
+  "original_models": {
+    "baseline": "d73bd3d4f293200c298a8c4965f3c9fd78e4b161f391acb6bb1ee2a5f928c485",
+    "recovery": "fee58bf4648617cbb87e8151c5ab6884f14a2a1a9a408832ea087f3a7ed597e8"
+  }
+}

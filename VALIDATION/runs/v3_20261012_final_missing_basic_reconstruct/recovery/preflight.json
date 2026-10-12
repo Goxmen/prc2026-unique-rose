@@ -1,0 +1,78 @@
+{
+  "family": "recovery",
+  "rows": 2084659,
+  "features": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "op_taxi_30d",
+    "op_taxi_30d_n",
+    "rwy_taxi_30d",
+    "stand_taxi_90d",
+    "aphour_taxi_30d",
+    "arr_taxiin_7d",
+    "dep_actual_30m_before",
+    "arr_actual_30m_before",
+    "dep_sched_60m_around"
+  ],
+  "original_order_and_labels_exact": true,
+  "independent_raw_SQL_membership_and_basic18_features_exact": true,
+  "history_columns_source_hash_verified": true,
+  "history_independent_original_equivalence_report": {
+    "path": "VALIDATION/reports/stage1_off_equivalence.json",
+    "sha256": "49488a527b2db694cda67317e54837ce95088f9e3b3c3fa7e1cfb23d9b2bf1d9"
+  },
+  "training_ID_sha256": "e5b0b1245596a7b6367de0306dc4686e17016aaa10c4bfd047108ee1f84a5e19",
+  "finite_labels": true,
+  "recovery_source_exact": true,
+  "baseline_source_equivalence": false,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/identity.json",
+    "sha256": "a69fc281d09f4106a9c1048f12d73c50b776a21ab29f2126e6c53467e8b90754"
+  },
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  }
+}

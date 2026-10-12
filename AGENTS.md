@@ -121,6 +121,17 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October12,17:34 Amsterdam:21 legacy final components recovered.**
+Two fixed baseline/R3 reconstructions reproduce all original v12–v16 integers;
+independent final audits pass. Together with v1 and prior15,21 versions are ready.
+Model text hashes differ; archived source and machine caveats remain explicit.
+No silent substitution or final upload. The174-input public main final view does
+not replace selected184-input daily main; original public PLE3 and correction
+chain views also remain. Full-day peer TabM is frozen, no fit yet. CUDA parity
+was nondeterministic even for original/original; scoped deterministic checks
+pass exactly, fitting flags unchanged. Sources/failure/diagnostic are preserved.
+See registry/state for current host allocation; no upload queued.
+
 **October 12, 17:03 Amsterdam: research resumed under a new active native goal.**
 The user removed the previous goal and explicitly requested a new one with the
 same protocol. Target remains 205.00; live best/latest is v80 at 218.8525,

@@ -41,10 +41,10 @@ No final-route validation has been claimed; see `public_refresh_20261012.json`.
 Current work (compact index: `VALIDATION/research_registry.json`; local snapshot:
 `VALIDATION/research_state.json`):
 
-- **New research:** full-day peer context has passed a source-only information
-  audit; prepare a fixed TabM comparison. Audit reference-time totals as an
-  additional source-error sensor. Recover missing final-model families;
-  approximate substitutes require explicit fidelity evidence.
+- **New research:** full-day peer context is frozen for a seed42 TabM replacement.
+  Source-only information, full bank and CPU audits pass. CUDA parity is exact
+  under scoped deterministic checks; fitting settings remain unchanged.
+  Reference-source population coherence failed its fixed source gate and is closed.
 - **Larger TabM closed:** the fixed three-block seed42 comparison finished
  14:23Amsterdam. CV+0.023315, interval[−0.008073,+0.055784]; July worsens.
   Both models returned and the independent audit passes. No seed expansion,
@@ -54,11 +54,16 @@ Current work (compact index: `VALIDATION/research_registry.json`; local snapshot
   Every new prediction reloads exactly. Independent SQL checks6,037,110values
   on the complete670,790-ID template. Final cached packets have a different
   month order: always join by ID. A complete final affine stack is still pending.
-- **Older models:**15 version components are now audited on the final set:
-  v17–v21,v38,v45/v46,v54/v57/v58,v64/v66/v68/v70. The original integer vectors
-  replay exactly. Base-neural final arrays retain their October8 refit provenance.
-  V12/v13/v15 control substitutions are excluded; missing original backups
-  are still needed for other components. Never silently replace them.
+- **Older models:**21 version components are audited on the final set:
+  v1,v12–v21,v38,v45/v46,v54/v57/v58,v64/v66/v68/v70. Two fixed reconstructed
+  baseline/R3 fits reproduce every original v12–v16 integer and final model
+  reload exactly. Original model text hashes differ; source/host caveats remain.
+  Earlier failed substitutions stay excluded. Base-neural final arrays retain
+  their October8 refit provenance. Remaining families are being recovered.
+- **Final-stage gaps:** selected184-input daily-main and original public PLE3
+  predictions still need final inference. Existing174-input and TabM views do
+  not replace those historical stages. The full public correction chain and
+  affine stack remain pending; no final file is uploaded.
 - **Closed new screens:** actualv80 score geometry projects0.2335seconds,
   below its fixed gate. Annealed particles improved numerical behavior but
   one of six cases narrowly failed the fixed precision gate. No retuning/CV
@@ -68,7 +73,7 @@ Current work (compact index: `VALIDATION/research_registry.json`; local snapshot
   cells and344419 CV rows pass independent checks. No production or upload.
 - **Neural weight closed:** fixed total share0.85 regresses+0.483480seconds,
   interval[+0.404983,+0.617888], with both months worse. Retain0.71; no further
-  weight scan, production or upload. Both hosts are idle; no candidate is queued.
+  weight scan, production or upload. No candidate is queued.
 
 - **Stand context closed:** fixed main-tree screen is complete.
   Original184 inputs plus four same-month stand medians/counts from supplied
