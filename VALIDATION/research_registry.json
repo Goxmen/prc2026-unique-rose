@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T11:53:07.213718+00:00",
+  "updated_at": "2026-10-12T12:08:54.494261+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -637,6 +637,50 @@
         {
           "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/audit.json",
           "sha256": "c33fc12e16b17fd2bcf54848d4a527588a5e008a750936a894a9fca0fe8ae2b7"
+        }
+      ]
+    },
+    {
+      "id": "tabm_total_neural_share_085",
+      "hypothesis": "The improved TabM pool may justify raising total neural share from0.71 to0.85",
+      "status": "closed_regression",
+      "conclusion": "The fixed higher total neural share regresses against exactv80; retain0.71. No alternative-weight search, production, candidate or upload.",
+      "metrics": {
+        "cv": {
+          "control": 289.7627782102906,
+          "candidate": 290.24625847803344
+        },
+        "scores": {
+          "2025-01": {
+            "control": 325.02854196957753,
+            "candidate": 325.43059746157735
+          },
+          "2025-07": {
+            "control": 254.49701445100365,
+            "candidate": 255.06191949448956
+          }
+        },
+        "paired": {
+          "change": 0.4834802677428627,
+          "ci95": [
+            0.4049826157059776,
+            0.6178877763308164
+          ],
+          "decision": "regression"
+        }
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_neural_share/identity.json",
+          "sha256": "3bff0a3783c971aa0804ec8a6ce4e1324f77b474cc0c74a6bae7d85384907477"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_neural_share/result.json",
+          "sha256": "1cde71f4c322fb388e248f6d4696e70c4156b8b7e3d33f5b69dcc34653946885"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_neural_share/statistical_audit.json",
+          "sha256": "72f3503b37a04072c51afed7379d8f0749edc90a54c656ce5e44fa2f33c50976"
         }
       ]
     }

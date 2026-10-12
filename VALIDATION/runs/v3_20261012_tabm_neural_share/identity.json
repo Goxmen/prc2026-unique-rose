@@ -1,0 +1,52 @@
+{
+  "design": {
+    "parent": "exactv80",
+    "change": "Total ordinary neural share0.71 to0.85 in the selected three-TabM component",
+    "rationale": "The retained0.71 share predates the TabM architecture and public model improvements",
+    "retained": "Equal callsign/physical neural mixture, all seeds/models/features/calibration, all source and runway increments",
+    "transport": "One integer new-minus-original TabM-v78 component delta onto exactv80, then nonnegative rounding",
+    "primary": "Both months improve, average CV improves at least0.05seconds and paired-day95% upper<0",
+    "no_fits": true,
+    "no_weight_search": true,
+    "failure": "Close fixed0.85 screen without trying other weights",
+    "no_production": true,
+    "no_upload": true,
+    "caveat": "Reused Jan/Jul development; no independent confirmation claim"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tabm_neural_share_cv.py",
+      "sha256": "473059a54efa4c0968a0304a4cc09e4f86c2117c13dbb640e4402946f93ed4f1"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_stack.py",
+      "sha256": "f55d193f387c05d084a4240bd785f504186dcd4ab1c49fb91bc86860908d0214"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/result.json",
+      "sha256": "2ffb7010ed2a35f5738ccb6753be5567d5a92cc6c09aedf1410ff0f28605dedd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/scored.parquet",
+      "sha256": "e4cc52b31b606b24a263eacb5c0d086378cd5eaaa174a55f14e50082723a524f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/audit.json",
+      "sha256": "05fc66238bd3f73ffbd7199d056407c51f6a924da44062a5ee78a39431ef39e7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
+      "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    }
+  ],
+  "unchanged_training_and_retained_arms_AST_exact": true,
+  "before_scoring": true
+}

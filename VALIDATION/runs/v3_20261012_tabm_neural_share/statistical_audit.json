@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_scalar_cv_result.py",
+    "sha256": "b961a07416cad4636b4370ffa73330376eb050842936a9b51634e320c1517e35"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_neural_share/result.json",
+    "sha256": "1cde71f4c322fb388e248f6d4696e70c4156b8b7e3d33f5b69dcc34653946885"
+  },
+  "rows": 344419,
+  "sources_verified": 10,
+  "independent_SQL_RMSE_and_day_bootstrap": true,
+  "cv": {
+    "control": 289.7627782102906,
+    "candidate": 290.24625847803344
+  },
+  "ci95": [
+    0.4049826157059776,
+    0.6178877763308164
+  ],
+  "decision": "regression",
+  "scope": "Provenance and statistical arithmetic; transformation/control checks remain in the frozen producing runner."
+}

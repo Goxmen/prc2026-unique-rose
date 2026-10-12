@@ -1,0 +1,36 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_neural_share/identity.json",
+    "sha256": "3bff0a3783c971aa0804ec8a6ce4e1324f77b474cc0c74a6bae7d85384907477"
+  },
+  "cv": {
+    "control": 289.7627782102906,
+    "candidate": 290.24625847803344
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.02854196957753,
+      "candidate": 325.43059746157735
+    },
+    "2025-07": {
+      "control": 254.49701445100365,
+      "candidate": 255.06191949448956
+    }
+  },
+  "paired": {
+    "change": 0.4834802677428627,
+    "ci95": [
+      0.4049826157059776,
+      0.6178877763308164
+    ],
+    "decision": "regression"
+  },
+  "gate": false,
+  "exact_retained_arms_and_v80": true,
+  "all_row_SQL_transport_truth_calendar_scores": true,
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_neural_share/scored.parquet",
+    "sha256": "674f02149842ae920d9f26b466607633e06f689a9cf4d5c3b237656afb767876"
+  },
+  "no_production_or_upload": true
+}

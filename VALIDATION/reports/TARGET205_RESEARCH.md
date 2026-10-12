@@ -714,3 +714,24 @@ functions; original controls replay within2.91e-11seconds, and shuffled rows
 with poisoned extraneous labels reproduce predictions. Preserve both runs:
 `../runs/v3_20261012_public_runway_covariance_pilot/` and
 `../runs/v3_20261012_public_runway_covariance_cv/`.
+
+
+## Higher total neural share after TabM: closed
+
+One frozen comparison raised the ordinary neural share from0.71 to0.85
+while retaining the equal callsign/TabM mixture, every model/seed/input and
+all public corrections. It is distinct from the earlier internal physical-pool
+share test. No model was refitted and no weight scan followed. The three
+original component arms replay exactly; only the additional weighted arm
+changes. Its serialized component delta is transported once onto exactv80.
+
+CV289.762778 →290.246258 regresses **+0.483480seconds**, interval
+[+0.404983,+0.617888]. The frozen gate fails; retain0.71 and close this screen
+without alternative weights, production, a candidate or upload. The
+independent reusable SQL/day-bootstrap auditor checks all344,419 rows and
+source hashes; frozen AST restoration and original-arm equality checks pass.
+Artifacts: `../runs/v3_20261012_tabm_neural_share/`.
+
+A local archive check found two PRC transfer tar files from Ioana. Both hold
+only inputs/validation predictions, with no missing full-year boosters. No
+relevant model backup was found in the52 archive filenames examined.
