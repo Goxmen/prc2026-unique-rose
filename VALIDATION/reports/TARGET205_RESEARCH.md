@@ -654,3 +654,29 @@ and monthly scores. The maximum ranking change is 49 seconds. Sources,
 predictions and receipts remain in `../runs/v3_20261012_reapply_selected_bounds/`;
 runner `../reapply_selected_bounds.py`, auditor
 `../tools/audit_reapplied_bounds.py`.
+
+
+## Archived final-set components recovered,13:33 Amsterdam
+
+v38 and v17–v21 have retained original boosters, verified by original hashes.
+All344,841 old integer predictions reproduce exactly; all670,790 final rows
+are now inferred. V17–v21 also pass full final saved-model reloads.
+The overnight control is not an exact v12/v13/v15 substitute:2698/2698/2697
+old integer rows differ, RMS0.252197/0.252197/0.251915seconds, maximum25.
+Those mappings stop before final inference.
+
+Retained component arrays reproduce v54/v57/v58/v64/v66/v68/v70 exactly on
+the old set and provide final-view blends. The older base neural arrays came
+from October8 refits; their recorded old-input float RMS difference was
+2.39918e-6seconds. This is retained numerical provenance, not a new fit or gain.
+V45/v46 old controls also reproduce exactly; final inference/reloads are running.
+A separate SQL audit checks source hashes, every original integer, final ID
+coverage, serialization and all four monthly populations. No complete affine
+port or final upload is claimed. Missing v26–v44 originals were not found on
+either PC or in git history; backup availability was requested.
+
+The fixed deeper-TabM screen continues on the laptop. Its completion worker
+waits for the desktop legacy audit, returns only missing artifacts, then runs
+the frozen exact-v80 comparison and independent architecture/model/SQL/day
+bootstrap audit. It records the result and gate in the registry/report; it
+starts no fits or uploads. State: `../runs/v3_20261012_nn_public_tabm_depth3/completion/execution.json`.

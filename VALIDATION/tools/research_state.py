@@ -75,6 +75,22 @@ def status(remote=False):
         value['completion']['completed_steps']=len(r['steps'])
     final=RUNS/'v3_20261012_final_public_tabm_inference'
     value['final_tabm_local_receipts']={view:(final/f'{view}.json').exists() for view in ['old','final']}
+    legacy=RUNS/'v3_20261012_final_legacy_audit/audit.json'
+    if legacy.exists():
+        r=read(legacy)
+        value['legacy_final']=dict(status=r['status'],versions=[a['version'] for a in r['predictions']],
+            excluded_mappings=[a['version'] for a in r['excluded_mappings']])
+        value['desktop']['stage']='retained_final_components_audited_missing_basis_pending'
+    elif (RUNS/'v3_20261012_final_legacy_adsb_replay/identity.json').exists():
+        value['desktop']['stage']='legacy_adsb_final_inference'
+    depth=RUNS/'v3_20261012_nn_public_tabm_depth3'
+    if (depth/'completion/execution.json').exists():
+        r=read(depth/'completion/execution.json')
+        value['depth3_completion']={k:r[k] for k in ['state','active_stage','steps','failure'] if k in r}
+    if (depth/'comparison/independent_audit.json').exists():
+        r=read(depth/'comparison/result.json')
+        value['depth3_result']={k:r[k] for k in ['cv','paired','gate','scores']}
+        value['laptop']=dict(stage='fixed_depth3_screen_complete',training_receipt=str((depth/'audit.json').relative_to(ROOT)))
     destination=STATE.with_suffix('.json.tmp');destination.write_text(json.dumps(value,indent=2)+'\n');destination.replace(STATE)
     print(json.dumps(value,separators=(',',':')))
 

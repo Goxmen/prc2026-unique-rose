@@ -1,5 +1,5 @@
 {
-  "scope": "Desktop metadata for pre-v44 nonzero affine basis; physical availability is not an inference audit",
+  "scope": "Pre-v44 nonzero affine basis; refreshed retained-model availability and exact replay receipts. Other original files remain missing.",
   "entries": [
     {
       "version": 1,
@@ -74,27 +74,82 @@
     {
       "version": 17,
       "weight": -0.014879985315297222,
-      "manifests": []
+      "manifests": [
+        {
+          "path": "VALIDATION/runs/overnight_20260917/submission_manifest.json",
+          "model_paths": [
+            "models/refit_2025__no_month__42.txt"
+          ],
+          "model_present": [
+            "models/refit_2025__no_month__42.txt"
+          ]
+        }
+      ],
+      "exact_old_and_final_replay": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final.json"
     },
     {
       "version": 18,
       "weight": 0.015333968351203152,
-      "manifests": []
+      "manifests": [
+        {
+          "path": "VALIDATION/runs/overnight_20260917/submission_manifest.json",
+          "model_paths": [
+            "models/refit_2025__no_history__42.txt"
+          ],
+          "model_present": [
+            "models/refit_2025__no_history__42.txt"
+          ]
+        }
+      ],
+      "exact_old_and_final_replay": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final.json"
     },
     {
       "version": 19,
       "weight": 0.004129948391099904,
-      "manifests": []
+      "manifests": [
+        {
+          "path": "VALIDATION/runs/overnight_20260917/submission_manifest.json",
+          "model_paths": [
+            "models/refit_2025__clock_features__42.txt"
+          ],
+          "model_present": [
+            "models/refit_2025__clock_features__42.txt"
+          ]
+        }
+      ],
+      "exact_old_and_final_replay": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final.json"
     },
     {
       "version": 20,
       "weight": -0.016917410406603075,
-      "manifests": []
+      "manifests": [
+        {
+          "path": "VALIDATION/runs/overnight_20260917/submission_manifest.json",
+          "model_paths": [
+            "models/refit_2025__small_trees__42.txt"
+          ],
+          "model_present": [
+            "models/refit_2025__small_trees__42.txt"
+          ]
+        }
+      ],
+      "exact_old_and_final_replay": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final.json"
     },
     {
       "version": 21,
       "weight": 0.008001580570915873,
-      "manifests": []
+      "manifests": [
+        {
+          "path": "VALIDATION/runs/overnight_20260917/submission_manifest.json",
+          "model_paths": [
+            "models/refit_2025__rule_routing__42.txt"
+          ],
+          "model_present": [
+            "models/refit_2025__rule_routing__42.txt"
+          ]
+        }
+      ],
+      "exact_old_and_final_replay": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final.json"
     },
     {
       "version": 26,
@@ -209,9 +264,13 @@
             "models/refit_2025__v38__42.classifier.txt",
             "models/refit_2025__v38__42.ordinary.txt"
           ],
-          "model_present": []
+          "model_present": [
+            "models/refit_2025__v38__42.classifier.txt",
+            "models/refit_2025__v38__42.ordinary.txt"
+          ]
         }
-      ]
+      ],
+      "exact_old_and_final_replay": "VALIDATION/runs/v3_20261012_final_legacy_v38_replay/final.json"
     },
     {
       "version": 43,
@@ -227,5 +286,7 @@
         }
       ]
     }
-  ]
+  ],
+  "updated_at": "2026-10-12T11:33:35.647668+00:00",
+  "git_history_model_objects": 0
 }

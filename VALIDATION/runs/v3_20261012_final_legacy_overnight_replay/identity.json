@@ -1,0 +1,142 @@
+{
+  "sources": [
+    {
+      "path": "VALIDATION/final_legacy_overnight_replay.py",
+      "sha256": "a9e9bcf2a223d9e89c21d142a9645c02a5b01bee3312907f685b1bd2eae7501b"
+    },
+    {
+      "path": "VALIDATION/overnight_models.py",
+      "sha256": "79633c2479438729f145bfa5e3e5d99d70e50a7fca12780b71790a92d4f183a3"
+    },
+    {
+      "path": "VALIDATION/modeling.py",
+      "sha256": "777b2d45fd97565dc83ecabce248734bfb811fbadce5616d8959cad03016c43b"
+    },
+    {
+      "path": "pipeline/registered_rules.py",
+      "sha256": "5bc8da8c9ce29fa83dddeb76093d82ebfeab8e48b62ef9dc1c31d5f5d288d163"
+    },
+    {
+      "path": "pipeline/prediction_rules.py",
+      "sha256": "62613801875506dcc7f4078e0e136398b6694ee8b1eb0398e9a05612c7b4e560"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/progress.json",
+      "sha256": "ed37ada2873d01cc1b841d0f85b0263ab768c95841bf92f79b6d2d855b4cfd08"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/submission_manifest.json",
+      "sha256": "89f17b9f09d4d520526d74bbecb30a3bde26d9b2b483c38e38926316028cdcf5"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/manifest.json",
+      "sha256": "712fde2830cd561047b889f0a3c51deb64e0a600f515f59db747d6404367c3ba"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__control__42.txt",
+      "sha256": "a02666b91fa286c16cc9fb18b209b466564d2ab4c94e28efbd73d78db9ec188d"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v12.parquet",
+      "sha256": "9dc3348486c1e3e37bcbd25431e02911b7aec61e42059059fa557e8770c23abc"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v13.parquet",
+      "sha256": "f71710fb9a78a7135507a5e00e0b874cd6bcd20298d49dc0d98bca730e2d4c5f"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v15.parquet",
+      "sha256": "6d5a7f51c8c291ba06ba664cffc16d20edc35edd5d48c2473a54eae62e37c402"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__no_month__42.txt",
+      "sha256": "d9d75b35067475195d97d37bf5a8b12a122400996d655ff77571d3273290fdf1"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v17.parquet",
+      "sha256": "195a1eac2f49ad933084c763f606582609eb73173f2030c7871d47cd116d5588"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__no_history__42.txt",
+      "sha256": "5ce2c779c19c33e05b1eb9682fa72454fe9704a2348d284c894daf6f4ed44215"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v18.parquet",
+      "sha256": "0915233af837212dcf2fcf54caac45992cd2b3d8c55bbdfd141ea62b8af6b5ab"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__clock_features__42.txt",
+      "sha256": "2e79a5e19c2eabfa473415c8e2d1948d4dc5313dcb593ba8d12fad6bfed34fb0"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v19.parquet",
+      "sha256": "5678c8e7c811da9760f404d26b15ac177b2d878672e48ac009812b1d54c0bfe3"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__small_trees__42.txt",
+      "sha256": "52a92f20c56b13bd63d1c5e8696164891261a158ee453f21e827f3b97568bc05"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v20.parquet",
+      "sha256": "8b80b2859ec6cb9a712f95c114818de04cc5328466a777862810f25f2881a195"
+    },
+    {
+      "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__rule_routing__42.txt",
+      "sha256": "794cfcc8b2d717f42b07d47fcfab87349c5279aed0a31cf507f010c725c10a14"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v21.parquet",
+      "sha256": "484df1c9aefb7800d323e84b1773c8c6a124d057cd277986cfc27be36348a27b"
+    }
+  ],
+  "mappings": {
+    "control": [
+      [
+        12,
+        "off"
+      ],
+      [
+        13,
+        "rome_6h"
+      ],
+      [
+        15,
+        "rome_4h"
+      ]
+    ],
+    "no_month": [
+      [
+        17,
+        "rome_4h"
+      ]
+    ],
+    "no_history": [
+      [
+        18,
+        "rome_4h"
+      ]
+    ],
+    "clock_features": [
+      [
+        19,
+        "rome_4h"
+      ]
+    ],
+    "small_trees": [
+      [
+        20,
+        "rome_4h"
+      ]
+    ],
+    "rule_routing": [
+      [
+        21,
+        "rome_4h"
+      ]
+    ]
+  },
+  "gate": "Every original integer prediction exact before final inference",
+  "no_fit": true,
+  "no_upload": true,
+  "final_reload_required": true
+}

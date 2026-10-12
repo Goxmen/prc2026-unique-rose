@@ -1,0 +1,64 @@
+{
+  "sources": [
+    {
+      "path": "VALIDATION/final_legacy_adsb_replay.py",
+      "sha256": "f25db99bdb32b4b894a613ccda072d04638fc4a9150669a0404cd6e627c8e101"
+    },
+    {
+      "path": "VALIDATION/adsblol_submit.py",
+      "sha256": "3158ab0c44067d711616dfab027d746f7e4e23adcd5708b41c307ba7dedfae06"
+    },
+    {
+      "path": "VALIDATION/rome_signals.py",
+      "sha256": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7"
+    },
+    {
+      "path": "VALIDATION/opdi_submit.py",
+      "sha256": "de9f42832541cb594ff5fac95df783e0c356aaaee59a89be2af59f9fb3456227"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/manifest.json",
+      "sha256": "712fde2830cd561047b889f0a3c51deb64e0a600f515f59db747d6404367c3ba"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v45/models/refit2025__ordinary_adsblol__42.txt",
+      "sha256": "9dfda875c8c7b2da5fc33f86d6a97ebdb8512ae97f300a6ac021aa5832e40437"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v45/models/refit2025__classifier__42.txt",
+      "sha256": "9501e34314f919425cc74cc345eef9562e895f1516002847fba1583afa97d31e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v45/progress.json",
+      "sha256": "716b18bd1c53726fa95a319c8a361c57cc3ffc0c274d27020d67c8a97142e532"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v45.parquet",
+      "sha256": "cfc0c9a183a29a561c6a9d38ae58d705fd064c70980dd6f553d8b1a377fb48df"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/models/refit2025__ordinary_adsblol_stand__42.txt",
+      "sha256": "0d927558d9f787eb47899351f3545ca04212d944d722e047b846663b02f62d76"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/models/refit2025__classifier__42.txt",
+      "sha256": "9501e34314f919425cc74cc345eef9562e895f1516002847fba1583afa97d31e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261002_adsblol_submit/submission_v46/progress.json",
+      "sha256": "f2c1633e042408c681231d2f7a29e804099a50a1f194818a2bbaa823fb1c50c4"
+    },
+    {
+      "path": "data/derived/scored_submission_cache_20261011/unique-rose_v46.parquet",
+      "sha256": "60cb551aa581d556be361e62793769b0bfa901532dde28472443a5f15cf4f3ff"
+    }
+  ],
+  "no_fit": true,
+  "no_upload": true,
+  "gate": "Every old integer prediction exact before final inference",
+  "versions": [
+    45,
+    46
+  ],
+  "final_model_reload": true
+}

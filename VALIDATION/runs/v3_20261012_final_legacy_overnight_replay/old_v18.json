@@ -1,0 +1,30 @@
+{
+  "version": 18,
+  "recipe": "no_history",
+  "rule": "rome_4h",
+  "rows": 344841,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/identity.json",
+    "sha256": "196f1454693fced6e29c351e3503517755e15d93fae16c0f39eae4d8eeefdbd9"
+  },
+  "inputs": {
+    "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_old.pkl",
+    "sha256": "22e91f3aee2a614aba8ee626de366fa1edb281a1a35a5f660d70664463cf9821"
+  },
+  "template": {
+    "path": "data/submitting.parquet",
+    "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/old_v18.parquet",
+    "sha256": "73cdc18d709f98d7e9a66a383f16064b1e6bef5eeb7026674a13a661181f0cad"
+  },
+  "model": {
+    "path": "VALIDATION/runs/overnight_20260917/models/refit_2025__no_history__42.txt",
+    "sha256": "5ce2c779c19c33e05b1eb9682fa72454fe9704a2348d284c894daf6f4ed44215"
+  },
+  "all_original_predictions_exact": true,
+  "changed_rows": 0,
+  "rms_difference": 0.0,
+  "max_abs_difference": 0.0
+}

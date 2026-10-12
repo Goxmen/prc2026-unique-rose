@@ -1,0 +1,40 @@
+{
+  "version": 54,
+  "rows": 670790,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/identity.json",
+    "sha256": "9d4630205e0e9122196899b71e59f928c46c2f888de979d1992ee52fa0f695f6"
+  },
+  "inputs": {
+    "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_final.pkl",
+    "sha256": "4432bb7eaa886e69a5f0b84a1bc5baff3b62cf8d179280da980fdb1d4bdf44ae"
+  },
+  "original": {
+    "path": "data/derived/scored_submission_cache_20261011/unique-rose_v54.parquet",
+    "sha256": "367d4d19f365c497e7a408713513a4813a633e02d5f7f658233f68a53d77970e"
+  },
+  "hpo_parts": [
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/nn.parquet",
+      "sha256": "f0a2d9ad78bad98afb1f4f813b0d5913988a8038955bb718b87daf05b2fa13ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/trees.parquet",
+      "sha256": "4eb4db3561f9065d3a3768d8e84084faf291b33ee640b9fe2a0d2b7099f5cf9e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/parts/rome.parquet",
+      "sha256": "0a37d6998bdf3be726bb690b730e30b23dd3cd4030014b6d1ec52898d39d2d98"
+    }
+  ],
+  "exact_sparse_parent_replay": true,
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v54.parquet",
+    "sha256": "e75e9127604402c600e2533d44220dde9bafe672c8b6aa31fa22fb00aa8759db"
+  },
+  "template": {
+    "path": "data/final_submitting.parquet",
+    "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+  },
+  "old_control_exact": true
+}

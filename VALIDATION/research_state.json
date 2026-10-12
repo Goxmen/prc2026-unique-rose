@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T11:03:39.628822+00:00",
+  "updated_at": "2026-10-12T11:30:43.789708+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
@@ -8,7 +8,7 @@
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 40,
   "desktop": {
-    "stage": "final_public_models_ready",
+    "stage": "legacy_adsb_final_inference",
     "old_replay": true,
     "final_replay": true
   },
@@ -20,11 +20,11 @@
   "laptop": {
     "stage": "depth3_fit_or_inference",
     "completed_folds": [],
-    "last_epoch_at": "13:03:32",
+    "last_epoch_at": "13:30:17",
     "fold": "2025-01",
-    "epoch": 1,
+    "epoch": 12,
     "epochs": 21,
-    "seconds_per_epoch": 136.13
+    "seconds_per_epoch": 136.41
   },
   "duration_result": {
     "cv": {
@@ -62,5 +62,9 @@
   "final_tabm_local_receipts": {
     "old": true,
     "final": true
+  },
+  "depth3_completion": {
+    "state": "waiting_for_existing_jobs",
+    "steps": []
   }
 }
