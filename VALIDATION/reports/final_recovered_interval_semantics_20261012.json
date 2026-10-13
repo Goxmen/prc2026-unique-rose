@@ -1,0 +1,55 @@
+{
+  "status": "pass_no_source_changes",
+  "actual_chain": [
+    "final_public_corrections",
+    "public_constraints_candidate",
+    "recovered_plan_exclusion_fixed"
+  ],
+  "fixed_source": {
+    "path": "VALIDATION/recovered_plan_exclusion_fixed.py",
+    "sha256": "4500ed4471d772cca7af08d0b95ea9a5f69b8c4ae55a261d1907a953f1880afa"
+  },
+  "constraint_router": {
+    "path": "VALIDATION/public_constraints_candidate.py",
+    "sha256": "0f2f63848690fe8ee552d45073579d9be81db45023616affa6e267eaa35ea234"
+  },
+  "superseded_source": "VALIDATION/recovered_plan_exclusion.py has clipped-lower semantics; it is not imported by selected stack.",
+  "fixtures": {
+    "rows": 7,
+    "expected": [
+      6606.0,
+      6606.0,
+      6606.0,
+      2394.0,
+      2394.0,
+      2394.0,
+      9606.0
+    ],
+    "independent_scalar_feasible_edges_equal_fixed_apply_and_SQL": true,
+    "negative_lower_zero_input_is_forced_to_upper": true,
+    "boundary_and_lower_tie_exact": true
+  },
+  "real_input_counts": {
+    "old": {
+      "accepted": 49,
+      "raw_lower_negative": 17,
+      "raw_lower_nonnegative": 32
+    },
+    "final": {
+      "accepted": 71,
+      "raw_lower_negative": 21,
+      "raw_lower_nonnegative": 50
+    }
+  },
+  "auditors_unchanged": [
+    {
+      "path": "VALIDATION/final_selected_stack_audit.py",
+      "sha256": "3dc960854bc0f769e7555e063aad55d24ab40255f0bbdf4f4cf055fab2b3e0dd"
+    },
+    {
+      "path": "VALIDATION/tools/audit_final_public_quality_components_20261012.py",
+      "sha256": "8c34bc4a994dde9845ec8a85e9df652f66ea2377a9d1f2af169fedd51f08bb50"
+    }
+  ],
+  "no_model_fit_or_posterior_execution": true
+}

@@ -9,11 +9,11 @@
   "previous_goal": "VALIDATION/runs/v3_20261011_target225/objective.json",
   "first_direction": "EUROCONTROL daily pre-departure aggregate reconciliation; direct source identity audit before modeling",
   "agents": "New user-authorized goal; cohort_learning, final_recovery and new_signal_audit active",
-  "laptop": "Idle; deeper TabM fits complete, returned, audited and closed",
+  "laptop": "Online and idle; crossfit protocol pending review",
   "current_best_version": 80,
   "current_best_rmse": 218.8525,
   "current_gap": 13.8525,
-  "updated_at": "2026-10-12T15:06:42.450186+00:00",
+  "updated_at": "2026-10-13T05:52:44.603735+00:00",
   "target_history": [
     {
       "at": "2026-10-11T20:18:12.307058+00:00",
@@ -22,7 +22,7 @@
       "source": "User request: same protocol, new target 205.00 or lower; retain 2 or 3 candidates and wait until 02:00 Amsterdam"
     }
   ],
-  "research_state": "Resumed: distinct cohort-learning/source-measurement diagnostics and final portability recovery",
+  "research_state": "Resumed under active goal; exact final recovery and posterior-aware research",
   "research_not_before_utc": "2026-10-12T00:00:00+00:00",
   "retained_upload_versions": [
     76,
@@ -35,13 +35,13 @@
   "reserved_next_window_slots": 2,
   "resumed_at": "2026-10-12T00:27:05.027720+00:00",
   "resume_authorization": "User: its 2:24. get started",
-  "remaining_utc_day_slots": 0,
-  "used_utc_day_slots": 5,
-  "desktop": "Idle;15 legacy final component ports independently audited",
+  "remaining_utc_day_slots": 5,
+  "used_utc_day_slots": 0,
+  "desktop": "v8 final inference resumed from saved model",
   "automatic_upload_queue": [],
-  "last_live_check": "2026-10-12T15:03:41+00:00",
+  "last_live_check": "2026-10-13T05:49:16+00:00",
   "private_progress_note": "LOCAL_PROGRESS.md (gitignored)",
-  "repository_visibility": "PRIVATE verified2026-10-12",
+  "repository_visibility": "PRIVATE verified 2026-10-13",
   "pending_source_pilots": [],
   "closed_recent": [
     "flight-ID clock main tree: inconclusive",
@@ -65,7 +65,7 @@
   "compact_state": "VALIDATION/research_state.json",
   "desktop_duration_status": "closed_inconclusive",
   "desktop_duration_result": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/closed.json",
-  "native_goal_observed_status": "active; new goal created after user removed previous goal",
+  "native_goal_observed_status": "active",
   "resume_history": [
     {
       "at": "2026-10-12T15:06:42.450186+00:00",
@@ -74,6 +74,15 @@
       "native_goal_status": "active",
       "baseline_version": 80,
       "baseline_score": 218.8525
+    },
+    {
+      "at": "2026-10-13T05:52:44.603735+00:00",
+      "request": "Continue working toward the active thread goal; reserve final daily slot for best model",
+      "target": 205,
+      "native_goal_status": "active"
     }
-  ]
+  ],
+  "slot_date_utc": "2026-10-13",
+  "reserved_final_slots": 1,
+  "submission_slot_policy": "VALIDATION/submission_slot_policy.json"
 }

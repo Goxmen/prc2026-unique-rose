@@ -147,6 +147,31 @@ def status(remote=False):
             assert old['all_original_predictions_exact'] and final['rows']==670790
         value['legacy_final']['versions']=sorted(set(value['legacy_final']['versions']+[60,61]))
         value['legacy_final'].setdefault('additional_receipts',[]).append(str((weather/'independent_audit.json').relative_to(ROOT)))
+    for version in [4,5,6,7,8,9]:
+        early=RUNS/f'v3_20261012_final_missing_early_reconstruct/v{version}'
+        if (early/'independent_audit.json').exists():
+            a=read(early/'independent_audit.json');r=read(early/'result.json')
+            assert a['status']=='pass' and r['views']['old']['exact_original_integer_replay']
+            assert r['views']['final']['rows']==670790
+            value['legacy_final']['versions']=sorted(set(value['legacy_final']['versions']+[version]))
+            value['legacy_final'].setdefault('additional_receipts',[]).append(str((early/'independent_audit.json').relative_to(ROOT)))
+    selected=RUNS/'v3_20261012_final_selected_stack/old/audit.json'
+    if selected.exists():
+        a=read(selected);assert a['status']=='pass'
+        value['final_selected_old_replay']=dict(status='pass',rows=a['rows'],
+            versions=[72,74,76,77,78,79,80],affine_components=a['affine_components'],
+            complete_final_basis=False,receipt=str(selected.relative_to(ROOT)))
+    joint=RUNS/'v3_20261012_final_joint_public_inference/final/audit.json'
+    if joint.exists():
+        a=read(joint);assert a['status']=='pass'
+        value['final_joint_posterior']=dict(status='pass',months=['2026-01','2026-02','2026-06','2026-07'],
+            receipt=str(joint.relative_to(ROOT)),no_calibration_refit=True)
+    cohort=RUNS/'v3_20261012_nn_public_tabm_daily_cohort'
+    if (cohort/'comparison/independent_audit.json').exists():
+        a=read(cohort/'comparison/independent_audit.json');assert a['status']=='pass'
+        r=read(cohort/'comparison/result.json')
+        value['daily_cohort_result']={k:r[k] for k in ['cv','paired','gate','scores']}
+        if (cohort/'closed.json').exists():value['daily_cohort_result']['status']=read(cohort/'closed.json')['status']
     allocation=read(REGISTRY).get('machine_allocation',{})
     if 'desktop' in allocation:value['desktop']=allocation['desktop']
     if not remote and 'laptop' in allocation:value['laptop']=dict(allocation['laptop'],stale=True)

@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_posterior_aware_sensitivity_20261012.py",
+    "sha256": "9f56d266d8ebb3cb902ff0fe751a2fdd2e96e779b95349f8dc2375db8dfe8759"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_posterior_aware_sensitivity/identity.json",
+    "sha256": "39f94845db85ca61cf414cbcd785155be7f96b4759976e2000662fefad3281b0"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_posterior_aware_sensitivity/result.json",
+    "sha256": "26d3e06c6e6ff04b296be622c90c892f9d2120c455c234ca203db85af28afe20"
+  },
+  "files_verified": 18,
+  "months": {
+    "2025-01": {
+      "input_rows": 11317,
+      "supported_targets": 275,
+      "source_pairs": 38,
+      "unique_source_coordinates": 99,
+      "zero_replay_max_difference": 1.0913936421275139e-11,
+      "saved_finite_difference_max_error": 4.570949386106804e-06,
+      "all_features_derivative_prior_moments_source_jacobians_and_ranks_verified": true,
+      "whitening": "independent rowwise source projection plus least-squares nuisance removal"
+    },
+    "2025-07": {
+      "input_rows": 15211,
+      "supported_targets": 2061,
+      "source_pairs": 73,
+      "unique_source_coordinates": 131,
+      "zero_replay_max_difference": 2.9103830456733704e-11,
+      "saved_finite_difference_max_error": 5.57119074073853e-06,
+      "all_features_derivative_prior_moments_source_jacobians_and_ranks_verified": true,
+      "whitening": "independent rowwise source projection plus least-squares nuisance removal"
+    }
+  },
+  "seconds": 10.706826880000335,
+  "peak_rss_kib": 367456,
+  "labels_loaded": false,
+  "posterior_likelihood_evaluations": 0,
+  "fits": 0,
+  "reused_primitives": "Original frozen support construction and ordinary Gaussian moments only. No producer grouping, derivative, matrix-summary, whitening or posterior code called.",
+  "finite_difference_limit": "Signed perturbed posterior means were not exported. Audited recorded per-target/max finite-difference errors and immutable reviewed source; did not independently rerun posterior finite differences.",
+  "conclusion": "Algebraic sensitivity confirmed only. No predictive-gain or global-identifiability evidence; honest train-peer packets remain unavailable. No training authorization implied."
+}

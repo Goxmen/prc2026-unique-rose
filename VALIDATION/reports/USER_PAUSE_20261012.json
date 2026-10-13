@@ -1,0 +1,24 @@
+{
+  "timestamp_utc": "2026-10-12T17:10:32.071389+00:00",
+  "status": "paused",
+  "reason": "Explicit user instruction: pause for now; wait for command to continue",
+  "goal_status": "paused",
+  "desktop_v8": [
+    {
+      "pid": 84832,
+      "pgid": 84832,
+      "state": "T",
+      "start_ticks": "760659",
+      "command": ".venv/bin/python VALIDATION/tools/complete_final_missing_v8_20261012.py"
+    },
+    {
+      "pid": 86367,
+      "pgid": 84832,
+      "state": "T",
+      "start_ticks": "772719",
+      "command": "/home/gunes/PRC/.venv/bin/python VALIDATION/final_missing_early_reconstruct.py infer --version 8"
+    }
+  ],
+  "laptop": "idle after completed daily cohort job",
+  "resume": "Wait for explicit user instruction. Verify recorded PID start times before SIGCONT to process group 84832. Reuse saved model; do not refit."
+}

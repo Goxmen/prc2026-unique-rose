@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/final_joint_public_audit.py",
+    "sha256": "24055d85d8882c1554c82ade201aa2c9acd1b070e177332f2c4672a7e098b5a6"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/identity.json",
+    "sha256": "841c5c55bd9a7162d2d46e447f78d2c1d7bc632f44bfd3745ad39d2a586309db"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/old/result.json",
+    "sha256": "9b28d2e2dfa1751ee3637474671384eafc53c408f1dff8e8f9e03e48e141147b"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/old/increments.parquet",
+    "sha256": "641a5ccd6fcc49713c78ca0b4fa374113dfb2c28457939ef4c0c868f8d7376cb"
+  },
+  "input_audit": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/input_audit.json",
+    "sha256": "1e75858510470ac3a3c69bc38dd9631f9d37706b4a7f172a63e6ca9ae13ab865"
+  },
+  "view": "old",
+  "rows": 344841,
+  "rome_rows": 26899,
+  "all_row_SQL_increment_membership_and_weight_exact": true,
+  "all_template_IDs_order_exact": true,
+  "old_saved_components_exact": true,
+  "numeric": {
+    "scope": "Old posterior caches and historical numerical audits reused exactly; no repeated old posterior checks."
+  },
+  "no_fit_or_departure_labels": true,
+  "seconds": 0.31195772499995655
+}

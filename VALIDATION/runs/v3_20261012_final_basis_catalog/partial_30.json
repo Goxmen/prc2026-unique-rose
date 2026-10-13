@@ -1,0 +1,596 @@
+{
+  "schema": "final_public_corrections_basis_v1",
+  "source": {
+    "path": "VALIDATION/tools/catalog_final_components_20261012.py",
+    "sha256": "7a4ae8b179360a16df906347f2212a750481028e759f6757c6d396bfe258de2e"
+  },
+  "components": {
+    "1": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/old_v1.parquet",
+        "sha256": "cef22983281154c6fac180531503e0ace352e74f1d41a203adc945978aed21e6"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/final_v1.parquet",
+        "sha256": "50bc5c8a8ac6304e348a92c8a18fbdf2887170cd81d534597d54051f475b906f"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/result.json",
+        "sha256": "81429ed91815ba3dcb094fea88c76a84814480d1300da8823828fadb073b9599"
+      },
+      "provenance": "Original airport means independently reconstructed from exact integer training sums; no model fit.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "4": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/old.parquet",
+        "sha256": "eb2152ad445ff8ad417b193d9f25f902febd3e65ea7fb181fd6d5d1771a23023"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/final.parquet",
+        "sha256": "03a8dbd842c7851b16d8a61570f57103d64a9a047a5a366fa5a9ca13da849419"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/independent_audit.json",
+        "sha256": "b47e41bb390adf7ab716bdcec435e4de9bfd7efcf092762ced7b5a04f810cb9a"
+      },
+      "provenance": "Fixed early LightGBM reconstruction. Original source exact=True; all old integers exact. Original weight hash absent; source/runtime caveats retained.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/result.json",
+        "sha256": "64f6c5385324b1666e2561b957d90acf56990f16ba0352659ab1dbdac0945b93"
+      }
+    },
+    "8": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v8/old.parquet",
+        "sha256": "643b0ae745c9bed2039148d505a9b1b39afa16fb5438a112e5fcbf88bd1adde0"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v8/final.parquet",
+        "sha256": "15e5d36ada044c3d72b982a72343b56cc2d611a1f8612b3d275a0a94f2201cd7"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v8/independent_audit.json",
+        "sha256": "40c00efcc76f4c2d8b70d7edf0beacde215ac46059409b7240bb345bc1013a21"
+      },
+      "provenance": "Fixed early LightGBM reconstruction. Original source exact=False; all old integers exact. Original weight hash absent; source/runtime caveats retained.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v8/result.json",
+        "sha256": "00f82d8c10212b5d247c1b208a1e465b4c826e3c815d308860bc14709290716f"
+      }
+    },
+    "12": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/old_v12.parquet",
+        "sha256": "6794d72782dec06fd6874b6d6c8ebedd66dd3d50227e38af5d46800e4cc1df3a"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/final_v12.parquet",
+        "sha256": "174594085c4b1db5267b92cd95a3cedb0a12cca8b8d3dc516b0a0ef645b4c938"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/independent_audit.json",
+        "sha256": "e3ee03377003479593371afc43b9c71c5f52c6b31292bc0e9b82baf5aa1ad378"
+      },
+      "provenance": "Fixed archived-recipe reconstruction. All original integers exact; model text identity and historical thread caveats remain in producer/audit receipts.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/result.json",
+        "sha256": "e33c1cf7c0493a3726808aa4dff0043959170ed940cf481755f01eacb93c8f6e"
+      }
+    },
+    "13": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/old_v13.parquet",
+        "sha256": "964f522b4edd2f050c1743abef90baab702bfcd754353d36692e7ae06cf27da0"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/final_v13.parquet",
+        "sha256": "6f9c1f418f1a9e10916f09865f749a4434b10e0e27380f7037d01eec5121d8d4"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/independent_audit.json",
+        "sha256": "e3ee03377003479593371afc43b9c71c5f52c6b31292bc0e9b82baf5aa1ad378"
+      },
+      "provenance": "Fixed archived-recipe reconstruction. All original integers exact; model text identity and historical thread caveats remain in producer/audit receipts.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/result.json",
+        "sha256": "e33c1cf7c0493a3726808aa4dff0043959170ed940cf481755f01eacb93c8f6e"
+      }
+    },
+    "14": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/old_v14.parquet",
+        "sha256": "88c57871e3b143d5f0d0635159177ff063ec2699c7c72da502bb66bb6d63c423"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/final_v14.parquet",
+        "sha256": "d46a928e3196ad2dd11be86a93ef3535ccf125afbc934c0b47c63d8d04a58830"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/independent_audit.json",
+        "sha256": "51e20cfe174d05397f312d3cd4d9313d6118e7d49d93a5e2c2708964f796a363"
+      },
+      "provenance": "Fixed archived-recipe reconstruction. All original integers exact; model text identity and historical thread caveats remain in producer/audit receipts.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/result.json",
+        "sha256": "ce5f8631c51bbe9d080d480c824642a6475f151424fe8bfeabd87352cd4b99df"
+      }
+    },
+    "15": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/old_v15.parquet",
+        "sha256": "ef143e7b709b5461264b0078c5a07f2ba65f47b726f5b667a71b566cd606e683"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/final_v15.parquet",
+        "sha256": "c3d685869bd8ae0d2412525a51be786433482905cee015d68ca28a49699bea2c"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/independent_audit.json",
+        "sha256": "e3ee03377003479593371afc43b9c71c5f52c6b31292bc0e9b82baf5aa1ad378"
+      },
+      "provenance": "Fixed archived-recipe reconstruction. All original integers exact; model text identity and historical thread caveats remain in producer/audit receipts.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/result.json",
+        "sha256": "e33c1cf7c0493a3726808aa4dff0043959170ed940cf481755f01eacb93c8f6e"
+      }
+    },
+    "16": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/old_v16.parquet",
+        "sha256": "a469ced4af3473eea7dc10aa377f4835aa647c11004d56cc922ed57a071f3d97"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/final_v16.parquet",
+        "sha256": "1bf12592533adf05f975eb4cb7b08a9dbef778908de470eece9a9557f14495a3"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/independent_audit.json",
+        "sha256": "51e20cfe174d05397f312d3cd4d9313d6118e7d49d93a5e2c2708964f796a363"
+      },
+      "provenance": "Fixed archived-recipe reconstruction. All original integers exact; model text identity and historical thread caveats remain in producer/audit receipts.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/result.json",
+        "sha256": "ce5f8631c51bbe9d080d480c824642a6475f151424fe8bfeabd87352cd4b99df"
+      }
+    },
+    "17": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/old_v17.parquet",
+        "sha256": "efd00eed5d6d4d36bdc9234f5bbbc9259440e68b0655ac653fa060c6f98bdc26"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v17.parquet",
+        "sha256": "7ed7dc2446277eb413faabe3ab6981454c3bf559af1d7bd25214a7a0b3b9cafe"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "18": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/old_v18.parquet",
+        "sha256": "73cdc18d709f98d7e9a66a383f16064b1e6bef5eeb7026674a13a661181f0cad"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v18.parquet",
+        "sha256": "63cbe71676f57751849a5ae072df223217c7d8ff376d53b633d671aed172c7a5"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "19": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/old_v19.parquet",
+        "sha256": "aff4d9811012f34062a8d0e58ba119ab04e34bf686e0723a9bdfdb5b89e8f7b0"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v19.parquet",
+        "sha256": "d00808768918c89e0ecf6297ed1333dab0686b546d741dbf67d6b87b5e706965"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "20": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/old_v20.parquet",
+        "sha256": "de7c391c580f9bb1b4dfcedd0c29a358b4cfb2e957fe23f0434ecdf15d5181bf"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v20.parquet",
+        "sha256": "3553ed2f5b7c06677fb8899233e25ae6fb8c94eed4b8ec35a90311e2fc5ddaff"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "21": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/old_v21.parquet",
+        "sha256": "78467ed1e5edd888de1dc3d027d4dcc2915b57ffdddc46c41420a0c59fb01a58"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v21.parquet",
+        "sha256": "a8496b123f435240931eefa208459e5d8f6e06a6a0cdb07a2022f52624680849"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "30": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/old_v30.parquet",
+        "sha256": "3932a617882459999fb43e0094c5756e2c405808ed51e62a8780c05279118461"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/final_v30.parquet",
+        "sha256": "24a8b0802ecac216f8bdd0f9aac3d6edb1460be3d3f61e851d135e873045bcdb"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/independent_audit.json",
+        "sha256": "ea48d61ba3fc4e96e25ccb43b3ec18f28861e4c6267c959dfe9f8f2a3179b216"
+      },
+      "provenance": "Fixed archived-recipe reconstruction. All original integers exact; model text identity and historical thread caveats remain in producer/audit receipts.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/result.json",
+        "sha256": "4bee41e0b2b653acc341971daa7c2b1c3b42dc67b4583d05726814371eda19d8"
+      }
+    },
+    "33": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/old_v33.parquet",
+        "sha256": "7c91057067bcf2fb268215504dd6a294dd65a4450f724a4ddc333a247d491ca2"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/final_v33.parquet",
+        "sha256": "5427173eab1f829ec819e8bcff3cb511d501a23868d4eab709af4369306ebb7f"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/independent_audit.json",
+        "sha256": "ea48d61ba3fc4e96e25ccb43b3ec18f28861e4c6267c959dfe9f8f2a3179b216"
+      },
+      "provenance": "Fixed archived-recipe reconstruction. All original integers exact; model text identity and historical thread caveats remain in producer/audit receipts.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/result.json",
+        "sha256": "4bee41e0b2b653acc341971daa7c2b1c3b42dc67b4583d05726814371eda19d8"
+      }
+    },
+    "34": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/old_v34.parquet",
+        "sha256": "7b8ea8d76aa3c317dd78bd96625951ef678bffa504911a1639a8250048cdfd5d"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/final_v34.parquet",
+        "sha256": "6eb67ab49ef4307fd419cedc0e57074c995ff932cd15d84036cefe479433e945"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/independent_audit.json",
+        "sha256": "ea48d61ba3fc4e96e25ccb43b3ec18f28861e4c6267c959dfe9f8f2a3179b216"
+      },
+      "provenance": "Fixed archived-recipe reconstruction. All original integers exact; model text identity and historical thread caveats remain in producer/audit receipts.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/result.json",
+        "sha256": "4bee41e0b2b653acc341971daa7c2b1c3b42dc67b4583d05726814371eda19d8"
+      }
+    },
+    "37": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/old_v37.parquet",
+        "sha256": "7224a0c58d985a660af169505a9b1566e47e478ee0e1a6cb4dbf3fde252ae48a"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/final_v37.parquet",
+        "sha256": "fa4b5147f9f578bbdfa5889b9984e500059308f39ffede74ba33b9c0f5938d18"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/independent_audit.json",
+        "sha256": "ea48d61ba3fc4e96e25ccb43b3ec18f28861e4c6267c959dfe9f8f2a3179b216"
+      },
+      "provenance": "Fixed archived-recipe reconstruction. All original integers exact; model text identity and historical thread caveats remain in producer/audit receipts.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/result.json",
+        "sha256": "4bee41e0b2b653acc341971daa7c2b1c3b42dc67b4583d05726814371eda19d8"
+      }
+    },
+    "38": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_v38_replay/old.parquet",
+        "sha256": "5375696a12e54f2a6b444b55e4e7f892ccbae40daa6292b2a99723e56ad38254"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_v38_replay/final.parquet",
+        "sha256": "a261a850d1572cd5a39a736f498a81bd1018c730cb2571daee998bb863af3f84"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "45": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_adsb_replay/old_v45.parquet",
+        "sha256": "32231c28f58f5e4304c730ab940b56ca53c322d9e809a58a3ad16d771b484af5"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_adsb_replay/final_v45.parquet",
+        "sha256": "33103db28fb2cfee60de0ab9c2a2316e151f237971036ca43600b1a080e182f0"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "46": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_adsb_replay/old_v46.parquet",
+        "sha256": "2e421390ba3bee9e8e02bebd478a2eb0655ca6e1cc9f2ba2934f23479c1b2a05"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_adsb_replay/final_v46.parquet",
+        "sha256": "980990937a6b73296ba02a56aac7bed8df9d3505320f8159ec5ebb539513bf49"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "54": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/old_v54.parquet",
+        "sha256": "a216bf444ab1d39c97e3d02a520e4fb1043feae753da887f61ef0ac7403fee9b"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v54.parquet",
+        "sha256": "e75e9127604402c600e2533d44220dde9bafe672c8b6aa31fa22fb00aa8759db"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "56": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/old_v56.parquet",
+        "sha256": "648f8261715bdd161d6d5b77632af05d7dee1b4865ef0bcd175d78e5676e8014"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/final_v56.parquet",
+        "sha256": "408c225b07ffef57d2e8d1586a12b5d2cff24452ab5b8cf9b6b5121630d3a05f"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/independent_audit.json",
+        "sha256": "cf36e6fe85a555323664376515a5bec25b3c4ed4d20e22b45eb367f1d503be93"
+      },
+      "provenance": "Original fixed flight-number classifier recipe reconstructed; old integers exact, original model hash absent. Unseen-number fallback retained.",
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/result.json",
+        "sha256": "58a6cf1746b17f0826565dc4b9fc4c6525d0be22daae124db64d2db2d3a328a5"
+      }
+    },
+    "57": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/old_v57.parquet",
+        "sha256": "313f0ddd6a890fd15e3e35ff618e9de3f2229bcaff06703972518a2fc9fa98d6"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v57.parquet",
+        "sha256": "cb5e47a473825432bd6904e2da03b1fee225e6c1e0801b4c9feb814b79fd469d"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "58": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/old_v58.parquet",
+        "sha256": "8764cc69748bff8cdfad9215f361e564d22c8570d061e03366f48a8f37ea6a5c"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v58.parquet",
+        "sha256": "5756805e1e4ed4e6106dd507c71d51d022e1aa6b528db4430dec1b19e68d508b"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "60": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/old_v60.parquet",
+        "sha256": "2876d99d7fb66fe317e08b76a22d9b7ce2907e486c9425620472e6ccbe93c4fc",
+        "bytes": 5215686
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final_v60.parquet",
+        "sha256": "fff9ffab19b78ddeb207c99dad130af7e9aa7b60e9daa80540bb2b437525d726",
+        "bytes": 9161128
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/independent_audit.json",
+        "sha256": "17e98db9b585d0e46f793bc00b890ff1c17b7a02872b8900278ad4d229742684"
+      },
+      "provenance": "Saved weather weights, exact original component floats and integers; v60 retains audited October8 base-network refit provenance.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "61": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/old_v61.parquet",
+        "sha256": "647ddbc1dbaa738f3fbc18ac5aad5649c572e11dea67da25bfd26b6e3f1a47ac",
+        "bytes": 5196613
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final_v61.parquet",
+        "sha256": "43562c320733942736fcc2a66488d12556f9196da14cd6311a3250b5ff0c64e3",
+        "bytes": 9640315
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/independent_audit.json",
+        "sha256": "17e98db9b585d0e46f793bc00b890ff1c17b7a02872b8900278ad4d229742684"
+      },
+      "provenance": "Saved weather weights, exact original component floats and integers; v60 retains audited October8 base-network refit provenance.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "64": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/old_v64.parquet",
+        "sha256": "1a0580d016a42830a65be0975af39159a7ea2cb510e5afbfba56c17af5e58e87"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v64.parquet",
+        "sha256": "095e02a5d6b9f73bb7242e80e50b5530269418a230a19964181f8ce460ec99b6"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "66": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/old_v66.parquet",
+        "sha256": "522a73f8d974162b4cd75f56df747ebef48b6129bc94191f65b67adea8416488"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v66.parquet",
+        "sha256": "e05ffbbf9d6b50e95879bdf92c897ef80cec8c02bb69b40e8c52f75770348876"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "68": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/old_v68.parquet",
+        "sha256": "76b4f86f14c405a9c6b16793bb7b658981ddceca8cece90477db0a258d660e74"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v68.parquet",
+        "sha256": "9374b7b287924f42d8fdc9548d290823c8d461a38141a4a292af2521f01236f5"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    },
+    "70": {
+      "old": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/old_v70.parquet",
+        "sha256": "c7722fcfab26e0b67504e22096fdeee0c561ee1c529414972d67ec3ed4ea17af"
+      },
+      "final": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v70.parquet",
+        "sha256": "2d6246894d84a265ad3e537cd9444038158caefb0838ef76e76a087b6443c229"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_audit/audit.json",
+        "sha256": "33377fe1c583df625707872fe0273e431eb697a02e91bad4bd6cd9ce09a176fb"
+      },
+      "provenance": "Archived port with exact old integers. Original15-member base-network descendants retain October8 refit provenance; no original-weight byte identity claim.",
+      "id_column": "mvt_id",
+      "value_column": "submitted"
+    }
+  },
+  "missing": [
+    2,
+    3,
+    5,
+    6,
+    7,
+    9,
+    26,
+    27,
+    28,
+    29,
+    43,
+    44,
+    47,
+    48,
+    49,
+    50,
+    51,
+    53
+  ],
+  "complete": false,
+  "scope": "Metadata/hash/schema catalog only; prior all-row audits retained; no inference or new replay",
+  "no_binding": true,
+  "no_substitution": true,
+  "no_upload": true
+}

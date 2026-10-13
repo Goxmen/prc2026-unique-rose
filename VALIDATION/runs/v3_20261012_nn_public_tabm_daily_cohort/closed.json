@@ -1,0 +1,51 @@
+{
+  "status": "closed_inconclusive",
+  "at": "2026-10-12T17:05:36.467303+00:00",
+  "cv": {
+    "control": 289.7627782102906,
+    "candidate": 289.75466768504805
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.02854196957753,
+      "candidate": 325.0167263777042
+    },
+    "2025-07": {
+      "control": 254.49701445100365,
+      "candidate": 254.49260899239198
+    }
+  },
+  "paired": {
+    "change": -0.008110525242514655,
+    "ci95": [
+      -0.02826195506399003,
+      0.013070038687926883
+    ],
+    "decision": "inconclusive"
+  },
+  "gate": false,
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/identity.json",
+      "sha256": "ae492d62698617a8c735713cdbfb90855d7f0b2d505a9549fa58e2781c9482aa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/return_audit.json",
+      "sha256": "7de2aed5e4809875399b470ac31c544c2c47c823f41f571e6e22d8f1e39a6f12"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/result.json",
+      "sha256": "483a87de8b8abcf6c66fb836605cabf93b621bc8f9b9c67b0f14ed7b0ba89dd2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/independent_audit.json",
+      "sha256": "ba67193a46c9a2231d8ab1006ee71932d2c6d895d1201a2708f5d57a1a1de853"
+    }
+  ],
+  "no_seed_expansion": true,
+  "no_capacity_tuning": true,
+  "no_production": true,
+  "no_upload": true,
+  "no_score_improvement_claim": true,
+  "models_retained": true
+}

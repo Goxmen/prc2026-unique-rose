@@ -1,54 +1,46 @@
 {
-  "updated_at": "2026-10-12T16:50:38.215128+00:00",
+  "updated_at": "2026-10-13T06:17:37.106866+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
-  "official_checked_at": "2026-10-12T15:03:41+00:00",
-  "slots_remaining": 0,
+  "official_checked_at": "2026-10-13T05:49:16Z",
+  "slots_remaining": 5,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 48,
+  "hypotheses": 51,
   "desktop": {
-    "stage": "joint_public_four_month_port",
-    "owner": "root",
-    "session": 24063,
-    "run": "VALIDATION/runs/v3_20261012_final_joint_public_inference"
+    "stage": "cohort_prefit_independent_audit",
+    "owner": "new_signal_audit",
+    "checked_at": "2026-10-13T06:17:37.106866+00:00"
   },
   "next": [
-    "Complete fixed full-day peer TabM Jan/Jul experiment after preflight",
-    "Recover remaining final ensemble components and selected daily/public correction stages without substitutions",
-    "Prepare audited candidates for October13 slots; none queued"
+    "Complete final-only affine alignment/audit without repeating solve or old/CV predictions",
+    "Build fixed portable public-source correction chain and score Jan/Jul",
+    "Launch six fixed source-blind crossfit priors only after independent prefit audit",
+    "Keep final daily slot reserved; choose best validated model after promising experiments resolve"
   ],
   "native_goal_status": "active",
   "active_research": [
     {
       "owner": "root",
-      "scope": "Research integration and final public direct-model/quality assembly"
+      "scope": "Portable affine final alignment, research integration, reserved submission slot"
     },
     {
       "owner": "final_recovery",
-      "scope": "Stand-family fixed recovery; missing family recipes and research index"
+      "scope": "Frozen portable public-source assembler; no additional recovery fits"
     },
     {
       "owner": "cohort_learning",
-      "scope": "Fixed full-day peer CV active; exact final public correction port preparation"
+      "scope": "Honest posterior-aware crossfit protocol; laptop execution after audit"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent cohort postfit audit and final direct-component source review"
+      "scope": "Independent crossfit prefit and final-alignment audits"
     }
   ],
   "laptop": {
-    "stage": "daily_cohort_fit_or_inference",
-    "completed_folds": [
-      "2025-01"
-    ],
-    "run": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort",
-    "preflight_pass": true,
-    "last_epoch_at": "18:48:51",
-    "fold": "2025-07",
-    "epoch": 9,
-    "epochs": 17,
-    "seconds_per_epoch": 101.79
+    "stage": "awaiting_independent_prefit_audit",
+    "owner": "cohort_learning",
+    "checked_at": "2026-10-13T06:17:37.106866+00:00"
   },
   "duration_result": {
     "cv": {
@@ -91,6 +83,8 @@
     "status": "pass",
     "versions": [
       1,
+      4,
+      8,
       12,
       13,
       14,
@@ -130,8 +124,14 @@
       "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/independent_audit.json",
       "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/independent_audit.json",
       "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/independent_audit.json",
-      "VALIDATION/runs/v3_20261012_final_weather_inference/independent_audit.json"
-    ]
+      "VALIDATION/runs/v3_20261012_final_weather_inference/independent_audit.json",
+      "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/independent_audit.json"
+    ],
+    "catalog": {
+      "path": "VALIDATION/runs/v3_20261012_final_basis_catalog/partial_30.json",
+      "sha256": "0025e880f0de6b7f77556381a1848104a8ebe1c5dbd72407fb603488e7aa79e3"
+    },
+    "excluded_mappings_note": "Historical failed substitutions only; v12/v13/v15 later recovered by exact separately audited recipes"
   },
   "depth3_completion": {
     "state": "complete",
@@ -185,5 +185,72 @@
     "audited_values": 2683160,
     "receipt": "VALIDATION/runs/v3_20261012_final_additional_public_components/audit.json",
     "complete_affine_port": false
+  },
+  "final_selected_old_replay": {
+    "status": "pass",
+    "rows": 344841,
+    "versions": [
+      72,
+      74,
+      76,
+      77,
+      78,
+      79,
+      80
+    ],
+    "affine_components": 51,
+    "complete_final_basis": false,
+    "receipt": "VALIDATION/runs/v3_20261012_final_selected_stack/old/audit.json"
+  },
+  "final_joint_posterior": {
+    "status": "pass",
+    "months": [
+      "2026-01",
+      "2026-02",
+      "2026-06",
+      "2026-07"
+    ],
+    "receipt": "VALIDATION/runs/v3_20261012_final_joint_public_inference/final/audit.json",
+    "no_calibration_refit": true
+  },
+  "daily_cohort_result": {
+    "cv": {
+      "control": 289.7627782102906,
+      "candidate": 289.75466768504805
+    },
+    "paired": {
+      "change": -0.008110525242514655,
+      "ci95": [
+        -0.02826195506399003,
+        0.013070038687926883
+      ],
+      "decision": "inconclusive"
+    },
+    "gate": false,
+    "scores": {
+      "2025-01": {
+        "control": 325.02854196957753,
+        "candidate": 325.0167263777042
+      },
+      "2025-07": {
+        "control": 254.49701445100365,
+        "candidate": 254.49260899239198
+      }
+    },
+    "status": "closed_inconclusive"
+  },
+  "reserved_final_slots": 1,
+  "used_utc_day_slots": 0,
+  "slot_date_utc": "2026-10-13",
+  "portable_direct_cv": {
+    "status": "pass",
+    "result": {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/result.json",
+      "sha256": "7c23669f2f5f007931a5989fd4cd4c86cee94edc382c506d3832940774bd6cdc"
+    },
+    "audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/audit.json",
+      "sha256": "75353017a80bb13ea006302fa68f9d5b8e1a4dc16697415cc42c155187ff0172"
+    }
   }
 }

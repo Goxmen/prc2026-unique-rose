@@ -1,0 +1,250 @@
+{
+  "status": "feasibility_only",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_posterior_aware_sensitivity/identity.json",
+    "sha256": "39f94845db85ca61cf414cbcd785155be7f96b4759976e2000662fefad3281b0"
+  },
+  "design": {
+    "status": "feasibility only; no fit, outcome score or selection",
+    "likelihood": "original fixed joint t5 with original frozen per-target peer messages",
+    "tilt": "weights*exp(eta*(support-prior)/max(gap-tau,60)); eta=x@theta",
+    "features": [
+      "1",
+      "log(gap/3600)",
+      "logit(clip((prior-tau)/(gap-tau),1e-6,1-1e-6))",
+      "product"
+    ],
+    "derivative": "Var_post(y)/scale*x, only target weights differentiated",
+    "source_jacobian": "separate derivative of source means if supported target tilts changed together; not posterior mapping",
+    "peer_policy": "fixed original admissible predictions; no own or peer departure labels",
+    "no_global_joint_reoptimization": true,
+    "no_noise_fit": true,
+    "no_training": true,
+    "source_rank": "unique count/sum/delay coordinates, fixed units1/3600/3600; local full-source covariance whitening is descriptive only",
+    "duplicate_warning": "source coordinates may recur in different pairs; stacked whitening is not an independent likelihood or Fisher information",
+    "nuisance": "three constant source-type bias directions only, not every airline/month or population bias",
+    "finite_difference_step": 1e-05,
+    "finite_difference_atol": 2e-05,
+    "finite_difference_rtol": 2e-05,
+    "zero_replay_atol": 1e-08,
+    "relative_rank_threshold": 1e-10,
+    "runtime_budget_seconds": 60,
+    "threads": 1,
+    "future_training": "admissible inner cross-fitted peer packets required; selected caches currently insufficient"
+  },
+  "months": {
+    "2025-01": {
+      "input_rows": 11317,
+      "supported_targets": 275,
+      "local_days": 27,
+      "assigned_days": 27,
+      "source_pairs": 38,
+      "unique_source_coordinates": 99,
+      "exact_eligibility_replay": true,
+      "zero_tilt_max_difference": 1.0913936421275139e-11,
+      "maximum_finite_difference_abs": 4.570949386106804e-06,
+      "nonzero_target_derivatives": 275,
+      "quantile_levels": [
+        0.0,
+        0.1,
+        0.5,
+        0.9,
+        1.0
+      ],
+      "posterior_prior_variance_ratio": [
+        0.05354910530354155,
+        0.3723428338739292,
+        0.9497239099182289,
+        1.378980151561495,
+        5.043962718478798
+      ],
+      "posterior_movement_abs": [
+        0.02876727005786961,
+        1.5600129418176039,
+        127.53113955466847,
+        619.1211106567181,
+        5354.877826655485
+      ],
+      "output_jacobian": {
+        "rows": 275,
+        "columns": 4,
+        "singular_values": [
+          26884.09687373943,
+          9424.811374979394,
+          6267.509607091339,
+          1656.387360373343
+        ],
+        "rank": 4,
+        "threshold": 2.688409687373943e-06
+      },
+      "within_source_pair_contrasts": {
+        "rows": 275,
+        "columns": 4,
+        "singular_values": [
+          20096.856523765466,
+          11295.231425377007,
+          1736.9471089640735,
+          0.0
+        ],
+        "rank": 3,
+        "threshold": 2.688409687373943e-06,
+        "threshold_uses_original_matrix": true
+      },
+      "unique_source_mean_jacobian_fixed_units": {
+        "rows": 99,
+        "columns": 4,
+        "singular_values": [
+          22.164778143493344,
+          4.928725293425181,
+          2.4449857212776567,
+          0.7970625900010097
+        ],
+        "rank": 4,
+        "threshold": 2.2164778143493344e-09
+      },
+      "local_pair_whitened_descriptive": {
+        "rows": 114,
+        "columns": 4,
+        "singular_values": [
+          9.939246539397352,
+          2.5397697286154064,
+          1.756789013177685,
+          0.465369432448442
+        ],
+        "rank": 4,
+        "threshold": 9.939246539397354e-10
+      },
+      "local_pair_whitened_after_three_constant_source_biases": {
+        "rows": 114,
+        "columns": 4,
+        "singular_values": [
+          8.480240291897818,
+          2.3845342576159707,
+          1.7002924121049259,
+          0.4492657447263806
+        ],
+        "rank": 4,
+        "threshold": 9.939246539397354e-10,
+        "frobenius_norm_ratio": 0.8622238004912477,
+        "threshold_uses_original_matrix": true
+      },
+      "source_pair_rows_are_not_independent_observations": true,
+      "no_predictive_gain_or_global_identifiability_claim": true
+    },
+    "2025-07": {
+      "input_rows": 15211,
+      "supported_targets": 2061,
+      "local_days": 30,
+      "assigned_days": 29,
+      "source_pairs": 73,
+      "unique_source_coordinates": 131,
+      "exact_eligibility_replay": true,
+      "zero_tilt_max_difference": 2.9103830456733704e-11,
+      "maximum_finite_difference_abs": 5.57119074073853e-06,
+      "nonzero_target_derivatives": 2061,
+      "quantile_levels": [
+        0.0,
+        0.1,
+        0.5,
+        0.9,
+        1.0
+      ],
+      "posterior_prior_variance_ratio": [
+        0.04025534634906356,
+        0.6357324340040308,
+        1.0261356130541481,
+        1.4199439795967044,
+        10.459772967702083
+      ],
+      "posterior_movement_abs": [
+        0.04768959032935527,
+        10.187986701619138,
+        115.17979785055445,
+        494.13259780877706,
+        10182.833999119179
+      ],
+      "output_jacobian": {
+        "rows": 2061,
+        "columns": 4,
+        "singular_values": [
+          74854.82746731481,
+          26003.788926695433,
+          19489.847207836367,
+          6207.433790575858
+        ],
+        "rank": 4,
+        "threshold": 7.485482746731481e-06
+      },
+      "within_source_pair_contrasts": {
+        "rows": 2061,
+        "columns": 4,
+        "singular_values": [
+          56443.91809523152,
+          24409.74646118607,
+          7389.357091089158,
+          0.0
+        ],
+        "rank": 3,
+        "threshold": 7.485482746731481e-06,
+        "threshold_uses_original_matrix": true
+      },
+      "unique_source_mean_jacobian_fixed_units": {
+        "rows": 131,
+        "columns": 4,
+        "singular_values": [
+          153.20478892439712,
+          23.64187421758167,
+          13.469955995564383,
+          2.9127875070586975
+        ],
+        "rank": 4,
+        "threshold": 1.532047889243971e-08
+      },
+      "local_pair_whitened_descriptive": {
+        "rows": 219,
+        "columns": 4,
+        "singular_values": [
+          39.96574331027304,
+          6.502652897593424,
+          3.7829938851130627,
+          1.1294312627878467
+        ],
+        "rank": 4,
+        "threshold": 3.996574331027304e-09
+      },
+      "local_pair_whitened_after_three_constant_source_biases": {
+        "rows": 219,
+        "columns": 4,
+        "singular_values": [
+          27.49084730923845,
+          5.933027398237886,
+          3.58570119412127,
+          1.111942145133673
+        ],
+        "rank": 4,
+        "threshold": 3.996574331027304e-09,
+        "frobenius_norm_ratio": 0.6974173619147025,
+        "threshold_uses_original_matrix": true
+      },
+      "source_pair_rows_are_not_independent_observations": true,
+      "no_predictive_gain_or_global_identifiability_claim": true
+    }
+  },
+  "seconds": 11.667045305000102,
+  "peak_rss_kib": 185212,
+  "labels_loaded": false,
+  "models_fitted": false,
+  "cv_scored": false,
+  "original_likelihood_and_peer_messages_frozen": true,
+  "outcome": "Algebraic sensitivity only; no candidate or fit selected; honest training peer packets still required.",
+  "outputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_posterior_aware_sensitivity/targets.parquet",
+      "sha256": "903284674511cffb6d128fa36d9a5c9ca375349cddce3b5d62efc5fdb2580f1a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_posterior_aware_sensitivity/source_jacobians.parquet",
+      "sha256": "3543531e29c477e7144aa81ac84aad171ffe2b92dbbe28120e93ff190782132c"
+    }
+  ]
+}

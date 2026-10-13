@@ -1,0 +1,178 @@
+{
+  "status": "frozen_feasibility_design_only_no_numerical_gate_no_training",
+  "mechanism": "Learn a feature-dependent prior support tilt by individual posterior taxi MSE through one fixed public measurement likelihood.",
+  "recommendation": "One bounded source-only sensitivity gate is scientifically justified. Predictive headroom is unknown; gate success alone cannot authorize or select a candidate. Verify admissible training priors before implementing a learner.",
+  "novelty": {
+    "search_scope": "Existing 791-file frontier scan plus focused full source/report searches for aggregate loss, posterior-aware training, marginal likelihood, weak supervision, conditional density, and residual allocation; no implemented posterior-aware supervised support learner found. This is bounded evidence, not proof of global absence.",
+    "exact_overlap_exclusions": [
+      {
+        "closed": "rome_public_monthly_shift.py",
+        "difference": "That fits regularized airline/month logit shifts from public totals while priors and source likelihood stay fixed; candidate would fit row-feature tilts using individual allowed-training labels through the posterior objective. Merely leave-own-day-out or changing prior-odds shrinkage is closed."
+      },
+      {
+        "closed": "rome_continuous_mixture.py and rome_calibration_run.py",
+        "difference": "They learn or calibrate binary/three-class/continuous prior targets before public conditioning. A posterior-MSE versus prior-MSE matched control isolates the proposed objective."
+      },
+      {
+        "closed": "daily_structural_prior.py",
+        "difference": "That replaces endpoint/support construction then reuses the existing likelihood. This design fixes every support location and measurement setting; only a shared input-dependent tilt could be learned."
+      },
+      {
+        "closed": "daily_taxi_uncertainty.py and nn_public_gaussian.py",
+        "difference": "Fixed disagreement allocation and heteroscedastic individual likelihood do not learn through the public posterior. They remain adverse evidence, not candidates to reopen."
+      },
+      {
+        "active": "nn_public_tabm_daily_cohort.py",
+        "difference": "Current day-donor context changes input representation while preserving individual MSE; no posterior layer or aggregate loss is trained."
+      }
+    ],
+    "not_proposed": "No additional sum penalty, monthly-odds variant, exact source-total constraint, new covariance parameter, numerical posterior solver, or feature-width search."
+  },
+  "measurement_contract": {
+    "prior": "Original source-blind v70 packet means and original fixed discrete supports; no current public-network prior may be treated as independent of the same public likelihood.",
+    "sources": "Retained local takeoff-day/runway truncated count and taxi sum plus once-estimated UTC off-block-day predeparture total; preserve each membership, source-count mismatch, shared-flight covariance, common-day term, fixed t5 and source calibration.",
+    "cohort_warning": "Existing feature cohorts and public populations/calendar are not identical. The original calibrated soft likelihood remains approximate; a learned layer does not remove source bias.",
+    "routed_rows": "Every peer contribution uses an admissible prediction/support. Never subtract matched/copy/routed true labels during training.",
+    "one_likelihood": "Each target sees the source likelihood once. A learned posterior component must replace its matched original component when transported to v80; do not append the same posterior again.",
+    "calibration_scope": "Use only saved allowed-outer-training calibration. No full-year calibration for Jan/Jul research; no fitting from held taxi labels."
+  },
+  "source_only_gate": {
+    "allowed_inputs": "Exactly original 11-column labels-absent input packet, original two source tables, original fold parameter JSON, original frozen support/moment functions and retained posterior output for replay. No scored/CV truth parquet, no departure labels.",
+    "population": "All existing supported ambiguous Rome targets in both retained input months, reported by month and source day. Numerical gate population is fixed by original eligibility, not outcomes.",
+    "fixed_tilt": "For fixed support y_ij with weights w_ij and incoming mean mu_i, t_ij=(y_ij-mu_i)/max(gap_i-tau_fold,60); w_ij(theta) proportional to w_ij*exp(t_ij*x_i dot theta). theta=0 exactly recovers the prior.",
+    "fixed_low_dimension": "x=[1, log(gap/3600), logit(clip((prior-tau)/(gap-tau),1e-6,1-1e-6)), product of the preceding two nonconstant terms]. These four columns use only source-blind packet quantities and fixed transforms.",
+    "diagnostics": [
+      "Authenticate packet/source/helper hashes to original identities and explicitly assert the 11 input names exclude labels.",
+      "Construct original fixed per-target peer mean/covariance and support log likelihood without calling a fitting routine; zero tilt must replay retained original posterior means.",
+      "Compute prior and posterior support variance, posterior mean movement, and exact derivative d posterior_mean / d theta = Cov_post(y,t)*x = Var_post(y)/scale*x.",
+      "Report finite-difference derivative agreement, prior/posterior variance ratios, nonzero-gradient counts and dates, singular values/rank of the four-column output Jacobian, with and without centering features within existing source cohorts.",
+      "Compute the source-moment Jacobian by summing Cov_prior(contribution,t)*x under the original membership matrices and whiten by the retained measurement covariance; report singular values and sensitivity to existing source-bias directions. This is source identifiability, not prediction quality.",
+      "Where airline/month data are unavailable in this packet, explicitly say that cohort centering does not prove orthogonality to every old airline/month-odds direction."
+    ],
+    "interpretation": "Zero/saturated sensitivities or a rank-deficient source operator identify poor feasibility; nonzero rank merely establishes trainability. Neither proves score gain, source-population validity, or independent information.",
+    "execution": "Root allocation required for real numerical gate. One thread, no GPU, no model fit, no mutation of active cohort source; retain full diagnostic artifacts and compact JSON."
+  },
+  "possible_later_matched_screen": {
+    "not_frozen_for_fit": true,
+    "candidate": "Same fixed small feature tilt, optimized by supervised posterior MSE on allowed training rows, with peer messages fixed from admissible out-of-fold predictions.",
+    "control": "Identical initialization, features, regularization, optimizer and updates; optimize prior MSE, then apply the same posterior once. Also retain zero-tilt original control.",
+    "data_requirement": "For each outer fold, training peer priors must exclude both outer-held months and their own inner evaluation labels. Source calibration, scalers and learned tilt must obey the corresponding train-only scopes.",
+    "gate": "Only a future frozen screen can use Jan/Jul taxi outcomes; both month improvements and paired upper bound below zero against actual v80 and matched objective control would be required. Existing development reuse remains explicit.",
+    "compute": "After admissible fixed likelihood/support packets exist, four-parameter optimization is cheap and needs no GPU; constructing valid full-cohort peer packets is the main cost. A genuinely joint end-to-end model can avoid two-stage in-sample-prior calibration but is a larger separate design."
+  },
+  "availability": {
+    "input_packet_rows": 26528,
+    "input_month_rows": {
+      "2025-01": 11317,
+      "2025-07": 15211
+    },
+    "labels_in_packet": false,
+    "training_peer_packets": "Not found in current selected joint caches; these only contain Jan/Jul held rows.",
+    "current_outer_models": "Prediction on their own allowed training rows is in-sample and is not an honest substitute for cross-fitted peer calibration.",
+    "historical_rome_calibration": {
+      "calibrator_files": 18,
+      "referenced_inner_prediction_files": 54,
+      "existing_inner_prediction_files": 0,
+      "retained_directory": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators"
+    },
+    "scope_limit": "This is an explicit local check of selected caches and historical Rome calibration references, not an exhaustive assertion that no reusable admissible legacy model or prediction exists anywhere."
+  },
+  "execution_so_far": "Source/report reads, file existence checks and 26,528-row month-column metadata inventory only. No new taxi labels read, numerical gate, model fit, CV score, download, upload or active source edit.",
+  "sources": [
+    {
+      "path": "VALIDATION/research_registry.json",
+      "sha256": "6df4cf676b2c3484efc75a8e7c3bc023b63eed6ac90336dbc9b192eb76879827",
+      "bytes": 35832
+    },
+    {
+      "path": "VALIDATION/reports/remaining_mechanism_scout_20261012.json",
+      "sha256": "0f8617ccb36c8ac4ba73ae8a0f1934e7723ccfd72cfad5074340f342ab432692",
+      "bytes": 3505
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261012/research_frontier_scan.json",
+      "sha256": "b64a49b0a349696fe452fc698118bb88b4676cec242c5f28f5747e11e9b7dbb9",
+      "bytes": 4247
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261012/design_review.md",
+      "sha256": "5ac2b0585c21ea430a70d624c93b6b3636ab7e092638d190f8b57d5336c306b7",
+      "bytes": 7375
+    },
+    {
+      "path": "VALIDATION/reports/SCOUT_EXCLUSIONS_20261012.md",
+      "sha256": "562b056315241d9856b1d3acbf79ce2dae22802c564e73a3bd13fb371886ca4c",
+      "bytes": 3288
+    },
+    {
+      "path": "VALIDATION/rome_public_monthly_shift.py",
+      "sha256": "9565ac0eb8136e784db83311ae0b7e59532742b97cba365af9f769ad9d4c072e",
+      "bytes": 7996
+    },
+    {
+      "path": "VALIDATION/rome_continuous_mixture.py",
+      "sha256": "0fdb7da61a26a790ef429cd51424d1441270093ff20bc12794ff43d28a427f53",
+      "bytes": 12097
+    },
+    {
+      "path": "VALIDATION/rome_calibration_run.py",
+      "sha256": "08f55730a26c04a3d41a71af81df1baf98e5091b6a926ffd14b582320b0e5090",
+      "bytes": 23005
+    },
+    {
+      "path": "VALIDATION/daily_structural_prior.py",
+      "sha256": "9e44ebdf6b20d24facf24c8c1ee2346ded4a66ac0bbd252487365335c8817a6a",
+      "bytes": 11040
+    },
+    {
+      "path": "VALIDATION/daily_taxi_uncertainty.py",
+      "sha256": "e27a7359c9c7401523b8e9b3719c524c3fd9c1ccab7c70816dbce5ff8610eda1",
+      "bytes": 14665
+    },
+    {
+      "path": "VALIDATION/nn_public_gaussian.py",
+      "sha256": "638ade8dc0d905989460feffdc9075c3db2db265ed06e1907cb9997c1fc09010",
+      "bytes": 8669
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_daily_cohort.py",
+      "sha256": "b646a9fefec584b3e1526ea8d11be1b3241922869e165043a34c9a5270ab5b83",
+      "bytes": 16077
+    },
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d",
+      "bytes": 9617
+    },
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131",
+      "bytes": 8165
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/identity.json",
+      "sha256": "b1ce9cc59fdd8aae55d47097992e5756d4e228bb14e662645047e1a7523ec5fd",
+      "bytes": 7182
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/inputs.parquet",
+      "sha256": "fd68d2697514820f35e5abde5277629198aebe3d1168d1705f0ff97785a7c9b9",
+      "bytes": 273637
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/taxi_source.parquet",
+      "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e",
+      "bytes": 18805
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/delay_source.parquet",
+      "sha256": "0297c445250693f4f1bc93b94a4bc409920aab5db4b55e84b39f20118000c52d",
+      "bytes": 7736
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments/parameters.json",
+      "sha256": "d4c54a7374f67797ee1b7da8c0283d849a73cd0abf6b16be3e7224eb56299989",
+      "bytes": 4270
+    }
+  ]
+}

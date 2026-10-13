@@ -1,0 +1,299 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/identity.json",
+    "sha256": "ae492d62698617a8c735713cdbfb90855d7f0b2d505a9549fa58e2781c9482aa"
+  },
+  "design": {
+    "parent": "v80 selected three TabM seeds and same-date runway evidence",
+    "change": "zero-initialized complete airport/UTC-day input-only peer encoder for seed42 only",
+    "architecture": {
+      "original": {
+        "original_columns": 156,
+        "public_columns": [
+          "pub_dep_count_gap",
+          "pub_dep_mean",
+          "pub_dep_long_count",
+          "pub_dep_long_gap_sum",
+          "pub_dep_resid900_mean",
+          "pub_dep_resid1800_mean",
+          "pub_dep_resid_clock_mean",
+          "pub_dep_own900_left",
+          "pub_dep_own1800_left",
+          "pub_dep_own900_fraction",
+          "pub_dep_own1800_fraction",
+          "pub_dep_long900_fraction"
+        ],
+        "public_transform": {
+          "features": [
+            "pub_dep_count_gap",
+            "pub_dep_mean",
+            "pub_dep_long_count",
+            "pub_dep_long_gap_sum",
+            "pub_dep_resid900_mean",
+            "pub_dep_resid1800_mean",
+            "pub_dep_resid_clock_mean",
+            "pub_dep_own900_left",
+            "pub_dep_own1800_left",
+            "pub_dep_own900_fraction",
+            "pub_dep_own1800_fraction",
+            "pub_dep_long900_fraction"
+          ],
+          "scales": [
+            5.0,
+            600.0,
+            20.0,
+            72000.0,
+            100.0,
+            100.0,
+            100.0,
+            3600.0,
+            3600.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "transform": "asinh(x/scale)/4,clip[-5,5],missing0",
+          "public_head": "256 original hidden +12 public inputs ->32 SiLU ->1 zero final",
+          "initialization": "original physical seed42; zero new final head; no pretrained weights",
+          "training": "original sparse train bytecode; fixed21/17 epochs; original AdamW and OneCycle"
+        },
+        "track": "unchanged physical CNN, masked mean/max64",
+        "track_missing": "representation exactly0 for fewer than2points; retain9 quality inputs",
+        "k": 32,
+        "n_blocks": 2,
+        "d_block": 512,
+        "dropout": 0.1,
+        "activation": "ReLU",
+        "arch_type": "tabm",
+        "start_scaling_init": "normal",
+        "lr": 0.002,
+        "weight_decay": 0.0003,
+        "loss": "mean squared error over rows AND individual32 heads",
+        "inference": "arithmetic head mean in standardized units, then seconds and nonnegative clip",
+        "initialization": "fresh seed42; original Inputs; one shared physical encoder; no pretrained weights"
+      },
+      "bank": {
+        "cohort": "airport and UTC takeoff day",
+        "width": 17,
+        "original_scalar_columns": [
+          "actual_clock",
+          "op_ground",
+          "op_stand",
+          "ab_stand",
+          "actual_valid",
+          "op_ground_valid",
+          "op_stand_valid",
+          "ab_stand_valid",
+          "actual_present",
+          "stand_x",
+          "stand_y",
+          "stand_known",
+          "log_raw_count",
+          "ground_fraction",
+          "ground_known"
+        ],
+        "extras": [
+          "scheduled_takeoff_gap",
+          "scheduled_takeoff_gap_present"
+        ],
+        "fixed_scaling": "clock asinh(seconds/3600); geometry clip(meters/2000,-10,10); gap asinh(seconds/7200) clip[-10,10]; explicit masks unchanged",
+        "donor_population": "all input departures except explicit VFR; unknown retained",
+        "aliases": "same movement ID; known same aircraft within120seconds; exact known takeoff/AOBT/stand/runway tuple",
+        "no_labels": true,
+        "no_predictions": true,
+        "allowed_scope": "same UTC day only, exact non-contiguous original outer-fold months",
+        "order": "sorted (airport code, UTC day), donor movement ID ascending",
+        "production": "separate old/final input banks required; this bank is 2025 only"
+      },
+      "encoder": "17 ->32 SiLU ->32 SiLU, no dropout",
+      "pooling": "leave-query-and-alias-out mean32, second-moment32, log1p(count)/log853",
+      "projection": "65 to unchanged joined-input width; weight and bias initially zero",
+      "position": "addition immediately before original TabM ensemble view",
+      "no_new_random_stream": "constructor uses fork_rng; no context dropout",
+      "empty": "exactly zero context branch including learned projection bias",
+      "training": "original individual32-head MSE, row permutation, microbatch and optimizer"
+    },
+    "seed": 42,
+    "epochs": {
+      "2025-01": 21,
+      "2025-07": 17
+    },
+    "schedule_epochs": 24,
+    "effective_batch": 2048,
+    "microbatch": 512,
+    "inference_chunk": 512,
+    "retained_pool_members": [
+      1042,
+      2042
+    ],
+    "control": "same-laptop saved seed42; replay every held prediction plus zero-branch outputs before each fit",
+    "cohort_identity": "existing UTC takeoff-day feature grouping; exact published cohort/calendar identity not established",
+    "scaler": "old training-only preprocessing exact; donor fixed physical transforms with no fitted statistics",
+    "randomness": "unchanged initialization, row-permutation/dropout streams; no added stochastic operation",
+    "training": "unchanged original train AST; only nonrandom scalar packet added through track adapter",
+    "primary": "one replacement in three-TabM native component; integer component delta once onto exact v80",
+    "gate": "both months improve and paired-day95% upper endpoint below0 versus exactv80",
+    "continuation": "passing fixed comparison required before any extra seeds; otherwise close",
+    "source_scope": "training donor day belongs to exact allowed months; held donor day belongs only to held month",
+    "caution": "repeatedly reused development data; no independent confirmation",
+    "no_loss_change": true,
+    "no_weight_search": true,
+    "no_epoch_selection": true,
+    "no_parameter_scan": true,
+    "no_production": true,
+    "no_upload": true
+  },
+  "month": "2025-01",
+  "member": 0,
+  "seed": 42,
+  "epochs": 21,
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-01.pkl",
+      "sha256": "b60ab60fcc058ce3cf8ca5b8488cc7c802c5cc43f8066621833f1ab3417a8bba",
+      "audited_candidate_record": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-01_s42.json",
+        "sha256": "3c582a659a0627c02a9b29404f34a33b7f331f54b7614487f460b1254121d04d"
+      }
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+      "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+    },
+    "rows": 1596201,
+    "held_rows": 153706,
+    "reference_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-01_s42.json",
+      "sha256": "45d0e9fb7cf6f3b2b93fd612be0ed95a8d876951287ebe45eeb4334ec7c4f75b"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/k0/models/2025-01_tabm.pt",
+    "sha256": "188bbedcb1327fa5a11c4faf3522960558397b4e3eadc53dcc004fc8ab4834ea"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/k0/networks/2025-01_tabm.parquet",
+    "sha256": "e83022e6b867dc1e99ec314487988f9fbf024f017ac177658139df34167b9e84"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+    "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+  },
+  "checkpoint": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/k0/trained/2025-01_tabm.json",
+    "sha256": "7064815d7b86aaae9a7643646319ae563086af5b472d237d43414ac33f4e8c3b"
+  },
+  "train_rows": 1596201,
+  "held_rows": 153706,
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.3903994533547894,
+      "seconds": 141.2756804180001
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.2751157481395459,
+      "seconds": 141.4343552780001
+    },
+    {
+      "epoch": 3,
+      "train_mse_std": 0.2512288747700575,
+      "seconds": 142.29105427800005
+    },
+    {
+      "epoch": 4,
+      "train_mse_std": 0.23578503205709775,
+      "seconds": 141.06902578200015
+    },
+    {
+      "epoch": 5,
+      "train_mse_std": 0.22510505853444396,
+      "seconds": 141.85813094399964
+    },
+    {
+      "epoch": 6,
+      "train_mse_std": 0.21782001719771293,
+      "seconds": 143.08107554599974
+    },
+    {
+      "epoch": 7,
+      "train_mse_std": 0.21134490549923288,
+      "seconds": 142.26845912299996
+    },
+    {
+      "epoch": 8,
+      "train_mse_std": 0.20596654299783637,
+      "seconds": 141.09206423100022
+    },
+    {
+      "epoch": 9,
+      "train_mse_std": 0.19999728147778917,
+      "seconds": 142.2910365990001
+    },
+    {
+      "epoch": 10,
+      "train_mse_std": 0.19574041791414198,
+      "seconds": 139.64656798500027
+    },
+    {
+      "epoch": 11,
+      "train_mse_std": 0.1915635455321808,
+      "seconds": 138.72966293499985
+    },
+    {
+      "epoch": 12,
+      "train_mse_std": 0.18867899738339752,
+      "seconds": 139.45526140599986
+    },
+    {
+      "epoch": 13,
+      "train_mse_std": 0.18484350491955412,
+      "seconds": 140.6129595139996
+    },
+    {
+      "epoch": 14,
+      "train_mse_std": 0.17998706609615125,
+      "seconds": 140.63939586700008
+    },
+    {
+      "epoch": 15,
+      "train_mse_std": 0.17651157272471885,
+      "seconds": 138.31059947999938
+    },
+    {
+      "epoch": 16,
+      "train_mse_std": 0.173168045014328,
+      "seconds": 147.0965292009996
+    },
+    {
+      "epoch": 17,
+      "train_mse_std": 0.17008790602769464,
+      "seconds": 142.76351820299988
+    },
+    {
+      "epoch": 18,
+      "train_mse_std": 0.16682827650100282,
+      "seconds": 141.23489502399934
+    },
+    {
+      "epoch": 19,
+      "train_mse_std": 0.1641959170662425,
+      "seconds": 141.8545828819997
+    },
+    {
+      "epoch": 20,
+      "train_mse_std": 0.16174403464414,
+      "seconds": 142.87534790900008
+    },
+    {
+      "epoch": 21,
+      "train_mse_std": 0.16008361001375454,
+      "seconds": 142.58735811600036
+    }
+  ],
+  "all_held_reloaded_exact": true,
+  "host": "GLAPTOP",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.14.1+cu130"
+}

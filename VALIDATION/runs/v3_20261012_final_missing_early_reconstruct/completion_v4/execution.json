@@ -1,0 +1,84 @@
+{
+  "state": "complete",
+  "pid": 77926,
+  "started_at": "2026-10-12T16:55:19.611143+00:00",
+  "steps": [
+    {
+      "stage": "prepare",
+      "started_at": "2026-10-12T16:55:19.612579+00:00",
+      "finished_at": "2026-10-12T16:56:27.948782+00:00",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/preflight.json",
+        "sha256": "f7d82e329b22088b9013eaf39c3b7c4d3d464e7f27b7eb0c8d3d0560b163c62c"
+      }
+    },
+    {
+      "stage": "fit",
+      "started_at": "2026-10-12T16:56:27.951186+00:00",
+      "finished_at": "2026-10-12T16:57:15.152514+00:00",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/trained.json",
+        "sha256": "85f0c8e921da168fb40efda2f6ea3bf9b0d7bcbf040ef219f9222a11a15b19d7"
+      }
+    },
+    {
+      "stage": "infer",
+      "started_at": "2026-10-12T16:57:15.153732+00:00",
+      "finished_at": "2026-10-12T16:59:54.055291+00:00",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/result.json",
+        "sha256": "64f6c5385324b1666e2561b957d90acf56990f16ba0352659ab1dbdac0945b93"
+      }
+    },
+    {
+      "stage": "audit",
+      "started_at": "2026-10-12T16:59:54.056669+00:00",
+      "finished_at": "2026-10-12T16:59:55.738949+00:00",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/independent_audit.json",
+        "sha256": "b47e41bb390adf7ab716bdcec435e4de9bfd7efcf092762ced7b5a04f810cb9a"
+      }
+    }
+  ],
+  "version": 4,
+  "plan_sha256": "721c07c104a5175c3ae7fcd79c47513f1f9d12e3fce66a5040bb9873907ca37b",
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/completion_v4/allocation.json",
+    "sha256": "dab2f3c8711ef4fffca7f28bdc575d92bbf236f16d0a5427121116b55c5f90bf"
+  },
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "no_expansion": true,
+  "no_upload": true,
+  "active_stage": null,
+  "child_pid": null,
+  "finished_at": "2026-10-12T16:59:55.739269+00:00"
+}

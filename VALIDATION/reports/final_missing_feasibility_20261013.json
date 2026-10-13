@@ -1,0 +1,231 @@
+{
+  "at": "2026-10-13T05:59:19.034950+00:00",
+  "status": "No established reproducible route to exact full48 today; bounded cap recovery then explicit portable ensemble recommended.",
+  "ready_versions_before_batch": [
+    1,
+    4,
+    8,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    30,
+    33,
+    34,
+    37,
+    38,
+    45,
+    46,
+    54,
+    56,
+    57,
+    58,
+    60,
+    61,
+    64,
+    66,
+    68,
+    70
+  ],
+  "active_bounded_batch": [
+    5,
+    6,
+    7,
+    9
+  ],
+  "missing_if_all_four_pass": [
+    2,
+    3,
+    26,
+    27,
+    28,
+    29,
+    43,
+    44,
+    47,
+    48,
+    49,
+    50,
+    51,
+    53
+  ],
+  "full48_claim_permitted": false,
+  "evidence": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_affine_recovery_diagnostic/result.json",
+      "sha256": "3731bf4aa121898085408d59f0f22bc04022656f2e63b758e382619e4d313788"
+    },
+    {
+      "path": "VALIDATION/reports/final_missing_family_plan_20261012.json",
+      "sha256": "2ddc197c6452aa42ccaf7f52ae4db0d3cde6ec5771320e7280e7c35105c77aae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v8/independent_audit.json",
+      "sha256": "40c00efcc76f4c2d8b70d7edf0beacde215ac46059409b7240bb345bc1013a21"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/result.json",
+      "sha256": "7d5ea7bef27736ee50c359b6a9789fdddff3773cfc2d5b7c060f8d02dc5ed02b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/independent_audit.json",
+      "sha256": "b9eee39ff056814ea969e3119167c33526e3dc366f6a2374ffd109f60a1c9af7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/provenance_diagnosis.json",
+      "sha256": "930e3acb876047c7c31df8e0a70489b7ad564b5993a4e0a161907ac4224bb344"
+    }
+  ],
+  "bounded_batch": {
+    "versions": [
+      5,
+      6,
+      7,
+      9
+    ],
+    "estimated_total_minutes": [
+      12,
+      20
+    ],
+    "limit": "25 minutes before starting another version; finish active version safely. Stop entire batch on first nonexact old replay or error.",
+    "source_caveat": "Original v5-v9 modeling blob absent; all344841 old integer equality is required.",
+    "allocation_and_plan": {
+      "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/completion_caps_20261013/plan.json",
+      "sha256": "a28c78056673e3aca76f1ff89e3fcddc3c0ae3620753e8e18c5c6f9d3ba3c304"
+    }
+  },
+  "remaining_family_costs": [
+    {
+      "name": "original_ple_pool",
+      "versions": [
+        48,
+        49,
+        50
+      ],
+      "missing_fits": "Fifteen full-year PLE fits total, reusing appropriate five for v48/v49; no repeat epoch selection.",
+      "runtime": "GPU workload likely larger than tree families; derive epoch counts from saved group receipts, then benchmark first member once.",
+      "effective_weights": {
+        "48": -0.15898326670327048,
+        "49": 0.1622211712577098,
+        "50": 0.7019220249850316
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 36.119536969851765,
+        "mean": -3.019498627036112,
+        "absolute_q99": 105.4045316018807,
+        "max_abs": 11445.450816355153
+      }
+    },
+    {
+      "name": "early_hybrids",
+      "versions": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "missing_fits": "Four800-round ordinary models and two distinct small classifiers.",
+      "runtime": "Recorded each pair1.22-1.40minutes; allow15-25minutes including shared feature preparation/replay.",
+      "effective_weights": {
+        "26": -0.06509092539636191,
+        "27": 0.04229571061029584,
+        "28": -0.03828038830904984,
+        "29": -0.12257901024889822
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 26.68012615722784,
+        "mean": 0.32067589325753815,
+        "absolute_q99": 47.48506354847917,
+        "max_abs": 12603.696672757036
+      }
+    },
+    {
+      "name": "stand_coordinate_tuning",
+      "versions": [
+        43,
+        44
+      ],
+      "missing_fits": "Two ordinary LightGBMs only; reuse exact classifier9501e34314f919425cc74cc345eef9562e895f1516002847fba1583afa97d31e.",
+      "runtime": "Recorded ordinary fits97.4s and435.9s; allow15-25minutes including matched input preparation/replay.",
+      "effective_weights": {
+        "43": 0.005634057438753284,
+        "44": 0.023361752699178298
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 2.6563816451898106,
+        "mean": -0.27893001867836664,
+        "absolute_q99": 9.58855766091647,
+        "max_abs": 43.53290649870609
+      }
+    },
+    {
+      "name": "single_plain_network",
+      "versions": [
+        47
+      ],
+      "missing_fits": "One full-year neural model; original weights were not saved.",
+      "runtime": "Requires one GPU fit; record exact original stopping/schedule from retained manifest before allocation.",
+      "effective_weights": {
+        "47": -0.19966403135251465
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 5.967571866618767,
+        "mean": 0.3467238879100658,
+        "absolute_q99": 23.760019730949242,
+        "max_abs": 210.24622501419793
+      }
+    },
+    {
+      "name": "combo_ple_pool",
+      "versions": [
+        51,
+        53
+      ],
+      "missing_fits": "Fifteen original-combo neural fits; tree models are retained. v53 needs existing R20 final probabilities, with its one-flight old hold handled explicitly.",
+      "runtime": "GPU workload; reuse saved stopping decisions and retained12 tree checkpoints, not refit tree controls.",
+      "effective_weights": {
+        "51": -0.10981173712984842,
+        "53": 0.0002857444999768005
+      },
+      "weighted_residual_vs_portable_anchor": {
+        "rms": 4.84262306992783,
+        "mean": 0.5541736779628259,
+        "absolute_q99": 11.50022922613652,
+        "max_abs": 1777.716386375446
+      }
+    }
+  ],
+  "v2_v3": {
+    "versions": [
+      2,
+      3
+    ],
+    "new_missing_fits": 2,
+    "cost": "At least two fits plus new original-feature reconstruction/auditor; exact runtime/config provenance incomplete. Not recommended today.",
+    "v3_retained_baseline_alias": "Already failed on334963oldrows,RMS36.67491038; no repeated alias or scan.",
+    "effective_weights": {
+      "2": 0.012419787217003733,
+      "3": -0.0008824262003766034
+    }
+  },
+  "decisive_blocker": {
+    "family": "v48/v49/v50 original15-network PLE",
+    "fixed_seed42_epoch14_pilot": "nonexact",
+    "RMS_seconds": 39.22726406835,
+    "rounded_changed_rows": 335242,
+    "original_rows": 344841,
+    "cause": "Training losses match printed precision through10epochs, then diverge. Numerical trajectory divergence is plausible but exact cause unproven.",
+    "consequence": "No justified expansion, fit repetition, seed/thread/library sweep or substitute weights. Original weights absent in already-completed authorized searches."
+  },
+  "recommendation": "Complete only active caps, freeze latest audited catalog in final_public_corrections_basis_v1 shape, hand root explicit portable ensemble. No more missing-family fit today absent new decisive evidence.",
+  "interpretation": "Family weighted residual norms are descriptive fidelity magnitudes against different portable anchors, not expected score gains or additive benefits. Runtime estimates are planning estimates from original receipts, not guaranteed.",
+  "no_new_model_or_personal_location_search": true,
+  "no_solve": true,
+  "no_upload": true
+}

@@ -1,0 +1,88 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_daily_cohort_result_20261012.py",
+    "sha256": "5c51ed24d36192ebd0f6ae773dde239b3510ae24eb8760f4318607895840c65d"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/identity.json",
+    "sha256": "ae492d62698617a8c735713cdbfb90855d7f0b2d505a9549fa58e2781c9482aa"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/result.json",
+    "sha256": "483a87de8b8abcf6c66fb836605cabf93b621bc8f9b9c67b0f14ed7b0ba89dd2"
+  },
+  "members": [
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/k0/networks/2025-01_tabm.json",
+        "sha256": "8e5147c88f3272d7242e0e94dbd3ca8cf8971faff7c932bb670d718216fbcca7"
+      },
+      "control_replay": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/control_replay/2025-01.json",
+        "sha256": "aa2d2ddf28be0b0375250d68b4cd7fd0384063fe0f781850d4caf5d2ea302802"
+      },
+      "tensors": 62,
+      "new_parameters": 155940,
+      "complete_epochs": 21,
+      "all_held_GPU_reload_receipt": true
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/k0/networks/2025-07_tabm.json",
+        "sha256": "03f88240904fda1dbe7c296feddef4edb0cf96dc792861b20c48d259390eb3be"
+      },
+      "control_replay": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/control_replay/2025-07.json",
+        "sha256": "a88901caba94c07813ce36c74b624eb7a58ae55ede62c9da80326c0664ac5047"
+      },
+      "tensors": 62,
+      "new_parameters": 156930,
+      "complete_epochs": 17,
+      "all_held_GPU_reload_receipt": true
+    }
+  ],
+  "sources_verified": 206,
+  "exactly_expected_six_parameter_additions": true,
+  "all_original_parameter_shapes_unchanged": true,
+  "all_checkpoint_tensors_finite_and_epoch_curves_complete": true,
+  "immutable_prefit_bank_context_and_CPU_CUDA_proofs": true,
+  "all_held_original_and_zero_branch_GPU_control_replay": true,
+  "GPU_inference_scope": "Full held-row checkpoint reloads verified by immutable original laptop fit receipts; no repeated inference",
+  "interpretation": "Fixed screen on reused development folds; independent audit is not independent validation",
+  "no_fits_or_uploads": true,
+  "rows": 344419,
+  "changed": 227997,
+  "scores": {
+    "2025-01": {
+      "control": 325.02854196957753,
+      "candidate": 325.0167263777042
+    },
+    "2025-07": {
+      "control": 254.49701445100365,
+      "candidate": 254.49260899239198
+    }
+  },
+  "cv": {
+    "control": 289.7627782102906,
+    "candidate": 289.75466768504805
+  },
+  "ci95": [
+    -0.02826195506399003,
+    0.013070038687926883
+  ],
+  "decision": "inconclusive",
+  "gate": false,
+  "raw_truth_sources": [
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    }
+  ],
+  "independent_SQL_all_ID_truth_calendar_control_transport_scores": true,
+  "independent_paired_day_bootstrap": true
+}

@@ -121,6 +121,17 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October13,07:49 Amsterdam: resumed; final daily slot reserved.**
+Live best/latest remains v80 at218.8525, rank9/246. All five UTC-day slots are
+available; reserve the last for the strongest validated candidate, as requested
+by the user. Upload policy is `VALIDATION/submission_slot_policy.json`. No
+submission is queued. Laptop is online and idle. v8 resumes only unfinished
+final inference/audit from its saved model after the stopped processes vanished
+on restart. The daily-cohort screen is closed inconclusive (CV−0.008111); no
+expansion.29 historical final components, exact old-v80 stack and four-month
+joint posterior are audited. Honest posterior-aware crossfits are being designed.
+
+
 - **October12,18:42 Amsterdam:28 historical final components audited.**
   Saved weather models recover v60/v61 exactly on all original rows; all four-month
   output checks pass (2,031,262 rows), with no weight fits. The fixed134-input PLE pilot is nonexact

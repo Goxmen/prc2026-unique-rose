@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "view": "old",
+  "source": {
+    "path": "VALIDATION/tools/audit_final_public_quality_components_20261012.py",
+    "sha256": "8c34bc4a994dde9845ec8a85e9df652f66ea2377a9d1f2af169fedd51f08bb50"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_quality_components/old/identity.json",
+    "sha256": "888877e1db22b542bfad985797bdea1f56b3aa027e3329a3ab8f91c2d9129d18"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_quality_components/old/result.json",
+    "sha256": "a2cafbafd68d637160245cbe6451a0ea42c86b46b72466fc39a14b28f4c3d670"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_quality_components/old/stages.parquet",
+    "sha256": "b7b5305f75cd18457ed74c2277cd1d138ce0777f55da4f566de4f5ee92401d39"
+  },
+  "rows": 344841,
+  "months": {
+    "2026-01": 152719,
+    "2026-07": 192122
+  },
+  "old_stage_values_exact": 8965866,
+  "all_SQL_transport_projection_rounding_exact": true,
+  "fixed_full2025_calibration_exact": {
+    "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/parameters.json",
+    "sha256": "e59983c3c875a8161a484a2531e27add8d86e058e89b2f72218bcea39ca589b0"
+  },
+  "all_row_independent_daily_calibration_max_abs": {
+    "airport": 1.8474111129762605e-13,
+    "cat": 1.8474111129762605e-13,
+    "main": 1.8474111129762605e-13,
+    "tabm": 1.8474111129762605e-13
+  },
+  "calibration_algebra_tolerance": 1e-09,
+  "all_template_ID_order_months_and_quality_gates_exact": true,
+  "ranges": {
+    "airport": [
+      7,
+      103818
+    ],
+    "cat": [
+      7,
+      103818
+    ],
+    "main": [
+      7,
+      103818
+    ],
+    "tabm": [
+      0,
+      103818
+    ]
+  },
+  "no_fits_model_inference_or_posterior_execution": true,
+  "no_submission": true
+}

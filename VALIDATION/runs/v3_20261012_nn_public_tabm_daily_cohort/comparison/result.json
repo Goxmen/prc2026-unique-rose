@@ -1,0 +1,36 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/identity.json",
+    "sha256": "6b1b92b71fffbcb243aab0af8616f015d3adae7401634055c07ea260e263b824"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.02854196957753,
+      "candidate": 325.0167263777042
+    },
+    "2025-07": {
+      "control": 254.49701445100365,
+      "candidate": 254.49260899239198
+    }
+  },
+  "paired": {
+    "change": -0.008110525242514655,
+    "ci95": [
+      -0.02826195506399003,
+      0.013070038687926883
+    ],
+    "decision": "inconclusive"
+  },
+  "cv": {
+    "control": 289.7627782102906,
+    "candidate": 289.75466768504805
+  },
+  "gate": false,
+  "exact_v80_replay": true,
+  "all_row_independent_SQL_exact": true,
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/scored.parquet",
+    "sha256": "b44d2f4a79b082a2e2566ddd79df546f8f5f49a97036b2cd1853c686fb82160b"
+  },
+  "no_production_or_upload": true
+}

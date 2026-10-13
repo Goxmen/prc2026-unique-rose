@@ -44,7 +44,8 @@ def freeze(view):
     assert input_audit['status'] == 'pass' and input_audit['identity'] == art(inputs_cache.MANIFEST)
     recipe = read(original.MANIFEST)
     # Original calibration and public data bytes are unchanged.
-    sources = {Path(__file__), Path(direct.__file__), direct.MANIFEST,
+    sources = {Path(__file__), ROOT/'VALIDATION/tools/audit_final_public_quality_components_20261012.py',
+        Path(direct.__file__), direct.MANIFEST,
         direct.OUT / 'independent_audit.json', direct.OUT / f'{view}.json', verify(receipt['prediction']),
         inputs_cache.MANIFEST, inputs_cache.OUT / 'audit.json',
         original.MANIFEST, original.OUT / 'result.json', original.OUT / 'parameters.json', original.daily.SOURCE / 'daily_runway.parquet',

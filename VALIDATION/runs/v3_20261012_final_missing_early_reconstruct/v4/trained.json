@@ -1,0 +1,50 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/identity.json",
+    "sha256": "749289496fa6cf7b79961d765cee6c58ee1d248b4a33312842bc7bd3dd839ce7"
+  },
+  "version": 4,
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/model.txt",
+    "sha256": "d67f908b1c50db2283ee6eabbbe4f4aa96f8064a59acaf02039f17347a11ff60"
+  },
+  "preflight": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/preflight.json",
+    "sha256": "f7d82e329b22088b9013eaf39c3b7c4d3d464e7f27b7eb0c8d3d0560b163c62c"
+  },
+  "rounds": 800,
+  "seconds": 45.99838110699966,
+  "saved_before_inference": true,
+  "historical_source_exact": true,
+  "original_model_hash_unavailable": true,
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_final_missing_ple_pilot_20261012.py",
+    "sha256": "a9100f24cc4a81a57c8cb66d85227407d54d587219c37fb24496a4f0b48018c1"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/identity.json",
+    "sha256": "cbbb6eb0064fb2737ed68e5409443f370d461ca9ad41b4aaa433bf80f3889986"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/result.json",
+    "sha256": "7d5ea7bef27736ee50c359b6a9789fdddff3773cfc2d5b7c060f8d02dc5ed02b"
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/prepared.json",
+    "sha256": "baf48b9c839b0ce7c2c54781ad36e5aa8ba61465acdbe8e1da1de7284995b2a9"
+  },
+  "trained": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/trained.json",
+    "sha256": "c47afb3f515a889061e58740386ce46cd270afdc7e42b5462ca9733a9e3e274f"
+  },
+  "teacher": {
+    "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/parts/nn_v46.parquet",
+    "sha256": "53c6dc4cfc925b5b8079fb52916cc4b06d5a5bee94281111c548f5bc4e58976d"
+  },
+  "rows": 344841,
+  "metrics": {
+    "original_n42_0_exact": false,
+    "changed_float32_rows": 344841,
+    "rms_difference": 39.227264068349676,
+    "maximum_absolute_difference": 2061.6904296875,
+    "changed_single_member_rounded_rows": 335242
+  },
+  "states": [
+    {
+      "epoch": 14,
+      "checkpoint": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/epoch14.pt",
+        "sha256": "e49ce98a9c5e90b1e4d079f890e89875ef2fde8cab6fa8b2776bfc0be50a22f9"
+      },
+      "state_tensors": 25,
+      "scalar_entries": 1545037,
+      "every_state_finite_and_original_architecture_exact": true,
+      "full_old_reload": "Verified immutable original GPU execution receipt; not repeated."
+    },
+    {
+      "epoch": 15,
+      "checkpoint": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/epoch15.pt",
+        "sha256": "44569954965432d8cdf5c94334838a8e901a102f06e3a0c5cb4ef37f2eb96a2f"
+      },
+      "state_tensors": 25,
+      "scalar_entries": 1545037,
+      "every_state_finite_and_original_architecture_exact": true,
+      "full_old_reload": "Verified immutable original GPU execution receipt; not repeated."
+    },
+    {
+      "epoch": 17,
+      "checkpoint": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/epoch17.pt",
+        "sha256": "06044e293418a76bb89e69bf491871d6dd5dde09a74c25d70f5d62185c4cdd63"
+      },
+      "state_tensors": 25,
+      "scalar_entries": 1545037,
+      "every_state_finite_and_original_architecture_exact": true,
+      "full_old_reload": "Verified immutable original GPU execution receipt; not repeated."
+    }
+  ],
+  "original_sources_preprocessing_arrays_and_training_curve_authenticated": true,
+  "all_old_IDs_teacher_alignment_and_fidelity_arithmetic_exact": true,
+  "no_repeated_model_inference_or_fit": true,
+  "selection": "Failed zero-tolerance fidelity gate; preserve and close without expansion.",
+  "scope": "Finite full checkpoint state/architecture and receipt integrity; original GPU reload claims are retained execution evidence, not independent re-inference.",
+  "seconds": 3.57085251099943
+}

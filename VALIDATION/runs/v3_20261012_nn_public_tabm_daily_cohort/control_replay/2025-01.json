@@ -1,0 +1,37 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/identity.json",
+    "sha256": "ae492d62698617a8c735713cdbfb90855d7f0b2d505a9549fa58e2781c9482aa"
+  },
+  "scope": {
+    "train": {
+      "rows": 1596201,
+      "months": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "same_UTC_day_donors": true
+    },
+    "held": {
+      "rows": 153706,
+      "months": [
+        "2025-01"
+      ],
+      "same_UTC_day_donors": true
+    }
+  },
+  "control_record": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-01_tabm.json",
+    "sha256": "de792ea70ae9c8ea8ceddaae6604b922e4c9e5ca3697e05c030603d2bafd4373"
+  },
+  "all_held_old_and_zero_branch_exact": true,
+  "original_random_state_restored": true,
+  "rows": 153706
+}

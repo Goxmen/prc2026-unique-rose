@@ -1,0 +1,40 @@
+{
+  "status": "pass_closed_nonexact",
+  "source": {
+    "path": "VALIDATION/tools/audit_nonexact_early_v5_20261013.py",
+    "sha256": "7b542c3d8314a9b6864572763fdf879377aff354fdc7dae8dae1246bbad1a098"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/identity.json",
+    "sha256": "749289496fa6cf7b79961d765cee6c58ee1d248b4a33312842bc7bd3dd839ce7"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v5/result.json",
+    "sha256": "e5a232ea7a2ae8067bc115a30ad5afb2b07a1256367c418a9445c713d1183a37"
+  },
+  "trained": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v5/trained.json",
+    "sha256": "974695ec1fad55fbbc75d851d27b6fca4cf3ecd523b07db3bea6a3e1f4fa4f56"
+  },
+  "reference": {
+    "path": "data/derived/scored_submission_cache_20261011/unique-rose_v5.parquet",
+    "sha256": "ffad2530ee5bb605221b4de4b3722914f96803571952ca06aa44201e1ac9505e"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v5/old.parquet",
+    "sha256": "c89902fc55256b354ea85931285a77364215cb8eecb233a475dc7ff202fc1b38"
+  },
+  "worker": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/completion_caps_20261013/execution.json",
+    "sha256": "2119af45fd04f9e172a3a0c20fae7e62dbf782256e5d69e3b8c35ae8fb7adb69"
+  },
+  "rows": 344841,
+  "changed_rows": 160,
+  "rms_difference": 0.022719593319447614,
+  "maximum_absolute_difference": 2.0,
+  "all_source_runtime_and_artifact_chains_verified": true,
+  "existing_model_reload_receipt_verified": true,
+  "new_model_inferences": 0,
+  "fits": 0,
+  "decision": "Retain v5 as failed reconstruction; no final vector, no v6/v7/v9 expansion, no substitution."
+}

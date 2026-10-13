@@ -1,0 +1,31 @@
+{
+  "state": "closed_nonexact_reconstruction",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/identity.json",
+    "sha256": "749289496fa6cf7b79961d765cee6c58ee1d248b4a33312842bc7bd3dd839ce7"
+  },
+  "version": 5,
+  "views": {
+    "old": {
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v5/old.parquet",
+        "sha256": "c89902fc55256b354ea85931285a77364215cb8eecb233a475dc7ff202fc1b38"
+      },
+      "rows": 344841,
+      "months": {
+        "2026-01": 152719,
+        "2026-07": 192122
+      },
+      "template_order_exact": true,
+      "all_model_reload_predictions_exact": true,
+      "original_feature_order_exact": true,
+      "exact_original_integer_replay": false,
+      "changed_rows": 160,
+      "rms_difference": 0.022719593319447614,
+      "maximum_absolute_difference": 2.0
+    }
+  },
+  "no_final_inference": true,
+  "no_sweep": true,
+  "no_upload": true
+}

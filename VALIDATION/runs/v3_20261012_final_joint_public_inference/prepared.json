@@ -1,0 +1,37 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/identity.json",
+    "sha256": "841c5c55bd9a7162d2d46e447f78d2c1d7bc632f44bfd3745ad39d2a586309db"
+  },
+  "inputs": {
+    "old": {
+      "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/old/inputs.parquet",
+      "sha256": "caf9e2094daa24e785d8cc32d2c2289dd778389f50a8dc152f3289e867cb49d8"
+    },
+    "final": {
+      "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/final/inputs.parquet",
+      "sha256": "82733a6c5e332ab17d3f92b8b7ee6c4b54d8c8e5c310cc7590c6962c435dc046"
+    }
+  },
+  "rows": {
+    "old": {
+      "rome_rows": 26899,
+      "months": {
+        "2026-01": 11061,
+        "2026-07": 15838
+      }
+    },
+    "final": {
+      "rome_rows": 52146,
+      "months": {
+        "2026-01": 11061,
+        "2026-02": 10264,
+        "2026-06": 14983,
+        "2026-07": 15838
+      }
+    }
+  },
+  "old_inputs_exact": true,
+  "no_departure_labels": true,
+  "no_fit": true
+}

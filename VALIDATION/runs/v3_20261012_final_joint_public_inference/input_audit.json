@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/final_joint_public_audit.py",
+    "sha256": "24055d85d8882c1554c82ade201aa2c9acd1b070e177332f2c4672a7e098b5a6"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/identity.json",
+    "sha256": "841c5c55bd9a7162d2d46e447f78d2c1d7bc632f44bfd3745ad39d2a586309db"
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/prepared.json",
+    "sha256": "2bcc7990448dbb699c87dd5bfc9e80d6d98b907bd6ea6efcc70d652b943a785b"
+  },
+  "checks": [
+    {
+      "view": "old",
+      "rome_rows": 26899,
+      "raw_values": 268990,
+      "all_fields_exact": true,
+      "utc_prior_assignment_local_takeoff_quality_and_interior_days_exact": true
+    },
+    {
+      "view": "final",
+      "rome_rows": 52146,
+      "raw_values": 521460,
+      "all_fields_exact": true,
+      "utc_prior_assignment_local_takeoff_quality_and_interior_days_exact": true
+    }
+  ],
+  "old_packet_exact": true,
+  "no_departure_labels_read": true,
+  "no_inference_or_fit": true,
+  "seconds": 0.5356639800002085
+}

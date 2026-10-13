@@ -7,6 +7,7 @@ sys.path[:0]=[str(ROOT/'VALIDATION'),str(ROOT/'pipeline')]
 import pyarrow.parquet as pq
 import scored_blend_submit as transport
 from records import sha256,write_json
+from submission_slot_policy import check_slot
 
 def run(manifest_path,stage):
     path=Path(manifest_path).resolve();assert path.is_relative_to(ROOT/'VALIDATION/runs')
@@ -32,8 +33,9 @@ def run(manifest_path,stage):
         used=[r['file'] for r in uploads if r.get('uploadedAt') and
             datetime.fromisoformat(r['uploadedAt'].replace('Z','+00:00')).astimezone(timezone.utc).date()==today]
         assert len(used)<5,'Five-upload UTC-day limit reached'
+        slot_policy=check_slot(m,used,today)
         write_json(path.parent/'live_preflight.json',dict(at=transport.now(),uploads_today=used,
-            uploader_sha256=sha256(__file__),authorization=m['authorization']))
+            uploader_sha256=sha256(__file__),authorization=m['authorization'],slot_policy=slot_policy))
         receipt=transport.mc('cp','--disable-multipart','--custom-header','If-None-Match:*',
             '--attr',f'sha256={m["sha256"]}',output,transport.live.BUCKET+output.name)
         (path.parent/'mc_upload.log').write_text(receipt)

@@ -1,0 +1,65 @@
+{
+  "state": "running",
+  "pid": 84832,
+  "started_at": "2026-10-12T17:05:54.042919+00:00",
+  "steps": [
+    {
+      "stage": "prepare",
+      "started_at": "2026-10-12T17:05:54.044656+00:00",
+      "finished_at": "2026-10-12T17:07:07.446613+00:00",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v8/preflight.json",
+        "sha256": "663066621b522c9c2a27f39ba06cc1c757b57d6e04f7ac8c826aaa208368dfc2"
+      }
+    },
+    {
+      "stage": "fit",
+      "started_at": "2026-10-12T17:07:07.448015+00:00",
+      "finished_at": "2026-10-12T17:07:54.329292+00:00",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v8/trained.json",
+        "sha256": "0db6ad601808f29763212ca4703e192ab4a586b1551355953339b8307fbaaa64"
+      }
+    }
+  ],
+  "version": 8,
+  "plan_sha256": "65504a22db5ed1759ca2a6cadcd2cd192bb1231588a81418fff7a7b357a5c2f0",
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/completion_v8/allocation.json",
+    "sha256": "3c8ec247ace888f1b46348c13e273eef325a5a8a93168e064b37bc411f15b5d1"
+  },
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "no_expansion": true,
+  "no_upload": true,
+  "active_stage": "infer",
+  "child_pid": 86367
+}

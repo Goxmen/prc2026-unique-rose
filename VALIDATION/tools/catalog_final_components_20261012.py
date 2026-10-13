@@ -91,6 +91,16 @@ def main():
         assert old['all_original_predictions_exact']
         add(version, old['prediction'], final['prediction'], folder / 'independent_audit.json',
             'Saved weather weights, exact original component floats and integers; v60 retains audited October8 base-network refit provenance.')
+    for version in [4, 5, 6, 7, 8, 9]:
+        folder = RUNS / 'v3_20261012_final_missing_early_reconstruct' / f'v{version}'
+        if not (folder / 'independent_audit.json').exists():
+            continue
+        result = read(folder / 'result.json')
+        assert result['views']['old']['exact_original_integer_replay']
+        add(version, result['views']['old']['prediction'], result['views']['final']['prediction'],
+            folder / 'independent_audit.json',
+            f"Fixed early LightGBM reconstruction. Original source exact={result['historical_model_source_exact']}; all old integers exact. Original weight hash absent; source/runtime caveats retained.",
+            folder / 'result.json')
     # This is explicitly partial while recovery remains unfinished. Missing
     # versions cause the downstream binder to reject it without substitution.
     value = dict(schema='final_public_corrections_basis_v1', source=art(Path(__file__)),

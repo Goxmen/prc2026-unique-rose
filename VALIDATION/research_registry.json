@@ -1,15 +1,20 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T16:50:38.188150+00:00",
+  "updated_at": "2026-10-13T06:17:37.106866+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
-    "slots_remaining": 0,
-    "repository": "PRIVATE",
-    "laptop": "Fixed full-day peer TabM CV training; seed42 only, Jan21/Jul17",
-    "desktop": "Frozen joint public posterior final port; old affine/public correction replay passes",
-    "native_goal_status": "active"
+    "slots_remaining": 5,
+    "repository": "PRIVATE verified 2026-10-13",
+    "laptop": "Idle awaiting prefit audit; calibration and incremental-gradient gates pass",
+    "desktop": "Independent cohort prefit audit; cached direct packet complete",
+    "native_goal_status": "active",
+    "used_utc_day_slots": 0,
+    "slot_date_utc": "2026-10-13",
+    "reserved_final_slots": 1,
+    "exploratory_slots_remaining": 4,
+    "legacy_final_components": 30
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
   "entries": [
@@ -760,44 +765,37 @@
     {
       "id": "full_day_peer_context",
       "hypothesis": "A learned full-day joint distribution of peer clocks and physical sensors adds information beyond local context and 12 public summaries",
-      "status": "fixed_cv_running",
-      "conclusion": "Frozen two-fold seed42 replacement launched on laptop after exact CPU/scoped CUDA parity and capacity checks. All donor-bank and prefit reviews pass; no result yet.",
+      "status": "closed_inconclusive",
+      "conclusion": "Fixed Jan21/Jul17 seed42 changes exactv80 CV-0.008111seconds; both months slightly better, paired interval crosses0. Independent all-row audit passes. No expansion, capacity tuning, production or upload.",
       "metrics": {
-        "jan_without_own_physical_extra_witness": 0.7254660174075841,
-        "jul_without_own_physical_extra_witness": 0.839907156552993
+        "cv": 289.75466768504805,
+        "change": -0.008110525242514655,
+        "ci95": [
+          -0.02826195506399003,
+          0.013070038687926883
+        ],
+        "gate": false
       },
       "evidence": [
-        {
-          "path": "VALIDATION/reports/cohort_learning_20261012/pilot_identity.json",
-          "sha256": "ffa3914a7f651bddf78ba6b54e4e46d158c1c6aea3f58f5125783203c04ddb01"
-        },
-        {
-          "path": "VALIDATION/reports/cohort_learning_20261012/pilot_result.json",
-          "sha256": "3b8a3613a092027f95d89f480cdeb13b658821a38adfc44aa5003665658488e8"
-        },
-        {
-          "path": "VALIDATION/reports/cohort_learning_20261012/independent_bank_audit.json",
-          "sha256": "0bd0b6b7677dd6ed1be624b227702eba9b1feba7f175dd5de2f95ab799fcf4ba"
-        },
-        {
-          "path": "VALIDATION/reports/cohort_learning_20261012/independent_context_model_audit.json",
-          "sha256": "0da11b6d0d9526c980812fc725eeff26ac5a1d06cc06d922c604a05a447c8000"
-        },
-        {
-          "path": "VALIDATION/reports/cohort_learning_20261012/independent_prefit_review.md",
-          "sha256": "b40cb2d5d71548dbb853518ffdfb112182ad093f9208985513aa795ca017d2ab"
-        },
         {
           "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/identity.json",
           "sha256": "ae492d62698617a8c735713cdbfb90855d7f0b2d505a9549fa58e2781c9482aa"
         },
         {
-          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/preflight.json",
-          "sha256": "bd5f0705cdc278cfc181de612b9b1ec3045d834a6e000bfd7f45641974da9285"
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/return_audit.json",
+          "sha256": "7de2aed5e4809875399b470ac31c544c2c47c823f41f571e6e22d8f1e39a6f12"
         },
         {
-          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/identity.json",
-          "sha256": "6b1b92b71fffbcb243aab0af8616f015d3adae7401634055c07ea260e263b824"
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/result.json",
+          "sha256": "483a87de8b8abcf6c66fb836605cabf93b621bc8f9b9c67b0f14ed7b0ba89dd2"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/independent_audit.json",
+          "sha256": "ba67193a46c9a2231d8ab1006ee71932d2c6d895d1201a2708f5d57a1a1de853"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/closed.json",
+          "sha256": "0d1d70efa462cd87672ec15f17c1112db730340e0bf61c9386937c137493e368"
         }
       ]
     },
@@ -904,43 +902,114 @@
           "sha256": "8c18da8496e710293ef391e2fbc37e3ca8a9caf4b57d8c43b92b0f468088ef95"
         }
       ]
+    },
+    {
+      "id": "legacy134_PLE_recovery_fidelity",
+      "hypothesis": "A fixed original-source seed42 trajectory reproduces the missing legacy134 PLE member",
+      "status": "closed_nonexact_recovery",
+      "conclusion": "All-row fidelity audit fails exact replay; no expansion or final inference. Original losses match printed precision through epoch10, diverge afterward; cause is consistent with numerical trajectory divergence but not established. No prediction-accuracy or score claim.",
+      "metrics": {
+        "original_member_RMS_seconds": 39.227264068349676,
+        "changed_float32_rows": 344841,
+        "changed_rounded_rows": 335242,
+        "checkpoints_preserved": [
+          14,
+          15,
+          17
+        ]
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/result.json",
+          "sha256": "7d5ea7bef27736ee50c359b6a9789fdddff3773cfc2d5b7c060f8d02dc5ed02b"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/independent_audit.json",
+          "sha256": "b9eee39ff056814ea969e3119167c33526e3dc366f6a2374ffd109f60a1c9af7"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/provenance_diagnosis.json",
+          "sha256": "930e3acb876047c7c31df8e0a70489b7ad564b5993a4e0a161907ac4224bb344"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/member_geometry_diagnosis.json",
+          "sha256": "46c1f6b1f87b9efdf6bd39f2c9d9209cd83c474c08f346971ed840e63b4186d6"
+        }
+      ]
+    },
+    {
+      "id": "posterior_aware_source_sensitivity",
+      "hypothesis": "Feature-dependent support tilts can alter source-conditioned predictions within cohorts",
+      "status": "feasibility_pass_training_not_started",
+      "conclusion": "Independent all-row sensitivity audit passes; 2336 supported targets and four-dimensional joint-only derivative. No predictive gain established. Incremental joint-minus-departure objective needs its own frozen design.",
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_posterior_aware_sensitivity/result.json",
+          "sha256": "26d3e06c6e6ff04b296be622c90c892f9d2120c455c234ca203db85af28afe20"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_posterior_aware_sensitivity/independent_audit.json",
+          "sha256": "9479bd17599b3749a90155d9bbc016c1fc140c1ae80db29011befb99163cdcd5"
+        }
+      ]
+    },
+    {
+      "id": "legacy_capped_tree_recovery_20261013",
+      "hypothesis": "Fixed historical cap trees reproduce unavailable version components exactly",
+      "status": "closed_nonexact_stop_batch",
+      "conclusion": "v5 saved model reloads exactly but differs from original integers on160 of344841rows; v6/v7/v9 never attempted. No final expansion or substitution.",
+      "metrics": {
+        "changed_rows": 160,
+        "rows": 344841,
+        "rms_integer_difference": 0.0227195933,
+        "maximum_integer_difference": 2
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v5/nonexact_independent_audit.json",
+          "sha256": "61fffeaf32567b8e84a746a82cd022b9cea07e0f7eeb9768d681aec0666a735f"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/completion_caps_20261013/execution.json",
+          "sha256": "2119af45fd04f9e172a3a0c20fae7e62dbf782256e5d69e3b8c35ae8fb7adb69"
+        }
+      ]
     }
   ],
   "next": [
-    "Complete fixed full-day peer TabM Jan/Jul experiment after preflight",
-    "Recover remaining final ensemble components and selected daily/public correction stages without substitutions",
-    "Prepare audited candidates for October13 slots; none queued"
+    "Complete final-only affine alignment/audit without repeating solve or old/CV predictions",
+    "Build fixed portable public-source correction chain and score Jan/Jul",
+    "Launch six fixed source-blind crossfit priors only after independent prefit audit",
+    "Keep final daily slot reserved; choose best validated model after promising experiments resolve"
   ],
   "active_research": [
     {
       "owner": "root",
-      "scope": "Research integration and final public direct-model/quality assembly"
+      "scope": "Portable affine final alignment, research integration, reserved submission slot"
     },
     {
       "owner": "final_recovery",
-      "scope": "Stand-family fixed recovery; missing family recipes and research index"
+      "scope": "Frozen portable public-source assembler; no additional recovery fits"
     },
     {
       "owner": "cohort_learning",
-      "scope": "Fixed full-day peer CV active; exact final public correction port preparation"
+      "scope": "Honest posterior-aware crossfit protocol; laptop execution after audit"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent cohort postfit audit and final direct-component source review"
+      "scope": "Independent crossfit prefit and final-alignment audits"
     }
   ],
   "machine_allocation": {
     "desktop": {
-      "stage": "joint_public_four_month_port",
-      "owner": "root",
-      "session": 24063,
-      "run": "VALIDATION/runs/v3_20261012_final_joint_public_inference"
+      "stage": "cohort_prefit_independent_audit",
+      "owner": "new_signal_audit",
+      "checked_at": "2026-10-13T06:17:37.106866+00:00"
     },
     "laptop": {
-      "stage": "full_day_cohort_fixed_CV_running",
-      "run": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort",
-      "session": 61872,
-      "preflight_peak_GiB": 4.07018780708313
+      "stage": "awaiting_independent_prefit_audit",
+      "owner": "cohort_learning",
+      "checked_at": "2026-10-13T06:17:37.106866+00:00"
     }
   }
 }

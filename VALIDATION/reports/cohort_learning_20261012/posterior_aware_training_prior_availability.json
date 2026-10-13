@@ -1,0 +1,965 @@
+{
+  "scope": "Historical Rome calibration metadata only; current selected joint packets only hold Jan/Jul. No exhaustive legacy availability claim.",
+  "read_departure_labels": false,
+  "file_existence_only": true,
+  "calibrators": 18,
+  "references": 54,
+  "unique_references": 54,
+  "existing": 0,
+  "evidence": [
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-06__142.json",
+        "sha256": "33a57ba5e4b57ff9908c98f33cfcd21e10a00705c1f391cfd992d44c1fc616a8"
+      },
+      "outer": {
+        "id": "v3_2025-06",
+        "scheme": "v3",
+        "train": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06"
+        ],
+        "start": "2025-01-01",
+        "end": "2025-06-30",
+        "freeze": "2025-06-30",
+        "evals": [
+          {
+            "fold": "A1",
+            "month": "2025-07",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B1",
+            "month": "2025-09",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B2",
+            "month": "2025-10",
+            "role": "B",
+            "gap": 4
+          },
+          {
+            "fold": "B3",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 5
+          },
+          {
+            "fold": "B4",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 6
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-06__inner3__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-06__inner4__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-06__inner5__142.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-06__242.json",
+        "sha256": "3704c45ab78da13fea2206c2ced1e3fe5b38b6c9527612f414970671660e7393"
+      },
+      "outer": {
+        "id": "v3_2025-06",
+        "scheme": "v3",
+        "train": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06"
+        ],
+        "start": "2025-01-01",
+        "end": "2025-06-30",
+        "freeze": "2025-06-30",
+        "evals": [
+          {
+            "fold": "A1",
+            "month": "2025-07",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B1",
+            "month": "2025-09",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B2",
+            "month": "2025-10",
+            "role": "B",
+            "gap": 4
+          },
+          {
+            "fold": "B3",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 5
+          },
+          {
+            "fold": "B4",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 6
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-06__inner3__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-06__inner4__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-06__inner5__242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-06__42.json",
+        "sha256": "b5e112ec18dcbe295ecd20f66d54ce557d9a0785fb98c2c7d53ab9ed81599f6a"
+      },
+      "outer": {
+        "id": "v3_2025-06",
+        "scheme": "v3",
+        "train": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06"
+        ],
+        "start": "2025-01-01",
+        "end": "2025-06-30",
+        "freeze": "2025-06-30",
+        "evals": [
+          {
+            "fold": "A1",
+            "month": "2025-07",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B1",
+            "month": "2025-09",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B2",
+            "month": "2025-10",
+            "role": "B",
+            "gap": 4
+          },
+          {
+            "fold": "B3",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 5
+          },
+          {
+            "fold": "B4",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 6
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-06__inner3__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-06__inner4__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-06__inner5__42.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-07__142.json",
+        "sha256": "dd2b0d0c19f87dee6979f0b9dcacbf3e0944c9bc7bb6d4a477b5efb2f829dc91"
+      },
+      "outer": {
+        "id": "v3_2025-07",
+        "scheme": "v3",
+        "train": [
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07"
+        ],
+        "start": "2025-02-01",
+        "end": "2025-07-31",
+        "freeze": "2025-07-31",
+        "evals": [
+          {
+            "fold": "A2",
+            "month": "2025-08",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B5",
+            "month": "2025-10",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B6",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 4
+          },
+          {
+            "fold": "B7",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 5
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-07__inner3__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-07__inner4__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-07__inner5__142.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-07__242.json",
+        "sha256": "9809a11bc24a6e4585a24d213d71d7e339778322455e6074aaf6d87bd484c935"
+      },
+      "outer": {
+        "id": "v3_2025-07",
+        "scheme": "v3",
+        "train": [
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07"
+        ],
+        "start": "2025-02-01",
+        "end": "2025-07-31",
+        "freeze": "2025-07-31",
+        "evals": [
+          {
+            "fold": "A2",
+            "month": "2025-08",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B5",
+            "month": "2025-10",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B6",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 4
+          },
+          {
+            "fold": "B7",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 5
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-07__inner3__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-07__inner4__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-07__inner5__242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-07__42.json",
+        "sha256": "91a2762bb6553a4578178f01c711db10bdbc2b567781ac7fade05e7c2f4c3d19"
+      },
+      "outer": {
+        "id": "v3_2025-07",
+        "scheme": "v3",
+        "train": [
+          "2025-02",
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07"
+        ],
+        "start": "2025-02-01",
+        "end": "2025-07-31",
+        "freeze": "2025-07-31",
+        "evals": [
+          {
+            "fold": "A2",
+            "month": "2025-08",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B5",
+            "month": "2025-10",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B6",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 4
+          },
+          {
+            "fold": "B7",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 5
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-07__inner3__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-07__inner4__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-07__inner5__42.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-08__142.json",
+        "sha256": "7ff5a57c32fa243183cae58bcf896e91f73ae0fdee88f8eaa881e7f0e586ba26"
+      },
+      "outer": {
+        "id": "v3_2025-08",
+        "scheme": "v3",
+        "train": [
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08"
+        ],
+        "start": "2025-03-01",
+        "end": "2025-08-31",
+        "freeze": "2025-08-31",
+        "evals": [
+          {
+            "fold": "A3",
+            "month": "2025-09",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B8",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B9",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 4
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-08__inner3__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-08__inner4__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-08__inner5__142.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-08__242.json",
+        "sha256": "ea9587a06a8f0b84269d93b4cac857c693ed2626abc399af0ec84e5679771bbb"
+      },
+      "outer": {
+        "id": "v3_2025-08",
+        "scheme": "v3",
+        "train": [
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08"
+        ],
+        "start": "2025-03-01",
+        "end": "2025-08-31",
+        "freeze": "2025-08-31",
+        "evals": [
+          {
+            "fold": "A3",
+            "month": "2025-09",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B8",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B9",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 4
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-08__inner3__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-08__inner4__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-08__inner5__242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-08__42.json",
+        "sha256": "0f2fc54b959368bd7e9c2bd43df402880086a25a17ee320bfdcdb10b6f771453"
+      },
+      "outer": {
+        "id": "v3_2025-08",
+        "scheme": "v3",
+        "train": [
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08"
+        ],
+        "start": "2025-03-01",
+        "end": "2025-08-31",
+        "freeze": "2025-08-31",
+        "evals": [
+          {
+            "fold": "A3",
+            "month": "2025-09",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B8",
+            "month": "2025-11",
+            "role": "B",
+            "gap": 3
+          },
+          {
+            "fold": "B9",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 4
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-08__inner3__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-08__inner4__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-08__inner5__42.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-09__142.json",
+        "sha256": "1290d1d5edca93b1b974ba91dbf8c7c5fa46b4cf4fc64621a01afc2fcc1cd241"
+      },
+      "outer": {
+        "id": "v3_2025-09",
+        "scheme": "v3",
+        "train": [
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09"
+        ],
+        "start": "2025-04-01",
+        "end": "2025-09-30",
+        "freeze": "2025-09-30",
+        "evals": [
+          {
+            "fold": "A4",
+            "month": "2025-10",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B10",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 3
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-09__inner3__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-09__inner4__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-09__inner5__142.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-09__242.json",
+        "sha256": "b66895b44738078125b59cd6fd94a0dfdf9d9c7de4bb929020f222410c1904c6"
+      },
+      "outer": {
+        "id": "v3_2025-09",
+        "scheme": "v3",
+        "train": [
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09"
+        ],
+        "start": "2025-04-01",
+        "end": "2025-09-30",
+        "freeze": "2025-09-30",
+        "evals": [
+          {
+            "fold": "A4",
+            "month": "2025-10",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B10",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 3
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-09__inner3__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-09__inner4__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-09__inner5__242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-09__42.json",
+        "sha256": "413550c94a56db9b09faa8f6bccb441e91a89403ddfa45ae9fcc320704783e70"
+      },
+      "outer": {
+        "id": "v3_2025-09",
+        "scheme": "v3",
+        "train": [
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09"
+        ],
+        "start": "2025-04-01",
+        "end": "2025-09-30",
+        "freeze": "2025-09-30",
+        "evals": [
+          {
+            "fold": "A4",
+            "month": "2025-10",
+            "role": "A",
+            "gap": 1
+          },
+          {
+            "fold": "B10",
+            "month": "2025-12",
+            "role": "B",
+            "gap": 3
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-09__inner3__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-09__inner4__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-09__inner5__42.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-10__142.json",
+        "sha256": "d2d01a3fb4bdc3e071b7cc30ae881e902989f73cd3c5e01bc7724754a6cbf3e3"
+      },
+      "outer": {
+        "id": "v3_2025-10",
+        "scheme": "v3",
+        "train": [
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10"
+        ],
+        "start": "2025-05-01",
+        "end": "2025-10-31",
+        "freeze": "2025-10-31",
+        "evals": [
+          {
+            "fold": "A5",
+            "month": "2025-11",
+            "role": "A",
+            "gap": 1
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-10__inner3__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-10__inner4__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-10__inner5__142.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-10__242.json",
+        "sha256": "76f08df970d4e5b766c4e40f5f1921ccdf27734679b0489c5dfc6cff903c67c9"
+      },
+      "outer": {
+        "id": "v3_2025-10",
+        "scheme": "v3",
+        "train": [
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10"
+        ],
+        "start": "2025-05-01",
+        "end": "2025-10-31",
+        "freeze": "2025-10-31",
+        "evals": [
+          {
+            "fold": "A5",
+            "month": "2025-11",
+            "role": "A",
+            "gap": 1
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-10__inner3__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-10__inner4__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-10__inner5__242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-10__42.json",
+        "sha256": "a12ed98651cb0ea2735cf3f9ab3c1fd0672577d55dc15086e69fe551df9f5e10"
+      },
+      "outer": {
+        "id": "v3_2025-10",
+        "scheme": "v3",
+        "train": [
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10"
+        ],
+        "start": "2025-05-01",
+        "end": "2025-10-31",
+        "freeze": "2025-10-31",
+        "evals": [
+          {
+            "fold": "A5",
+            "month": "2025-11",
+            "role": "A",
+            "gap": 1
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-10__inner3__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-10__inner4__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-10__inner5__42.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-11__142.json",
+        "sha256": "b005013ab8253e56c9d55bc2ae9bcaeeb9e9bd33bb7b6b75fd1472f8d143b613"
+      },
+      "outer": {
+        "id": "v3_2025-11",
+        "scheme": "v3",
+        "train": [
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11"
+        ],
+        "start": "2025-06-01",
+        "end": "2025-11-30",
+        "freeze": "2025-11-30",
+        "evals": [
+          {
+            "fold": "A6",
+            "month": "2025-12",
+            "role": "A",
+            "gap": 1
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-11__inner3__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-11__inner4__142.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-11__inner5__142.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-11__242.json",
+        "sha256": "9423a60ac623ec91826d47939f7d0b0b5726622a4ce49f6d3ee058cc8b8944e4"
+      },
+      "outer": {
+        "id": "v3_2025-11",
+        "scheme": "v3",
+        "train": [
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11"
+        ],
+        "start": "2025-06-01",
+        "end": "2025-11-30",
+        "freeze": "2025-11-30",
+        "evals": [
+          {
+            "fold": "A6",
+            "month": "2025-12",
+            "role": "A",
+            "gap": 1
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-11__inner3__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-11__inner4__242.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-11__inner5__242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "calibrator": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/calibrators/v3_2025-11__42.json",
+        "sha256": "dfc1cbc8da6b5db4cf0de1b5de407be147114b313fbf43c77b84f01b48b301e0"
+      },
+      "outer": {
+        "id": "v3_2025-11",
+        "scheme": "v3",
+        "train": [
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11"
+        ],
+        "start": "2025-06-01",
+        "end": "2025-11-30",
+        "freeze": "2025-11-30",
+        "evals": [
+          {
+            "fold": "A6",
+            "month": "2025-12",
+            "role": "A",
+            "gap": 1
+          }
+        ]
+      },
+      "referenced_inner": [
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-11__inner3__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-11__inner4__42.parquet",
+          "exists": false
+        },
+        {
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/inner/v3_2025-11__inner5__42.parquet",
+          "exists": false
+        }
+      ]
+    }
+  ]
+}

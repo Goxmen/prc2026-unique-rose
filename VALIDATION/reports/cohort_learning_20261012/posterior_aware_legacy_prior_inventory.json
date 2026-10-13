@@ -1,0 +1,6989 @@
+{
+  "status": "metadata_and_file_existence_only",
+  "no_model_or_label_read": true,
+  "allowed_outer_months": {
+    "2025-01": [
+      "2025-03",
+      "2025-04",
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11"
+    ],
+    "2025-07": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ]
+  },
+  "result_files_scanned": 184,
+  "fold_records": 594,
+  "prediction_references": 1746,
+  "existing_prediction_references": 144,
+  "model_references_with_paths": 180,
+  "existing_model_references": 0,
+  "eligible_existing_fold_predictions": [
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A3_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A3_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A3_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B8_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B8_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B8_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A4_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A4_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A4_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A5_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A5_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A5_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A3_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A3_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A3_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B8_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B8_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B8_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A4_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A4_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A4_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A5_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A5_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A5_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A3_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A3_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A3_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B8_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B8_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B8_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A4_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A4_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A4_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A5_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A5_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A5_seed242.parquet",
+          "exists": true
+        }
+      ]
+    }
+  ],
+  "eligible_declared_folds_by_outer": {
+    "2025-01": 148,
+    "2025-07": 0
+  },
+  "existing_prediction_records": [
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "A1",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-07",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A1_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A1_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A1_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B1",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B1_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B1_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B1_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B2",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B2_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B2_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B2_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B3",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B3_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B3_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B3_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B4",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B4_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B4_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B4_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "A2",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-08",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A2_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A2_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A2_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B5",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B5_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B5_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B5_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B6",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B6_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B6_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B6_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B7",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B7_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B7_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B7_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A3_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A3_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A3_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B8_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B8_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B8_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B9",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B9_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B9_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B9_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A4_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A4_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A4_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "B10",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B10_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B10_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_B10_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A5_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A5_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A5_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260915T225301657023Z/result.json",
+        "sha256": "8626108888a176b45699820883850f80f773f26ec37463791d00ff02f848a57a"
+      },
+      "fold": "A6",
+      "train": [
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A6_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A6_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260915T225301657023Z/oof_A6_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "A1",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-07",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A1_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A1_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A1_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B1",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B1_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B1_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B1_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B2",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B2_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B2_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B2_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B3",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B3_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B3_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B3_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B4",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B4_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B4_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B4_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "A2",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-08",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A2_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A2_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A2_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B5",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B5_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B5_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B5_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B6",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B6_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B6_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B6_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B7",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B7_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B7_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B7_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A3_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A3_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A3_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B8_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B8_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B8_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B9",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B9_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B9_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B9_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A4_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A4_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A4_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "B10",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B10_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B10_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_B10_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A5_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A5_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A5_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/result.json",
+        "sha256": "1901499be46f2617c9fdb218f665033f08e9e886a482390552060ae76762a5da"
+      },
+      "fold": "A6",
+      "train": [
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A6_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A6_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260907T202123182899Z/oof_A6_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "A1",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-07",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A1_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A1_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A1_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B1",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B1_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B1_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B1_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B2",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B2_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B2_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B2_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B3",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B3_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B3_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B3_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B4",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B4_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B4_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B4_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "A2",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-08",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A2_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A2_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A2_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B5",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B5_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B5_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B5_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B6",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B6_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B6_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B6_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B7",
+      "train": [
+        "2025-02",
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B7_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B7_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B7_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A3_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A3_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A3_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B8_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B8_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B8_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B9",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B9_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B9_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B9_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A4_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A4_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A4_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "B10",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B10_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B10_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_B10_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A5_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A5_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A5_seed242.parquet",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/result.json",
+        "sha256": "207fe35b99d4a1066ac6758e5e037b3405119ab6ae96d05b323e529fe6b4b289"
+      },
+      "fold": "A6",
+      "train": [
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "validation": "2025-12",
+      "eligible_outer_folds": [],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A6_seed42.parquet",
+          "exists": true
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A6_seed142.parquet",
+          "exists": true
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/archive/runs/v3_20260909T161759260709Z/oof_A6_seed242.parquet",
+          "exists": true
+        }
+      ]
+    }
+  ],
+  "existing_model_records": [],
+  "declared_eligible_missing_folds": [
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T095948645262Z/result.json",
+        "sha256": "d574f96d366d36a9d35819914cc3a4a7c9c555b8d7d2376ba68431eaf29245b3"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T095948645262Z/result.json",
+        "sha256": "d574f96d366d36a9d35819914cc3a4a7c9c555b8d7d2376ba68431eaf29245b3"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T095948645262Z/result.json",
+        "sha256": "d574f96d366d36a9d35819914cc3a4a7c9c555b8d7d2376ba68431eaf29245b3"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T095948645262Z/result.json",
+        "sha256": "d574f96d366d36a9d35819914cc3a4a7c9c555b8d7d2376ba68431eaf29245b3"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T095948645262Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T102029635587Z/result.json",
+        "sha256": "26fcf39f2d2d95412180560f0f8faa575a1e44cd85e50f603f7d779162428e28"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T102029635587Z/result.json",
+        "sha256": "26fcf39f2d2d95412180560f0f8faa575a1e44cd85e50f603f7d779162428e28"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T102029635587Z/result.json",
+        "sha256": "26fcf39f2d2d95412180560f0f8faa575a1e44cd85e50f603f7d779162428e28"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T102029635587Z/result.json",
+        "sha256": "26fcf39f2d2d95412180560f0f8faa575a1e44cd85e50f603f7d779162428e28"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T102029635587Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T104452470012Z/result.json",
+        "sha256": "e61c98f122f1ae2f71d973b715dc32e23c0e88ff8a12b9b7f1063efb12e54c05"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T104452470012Z/result.json",
+        "sha256": "e61c98f122f1ae2f71d973b715dc32e23c0e88ff8a12b9b7f1063efb12e54c05"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T104452470012Z/result.json",
+        "sha256": "e61c98f122f1ae2f71d973b715dc32e23c0e88ff8a12b9b7f1063efb12e54c05"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T104452470012Z/result.json",
+        "sha256": "e61c98f122f1ae2f71d973b715dc32e23c0e88ff8a12b9b7f1063efb12e54c05"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T104452470012Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T113256202842Z/result.json",
+        "sha256": "5f236eb1e341ee70e0fd560b814d25320650002430912df1a0aae8c70a24d1e2"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T113256202842Z/result.json",
+        "sha256": "5f236eb1e341ee70e0fd560b814d25320650002430912df1a0aae8c70a24d1e2"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T113256202842Z/result.json",
+        "sha256": "5f236eb1e341ee70e0fd560b814d25320650002430912df1a0aae8c70a24d1e2"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T113256202842Z/result.json",
+        "sha256": "5f236eb1e341ee70e0fd560b814d25320650002430912df1a0aae8c70a24d1e2"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T113256202842Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T123230629423Z/result.json",
+        "sha256": "2ac3fd66b10a5f1eac24d450c8d5a225e974f76a3c8322c78948bb6c4ef773f6"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T123230629423Z/result.json",
+        "sha256": "2ac3fd66b10a5f1eac24d450c8d5a225e974f76a3c8322c78948bb6c4ef773f6"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T123230629423Z/result.json",
+        "sha256": "2ac3fd66b10a5f1eac24d450c8d5a225e974f76a3c8322c78948bb6c4ef773f6"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T123230629423Z/result.json",
+        "sha256": "2ac3fd66b10a5f1eac24d450c8d5a225e974f76a3c8322c78948bb6c4ef773f6"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T123230629423Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T123433565511Z/result.json",
+        "sha256": "a6cc55c663699afaa209c198fa661dd334b66e7dbcd59ec566c051c3825fad36"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T123433565511Z/result.json",
+        "sha256": "a6cc55c663699afaa209c198fa661dd334b66e7dbcd59ec566c051c3825fad36"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T123433565511Z/result.json",
+        "sha256": "a6cc55c663699afaa209c198fa661dd334b66e7dbcd59ec566c051c3825fad36"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T123433565511Z/result.json",
+        "sha256": "a6cc55c663699afaa209c198fa661dd334b66e7dbcd59ec566c051c3825fad36"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T123433565511Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T132038893775Z/result.json",
+        "sha256": "32eecb008f6e438ea53d25d66c9f1fe6b8e1d07d41d771b06407397134d8a033"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T132038893775Z/result.json",
+        "sha256": "32eecb008f6e438ea53d25d66c9f1fe6b8e1d07d41d771b06407397134d8a033"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T132038893775Z/result.json",
+        "sha256": "32eecb008f6e438ea53d25d66c9f1fe6b8e1d07d41d771b06407397134d8a033"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T132038893775Z/result.json",
+        "sha256": "32eecb008f6e438ea53d25d66c9f1fe6b8e1d07d41d771b06407397134d8a033"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T132038893775Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T134231489815Z/result.json",
+        "sha256": "7f72dc6d83717834b6b1c36802db71a6b744faeb95a1cd75efca9e5cd0351135"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T134231489815Z/result.json",
+        "sha256": "7f72dc6d83717834b6b1c36802db71a6b744faeb95a1cd75efca9e5cd0351135"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T134231489815Z/result.json",
+        "sha256": "7f72dc6d83717834b6b1c36802db71a6b744faeb95a1cd75efca9e5cd0351135"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T134231489815Z/result.json",
+        "sha256": "7f72dc6d83717834b6b1c36802db71a6b744faeb95a1cd75efca9e5cd0351135"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T134231489815Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T144408082362Z/result.json",
+        "sha256": "4591afe4dfaaed1e90146ddf01bccbc415a2e8c1f8c3526b01506344dba2efee"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T144408082362Z/result.json",
+        "sha256": "4591afe4dfaaed1e90146ddf01bccbc415a2e8c1f8c3526b01506344dba2efee"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T144408082362Z/result.json",
+        "sha256": "4591afe4dfaaed1e90146ddf01bccbc415a2e8c1f8c3526b01506344dba2efee"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T144408082362Z/result.json",
+        "sha256": "4591afe4dfaaed1e90146ddf01bccbc415a2e8c1f8c3526b01506344dba2efee"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T144408082362Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T164054429797Z/result.json",
+        "sha256": "d4df8e539bf958ed847becf062a4331dd3d0e991f20a318516e32601a196f5f7"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T164054429797Z/result.json",
+        "sha256": "d4df8e539bf958ed847becf062a4331dd3d0e991f20a318516e32601a196f5f7"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T164054429797Z/result.json",
+        "sha256": "d4df8e539bf958ed847becf062a4331dd3d0e991f20a318516e32601a196f5f7"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T164054429797Z/result.json",
+        "sha256": "d4df8e539bf958ed847becf062a4331dd3d0e991f20a318516e32601a196f5f7"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T164054429797Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T164247756836Z/result.json",
+        "sha256": "be48ea15e73a99aec101681fbb24ae9ddc69f6c978fde15a733f470f477dd2dd"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T164247756836Z/result.json",
+        "sha256": "be48ea15e73a99aec101681fbb24ae9ddc69f6c978fde15a733f470f477dd2dd"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T164247756836Z/result.json",
+        "sha256": "be48ea15e73a99aec101681fbb24ae9ddc69f6c978fde15a733f470f477dd2dd"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T164247756836Z/result.json",
+        "sha256": "be48ea15e73a99aec101681fbb24ae9ddc69f6c978fde15a733f470f477dd2dd"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T164247756836Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T214848990330Z/result.json",
+        "sha256": "10ed5a9073f81b61758016c5acc87bd98c82f4ec26f05cb03f424295dbe5b974"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T214848990330Z/result.json",
+        "sha256": "10ed5a9073f81b61758016c5acc87bd98c82f4ec26f05cb03f424295dbe5b974"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T214848990330Z/result.json",
+        "sha256": "10ed5a9073f81b61758016c5acc87bd98c82f4ec26f05cb03f424295dbe5b974"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260916T214848990330Z/result.json",
+        "sha256": "10ed5a9073f81b61758016c5acc87bd98c82f4ec26f05cb03f424295dbe5b974"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260916T214848990330Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T124103912051Z/result.json",
+        "sha256": "55f62fcadd7e13be886603c9e781e67c22359648352e80d485ea7ce065f76821"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T124103912051Z/result.json",
+        "sha256": "55f62fcadd7e13be886603c9e781e67c22359648352e80d485ea7ce065f76821"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T124103912051Z/result.json",
+        "sha256": "55f62fcadd7e13be886603c9e781e67c22359648352e80d485ea7ce065f76821"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T124103912051Z/result.json",
+        "sha256": "55f62fcadd7e13be886603c9e781e67c22359648352e80d485ea7ce065f76821"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T124103912051Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T155106873031Z/result.json",
+        "sha256": "fe7cad793661bdc452593aae892411773f7da236104c521ca1312b0636149554"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T155106873031Z/result.json",
+        "sha256": "fe7cad793661bdc452593aae892411773f7da236104c521ca1312b0636149554"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T155106873031Z/result.json",
+        "sha256": "fe7cad793661bdc452593aae892411773f7da236104c521ca1312b0636149554"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T155106873031Z/result.json",
+        "sha256": "fe7cad793661bdc452593aae892411773f7da236104c521ca1312b0636149554"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T155106873031Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T172934966809Z/result.json",
+        "sha256": "27585b362abd765db3a3fe75260795440d4ac014c7a629fc80347dd05c8abfe4"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T172934966809Z/result.json",
+        "sha256": "27585b362abd765db3a3fe75260795440d4ac014c7a629fc80347dd05c8abfe4"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T172934966809Z/result.json",
+        "sha256": "27585b362abd765db3a3fe75260795440d4ac014c7a629fc80347dd05c8abfe4"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260917T172934966809Z/result.json",
+        "sha256": "27585b362abd765db3a3fe75260795440d4ac014c7a629fc80347dd05c8abfe4"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260917T172934966809Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T120331999764Z/result.json",
+        "sha256": "1c90995444d1fe82758bdffe7bffdac2babe48176da3e19887958ea87b64f0c1"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T120331999764Z/result.json",
+        "sha256": "1c90995444d1fe82758bdffe7bffdac2babe48176da3e19887958ea87b64f0c1"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T120331999764Z/result.json",
+        "sha256": "1c90995444d1fe82758bdffe7bffdac2babe48176da3e19887958ea87b64f0c1"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T120331999764Z/result.json",
+        "sha256": "1c90995444d1fe82758bdffe7bffdac2babe48176da3e19887958ea87b64f0c1"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T120331999764Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T151436598224Z/result.json",
+        "sha256": "e77ce0179df6187342b444171f08502eaae5cfa5a7b7976af3ab75d10f3e2724"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T151436598224Z/result.json",
+        "sha256": "e77ce0179df6187342b444171f08502eaae5cfa5a7b7976af3ab75d10f3e2724"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T151436598224Z/result.json",
+        "sha256": "e77ce0179df6187342b444171f08502eaae5cfa5a7b7976af3ab75d10f3e2724"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T151436598224Z/result.json",
+        "sha256": "e77ce0179df6187342b444171f08502eaae5cfa5a7b7976af3ab75d10f3e2724"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T151436598224Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T181924599658Z/result.json",
+        "sha256": "9908cc52a4e4f9027801931a17799e76b177a332469c86e1fa2097f12c1e6f7c"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T181924599658Z/result.json",
+        "sha256": "9908cc52a4e4f9027801931a17799e76b177a332469c86e1fa2097f12c1e6f7c"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T181924599658Z/result.json",
+        "sha256": "9908cc52a4e4f9027801931a17799e76b177a332469c86e1fa2097f12c1e6f7c"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260918T181924599658Z/result.json",
+        "sha256": "9908cc52a4e4f9027801931a17799e76b177a332469c86e1fa2097f12c1e6f7c"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260918T181924599658Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T104157403241Z/result.json",
+        "sha256": "9d1b948d91ee77eb2b8103b293311462f0a0a8c0aa506dc67e7dbd5edc1643f0"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T104157403241Z/result.json",
+        "sha256": "9d1b948d91ee77eb2b8103b293311462f0a0a8c0aa506dc67e7dbd5edc1643f0"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T104157403241Z/result.json",
+        "sha256": "9d1b948d91ee77eb2b8103b293311462f0a0a8c0aa506dc67e7dbd5edc1643f0"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T104157403241Z/result.json",
+        "sha256": "9d1b948d91ee77eb2b8103b293311462f0a0a8c0aa506dc67e7dbd5edc1643f0"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T104157403241Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T111742090180Z/result.json",
+        "sha256": "d87e407d5c8942dd299ca94b2db5372b7ad7ef62702af84660e2ba5ddfae458f"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T111742090180Z/result.json",
+        "sha256": "d87e407d5c8942dd299ca94b2db5372b7ad7ef62702af84660e2ba5ddfae458f"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T111742090180Z/result.json",
+        "sha256": "d87e407d5c8942dd299ca94b2db5372b7ad7ef62702af84660e2ba5ddfae458f"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T111742090180Z/result.json",
+        "sha256": "d87e407d5c8942dd299ca94b2db5372b7ad7ef62702af84660e2ba5ddfae458f"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T111742090180Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T112057144323Z/result.json",
+        "sha256": "02837653ba86dc533a8a0f128ff193e15e7028969dcbb50d2dc93d349e49c09c"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T112057144323Z/result.json",
+        "sha256": "02837653ba86dc533a8a0f128ff193e15e7028969dcbb50d2dc93d349e49c09c"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T112057144323Z/result.json",
+        "sha256": "02837653ba86dc533a8a0f128ff193e15e7028969dcbb50d2dc93d349e49c09c"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T112057144323Z/result.json",
+        "sha256": "02837653ba86dc533a8a0f128ff193e15e7028969dcbb50d2dc93d349e49c09c"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T112057144323Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T160036882030Z/result.json",
+        "sha256": "920b1fb6620bebaeefacb64468a73ca9418f696c39b02497d662f45d3bcf9dac"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T160036882030Z/result.json",
+        "sha256": "920b1fb6620bebaeefacb64468a73ca9418f696c39b02497d662f45d3bcf9dac"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T160036882030Z/result.json",
+        "sha256": "920b1fb6620bebaeefacb64468a73ca9418f696c39b02497d662f45d3bcf9dac"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T160036882030Z/result.json",
+        "sha256": "920b1fb6620bebaeefacb64468a73ca9418f696c39b02497d662f45d3bcf9dac"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T160036882030Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T211914721668Z/result.json",
+        "sha256": "ededb2a26e24b5603786fe590bfb2b723fa1a93a0083202e34ed4dbfefbf7bba"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T211914721668Z/result.json",
+        "sha256": "ededb2a26e24b5603786fe590bfb2b723fa1a93a0083202e34ed4dbfefbf7bba"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T211914721668Z/result.json",
+        "sha256": "ededb2a26e24b5603786fe590bfb2b723fa1a93a0083202e34ed4dbfefbf7bba"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T211914721668Z/result.json",
+        "sha256": "ededb2a26e24b5603786fe590bfb2b723fa1a93a0083202e34ed4dbfefbf7bba"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T211914721668Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T223006736822Z/result.json",
+        "sha256": "20d8488ba72cc50e1219d5736f986a5db17799a4bfa22e2b163f453bb781aa6c"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T223006736822Z/result.json",
+        "sha256": "20d8488ba72cc50e1219d5736f986a5db17799a4bfa22e2b163f453bb781aa6c"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T223006736822Z/result.json",
+        "sha256": "20d8488ba72cc50e1219d5736f986a5db17799a4bfa22e2b163f453bb781aa6c"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919T223006736822Z/result.json",
+        "sha256": "20d8488ba72cc50e1219d5736f986a5db17799a4bfa22e2b163f453bb781aa6c"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919T223006736822Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_artifact_control/result.json",
+        "sha256": "8c81c360dbe9658ba289de42b4b68295708fe7319c331563d25d41b4b5afba70"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_artifact_control/result.json",
+        "sha256": "8c81c360dbe9658ba289de42b4b68295708fe7319c331563d25d41b4b5afba70"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_artifact_control/result.json",
+        "sha256": "8c81c360dbe9658ba289de42b4b68295708fe7319c331563d25d41b4b5afba70"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_artifact_control/result.json",
+        "sha256": "8c81c360dbe9658ba289de42b4b68295708fe7319c331563d25d41b4b5afba70"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_artifact_control/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_artifact_experiments/result.json",
+        "sha256": "7d32483ce1bdde91d20c4bcc9b64a809a496bdee42b8b4c88437b0dccb0a2fcb"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_artifact_experiments/result.json",
+        "sha256": "7d32483ce1bdde91d20c4bcc9b64a809a496bdee42b8b4c88437b0dccb0a2fcb"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_artifact_experiments/result.json",
+        "sha256": "7d32483ce1bdde91d20c4bcc9b64a809a496bdee42b8b4c88437b0dccb0a2fcb"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_artifact_experiments/result.json",
+        "sha256": "7d32483ce1bdde91d20c4bcc9b64a809a496bdee42b8b4c88437b0dccb0a2fcb"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_artifact_experiments/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/result.json",
+        "sha256": "9541383de0042dc3904cf47ef8be3cbb56de4ee33072120410732dc17f417858"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/result.json",
+        "sha256": "9541383de0042dc3904cf47ef8be3cbb56de4ee33072120410732dc17f417858"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/result.json",
+        "sha256": "9541383de0042dc3904cf47ef8be3cbb56de4ee33072120410732dc17f417858"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260919_rome_calibration/result.json",
+        "sha256": "9541383de0042dc3904cf47ef8be3cbb56de4ee33072120410732dc17f417858"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260919_rome_calibration/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T111714783676Z/result.json",
+        "sha256": "e201c0bf7ecb7c666ddb5df577c1a795c2d611520a809eb1ecb06fc6ba725bc0"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T111714783676Z/result.json",
+        "sha256": "e201c0bf7ecb7c666ddb5df577c1a795c2d611520a809eb1ecb06fc6ba725bc0"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T111714783676Z/result.json",
+        "sha256": "e201c0bf7ecb7c666ddb5df577c1a795c2d611520a809eb1ecb06fc6ba725bc0"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T111714783676Z/result.json",
+        "sha256": "e201c0bf7ecb7c666ddb5df577c1a795c2d611520a809eb1ecb06fc6ba725bc0"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T111714783676Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T122629684296Z/result.json",
+        "sha256": "e4c2cae33fe5bc295b26f4fbd03ad73458d4054c5ca3358d8f3bb55d4fc843bf"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T122629684296Z/oof_A3_seed42.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T122629684296Z/result.json",
+        "sha256": "e4c2cae33fe5bc295b26f4fbd03ad73458d4054c5ca3358d8f3bb55d4fc843bf"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T122629684296Z/oof_B8_seed42.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T122629684296Z/result.json",
+        "sha256": "e4c2cae33fe5bc295b26f4fbd03ad73458d4054c5ca3358d8f3bb55d4fc843bf"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T122629684296Z/oof_A4_seed42.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T122629684296Z/result.json",
+        "sha256": "e4c2cae33fe5bc295b26f4fbd03ad73458d4054c5ca3358d8f3bb55d4fc843bf"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T122629684296Z/oof_A5_seed42.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T152734631417Z/result.json",
+        "sha256": "1e9d684511556d86f37cdb7c70363a8f3ee0f835d3717b7a8a301f967d8ffb58"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T152734631417Z/result.json",
+        "sha256": "1e9d684511556d86f37cdb7c70363a8f3ee0f835d3717b7a8a301f967d8ffb58"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T152734631417Z/result.json",
+        "sha256": "1e9d684511556d86f37cdb7c70363a8f3ee0f835d3717b7a8a301f967d8ffb58"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T152734631417Z/result.json",
+        "sha256": "1e9d684511556d86f37cdb7c70363a8f3ee0f835d3717b7a8a301f967d8ffb58"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T152734631417Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T170600876190Z/result.json",
+        "sha256": "193ddac9258fc965faefd49c0eef7b203bedb2afb4b09c3b166d6542df93bccd"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T170600876190Z/result.json",
+        "sha256": "193ddac9258fc965faefd49c0eef7b203bedb2afb4b09c3b166d6542df93bccd"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T170600876190Z/result.json",
+        "sha256": "193ddac9258fc965faefd49c0eef7b203bedb2afb4b09c3b166d6542df93bccd"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260920T170600876190Z/result.json",
+        "sha256": "193ddac9258fc965faefd49c0eef7b203bedb2afb4b09c3b166d6542df93bccd"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260920T170600876190Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260921_disruption/result.json",
+        "sha256": "72d21a4a60872e838238451301f0ae8ef99edab659efee336dbaf698794ba60c"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260921_disruption/result.json",
+        "sha256": "72d21a4a60872e838238451301f0ae8ef99edab659efee336dbaf698794ba60c"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260921_disruption/result.json",
+        "sha256": "72d21a4a60872e838238451301f0ae8ef99edab659efee336dbaf698794ba60c"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260921_disruption/result.json",
+        "sha256": "72d21a4a60872e838238451301f0ae8ef99edab659efee336dbaf698794ba60c"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260921_disruption/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260924T202324352147Z/result.json",
+        "sha256": "83e76b53e99a33395b538dd32afba0b80dab0a5cea870cb33451120a2fb44261"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260924T202324352147Z/result.json",
+        "sha256": "83e76b53e99a33395b538dd32afba0b80dab0a5cea870cb33451120a2fb44261"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260924T202324352147Z/result.json",
+        "sha256": "83e76b53e99a33395b538dd32afba0b80dab0a5cea870cb33451120a2fb44261"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260924T202324352147Z/result.json",
+        "sha256": "83e76b53e99a33395b538dd32afba0b80dab0a5cea870cb33451120a2fb44261"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260924T202324352147Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260924T211259763470Z/result.json",
+        "sha256": "424047abf8e4b5f291c594806db3d5d1e87292cc6b73d22d296b11f1d6539203"
+      },
+      "fold": "A3",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-09",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_A3_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_A3_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_A3_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260924T211259763470Z/result.json",
+        "sha256": "424047abf8e4b5f291c594806db3d5d1e87292cc6b73d22d296b11f1d6539203"
+      },
+      "fold": "B8",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_B8_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_B8_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_B8_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260924T211259763470Z/result.json",
+        "sha256": "424047abf8e4b5f291c594806db3d5d1e87292cc6b73d22d296b11f1d6539203"
+      },
+      "fold": "A4",
+      "train": [
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09"
+      ],
+      "validation": "2025-10",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_A4_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_A4_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_A4_seed242.parquet",
+          "exists": false
+        }
+      ]
+    },
+    {
+      "record": {
+        "path": "VALIDATION/runs/v3_20260924T211259763470Z/result.json",
+        "sha256": "424047abf8e4b5f291c594806db3d5d1e87292cc6b73d22d296b11f1d6539203"
+      },
+      "fold": "A5",
+      "train": [
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10"
+      ],
+      "validation": "2025-11",
+      "eligible_outer_folds": [
+        "2025-01"
+      ],
+      "predictions": [
+        {
+          "seed": "42",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_A5_seed42.parquet",
+          "exists": false
+        },
+        {
+          "seed": "142",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_A5_seed142.parquet",
+          "exists": false
+        },
+        {
+          "seed": "242",
+          "path": "VALIDATION/runs/v3_20260924T211259763470Z/oof_A5_seed242.parquet",
+          "exists": false
+        }
+      ]
+    }
+  ],
+  "parse_errors": [],
+  "scope_limit": "Scanned direct result.json fold/model metadata in runs and archive/runs. Nested current portable manifests and model directories require separate inventory; no global absence assertion."
+}

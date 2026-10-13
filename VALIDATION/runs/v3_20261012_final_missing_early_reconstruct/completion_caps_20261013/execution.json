@@ -1,0 +1,77 @@
+{
+  "state": "closed_nonexact_stop_batch",
+  "pid": 8968,
+  "started_at": "2026-10-13T05:57:51.693304+00:00",
+  "plan": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/completion_caps_20261013/plan.json",
+    "sha256": "a28c78056673e3aca76f1ff89e3fcddc3c0ae3620753e8e18c5c6f9d3ba3c304"
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/completion_caps_20261013/allocation.json",
+    "sha256": "284a92a834c8ec102fd17aa1b5b752a9864079a69b8e8fa83f21f157c8d098f1"
+  },
+  "runtime": {
+    "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 16,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "steps": [
+    {
+      "version": 5,
+      "stage": "prepare",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v5/preflight.json",
+        "sha256": "be735b0dd6fa1aaeb58fd2f646d29dbb7b2081d7543176936af3ba113b8435b4"
+      },
+      "finished_at": "2026-10-13T05:59:01.857760+00:00"
+    },
+    {
+      "version": 5,
+      "stage": "fit",
+      "evidence": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v5/trained.json",
+        "sha256": "974695ec1fad55fbbc75d851d27b6fca4cf3ecd523b07db3bea6a3e1f4fa4f56"
+      },
+      "finished_at": "2026-10-13T05:59:47.895273+00:00"
+    }
+  ],
+  "completed_versions": [],
+  "no_upload": true,
+  "no_neural_fit": true,
+  "no_solve": true,
+  "active_version": 5,
+  "active_stage": null,
+  "child_pid": null,
+  "failed_version": 5,
+  "result": {
+    "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v5/result.json",
+    "sha256": "e5a232ea7a2ae8067bc115a30ad5afb2b07a1256367c418a9445c713d1183a37"
+  },
+  "finished_at": "2026-10-13T06:01:11.109531+00:00",
+  "no_sweep": true
+}

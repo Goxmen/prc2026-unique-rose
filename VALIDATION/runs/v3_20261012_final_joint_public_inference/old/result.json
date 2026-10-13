@@ -1,0 +1,36 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/identity.json",
+    "sha256": "841c5c55bd9a7162d2d46e447f78d2c1d7bc632f44bfd3745ad39d2a586309db"
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/prepared.json",
+    "sha256": "2bcc7990448dbb699c87dd5bfc9e80d6d98b907bd6ea6efcc70d652b943a785b"
+  },
+  "input_audit": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/input_audit.json",
+    "sha256": "1e75858510470ac3a3c69bc38dd9631f9d37706b4a7f172a63e6ca9ae13ab865"
+  },
+  "view": "old",
+  "rows": 344841,
+  "rome_rows": 26899,
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/old/increments.parquet",
+    "sha256": "641a5ccd6fcc49713c78ca0b4fa374113dfb2c28457939ef4c0c868f8d7376cb"
+  },
+  "inference_receipts": [
+    {
+      "path": "VALIDATION/runs/v3_20261011_joint_public_moments_submit/inference.json",
+      "sha256": "6bd71385e5608b739d0f71e84b28ca40f9666f29d1694a172b5e0460b45ace1e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway_submit/inference.json",
+      "sha256": "5939492afddd6388c906c1ce8deced7556a0f98f5f7a7c563da6a0aabf7c7f17"
+    }
+  ],
+  "old_saved_posteriors_reused": true,
+  "no_posterior_rerun_on_old": true,
+  "no_rounding_or_downstream_transport": true,
+  "no_fit": true,
+  "no_upload": true
+}
