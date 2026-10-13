@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/identity.json",
+    "sha256": "cef76d1b6e2f8d9e195e6a525f7a25d0d7e71d80f30d8048190ab9df2c69c7e3"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/result.json",
+    "sha256": "97b7357cd24a1ee2e76eed0414a5d1bbd44406c9444c24b778134733c5cb8632"
+  },
+  "independent_sql": {
+    "rows": 344841,
+    "unique_ids": 344841,
+    "sql_projected_rmse": 218.5935604360031,
+    "reference_mse": 47783.14466408853,
+    "expanded_mse": 47783.14466410503,
+    "maximum_raw_reconstruction_difference": 4.3655745685100555e-11,
+    "serialization_rms": 0.41841114320787703,
+    "maximum_rounding_distance": 0.49999967890289554,
+    "numerical_mse_allowance": 0.0029273646900140242,
+    "coefficient_l1": 4.136900613141233,
+    "effective_reference_weight": -0.253824040997507,
+    "bounds": {
+      "nearest_four_decimals": {
+        "score_halfwidth": 5e-05,
+        "score_mse_radius": 0.10080985498717496,
+        "raw_rmse_interval": [
+          218.59332315253562,
+          218.593797719213
+        ],
+        "serialized_rmse_interval": [
+          218.17491200932773,
+          219.0122088624209
+        ]
+      },
+      "conservative_last_decimal": {
+        "score_halfwidth": 0.0001,
+        "score_mse_radius": 0.20161973065885305,
+        "raw_rmse_interval": [
+          218.59309256468555,
+          218.5940283063192
+        ],
+        "serialized_rmse_interval": [
+          218.17468142147766,
+          219.01243944952708
+        ]
+      }
+    },
+    "legacy_interval_without_numerical_allowance": [
+      218.17491870524276,
+      219.01220216652018
+    ]
+  },
+  "current_best": 218.8525,
+  "conservative_gain": -0.15993944952708716,
+  "gate_pass": false,
+  "no_version_assigned": true,
+  "no_upload": true
+}

@@ -1,0 +1,219 @@
+{
+  "design": {
+    "path": "VALIDATION/reports/portable_feedback_geometry_design_20261013.json",
+    "sha256": "5a837c985d1a268b51a85027915d5a96d16e89dbc40b54ec7d099c586588b047"
+  },
+  "versions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    26,
+    27,
+    28,
+    29,
+    30,
+    33,
+    34,
+    37,
+    38,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    53,
+    54,
+    56,
+    57,
+    58,
+    60,
+    61,
+    64,
+    70,
+    72,
+    74,
+    76,
+    77,
+    78,
+    80,
+    81,
+    82
+  ],
+  "prior": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/result.json",
+    "sha256": "f5e2074eb9caa9eb57ca6d5a7d2569c036403c471dcccb79eb0794243c5358ea"
+  },
+  "additions": {
+    "81": {
+      "manifest": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v81/manifest.json",
+      "file": {
+        "path": "submissions/unique-rose_v81.parquet",
+        "sha256": "84285fe2be7aa308a1b59b4fedcc5876888a618605d94c1b9b2144160552eba4"
+      },
+      "cv": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/cv/predictions.parquet",
+        "sha256": "0f88fde82fa647449771ef8f27d63bcb88db02ae335928d6eba0af4e7e30e569"
+      },
+      "jan_jul_cv": 290.84397170714396
+    },
+    "82": {
+      "manifest": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/manifest.json",
+      "file": {
+        "path": "submissions/unique-rose_v82.parquet",
+        "sha256": "30b388168bec0c657dbff5731157e7cd635cb002af5f8be75891c5323f2bf8e0"
+      },
+      "cv": {
+        "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+        "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+      },
+      "jan_jul_cv": 290.8394266979102
+    }
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/portable_feedback_geometry_20261013.py",
+      "sha256": "4b799341ad03b39900c3adca8bff9c6d7f82b15c2e212766fe85ebaee41d254c"
+    },
+    {
+      "path": "VALIDATION/reports/portable_feedback_geometry_design_20261013.json",
+      "sha256": "5a837c985d1a268b51a85027915d5a96d16e89dbc40b54ec7d099c586588b047"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/cv_basis.parquet",
+      "sha256": "415a49694b984fb65e28e0bee76cb831e959ef9ab8bdcd5ee2850287bc96b4f0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/diagnostic_cv.parquet",
+      "sha256": "7d3e7ba6d339cebe0c68f09ef2d0add28bfd80c8c0ae225f1de0223e4ce767a6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/diagnostic_ranking.parquet",
+      "sha256": "d4f373f958cc980590f93b0948ef2c0cfa1e862a306df2c1b93f23eab2b7bbbd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/ranking_basis.parquet",
+      "sha256": "2409ac2017a05a0e72525bee11eabef39adcd7ae5d84050e4803521010e12e5b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/result.json",
+      "sha256": "f5e2074eb9caa9eb57ca6d5a7d2569c036403c471dcccb79eb0794243c5358ea"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/audit.json",
+      "sha256": "c8a5c6ba172811dca7868173835389c226bae4b16feaca3c71dd0264060e5f35"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/cv/predictions.parquet",
+      "sha256": "0f88fde82fa647449771ef8f27d63bcb88db02ae335928d6eba0af4e7e30e569"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/identity.json",
+      "sha256": "07cf3c15dc3f3e85860df71a408ebf318ee3644f7b5c6f7823d64db8eee5cfb3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/old/candidate.parquet",
+      "sha256": "84285fe2be7aa308a1b59b4fedcc5876888a618605d94c1b9b2144160552eba4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/result.json",
+      "sha256": "6f149f26067d0f97e8eb9224db2fd70f0329e9526b157439d84e4759c2bc93c6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+      "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+      "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+      "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+      "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+      "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/candidate.parquet",
+      "sha256": "30b388168bec0c657dbff5731157e7cd635cb002af5f8be75891c5323f2bf8e0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+      "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    },
+    {
+      "path": "VALIDATION/scored_blend_submit.py",
+      "sha256": "dad8a2fc685bb203479196e8e945163505f8025ca651441773b5c03efe70875f"
+    },
+    {
+      "path": "VALIDATION/scored_submission_geometry.py",
+      "sha256": "2c75fe0d036f7f07b31463cfbd9e1cd0b9e7d3e1aa0ee9345f62ab6ba378f692"
+    },
+    {
+      "path": "VALIDATION/tabm_feedback_geometry.py",
+      "sha256": "e7fbb8566ffb3485c397fafff4d3d99cfe18d682d41198a3c8df9a3a600813d5"
+    },
+    {
+      "path": "VALIDATION/target205_geometry.py",
+      "sha256": "a2091faf7ffbb79f657b788ceb5c8446fe83152d5f21bc5ddea627592c9afbe5"
+    },
+    {
+      "path": "VALIDATION/tools/audit_target205_geometry.py",
+      "sha256": "acc7dd5c1c819189d1f84144df488060b50b1b0552b7d80b7b39ed8786a3d9b3"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "pipeline/dashboard_data.py",
+      "sha256": "b0b110e7db95f7e7e3dc01eba4fe562b1600d1a4d311c4ade03602d2e967a1a3"
+    },
+    {
+      "path": "submissions/unique-rose_v81.parquet",
+      "sha256": "84285fe2be7aa308a1b59b4fedcc5876888a618605d94c1b9b2144160552eba4"
+    },
+    {
+      "path": "submissions/unique-rose_v82.parquet",
+      "sha256": "30b388168bec0c657dbff5731157e7cd635cb002af5f8be75891c5323f2bf8e0"
+    }
+  ],
+  "created_at": "2026-10-13T07:23:29+00:00"
+}

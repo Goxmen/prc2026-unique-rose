@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-13T07:17:23.021551+00:00",
+  "authority": "/root",
+  "user_authorization": "Autonomous leaderboard uploads authorized October11; reserve final daily slot per October13 instruction",
+  "versions": [
+    81,
+    82
+  ],
+  "purpose": "Actual feedback for two materially distinct final-portable parents; no claimed CV improvement over v80",
+  "maximum_uploads": 2,
+  "retain_last_slot": true,
+  "evidence": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/independent_packaging_review.json",
+      "sha256": "eab1fdd2ee95525f683d4ebf77f088590a64cf8f09b403eacd2d659cb063d03a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/prepared.json",
+      "sha256": "ef44d98cfa291bb6e459a0d8cb640967f062e8df66fcec157241a9e6668fbfd6"
+    },
+    {
+      "path": "VALIDATION/reports/portable_final_feedback_plan_20261013.json",
+      "sha256": "1e5d1c6b70c6097fd97c4344a245f37c788b23da880b3e5a0925bf6490215a18"
+    }
+  ],
+  "action": "Run existing source-hashed uploader once per candidate with fresh live quota/filename guards and exact remote hash verification"
+}

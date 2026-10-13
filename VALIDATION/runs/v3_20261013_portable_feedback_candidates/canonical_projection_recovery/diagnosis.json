@@ -1,0 +1,231 @@
+{
+  "reason": "Actual failed v63 upload contains670790 rows, including every344841 old template ID. Previous duplicate checker incorrectly required equal file rowcount. Canonical comparison should explicitly project all submitted files onto fixed old template IDs; no predictions change.",
+  "original_source": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/canonical_projection_recovery/original_source.py",
+    "sha256": "2aeca336ead61c7f64a97b8c5c048bb5ca9c7a92093ce2fb3c0f462424a45bff"
+  },
+  "failure": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/canonical_projection_recovery/failure.log",
+    "sha256": "6c054cbe2e52cae71974bf3e2df852643e4a7d0088baa19c9ca29b4c314217a6"
+  },
+  "cached_remote_stats": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v1.parquet.json",
+      "sha256": "cf2db4ba51ee20f6b42b68c6523f0c3f07b4d3fe49d8778ef9c51ab59f188896"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v10.parquet.json",
+      "sha256": "dca00c971cd2b087e7a4f76bd27c0eecf70c2db6b505b13633ec63e495527291"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v11.parquet.json",
+      "sha256": "11de3df9338460e7c9583d4d96dad126ff94893c6d9bf7bae96f3378fbf04b0c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v12.parquet.json",
+      "sha256": "3a81378017691cfe8beaa65d7b082d251ae1c9909b94ae748a663b37373b94d5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v13.parquet.json",
+      "sha256": "6a5a503da1e7bf7f17fcf6291b2f95cc230df3828279edca6aebe5d4be5d850e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v14.parquet.json",
+      "sha256": "69cdbfb02cc0ceeae75b7a5f3d5935ea57576c943fb360087f37035b0d14a457"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v15.parquet.json",
+      "sha256": "ba7a79be062a2f7256f824073330eb478b4ba958c70eec41b7ac0e477504b548"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v16.parquet.json",
+      "sha256": "8b4f08f631ddb7a1c392882ae0c7946c9e1dc1c5875e74653f4be782bae5fa61"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v17.parquet.json",
+      "sha256": "92344a0cb77957bd6fd4fb787c03e0207ab75ccabcaa206d660ba4671d9364eb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v18.parquet.json",
+      "sha256": "db5fc9e5dd7aa3c7bcbcc08787f84bdaae89d21cbec8a8053a3d4b7763cab2c1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v19.parquet.json",
+      "sha256": "301695cb547b8b749d982f14ab5be4972e107221701d6a5cc389e23fff4d610c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v2.parquet.json",
+      "sha256": "0981ec1acc8e340d1dd19258bc210a56922378fa8fe5c4a04d8f4da5b857e73e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v20.parquet.json",
+      "sha256": "0f4104fdc1a3e0c9233a00295d1eb6d7bc762ca330f3c5537b31bb2b93ca1680"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v21.parquet.json",
+      "sha256": "314fd03ebd80069220f49a1f0d34a72eb56c9972e603e302fb8184ebae439325"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v26.parquet.json",
+      "sha256": "ecdc677af329bd275533b1edec8f5f2133ea510f21a4b115179cadb2ee92b5db"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v27.parquet.json",
+      "sha256": "7d07a0c391cd2c3d139f908a0878d3244f222227d579bc83170943f2ffc09807"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v28.parquet.json",
+      "sha256": "24a579283bc4787731a0874c05eff4ac3ec31fe3944e27270400f15aa317dfe4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v29.parquet.json",
+      "sha256": "e1f6505d7b8190ff6d56c3b540bb0fe93d234412225fce6b489b66f26d27051d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v3.parquet.json",
+      "sha256": "2e02632fd514ea60abf72e82a0f84ef078548ab7ed9a22cf485e31b9b8025202"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v30.parquet.json",
+      "sha256": "52a3ac698cc48488c5d55c94812ba4f529f0e9e49fda0ec42ee61e401cd3c248"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v33.parquet.json",
+      "sha256": "4383fc8c95e68096b588f9d62827d356be5ae2817062cc411b2f466473220d83"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v34.parquet.json",
+      "sha256": "d1831e7b83cdc5624318c1a580ab83a3b358ae26daef20b5a09e6af9e7236abf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v37.parquet.json",
+      "sha256": "965438825e292dc6206741c78fb2274817e7a009d7e2623e046adc50a4260c7c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v38.parquet.json",
+      "sha256": "04cb54a8721375146763d9560934c5851ed756d6d0dd46317709ae44a225172a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v39.parquet.json",
+      "sha256": "48a0fff9474141d621cbeb9f83be9f0b55c7a4cf0ced97455b7fe4ba2a175a02"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v4.parquet.json",
+      "sha256": "ca0471e2b1cb53cc1bf6f5bf5cc1645bfce6fa26f63a866d6e3ca52969906b8b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v40.parquet.json",
+      "sha256": "dbf8c8ab51e7df1a33746f6c4205e6690580ae79c25b129ddf2c5e8942dbf2de"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v41.parquet.json",
+      "sha256": "bbe7bba72a4f0682fe097036b2829a9b528da37e4b1433279ce0f1f20885aac3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v42.parquet.json",
+      "sha256": "640cf62466d96150350cac3293cfe25d63204c7f90db25081e7900acabd659eb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v43.parquet.json",
+      "sha256": "7f3f5accda5fdc7cfbe32003198b2b0e21fb95e7f6f8b8acf9e84d4abcd87151"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v44.parquet.json",
+      "sha256": "d44a4b4c07cd6140c8bfa078dc27f72ee2aec6273a648f4d405124568ae8aa28"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v45.parquet.json",
+      "sha256": "524ef7c7742e9241dfc666134614b3fb6010c296554404ad38252026afb930f7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v46.parquet.json",
+      "sha256": "0e6bdb1304054bae7b7d9deb8fbcb8bf607aee5e5f9b58ad4a96ac25da24aecf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v47.parquet.json",
+      "sha256": "a4c235a9ebbb33134bd353a045d856dd3090dfae312a2276de967b5a9652ed61"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v48.parquet.json",
+      "sha256": "abbb1e83799dee0ccc6e31155535c5a6926570787a2000345a285b99b913083b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v49.parquet.json",
+      "sha256": "763f077292d65a5c3f8f4dd3549efcaeda33d863ecbcc03903c0d3e362140bcb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v5.parquet.json",
+      "sha256": "b8628a49a3e10294f3f28156a27842aa8abbf4bd6d5195c46b3049d7250b277c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v50.parquet.json",
+      "sha256": "f57ce02d657b0ad164296ebef7f4ebb5ecf7844e5e71c03f78d9e88c144dd18f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v51.parquet.json",
+      "sha256": "d0c7cbc66a09e3140bccc31dc0c8ae410e6fe559c8c49425620343709f1a5919"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v52.parquet.json",
+      "sha256": "b4869f519e8a040b328b6fb252df5a21b47b366e0fc91e53c0aaf6c4c01704f9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v53.parquet.json",
+      "sha256": "e6b735b2494467f123117ef5794678a3f5cc07913918fc73e54e9fb408b4eb43"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v54.parquet.json",
+      "sha256": "0fc5bd61e82253e581da2a93c5a415776bb62c51da2b823bfea3dec2c1a339fb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v55.parquet.json",
+      "sha256": "b1e710afe23f042e72eada84951c3f49ef758fcab47f63a54da5a4f36b8d8cfc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v56.parquet.json",
+      "sha256": "61d1c163015ef9b7798d783bcf35e5cc5ede927a179cbd316065933b29394e41"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v57.parquet.json",
+      "sha256": "74fe329ee06ef8f711d0128fdc7f267240de707d4809432b48f4599aeb8a88db"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v58.parquet.json",
+      "sha256": "30cf425b4596a3d565df42a61a7c36b35a9b67eff6fdbbb6f1f5af9c0b15558b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v59.parquet.json",
+      "sha256": "112fe499c98d4df2331415b9e68710b0f1b5dc5a480da52532b2229f3c102083"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v6.parquet.json",
+      "sha256": "e9fad9c23e6b6e4550b4935848f784a8fd3024e27882e2794f353ca410e763cf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v60.parquet.json",
+      "sha256": "a6067a9fa5ced343f9ed7e54d8aa31cb6f2def80ae29e450a18f623c53b3b4ca"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v62.parquet.json",
+      "sha256": "e9c4e6b458fb9a4912be0e5d69f382988a396e7f9f8c909f2d7c59c349eeb346"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v63.parquet.json",
+      "sha256": "beca2eacc5ff2d158dfac4180604008e0cf4ebe6f4e1fdaf056eb208933e637a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v7.parquet.json",
+      "sha256": "9cf10b9f1e278988ba4e3f1952b4dc4d7cc56f0f8ad09da0ad600b99d7c0cbe6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v8.parquet.json",
+      "sha256": "3ce2f77416cfca6cebaec2ad77ea715017ae92c5cd9791bff04e6ff6fdd439c4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v9.parquet.json",
+      "sha256": "7fafb7a956f42a4d6960e8c34788fa32e3faea84825c8ddbeb01dac1bb8268ba"
+    }
+  ],
+  "files_or_manifests_created": false,
+  "no_upload": true
+}

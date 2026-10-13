@@ -1,21 +1,23 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T07:05:17.668513+00:00",
+  "updated_at": "2026-10-13T07:31:14.739828+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
-    "slots_remaining": 5,
+    "slots_remaining": 3,
     "repository": "PRIVATE verified 2026-10-13",
-    "laptop": "Idle; posterior crossfit closed negative and audited",
-    "desktop": "Idle after portable parent audits; two upload manifests in preparation",
+    "laptop": "Idle; fixed target track-view consistency implementation/preflight",
+    "desktop": "Final support bracketing recovery in source review;54-vector geometry closed",
     "native_goal_status": "active",
-    "used_utc_day_slots": 0,
+    "used_utc_day_slots": 2,
     "slot_date_utc": "2026-10-13",
     "reserved_final_slots": 1,
-    "exploratory_slots_remaining": 4,
+    "exploratory_slots_remaining": 2,
     "legacy_final_components": 30,
-    "official_checked_at": "2026-10-13T05:49:16Z"
+    "official_checked_at": "2026-10-13T07:19:40+00:00",
+    "latest_version": 82,
+    "latest_official_rmse": 221.524
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
   "entries": [
@@ -1023,7 +1025,7 @@
     },
     {
       "id": "portable_public_source_20261013",
-      "status": "old_cv_audited_feedback_candidate",
+      "status": "submitted_scored",
       "hypothesis": "Fixed public corrections restore reduced portable affine base",
       "conclusion": "CV improves portable base by6.180649s; trails v80. Old audit passes; final not run. Two independent-auditor SQL joins repaired in additive recovery, producer unchanged.",
       "metrics": {
@@ -1046,12 +1048,22 @@
         {
           "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
           "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/manifest.json",
+          "sha256": "f5708ffc9c2f8bf0b1e1b7850d228db7189700903f8ad6b7ea41d8a9e9e949bd"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/official_result.json",
+          "sha256": "4de8fa76b25951adfd8e3e843b23921ff9236d01e8a015172c5bfa29f402ac96"
         }
-      ]
+      ],
+      "version": 82,
+      "official_score": 221.524
     },
     {
       "id": "portable_direct_reserve_20261013",
-      "status": "old_cv_final_audited_feedback_candidate",
+      "status": "submitted_scored",
       "hypothesis": "Saved direct public-model stack supplies final fallback",
       "conclusion": "All3 views audited; trails v80. Official feedback can distinguish from materially different public-source candidate.",
       "metrics": {
@@ -1070,8 +1082,18 @@
         {
           "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/chain_comparison.json",
           "sha256": "ee7d02002f91577454af4f5064bf98ca2a85fe7d203e25f26a0cb81716b53729"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v81/manifest.json",
+          "sha256": "c034842b8a6a657ab47cd050155fafb214d59bfee5adaa923c8d303da12e1a34"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v81/official_result.json",
+          "sha256": "a16cfabce68712cd46355441f97b492e71711cb3aa4190723db0534d6651072d"
         }
-      ]
+      ],
+      "version": 81,
+      "official_score": 229.8034
     },
     {
       "id": "portable_fixed_half_mix_20261013",
@@ -1112,13 +1134,49 @@
           "sha256": "1f3dca9dce90d60478290965ae5a907d3c8343773191820555051ccf6a5c342d"
         }
       ]
+    },
+    {
+      "id": "portable_feedback_geometry_20261013",
+      "hypothesis": "Both newly scored portable model directions improve the retained52-vector own-score affine ensemble",
+      "status": "closed_gate_failed",
+      "conclusion": "One prefrozen54-vector solve completed and independent SQL/source/rawtruth/bootstrap audit passes. Conservative serialized gate fails; no weight search, new candidate or upload. Own leaderboard feedback and reused-CV caveats apply.",
+      "metrics": {
+        "cv": 289.62387683266235,
+        "paired": {
+          "change": -0.13890137762822974,
+          "ci95": [
+            -0.39636122695007003,
+            0.11816968506177007
+          ],
+          "decision": "inconclusive"
+        },
+        "conservative_gain": -0.15993944952708716,
+        "projected_rmse": 218.59356043600343
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/identity.json",
+          "sha256": "cef76d1b6e2f8d9e195e6a525f7a25d0d7e71d80f30d8048190ab9df2c69c7e3"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/result.json",
+          "sha256": "97b7357cd24a1ee2e76eed0414a5d1bbd44406c9444c24b778134733c5cb8632"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/audit.json",
+          "sha256": "43bc096da4dbcfd3ae2bc04ee8e978009904b56530847063df228292dcaa3bbf"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/closed.json",
+          "sha256": "c92bf001070043dd04ed17a416907349daafd746540ca75e225029d00ba706c8"
+        }
+      ]
     }
   ],
   "next": [
-    "Review at most two versioned portable-parent feedback uploads; keep fifth slot reserved",
-    "Complete final transport source review and select fallback from actual evidence",
-    "Assess one novel high-impact hypothesis with novelty checks",
-    "No expansion of closed half mixture or posterior crossfit"
+    "Finish audited additive final support bracketing recovery; preserve37completedgroups",
+    "Complete target track-view consistency source/preflight and allocate laptop after independentreview",
+    "Reserve two exploratory slots and final slot; all failed screens closed"
   ],
   "active_research": [
     {
@@ -1140,14 +1198,14 @@
   ],
   "machine_allocation": {
     "desktop": {
-      "stage": "idle_after_completed_audits",
-      "owner": null,
-      "checked_at": "2026-10-13T07:05:17.668513+00:00"
+      "stage": "idle_pending_reviewed_final_tilt_recovery",
+      "owner": "final_recovery",
+      "checked_at": "2026-10-13T07:31:14.739828+00:00"
     },
     "laptop": {
-      "stage": "idle_after_completed_audits",
-      "owner": null,
-      "checked_at": "2026-10-13T07:05:17.668513+00:00"
+      "stage": "idle_pending_target_consistency_prefit",
+      "owner": "cohort_learning",
+      "checked_at": "2026-10-13T07:24:48.195243+00:00"
     }
   }
 }

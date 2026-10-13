@@ -1,3 +1,12 @@
+**October13,09:24 Amsterdam: two portable candidates scored; three slots remain.**
+V81 direct229.8034; v82 public-source221.5240, both344841rows and exact remote
+hashes. Bestv80 remains218.8525; last daily slot reserved, two exploratory slots
+remain. V82 is8.2794s better than direct despite equal reused CV. Its final route
+stopped37/40 groups at an unbracketed support-tilt root; source-only additive repair
+is under review, no threshold relaxation/repeated groups. Desktop runs one
+prefrozen54-vector feedback geometry solve/audit; no new candidate. Laptop is
+reserved for fixed target track-view consistency after prefit review; no fit yet.
+
 **October13,09:05 Amsterdam: two portable parents audited; new screens closed.**
 Direct reserve CV290.843972 and public-source chain CV290.839427 both trail v80;
 their old predictions differ63.9731s RMS. Both old files pass independent audits;

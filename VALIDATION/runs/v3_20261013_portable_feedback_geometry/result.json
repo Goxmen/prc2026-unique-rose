@@ -1,0 +1,55 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/identity.json",
+    "sha256": "cef76d1b6e2f8d9e195e6a525f7a25d0d7e71d80f30d8048190ab9df2c69c7e3"
+  },
+  "solution": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/solution.json",
+    "sha256": "0903a08b1ddbdbc22ce6a84e3c251d7a9f7b9b9b2ddd9a76f7653bb67b1cdb66"
+  },
+  "official": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/solve_started.json",
+    "sha256": "473fe507f84ed6f2ba0581c90e4dd1a2b2624e3a658d0ab7259d2761f3a3a21d"
+  },
+  "months": {
+    "2025-01": {
+      "control": 325.02854196957753,
+      "pred": 325.08217551241023
+    },
+    "2025-07": {
+      "control": 254.49701445100365,
+      "pred": 254.1655781529145
+    }
+  },
+  "cv": 289.62387683266235,
+  "paired": {
+    "change": -0.13890137762822974,
+    "ci95": [
+      -0.39636122695007003,
+      0.11816968506177007
+    ],
+    "decision": "inconclusive"
+  },
+  "outputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/cv_basis.parquet",
+      "sha256": "23cbb6d876e6b88b8ed3a26608b1eda5fd7cdcc2d92c92d04dde8d168aec8314"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/diagnostic_cv.parquet",
+      "sha256": "fb96c6d7e223c080fe0fef7711b21d9313cb3f2811e947bda06297542f878e0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/diagnostic_ranking.parquet",
+      "sha256": "fee1a1b821438755bd1f33dd1502a706ae242f0e714019f2e9628428236c7e44"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/ranking_basis.parquet",
+      "sha256": "77aaacc76dd36fd09f42be82b85caa3e5cb270bde53b8deedc1ce984ad734e22"
+    }
+  ],
+  "interpretation": "Own leaderboard score selection; reused development CV",
+  "historical_cv_caveat": "v3-v9 use an archived original27 implementation; missing exact historical source is explicit in raw runner identity",
+  "independent_audit_pending": true,
+  "no_upload": true
+}

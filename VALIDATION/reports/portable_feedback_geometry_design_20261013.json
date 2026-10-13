@@ -1,0 +1,51 @@
+{
+  "created_at": "2026-10-13T07:11:32.863581+00:00",
+  "status": "design_before_either_new_official_score",
+  "hypothesis": "Two materially distinct final-portable directions may add useful errors to the retained scored ensemble",
+  "basis": "Retain exact52 vectors of tabm_feedback_geometry and append both scored v81 direct and v82 public-source vectors",
+  "new_versions": [
+    81,
+    82
+  ],
+  "reference_version": 64,
+  "bounds": [
+    -3.0,
+    4.0
+  ],
+  "sum_weights": 1.0,
+  "ridge_mse": 1.0,
+  "solve_count": 1,
+  "gate": "Conservative serialized RMSE upper <= current actual best -0.25 seconds",
+  "cv": "Score serialized candidate on retained Jan/Jul rows; independent raw truth, SQL geometry, score precision and clipping/rounding audits required; report reused-CV caveats",
+  "interpretation": "Explicit selection on own official aggregate scores, not independent predictive validation or hidden-label access",
+  "if_failure": "Close without weight scan, candidate or upload",
+  "do_not_reopen": "Previous52-only screen and fixed portable half mixture remain closed",
+  "prerequisite": "Both parents must actually score Successfully on344841 rows; no score imputation or second upload",
+  "no_upload_yet": true,
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/result.json",
+      "sha256": "f5e2074eb9caa9eb57ca6d5a7d2569c036403c471dcccb79eb0794243c5358ea"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/result.json",
+      "sha256": "6f149f26067d0f97e8eb9224db2fd70f0329e9526b157439d84e4759c2bc93c6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/audit.json",
+      "sha256": "c8a5c6ba172811dca7868173835389c226bae4b16feaca3c71dd0264060e5f35"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+      "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+      "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+    }
+  ]
+}

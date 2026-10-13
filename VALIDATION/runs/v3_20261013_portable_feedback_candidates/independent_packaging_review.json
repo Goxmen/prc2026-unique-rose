@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_portable_feedback_manifests_20261013.py",
+    "sha256": "62386537e1df165bf647cc5f5f4a34bb6e6e8baa2d7fef1c23126184360fbf21"
+  },
+  "manifests": [
+    {
+      "version": 81,
+      "manifest": {
+        "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v81/manifest.json",
+        "sha256": "2283500e2229996e3ee0b8d17df75afb56dba6058a6edb230e3f40faa7204e68"
+      },
+      "prediction": {
+        "path": "submissions/unique-rose_v81.parquet",
+        "sha256": "84285fe2be7aa308a1b59b4fedcc5876888a618605d94c1b9b2144160552eba4"
+      },
+      "rows": 344841,
+      "cv": 290.84397170714396,
+      "cv_change_vs_v80": 1.0811934968533592,
+      "canonical_digest": "73e2e07d8d2962b497eeea77942d8cd9a7b8edab2a6f0741480f2a530e14c006"
+    },
+    {
+      "version": 82,
+      "manifest": {
+        "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/manifest.json",
+        "sha256": "12358e6933ba074562d63c0d614210794c6a3c5aa4d75ccc13a95e95b3b04efb"
+      },
+      "prediction": {
+        "path": "submissions/unique-rose_v82.parquet",
+        "sha256": "30b388168bec0c657dbff5731157e7cd635cb002af5f8be75891c5323f2bf8e0"
+      },
+      "rows": 344841,
+      "cv": 290.8394266979102,
+      "cv_change_vs_v80": 1.0766484876195932,
+      "canonical_digest": "800c35c2a097ea677f01a4cf0a43c2b26293af60191195202de07fab411d99b8"
+    }
+  ],
+  "source_files_verified": 423,
+  "historical_predictions_independently_rehashed": 70,
+  "no_duplicate_actual_or_sibling": true,
+  "snapshot": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/live_before_packaging.json",
+    "sha256": "b36bf56b34bef2f368e92482806d4db083ed997400684a4bd5241a6c56ae49fb"
+  },
+  "snapshot_time": "2026-10-13T07:04:16+00:00",
+  "quota_snapshot_only": true,
+  "fresh_upload_time_checks_required": true,
+  "final_daily_slot_preserved_at_snapshot": true,
+  "purpose": "Two limited portable-parent official comparisons; both regress reused Jan/Jul CV, no improvement claimed",
+  "no_models_or_CV_replayed": true,
+  "no_remote_reads": true,
+  "no_upload": true,
+  "seconds": 2.064998836000086
+}

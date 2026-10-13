@@ -10,13 +10,13 @@ scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 4
 were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are `-`.
 On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
-**Active target: 215.00 seconds or lower. Best/latest: v74, 221.6881 s.**
-V74 improves v73 by **1.4969 seconds**; **6.6881 seconds** remain to the target.
-Live 11 October 12:12 Amsterdam: **rank 12/242**, all **344,841** original
-January/July flights scored. Monthly public aggregates and recovered-plan
-constraints improved both CV and the leaderboard. V74 Jan/Jul CV is **293.7173**;
-its parent uses own leaderboard feedback, not independent validation.
-[Current research](VALIDATION/reports/TARGET215_RESEARCH.md).
+**Active target: 205.00 seconds or lower. Best: v80, 218.8525 s; latest: v82, 221.5240 s.**
+V80 improves v79 by **0.7605 seconds**; **13.8525 seconds** remain to the target.
+Live 13 October 09:06 Amsterdam: **rank 9/246**, all **344,841** original
+January/July flights scored. V80 Jan/Jul CV is **289.762778**. Its affine parent
+uses our own leaderboard feedback; reused development CV is not independent
+confirmation. Two October13 slots are used; three remain, including the reserved last slot.
+[Current research](VALIDATION/reports/TARGET205_RESEARCH.md).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
 validation scores only and have not been submitted. Rows 26–30 were uploaded as
@@ -136,6 +136,8 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 79 | **Joint-public-moments** | Row 78 adds a joint public taxi-count, taxi-sum and departure-delay correction. | - | - | - | - | 290.9301 | **220.2933** | v78 |
 | 80 | **Updated-scored-ensemble** | Row 79 is recombined with earlier scored predictions using updated affine weights. | - | - | - | - | 290.6744 | **219.6130** | v79 |
 | 81 | **TabM-runway-ensemble** | Row 80 uses the selected TabM and runway update. | - | - | - | - | 289.7628 | **218.8525** | v80 |
+| 82 | **Portable-direct** | Row 81 is reduced to its portable direct-model stack. | - | - | - | - | 290.8440 | 229.8034 | v81 |
+| 83 | **Portable-public** | Row 81 uses the explicitly reduced affine base. | - | - | - | - | 290.8394 | 221.5240 | v82 |
 
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV was adopted
@@ -1005,3 +1007,5 @@ The organiser has approved open trajectory data if declared; this is the declara
 - **Row 80 (v79)** recomputes the retained affine mixture after v76–v78 scored, with the unchanged coefficient bounds [−3, 4], sum one and ridge MSE 1. The new 51-vector basis excludes cancelled v75 without imputing its score; its legitimate prepared ancestry remains preserved. Selection explicitly uses our official aggregate leaderboard scores. Jan/Jul CV **290.9301 → 290.6744 (−0.2558)**, interval **[−0.6214, +0.0491]**; both months improve but the interval includes no gain. These are reused development predictions, and v3–v9 retain the historical source-reconstruction caveat. Independent SQL geometry projects **219.61336** before clipping/rounding; a conservative bound including score precision, numerical allowance and measured serialization distance is **219.92328**. All 344,841 final ranking rows, 344,419 CV rows, schema, IDs, raw truth, exact integer predictions and source hashes pass separate audits. Uploaded once **12 October 02:36 Amsterdam**, official **219.6130**, improving v78 by **0.6803** on all 344,841 flights; live best/latest at 02:40:30, rank 9/242. Remote SHA-256 matches `8d96135f7e92d025f1e3d6c30d6e4c14d541acd616f5c4d78e80bea32bc052b0`. At that time one October12 UTC slot remained; v80 subsequently used it. [Diagnosis](VALIDATION/runs/v3_20261012_target205_geometry/result.json), [independent geometry audit](VALIDATION/runs/v3_20261012_target205_geometry/independent_solve_audit.json), [manifest](VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/manifest.json), [final audit](VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/audit.json).
 
 - **Row 81 (v80)** replaces the three public/physical neural members with the equal TabM pool (seeds42/1042/2042), and adds the selected robust same-date runway evidence. Both serialized v78 component deltas are added once to v79, with one final nonnegative clip and rounding. Jan/Jul CV **290.674357 → 289.762778 (−0.911579)**, paired-day interval **[−1.322560, −0.646076]**; both months improve. It also improves the earlier one-TabM/runway combination by0.466063, interval[−0.688582,−0.300130]. These are reused development comparisons; the historical PLE/TabM execution difference remains a caveat. All three production TabM members ran on the same laptop; seed42 was reused and only1042/2042 were fitted. Every old-ranking prediction reloads exactly. The final file changes329,023 rows; independent SQL, schema/ID, component and344,419-row CV audits pass. Forty-eight available versioned files were checked for duplicate predictions. SHA-256 `50b986030af2efaab89b69bb69522ade6b060cc7f58fa324954e3fb06e0ef6f4`. Uploaded once **12 October12:23:58 Amsterdam**; official **218.8525**, improving v79 by **0.7605 seconds** on all344,841 flights. Best/latest at12:27:42, rank9/242. Remote hash matches. All five October12 UTC slots are now used. [CV](VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json), [manifest](VALIDATION/runs/v3_20261012_tabm_pool3_candidate/submission_v80/manifest.json), [independent audit](VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/independent_audit.json).
+
+- **Rows 82–83 (v81/v82)** compare two distinct recipes that can be applied to all four final months. V81 serializes the retained direct public-model stack. V82 uses the separately declared 28-component recovered affine base followed by the fixed public-source correction chain; missing historical components are explicitly excluded. Their nearly equal Jan/Jul CV scores both trail v80 by about1.08 seconds, and their old-ranking predictions differ63.9731 seconds RMS. These were limited feedback submissions for final fallback selection, not claimed CV improvements. Both files, full CV comparisons, source hashes and all70 prior submission fingerprints passed independent audits. Uploaded once on **13 October09:17/09:18 Amsterdam**, with exact remote hashes: v81 **229.8034**, v82 **221.5240**, both344,841 rows. V82 is8.2794 seconds better than v81 officially, but2.6715 seconds worse than bestv80. V81’s four-month output is audited; v82’s final inference stopped at a support-mean solver assertion after37/40 cached groups, so final readiness is not claimed. Three slots remain, including the reserved last slot. [Independent packaging review](VALIDATION/runs/v3_20261013_portable_feedback_candidates/independent_packaging_review.json), [v81 record](VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v81/manifest.json), [v82 record](VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/manifest.json).

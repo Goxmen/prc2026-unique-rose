@@ -1,0 +1,33 @@
+{
+  "status": "pass_source_pre_solve",
+  "runner": {
+    "path": "VALIDATION/portable_feedback_geometry_20261013.py",
+    "sha256": "4b799341ad03b39900c3adca8bff9c6d7f82b15c2e212766fe85ebaee41d254c"
+  },
+  "design": {
+    "path": "VALIDATION/reports/portable_feedback_geometry_design_20261013.json",
+    "sha256": "5a837c985d1a268b51a85027915d5a96d16e89dbc40b54ec7d099c586588b047"
+  },
+  "SQL_preflight": {
+    "path": "VALIDATION/reports/portable_feedback_geometry_sql_preflight_20261013.json",
+    "sha256": "a436dfcf51739c534d036f53b15c146285ef84842fbd901f753725f8bc1cb7dd"
+  },
+  "checks": [
+    "Retains52 exact prior columns, appends both audited newly scored parent vectors with matching CV artifacts and original IDs",
+    "Actual official successful344841-row scores only; frozen design predates both new official scores",
+    "Unchanged single bounded sum-one ridge solve; coefficients persist before derived artifacts; no implicit repeat",
+    "Actual live snapshot and scored manifests bound into solve receipt; source helpers and raw truth pinned",
+    "Independent SQL geometry, clipping/rounding, all52prior columns, raw held truth/calendar and projected-RMSE agreement",
+    "Candidate/control monthly scores, mean-month CV and independent paired-day bootstrap/change reproduced",
+    "Same conservative serialized0.25second gate and no weight scan after failure"
+  ],
+  "remaining_limits": [
+    "Leaderboard-selected coefficients and reused development CV are not independent confirmation",
+    "Legacy historical CV reconstruction caveat remains; missing legacy final model components remain missing",
+    "No final affine portability claim; this source operates on old-ranking and Jan/Jul vectors only"
+  ],
+  "no_actual_prediction_arrays_read_by_review": true,
+  "no_weight_solve": true,
+  "no_fit": true,
+  "no_upload": true
+}

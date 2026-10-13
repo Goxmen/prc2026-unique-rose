@@ -1,0 +1,102 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/identity.json",
+    "sha256": "cef76d1b6e2f8d9e195e6a525f7a25d0d7e71d80f30d8048190ab9df2c69c7e3"
+  },
+  "official": {
+    "81": {
+      "status": "Succeeded",
+      "file": "unique-rose_v81.parquet",
+      "bucket": "prc-2026-unique-rose",
+      "used_pairs": 344841,
+      "inputs": {
+        "test_set_bucket": "prc-2026-testsets",
+        "test_set_file": "truthing.parquet"
+      },
+      "score": 229.8034
+    },
+    "82": {
+      "status": "Succeeded",
+      "file": "unique-rose_v82.parquet",
+      "bucket": "prc-2026-unique-rose",
+      "used_pairs": 344841,
+      "inputs": {
+        "test_set_bucket": "prc-2026-testsets",
+        "test_set_file": "truthing.parquet"
+      },
+      "score": 221.524
+    }
+  },
+  "scored_manifests": {
+    "81": {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v81/manifest.json",
+      "sha256": "c034842b8a6a657ab47cd050155fafb214d59bfee5adaa923c8d303da12e1a34"
+    },
+    "82": {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/manifest.json",
+      "sha256": "f5708ffc9c2f8bf0b1e1b7850d228db7189700903f8ad6b7ea41d8a9e9e949bd"
+    }
+  },
+  "live_snapshot": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/live_scores.json",
+    "sha256": "f0cf0334898e4c9e08089b770ad5fd7cad81a2e9af8566fc540ef1dda701e719"
+  },
+  "scores": {
+    "1": 661.5737,
+    "2": 533.3759,
+    "3": 405.6987,
+    "4": 405.7838,
+    "5": 518.3068,
+    "6": 498.3336,
+    "7": 486.0517,
+    "8": 472.7133,
+    "9": 433.6797,
+    "12": 406.4281,
+    "13": 354.4303,
+    "14": 354.0004,
+    "15": 344.3114,
+    "16": 344.4821,
+    "17": 345.8984,
+    "18": 342.5049,
+    "19": 338.1113,
+    "20": 345.3113,
+    "21": 342.4009,
+    "26": 333.8712,
+    "27": 329.1609,
+    "28": 322.6253,
+    "29": 314.4667,
+    "30": 309.9872,
+    "33": 282.4525,
+    "34": 280.4658,
+    "37": 280.1743,
+    "38": 279.3805,
+    "43": 274.766,
+    "44": 269.5533,
+    "45": 254.9163,
+    "46": 248.7124,
+    "47": 245.3758,
+    "48": 239.7731,
+    "49": 242.9764,
+    "50": 239.0108,
+    "51": 238.277,
+    "53": 237.7683,
+    "54": 236.3328,
+    "56": 236.5988,
+    "57": 236.9652,
+    "58": 236.1895,
+    "60": 237.3022,
+    "61": 236.6319,
+    "64": 232.7751,
+    "70": 231.9066,
+    "72": 226.5719,
+    "74": 221.6881,
+    "76": 221.0948,
+    "77": 220.8328,
+    "78": 220.2933,
+    "80": 218.8525,
+    "81": 229.8034,
+    "82": 221.524
+  },
+  "current_best": 218.8525,
+  "at": "2026-10-13T07:23:57+00:00"
+}
