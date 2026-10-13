@@ -121,6 +121,16 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October13,12:05 Amsterdam: v83 officially220.9278; final slot protected.**
+Student uploaded once11:57, exact remoteSHA088546b6, scored11:58 on344841rows.
+It improves portablev82 by0.5962 but trails bestv80 by2.0753. Audited four-month
+student is strongest admissible final candidate, pending one residual novelty
+certificate now in source review. Rawv83 already lies within the old54-vector
+span; only constraints/rounding may add information, so no naive55-vector solve.
+No new optimizer/candidate allocated. Other bounded structural/source reviews
+found no supported distinct multi-second lead. Two slots remain, last reserved;
+no final upload. Keep all five student solves and exact prediction artifacts.
+
 **October 13, 11:52 Amsterdam: fixed v80 distillation passes; production audited.**
 Four same-month blocked ridge1 fits improve complete portable v82 CV
 290.839427→289.607608 (−1.231818; paired interval [−1.942349,−0.555292]),

@@ -1,0 +1,74 @@
+{
+  "status": "source_only_conditional_novelty_assessment",
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/model.json",
+      "sha256": "21031645415924c157af701784ea4ea4c5a7944cad601679df373cccdcc2065e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+      "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+      "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/submission_v83/official_result.json",
+      "sha256": "ca50c9483ea697295d0692452ba75de00d148a0840e0069a87b6a4d28b7e78bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/identity.json",
+      "sha256": "cef76d1b6e2f8d9e195e6a525f7a25d0d7e71d80f30d8048190ab9df2c69c7e3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/closed.json",
+      "sha256": "c92bf001070043dd04ed17a416907349daafd746540ca75e225029d00ba706c8"
+    },
+    {
+      "path": "VALIDATION/portable_v80_distill_20261013.py",
+      "sha256": "4bf71651707b85306f21ef9cb0f6b394532b65db6b471a705968412374ba83bf"
+    },
+    {
+      "path": "VALIDATION/portable_feedback_geometry_20261013.py",
+      "sha256": "4b799341ad03b39900c3adca8bff9c6d7f82b15c2e212766fe85ebaee41d254c"
+    }
+  ],
+  "scope": "Only retained JSON metadata and source read. Coefficient sums/ranges computed from saved model receipt; no vectors, hidden labels, new metrics, geometry solve or upload.",
+  "recommendation": "Do not reopen the closed54-vector optimization or naively appendv83. At most one prospectively frozen no-candidate residual novelty certificate is justified: constraints can create a genuine new direction, but its magnitude and target covariance are unknown from metadata. No new optimization is justified until that certificate establishes material information beyond score precision. Keep final portablev83 selected provisionally; root owns selection.",
+  "raw_span": {
+    "formula": "s0 = v82 + sum_j beta_j*(v_j-v82) = P54*a; a_j=beta_j, a82=1-sum(beta), all other a=0",
+    "all28_plus82_present_in_closed54": true,
+    "anchor_weight": 0.9142345738112748,
+    "sum": 1.0,
+    "min": -0.3578087244979587,
+    "max": 0.9142345738112748,
+    "l1": 3.0715685925505634,
+    "old_box_feasible": true,
+    "consequence": "Raw student adds no independent old-ranking prediction direction or aggregate-score information to that basis. Different ridge objectives need not share the same optimum."
+  },
+  "new_direction": {
+    "decomposition": "v83=s0+e; e=[C(s0)-s0]+[R(C(s0))-C(s0)] where C is the existing matched-bound/nonnegative/recovered-exclusion operator and R nearest-even.",
+    "rounding_bound": "Every final rounding residual has absolute value<=0.5seconds. This is not a bound on total e.",
+    "constraint_bounds": "Matched-bound/nonnegative projection can move arbitrarily far without inspecting raw inputs. Recovered-exclusion alone moves <=3606seconds with nonnegative lower endpoint, or <7212seconds when the lower endpoint is negative. Therefore e cannot be dismissed as rounding noise algebraically.",
+    "dimension": "Only the component of e outside the old affine tangent span D=[p_j-p64] can add new information; at most one scalar direction.",
+    "new_score_information": "MSE(v83)-MSE(s0)=2*mean((s0-y)*e)+mean(e^2). Old scores and known prediction moments already determine MSE(s0); the additional official score identifies one residual cross-moment, subject to four-decimal score uncertainty."
+  },
+  "reparameterization_warning": "A naive55-column solve changes the feasible effective old weights and ridge penalty even if e=0: w_eff=w+t*a, while native penalty||w-initial||^2+t^2 differs from||w_eff-initial||^2. Apparent gains could be duplicate-column regularization or relaxed effective boxes, not new information. Preserve original effective54-coordinate bounds/penalty in any later explicitly approved residual design.",
+  "possible_frozen_certificate": [
+    "Pin actual officialv83 result/hash and all original54 scored vectors; no imputed score.",
+    "Decompose retained old submitted-minus-raw residual into matched/exclusion displacement and rounding, with exact reconstruction.",
+    "Use an input-only fixed numerical-rank rule to quantify residual outside the original affine tangent span; report precision and conditioning, never tune tolerance to apparent gains.",
+    "Propagate all official score rounding intervals when deriving the new residual target cross-moment; do not treat a noisy near-zero denominator as exploitable information.",
+    "No candidate or weights from this certificate. A later optimization would require separate frozen design, genuine saved Jan/Jul evaluation, independent audit and final-portable inputs only. Missing54-family final vectors remain unavailable."
+  ],
+  "CV_parity_warning": "BlockedCV uses four independently trained coefficient vectors while production uses one2026 vector. The CV counterpart must follow the actual candidate algorithm. Subtracting one production affine coordinate vector from CV predictions introduces coefficient-drift terms; it is not purely a CV constraint residual. Do not mislabel that difference as matched mechanism validation.",
+  "official_feedback": {
+    "v83": 220.9278,
+    "v82": 221.524,
+    "best_v80": 218.8525,
+    "interpretation": "v83 is0.5962seconds better thanv82 and2.0753seconds behindv80. This reinforces choosing the audited student over the portable parent, without demonstrating a new geometric direction or the205 target."
+  },
+  "conditional_clock_hybrid": "Unselected; no authentic paired-view Jan/Jul validation.",
+  "no_numeric_geometry_or_upload": true
+}

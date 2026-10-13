@@ -1,3 +1,11 @@
+**October13,12:05 Amsterdam: portable student v83 scored220.9278.**
+Audited blocked CV improves v82 by1.231818 seconds; official score improves it
+by0.5962. Bestv80 remains218.8525; v83 is the strongest validated portable final
+candidate. All old/final production rows audited. One bounded source-only
+residual novelty assessment remains; no optimizer or candidate is allocated.
+Other structural/source reviews found no supported distinct multi-second lead.
+Two slots remain, last reserved. No finalnamed file or final upload yet.
+
 **October13,09:43 Amsterdam: final candidates audited; last slot untouched.**
 Public-source v82 final670790-row output is complete and independently audited.
 One interior exponential-tilt root needed a wider bracket; original successful
@@ -78,10 +86,11 @@ joint posterior are audited. Honest posterior-aware crossfits are being designed
   `findall '<terms>'`; use it before proposing variants of historical screens.
 
 
-**Active target: 205.00 seconds or lower.** Best/latest is **v80 at218.8525**,
-leaving **13.8525 seconds**. Live 12 October 17:03:41 Amsterdam, rank **9/244**,
-all **344,841 flights**. Autonomous submissions and both machines remain authorized,
-with one heavy job per host. **All five October12 UTC submission slots are used.**
+**Active target: 205.00 seconds or lower.** Best is **v80 at218.8525**; latest
+**v83 at220.9278**, scored13 October11:58 Amsterdam on344,841 flights. The target
+gap remains13.8525 seconds. Public snapshot11:49 reports rank9/246. Autonomous
+uploads and both machines remain authorized, one heavy job per host. Three
+October13 UTC slots are used; two remain, including the reserved last slot.
 
 | Candidate | Change | Jan/Jul CV | Official RMSE |
 | --- | --- | ---: | ---: |
@@ -90,6 +99,9 @@ with one heavy job per host. **All five October12 UTC submission slots are used.
 | v78 | v77 adds a joint public taxi-count, taxi-sum and departure-delay correction. | 290.9301 | 220.2933 |
 | v79 | v78 is recombined with earlier scored predictions using updated affine weights. | 290.6744 | 219.6130 |
 | v80 | v79 uses the selected TabM and runway update. | 289.7628 | 218.8525 |
+| v81 | v80 is reduced to its portable direct-model stack. | 290.8440 | 229.8034 |
+| v82 | v80 uses the explicitly reduced affine base. | 290.8394 | 221.5240 |
+| v83 | v82 adds a fixed correction learned from v80 predictions. | 289.6076 | 220.9278 |
 
 V76, v77 and v78 uploaded once at 02:10, 02:20 and 02:30. After their feedback,
 the new 51-vector diagnosis excluded unsubmitted v75 and used only actual

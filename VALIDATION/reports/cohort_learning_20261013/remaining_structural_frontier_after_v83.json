@@ -1,0 +1,95 @@
+{
+  "status": "no sufficiently promising untested structural lead found in this bounded review",
+  "scope": "One last source/index/registry review for an untouched predictor with credible>=1second official gain within today. No real-row/label diagnostic, prediction decode, fit, download or score.",
+  "queries": [
+    "rotation",
+    "schedule",
+    "taxiway",
+    "recurrence",
+    "route",
+    "stop",
+    "callsign",
+    "congestion",
+    "network"
+  ],
+  "findings": [
+    {
+      "mechanism": "Stand-to-runway network distance and turning",
+      "evidence": "Already explicitly implemented from cached OSM graphs in taxi_route.py, with Jan/Jul score_route.json; routeblenddelta-0.0690seconds. This is not a missing structural predictor.",
+      "decision": "Do not rerun or add arbitrary graph variants."
+    },
+    {
+      "mechanism": "Own-aircraft turnaround and preceding arrival",
+      "evidence": "Existing eight-input fold-scoped aircraft_rotation plus tree/neural screens; registrycloses aircraft_rotation. Existingarrival-clock andstand-drift screens also closed.",
+      "decision": "No distinct new datum supplied by rotation/arrival recasting."
+    },
+    {
+      "mechanism": "Callsign/reporting identity and recurring operations",
+      "evidence": "Selected full15-callsign neural and six-input tree combination already uses identity-context signals; exactweeklyrecurrenceisnotproventested, but no source evidence establishes additional targetclock information or>=1secondheadroom.",
+      "decision": "Do not promote an unsupportedcalendar/identityfeature tweak as a high-value newmechanism."
+    },
+    {
+      "mechanism": "Runway queue, apron/stand stops and surface congestion",
+      "evidence": "Existing ADS-B geometry distinguishes apron versus taxiway; pushback detectors address repeatedstops. Spatialpeer pilotclosed because temporalpeers lose tosame-count spatial-onlycontrol. Owntrack neuralbranchalreadyingests relevantrecordedmotion.",
+      "decision": "Newcrossing/queuegraph mechanics are conceivable, but unvalidatedcoverage/ambiguity and insufficient demonstrated marginal signal make today-fit allocation unjustified."
+    },
+    {
+      "mechanism": "Weather/disruption andcompletedarrival congestion",
+      "evidence": "Cached disruption_features.py already combines snowfallhistory andtaxiincongestion; weather/fullpublicchainsare retained.",
+      "decision": "No new observed structural variable identified."
+    },
+    {
+      "mechanism": "Cohort recording dependence orsharedlatent state",
+      "evidence": "Just-completed honestR20trainingpilot hasadequatecoverage butfixeduncertaintygatesfailed; rootclosed it.",
+      "decision": "No alternate grouping, hiddenMarkov orcopula follow-up."
+    }
+  ],
+  "conclusion": "The bounded search did not identify an untouched, cache-supported structural signal with a defensible>=1second official-gain rationale and a clean today-feasible test. This is a statement about current evidence/allocation, not proof that allpossiblemodelsareexhausted.",
+  "recommendation": "Keep the protected finalslot and choose from fully audited candidates using officialfeedback and explicit final-domain risks. Do not manufacture a freshscreen from alreadyclosed feature/architecture/sourcevariants or tune the selectedstudent.",
+  "evidence": [
+    {
+      "path": "VALIDATION/research_registry.json",
+      "sha256": "d2ad65b3515099ee52fdb9dc5b65e2c5450ea725449ee7016ef3dddcc4c72838"
+    },
+    {
+      "path": "VALIDATION/taxi_route.py",
+      "sha256": "47659dbde448593bdd5e49076cdc9606263cbce95cf9a0faf43afd99badcf887"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_jan_jul/score_route.json",
+      "sha256": "1282b1508a1ee0f209da42a3198d29574dd20d2b4a5c614a881de8b91600935a"
+    },
+    {
+      "path": "VALIDATION/aircraft_rotation.py",
+      "sha256": "f3602d272d512dfb807309b3ee6da0ca31532d338454e40aac8c293917e8bdc2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_rotation_lgb_jan_jul/result.json",
+      "sha256": "218687c4152c1f565b6c2a37502bc8e5fd8bfe6d0f300a64d426fd190ab426d1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_nn_rotation_jan_jul/score_g42_k0.json",
+      "sha256": "95bf8bb0aed426138428f4ff11ef9d4f9b0f11c320d31cde2f89a0dea620e228"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_lgb_combo_score/result.json",
+      "sha256": "29ea737431a0be4035f8ecc351af0d5af7d85a3f46b70a1ea0f933ccd0a237a1"
+    },
+    {
+      "path": "VALIDATION/disruption_features.py",
+      "sha256": "92e47c89d6a2c91fdb6f8a6d48abd378f841697502a918d8b4bc452fb55eaf01"
+    },
+    {
+      "path": "VALIDATION/tools/adsb_geometry.py",
+      "sha256": "976ba660e01c8831939cbe0f49be2d44db48bc6624a007337e5635007f69c571"
+    },
+    {
+      "path": "VALIDATION/tools/adsb_pushback.py",
+      "sha256": "6b3917984b6b64839f735f7922bf3242b680a6736d3020c38c56c3a0b166904e"
+    },
+    {
+      "path": "VALIDATION/reports/research_network_20261010/arrival_clock_context_audit.json",
+      "sha256": "c270e00bbf9306c0726ccb2a33721285dcd2b7a4d13272369333ff38ecc29801"
+    }
+  ]
+}

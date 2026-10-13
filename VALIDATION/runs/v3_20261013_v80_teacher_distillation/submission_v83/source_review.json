@@ -1,0 +1,66 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/package_v80_distill_20261013.py",
+    "sha256": "a4c7fc25c2f968ca4c0254f011fb7a443bee121b7f28fa7c01fd86b82b2d581e"
+  },
+  "reviewer": "/root/new_signal_audit",
+  "created_at": "2026-10-13T09:55:53.445762+00:00",
+  "scope": "Independent static packaging review only; no build, inference, scoring, vector decode, remote action or upload.",
+  "evidence": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+      "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+      "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+      "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/score.json",
+      "sha256": "8ec5d7f37cf1e776d93982e3b9ddce1ab0fe805b2b93e99610419309ba71543c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/audit.json",
+      "sha256": "794f351288f86cf8a2741c6393e673b9e5e5a277e8ea2be591f4e47612323713"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/input_audit.json",
+      "sha256": "20bb57c6be08c34b0913fcdd1b5c81133cc002422742cfa47d4241e5b0adb13e"
+    },
+    {
+      "path": "VALIDATION/package_portable_feedback_20261013.py",
+      "sha256": "f992e7b5a9946fe382297fadbff17d9e97b6cabb64a52b5bf51dbc6784b47fbd"
+    },
+    {
+      "path": "VALIDATION/submission_slot_policy.py",
+      "sha256": "883ad62af19c14bba8729a522e985e5658c3f94a0893925cf65d723f57474413"
+    },
+    {
+      "path": "VALIDATION/submission_slot_policy.json",
+      "sha256": "740157ea2ac5a162c7dc15607eeebdd7fe3c28d06c71962b399445bc977ac296"
+    },
+    {
+      "path": "VALIDATION/audited_candidate_upload.py",
+      "sha256": "3a8be43208076337f1e41e1e22642465afcfa1e0b5ffad68722f46543c1ce4f3"
+    }
+  ],
+  "checks": [
+    "Production result/audit and CV score/audit bind the identical frozen student identity; all four saved coefficients, inference, input audit, scored output and production model are included in manifest sources.",
+    "Source old candidate is copied byte-for-byte with exclusive destination creation; actual production candidate SHA is 088546b667234345409e66c1bf52250d762352ccb24ca4d452550ecb48d7017a.",
+    "Runtime checks enforce canonical old template schema, every non-target column, target finiteness, integrality, nonnegativity and 344841 rows.",
+    "Historical fingerprints authenticate retained local files and remote-stat receipts through actual scored v81/v82 manifests; new v81/v82 canonical vectors are computed and complete exact live file-set equality prevents omitted submissions.",
+    "Fresh live supplied snapshot has one-hour maximum age, no occupied v83 filename, exact current-date slot policy, and strict unused reserve. Existing uploader independently checks live bucket/quota and remote upload SHA.",
+    "Source review/root allocation gates precede all output writes; started receipt and exclusive destination prevent silent repeated or partial retries.",
+    "Manifest Jan/Jul CV 289.60760827359303 comes from audited blocked OOF score. It correctly describes v80 comparison as inconclusive and original-ranking production as in-sample teacher distillation; no official gain or exact-v80 claim."
+  ],
+  "limitations": [
+    "Cached actual-submission fingerprint receipts are reused without fresh remote stat for historical files, authenticated by prior actual scored manifests. Fresh supplied snapshot enforces same full filename set and file sizes.",
+    "This review authorizes no upload; root owns packaging, concrete manifest verification and any later upload."
+  ],
+  "no_blockers": true
+}

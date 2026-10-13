@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-10-13T09:52:15.900364+00:00",
+  "updated_at": "2026-10-13T10:05:04.870567+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
-  "official_checked_at": "2026-10-13T09:49:57+00:00",
-  "slots_remaining": 3,
+  "official_checked_at": "2026-10-13T09:58:05+00:00",
+  "slots_remaining": 2,
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 63,
   "desktop": {
@@ -13,27 +13,27 @@
     "checked_at": "2026-10-13T09:52:15.900364+00:00"
   },
   "next": [
-    "Prepare one reviewed v83 old-ranking distillation submission for official feedback; both final and old production independently audited",
-    "Compare official feedback with v82 and preserve strongest admissible final candidate",
-    "Three slots remain including protected last slot; no final upload queued"
+    "One fixed residual novelty certificate in source review; no optimization/candidate allocated",
+    "Resolve certificate before final delivery selection; v83 strongest admissible portable, v82 fallback",
+    "Two slots remain including reserved last; preserve all completed solves/uploads"
   ],
   "native_goal_status": "active",
   "active_research": [
     {
       "owner": "root",
-      "scope": "Fixed distillation release and protected final slot"
-    },
-    {
-      "owner": "cohort_learning",
-      "scope": "Distillation producer implementation only"
+      "scope": "Protect final slot and final selection"
     },
     {
       "owner": "final_recovery",
-      "scope": "Independent distillation result auditor/source review"
+      "scope": "Source-only residual novelty certificate"
+    },
+    {
+      "owner": "cohort_learning",
+      "scope": "Independent certificate math/precision review"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent projected-input/label firewall audit"
+      "scope": "Independent certificate source/result audit"
     }
   ],
   "laptop": {
@@ -235,7 +235,7 @@
     "status": "closed_inconclusive"
   },
   "reserved_final_slots": 1,
-  "used_utc_day_slots": 2,
+  "used_utc_day_slots": 3,
   "slot_date_utc": "2026-10-13",
   "posterior_aware_screen": {
     "status": "closed_negative_audited",
@@ -275,8 +275,8 @@
     "preferred_portable_parent": 82,
     "final_public_state": "complete_independently_audited; one interior unbracketed tilt recovered,37groups unchanged"
   },
-  "latest_version": 82,
-  "latest_official_rmse": 221.524,
+  "latest_version": 83,
+  "latest_official_rmse": 220.9278,
   "portable_geometry": {
     "identity": {
       "path": "VALIDATION/runs/v3_20261013_portable_feedback_geometry/identity.json",
@@ -308,7 +308,7 @@
       "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/handoff.json",
       "sha256": "ab417c23797d77f2f95c11b1de4817782ffdf37c3436b54671d8566936959fd2"
     },
-    "selection_status": "strongest_admissible_fallback_pending_fixed_distillation"
+    "selection_status": "audited_v82_fallback_behind_v83_on_CV_and_official_old_view"
   },
   "final_shared_clock_candidate": {
     "status": "unselected_no_authentic_paired_departure_CV",
@@ -430,7 +430,7 @@
     }
   },
   "v80_teacher_distillation": {
-    "status": "production_audited_packaging_pending",
+    "status": "officially_scored_220.9278",
     "run": "VALIDATION/runs/v3_20261013_v80_teacher_distillation",
     "design": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_fixed_design.json",
     "fits": 4,
@@ -479,6 +479,33 @@
     "production_audit": {
       "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
       "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    },
+    "version": 83,
+    "official_score": 220.9278,
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/submission_v83/manifest.json",
+      "sha256": "81cf69349d1481c467478b4c3dbafa97fee5d55696f0a270acbcb3063301ef46"
+    },
+    "official_result": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/submission_v83/official_result.json",
+      "sha256": "ca50c9483ea697295d0692452ba75de00d148a0840e0069a87b6a4d28b7e78bb"
     }
+  },
+  "final_distillation_candidate": {
+    "status": "audited_strongest_admissible_portable_pending_remaining_certificate",
+    "parent_version": 83,
+    "production": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+      "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+    },
+    "audit": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+      "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    },
+    "candidate": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/candidate.parquet",
+      "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+    },
+    "no_final_upload": true
   }
 }
