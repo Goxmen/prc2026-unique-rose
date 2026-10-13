@@ -1,0 +1,12 @@
+[Unit]
+Description=PRC source publication on 14 October 2026 at 12:00 Amsterdam
+
+[Timer]
+OnCalendar=2026-10-14 10:00:00 UTC
+AccuracySec=1s
+RandomizedDelaySec=0
+Persistent=true
+Unit=prc-publish-final-20261014.service
+
+[Install]
+WantedBy=timers.target

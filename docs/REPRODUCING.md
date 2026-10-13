@@ -82,8 +82,9 @@ The prepared release asset is `unique-rose-v83-replay.tar`, with its archive
 checksum in [artifact_manifest.json](../release/artifact_manifest.json).
 It includes a standalone replay script, its CPU requirements, license,
 attribution documents and the `v83-component-replay/` directory. The associated
-GitHub draft tag is `prc-final-v83-20261013`; it remains private until the owner
-authorizes publication. A private draft is not a public download.
+GitHub draft tag is `prc-final-v83-20261013`; the owner authorized publication at
+14 October 2026, 10:00 UTC / 12:00 Amsterdam. It remains private until then.
+A private draft is not a public download.
 
 After obtaining the archive and `SHA256SUMS` from that release:
 

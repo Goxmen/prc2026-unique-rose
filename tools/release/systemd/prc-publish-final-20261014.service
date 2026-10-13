@@ -1,0 +1,16 @@
+[Unit]
+Description=Publish reviewed PRC repository and replay release at authorized deadline
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/PRC
+ExecStart=%h/PRC/.venv/bin/python %h/PRC/tools/release/publish_at_deadline.py publish
+Environment=PYTHONDONTWRITEBYTECODE=1
+UMask=0077
+Nice=10
+TimeoutStartSec=180
+Restart=on-failure
+RestartSec=60
+RemainAfterExit=yes

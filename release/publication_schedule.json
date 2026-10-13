@@ -1,0 +1,34 @@
+{
+  "schema": "prc_publication_schedule_v1",
+  "authorized": true,
+  "authorization_recorded_at_utc": "2026-10-13T19:45:05.335781+00:00",
+  "authorization": "User answered the explicit repository/release publication question: we are going to make it public right on the deadline.",
+  "repository": "Goxmen/PRC",
+  "repository_id": 1357299087,
+  "not_before_utc": "2026-10-14T10:00:00Z",
+  "display_time": "2026-10-14 12:00 Europe/Amsterdam",
+  "release_id": 412037499,
+  "release_tag": "prc-final-v83-20261013",
+  "release_source_commit": "22caf18557d841e5057f02ef17df8749422001f7",
+  "assets": [
+    {
+      "name": "SHA256SUMS",
+      "bytes": 93,
+      "sha256": "ac017f1ea30f5c6516c07ab4be378658ac47e3585ae4f0804337bd71b791dcf3",
+      "github_asset_id": 638040520,
+      "github_digest_verified": true
+    },
+    {
+      "name": "unique-rose-v83-replay.tar",
+      "bytes": 124395520,
+      "sha256": "75e9cda920c75b4325a13aae14005f1d125619f05701b9ec3eaa9142f870a949",
+      "github_asset_id": 638040521,
+      "github_digest_verified": true
+    }
+  ],
+  "competition_submission_authorized_by_this_schedule": false,
+  "timer_unit": "prc-publish-final-20261014.timer",
+  "receipt": "release/artifacts/publication.json",
+  "host_requirement": "Desktop Windows and Ubuntu WSL must remain online; a persistent local timer cannot wake a powered-off host.",
+  "update_policy_if_final_model_changes": "Repackage and audit a replacement release, then update this policy to its exact release identity and verified asset hashes before the deadline."
+}

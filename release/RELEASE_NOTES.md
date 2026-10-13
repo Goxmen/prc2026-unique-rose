@@ -8,4 +8,4 @@ Download `unique-rose-v83-replay.tar` and `SHA256SUMS`, verify the archive check
 
 This is verified retained-component ensemble replay, not a demonstrated clean raw-data training rebuild or arbitrary-new-month inference pipeline. The ongoing four-month candidate selection has not replaced this accepted submission. Provider data terms remain applicable to derived inputs; repository source is GPLv3.
 
-This draft is prepared in the private repository. Public release awaits the owner's visibility decision.
+This release was prepared privately. The owner authorized public repository and release publication at the challenge deadline, 14 October 2026 at 10:00 UTC (12:00 Amsterdam).

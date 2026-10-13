@@ -71,11 +71,16 @@ but identify the result as stale and report its timestamp.
 - **Laptop network is slow.** When desktop artifacts are needed, transfer only
   necessary files/columns, retain a verified local cache, and reuse it. Avoid
   repeating remote downloads or making experiments depend on remote reads.
-- **User instruction, 12 October: keep the repository private.** GitHub
-  `Goxmen/PRC` was verified PRIVATE. This supersedes the earlier automatic
-  publication instruction. Public GPLv3 source is a prize-eligibility condition
-  (deadline 14 Oct 2026, 10:00 UTC); explain that reason to the user before any
-  proposed visibility change. Do not publish automatically.
+- **Updated owner instruction, 13 October: publish exactly at the deadline.**
+  Keep `Goxmen/PRC` PRIVATE until **14 October 2026, 10:00 UTC / 12:00 Amsterdam**.
+  After reviewing the prepared source/replay release and its eligibility reason,
+  the user authorized making it public at that deadline. The local user timer
+  `prc-publish-final-20261014.timer` publishes the repository and reviewed draft;
+  see `release/publication_schedule.json` and `tools/release/publish_at_deadline.py`.
+  Never publish early. This authorization is for GitHub publication, not another
+  competition submission. If the selected final changes, update and verify the
+  release assets and scheduled policy before the deadline. Desktop/WSL must stay
+  online; publication receipts are under `release/artifacts/`.
 - Keep a very brief local progress note in `LOCAL_PROGRESS.md`, which is
   gitignored and must never be committed. Update it after material results.
 - `data/` and `*.parquet` are gitignored; keep it that way. `data/FEATURES.md`

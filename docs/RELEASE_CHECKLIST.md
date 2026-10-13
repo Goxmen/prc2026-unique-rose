@@ -61,10 +61,10 @@ data are not bundled into git.
 4. Commit and push the reviewed source and documentation to the private `main`
    repository. Preserve research artifacts locally; do not move or change source
    files or input caches used by an active validation run.
-5. Public GitHub availability is required for prize eligibility. The standing
-   owner instruction is to keep this repository private, so publication is a
-   separate owner decision after reviewing the prepared release. Obtain the
-   organizer's repository-handoff instructions if not otherwise announced.
+5. Public GitHub availability is required for prize eligibility. The owner has
+   authorized publication at **14 October, 10:00 UTC / 12:00 Amsterdam**, and
+   privacy until then. See [the scheduled policy](../release/publication_schedule.json).
+   Obtain the organizer's repository-handoff instructions if not otherwise announced.
 6. Make required reproduction artifacts available through an appropriate
    release/download channel with the source release. A local-only artifact path
    is not a public download. Observe provider redistribution terms.
@@ -72,3 +72,30 @@ data are not bundled into git.
 No public release or complete raw-data retraining certification is implied merely
 by this checklist being present. Exact replay evidence and artifact distribution
 status are recorded in the reproduction guide and release manifests.
+
+## Scheduled publication
+
+The desktop user timer `prc-publish-final-20261014.timer` starts the guarded
+publisher at 10:00 UTC. It audits current source/history, verifies local/remote
+`main` agreement and the exact draft assets, changes repository visibility, then
+publishes the draft release. It verifies both actions and records a receipt.
+The time guard prohibits early publication, including an accidental manual start.
+Failures preserve receipts and the service retries; partial success is resumed
+without changing the repository back to private. There is no competition upload.
+
+```bash
+systemctl --user list-timers prc-publish-final-20261014.timer
+systemctl --user status prc-publish-final-20261014.service
+journalctl --user -u prc-publish-final-20261014.service
+cat release/artifacts/publication.json
+```
+
+The desktop and Ubuntu WSL must stay online. A persistent timer catches a missed
+start when WSL next runs but cannot wake a shut-down host; network/authentication
+also must remain available. A changed final model requires repackaging and an
+updated, verified schedule policy. To cancel an authorization before publication:
+
+```bash
+systemctl --user disable --now prc-publish-final-20261014.timer
+systemctl --user stop prc-publish-final-20261014.service
+```
