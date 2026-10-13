@@ -1,0 +1,15 @@
+{
+  "source": {
+    "path": "VALIDATION/tools/diagnose_final_clock_coupling_20261013.py",
+    "sha256": "f51fe4d29cfa9f06d516d33f43029d84b7fa4eca7f4b70737e1283e02bc53ee9"
+  },
+  "previous_source_diagnostic": {
+    "path": "VALIDATION/reports/final_shared_clocks_20261013/result.json",
+    "sha256": "ecb5f9d5fd0e2ff83950c85a4b637727af2ac9259e7a1859a74c0fb36fe57c02"
+  },
+  "hypothesis": "Arrival clock changes are opposite up to timestamp integer rounding",
+  "fixed_residual": "delta_block + delta_movement",
+  "no_model": true,
+  "no_departure_targets": true,
+  "no_candidate": true
+}

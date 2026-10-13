@@ -1,0 +1,413 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_affine/completion_final_order_20261013/identity.json",
+    "sha256": "d426ca8afc24ed782bebfbf3f253e7b51a535f0cabcc2231863ab2a37e19ef6e"
+  },
+  "original_identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_affine/identity.json",
+    "sha256": "9d9ab069c7213e8671ea422d3e80d1533022779cfc6970444c44d81e864e0a47"
+  },
+  "geometry": {
+    "path": "VALIDATION/runs/v3_20261013_portable_affine/geometry.json",
+    "sha256": "62eaf0ccb9704858c37ff82eabf76b9de1b7b1ef32fb2f2e5d484bea3470066b"
+  },
+  "old": {
+    "path": "VALIDATION/runs/v3_20261013_portable_affine/old.parquet",
+    "sha256": "1d92145f8a6bfa2aa68ac1caf4a2a38a958c743e9f19cfb02ea75471c3a4ba5c"
+  },
+  "cv": {
+    "path": "VALIDATION/runs/v3_20261013_portable_affine/cv.parquet",
+    "sha256": "387f5fddb6bf15e9efec690cd1cbbefe1aa2d2a99cd4d84fa12bf5e605175822"
+  },
+  "final": {
+    "path": "VALIDATION/runs/v3_20261013_portable_affine/final.parquet",
+    "sha256": "dcdec1929fae6d5d591d861473cef5d03c14b85aecc470e7a8768a85d62f0c86"
+  },
+  "final_candidate": {
+    "path": "VALIDATION/runs/v3_20261013_portable_affine/final_candidate.parquet",
+    "sha256": "c97302053bc63e3a8ecc510936ba3134a932d95507aba4f8686247c65ed58389"
+  },
+  "alignments": [
+    {
+      "version": 1,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/final_v1.parquet",
+        "sha256": "50bc5c8a8ac6304e348a92c8a18fbdf2887170cd81d534597d54051f475b906f"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 4,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/final.parquet",
+        "sha256": "03a8dbd842c7851b16d8a61570f57103d64a9a047a5a366fa5a9ca13da849419"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 8,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v8/final.parquet",
+        "sha256": "15e5d36ada044c3d72b982a72343b56cc2d611a1f8612b3d275a0a94f2201cd7"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 12,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/final_v12.parquet",
+        "sha256": "174594085c4b1db5267b92cd95a3cedb0a12cca8b8d3dc516b0a0ef645b4c938"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 13,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/final_v13.parquet",
+        "sha256": "6f9c1f418f1a9e10916f09865f749a4434b10e0e27380f7037d01eec5121d8d4"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 14,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/final_v14.parquet",
+        "sha256": "d46a928e3196ad2dd11be86a93ef3535ccf125afbc934c0b47c63d8d04a58830"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 15,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/final_v15.parquet",
+        "sha256": "c3d685869bd8ae0d2412525a51be786433482905cee015d68ca28a49699bea2c"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 16,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/recovery/final_v16.parquet",
+        "sha256": "1bf12592533adf05f975eb4cb7b08a9dbef778908de470eece9a9557f14495a3"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 17,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v17.parquet",
+        "sha256": "7ed7dc2446277eb413faabe3ab6981454c3bf559af1d7bd25214a7a0b3b9cafe"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 18,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v18.parquet",
+        "sha256": "63cbe71676f57751849a5ae072df223217c7d8ff376d53b633d671aed172c7a5"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 19,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v19.parquet",
+        "sha256": "d00808768918c89e0ecf6297ed1333dab0686b546d741dbf67d6b87b5e706965"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 20,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v20.parquet",
+        "sha256": "3553ed2f5b7c06677fb8899233e25ae6fb8c94eed4b8ec35a90311e2fc5ddaff"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 21,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_overnight_replay/final_v21.parquet",
+        "sha256": "a8496b123f435240931eefa208459e5d8f6e06a6a0cdb07a2022f52624680849"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 30,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/final_v30.parquet",
+        "sha256": "24a8b0802ecac216f8bdd0f9aac3d6edb1460be3d3f61e851d135e873045bcdb"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 33,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/final_v33.parquet",
+        "sha256": "5427173eab1f829ec819e8bcff3cb511d501a23868d4eab709af4369306ebb7f"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 34,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/final_v34.parquet",
+        "sha256": "6eb67ab49ef4307fd419cedc0e57074c995ff932cd15d84036cefe479433e945"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 37,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/final_v37.parquet",
+        "sha256": "fa4b5147f9f578bbdfa5889b9984e500059308f39ffede74ba33b9c0f5938d18"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 38,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_v38_replay/final.parquet",
+        "sha256": "a261a850d1572cd5a39a736f498a81bd1018c730cb2571daee998bb863af3f84"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 518071,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 45,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_adsb_replay/final_v45.parquet",
+        "sha256": "33103db28fb2cfee60de0ab9c2a2316e151f237971036ca43600b1a080e182f0"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 46,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_adsb_replay/final_v46.parquet",
+        "sha256": "980990937a6b73296ba02a56aac7bed8df9d3505320f8159ec5ebb539513bf49"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 54,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v54.parquet",
+        "sha256": "e75e9127604402c600e2533d44220dde9bafe672c8b6aa31fa22fb00aa8759db"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 56,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/final_v56.parquet",
+        "sha256": "408c225b07ffef57d2e8d1586a12b5d2cff24452ab5b8cf9b6b5121630d3a05f"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 57,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v57.parquet",
+        "sha256": "cb5e47a473825432bd6904e2da03b1fee225e6c1e0801b4c9feb814b79fd469d"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 58,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v58.parquet",
+        "sha256": "5756805e1e4ed4e6106dd507c71d51d022e1aa6b528db4430dec1b19e68d508b"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 60,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final_v60.parquet",
+        "sha256": "fff9ffab19b78ddeb207c99dad130af7e9aa7b60e9daa80540bb2b437525d726",
+        "bytes": 9161128
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 61,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_weather_inference/final_v61.parquet",
+        "sha256": "43562c320733942736fcc2a66488d12556f9196da14cd6311a3250b5ff0c64e3",
+        "bytes": 9640315
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 64,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v64.parquet",
+        "sha256": "095e02a5d6b9f73bb7242e80e50b5530269418a230a19964181f8ce460ec99b6"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    },
+    {
+      "version": 70,
+      "input": {
+        "path": "VALIDATION/runs/v3_20261012_final_legacy_modern_replay/final_v70.parquet",
+        "sha256": "2d6246894d84a265ad3e537cd9444038158caefb0838ef76e76a087b6443c229"
+      },
+      "id_column": "mvt_id",
+      "value_column": "submitted",
+      "rows": 670790,
+      "reordered_rows": 0,
+      "unique_ids": true,
+      "exact_id_set": true
+    }
+  ],
+  "summary_only_recalculated": true,
+  "change": "Unique-ID checked final alignment only",
+  "reuse": [
+    "original identity",
+    "one saved weight solve",
+    "old predictions",
+    "CV predictions"
+  ],
+  "metrics": "Recalculate lost summary from saved CV arrays; original summary was not persisted",
+  "numerical": "Original float64 matrix product and original serialization",
+  "no_solve": true,
+  "no_fit": true,
+  "no_model_inference": true,
+  "no_old_or_cv_prediction_recompute": true,
+  "no_upload": true
+}

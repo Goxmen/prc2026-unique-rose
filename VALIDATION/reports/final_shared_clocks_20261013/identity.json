@@ -1,0 +1,21 @@
+{
+  "source": {
+    "path": "VALIDATION/tools/diagnose_final_shared_clocks_20261013.py",
+    "sha256": "4ad173b267fb5190ed4cefbdc5637a57b6bdad10860185205a037e13093c60aa"
+  },
+  "inputs": {
+    "ranking": {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    "final_ranking": {
+      "path": "data/final_ranking.parquet",
+      "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+    }
+  },
+  "scope": "All shared IDs, field changes by phase, visible arrival target transform only",
+  "no_departure_target": true,
+  "no_model": true,
+  "no_candidate": true,
+  "no_selection": true
+}

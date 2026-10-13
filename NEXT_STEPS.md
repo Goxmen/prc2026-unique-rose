@@ -1,3 +1,14 @@
+**October13,08:32 Amsterdam: portable final base audited; new crossfit gate fails.**
+Best remains v80 at218.8525. All five daily slots are unused; last slot reserved.
+Thirty historical components are audited. Fixed28-component portable base now
+passes all old/CV/final checks after one exact ID reorder, with the one solve and
+old/CV arrays retained. Its CV297.0201 is worse thanv80; it is not selected.
+Only its previously frozen public correction chain is being evaluated next.
+Honest posterior-aware six-prior screen finishes (+0.1618s vs v80, both months
+worse); all models returned, independent result audit pending, no expansion.
+Shared old/final source clocks show opposite arrival perturbations within1s;
+source-only final-overlap transport assessment is new and unselected. No uploads.
+
 **October13,07:49 Amsterdam: resumed; final daily slot reserved.**
 Live best/latest remains v80 at218.8525, rank9/246. All five UTC-day slots are
 available; reserve the last for the strongest validated candidate, as requested

@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-10-13T06:17:37.106866+00:00",
+  "updated_at": "2026-10-13T06:32:45.528222+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-13T05:49:16Z",
   "slots_remaining": 5,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 51,
+  "hypotheses": 52,
   "desktop": {
-    "stage": "cohort_prefit_independent_audit",
+    "stage": "portable_public_source_prefit_review",
     "owner": "new_signal_audit",
-    "checked_at": "2026-10-13T06:17:37.106866+00:00"
+    "checked_at": "2026-10-13T06:32:45.528222+00:00"
   },
   "next": [
-    "Complete final-only affine alignment/audit without repeating solve or old/CV predictions",
-    "Build fixed portable public-source correction chain and score Jan/Jul",
-    "Launch six fixed source-blind crossfit priors only after independent prefit audit",
-    "Keep final daily slot reserved; choose best validated model after promising experiments resolve"
+    "Run predeclared portable public-source CV after independent source audit",
+    "Audit fixed posterior-aware failure; no expansion or production",
+    "Assess explicit same-flight final clock transport separately; hidden departure transform unobserved",
+    "Compare final candidates and protect last daily slot; no upload queued"
   ],
   "native_goal_status": "active",
   "active_research": [
@@ -38,9 +38,9 @@
     }
   ],
   "laptop": {
-    "stage": "awaiting_independent_prefit_audit",
-    "owner": "cohort_learning",
-    "checked_at": "2026-10-13T06:17:37.106866+00:00"
+    "stage": "idle_after_closed_posterior_screen",
+    "owner": null,
+    "checked_at": "2026-10-13T06:32:45.528222+00:00"
   },
   "duration_result": {
     "cv": {
@@ -113,11 +113,6 @@
       68,
       70
     ],
-    "excluded_mappings": [
-      12,
-      13,
-      15
-    ],
     "additional_receipts": [
       "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/result.json",
       "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/independent_audit.json",
@@ -131,7 +126,12 @@
       "path": "VALIDATION/runs/v3_20261012_final_basis_catalog/partial_30.json",
       "sha256": "0025e880f0de6b7f77556381a1848104a8ebe1c5dbd72407fb603488e7aa79e3"
     },
-    "excluded_mappings_note": "Historical failed substitutions only; v12/v13/v15 later recovered by exact separately audited recipes"
+    "excluded_mappings_note": "Historical failed substitutions only; v12/v13/v15 later recovered by exact separately audited recipes",
+    "historical_excluded_mappings": [
+      12,
+      13,
+      15
+    ]
   },
   "depth3_completion": {
     "state": "complete",
@@ -251,6 +251,27 @@
     "audit": {
       "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/audit.json",
       "sha256": "75353017a80bb13ea006302fa68f9d5b8e1a4dc16697415cc42c155187ff0172"
+    }
+  },
+  "portable_affine_base": {
+    "status": "audited_base_not_selected",
+    "result": {
+      "path": "VALIDATION/runs/v3_20261013_portable_affine/result.json",
+      "sha256": "42558e43fe184b75ccedc91b6ea142591587526047ae75a101c2fd0b542acd5c"
+    },
+    "audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_affine/independent_audit.json",
+      "sha256": "ae6f009948a74d9e6f36fae45b008b989a5fb5a2ad7f61c9d4fd9fc024dd1d82"
+    }
+  },
+  "posterior_aware_screen": {
+    "status": "gate_failed_independent_audit_pending",
+    "cv_change_v80": 0.161775,
+    "both_months_worse": true,
+    "no_expansion": true,
+    "result": {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/result.json",
+      "sha256": "00613f1ff2966d709f33db4b89d534a0484b724aaa42688c6fea82187ec36426"
     }
   }
 }

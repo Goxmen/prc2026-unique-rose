@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T06:17:37.106866+00:00",
+  "updated_at": "2026-10-13T06:32:45.528222+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 5,
     "repository": "PRIVATE verified 2026-10-13",
-    "laptop": "Idle awaiting prefit audit; calibration and incremental-gradient gates pass",
-    "desktop": "Independent cohort prefit audit; cached direct packet complete",
+    "laptop": "Idle; posterior-aware fixed gate failed, returned artifacts awaiting final audit",
+    "desktop": "Idle; portable public assembler independent preflight in preparation",
     "native_goal_status": "active",
     "used_utc_day_slots": 0,
     "slot_date_utc": "2026-10-13",
@@ -974,13 +974,34 @@
           "sha256": "2119af45fd04f9e172a3a0c20fae7e62dbf782256e5d69e3b8c35ae8fb7adb69"
         }
       ]
+    },
+    {
+      "id": "portable_affine_final_base_20261013",
+      "hypothesis": "Explicitly exclude unavailable components and solve one retained28-vector final-portable ensemble",
+      "status": "audited_base_not_selected",
+      "conclusion": "All old/CV/final arithmetic and IDs audited; one final component required exact keyed reorder. CV worse thanv80; await only predeclared public correction chain. No missing model silently replaced.",
+      "metrics": {
+        "cv": 297.0200759792034,
+        "change_v80": 7.257297768912778,
+        "leaderboard_conditioned_projection": 226.87232818993232
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_affine/result.json",
+          "sha256": "42558e43fe184b75ccedc91b6ea142591587526047ae75a101c2fd0b542acd5c"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_affine/independent_audit.json",
+          "sha256": "ae6f009948a74d9e6f36fae45b008b989a5fb5a2ad7f61c9d4fd9fc024dd1d82"
+        }
+      ]
     }
   ],
   "next": [
-    "Complete final-only affine alignment/audit without repeating solve or old/CV predictions",
-    "Build fixed portable public-source correction chain and score Jan/Jul",
-    "Launch six fixed source-blind crossfit priors only after independent prefit audit",
-    "Keep final daily slot reserved; choose best validated model after promising experiments resolve"
+    "Run predeclared portable public-source CV after independent source audit",
+    "Audit fixed posterior-aware failure; no expansion or production",
+    "Assess explicit same-flight final clock transport separately; hidden departure transform unobserved",
+    "Compare final candidates and protect last daily slot; no upload queued"
   ],
   "active_research": [
     {
@@ -1002,14 +1023,14 @@
   ],
   "machine_allocation": {
     "desktop": {
-      "stage": "cohort_prefit_independent_audit",
+      "stage": "portable_public_source_prefit_review",
       "owner": "new_signal_audit",
-      "checked_at": "2026-10-13T06:17:37.106866+00:00"
+      "checked_at": "2026-10-13T06:32:45.528222+00:00"
     },
     "laptop": {
-      "stage": "awaiting_independent_prefit_audit",
-      "owner": "cohort_learning",
-      "checked_at": "2026-10-13T06:17:37.106866+00:00"
+      "stage": "idle_after_closed_posterior_screen",
+      "owner": null,
+      "checked_at": "2026-10-13T06:32:45.528222+00:00"
     }
   }
 }
