@@ -6,7 +6,13 @@ offline export/replay tool. The latter has extensive retained source and run
 records, but has not been demonstrated in a fresh clone and must not be described
 as a verified one-command rebuild.
 
-The accepted final at the time of this release preparation is v83, uploaded as
+The current accepted artifact and replay route are recorded in
+[selected final status](../release/SELECTED_FINAL.md). A user-run
+[full v80 refit](../tools/v80_refit/README.md) is prepared separately; it updates
+that record after successful final delivery. The v83 instructions below remain
+the historical replay route and must not be used to claim replay of a replacement.
+
+The accepted final at the time of the original release preparation was v83, uploaded as
 `unique-rose_final.parquet`, with 670,790 January, February, June and July 2026
 departures. Its SHA-256 is
 `f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.

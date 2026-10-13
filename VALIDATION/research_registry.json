@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T20:06:09.407370+00:00",
+  "updated_at": "2026-10-13T20:54:14.664821+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -1624,7 +1624,7 @@
     {
       "id": "four_month_reduced_three_manual_20261013",
       "category": "validation_protocol_amendment",
-      "status": "ready_for_user_manual_distributed_launch",
+      "status": "superseded_by_user_actual_recipe_request",
       "candidates": [
         "C05",
         "C07",
@@ -1658,11 +1658,64 @@
       "research_loop_resumed": false,
       "submissions": false,
       "updated_at": "2026-10-13T20:06:09.407370+00:00"
+    },
+    {
+      "id": "v80_manual_refit_final_20261013",
+      "status": "ready_for_user_launch",
+      "updated_at": "2026-10-13T20:54:14.664821+00:00",
+      "command": ".venv/bin/python -u tools/v80_refit/run.py run --threads 4",
+      "scope": "Full v80 fixed recipe final refit and replacement, explicitly selected by user",
+      "retained_versions": 30,
+      "missing_tree_versions": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        26,
+        27,
+        28,
+        29,
+        43,
+        44
+      ],
+      "tree_fits": 13,
+      "neural_trajectories": 31,
+      "neural_versions": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        53
+      ],
+      "basis_components": 51,
+      "required_local_files": 211,
+      "missing_local_files": [],
+      "hosts": {
+        "desktop": "trees then assembly, packaging, delivery",
+        "laptop": "original neural trajectories"
+      },
+      "tests": {
+        "v80_refit_offline": 47,
+        "existing_release_offline": 23
+      },
+      "production_executed": false,
+      "uploaded": false,
+      "training_logs_inspected": false,
+      "four_month_validation_run": false,
+      "existing_final": "accepted v83 remains unchanged until user runs command",
+      "repository_private_verified": true,
+      "laptop_online_verified": true,
+      "historical_source_caveat": "Exact v3/v5-v9 modeling.py absent; archived original27 implementation with recorded features/filter/rounds/seeds. Fresh GPU weights may differ; no exact historical weight/prediction or new RMSE claim.",
+      "replay_scope": "Byte-exact component assembly audited at runtime, not a verified raw-data clean-clone training rebuild",
+      "report": "VALIDATION/reports/v80_manual_refit_setup_20261013.json",
+      "category": "manual_final_refit_setup"
     }
   ],
   "next": [
-    "Wait for explicit user command to resume",
-    "Read saved state; if authorized resume, audit existing ARR preparation before any fixed fit. Never repeat completed target recovery."
+    "Await user launch of fixed v80 recipe final refit command."
   ],
   "active_research": [
     {

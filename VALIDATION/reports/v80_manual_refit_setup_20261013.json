@@ -1,0 +1,68 @@
+{
+  "id": "v80_manual_refit_final_20261013",
+  "status": "ready_for_user_launch",
+  "updated_at": "2026-10-13T20:54:14.664821+00:00",
+  "command": ".venv/bin/python -u tools/v80_refit/run.py run --threads 4",
+  "scope": "Full v80 fixed recipe final refit and replacement, explicitly selected by user",
+  "retained_versions": 30,
+  "missing_tree_versions": [
+    2,
+    3,
+    5,
+    6,
+    7,
+    9,
+    26,
+    27,
+    28,
+    29,
+    43,
+    44
+  ],
+  "tree_fits": 13,
+  "neural_trajectories": 31,
+  "neural_versions": [
+    47,
+    48,
+    49,
+    50,
+    51,
+    53
+  ],
+  "basis_components": 51,
+  "required_local_files": 211,
+  "missing_local_files": [],
+  "hosts": {
+    "desktop": "trees then assembly, packaging, delivery",
+    "laptop": "original neural trajectories"
+  },
+  "tests": {
+    "v80_refit_offline": 47,
+    "existing_release_offline": 23
+  },
+  "production_executed": false,
+  "uploaded": false,
+  "training_logs_inspected": false,
+  "four_month_validation_run": false,
+  "existing_final": "accepted v83 remains unchanged until user runs command",
+  "repository_private_verified": true,
+  "laptop_online_verified": true,
+  "historical_source_caveat": "Exact v3/v5-v9 modeling.py absent; archived original27 implementation with recorded features/filter/rounds/seeds. Fresh GPU weights may differ; no exact historical weight/prediction or new RMSE claim.",
+  "replay_scope": "Byte-exact component assembly audited at runtime, not a verified raw-data clean-clone training rebuild",
+  "source_sha256": {
+    "tools/v80_refit/assemble.py": "8752a9e148ab19c2e286777e12e9600eb8c16af5f8b7196580a3697f89a13666",
+    "tools/v80_refit/host.py": "aa5b0fe3ed9b1b643de08ceca98bb741bec647c976c88f7fa7e094d2c61f36d7",
+    "tools/v80_refit/neural.py": "7cc14822e3c28884ad070274d9d1a78d932f8c5cc728bcca637b27f2569817df",
+    "tools/v80_refit/package.py": "4f978a7566d3fc4d4db6fce636cce83806d8cfbbaae64be05235ee92349dfe56",
+    "tools/v80_refit/refit_io.py": "1576b9c8b2cf494b9ab63acb74f9753e4668dc4cd527c09c76b632467558b1e8",
+    "tools/v80_refit/replay.py": "a413932c08e1db78a3b5a24490a952367411fcd3b145ebef21cd127a499bbbe3",
+    "tools/v80_refit/run.py": "efeac2509bd098d6273ff0a53cdd1333dbafdfd8b4dc8e90999201bb05452a36",
+    "tools/v80_refit/test_assemble.py": "cb964f5411db263babb0e41578f64c0902901305e525d88ab58ecbc6d7b30f50",
+    "tools/v80_refit/test_neural.py": "2b8b7afdd4ef3dd2b7d469f1aa7166908d101e36f7f3c1e042332d9660749f26",
+    "tools/v80_refit/test_package.py": "c1f567d74e06e3b0964b6a4031bdc5f35cef64bd22184a1c71576ecaacc32c8b",
+    "tools/v80_refit/test_runner.py": "59e1d631391d37b7e01498ab035831c6a513dabde199b4ef4e22e182e71c9c7d",
+    "tools/v80_refit/test_trees.py": "b728b45f9c43afe4b05ca1086dad9a904d0bbb26bfd7313432e2470bae3d7d94",
+    "tools/v80_refit/trees.py": "933fa09c92070609dce448d35f69962be94aea8b0a9a370aaa13152998549055",
+    "tools/v80_refit/upload.py": "21a07105d81dd0d8eab7726464d6a64ea0099f6b8155567c261dd13728deb9b8"
+  }
+}

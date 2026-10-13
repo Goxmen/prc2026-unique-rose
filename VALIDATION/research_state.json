@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T20:06:09.407370+00:00",
+  "updated_at": "2026-10-13T20:54:14.664821+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
@@ -8,13 +8,13 @@
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 69,
   "desktop": {
-    "stage": "manual_validation_ready_idle",
+    "stage": "manual_v80_refit_ready_idle",
     "owner": null,
-    "checked_at": "2026-10-13T20:06:09.407370+00:00"
+    "checked_at": "2026-10-13T20:54:14.664821+00:00"
   },
   "next": [
-    "Wait for explicit user command to resume",
-    "Read saved state; if authorized resume, audit existing ARR preparation before any fixed fit. Never repeat completed target recovery."
+    "User runs the v80 manual refit command. No production execution or upload by setup agent.",
+    "Keep general research loop paused. Preserve accepted v83 until new candidate passes delivery checks."
   ],
   "native_goal_status": "paused",
   "active_research": [
@@ -35,9 +35,9 @@
     }
   ],
   "laptop": {
-    "stage": "manual_validation_ready_idle",
+    "stage": "online_manual_v80_refit_ready",
     "owner": null,
-    "checked_at": "2026-10-13T20:06:09.407370+00:00"
+    "checked_at": "2026-10-13T20:54:14.664821+00:00"
   },
   "duration_result": {
     "cv": {
@@ -595,7 +595,7 @@
     "no_submission_queued": true
   },
   "manual_validation": {
-    "status": "ready_for_user_manual_distributed_launch",
+    "status": "superseded_by_exact_v79_v80_v83_request",
     "report": "VALIDATION/reports/final_month_selection_setup_20261013.json",
     "command": ".venv/bin/python -u tools/final_selection/run_distributed.py",
     "automatic_execution": false,
@@ -632,7 +632,9 @@
     "logs_inspected": false,
     "research_loop_resumed": false,
     "submissions": false,
-    "updated_at": "2026-10-13T20:06:09.407370+00:00"
+    "updated_at": "2026-10-13T20:06:09.407370+00:00",
+    "superseding_review": "VALIDATION/reports/exact_recipe_four_month_review_20261013.json",
+    "replacement_runner_ready": false
   },
   "release_preparation": {
     "status": "private_draft_uploaded_verified",
@@ -649,5 +651,56 @@
     "public_release_not_before_utc": "2026-10-14T10:00:00Z",
     "publication_timer": "release/publication_timer.json",
     "publication_status": "armed_waiting_for_deadline"
+  },
+  "manual_v80_refit": {
+    "id": "v80_manual_refit_final_20261013",
+    "status": "ready_for_user_launch",
+    "updated_at": "2026-10-13T20:54:14.664821+00:00",
+    "command": ".venv/bin/python -u tools/v80_refit/run.py run --threads 4",
+    "scope": "Full v80 fixed recipe final refit and replacement, explicitly selected by user",
+    "retained_versions": 30,
+    "missing_tree_versions": [
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      26,
+      27,
+      28,
+      29,
+      43,
+      44
+    ],
+    "tree_fits": 13,
+    "neural_trajectories": 31,
+    "neural_versions": [
+      47,
+      48,
+      49,
+      50,
+      51,
+      53
+    ],
+    "basis_components": 51,
+    "required_local_files": 211,
+    "missing_local_files": [],
+    "hosts": {
+      "desktop": "trees then assembly, packaging, delivery",
+      "laptop": "original neural trajectories"
+    },
+    "tests": {
+      "v80_refit_offline": 47,
+      "existing_release_offline": 23
+    },
+    "production_executed": false,
+    "uploaded": false,
+    "training_logs_inspected": false,
+    "four_month_validation_run": false,
+    "existing_final": "accepted v83 remains unchanged until user runs command",
+    "repository_private_verified": true,
+    "laptop_online_verified": true,
+    "replay_scope": "Byte-exact component assembly audited at runtime, not a verified raw-data clean-clone training rebuild"
   }
 }

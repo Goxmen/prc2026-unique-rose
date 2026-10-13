@@ -90,6 +90,11 @@ lbstack_G.npy
 /release/bundles/
 /release/reproduced/
 
+# Manual v80 runner: host coordination and preserved synchronization backups.
+/VALIDATION/runs/v80_manual_host.lock
+/VALIDATION/runs/v3_20261013_v80_refit_final/sync_backup/
+/VALIDATION/runs/v3_20261013_v80_refit_final/return_backup/
+
 # Research artifacts can also be written directly under a run, outside models/.
 # Keep source/configuration/receipts, but never accidentally stage large caches.
 VALIDATION/runs/**/*.pkl

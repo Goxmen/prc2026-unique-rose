@@ -159,10 +159,12 @@ def main():
     parser.add_argument('--policy', type=Path, default=ROOT / 'release/publication_schedule.json')
     parser.add_argument('--receipt', type=Path, default=ROOT / 'release/artifacts/publication.json')
     args = parser.parse_args()
-    policy = json.loads(args.policy.read_text())
     args.receipt.parent.mkdir(parents=True, exist_ok=True)
     with args.receipt.with_suffix('.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        # A selected-final replacement updates this policy under the same lock.
+        # Read after acquiring it so a waiting publisher cannot use an old draft.
+        policy = json.loads(args.policy.read_text())
         try:
             result = preflight(policy) if args.command == 'check' else publish(policy, args.receipt)
             if args.command == 'check':

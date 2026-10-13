@@ -1,0 +1,34 @@
+{
+  "updated_at": "2026-10-13T20:19:01.964464+00:00",
+  "requested_candidates": [
+    "v79",
+    "v80",
+    "v83"
+  ],
+  "status": "source_review_complete_exact_four_fold_runner_not_ready",
+  "manual_execution_only": true,
+  "training_started": false,
+  "logs_inspected": false,
+  "frozen_recipe_weights": true,
+  "folds": "Jan/Feb/Jun/Jul2025; heldmonth plus adjacentmonths excluded",
+  "metric_recommendation": "pooled_all_row_RMSE_primary; permonth,mean4,FebJun_secondary",
+  "findings": {
+    "v79": "51 nonzero historical submission-vector affine mixture; at least four distinct15memberneuralpools before other dependencies",
+    "v80": "v79 plus threeTabM and robust same-date-runway deltas; share exact components",
+    "v83": "fold-safe v80teacher+28recovered studentcomponents+v82anchor; production distills on original unlabeled2026ranking pool; same-month CV adaptation is not same transferprotocol",
+    "reconstruction_gap": "legacy_raw_jan_jul.frozen_backend explicitly substitutes archived original27 backend because originalv3-v9 modeling source absent",
+    "reuse": "originalJan trainMar-Nov potentiallyreusable only after exactlineagechecks; originalJuly notsame9monthsplit",
+    "deadline": "2026-10-14T10:00:00Z; full validation+production runtime not established",
+    "current_C_runner": "does not implement requested v79/v80/v83comparison; superseded, do not launch for this request"
+  },
+  "sources": [
+    "VALIDATION/final_selected_stack.py",
+    "VALIDATION/legacy_raw_jan_jul.py",
+    "VALIDATION/modern_prediction_replay.py",
+    "VALIDATION/open_meteo_jan_jul.py",
+    "VALIDATION/portable_v80_distill_20261013.py",
+    "VALIDATION/portable_public_source_20261013.py",
+    "VALIDATION/runs/v3_20261012_target205_candidate/submission_v79/manifest.json"
+  ],
+  "next": "Resolve exact historical reconstruction and full fold-safe dependency/runtime inventory before providing any training command; no proxy substitutions"
+}
