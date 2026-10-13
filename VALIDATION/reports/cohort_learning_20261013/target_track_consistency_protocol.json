@@ -1,0 +1,249 @@
+{
+  "status": "frozen_design_pending_independent_review_and_implementation",
+  "version": 1,
+  "hypothesis": "Frozen-teacher track-view consistency on unlabeled target-month input rows can reduce prediction sensitivity to track sampling on the target input distribution while original supervised examples anchor the predictive function.",
+  "mechanism": "Transductive target-input branch regularization; not complete sparse-observation domain adaptation, new sensor data, teacher reconstruction as an evaluation goal, or timestamp invariance.",
+  "novelty": {
+    "search": "Research index and registry checked before design: consistency indexed only unrelated data-integrity checks; distillation and multitask absent; inspected actual nearest scripts and reports, not absence alone.",
+    "closest_closed": "nn_track_dropout.py withheld the entire raw-track branch on25% of supervised training rows, retained source descriptors and had no target-input consistency loss. Its matched CV worsened0.353446s and serialized transfer0.334847s; no reopening or labeldropout relabeling.",
+    "other_exclusions": [
+      "Parameter EMA averaged an existing supervised trajectory; this freezes a teacher and adds a new target-input objective.",
+      "Track-boundary auxiliary loss used allowed per-point offblock supervision; no new offblock labels here.",
+      "Full-day/local cohort context, airport heads, duration, depth, attention/recurrent alternatives, odds recalibration and posterior-aware training remain closed.",
+      "Target-nearest subset training was already tested; no density-matched retraining or teacher-only final portability claim."
+    ],
+    "sources": [
+      {
+        "path": "VALIDATION/nn_track_dropout.py",
+        "sha256": "d4e08b2b6a6dbfcf6b78a389d25d885d85ef9f9a1b8be3d61aa4047048896bce",
+        "bytes": 5545
+      },
+      {
+        "path": "VALIDATION/nn_weight_average.py",
+        "sha256": "bf1f71d8d3de53a1ebb02df2f870c67f9e4a5b510b7193b71f2ed27c04b66966",
+        "bytes": 4514
+      },
+      {
+        "path": "VALIDATION/nn_track_boundary.py",
+        "sha256": "f208f58513a5ea982b20c1a89addfa90805b2064aba8868c587b9d01efef4e02",
+        "bytes": 4868
+      },
+      {
+        "path": "VALIDATION/similar_rows_jan_jul.py",
+        "sha256": "7269f250f5f0b20fa729d7df7db8fdc8c64b908d74c935b853c035b802837275",
+        "bytes": 21549
+      },
+      {
+        "path": "VALIDATION/reports/remaining_mechanism_scout_20261012.json",
+        "sha256": "0f8617ccb36c8ac4ba73ae8a0f1934e7723ccfd72cfad5074340f342ab432692",
+        "bytes": 3505
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261011_nn_track_dropout/result.json",
+        "sha256": "1148231fe9c6519730ab21dadff6a614b378d9d1059bd8f43b7ee8d3f232309e",
+        "bytes": 9033
+      },
+      {
+        "path": "VALIDATION/research_registry.json",
+        "sha256": "b2f592305a0dda1f240ca3ee693c4dc53995d2435fce0dbcf3779e10aef8f0e1",
+        "bytes": 45346
+      }
+    ]
+  },
+  "evidence": {
+    "coverage_source": {
+      "path": "VALIDATION/reports/research_network_20261010/sparse_submit_coverage.json",
+      "sha256": "276078ccf6863b81089f809d5b7c351ce71ac58a61f1bda81e196b5fe5f819c6",
+      "bytes": 102169
+    },
+    "checkpoint_source": {
+      "path": "VALIDATION/reports/cohort_learning_20261013/track_consistency_source_feasibility.json",
+      "sha256": "af1e746e9768d82de933c29999f2b10357ca43ea3f7c3497b3d5e1d0304305bf",
+      "bytes": 3061
+    },
+    "input_shift": {
+      "all_airport_2025_JanJul_usable": 0.7993635658892222,
+      "all_airport_2026_JanJul_usable": 0.8330128957983535,
+      "all_airport_2025_JanJul_any_ground": 0.5310334215011367,
+      "all_airport_2026_JanJul_any_ground": 0.7042173059467987,
+      "ground_share_changes_2026_minus_2025": {
+        "EDDM_July": 0.6099943040412896,
+        "EGLL_January": 0.46235675378380864,
+        "EGLL_July": 0.6550763146326701
+      }
+    },
+    "limits": [
+      "Observed deployment shift increases ground-track coverage at several airports; thinning is not a proven matching transform for that shift.",
+      "Marginal input shift does not establish conditional error shift, reliable teacher targets, or any expected score gain.",
+      "Sparse/no-track LTFM and January Rome cannot directly benefit from this track-view perturbation.",
+      "Historical v58 subset-error diagnostics are not current-v80 headroom and are not used for selection."
+    ],
+    "model_state": "Both seed42 checkpoints contain a learned finite20,000-parameter raw-track path, including nonzero physics stem. They retain weights/curve/design/identity only; no optimizer or scheduler state exists."
+  },
+  "outer_protocol": {
+    "folds": {
+      "2025-01": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "2025-07": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ]
+    },
+    "parent": "Retained original public TabM seed42, January21/July17epochs; other pool members1042/2042 unchanged. Every arm starts the same retained state, no warm restart from a newly scored arm.",
+    "scope": "Allowed training labels only in supervised objective. Held-month features and raw tracks only in target consistency. No held labels in teacher, preprocessing, consistency, stopping, masks or updates.",
+    "label_firewall": "Prepared held input packet contains only IDs/month/features/track-row references. Parent ChunkedDirectData presently reads raw.taxi_sec even though training does not use yv: new runner must provide an all-NaN placeholder or a reviewed input-only adapter, assert yv entirelyNaN, and project metadata without reading held taxi_sec. Scoring process alone loads original truth after all six states and predictions are immutable.",
+    "preprocessing": "Exactly retained outer training-only encoder/category maps/PLE bins and target mean/std, original156 features plus unchanged12 public features and physical track transforms. No target-fitted scaler/category extension/source calibration.",
+    "teacher": "Frozen retained model in eval mode, unperturbed full inputs, arithmetic mean of32 heads in original standardized target units, no nonnegative clipping. Cache float32 mean once per required unique row. Full held seconds=max(0,mean*sd+mu), originalfloat32 export must exactly replay original predictions before updates. Teacher requires_gradFalse and hash unchanged afterward.",
+    "arms": [
+      {
+        "name": "supervised_control",
+        "consistency_pool": null,
+        "purpose": "One retained two-epoch continuation control per outer fold, reused exactly in all comparisons."
+      },
+      {
+        "name": "training_consistency",
+        "consistency_pool": "Allowed training input rows with at least3 retained track points",
+        "purpose": "Generic branch consistency control; same target-free teacher but these rows were in teacher training. This in-sample/out-of-sample teacher difference limits mechanistic interpretation."
+      },
+      {
+        "name": "target_consistency",
+        "consistency_pool": "Outer-held month input rows with at least3 retained track points",
+        "purpose": "Sole candidate arm; transductive input adaptation without held labels."
+      }
+    ],
+    "epochs": 2,
+    "optimizer": {
+      "type": "AdamW",
+      "learning_rate": 3e-05,
+      "weight_decay": 0.0003,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "amsgrad": false,
+      "schedule": "constant",
+      "fresh_state": "All arms reset optimizer identically because parent optimizer unavailable; this is a controlled new low-rate continuation, not exact original optimizer continuation."
+    },
+    "supervised": {
+      "effective_batch": 2048,
+      "microbatch": 512,
+      "loss": "Original mean squared error over rows AND32 individual heads against training target clipped10800s and original standardization. Actual-row-count microbatch weights. Same full training permutation and dropout RNG for all arms.",
+      "seed": 42,
+      "updates": "2*ceil(training_rows/2048), no early stopping or held monitoring"
+    },
+    "consistency": {
+      "weight": 1.0,
+      "batch": 512,
+      "loss": "MSE(student arithmetic32-head mean on thinned track view, cached frozen teacher arithmetic32-head full-input mean), standardized units, no clipping, gradient through student only.",
+      "mode": "Student eval mode for the extra differentiable forward; preserve and restore every module training flag and CPU/CUDA RNG states. Supervised pass uses original train mode and dropout. No extra train/dropout RNG consumption.",
+      "sampling": "Separate NumPy PCG64 generator seed20261013 per outer arm. Shuffle all eligible row indices, draw512 per logical supervised update, wrap and reshuffle whenever exhausted. Identical fixed batch count for both consistency arms; no empty pool permitted. Two epochs share sampler progression.",
+      "order": "Accumulate original supervised loss across microbatches, then add one512row consistency mean with coefficient1, then one shared optimizer step. Supervised control skips the extra forward entirely. No separate consistency optimizer or extra update.",
+      "controls": "Zero-weight routing must exactly match supervised-control original outputs, gradients, RNG and first update; do not rerun an identical supervised fit for each comparison."
+    }
+  },
+  "perturbation": {
+    "mapping": "For n>=3 encoded valid slots in original time order, k=max(2,ceil(n/2)); select indices floor(j*(n-1)/(k-1)) for j=0..k-1. Compact selected complete16-channel rows to leading slots, zero padding, mask firstk. n<3 unchanged and excluded from consistency pool. Deterministic, no random mask or search.",
+    "quality": "Set retained_slots_fraction=k/128 only. Keep original raw_count/raw_span/raw_ground_fraction and clock/geometry/source-file-known indicators: they describe the same complete source packet; original encoding already differentiates raw count and retained slots. Do not assert source files are absent.",
+    "point_semantics": "Selected time/position/speed/altitude/known bits/clock values unchanged. preceding_gap remains the preceding ORIGINAL RAW observation gap, not the newly sampled gap. Existing physical_features recomputes sampled adjacency/motion from compacted selected timestamps and coordinates.",
+    "full_information": "All original tabular summaries and other source quality features remain visible. This trains robustness of the raw-track branch representation with the rest of the observed flight unchanged. It does not withhold all information from removed points.",
+    "prohibitions": "No movement/block timestamp perturbation, flight identity change, label adjustment, synthetic ground points, airport/month-specific masks, or final-arrival2delta assumption."
+  },
+  "validation": {
+    "prediction": "After all six fits, eval mode and exact original unperturbed full inputs, original512 inference chunks. Save state before diagnostics; every full held vector must reload bitwise exactly.",
+    "transport": "Use the existing audited one-of-three selected-pool native component replay: v80_integer + serialized_new_threeTabM_component - serialized_original_threeTabM_component, then max0 and round_even once. Do this separately for all three arms. Other members, public/airport/month/day/runway corrections and all bounds/rounding remain fixed.",
+    "primary": "target_consistency versus actual exactv80, not versus only a weakened continuation or reconstruction loss.",
+    "required_gate": [
+      "Target arm improves both months versus actualv80 and mean CV by at least0.1s; paired-day bootstrap95% upper<0.",
+      "Target arm improves both months versus each of the two continuation controls; each paired-day bootstrap95% upper<0.",
+      "All input/source/label isolation, teacher replay, models, full predictions and independent SQL transport/score audits pass."
+    ],
+    "statistics": "Use original tuning_seasonal paired_bootstrap unchanged, same Jan/Jul rows and rounded outputs. Reused/transductive development months are exploratory, not independent confirmation.",
+    "failure": "Any gate fail closes this fixed screen: no threshold/weight/LR/mask/epochs/seed/airport retry, no promotion of the training-domain control or supervised-only control as an opportunistic candidate.",
+    "no_synthetic_cv": true,
+    "no_teacher_fidelity_selection": true
+  },
+  "implementation_prerequisites": [
+    "Independent source/design review before code and freeze; original immutable parent model/input/source provenance bound. No fit authorized by this design file alone.",
+    "Input-only row-scope check, full train/held ID disjointness, original fold months and exact scalers; held target poison/removal invariance test including parent adapter placeholder.",
+    "Synthetic thinning reference and permutation/batch/padding invariance; endpoint retention, strict slot order, no clocks changed, raw descriptors preserved except retained count; physical selected-gap recomputation checked.",
+    "Full original teacher held prediction replay and repeated teacher eval equality, cached teacher hashes, all-state initial identity, zero-weight first-update/RNG/gradient parity with deterministic check-only CuDNN scope where needed.",
+    "Nonzero finite consistency gradients, all module flags restored, supervised dropout RNG unchanged, same optimizer update count; memory preflight including train+held tensors and tracks on original512microbatch.",
+    "Allocate laptop only after independent audit and root allocation; do not sync frozen sources midfit. All retries reuse completed states/receipts and fail closed on partial fit rather than silently refitting."
+  ],
+  "data_and_cost": {
+    "reused_inputs": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/portable.json",
+      "sha256": "8938eba291928651c59ee6cad47a0a3a1d920b9ed2b35e387df11946817c1909",
+      "bytes": 23784
+    },
+    "available": "Original audited2.55GB matrices/tracks and two15MB-total model states already retained on both hosts. Exact remote cache status must be reverified from existing manifests before allocation; no new ADSB/download needed for CV.",
+    "teacher_cache": "At most3,080,853 scalarfloat32 means across both train+held folds,12.4MB plus ordered IDs/metadata; exclude ineligible rows if chosen in implementation without changing pools. No simultaneous GPU teacher+student required.",
+    "models": "Six retained continuation states ~45MB total plus curve/update receipts and prediction exports.",
+    "estimate": "Original seed42 epochs~123sJanuary/~88sJuly on same laptop. Six2epoch supervised trajectories~21min;512extra consistency rows per2048supervised rows add~3.5min if proportional. Budget30\u201340min including encoder reconstruction, teacher cache/replay, GPU preflight and audits; planning estimate, not benchmark.",
+    "resources": "One laptop GPU job, same512microbatch,2CPUthreads,8GBGPU/16GBWSL hard preflight; no heavy desktop work.",
+    "production_if_selected": "Separate reviewed continuation from full2025seed42 production teacher, same twoepochs/loss/settings and target consistency sampling over the full final670790feature rows. No new teacher-family training. Final input mix differs from development and must be disclosed. Production requires exact final public/track feature availability audit before allocation; no final predictions or fit prepared now."
+  },
+  "source_dependencies": [
+    {
+      "path": "VALIDATION/nn_public_tabm.py",
+      "sha256": "9372661a5b92ed9708e90f8c0226d1d203d868997e1e8c6ac352ac6f9f9bbc19",
+      "bytes": 4741
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_jan_jul.py",
+      "sha256": "c28cc9686c8acccd1e215e03fb6b7ee4b6a51909ae68f412ed2cd15b56b82775",
+      "bytes": 16365
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3.py",
+      "sha256": "8cdcb32da2469a7834d36110e131caeffc6a883c56c24909861a8c584b51f2e2",
+      "bytes": 13757
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_daily_cohort_score.py",
+      "sha256": "b00d5b971cb89bf26e45917f216399aa621147f498e42aff101aa08baebc40f6",
+      "bytes": 6291
+    },
+    {
+      "path": "VALIDATION/sparse_track_sequence.py",
+      "sha256": "f51a4f96dbe57fdfddb1403e82cbb14e5474a7c89418f2c96604d4862a71b22e",
+      "bytes": 13986
+    },
+    {
+      "path": "VALIDATION/sparse_track_tensors.py",
+      "sha256": "c24577d69eb13edef8b1b64f8d003f195c9ef7b4651811a1e1d3aede1d0ce906",
+      "bytes": 5940
+    },
+    {
+      "path": "VALIDATION/nn_track_physical_scales.py",
+      "sha256": "9d62084a0617054a233d08a82655d9990fb6ea153cd3861566530312f80ae998",
+      "bytes": 5373
+    },
+    {
+      "path": "VALIDATION/chunked_direct_data.py",
+      "sha256": "cb60493bac45299de25ec9a1f3ea80e39863c72e73f14be26a065aeef0a989e9",
+      "bytes": 6447
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3",
+      "bytes": 40138
+    }
+  ],
+  "decision": "One source-feasible, genuinely distinct falsifiable model screen; no evidence of gain yet and no claim it alone can reach205. No fit/inference/download or candidate generated for this design."
+}

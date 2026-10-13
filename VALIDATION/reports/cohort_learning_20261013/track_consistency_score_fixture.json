@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_track_consistency_scores_20261013.py",
+    "sha256": "a12f0277ec83c085fac5cb6ff18485b9d1f4334ee5eda2c57c937e6855ffb430"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_track_consistency_scores_20261013.py",
+    "sha256": "c6c9dbd87343a4d66ffb290b055fcb08ea1fb34b2181a3f23c14d744f3799693"
+  },
+  "scorer": {
+    "path": "VALIDATION/nn_public_tabm_track_consistency_score.py",
+    "sha256": "560a564cfcedc2a4cb0024b54616a1c401e6b2865b7299ff3240140a5d5bf193"
+  },
+  "SQL_statements_parsed": 5,
+  "synthetic_rows": 8,
+  "all_three_transports_and_original_controls_exact": true,
+  "corrupted_original_controls_rejected": true,
+  "nonnegative_nearest_even_fixture": true,
+  "unsorted_first_occurrence_day_order_exact": true,
+  "independent_raw_group_bootstrap_2000_draws_exact": true,
+  "gate_minimum_both_months_all_three_references_checked": true,
+  "no_real_data_no_fit_no_inference": true
+}

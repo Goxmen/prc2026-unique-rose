@@ -1,0 +1,19 @@
+{
+  "status": "reviewed_two_operational_hardening_suggestions",
+  "source": {
+    "path": "VALIDATION/tools/run_track_consistency_stage_20261013.py",
+    "sha256": "30cb68bce85e675d6c8534ed87bf7ab08099f6b4254b504eff0ba1d899e554fb"
+  },
+  "sound": [
+    "Atomic exclusive execution receipt prevents duplicate same-stage dispatch and retries.",
+    "Exclusive worker log preserves evidence; no automatic resume or re-fit.",
+    "Launcher, runner, native identity and comparison identity tied to root deployment plan; fit additionally ties allocation and independent prefit receipt.",
+    "Runner itself guards frozen inputs and sources before numerical work. Nonzero child exit preserves state/logs."
+  ],
+  "suggestions": [
+    "Assert final receipt.identity equals deployment plan.identity, not only status pass.",
+    "On interruption, record child alive/poll state and PID starttime so an error state cannot imply the GPU child stopped. No automatic retry or unrelated process kill."
+  ],
+  "no_training_logic_issue": true,
+  "no_remote_dispatch": true
+}

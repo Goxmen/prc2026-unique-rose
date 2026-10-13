@@ -1,0 +1,72 @@
+{
+  "status": "provisional_advice_not_final_selection",
+  "recommendation": "If the fixed pending consistency screen fails, prefer audited shared-v80+2dt with unchanged portable v82 for new IDs, preserving explicit departure phase assumption.",
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/result.json",
+      "sha256": "1f1ef272dd79620a44339a785e1c453bbc479cc69e778731441d127a0f81334d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/audit.json",
+      "sha256": "940095032b7762e779eb0dfd97fb490d37d71eb768e117e15326d795c96ca610"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/result.json",
+      "sha256": "d4680537bc417ab38b462cd88bf1ed8647fe6fb7c524721e7dd3cd0ad60458a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/audit.json",
+      "sha256": "9a49947bbbbba84acea7cc65d8a2f9dfa84ff7d53d4fa0e7a58022342081712e"
+    },
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_numpy.json",
+      "sha256": "0f81f1a9d0081819e48cfa59b0c46749f26ec5d7155e0f108f9cd2780952ebe2"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/final_shared_clock_transport_assessment.json",
+      "sha256": "ca85e48f940e4d20e239484fdf45e5ebdb3f1a66ef839c25e094ba0c75db5b42"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_candidate/submission_v80/official_result.json",
+      "sha256": "3012d136e96382ea32a544dcc9c88c56593e06c5b52a7b96dfcd4a8d5157d242"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/official_result.json",
+      "sha256": "4de8fa76b25951adfd8e3e843b23921ff9236d01e8a015172c5bfa29f402ac96"
+    }
+  ],
+  "facts": {
+    "shared_departures": 344841,
+    "new_departures": 325949,
+    "shared_fraction": 0.5140819034273021,
+    "old_official_v80": 218.8525,
+    "old_official_v82": 221.524,
+    "old_official_margin": 2.6715,
+    "arrival_rows": 344693,
+    "arrival_residual_RMS": 0.7070319007446653,
+    "arrival_residual_support": [
+      -1,
+      0,
+      1
+    ],
+    "arrival_airports": 10
+  },
+  "conditional_statement": "Only if hidden departure db+dt has the same residual RMS as visible arrivals: pre-clamp shared RMSE <=218.8525+0.7070319007=219.5595319007. This is neither a measured departure score nor an overall-final forecast, and does not compare the changed-input portable error.",
+  "risks": [
+    "No authentic paired-departure Jan/Jul validation; arrival statistics establish only the arrival mechanism",
+    "Phase-specific hidden departure processing is observationally consistent: unchanged hidden block would require coefficient1",
+    "v82 final errors can change when inputs change; old official margin is evidence, not guaranteed final ordering",
+    "Five transported predictions require nonnegative clipping; stated triangle bound concerns pre-clamp error",
+    "48.592 percent new IDs retain the portable recipe and have no final labels"
+  ],
+  "selection_conditions": [
+    "Resolve all six continuation fits and the fixed target-only gate before finalselection",
+    "Require full final audit and immutable numerical recovery provenance",
+    "Do not tune coefficient, cohort selector, airport or month gates",
+    "Hybrid jan_jul_cv=null; fallback290.8394266979102 separately identified; never inherit v80 score as whole hybrid score"
+  ],
+  "goal205_unmet": true,
+  "no_new_data_or_label_access": true,
+  "no_source_edits": true,
+  "no_upload": true
+}

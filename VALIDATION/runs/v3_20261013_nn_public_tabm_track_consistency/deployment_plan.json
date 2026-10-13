@@ -1,0 +1,30 @@
+{
+  "authority": "/root",
+  "action": "single_attempt_preflight_then_separately_allocated_fit",
+  "created_at": "2026-10-13T07:59:54.609924+00:00",
+  "host": "glaptop-wsl",
+  "launcher": {
+    "path": "VALIDATION/tools/run_track_consistency_stage_20261013.py",
+    "sha256": "4fc55281a05e3b114c245e6e7b2df1dec702e94ba75c1fb1390ca31376b9a3b1"
+  },
+  "runner": {
+    "path": "VALIDATION/nn_public_tabm_track_consistency.py",
+    "sha256": "90d974a396edcef6b6a4de84664d71679fd98a31de321a0595a18568e9ca9119"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+    "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+  },
+  "comparison_identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+    "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
+  },
+  "inventory": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/transfer_inventory.json",
+    "sha256": "a3ad46e8e0b1ef40af8d46d2b17b174bd433ece20722829cf370aa50c3584c0f"
+  },
+  "one_heavy_job_per_host": true,
+  "no_source_edits_during_execution": true,
+  "no_automatic_retries": true,
+  "fit_requires_separate_audited_allocation": true
+}

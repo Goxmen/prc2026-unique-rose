@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/nn_public_tabm_track_consistency.py",
+    "sha256": "90d974a396edcef6b6a4de84664d71679fd98a31de321a0595a18568e9ca9119"
+  },
+  "view": {
+    "path": "VALIDATION/track_consistency_view.py",
+    "sha256": "f4cf615fdebd6e260c94831e7e02706c7949526945b014ee4b921cbfb51ecac1"
+  },
+  "protocol": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_protocol.json",
+    "sha256": "d79075487815197ddc4772df1f9143c0e8e4e8d1ec29dbb031886cfb2cbaf646"
+  },
+  "score": {
+    "path": "VALIDATION/nn_public_tabm_track_consistency_score.py",
+    "sha256": "560a564cfcedc2a4cb0024b54616a1c401e6b2865b7299ff3240140a5d5bf193"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_track_consistency_prefit_20261013.py",
+    "sha256": "a0e02a23b6b645945263d6b6aa94957dabdb55278b14662fefefd406c41cb517"
+  },
+  "independent_fixture": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/track_consistency_independent_fixture.json",
+    "sha256": "14f96f76f036bd4ec0cbd4e5a18b17926090a18804014167b29c3d1177ddb033"
+  },
+  "runner_review": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/track_consistency_runner_review.json",
+    "sha256": "b7bf3a0d78afc454828a5dd252de88fe9f40ab885163178bdc8739a274af6cfa"
+  },
+  "score_review": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/track_consistency_score_review.json",
+    "sha256": "aeb658732ef32270177aef4601b1bd93c3b239737703d7a79b43940acc412877"
+  },
+  "score_auditor": {
+    "path": "VALIDATION/tools/audit_track_consistency_scores_20261013.py",
+    "sha256": "c6c9dbd87343a4d66ffb290b055fcb08ea1fb34b2181a3f23c14d744f3799693"
+  },
+  "scope": "Source review and synthetic checks only. Actual label-free teacher/CUDA capacity preflight and independent prefit audit remain mandatory before root fit allocation. No fit, production or upload authorized by this receipt.",
+  "limitations": [
+    "Fresh optimizer shared by all arms because original optimizer state unavailable.",
+    "Branch-view regularization; observed full-source descriptors remain.",
+    "Held inputs used transductively and Jan/Jul reused development; no performance claim."
+  ]
+}

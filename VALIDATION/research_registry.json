@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T07:43:02.238998+00:00",
+  "updated_at": "2026-10-13T08:02:49.824081+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -1192,6 +1192,42 @@
           "sha256": "c92bf001070043dd04ed17a416907349daafd746540ca75e225029d00ba706c8"
         }
       ]
+    },
+    {
+      "id": "target_track_consistency_20261013",
+      "status": "laptop_preflight_active",
+      "hypothesis": "Frozen-teacher track thinning consistency on unlabeled held-month inputs improves the exactv80 seed42 component beyond matched supervised and training-input consistency controls",
+      "conclusion": "Fixed2epochs/3arms/2folds, no held labels or tuning. All source reviews and CPU/SQL fixtures pass. Actual teacher/GPU/independent prefit gates required before allocation. No candidate fit or upload yet.",
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+          "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+          "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/source_review.json",
+          "sha256": "9b59ebab6d56104b765ff76b257309f5e31da9320ce1555092ce3c53885da033"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/transfer_inventory.json",
+          "sha256": "a3ad46e8e0b1ef40af8d46d2b17b174bd433ece20722829cf370aa50c3584c0f"
+        }
+      ],
+      "decision_protocol": {
+        "sole_candidate": "target_consistency",
+        "minimum_mean_gain_v80_seconds": 0.1,
+        "both_months_improve_against": [
+          "v80",
+          "supervised_control",
+          "training_consistency"
+        ],
+        "paired_day_ci95_upper_below_zero_against_all": true,
+        "no_control_promotion": true,
+        "development_is_reused_and_transductive": true
+      }
     }
   ],
   "next": [
@@ -1202,31 +1238,38 @@
   "active_research": [
     {
       "owner": "root",
-      "scope": "Candidate selection, feedback, integration and reserved slot"
-    },
-    {
-      "owner": "final_recovery",
-      "scope": "Portable feedback manifests and separate final uploader"
-    },
-    {
-      "owner": "new_signal_audit",
-      "scope": "Final transport audit and submission-source review"
+      "scope": "Slot reservation, laptop dispatch, integrated scoring and final selection"
     },
     {
       "owner": "cohort_learning",
-      "scope": "Novel high-impact hypothesis assessment; source only"
+      "scope": "Frozen target track-view consistency runner and six-fit protocol"
+    },
+    {
+      "owner": "new_signal_audit",
+      "scope": "Independent label firewall, teacher and prefit audit"
+    },
+    {
+      "owner": "final_recovery",
+      "scope": "Independent saved-result score audit and final selection evidence"
     }
   ],
   "machine_allocation": {
     "desktop": {
       "stage": "idle",
       "owner": null,
-      "checked_at": "2026-10-13T07:43:02.238998+00:00"
+      "checked_at": "2026-10-13T07:54:28.227302+00:00"
     },
     "laptop": {
-      "stage": "idle_pending_target_consistency_prefit",
-      "owner": "cohort_learning",
-      "checked_at": "2026-10-13T07:24:48.195243+00:00"
+      "stage": "target_track_consistency_teacher_GPU_preflight",
+      "owner": "new_signal_audit",
+      "checked_at": "2026-10-13T08:02:49.824081+00:00",
+      "host": "GLAPTOP",
+      "launcher_pid": 2982,
+      "process_start": "742082",
+      "execution": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/preflight/execution.json",
+      "verified_inputs": 178,
+      "transferred_bytes": 4027878,
+      "fit_not_allocated": true
     }
   }
 }

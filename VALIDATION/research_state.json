@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T07:43:02.238998+00:00",
+  "updated_at": "2026-10-13T08:02:49.824081+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
@@ -10,7 +10,7 @@
   "desktop": {
     "stage": "idle",
     "owner": null,
-    "checked_at": "2026-10-13T07:43:02.238998+00:00"
+    "checked_at": "2026-10-13T07:54:28.227302+00:00"
   },
   "next": [
     "Finish target track-view consistency source/preflight audit and allocate laptop",
@@ -21,25 +21,32 @@
   "active_research": [
     {
       "owner": "root",
-      "scope": "Candidate selection, feedback, integration and reserved slot"
-    },
-    {
-      "owner": "final_recovery",
-      "scope": "Portable feedback manifests and separate final uploader"
-    },
-    {
-      "owner": "new_signal_audit",
-      "scope": "Final transport audit and submission-source review"
+      "scope": "Slot reservation, laptop dispatch, integrated scoring and final selection"
     },
     {
       "owner": "cohort_learning",
-      "scope": "Novel high-impact hypothesis assessment; source only"
+      "scope": "Frozen target track-view consistency runner and six-fit protocol"
+    },
+    {
+      "owner": "new_signal_audit",
+      "scope": "Independent label firewall, teacher and prefit audit"
+    },
+    {
+      "owner": "final_recovery",
+      "scope": "Independent saved-result score audit and final selection evidence"
     }
   ],
   "laptop": {
-    "stage": "idle_pending_target_consistency_prefit",
-    "owner": "cohort_learning",
-    "checked_at": "2026-10-13T07:24:48.195243+00:00"
+    "stage": "target_track_consistency_teacher_GPU_preflight",
+    "owner": "new_signal_audit",
+    "checked_at": "2026-10-13T08:02:49.824081+00:00",
+    "host": "GLAPTOP",
+    "launcher_pid": 2982,
+    "process_start": "742082",
+    "execution": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/preflight/execution.json",
+    "verified_inputs": 178,
+    "transferred_bytes": 4027878,
+    "fit_not_allocated": true
   },
   "duration_result": {
     "cv": {
@@ -332,6 +339,17 @@
     "review": {
       "path": "VALIDATION/reports/final_uploader_source_review_20261013.json",
       "sha256": "74e7417320beffc96ffee128e9755470673df07ddf5bf324707a521addf1cce1"
+    }
+  },
+  "target_track_consistency": {
+    "status": "laptop_preflight_active",
+    "identity": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+      "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+    },
+    "comparison_identity": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+      "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
     }
   }
 }

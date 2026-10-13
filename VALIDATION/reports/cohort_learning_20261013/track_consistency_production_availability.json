@@ -1,0 +1,67 @@
+{
+  "status": "metadata_inventory_only_no_production_prepared",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/identity.json",
+    "sha256": "187cf29cbda2886a4ff03b217b69959bbe065177f0cea1066ed56af5a1c8a9f1"
+  },
+  "final_receipt": {
+    "path": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/final.json",
+    "sha256": "5c71277b912351ac860556a92b297e7baafb1f3391c00a2a654754a228795c38"
+  },
+  "final_rows": 670790,
+  "prior_final_reloads_exact": true,
+  "assets": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/models/k0.pt",
+      "declared_sha256": "003298fbc8d540a7659d1bd744cc472d67e2eda0ef26e75dff07c4b94155c049",
+      "exists": true,
+      "bytes": 7544959
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/preprocessing/full_year.pkl",
+      "declared_sha256": "b8e3f5a7fca26194ad6f3def033ef2ca77e12ef96f50361e7c2dbcac94a4c23a",
+      "exists": true,
+      "bytes": 1085043
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+      "declared_sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9",
+      "exists": true,
+      "bytes": 2552204749
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/final/full_index.parquet",
+      "declared_sha256": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2",
+      "exists": true,
+      "bytes": 19558731
+    },
+    {
+      "path": "data/derived/sparse_track_submit_20261010/final/full_points.bin",
+      "declared_sha256": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a",
+      "exists": true,
+      "bytes": 750064320
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+      "declared_sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033",
+      "exists": true,
+      "bytes": 120198053
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261008_final_submit/work/inputs_final.pkl",
+      "declared_sha256": "4432bb7eaa886e69a5f0b84a1bc5baff3b62cf8d179280da980fdb1d4bdf44ae",
+      "exists": true,
+      "bytes": 1334176257
+    },
+    {
+      "path": "data/derived/final_public_20261012/features.parquet",
+      "declared_sha256": "f12b58b7b3e632cb0979038729ef42171b3b13a72bdf7ad65c27f78d87472118",
+      "exists": true,
+      "bytes": 14425538
+    }
+  ],
+  "all_exist": true,
+  "source_hash_revalidation_deferred_until_selected": true,
+  "no_new_download": true,
+  "no_arrays_read": true
+}

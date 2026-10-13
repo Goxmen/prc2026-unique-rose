@@ -1,0 +1,40 @@
+{
+  "status": "pass_source_only",
+  "scorer": {
+    "path": "VALIDATION/nn_public_tabm_track_consistency_score.py",
+    "sha256": "560a564cfcedc2a4cb0024b54616a1c401e6b2865b7299ff3240140a5d5bf193"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_track_consistency_scores_20261013.py",
+    "sha256": "c6c9dbd87343a4d66ffb290b055fcb08ea1fb34b2181a3f23c14d744f3799693"
+  },
+  "fixture": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/track_consistency_score_fixture.json",
+    "sha256": "3afc020a14845902e6cf6de44f0deecf97cc14870e5c368420086a6e09c012ab"
+  },
+  "protocol": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_protocol.json",
+    "sha256": "d79075487815197ddc4772df1f9143c0e8e4e8d1ec29dbb031886cfb2cbaf646"
+  },
+  "reviewed_controls": [
+    "One AST substitution restores original seed42 solely inside unchanged one-TabM control; all other inherited correction operations identical",
+    "Every arm substitutes only seed42; retained1042/2042 and exact selected/one-TabM controls unchanged",
+    "Separate integer component deltas added to exact serializedv80; no clipping or bound reordering",
+    "Target consistency alone may pass: both months and paired upper<0 versusv80 and both continuations, plus0.1s mean gain versusv80",
+    "Independent auditor source and both raw truth files pinned before fitting; current runway and pool3 independent prior receipts pinned"
+  ],
+  "independent_audit_scope": [
+    "Six model/prediction/preprocessing/trained/teacher/preflight/allocation receipt chains",
+    "CPU checkpoint schema, tensor/optimizer finiteness, update/curve and terminal sampler chronology",
+    "Full raw DEP membership, original truth/UTC calendar, selected parent vectors, exact all-row transport",
+    "SQL month/mean RMSE and independently generated seed0/2000 whole-day resampling against all3 references"
+  ],
+  "qualifications": [
+    "Actual postfit audit not executed; no fitting or real scoring in this review",
+    "Native nonlinear correction algorithm authenticated by frozen source and exact replay controls rather than independently reimplemented",
+    "Reused transductive development; no independent statistical confirmation"
+  ],
+  "no_real_data_read": true,
+  "no_fit": true,
+  "no_upload": true
+}

@@ -1,0 +1,37 @@
+{
+  "status": "pass_design_only_pending_implementation_and_prefit_audit",
+  "protocol": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_protocol.json",
+    "sha256": "d79075487815197ddc4772df1f9143c0e8e4e8d1ec29dbb031886cfb2cbaf646"
+  },
+  "source_feasibility": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/track_consistency_source_feasibility.json",
+    "sha256": "af1e746e9768d82de933c29999f2b10357ca43ea3f7c3497b3d5e1d0304305bf"
+  },
+  "immutable_source_dependencies_verified": 9,
+  "checks": [
+    "Distinct target-input frozen-teacher mean consistency objective versus closed supervised whole-branch dropout; no claim target marginal shift proves recoverable error",
+    "Thinning is explicitly partial branch-view regularization: original source descriptors/tabular summaries remain; retained-slot fraction and physical adjacency recomputation align with encoder source",
+    "Six matched fixed2epoch continuations, fresh identical optimizer, fixed supervised streams/update counts; zero-weight parity and separate input sampler are prerequisites",
+    "Mean-to-mean standardized unclipped consistency, frozen teacher and train-only target scales; mode/RNG restoration required",
+    "Held input-only metadata projection/all-NaN inherited-adapter labels with poison/removal checks before fit; no held targets in optimization or monitoring",
+    "Actual integer-v80 plus serialized new-minus-old native selected-pool component formula matches retained scorer",
+    "Target arm must beat actualv80 by0.1s with both months and interval, and both controls by fixed criteria; no control promotion or retuning on failure"
+  ],
+  "implementation_requirements": [
+    "Independently verify declared cached input schema and actual NaN label firewall; design review is not a passed input audit",
+    "Hash and replay original teacher full held predictions before updates; verify every mode/RNG/gradient/first-update and declared PCG64 cycling rule",
+    "Benchmark full-width memory with all retained input matrices/track buffers before allocating laptop",
+    "Treat novel-search registry hash as historical evidence rather than a mutable runtime dependency; retain any needed snapshot",
+    "Predeclare final input pool rule; full2026 mixture differs from development transductive inputs"
+  ],
+  "limitations": [
+    "Student sees removed-track information through retained tabular/source summaries",
+    "Training-domain teacher targets are in-sample whereas held-input teacher targets are out-of-sample, limiting causal interpretation of controls",
+    "Reused/transductive Jan/Jul development is not independent confirmation; no expected gain inferred from source coverage"
+  ],
+  "no_fit_authorized_by_this_receipt": true,
+  "no_model_forward": true,
+  "no_held_labels_read": true,
+  "no_upload": true
+}

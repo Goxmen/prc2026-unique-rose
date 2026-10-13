@@ -1,0 +1,45 @@
+{
+  "status": "pass_source_only_pending_frozen_comparison_and_actual_prefit",
+  "source": {
+    "path": "VALIDATION/nn_public_tabm_track_consistency.py",
+    "sha256": "90d974a396edcef6b6a4de84664d71679fd98a31de321a0595a18568e9ca9119"
+  },
+  "view": {
+    "path": "VALIDATION/track_consistency_view.py",
+    "sha256": "f4cf615fdebd6e260c94831e7e02706c7949526945b014ee4b921cbfb51ecac1"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_track_consistency_prefit_20261013.py",
+    "sha256": "a0e02a23b6b645945263d6b6aa94957dabdb55278b14662fefefd406c41cb517"
+  },
+  "protocol": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_protocol.json",
+    "sha256": "d79075487815197ddc4772df1f9143c0e8e4e8d1ec29dbb031886cfb2cbaf646"
+  },
+  "independent_fixture": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/track_consistency_independent_fixture.json",
+    "sha256": "14f96f76f036bd4ec0cbd4e5a18b17926090a18804014167b29c3d1177ddb033"
+  },
+  "cpu_checks": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/cpu_checks.json",
+    "sha256": "2f4a6df6f343ca702523dab5d6cc1d47a7228f694f73c67765f49b26f1b23ad3"
+  },
+  "review": {
+    "label_firewall": "Immutable six-field cache includes training targets only; metadata is projected to ID/month, and inherited adapter receives all-NaN held targets. No training method reads raw held truth. Scoring remains separate.",
+    "scaling": "Original training-only encoder/layout and clipped10800 population target mean/std are reconstructed and checked against saved preprocessing before any teacher/update. Same156+12 features and unchanged tracks.",
+    "teacher": "Frozen original seed42 checkpoint in eval mode; cached unclipped standardized32-head mean. Every held mean is transformed to seconds and must reproduce original float32 outputs exactly. No EMA, selected pseudo targets or teacher fitting.",
+    "view": "Fixed endpoint-preserving compact selection, prefix masks and retained slot quality only; source descriptors and preceding raw gap retained. Existing physical layer recomputes selected adjacency. Full sparse-observation invariance is not assumed.",
+    "updates": "All arms start from identical retained state and fresh AdamW3e-5/.0003. Same seed42 permutation and supervised dropout streams, actual-row microbatch weights, one optimizer update per2048logical examples. Additional512eval-mode consistency pass uses separate PCG64 cycles and preserves every module flag/CPU/CUDA RNG. Twoepochs, no monitor or schedule.",
+    "controls": "Original supervised loss is unchanged; zero-weight helper is strict no-op and CPU checks show output/gradient/RNG/first-update equality. Actual target-input candidate is compared against both fixed continuations and actualv80.",
+    "state": "States and complete terminal optimizer/RNG/sampler state save before predictions; completed fits never rerun, partial unrecorded fits fail closed. Full saved-model prediction reload required.",
+    "memory": "Preflight reserves real train/held tensors and original track geometry while testing complete4microbatch+consistency512 update. Reject above7GiB; no resizing rule.",
+    "provenance": "Frozen parent sources/models/inputs and reviewer/independent fixture pinned. Scorer freeze must precede fitting and independent actual prefit audit must bind identity/preflight/teachers before root fit allocation."
+  },
+  "tests": "Independent129length scalar mapping, analytic32-head mean MSE gradient, sampler cycle, exception mode/RNG restore passed. Original separate CPU proof covers real model finite gradients and zero-update parity. No actual data/teacher/GPU inference or fit performed by this review.",
+  "limitations": [
+    "Fresh optimizer cannot recover original missing optimizer state; matched controls explicitly share this reset.",
+    "Teacher can be biased; improved consistency is not predictive validation.",
+    "Retained full-source descriptors mean this is branch regularization, not realistic receiver outage simulation.",
+    "Held inputs are used transductively, and Jan/Jul are reused development. No independent statistical confirmation or performance claim."
+  ]
+}

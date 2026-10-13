@@ -1,0 +1,64 @@
+{
+  "status": "frozen_reviewed_CPU_pass_root_owns_remote_preflight",
+  "protocol": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_protocol.json",
+    "sha256": "d79075487815197ddc4772df1f9143c0e8e4e8d1ec29dbb031886cfb2cbaf646"
+  },
+  "runner": {
+    "path": "VALIDATION/nn_public_tabm_track_consistency.py",
+    "sha256": "90d974a396edcef6b6a4de84664d71679fd98a31de321a0595a18568e9ca9119",
+    "bytes": 25557
+  },
+  "view": {
+    "path": "VALIDATION/track_consistency_view.py",
+    "sha256": "f4cf615fdebd6e260c94831e7e02706c7949526945b014ee4b921cbfb51ecac1"
+  },
+  "scorer": {
+    "path": "VALIDATION/nn_public_tabm_track_consistency_score.py",
+    "sha256": "560a564cfcedc2a4cb0024b54616a1c401e6b2865b7299ff3240140a5d5bf193",
+    "bytes": 10203
+  },
+  "cpu": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/cpu_checks.json",
+    "sha256": "2f4a6df6f343ca702523dab5d6cc1d47a7228f694f73c67765f49b26f1b23ad3",
+    "bytes": 1279
+  },
+  "design_review": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_design_review.json",
+    "sha256": "3fa3afc031e322d8e6defa9e096a3e4699f46f777057ac8ab4d20abaa4b00a6a"
+  },
+  "next": [
+    "Independent runner/view/scorer source review and separate prefit auditor",
+    "Refresh CPU only if source changes, retain old receipts/snapshots",
+    "Freeze runner then scorer; reconcile laptop source and transfer only missing/different necessary files",
+    "Allocated laptop preflight: projected metadata/NaN adapter, originalteacher fullheld exact replay, teacher cache, dense memory/step preflight",
+    "Independent prefit audit binds identity/preflight/teacher outputs",
+    "Root fit allocation then six serial2epoch continuations with complete states retained before diagnostics",
+    "Exactv80 three-arm scoring and independent result audit; apply frozen practical/paired gates"
+  ],
+  "no_real_inference_or_fit_started": true,
+  "no_upload": true,
+  "host": "Laptop reserved by root after independent prerequisites; desktop stays root-owned",
+  "model_bytes_note": "Weights about45MB plus terminal optimizer states about90MB, ~135MB total six states",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+    "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56",
+    "bytes": 33444
+  },
+  "comparison_identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+    "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd",
+    "bytes": 4011
+  },
+  "source_review": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/source_review.json",
+    "sha256": "9b59ebab6d56104b765ff76b257309f5e31da9320ce1555092ce3c53885da033",
+    "bytes": 2195
+  },
+  "transfer_inventory": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/transfer_inventory.json",
+    "sha256": "a3ad46e8e0b1ef40af8d46d2b17b174bd433ece20722829cf370aa50c3584c0f",
+    "bytes": 35568
+  },
+  "prefit_audit_host": "Laptop: exact frozenmatrix pickle files are remote-only; avoid2.55GB return"
+}

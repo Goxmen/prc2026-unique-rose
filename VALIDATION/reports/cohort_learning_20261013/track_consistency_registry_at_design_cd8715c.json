@@ -1,0 +1,1153 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-13T07:05:17.668513+00:00",
+  "current": {
+    "target": 205.0,
+    "best_version": 80,
+    "best_official_rmse": 218.8525,
+    "slots_remaining": 5,
+    "repository": "PRIVATE verified 2026-10-13",
+    "laptop": "Idle; posterior crossfit closed negative and audited",
+    "desktop": "Idle after portable parent audits; two upload manifests in preparation",
+    "native_goal_status": "active",
+    "used_utc_day_slots": 0,
+    "slot_date_utc": "2026-10-13",
+    "reserved_final_slots": 1,
+    "exploratory_slots_remaining": 4,
+    "legacy_final_components": 30,
+    "official_checked_at": "2026-10-13T05:49:16Z"
+  },
+  "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
+  "entries": [
+    {
+      "id": "public_tabm_pool3",
+      "hypothesis": "Replace the public/physical PLE pool with three TabM seeds",
+      "status": "submitted_v80",
+      "conclusion": "Combined candidate v80 scored218.8525, improving v79 by0.7605. Individual official contributions are not identified.",
+      "metrics": {
+        "cv": 289.76277821,
+        "change_vs_v79": -0.911578908,
+        "ci95": [
+          -1.322560128,
+          -0.646075812
+        ],
+        "combined_official_score": 218.8525,
+        "combined_official_change": -0.7605
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/public_tabm_20261012/pool3_score_audit.json",
+          "sha256": "4a9733556bdfa4e8a960e18d46e1af591e105f6e1e513662bb6e08677663282a"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
+          "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_pool3_candidate/submission_v80/official_result.json",
+          "sha256": "3012d136e96382ea32a544dcc9c88c56593e06c5b52a7b96dfcd4a8d5157d242"
+        }
+      ]
+    },
+    {
+      "id": "cross_date_taxi",
+      "hypothesis": "Other-date taxi cells constrain peers in assigned-day delay total",
+      "status": "closed_inconclusive",
+      "conclusion": "Both fixed comparisons inconclusive; January worse. No combination or production.",
+      "metrics": {
+        "change_v78": 0.006943696,
+        "change_v79": 0.008619928
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_joint_public_cross_date/closed.json",
+          "sha256": "af71f49848107d2618c264d97b7f62d2545e4b081f91713ca2a9a7c1915611d4"
+        }
+      ]
+    },
+    {
+      "id": "same_date_other_runway",
+      "hypothesis": "Other runway taxi totals constrain shared delay peers",
+      "status": "submitted_v80",
+      "conclusion": "Combined candidate v80 scored218.8525, improving v79 by0.7605. Individual official contributions are not identified.",
+      "metrics": {
+        "change_v79": -0.154162776,
+        "combined_official_score": 218.8525,
+        "combined_official_change": -0.7605
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/result.json",
+          "sha256": "6ad04715f1a54164d863a32b72d8d19bfa60f08999caf1f545bc8227f1c817b1"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_pool3_candidate/submission_v80/official_result.json",
+          "sha256": "3012d136e96382ea32a544dcc9c88c56593e06c5b52a7b96dfcd4a8d5157d242"
+        }
+      ]
+    },
+    {
+      "id": "stand_month_context",
+      "hypothesis": "Typical stand clocks and arrival taxi-in transfer to departures",
+      "status": "closed_inconclusive",
+      "conclusion": "Two main-tree fits complete and audited; no production.",
+      "metrics": {
+        "change_v78": -2.21003e-05,
+        "change_v79": 0.0033698568
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/stand_month_context_20261012/closed.json",
+          "sha256": "ba6072f400eff7cc0c642c5f9388befc128b71da4b527f0f805e892c47329ad0"
+        }
+      ]
+    },
+    {
+      "id": "heteroscedastic_score_conditioning",
+      "hypothesis": "Rowwise ensemble disagreement weights scored residual constraints",
+      "status": "closed_inconclusive",
+      "conclusion": "Fixed formula inconclusive and January worse; dual optimum audited. No combination.",
+      "metrics": {
+        "change_v79": -0.04408035
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_heteroscedastic_score_conditioning/result.json",
+          "sha256": "4053f617bde1e0b56342e88fdd32bf343dc1bb915f15152cec9046067c787085"
+        }
+      ]
+    },
+    {
+      "id": "rome_tabm",
+      "hypothesis": "TabM classifier with tabular or physical-track inputs",
+      "status": "closed",
+      "conclusion": "Both arms and physical-minus-tabular inconclusive; all8 models retained.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "arrival_stand_drift",
+      "hypothesis": "Transfer monthly stand changes from arrivals",
+      "status": "closed",
+      "conclusion": "All4 training months worsen; no adaptation expansion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "flight_id_clock",
+      "hypothesis": "Interpolate IOBT from neighboring plan IDs",
+      "status": "closed",
+      "conclusion": "Two main-tree fits inconclusive; no production.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "movement_id_arrival_clock",
+      "hypothesis": "Interpolate missing plan clocks using arrival movement IDs",
+      "status": "closed",
+      "conclusion": "Zero coverage for339 intended targets.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "linear_leaves",
+      "hypothesis": "Linear-leaf LightGBM on standardized184 inputs",
+      "status": "closed",
+      "conclusion": "Four models complete; comparisons inconclusive.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "fractional_punctuality",
+      "hypothesis": "Additional public punctuality likelihood",
+      "status": "closed",
+      "conclusion": "Source error exceeds proposed prior precision; source-only pilot closed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "clock_phases",
+      "hypothesis": "Seconds/minute phases of original plan timestamps",
+      "status": "closed",
+      "conclusion": "Fixed seven-input main-tree comparison failed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "cross_flight_context",
+      "hypothesis": "Represent nearby flight contexts in neural model",
+      "status": "closed",
+      "conclusion": "Completed comparison inconclusive.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "all_peer_sobol",
+      "hypothesis": "Integrate every discrete peer by prior-Sobol sampling",
+      "status": "closed",
+      "conclusion": "Importance collapse; no stable posterior/CV.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "all_peer_gibbs",
+      "hypothesis": "Sample all peers using single-site Gibbs",
+      "status": "closed",
+      "conclusion": "Poor mixing; numerical precision gate failed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "all_peer_pair_gibbs",
+      "hypothesis": "Paired discrete moves improve mixing",
+      "status": "closed",
+      "conclusion": "Largest-cohort precision gate failed; no CV.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "all_peer_ep",
+      "hypothesis": "Damped expectation propagation with t likelihood",
+      "status": "closed",
+      "conclusion": "Tiny exact cases fail accuracy/cavity checks; no real-data expansion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "updated_robust_affine",
+      "hypothesis": "Minimax score mixture including actualv76-v78",
+      "status": "closed",
+      "conclusion": "Only0.00587seconds projected gain; no upload.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET205_RESEARCH.md",
+          "sha256": "f2c017a9094e521f988483ca463f7c69957bb6d71b27c1c144e0ed08a764a28f"
+        }
+      ]
+    },
+    {
+      "id": "clock_bypass",
+      "hypothesis": "Learn bounded gates directly to physical clocks",
+      "status": "closed",
+      "conclusion": "Four-fit matched laptop comparison completed; not selected.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "clock_residual",
+      "hypothesis": "Force an actual-AOBT residual target",
+      "status": "closed",
+      "conclusion": "Completed and failed; do not repeat as a new idea.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "sensor_differences",
+      "hypothesis": "Pairwise physical sensor clock differences",
+      "status": "closed",
+      "conclusion": "Completed and failed; no new observations.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "aircraft_rotation",
+      "hypothesis": "Aircraft identity and rotation history",
+      "status": "closed",
+      "conclusion": "Completed comparison regressed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "joint_callsign_track",
+      "hypothesis": "Learn callsign and raw tracks in a single network",
+      "status": "closed",
+      "conclusion": "Completed comparison failed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/RESEARCH_NETWORK_20261010.md",
+          "sha256": "5ac752183abd4bdf1d530d2cd24909b1072e36ba6d3fb907699288be30badf88"
+        }
+      ]
+    },
+    {
+      "id": "track_attention",
+      "hypothesis": "Learn scalar attention over local track states",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "track_recurrent",
+      "hypothesis": "Recurrent temporal track representation",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "track_time_weighted",
+      "hypothesis": "Weight track pooling by elapsed time",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "observation_variance",
+      "hypothesis": "Learn conditional Gaussian observation variance",
+      "status": "closed",
+      "conclusion": "Regression; retain checkpoints, no expansion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "rome_continuous",
+      "hypothesis": "Regress a continuous Rome mixture coefficient",
+      "status": "closed",
+      "conclusion": "Regression against same-laptop binary Logloss control.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "native_airport_joint",
+      "hypothesis": "Extend source joint message beyond Rome",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "uncertain_calendar",
+      "hypothesis": "Integrate uncertain off-block date memberships",
+      "status": "closed",
+      "conclusion": "Completed and closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "explicit_single_peer",
+      "hypothesis": "Keep largest uncertain peer discrete",
+      "status": "closed",
+      "conclusion": "Inconclusive; January worse.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "conditional_prior",
+      "hypothesis": "Use original Rome endpoints and classifier in source prior",
+      "status": "closed",
+      "conclusion": "Completed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "early_public_nn",
+      "hypothesis": "Apply public-source correction before ordinary network blend",
+      "status": "closed",
+      "conclusion": "Full CV closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "stand_reference_inverse",
+      "hypothesis": "Invert public stand-reference information",
+      "status": "closed",
+      "conclusion": "CV closed without promotion.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "neural_weight_average",
+      "hypothesis": "Average late weights from the same trajectory",
+      "status": "closed",
+      "conclusion": "Completed comparison failed.",
+      "metrics": {},
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/TARGET215_RESEARCH.md",
+          "sha256": "68bc59cef5efc63b469dadb21b51de4efacce0649bccc648788b62fee3131c4d"
+        }
+      ]
+    },
+    {
+      "id": "tabm_duration",
+      "hypothesis": "Complete TabM\u2019s24-epoch schedule instead of inherited PLE21/17 stops",
+      "status": "closed_inconclusive",
+      "conclusion": "The fixed24-epoch schedule does not improve the same-trajectory control reliably and July worsens. The selected15-epoch full-year production recipe remains unchanged.",
+      "metrics": {
+        "same_trajectory_change": -0.0010496662956427372,
+        "same_trajectory_ci95": [
+          -0.023749176317914688,
+          0.01983074456315349
+        ],
+        "selected_pool_change": -0.03145145855441456,
+        "selected_pool_ci95": [
+          -0.07222766030788037,
+          0.01180730507526206
+        ]
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration/closed.json",
+          "sha256": "253cfeb5470753edae5af1165652ee964c6a34c51a1e6a1d4a8401e7baa0f69a"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_duration_stack/independent_audit.json",
+          "sha256": "fb22d0e9ffea958cf3cceba1ba53cbbddb904bb7144ae200f2881e729fde37fe"
+        }
+      ]
+    },
+    {
+      "id": "public_repository_refresh_oct12",
+      "status": "reviewed_no_new_candidate",
+      "conclusion": "New funny-firefly review overlaps existing geometry, sensor fusion, Rome and planning constraints; official separate final filename recorded.",
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/public_refresh_20261012.json",
+          "sha256": "f2c6fdd38f69d68d75cce380877d538d4118e35b22c50c8888f2f4c6bb0d1f56"
+        }
+      ]
+    },
+    {
+      "id": "actual_v80_feedback_geometry",
+      "hypothesis": "Recombine retained scored basis with new v80 direction using unchanged bounds/ridge",
+      "status": "closed_no_candidate",
+      "conclusion": "Projected gain0.233486 seconds is below fixed0.25 gate; conservative bound does not improve best. CV change is inconclusive. No version or upload.",
+      "metrics": {
+        "projected_rmse": 218.61901371877863,
+        "conservative_gain": -0.1702415407215767,
+        "cv": 289.7020193943226,
+        "paired": {
+          "change": -0.0607588159680148,
+          "ci95": [
+            -0.29804837317850996,
+            0.19607553748353865
+          ],
+          "decision": "inconclusive"
+        }
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_feedback_geometry/result.json",
+          "sha256": "f5e2074eb9caa9eb57ca6d5a7d2569c036403c471dcccb79eb0794243c5358ea"
+        }
+      ]
+    },
+    {
+      "id": "annealed_particle_public_inference",
+      "hypothesis": "Adaptive annealed SMC preserves posterior peer dependencies missed by independent prior proposals",
+      "status": "closed_numerical_precision",
+      "conclusion": "84.81-second source-only pilot greatly improves prior-sampling/Gibbs stability, but largest departure-only SE39.3191 exceeds fixed39.0939 threshold. All other cases pass. Gate remains failed; no tuning, broader pilot, CV, production or candidate.",
+      "metrics": {
+        "runtime_seconds": 84.80794277899258,
+        "largest_joint_mean": 2171.991017543304,
+        "largest_joint_se": 35.96662456186132,
+        "largest_dep_mean": 2087.4464048165264,
+        "largest_dep_se": 39.319131227202455,
+        "largest_dep_limit": 39.093921646811246
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/joint_public_smc_pilot.py",
+          "sha256": "e227793e644e01265884ff791655570dbcc3fe9087658eae895eb3045a22b127"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_joint_public_smc_pilot/result.json",
+          "sha256": "e1a78e2b677e39ba4c2951f61e33e5507cc0165b08d5a7339f252fde1c9991b9"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_joint_public_smc_pilot/audit.json",
+          "sha256": "cdb24a07a14f67fc59c20d6feb45eb0b48b5e24139f3e1cdc9638ab7a8e1b589"
+        }
+      ]
+    },
+    {
+      "id": "tabm_three_block_capacity",
+      "hypothesis": "One extra TabM block may improve public/tabular/physical feature interactions",
+      "status": "closed_fixed_screen",
+      "conclusion": "The fixed extra-block screen fails its frozen gate. No epoch/architecture tuning, seed expansion, production or candidate follows.",
+      "metrics": {
+        "cv": {
+          "control": 289.7627782102906,
+          "candidate": 289.7860931759559
+        },
+        "paired": {
+          "change": 0.023314965665306886,
+          "ci95": [
+            -0.008072507442251364,
+            0.05578354358615838
+          ],
+          "decision": "inconclusive"
+        },
+        "scores": {
+          "2025-01": {
+            "control": 325.02854196957753,
+            "candidate": 325.01094623785195
+          },
+          "2025-07": {
+            "control": 254.49701445100365,
+            "candidate": 254.56124011405984
+          }
+        },
+        "gate": false
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/nn_public_tabm_depth3.py",
+          "sha256": "4bd75d5cabbc87cab1b966071b851ba95272fda81ba2248063ee8435ac5a3ab0"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/identity.json",
+          "sha256": "9107395a60891bc26d87a4e00a4b9adcada10a045dd554a29ec61a8e0863cb23"
+        }
+      ],
+      "result": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/result.json",
+      "audit": "VALIDATION/runs/v3_20261012_nn_public_tabm_depth3/comparison/independent_audit.json"
+    },
+    {
+      "id": "public_runway_source_covariance",
+      "hypothesis": "Runway-specific partial pooling improves public taxi source error covariance",
+      "status": "closed_inconclusive",
+      "conclusion": "Training-source likelihood improves in both windows, but exact-v80 taxi CV gain is tiny and inconclusive. No covariance/shrinkage tuning, production, candidate or upload.",
+      "metrics": {
+        "control_cv": 289.7627782102906,
+        "candidate_cv": 289.74796691133685,
+        "change": -0.014811298953745222,
+        "ci95": [
+          -0.035174803234015076,
+          0.009368243036992031
+        ],
+        "changed": 1424,
+        "source_cells_audited": 810
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/identity.json",
+          "sha256": "6d3407efeab7643aa6be3a0c4c11935210aaad3263267c22f063a920528c2696"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/result.json",
+          "sha256": "dcf75d5340506dccc24cc661d9aecf9e6dce5a54baf60c86e48b009f47d6c8c9"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_covariance_cv/audit.json",
+          "sha256": "c33fc12e16b17fd2bcf54848d4a527588a5e008a750936a894a9fca0fe8ae2b7"
+        }
+      ]
+    },
+    {
+      "id": "tabm_total_neural_share_085",
+      "hypothesis": "The improved TabM pool may justify raising total neural share from0.71 to0.85",
+      "status": "closed_regression",
+      "conclusion": "The fixed higher total neural share regresses against exactv80; retain0.71. No alternative-weight search, production, candidate or upload.",
+      "metrics": {
+        "cv": {
+          "control": 289.7627782102906,
+          "candidate": 290.24625847803344
+        },
+        "scores": {
+          "2025-01": {
+            "control": 325.02854196957753,
+            "candidate": 325.43059746157735
+          },
+          "2025-07": {
+            "control": 254.49701445100365,
+            "candidate": 255.06191949448956
+          }
+        },
+        "paired": {
+          "change": 0.4834802677428627,
+          "ci95": [
+            0.4049826157059776,
+            0.6178877763308164
+          ],
+          "decision": "regression"
+        }
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_neural_share/identity.json",
+          "sha256": "3bff0a3783c971aa0804ec8a6ce4e1324f77b474cc0c74a6bae7d85384907477"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_neural_share/result.json",
+          "sha256": "1cde71f4c322fb388e248f6d4696e70c4156b8b7e3d33f5b69dcc34653946885"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_tabm_neural_share/statistical_audit.json",
+          "sha256": "72f3503b37a04072c51afed7379d8f0749edc90a54c656ce5e44fa2f33c50976"
+        }
+      ]
+    },
+    {
+      "id": "reference_population_coherence",
+      "hypothesis": "Cross-fitted public reference-total discrepancy predicts daily taxi source population bias",
+      "status": "closed_source_gate",
+      "conclusion": "One source window is inconclusive and the other regresses; the frozen 5% source gate fails. No taxi CV, tuning, production or candidate.",
+      "metrics": {
+        "2025-01": {
+          "cells": 5374,
+          "months": 9,
+          "baseline_rmse": 24.04408944885565,
+          "conditional_rmse": 24.031851513504982,
+          "relative_improvement": 0.0005089789478907036,
+          "change": -0.01223793535066875,
+          "paired_month_ci95": [
+            -0.033217280838320117,
+            0.02305327424546392
+          ],
+          "gate": false,
+          "residual_reference_corr": -0.0036320515072659726
+        },
+        "2025-07": {
+          "cells": 4098,
+          "months": 7,
+          "baseline_rmse": 47.04703015107157,
+          "conditional_rmse": 47.07362806880263,
+          "relative_improvement": -0.0005653474331037689,
+          "change": 0.026597917731059795,
+          "paired_month_ci95": [
+            0.007342304533530353,
+            0.04053497697670503
+          ],
+          "gate": false,
+          "residual_reference_corr": 0.04490887337608604
+        }
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/REFERENCE_POPULATION_COHERENCE_20261012.md",
+          "sha256": "1e90c66fc4bcc9b7e41d7220ad5fdc135ea982ba03a49bf99d78de382be4dc38"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_reference_population_coherence/audit.json",
+          "sha256": "e768694f0add29ab3db98ad185f030e0bb40630daa24f5b1f155c4aeeabb1ffc"
+        }
+      ]
+    },
+    {
+      "id": "full_day_peer_context",
+      "hypothesis": "A learned full-day joint distribution of peer clocks and physical sensors adds information beyond local context and 12 public summaries",
+      "status": "closed_inconclusive",
+      "conclusion": "Fixed Jan21/Jul17 seed42 changes exactv80 CV-0.008111seconds; both months slightly better, paired interval crosses0. Independent all-row audit passes. No expansion, capacity tuning, production or upload.",
+      "metrics": {
+        "cv": 289.75466768504805,
+        "change": -0.008110525242514655,
+        "ci95": [
+          -0.02826195506399003,
+          0.013070038687926883
+        ],
+        "gate": false
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/identity.json",
+          "sha256": "ae492d62698617a8c735713cdbfb90855d7f0b2d505a9549fa58e2781c9482aa"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/return_audit.json",
+          "sha256": "7de2aed5e4809875399b470ac31c544c2c47c823f41f571e6e22d8f1e39a6f12"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/result.json",
+          "sha256": "483a87de8b8abcf6c66fb836605cabf93b621bc8f9b9c67b0f14ed7b0ba89dd2"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/comparison/independent_audit.json",
+          "sha256": "ba67193a46c9a2231d8ab1006ee71932d2c6d895d1201a2708f5d57a1a1de853"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_daily_cohort/closed.json",
+          "sha256": "0d1d70efa462cd87672ec15f17c1112db730340e0bf61c9386937c137493e368"
+        }
+      ]
+    },
+    {
+      "id": "final_affine_missing_proxy",
+      "hypothesis": "Fifteen verified portable versions can reconstruct the aggregate missing legacy prediction direction",
+      "status": "closed_fidelity_failure",
+      "conclusion": "Fixed prediction-only proxy has large cross-month and historical errors. No final prediction or candidate; recover original missing families. This measures portability, not taxi performance.",
+      "metrics": {
+        "cross_month_rms": {
+          "2026-01->2026-07": 58.079223876268266,
+          "2026-07->2026-01": 44.258886234033426
+        },
+        "historical_rms": {
+          "2025-01": 27.063624837274045,
+          "2025-07": 83.32915999332391
+        }
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_affine_recovery_diagnostic/identity.json",
+          "sha256": "54340fe3a09d96c967a6f66b18fa228caa37a346866fc30a7b2d3f5675f0c40f"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_affine_recovery_diagnostic/result.json",
+          "sha256": "3731bf4aa121898085408d59f0f22bc04022656f2e63b758e382619e4d313788"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_affine_recovery_diagnostic/independent_audit.json",
+          "sha256": "c111c633e21097cd643947f183af667b2eff4213d03efc7999212e0373eebb96"
+        }
+      ]
+    },
+    {
+      "id": "spatial_peer_ground_motion",
+      "hypothesis": "Other aircraft local ground speeds reveal dynamic taxiway congestion beyond spatial context and traffic counts",
+      "status": "closed_source_gate",
+      "conclusion": "Temporal peers lose to same-count spatial-only controls on both frozen training dates. No taxi labels, model features, fitting or threshold tuning follows. Coverage and observed speed are not equivalent to taxi-time predictability.",
+      "metrics": {
+        "source_queries": 2839,
+        "supported": 592,
+        "pooled_speed_MAE_knots": {
+          "dynamic": 4.7806587837837835,
+          "null": 5.604476351351352,
+          "spatial": 4.24358108108108
+        },
+        "source_gate": false,
+        "runtime_seconds": 40.75432468300005
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/spatial_peer_motion_20261012/identity.json",
+          "sha256": "968b862d62baceddf196bedfacc7c8ed1c1f2dc74a8eab564251068fb354118d"
+        },
+        {
+          "path": "VALIDATION/reports/spatial_peer_motion_20261012/result.json",
+          "sha256": "aad5f0f2c87948277327780900c3e48039f3632fa1f276cc39477f1ffd6c89c7"
+        },
+        {
+          "path": "VALIDATION/reports/spatial_peer_motion_20261012/audit.json",
+          "sha256": "a5fdbca4ae17819ee33896aa3a296ecc8229a8e7e258b44d49a5e15f92c59102"
+        }
+      ]
+    },
+    {
+      "id": "rome_public_monthly_prior_adaptation",
+      "hypothesis": "Shared recorder-prior odds adapt across days using public aggregate source likelihood",
+      "status": "closed_historical_inconclusive",
+      "conclusion": "Historical airline/month logit adaptation already tests this mechanism: v76 change about-0.0507 seconds, interval includes0, July worse. New scout found exact overlap; no re-run or leave-day-out variant.",
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/SCOUT_EXCLUSIONS_20261012.md",
+          "sha256": "562b056315241d9856b1d3acbf79ce2dae22802c564e73a3bd13fb371886ca4c"
+        },
+        {
+          "path": "VALIDATION/rome_public_monthly_shift.py",
+          "sha256": "9565ac0eb8136e784db83311ae0b7e59532742b97cba365af9f769ad9d4c072e"
+        }
+      ]
+    },
+    {
+      "id": "public_runway_literal_keys",
+      "hypothesis": "Canonical whitespace/case/leading-zero runway keys recover otherwise missing public runway cells",
+      "status": "closed_source_gate",
+      "conclusion": "No recoverable matches across all training and ranking rows; independent Python tuple audit passes. No feature, training, CV or upload follows.",
+      "metrics": {
+        "training_rows": 2085047,
+        "ranking_rows": 344841,
+        "recovered_joins": 0,
+        "ambiguous_keys": 0,
+        "source_collisions": 0
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_key_census/design.json",
+          "sha256": "b4b72360c7e1622fcae5ae176d155edbcb7115e0f3ce7fdcc783e211608fa7c8"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_key_census/result.json",
+          "sha256": "56df0734c01a9ff825ccd054b2b52e199ac7b00658eef2fe2e8315cbdf1a31a4"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_public_runway_key_census/independent_audit.json",
+          "sha256": "8c18da8496e710293ef391e2fbc37e3ca8a9caf4b57d8c43b92b0f468088ef95"
+        }
+      ]
+    },
+    {
+      "id": "legacy134_PLE_recovery_fidelity",
+      "hypothesis": "A fixed original-source seed42 trajectory reproduces the missing legacy134 PLE member",
+      "status": "closed_nonexact_recovery",
+      "conclusion": "All-row fidelity audit fails exact replay; no expansion or final inference. Original losses match printed precision through epoch10, diverge afterward; cause is consistent with numerical trajectory divergence but not established. No prediction-accuracy or score claim.",
+      "metrics": {
+        "original_member_RMS_seconds": 39.227264068349676,
+        "changed_float32_rows": 344841,
+        "changed_rounded_rows": 335242,
+        "checkpoints_preserved": [
+          14,
+          15,
+          17
+        ]
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/result.json",
+          "sha256": "7d5ea7bef27736ee50c359b6a9789fdddff3773cfc2d5b7c060f8d02dc5ed02b"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/independent_audit.json",
+          "sha256": "b9eee39ff056814ea969e3119167c33526e3dc366f6a2374ffd109f60a1c9af7"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/provenance_diagnosis.json",
+          "sha256": "930e3acb876047c7c31df8e0a70489b7ad564b5993a4e0a161907ac4224bb344"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_ple_pilot/member_geometry_diagnosis.json",
+          "sha256": "46c1f6b1f87b9efdf6bd39f2c9d9209cd83c474c08f346971ed840e63b4186d6"
+        }
+      ]
+    },
+    {
+      "id": "posterior_aware_source_sensitivity",
+      "hypothesis": "Feature-dependent support tilts can alter source-conditioned predictions within cohorts",
+      "status": "feasibility_pass_followup_closed_negative",
+      "conclusion": "Independent all-row sensitivity audit passes; 2336 supported targets and four-dimensional joint-only derivative. No predictive gain established. Incremental joint-minus-departure objective needs its own frozen design.",
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_posterior_aware_sensitivity/result.json",
+          "sha256": "26d3e06c6e6ff04b296be622c90c892f9d2120c455c234ca203db85af28afe20"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_posterior_aware_sensitivity/independent_audit.json",
+          "sha256": "9479bd17599b3749a90155d9bbc016c1fc140c1ae80db29011befb99163cdcd5"
+        }
+      ]
+    },
+    {
+      "id": "legacy_capped_tree_recovery_20261013",
+      "hypothesis": "Fixed historical cap trees reproduce unavailable version components exactly",
+      "status": "closed_nonexact_stop_batch",
+      "conclusion": "v5 saved model reloads exactly but differs from original integers on160 of344841rows; v6/v7/v9 never attempted. No final expansion or substitution.",
+      "metrics": {
+        "changed_rows": 160,
+        "rows": 344841,
+        "rms_integer_difference": 0.0227195933,
+        "maximum_integer_difference": 2
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v5/nonexact_independent_audit.json",
+          "sha256": "61fffeaf32567b8e84a746a82cd022b9cea07e0f7eeb9768d681aec0666a735f"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/completion_caps_20261013/execution.json",
+          "sha256": "2119af45fd04f9e172a3a0c20fae7e62dbf782256e5d69e3b8c35ae8fb7adb69"
+        }
+      ]
+    },
+    {
+      "id": "portable_affine_final_base_20261013",
+      "hypothesis": "Explicitly exclude unavailable components and solve one retained28-vector final-portable ensemble",
+      "status": "audited_base_not_selected",
+      "conclusion": "All old/CV/final arithmetic and IDs audited; one final component required exact keyed reorder. CV worse thanv80; await only predeclared public correction chain. No missing model silently replaced.",
+      "metrics": {
+        "cv": 297.0200759792034,
+        "change_v80": 7.257297768912778,
+        "leaderboard_conditioned_projection": 226.87232818993232
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_affine/result.json",
+          "sha256": "42558e43fe184b75ccedc91b6ea142591587526047ae75a101c2fd0b542acd5c"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_affine/independent_audit.json",
+          "sha256": "ae6f009948a74d9e6f36fae45b008b989a5fb5a2ad7f61c9d4fd9fc024dd1d82"
+        }
+      ]
+    },
+    {
+      "id": "posterior_aware_crossfit_20261013",
+      "status": "closed_negative",
+      "hypothesis": "Honest priors and incremental posterior objective improve v80",
+      "conclusion": "All6 priors and independent audits pass, but both months regress; no expansion, tuning, production or upload.",
+      "metrics": {
+        "cv": 289.924553,
+        "change_v80": 0.1617748
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/closed.json",
+          "sha256": "10364ca1233f7f78f7617d9613a1e9477eebbb6c92e7227588a8726c5b0b413a"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/result_report.json",
+          "sha256": "4df966b8f428df20d1323e36f18b8f51b4cb28863133387ef2c34584743c1cde"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/independent_result_audit.json",
+          "sha256": "b9fb5a0d48c0c0b78dbd2bc09c5bc6486b06c9902ced329c9f1af398d35647ee"
+        }
+      ]
+    },
+    {
+      "id": "portable_public_source_20261013",
+      "status": "old_cv_audited_feedback_candidate",
+      "hypothesis": "Fixed public corrections restore reduced portable affine base",
+      "conclusion": "CV improves portable base by6.180649s; trails v80. Old audit passes; final not run. Two independent-auditor SQL joins repaired in additive recovery, producer unchanged.",
+      "metrics": {
+        "cv": 290.8394266979102,
+        "change_v80": 1.0766484876196
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+          "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+          "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+          "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+          "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+        }
+      ]
+    },
+    {
+      "id": "portable_direct_reserve_20261013",
+      "status": "old_cv_final_audited_feedback_candidate",
+      "hypothesis": "Saved direct public-model stack supplies final fallback",
+      "conclusion": "All3 views audited; trails v80. Official feedback can distinguish from materially different public-source candidate.",
+      "metrics": {
+        "cv": 290.84397170714396,
+        "change_v80": 1.08119349685336
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/result.json",
+          "sha256": "6f149f26067d0f97e8eb9224db2fd70f0329e9526b157439d84e4759c2bc93c6"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/audit.json",
+          "sha256": "c8a5c6ba172811dca7868173835389c226bae4b16feaca3c71dd0264060e5f35"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/chain_comparison.json",
+          "sha256": "ee7d02002f91577454af4f5064bf98ca2a85fe7d203e25f26a0cb81716b53729"
+        }
+      ]
+    },
+    {
+      "id": "portable_fixed_half_mix_20261013",
+      "status": "closed_inconclusive_gate_failed",
+      "hypothesis": "One predeclared equal mixture exploits portable-parent complementarity",
+      "conclusion": "January worsens; interval[-2.617734,+1.190731] crosses zero vs v80. All-row/SQL/bootstrap audit passes; no weight search, production or upload.",
+      "metrics": {
+        "cv": 289.1213537122926,
+        "change_v80": -0.6414244979979742
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_half_mix/result.json",
+          "sha256": "bd2b4f71cdc62847776f2ec58347f27740271d0253afd8172980390e095bf106"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_half_mix/audit.json",
+          "sha256": "fe5c988540680a6f2600652d7b4d61ad3ad11e7e055239702693f1373d79cb70"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_half_mix/disagreement.json",
+          "sha256": "3b4f1981fbf3b0858f9da5f5ee993bd2bd62fcfcc9a0ee3dc3e2a336302a5d6c"
+        }
+      ]
+    },
+    {
+      "id": "final_shared_clock_transport_20261013",
+      "status": "source_audited_builder_unexecuted",
+      "hypothesis": "Transfer shared-ID teacher by twice observed takeoff shift under inferred endpoint mechanism",
+      "conclusion": "All344693 arrivals have opposite endpoint residual within1s. Departure mechanism unobserved: conditional, not CV improvement or exact final-v80 replay. Distinct from already known arrival anticorrelation.",
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_numpy.json",
+          "sha256": "0f81f1a9d0081819e48cfa59b0c46749f26ec5d7155e0f108f9cd2780952ebe2"
+        },
+        {
+          "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_transport_review.json",
+          "sha256": "1f3dca9dce90d60478290965ae5a907d3c8343773191820555051ccf6a5c342d"
+        }
+      ]
+    }
+  ],
+  "next": [
+    "Review at most two versioned portable-parent feedback uploads; keep fifth slot reserved",
+    "Complete final transport source review and select fallback from actual evidence",
+    "Assess one novel high-impact hypothesis with novelty checks",
+    "No expansion of closed half mixture or posterior crossfit"
+  ],
+  "active_research": [
+    {
+      "owner": "root",
+      "scope": "Candidate selection, feedback, integration and reserved slot"
+    },
+    {
+      "owner": "final_recovery",
+      "scope": "Portable feedback manifests and separate final uploader"
+    },
+    {
+      "owner": "new_signal_audit",
+      "scope": "Final transport audit and submission-source review"
+    },
+    {
+      "owner": "cohort_learning",
+      "scope": "Novel high-impact hypothesis assessment; source only"
+    }
+  ],
+  "machine_allocation": {
+    "desktop": {
+      "stage": "idle_after_completed_audits",
+      "owner": null,
+      "checked_at": "2026-10-13T07:05:17.668513+00:00"
+    },
+    "laptop": {
+      "stage": "idle_after_completed_audits",
+      "owner": null,
+      "checked_at": "2026-10-13T07:05:17.668513+00:00"
+    }
+  }
+}

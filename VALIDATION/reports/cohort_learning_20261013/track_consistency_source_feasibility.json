@@ -1,0 +1,97 @@
+{
+  "status": "source_feasible",
+  "scope": "Two retained CPU checkpoint and preprocessing inspections; no forward, fit, held labels, or parameter selection",
+  "prior_inspection_failure": "First preprocessing pickle load lacked VALIDATION import path; corrected import path only, no model/data mutation",
+  "models": {
+    "2025-01": {
+      "model": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/models/2025-01_tabm.pt",
+        "sha256": "02a7db6cf64dcd8d24f8f1115a873c28827562cbe7d4c45e97ef4757c5371699"
+      },
+      "record": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-01_tabm.json",
+        "sha256": "de792ea70ae9c8ea8ceddaae6604b922e4c9e5ca3697e05c030603d2bafd4373"
+      },
+      "checkpoint_keys": [
+        "curve",
+        "design",
+        "identity",
+        "state_dict"
+      ],
+      "bytes": 7493803,
+      "state_parameters": 1871244,
+      "track_parameters": 20000,
+      "track_nonzero_values": 20000,
+      "physics_stem_l2": 2.739931087221765,
+      "all_model_values_finite": true,
+      "optimizer_state_retained": false,
+      "training_rows": 1596201,
+      "held_rows": 153706,
+      "last_epoch_seconds": 122.95580167700246,
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-01.pkl",
+        "sha256": "03f81c89c7c4bddd6f922fd5e7c65e04c2549d0deb2a6af3de5125fa9d77bc08"
+      },
+      "preprocessing_keys": [
+        "bins",
+        "cards",
+        "columns",
+        "design",
+        "encoder",
+        "info",
+        "mu",
+        "plain",
+        "ple",
+        "sd"
+      ],
+      "cards": 13,
+      "plain": 271,
+      "ple": 111
+    },
+    "2025-07": {
+      "model": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/models/2025-07_tabm.pt",
+        "sha256": "aae2406f6e2d7bd8d7f8238927de795d7a8525f9a2f35ea82cc1cb056e672304"
+      },
+      "record": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-07_tabm.json",
+        "sha256": "db5d9245cdca9856e15698bd5ec34b48776879fe441026342e95359a43c6a0ff"
+      },
+      "checkpoint_keys": [
+        "curve",
+        "design",
+        "identity",
+        "state_dict"
+      ],
+      "bytes": 7508139,
+      "state_parameters": 1874884,
+      "track_parameters": 20000,
+      "track_nonzero_values": 20000,
+      "physics_stem_l2": 1.9572261405067384,
+      "all_model_values_finite": true,
+      "optimizer_state_retained": false,
+      "training_rows": 1140233,
+      "held_rows": 190713,
+      "last_epoch_seconds": 87.50595025199436,
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+        "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+      },
+      "preprocessing_keys": [
+        "bins",
+        "cards",
+        "columns",
+        "design",
+        "encoder",
+        "info",
+        "mu",
+        "plain",
+        "ple",
+        "sd"
+      ],
+      "cards": 13,
+      "plain": 270,
+      "ple": 112
+    }
+  }
+}

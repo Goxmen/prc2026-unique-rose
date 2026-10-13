@@ -1,0 +1,36 @@
+{
+  "source": {
+    "path": "VALIDATION/nn_public_tabm_track_consistency.py",
+    "sha256": "cffc70570eacd4c4f5b121c8b9d077db1d936c72bf78e52be51fd8b2ce1b6d13"
+  },
+  "view": {
+    "path": "VALIDATION/track_consistency_view.py",
+    "sha256": "0f9736d8e660c36f44c397d9c74a540e3f68e61f40e1af4ef85752e5565801ff"
+  },
+  "protocol": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_protocol.json",
+    "sha256": "d79075487815197ddc4772df1f9143c0e8e4e8d1ec29dbb031886cfb2cbaf646"
+  },
+  "poison": {
+    "held_label_poison_and_removal_invariant": true,
+    "synthetic_only": true
+  },
+  "view_check": {
+    "device": "cpu",
+    "ordered_selection_exact": true,
+    "endpoints_retained": true,
+    "point_values_and_clocks_exact": true,
+    "raw_descriptors_exact": true,
+    "retained_slots_updated": true,
+    "batch_permutation_padding_invariance": true,
+    "sampler_chunk_invariance": true,
+    "eval_flags_and_rng_restored": true,
+    "finite_nonzero_student_gradients": true,
+    "teacher_no_gradients": true,
+    "loss": 4.440913016878767e-06
+  },
+  "zero_parity": {
+    "device": "cpu",
+    "zero_weight_output_gradient_rng_update_exact": true
+  }
+}

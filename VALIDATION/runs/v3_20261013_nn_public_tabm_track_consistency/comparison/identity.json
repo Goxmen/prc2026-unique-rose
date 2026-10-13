@@ -1,0 +1,98 @@
+{
+  "design": {
+    "formula": "R(v80_integer + serialized_new_threeTabM_component - serialized_original_threeTabM_component)",
+    "rounding": "R is nonnegative nearest-even integer serialization",
+    "arms": [
+      "supervised_control",
+      "training_consistency",
+      "target_consistency"
+    ],
+    "selected_arm": "target_consistency",
+    "minimum_cv_gain_seconds": 0.1,
+    "comparisons": [
+      "v80",
+      "supervised_control",
+      "training_consistency"
+    ],
+    "gate": "Both months improve and paired-day upper<0 against all three references; mean gain>=0.1s versus v80",
+    "interpretation": "Reused transductive Jan/Jul development; not independent confirmation",
+    "no_control_promotion": true,
+    "no_weight_search": true,
+    "no_upload": true
+  },
+  "protocol": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_protocol.json",
+    "sha256": "d79075487815197ddc4772df1f9143c0e8e4e8d1ec29dbb031886cfb2cbaf646"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_track_consistency_scores_20261013.py",
+    "sha256": "c6c9dbd87343a4d66ffb290b055fcb08ea1fb34b2181a3f23c14d744f3799693"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/nn_public_tabm_track_consistency_score.py",
+      "sha256": "560a564cfcedc2a4cb0024b54616a1c401e6b2865b7299ff3240140a5d5bf193"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_stack.py",
+      "sha256": "f55d193f387c05d084a4240bd785f504186dcd4ab1c49fb91bc86860908d0214"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_protocol.json",
+      "sha256": "d79075487815197ddc4772df1f9143c0e8e4e8d1ec29dbb031886cfb2cbaf646"
+    },
+    {
+      "path": "VALIDATION/tools/audit_track_consistency_scores_20261013.py",
+      "sha256": "c6c9dbd87343a4d66ffb290b055fcb08ea1fb34b2181a3f23c14d744f3799693"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+      "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/scored.parquet",
+      "sha256": "e4cc52b31b606b24a263eacb5c0d086378cd5eaaa174a55f14e50082723a524f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/result.json",
+      "sha256": "2ffb7010ed2a35f5738ccb6753be5567d5a92cc6c09aedf1410ff0f28605dedd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_stack/audit.json",
+      "sha256": "05fc66238bd3f73ffbd7199d056407c51f6a924da44062a5ee78a39431ef39e7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
+      "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/identity.json",
+      "sha256": "e0357056ade91db7c53da7eff7cdaf1f9d45094ec97bd1f80dbf30c7849ed04c"
+    },
+    {
+      "path": "VALIDATION/reports/public_tabm_20261012/pool3_score_audit.json",
+      "sha256": "4a9733556bdfa4e8a960e18d46e1af591e105f6e1e513662bb6e08677663282a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/independent_audit.json",
+      "sha256": "8fb46e1602da5a51294a56c1c315b7db6f08dd60d995785db991dd76a9516aae"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    }
+  ],
+  "before_fitting": true
+}
