@@ -1,0 +1,42 @@
+{
+  "authority": "/root",
+  "status": "complete",
+  "pid": 115214,
+  "started_utc": "2026-10-13T08:41:17.102860+00:00",
+  "scope": "Primary independent audit, then additive terminal RNG; no fits, inference, scorer edits or source changes.",
+  "steps": [
+    {
+      "stage": "primary",
+      "source": {
+        "path": "VALIDATION/tools/audit_track_consistency_scores_20261013.py",
+        "sha256": "c6c9dbd87343a4d66ffb290b055fcb08ea1fb34b2181a3f23c14d744f3799693"
+      },
+      "log_path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/independent_completion/primary.log",
+      "status": "complete",
+      "started_utc": "2026-10-13T08:41:17.103115+00:00",
+      "exit_code": 0,
+      "seconds": 5.572811033000107,
+      "log": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/independent_completion/primary.log",
+        "sha256": "609bb33bcbf49382e0f164964f289e7bfa61ebeb3e25ee24a19b77387c806769"
+      }
+    },
+    {
+      "stage": "terminal_rng",
+      "source": {
+        "path": "VALIDATION/tools/audit_track_consistency_terminal_rng_20261013.py",
+        "sha256": "8fa2abd8523f356fb0e5f6d3c95c20fb7e95c5edddf66b4aef30eaba9f719aac"
+      },
+      "log_path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/independent_completion/terminal_rng.log",
+      "status": "complete",
+      "started_utc": "2026-10-13T08:41:22.676845+00:00",
+      "exit_code": 0,
+      "seconds": 1.3022120459991129,
+      "log": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/independent_completion/terminal_rng.log",
+        "sha256": "6ee3883c58d158418ce66617867363cce189e4503084f4920a704b1970c5323e"
+      }
+    }
+  ],
+  "completed_utc": "2026-10-13T08:41:23.979883+00:00"
+}

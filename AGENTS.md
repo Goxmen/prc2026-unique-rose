@@ -121,6 +121,16 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October 13, 10:45 Amsterdam: fixed track-consistency screen closed.**
+All six two-epoch fits returned with exact hashes. Target CV 289.765906 versus
+v80 289.762778 (+0.003128, interval [-0.013657,+0.020313]); target is worse
+than both matched controls. Independent all-row SQL/bootstrap and terminal
+CPU/CUDA/sampler RNG checks pass. Frozen gate fails; no control promotion,
+expansion or production. Secondary portability stage closes without decoding
+new vectors. Preserve all six checkpoints; never repeat. Both machines idle.
+Agents review distinct remaining high-impact hypotheses and conditional final
+clock evidence. Three slots remain, last reserved; no upload queued.
+
 **October 13, 10:08 Amsterdam: six fixed track-consistency fits on laptop.**
 Run `v3_20261013_nn_public_tabm_track_consistency` passed independent source,
 CUDA/memory and input/teacher audits; all 344419 original predictions replay.

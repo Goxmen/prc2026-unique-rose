@@ -1,0 +1,135 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+    "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+  },
+  "design": {
+    "protocol": {
+      "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_protocol.json",
+      "sha256": "d79075487815197ddc4772df1f9143c0e8e4e8d1ec29dbb031886cfb2cbaf646"
+    },
+    "parent": "exactv80; replace seed42 only",
+    "arms": [
+      "supervised_control",
+      "training_consistency",
+      "target_consistency"
+    ],
+    "epochs": 2,
+    "lr": 3e-05,
+    "weight_decay": 0.0003,
+    "batch": 2048,
+    "microbatch": 512,
+    "consistency_weight": 1.0,
+    "consistency_batch": 512,
+    "seed": 42,
+    "sampling_seed": 20261013,
+    "view": {
+      "selection": "floor(j*(n-1)/(k-1)), k=max(2,ceil(n/2)), n>=3",
+      "unchanged": "full source descriptors, tabular inputs, selected point values and all movement clocks",
+      "updated_quality": "retained_slots_fraction only",
+      "teacher": "frozen unclipped standardized ensemble mean",
+      "loss": "MSE of student ensemble mean versus teacher mean",
+      "weight": 1.0,
+      "consistency_batch": 512,
+      "sampler": "PCG64 seed20261013, permutation cycles, fixed draw count"
+    },
+    "held_labels": "absent from cache and projected metadata; adapter all-NaN placeholder",
+    "teacher": "retained original seed42, frozen eval, unclipped standardized32-head mean",
+    "no_hpo": true,
+    "no_stopping": true,
+    "no_extra_seed": true,
+    "no_upload": true
+  },
+  "month": "2025-07",
+  "arm": "target_consistency",
+  "seed": 42,
+  "epochs": 2,
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-07.pkl",
+      "sha256": "888a51db63d881d247b7d6f89a2014ac0e0865da1fc680d410abd2c5ab8fb835",
+      "audited_candidate_record": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.json",
+        "sha256": "6895725874f13b83a901f242734ee2eb31655e6dd93cde1ad218e5e36fe1e8ac"
+      }
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+      "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+    },
+    "rows": 1140233,
+    "held_rows": 190713,
+    "reference_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.json",
+      "sha256": "c70cea646789fdccd2584f95eca80f072a3666a3dc59888c3e5765eb23bea817"
+    }
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/target_consistency/models/2025-07_s42.pt",
+    "sha256": "6ad3e4f758a480b6ff5509fa10c8c7d86ef18f511e4ae15306d73529bf7d74b2"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/target_consistency/networks/2025-07_s42.parquet",
+    "sha256": "f05a160c44f6b7940896977c05137d988a5a75959027c6741fe41682444eae5d"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+    "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+  },
+  "checkpoint": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/target_consistency/trained/2025-07_s42.json",
+    "sha256": "f68343fbefbcac51cc6b36387941044428a64367470da193df854a3d20165ec7"
+  },
+  "teacher": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-07/receipt.json",
+    "sha256": "926fbae7eace6fe67a42164e96e10e2a3b1c37b1e8313d69efdd986a732c031c"
+  },
+  "train_rows": 1140233,
+  "held_rows": 190713,
+  "scope": {
+    "train_rows": 1140233,
+    "held_rows": 190713,
+    "train_ids_sha256": "4d6094d6c82a1204d2e0c880ea00ebbb7ef82bdbff54e4d963c0c8a138addfac",
+    "held_ids_sha256": "bb7b8fda63f4e827faa10205eb6323353d3593b129c4eacf6da974557bb5395b",
+    "train_months": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ],
+    "held_months": [
+      "2025-07"
+    ],
+    "held_labels_absent_from_cache": true,
+    "held_metadata_columns": [
+      "mvt_id",
+      "month"
+    ],
+    "adapter_targets_all_nan": true
+  },
+  "curve": [
+    {
+      "epoch": 1,
+      "train_mse_std": 0.13976836603359222,
+      "consistency_mse_std": 0.00349857983107493,
+      "updates": 557,
+      "consistency_rows": 285184,
+      "seconds": 102.96017429499989
+    },
+    {
+      "epoch": 2,
+      "train_mse_std": 0.13893818410551392,
+      "consistency_mse_std": 0.0028190267187855884,
+      "updates": 557,
+      "consistency_rows": 285184,
+      "seconds": 102.59964977099844
+    }
+  ],
+  "all_held_reloaded_exact": true,
+  "host": "GLAPTOP",
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "torch": "2.14.1+cu130"
+}

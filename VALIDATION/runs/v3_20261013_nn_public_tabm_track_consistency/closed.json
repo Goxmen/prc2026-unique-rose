@@ -1,0 +1,69 @@
+{
+  "status": "closed_failed_fixed_primary_gate",
+  "created_utc": "2026-10-13T08:44:06.041270+00:00",
+  "authority": "/root",
+  "cv": {
+    "v80": 289.7627782102906,
+    "supervised_control": 289.7404214289522,
+    "training_consistency": 289.74328439065175,
+    "target_consistency": 289.76590594550646
+  },
+  "paired": {
+    "v80": {
+      "change": 0.0031277352158411986,
+      "ci95": [
+        -0.013656893142724159,
+        0.02031275906456819
+      ],
+      "decision": "inconclusive"
+    },
+    "supervised_control": {
+      "change": 0.025484516554257652,
+      "ci95": [
+        0.016275142149516596,
+        0.03540542132303841
+      ],
+      "decision": "regression"
+    },
+    "training_consistency": {
+      "change": 0.022621554854652004,
+      "ci95": [
+        0.015228329832143927,
+        0.03103310602395872
+      ],
+      "decision": "regression"
+    }
+  },
+  "evidence": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/result.json",
+      "sha256": "f4c43a0209115053a209d3d22c6ce2b86742bc30824ca36b8d32888d4a8bf8f2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/independent_audit.json",
+      "sha256": "63a89f752bc2eca4f07b49d08e74dc99803cb24052110d5737bcaed9dcc7836b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/terminal_rng_audit.json",
+      "sha256": "401f6c2a1a2f5e4db35d7a19f3fcc7b00a2d8a670fdbe3f4def2bbfb44a7c4c7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/portable_comparison/identity.json",
+      "sha256": "c2f80194c213d4aaedec17c4bb01d93c3b61c2e4e64262c1af9ef44ec499ce0f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/portable_comparison/closed.json",
+      "sha256": "58f9cfcf2097e3dd420532134dee7d64fc0da159228df0ba0af85deb848aece8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/portable_comparison/independent_audit.json",
+      "sha256": "b9adf871708c38810459afd72adfac3231b0840f087a2725c2648835b3019f93"
+    }
+  ],
+  "all_six_checkpoints_retained": true,
+  "terminal_rng_equal_within_each_month": true,
+  "secondary_new_prediction_decode": false,
+  "no_control_promotion": true,
+  "no_tuning_or_production_or_upload": true,
+  "interpretation": "Reused transductive Jan/Jul development; target-specific regularization does not improve v80 and regresses against both controls."
+}

@@ -1,0 +1,1044 @@
+{
+  "schema": "target_track_consistency_production_design_v1",
+  "created_utc": "2026-10-13T08:12:07.931282+00:00",
+  "state": "source_only_fixed_design_before_new_CV_scores; no executable production runner, fit, inference or candidate",
+  "conditions": {
+    "primary": "Existing exact-v80 three-arm gate remains mandatory and unchanged; independent postfit audit must pass. Never promote either control.",
+    "secondary": "Additional frozen v82 portability gate below governs v82 continuation only. It does not rescue a failed primary gate.",
+    "fit_authority": "Root allocation and independent production-source/input/memory preflight review required; no implied fit authorization in this document."
+  },
+  "production_model": {
+    "teacher": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/models/k0.pt",
+      "sha256": "003298fbc8d540a7659d1bd744cc472d67e2eda0ef26e75dff07c4b94155c049"
+    },
+    "teacher_receipt": {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/trained/k0.json",
+      "sha256": "c95f1730deb8cdb46532e7f0e15ababa21fe20fa18e67e24104077c984e01a4e"
+    },
+    "preprocessing": "Reuse original full-year saved encoder/category maps/bins/layout/mu/sd and frozen twelve-public-feature transform. Prefer transform only; if original ChunkedDirectData constructor is reused, require exact equality against saved preprocessing before any update.",
+    "scope": "One selected target_consistency continuation only; all2051327 supervised full2025 rows, all12 original training months, original capped target and scales. Target pool exactly all670790 final-view departure inputs, filtered only by frozen encoded track length>=3.",
+    "target_mix": "One common final pool across Jan/Feb/Jun/Jul, sampled uniformly by eligible row with frozen PCG64 cycle. Do not append old344841 inputs or oversample shared IDs. The old-ranking score uses this same model, so old ranking is not an additional transductive training pool.",
+    "input_firewall": "Final packet schema view/Vn/rank_ids; no departure target. Legacy adapter raw.taxi_sec placeholder allNaN; prove poison/removal invariance. Original training IDs disjoint from final IDs. All ID joins exact; final cached order Jan/Jul/Feb/Jun differs from template Jan/Feb/Jun/Jul.",
+    "fixed_training": "Reuse frozen CV train() bytecode via an input adapter, target_consistency arm, two epochs, fresh AdamW lr3e-5/wd.0003/betas(.9,.999)/eps1e-8, constant schedule, batch2048/micro512, seed42 original supervised stream. 2004 updates and1026048 consistency draws. No optimizer resume, schedule search, early stop, extra control fits or seed expansion.",
+    "fixed_consistency": "Exactly frozen CV thinning/quality semantics and weight1 ensemble-mean standardized unclipped teacher loss; no clock perturbation. Frozen teacher eval and isolated student eval branch restore all module flags and RNG. Full original tabular/source descriptors remain available.",
+    "teacher_cache": "Generate only final normalized unclipped teacher means (~2683160 bytes); training means unnecessary for selected target arm. Authenticate teacher with exact all-row old and final float32 saved exports, preserving negative normalized means before original export clipping.",
+    "track_adapter": "Train and final stores are separate existing caches. Small deterministic route adapter assigns a nonoverlapping index offset to final rows and dispatches each homogeneous batch to the original RaggedTracks.batch. Reuse unmodified CV train() function. Assert no mixed-domain batch and independently prove all aligned rows, full/thinned tensors and RNG match direct original calls. No point-bank copying or new feature computation.",
+    "retained_pool_members": [
+      {
+        "seed": 1042,
+        "identity": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/identity.json",
+          "sha256": "2fdb98a5a03bb8705489560e4c92d2aeb3482db54dbd29b3908554c5e6e80381"
+        },
+        "trained": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/trained/k0.json",
+          "sha256": "36c9dbbf15254a74e04ae284d57764013e6e3bcae478cf7dfe31be24eeb456dc"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/models/k0.pt",
+          "sha256": "3f98e2f9fce169744e63bb2382026c5aee7dfd8825a818bc6dea5f1a2bd86ec1"
+        },
+        "preprocessing": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/preprocessing/full_year.pkl",
+          "sha256": "c06a014bc423e03add78e4fc2f89739cde4a8625385aba097a796edd8d59b8fd"
+        },
+        "old_prediction": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k1/networks/old_k0.parquet",
+          "sha256": "e8efe9d35802ff631c71a31278df399d7f039d0460e6ff58b0059afbc85b4b84"
+        }
+      },
+      {
+        "seed": 2042,
+        "identity": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/identity.json",
+          "sha256": "401a084344469cf21e521518733cce959949ce8b47ee500c0b9acd9b2cf7520b"
+        },
+        "trained": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/trained/k0.json",
+          "sha256": "c6dee76409c6d541dd433bcf8200e26928b5e94a9ccd32bdd46ddda1f8612f7b"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/models/k0.pt",
+          "sha256": "8f2079ce360b8ea972a96a0b6ba17b7eeeb5277aa2e0e35c245bdef30df8761d"
+        },
+        "preprocessing": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/preprocessing/full_year.pkl",
+          "sha256": "b0a015918a11cf78bce52f271e30b796a4970468963e9537cceea28fae84db66"
+        },
+        "old_prediction": {
+          "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit/k2/networks/old_k0.parquet",
+          "sha256": "b389ce5fad01fdb35fb2a1b50482975a3dc17cfc9d7e06988f14f063cef170c3"
+        }
+      }
+    ],
+    "checkpoint_policy": "One durable single-attempt launcher. Save full model and terminal optimizer/RNG/sampler before diagnostics. Partial started state without complete checkpoint fails closed; reload every old/final row exactly. Fresh teacher reload and separate student initialization preserve original RNG."
+  },
+  "old_exact_v80_route": {
+    "rows": 344841,
+    "basis": "Actual retained v80 integer upload, not portable affine approximation.",
+    "pool": "Float64 arithmetic mean(new seed42 float32 export, unchanged1042float32, unchanged2042float32), member order retained.",
+    "native": "Replay original nn_public_tabm_pool3_submit_stack with only new seed42 member. Recompute original direct Rome/rule mixture, serialized refined74+direct-control, original quality-gated daily correction with saved full2025 parameters, serialized v77, then saved half joint increment and bounds to native_v78.",
+    "formula": "R(actual_v80 + new_native_v78 - retained_threeTabM_native_v78), R=nearest-even(max(0,x)). No additional robust delta: actualv80 already contains it.",
+    "control": "Original seed42 substituted back must reproduce every retained native stage and exact actualv80 on all344841 rows. Frozen other-runway increment/calibration stays unchanged. Zero integer native delta leaves actualv80 exactly.",
+    "receipts": {
+      "native": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit_stack/result.json",
+        "sha256": "3245209194c63a13a448abf26366b447a66d789e31746f38cc3683b2da4f1d6b"
+      },
+      "actual_v80_basis": {
+        "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/result.json",
+        "sha256": "dc850c56c993ff230b8b7b73eb8daba01e2303f3b2e58b99868d3c1a434f60d6"
+      },
+      "actual_v80_independent_audit": {
+        "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/independent_audit.json",
+        "sha256": "8fb46e1602da5a51294a56c1c315b7db6f08dd60d995785db991dd76a9516aae"
+      }
+    },
+    "limitations": "This preserves the exact old-ranking estimator and CV transport. It is not an exact final v80 reconstruction or proof of old-ranking benefit from the changed final target mix."
+  },
+  "v82_portable_route": {
+    "rows": {
+      "cv": 344419,
+      "old": 344841,
+      "final": 670790
+    },
+    "direct": "Use original final_public_direct_components arithmetic: pool equal3, neural=.5*(calls+pool), original main184/airport174/Cat174 equal tree, fixed publicRome/R20 probability, original callsign_submit.final_frame. Change seed42 only. For CV use original portable_direct_cv Scorer.final on its frozen held frame/params.",
+    "prefix": "Reuse audited portable_public_source stages B,raw_posterior,T,D,half_monthly,full_monthly,M exactly. They are independent of TabM direct. Preserve final numerical recovery receipt and all37 previously completed posterior groups. No daily-source posterior or monthly correction rerun.",
+    "suffix": [
+      "N_raw = retained M + new tabm_direct - retained direct_control",
+      "N = original matched/recovered constrain plus R(N_raw)",
+      "Recompute daily.apply on N with unchanged full2025 parameters (original fold-specific params for CV), original public daily source and monthly invalid_share<.05 gate",
+      "Q = constrain(N + gated daily shift)",
+      "J = constrain(Q + .5*retained joint increment)",
+      "F = constrain(J + .5*retained robust_delta)"
+    ],
+    "no_double_count": "No additional v80-native integer delta applied onto F. Changed direct and resulting daily shrinkage are recomputed once. All joint/robust increments remain saved input-independent objects, as in retained selected routes.",
+    "zero_control": "Original seed42 must replay every suffix stage and original final candidate exactly, along with all unchanged prefix/source fields. Recompute original control first on CV, old and final. Audit retained-source\u2192result\u2192artifact chains, including recovery audit.",
+    "secondary_gate": {
+      "fixed_before_scores": true,
+      "sole_candidate": "target_consistency",
+      "arm_order": [
+        "supervised_control",
+        "training_consistency",
+        "target_consistency"
+      ],
+      "scope": "After all six immutable model fits and the primary scorer/audit, assemble all three new CV direct vectors and the same retained v82 suffix, using all344419 original Jan/Jul IDs and held truth only at scoring. No new fits, inference, calibration or source-posterior evaluation.",
+      "reference": "Retained portable_public_source/cv/stages.parquet submitted; baseline zero replay exact.",
+      "criterion": "Primary exact-v80 gate PASS AND target_consistency has lower serialized mean Jan/Jul RMSE than retained v82, each month strictly improves, and paired-day bootstrap95% upper<0 versus v82. No additional minimum effect threshold on v82; no alternative arm selected.",
+      "bootstrap": "Same tuning_seasonal.paired_bootstrap defaults reps2000/seed0 and same month/day blocks as primary; compare target and v82 squared errors. Report all three arms and descriptive target-control differences, but never promote controls or tune blends.",
+      "failure": "If secondary fails, do not route continuation into v82 final; report portability failure. Primary may still support an old-ranking v80 candidate, subject to root decision and slot policy. Do not alter the fixed production target pool to salvage portability.",
+      "interpretation": "Reused transductive development gate, not independent confirmation; final target mix contains additionalFeb/Jun months and shifted inputs."
+    }
+  },
+  "resources_and_cost": {
+    "data": "No new downloads. Differential transfer only after target/source hash inventory; reuse cached full2025 matrix, train/old/final tracks, final compressed packet, public tables and other2pool predictions.",
+    "GPU": "Production actual train+final encoding requires2051327+670790rows. Preflight with real tensors, both track stores and dense512point batch must stay below7GiB. Old view loaded separately after save. Do not silently reduce batch or change residency semantics if failed.",
+    "memory_evidence": "Original full-year preflight reserve4033767548 bytes, peak4797157888 at train+old. CV target continuation actual Jan peak3899393536, July3195686912. Production is larger than CV; existing checks do not prove its capacity.",
+    "runtime_estimate": "CV dense continuation step0.18176s *2004updates ~6.1minutes; historical full-year epochs~158s each without extra branch. Allow10\u201320minutes total teacher/replay/preflight+one2epochfit+all-row reload/export after cache reuse, plus deterministic CPU stacks/audits. Estimate only, no timing probe here.",
+    "output": "~7.55MB model plus optimizer/RNG/sampler, finalteacher~2.68MB, old+final prediction vectors, receipts/curves/audits; preserve all. One heavyjob per allocatedhost."
+  },
+  "implementation_paths_proposed_only": {
+    "runner": "VALIDATION/nn_public_tabm_track_consistency_submit.py",
+    "route": "VALIDATION/track_consistency_submit_stack.py",
+    "portable_cv": "VALIDATION/track_consistency_portable_cv.py",
+    "audit": "VALIDATION/tools/audit_track_consistency_production_20261013.py",
+    "run": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency_submit",
+    "implementation_gate": "No files at these paths created by this design. Reuse existing train()/view bytes and original correction helpers; source and independent scope review before freeze."
+  },
+  "source_hashes": [
+    {
+      "path": "VALIDATION/nn_public_tabm_track_consistency.py",
+      "sha256": "90d974a396edcef6b6a4de84664d71679fd98a31de321a0595a18568e9ca9119"
+    },
+    {
+      "path": "VALIDATION/track_consistency_view.py",
+      "sha256": "f4cf615fdebd6e260c94831e7e02706c7949526945b014ee4b921cbfb51ecac1"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_track_consistency_score.py",
+      "sha256": "560a564cfcedc2a4cb0024b54616a1c401e6b2865b7299ff3240140a5d5bf193"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_submit.py",
+      "sha256": "89c94123dec051bad44bd843f068d62bd3f9705109a5b32824b1b6cb162c1b83"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_submit.py",
+      "sha256": "02c858c2cf4448612c01460c5d2517ab2478976e63e2067a3fc3b34e97f252aa"
+    },
+    {
+      "path": "VALIDATION/final_public_tabm_inference.py",
+      "sha256": "54b397a91a4cc2ba6e0695921d94520dc6b41cb6f0eec9c8ddaf0cdbc0f38209"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_submit_stack.py",
+      "sha256": "b52f97e8ecf8109bde4017236cf89a3290957825b83c921e767a732dce2b88c3"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_submit_stack.py",
+      "sha256": "2f0fb6eb49400dd80ed8aeb6fd1686f4d99c1c2ee7c2c6c023522ccedf09042b"
+    },
+    {
+      "path": "VALIDATION/final_public_direct_components.py",
+      "sha256": "bf945746fd5ce3aef0e58afe6d7b5962716cab9348dd05a76b1478ff2e1e542b"
+    },
+    {
+      "path": "VALIDATION/portable_direct_cv_20261013.py",
+      "sha256": "8ba1cc2c47db991111c10e3f8f5d121a98558f3c746718c48579dc50906af59d"
+    },
+    {
+      "path": "VALIDATION/portable_public_source_20261013.py",
+      "sha256": "c570f8e4dd812cf316aab841d4ebf6e209fb6a044f5853cf82730f65ff65a1a3"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    }
+  ],
+  "receipt_hashes": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+      "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+      "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/preflight.json",
+      "sha256": "3cefcb6e9cb5dd5a988fd86f01381b07dfacef1dd464f94f48bb951c1faf367c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_audit.json",
+      "sha256": "f521589b8b8c04c2ab6a0841699c8814fc1f4691ea4e37b012f134bdbf90284e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/identity.json",
+      "sha256": "48002e43d9fc6743d228f417ecba51a28dced0ed759d19f0b9ce6cee3c105785"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/trained/k0.json",
+      "sha256": "c95f1730deb8cdb46532e7f0e15ababa21fe20fa18e67e24104077c984e01a4e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/preflight.json",
+      "sha256": "d4873c5a911b57e9b675b3405e96b94e74e73a4b6fe0f5377c941289f14abf32"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/identity.json",
+      "sha256": "187cf29cbda2886a4ff03b217b69959bbe065177f0cea1066ed56af5a1c8a9f1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/old.json",
+      "sha256": "b41f01ae79fec86bed7ca040d4ed52e60ce630b102ab0fb2e2ce86efb2618418"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/final.json",
+      "sha256": "5c71277b912351ac860556a92b297e7baafb1f3391c00a2a654754a228795c38"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/return_audit.json",
+      "sha256": "0b08f545348475512ecdfba0bcbff958116d619bfc297921ba8f58ed40383305"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_direct_components/identity.json",
+      "sha256": "26716dd0429a3b910a39d8ae19d9ac52accb14d757f06beb1b429f855cbc51d2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_direct_components/old.json",
+      "sha256": "fa02fea0f7b6b0c04026a2d24752cd8b3510e4d21fb9e7c3ee56d99dc3d4ccef"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_direct_components/final.json",
+      "sha256": "80ee66d573a0e38ab5372e8d3f6de9b55b1972d21bd703c4fb522beecdd005ab"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_public_direct_components/independent_audit.json",
+      "sha256": "375c203bda1a6bd4fcee77d24f12f28320756d179b17df9ad9e44c84cc224d0b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit_stack/identity.json",
+      "sha256": "98b5f6d036d3e3e04978f0574ca12daab455727a5c19685d7fdec60eca965e84"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit_stack/result.json",
+      "sha256": "3245209194c63a13a448abf26366b447a66d789e31746f38cc3683b2da4f1d6b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3_submit_stack/audit.json",
+      "sha256": "8b77471cf6da4771ee2ee6426e75078983451f10aa7d10c2bf8be1d6092427ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/identity.json",
+      "sha256": "1dfcc6130912d3b872908c7df524fa7ccd87ae4d21130cb3b3b83b99e0cd8173"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/result.json",
+      "sha256": "dc850c56c993ff230b8b7b73eb8daba01e2303f3b2e58b99868d3c1a434f60d6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/audit.json",
+      "sha256": "f156cf0ea9650d75997dbf6917731711d7c19d89975382d737766067afb41ba9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/independent_audit.json",
+      "sha256": "8fb46e1602da5a51294a56c1c315b7db6f08dd60d995785db991dd76a9516aae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+      "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+      "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+      "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+      "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+      "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/result.json",
+      "sha256": "d4680537bc417ab38b462cd88bf1ed8647fe6fb7c524721e7dd3cd0ad60458a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/audit.json",
+      "sha256": "9a49947bbbbba84acea7cc65d8a2f9dfa84ff7d53d4fa0e7a58022342081712e"
+    }
+  ],
+  "declared_input_artifacts": {
+    "training_resources": {
+      "matrix": {
+        "path": "VALIDATION/runs/v3_20261003_ideas_submit/work/inputs.pkl",
+        "sha256": "a6256c6c9d0ec44747a58d7fd0c6ea0fd66bc422cf1a2c7d332a025af74d30d9"
+      },
+      "training_ids": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_submit/training_ids.parquet",
+        "sha256": "e97c401274cd7656408100e5aeed1397db839d838d734bbba895ccfea990a923"
+      },
+      "reference_preprocessing": {
+        "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_submit/preprocessing/full_year.pkl",
+        "sha256": "6d3fa0207b94f45324ab928a1f969be6b016a5de7ab93311ee6937ffbed726c4"
+      },
+      "training_features": {
+        "path": "VALIDATION/runs/v3_20261011_public_delay_features/features2025.parquet",
+        "sha256": "28fc54ff31c5ccb41817c649eea963a9a3cd3e037d2adb400e3fd00cfaa7be0d"
+      },
+      "ranking_features": {
+        "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/ranking_features.parquet",
+        "sha256": "4f46d20a5463792ca80987f4481ec31bb84f2257152ebe30e116544216f54f0e"
+      },
+      "template": {
+        "path": "data/submitting.parquet",
+        "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+      }
+    },
+    "teacher": {
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/identity.json",
+        "sha256": "48002e43d9fc6743d228f417ecba51a28dced0ed759d19f0b9ce6cee3c105785"
+      },
+      "trained": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/trained/k0.json",
+        "sha256": "c95f1730deb8cdb46532e7f0e15ababa21fe20fa18e67e24104077c984e01a4e"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/models/k0.pt",
+        "sha256": "003298fbc8d540a7659d1bd744cc472d67e2eda0ef26e75dff07c4b94155c049"
+      },
+      "preprocessing": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/preprocessing/full_year.pkl",
+        "sha256": "b8e3f5a7fca26194ad6f3def033ef2ca77e12ef96f50361e7c2dbcac94a4c23a"
+      },
+      "old_prediction": {
+        "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_submit/networks/old_k0.parquet",
+        "sha256": "a6e5d09c2f3eb3be8d33455e2fef50d21bf5705aa2fffeb3e363f5d2789ed087"
+      }
+    },
+    "final_predictions": [
+      {
+        "path": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/predictions/final_k0.parquet",
+        "sha256": "3f01e39d406258b3e0fb653d29e1141f112f231f765cf22a95f6fae6ae5788da"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/predictions/final_k1.parquet",
+        "sha256": "de9014af908ae6e68d9c3c51f58842f643a225c99fdb18328df92a19c536428e"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261012_final_public_tabm_inference/predictions/final_k2.parquet",
+        "sha256": "7df26edaa9695248dae7898dcb12eb75c103ae8575edfc3cf56cbc9f822c754c"
+      }
+    ],
+    "final_packet": {
+      "path": "VALIDATION/runs/v3_20261010_callsign_submit/portable_worker/inputs_final.pkl.gz",
+      "sha256": "0a48078c4707d7617c498c2696500d4cf1d98ea3806fb9a2999dad1734210033"
+    },
+    "final_public": {
+      "path": "data/derived/final_public_20261012/features.parquet",
+      "sha256": "f12b58b7b3e632cb0979038729ef42171b3b13a72bdf7ad65c27f78d87472118"
+    },
+    "old_public": {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_delay_submit/ranking_features.parquet",
+      "sha256": "4f46d20a5463792ca80987f4481ec31bb84f2257152ebe30e116544216f54f0e"
+    },
+    "train_tracks": {
+      "directory": "data/derived/sparse_track_sequence_20261010",
+      "files": [
+        {
+          "path": "data/derived/sparse_track_sequence_20261010/full_index.parquet",
+          "sha256": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684"
+        },
+        {
+          "path": "data/derived/sparse_track_sequence_20261010/full_points.bin",
+          "sha256": "e24e96f34f4fd536c621a3f5c36dd7fc8eae0f037fb0a32b59c1c1b84392d147"
+        }
+      ],
+      "identity": {
+        "path": "data/derived/sparse_track_sequence_20261010/full.json",
+        "sha256": "723cb02477e53b3c3e6b265fa98d3bd67a8e531b45d37943c6f527de5735d6da",
+        "outputs": {
+          "full_index.parquet": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684",
+          "full_points.bin": "e24e96f34f4fd536c621a3f5c36dd7fc8eae0f037fb0a32b59c1c1b84392d147"
+        },
+        "rows": 2085047,
+        "stored_points": 84624170
+      }
+    },
+    "old_tracks": {
+      "directory": "data/derived/sparse_track_submit_20261010/old",
+      "files": [
+        {
+          "path": "data/derived/sparse_track_submit_20261010/old/full_index.parquet",
+          "sha256": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98"
+        },
+        {
+          "path": "data/derived/sparse_track_submit_20261010/old/full_points.bin",
+          "sha256": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a"
+        }
+      ],
+      "identity": {
+        "ranking_view": "old",
+        "manifest": {
+          "path": "data/derived/sparse_track_submit_20261010/old/full.json",
+          "sha256": "925a04bb6daa72d77869096e0acd2db464f889e5218ec57caa86732df65688a3"
+        },
+        "design": {
+          "path": "data/derived/sparse_track_submit_20261010/old/full_design.json",
+          "sha256": "0da5b09393525c7983fb733e78db93181e35200d2ec0ca1158aaca161a7bf049"
+        },
+        "outputs": {
+          "full_index.parquet": "aacb1af7000bc811dcc20626e57bc6b1c750eb0fb8b0cee22d460e246e1eaa98",
+          "full_points.bin": "b5566aca8226239efc77c132d285b8e1f0efdd5aef565123137b6ab70506fa5a"
+        },
+        "rows": 344841,
+        "stored_points": 16165071
+      }
+    },
+    "final_tracks": {
+      "directory": "data/derived/sparse_track_submit_20261010/final",
+      "files": [
+        {
+          "path": "data/derived/sparse_track_submit_20261010/final/full_index.parquet",
+          "sha256": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2"
+        },
+        {
+          "path": "data/derived/sparse_track_submit_20261010/final/full_points.bin",
+          "sha256": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a"
+        }
+      ],
+      "identity": {
+        "ranking_view": "final",
+        "manifest": {
+          "path": "data/derived/sparse_track_submit_20261010/final/full.json",
+          "sha256": "2f2037dbd051e1eea6834fb605dfba89aa0cc7119cfb7c025b18c3dfc9d00f19"
+        },
+        "design": {
+          "path": "data/derived/sparse_track_submit_20261010/final/full_design.json",
+          "sha256": "a8e576a72199bc50734f388acb3c1a34a1821fa593e2252dd966754da7698acd"
+        },
+        "outputs": {
+          "full_index.parquet": "486cd727f6536892eed1edebba90294b0f2aa25dc3e564017a6164d782b0f1b2",
+          "full_points.bin": "ab0c3fbe9a340e4232a0eea76c9429dcd9b7fc6e16104efddb26d4633036033a"
+        },
+        "rows": 670790,
+        "stored_points": 31252680
+      }
+    },
+    "portable_specs": {
+      "cv": {
+        "base": {
+          "path": "VALIDATION/runs/v3_20261013_portable_affine/cv.parquet",
+          "sha256": "387f5fddb6bf15e9efec690cd1cbbefe1aa2d2a99cd4d84fa12bf5e605175822"
+        },
+        "raw": {
+          "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+          "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+        },
+        "monthly": {
+          "path": "VALIDATION/runs/v3_20261011_monthly_taxi/rows2025.parquet",
+          "sha256": "4f54fdfd841d3f287cd691c9fdb4ae5e9cc04f6f99347e5d055c0cc17db9d02b"
+        },
+        "daily_inputs": {
+          "path": "tmp/research_20261011/daily_taxi_source/training_rows.parquet",
+          "sha256": "f4c5e9ca9cc863d0540bc17238f299acc6bcd4a2eb4eddf3c7417d331659feea"
+        },
+        "matches": {
+          "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+          "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+        },
+        "daily_parameters": {
+          "path": "VALIDATION/runs/v3_20261011_daily_delay_posterior/screen.json",
+          "sha256": "1b10b8eb811a42e5caa451c2e5baac8ea8e9ae951256a50e6d71ba4d4f09dbd8"
+        },
+        "monthly_parameters": {
+          "path": "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/parameters.json",
+          "sha256": "cd0586523ffc85b908043689dcd3bd31d97f4fc85b27c7616ed72e3e360947b7"
+        },
+        "quality_parameters": {
+          "path": "VALIDATION/runs/v3_20261011_public_daily_taxi/parameters.json",
+          "sha256": "24709b526c045a41ebc33c7b7ccee86f3b3667bb966d5c1cce32958f2ce9500c"
+        },
+        "direct": {
+          "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/packet.parquet",
+          "sha256": "ee0f1900b4f4c383c872de13bac818781fd8a9d1bca1b4949a649de9e56d4f26"
+        },
+        "joint": {
+          "path": "VALIDATION/runs/v3_20261011_joint_public_moments/scored.parquet",
+          "sha256": "aad3a9394d5dea2af060201d20463ebdd5421239b7de0652f597d2640f18bbf4"
+        },
+        "robust": {
+          "path": "VALIDATION/runs/v3_20261012_joint_public_other_runway/scored.parquet",
+          "sha256": "d37c07d8eb1e2641ff3dd98f3cbcf3232a54f432b86f1f42a56e70f06e1c2d3f"
+        }
+      },
+      "old": {
+        "base": {
+          "path": "VALIDATION/runs/v3_20261013_portable_affine/old.parquet",
+          "sha256": "1d92145f8a6bfa2aa68ac1caf4a2a38a958c743e9f19cfb02ea75471c3a4ba5c"
+        },
+        "raw": {
+          "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/old/daily.parquet",
+          "sha256": "872c0c62847b25fc97700c32e14239d5a990228fef2cc960b9ec5be17c95e9bf"
+        },
+        "monthly": {
+          "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/old/monthly.parquet",
+          "sha256": "c1c13a97e795ef344e24df091ce3fda7a99c475e956a422d0ae4d4cd3d16413d"
+        },
+        "matches": {
+          "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/old/matches.parquet",
+          "sha256": "4631ed21c1d79ec9fb00e0522a3ba405558de6afc0a8190eb8047d8e6b8e11b0"
+        },
+        "direct": {
+          "path": "VALIDATION/runs/v3_20261012_final_public_direct_components/old.parquet",
+          "sha256": "43472279abe646a255287339df9593b14a63cf05fdf7d93099915bba673f1ec5"
+        },
+        "increments": {
+          "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/old/increments.parquet",
+          "sha256": "641a5ccd6fcc49713c78ca0b4fa374113dfb2c28457939ef4c0c868f8d7376cb"
+        },
+        "daily_inputs": {
+          "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_features/inputsranking.parquet",
+          "sha256": "5fa7527dd0e132c421a42586648853644c1f9575fc43338bda0829e460fe4465"
+        },
+        "daily_parameters": {
+          "path": "VALIDATION/runs/v3_20261011_daily_delay_submit/submission_v72/parameters.json",
+          "sha256": "530d036319e8c425dd407c8c40f46a81f9d4267f5a23e825295b18766f5ad4f5"
+        },
+        "monthly_parameters": {
+          "path": "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/parameters.json",
+          "sha256": "cd0586523ffc85b908043689dcd3bd31d97f4fc85b27c7616ed72e3e360947b7"
+        },
+        "quality_parameters": {
+          "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/parameters.json",
+          "sha256": "e59983c3c875a8161a484a2531e27add8d86e058e89b2f72218bcea39ca589b0"
+        },
+        "template": {
+          "path": "data/submitting.parquet",
+          "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b"
+        }
+      },
+      "final": {
+        "base": {
+          "path": "VALIDATION/runs/v3_20261013_portable_affine/final.parquet",
+          "sha256": "dcdec1929fae6d5d591d861473cef5d03c14b85aecc470e7a8768a85d62f0c86"
+        },
+        "raw": {
+          "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/final/daily.parquet",
+          "sha256": "2f8e6082b9a385b43c29f06be2bbcf11e4bd7be636712c09d708c5818852d85b"
+        },
+        "monthly": {
+          "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/final/monthly.parquet",
+          "sha256": "62e141cce2773dc2a08ad4eccdbf460c33cfb3dbf9f0874bd029d524a85424cf"
+        },
+        "matches": {
+          "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/final/matches.parquet",
+          "sha256": "430c366abbfac44454ba01ea6175e1b84886d9a5a4b4dcfb09a043c3a9a4b5cf"
+        },
+        "direct": {
+          "path": "VALIDATION/runs/v3_20261012_final_public_direct_components/final.parquet",
+          "sha256": "287d4a34bdd3e2248fd5d8d4b2bd09d5bc7b463e1523d3502ce79d4c2bc2801f"
+        },
+        "increments": {
+          "path": "VALIDATION/runs/v3_20261012_final_joint_public_inference/final/increments.parquet",
+          "sha256": "4669eb30d0d8287a50030cd4a0dc9a2579514a2ea5036fd29f5fb36a5dd2765e"
+        },
+        "daily_inputs": {
+          "path": "VALIDATION/runs/v3_20261012_final_daily_main_inference/features/inputsfinal.parquet",
+          "sha256": "864d4a316cacfb6e0ac64032813e45fe8136f3ef4c42ffdaf726739df75237a0"
+        },
+        "daily_parameters": {
+          "path": "VALIDATION/runs/v3_20261011_daily_delay_submit/submission_v72/parameters.json",
+          "sha256": "530d036319e8c425dd407c8c40f46a81f9d4267f5a23e825295b18766f5ad4f5"
+        },
+        "monthly_parameters": {
+          "path": "VALIDATION/runs/v3_20261011_public_constraints/submission_v74/parameters.json",
+          "sha256": "cd0586523ffc85b908043689dcd3bd31d97f4fc85b27c7616ed72e3e360947b7"
+        },
+        "quality_parameters": {
+          "path": "VALIDATION/runs/v3_20261011_public_daily_taxi_submit/parameters.json",
+          "sha256": "e59983c3c875a8161a484a2531e27add8d86e058e89b2f72218bcea39ca589b0"
+        },
+        "template": {
+          "path": "data/final_submitting.parquet",
+          "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+        }
+      }
+    },
+    "portable_view_results": {
+      "cv": {
+        "identity": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+          "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+        },
+        "view": "cv",
+        "allocation": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/allocation.json",
+          "sha256": "671db34aeb727c11856a12b19e2a3da7cac16a78b383ea53f5155931a158e632"
+        },
+        "rows": 344419,
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+          "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+        },
+        "monthly_cells": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/monthly_cells.parquet",
+          "sha256": "9bc1c0c2b4c68d77cbb701d820fc054d7dd23200c6c70efc7fcd78745b4a60d0"
+        },
+        "daily_cells": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/daily_cells.parquet",
+          "sha256": "e349a77994fa1b1ba8817599a9a9840fe9812c3cdd0262fe229523efec802fee"
+        },
+        "posterior_receipts": [
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EDDF.json",
+            "sha256": "ad72ba5f1ee95bc425fc2e558ab1ed0eee888c0e610ec76c686ad5857a9c59a9"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EDDM.json",
+            "sha256": "bdf45c3f19724b787b5950d86d1d71dbcaf33e60170d2366faf07c15fc0f574c"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EGLL.json",
+            "sha256": "1b443d0e2eec06803392ce2a90e32d9b01562a38fa9175791986cf78458f29e6"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EHAM.json",
+            "sha256": "0147dd4715352537ce840579b5ed34b2b6f7dd9c20d29d0eee3a646dac19ca84"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LEBL.json",
+            "sha256": "fdc34a43e8dbaa43125a54ac7a73304f28a273cbc0c8681d5b245e74ea0b37c6"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LEMD.json",
+            "sha256": "90216c7d8d89b993462cacf673ef47d9e3e385074339c84255ca629716d9d788"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LFPG.json",
+            "sha256": "918860a8193daa9a0173fe1b1773ca663b5303d013741e25bed6d309a9d42074"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LIRF.json",
+            "sha256": "674f3def0977d63c36dbd1c2e52f6b96b8efe02776aed95d44eec2f4fb372ae8"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LSZH.json",
+            "sha256": "1972b5788e51c6a2a29990bd313c4acf647f4bb54e5ddb7c60083f90d19272cf"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LTFM.json",
+            "sha256": "f00c20efd8b4de4ca6f247662758dc0a6d7107c05feec04fa57fab283f584075"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EDDF.json",
+            "sha256": "af554a678d8b59138d8ee28f93a64792ec37d74d3213d263c5a476aec231d535"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EDDM.json",
+            "sha256": "5532e9fb296705fd86fcc7cb6d9ecac000014c469b955d9f4370cbd9f1d4d005"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EGLL.json",
+            "sha256": "30b0e2f1296a1fa03608cb4ded5c7e6ba81e5bc306db463538c95556682a524a"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EHAM.json",
+            "sha256": "15b39945430b677336409d6d600f7df4b6d7b22d59e8117825b85ab9b8f0fa06"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LEBL.json",
+            "sha256": "42c60cf8563baae23b5f911a0557bc8088e4ce072bc3a714e896529bc512c3a4"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LEMD.json",
+            "sha256": "e4159409e64451ac7f540563e5afa6b335e61d5c914a4c6ec592321e19815585"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LFPG.json",
+            "sha256": "7281cab90fdfa63cad3510bb9d26a64c40023e48662d13bd322c61b1459fa6cb"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LIRF.json",
+            "sha256": "fc96e72da32ff52247110d1404666f31fbbc34e88a6770d10e57d158df648a93"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LSZH.json",
+            "sha256": "253a5ac6df31ee3509c189763d52a846dfcfdfba062df51038fc3f1b76dacaaa"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LTFM.json",
+            "sha256": "5382ef6f307f5c0643c55dbc09a18a0a78db30f5adae77b16f4c7a167dea6615"
+          }
+        ],
+        "independent_audit_pending": true,
+        "no_fit": true,
+        "no_solve": true,
+        "no_upload": true,
+        "selected_for_final": false
+      },
+      "old": {
+        "identity": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+          "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+        },
+        "view": "old",
+        "allocation": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/allocation.json",
+          "sha256": "3b30d8bf0c55f3257d960694cccc0598b8ed55a34416fa4546cbcc328172eb3f"
+        },
+        "rows": 344841,
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/stages.parquet",
+          "sha256": "cd3b79f39a9a436cd682dac1aa45380c374e32a3a5cc0432a0543d5791008197"
+        },
+        "monthly_cells": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/monthly_cells.parquet",
+          "sha256": "5d898d1bffad69f54d69dc327c46fe3f711ab9b9fd918aa9aedb51b3419728d6"
+        },
+        "daily_cells": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/daily_cells.parquet",
+          "sha256": "5d58fa93e820171e3b7d3cea8cb352ef4092fe9ec904fbfb5baa4328ba3c0ba3"
+        },
+        "posterior_receipts": [
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_EDDF.json",
+            "sha256": "94468e171817638fb98a11062d9480bd3a4a3888a7da0b1486f85b80174d67a9"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_EDDM.json",
+            "sha256": "e41c543e277d36ca1fa2219c2ba82484cf34f265e80bfdcec542cd4bc632dbbc"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_EGLL.json",
+            "sha256": "2f216dfb9becb81c07225d6b06cac8d3accc3de776dfa437ed3f19d18f445e6c"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_EHAM.json",
+            "sha256": "e395f83bbe3cbe979e444612d8cafe789c5e96b17e45143ff4d362cfde863c4b"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_LEBL.json",
+            "sha256": "65da1b8465de6b38270f527844d038dc927bc7c6ec2ee2366f0f16e121ee2c1e"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_LEMD.json",
+            "sha256": "e151bf54660da8b1d52c723e794a89f31d8d436cb1ad7745b754bd611fe2fbde"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_LFPG.json",
+            "sha256": "fc7f28de9de35e6a11b29155d4edaf49bc7247c5d9341a5c9d4fdf6ebcd99493"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_LIRF.json",
+            "sha256": "dc588d83d676b652f235f90f7bb0f44362201ef2b0b6954baf3ad1d60c997ac6"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_LSZH.json",
+            "sha256": "afaa232b76d5e881f9244d999828240bd7e10ec0d0a255ab830f51ed2002d40a"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-01_LTFM.json",
+            "sha256": "623f27cdfd7893ce7546601ba11d825ab91e80261121df69bb51f51b1f449416"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_EDDF.json",
+            "sha256": "c8281612725cbb4a36720c89eb98a83f265e13dd24ddcf6f0ef29813cf27c714"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_EDDM.json",
+            "sha256": "d65f6d5e251bd7d7f25e9c1b9285d4e0da3f23f269b499178bc205558c1ee2ed"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_EGLL.json",
+            "sha256": "128fd51a8790eec41d25f05e19677b2f17e3f10191a1793790ae97f8ae292ed5"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_EHAM.json",
+            "sha256": "c97d18d35c45dbdaeb9a21447a4d857db59d9e7927f6bdfd1f6bc8c2cb0434f9"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_LEBL.json",
+            "sha256": "a6e2d2ef279734eba57e190279451b731012d5a05405c95da21935645df09d54"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_LEMD.json",
+            "sha256": "361041943fdf7d7dce35dd8d66c6e3df87a44b1a106972d888781bd3b22c0dbf"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_LFPG.json",
+            "sha256": "732561d37df274b02144eebfe85d9bd73650dcd8f57770dba02146bda371b92b"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_LIRF.json",
+            "sha256": "563164b63833af09ffd5136b946ecaa28a4ddd9c621eb16076106547fa5e4be1"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_LSZH.json",
+            "sha256": "8f35d434fa0f05de65fe58d65cd6dfa1741d830dec9444e46082c90183ada372"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/posterior/2026-07_LTFM.json",
+            "sha256": "346ed5d2c104ff475065717da90837194569357f43332e753b1fcf77c4a00e84"
+          }
+        ],
+        "independent_audit_pending": true,
+        "no_fit": true,
+        "no_solve": true,
+        "no_upload": true,
+        "selected_for_final": false,
+        "candidate": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/candidate.parquet",
+          "sha256": "30b388168bec0c657dbff5731157e7cd635cb002af5f8be75891c5323f2bf8e0"
+        }
+      },
+      "final": {
+        "identity": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+          "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+        },
+        "view": "final",
+        "allocation": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/allocation.json",
+          "sha256": "9c803ecccf5797d9eff410122c9f67a6fd7e68a4250b134742807dc4ef1e600e"
+        },
+        "rows": 670790,
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/stages.parquet",
+          "sha256": "4e02621fd49f8edf67c3dcc847900ab0c9da9f41458869fbc20893c30998e45c"
+        },
+        "monthly_cells": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/monthly_cells.parquet",
+          "sha256": "2d6015a685cad3fcc8c9289d20a72d5458f1a6f394c46cbb6ef9d34b4a01a903"
+        },
+        "daily_cells": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/daily_cells.parquet",
+          "sha256": "b0fd8611d34f110a4fc820c76467c8ffe412a5ef330deae8bf35b6cfc15166e3"
+        },
+        "posterior_receipts": [
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_EDDF.json",
+            "sha256": "4c6b2ae0579da8d641706572ca508a9cd0807c625319e3f47bdd2140b94eb0ea"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_EDDM.json",
+            "sha256": "7f13c307f1ef4115064ba350442c99fabffdc0267b2eddde3b63ca37d68ebb27"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_EGLL.json",
+            "sha256": "d3afc3f1b57027412b8e4b8a43a17610273e8a10be7784088cd9be4209b06294"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_EHAM.json",
+            "sha256": "e1b37a875cb40b7ec8baf0c4d0438d3439ab4d44ea36e8081aabeddbf05931c9"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_LEBL.json",
+            "sha256": "2ccbfeabff74d1a51f0144418c3008e52aeb8a1d6090ce1cb8a73aea74d4bb9c"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_LEMD.json",
+            "sha256": "47c06c0489839f1c79c7c394c6be747e5022d99a35e4d0c63cb4129956f2f587"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_LFPG.json",
+            "sha256": "1ba64c3dcf268d64d2ba0fa3f08b36501d04684ab6db214c0cb98c4136644ed6"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_LIRF.json",
+            "sha256": "4773ac822eb68eebbe24c264d6bc2e0edd70b7a28a98410428ed13c03d7da1b8"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_LSZH.json",
+            "sha256": "49a65bb63ca2f4495982307385808bfcd049e84a927d4a10c409259adb709f88"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-01_LTFM.json",
+            "sha256": "57bd62037963cd161089a75b706c0dc488b99c4c9e24dde4063cca8b0a260d4b"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_EDDF.json",
+            "sha256": "5d621f471f200ba788bdcecfdb9cabc4a27ca13db1bf3445a33b60b2c1162c48"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_EDDM.json",
+            "sha256": "84fee7ec55ea1188c0267721a5d70af8f9024b93379f328e915fc4129343b5fb"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_EGLL.json",
+            "sha256": "ac3825cbcb4de25ae9897121f56016a0c8388d7457e7c7fb61b9d80f973a83e2"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_EHAM.json",
+            "sha256": "d5b5989188e66f6eba8d2337861205e7279f795faab6df4bf14633c2f484419b"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_LEBL.json",
+            "sha256": "bd7800a9028a90c4b69345c7207c17af234e4b20bdffce69afc3a89e85390367"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_LEMD.json",
+            "sha256": "32e70a286182f24115baec17c9a193bacb201d54211075b7a8a4dde8a7a7e789"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_LFPG.json",
+            "sha256": "c74ee5590c1e7e833f34e01f838a9b9e9418390ad161aebe89d54a9f2195ad07"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_LIRF.json",
+            "sha256": "558f130cf791995297f7e921aa3055c7271973c34a835e7fe20db6482062d341"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_LSZH.json",
+            "sha256": "bf972c072a34ab542eba5bb85f997b6314336f7fc90474750ec76acb3fd0621f"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-02_LTFM.json",
+            "sha256": "f62b5086b8b2958285c7514092048dd59387e7946d2b76e8a1ddbb5905a889f1"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_EDDF.json",
+            "sha256": "170ce192cb7587010d615bcac30e64fafc75bfa86c2cdf5e0a74c92743230bde"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_EDDM.json",
+            "sha256": "f4cee2f72bc552938c4c35bed8029eb850357d7e50e9f693ce0d8b59d215a6c0"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_EGLL.json",
+            "sha256": "e3f9d1c65d6b08b63651f0c79d7dd240064228577b3bc307904aaba911eb55b1"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_EHAM.json",
+            "sha256": "d23ef86899d0732c9d7c50f8f11405d87cf682f54eb3685d602d9916a1d97955"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_LEBL.json",
+            "sha256": "f09f20d3a2470a40cb641824c43b7100ca177d6a55f2b414febb4b7da3c65aea"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_LEMD.json",
+            "sha256": "eeee3ee2631661952e47c7a94fce3ee30bb5a8f230bc2db315ba27b458a9913e"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_LFPG.json",
+            "sha256": "9b3a0e6e37eb4f8099a38380283da699cb0b73cdeca15e857975b72a3e7fe4c5"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_LIRF.json",
+            "sha256": "a58575d3ee76f0afdff1a48b9c7674f280e93b4acd26176967c3756e36418c41"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_LSZH.json",
+            "sha256": "5737c90dd77f7db5f0b1d13468c7a848a0cc3a373fce59d0d7a8740eb8c611bb"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-06_LTFM.json",
+            "sha256": "ec483364ae771cadb8b0f52d6f2c99dcdf8da06b1396ec7dea4d362f0f06101c"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_EDDF.json",
+            "sha256": "7f104ccb33e67f1518466141be2928eb75cf74591b0721c3e54748d7f8457b01"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_EDDM.json",
+            "sha256": "23c3ff88c147ad2825bf05d5fb733d552493e6a364c5de4dfd2cc7eadc986e5c"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_EGLL.json",
+            "sha256": "588d35d215fb102bb12bb28f000e05baea53e7d9f257b340ec198d791c8cd835"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_EHAM.json",
+            "sha256": "2bda309e7266c3e28a5ccfa7cb69c06523ce6fa2441de294e8ca30d60e0a80fa"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_LEBL.json",
+            "sha256": "9764bb032e2767a9eacc980448023241a57315bf3cc8fe8c9398638225553ec6"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_LEMD.json",
+            "sha256": "ec361b51bf1d1ebefa70c00c74521e4a66df71cd90f7083d42079c0017dee26c"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_LFPG.json",
+            "sha256": "a21b6a5aff90ca075b1aeef170890d753cc496d588394ffe953578a74a4ca37a"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_LIRF.json",
+            "sha256": "02b6c8cccde0549bd35f3d74bea2266dec6b2aaaf8ed88b28425778df91e1f1e"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_LSZH.json",
+            "sha256": "a446f6c8297fefec035169348aae33d5054f4ab5f827843a722071b93a4c71a7"
+          },
+          {
+            "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/posterior/2026-07_LTFM.json",
+            "sha256": "b4b957bdd6a7220b08b91516e8f2bfada796b99db57df61d90022efd459ce841"
+          }
+        ],
+        "independent_audit_pending": true,
+        "no_fit": true,
+        "no_solve": true,
+        "no_upload": true,
+        "selected_for_final": false,
+        "candidate": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/candidate.parquet",
+          "sha256": "4c9e8a3c7962c84daefee2523c5cfaca5c180b9c90ef1d27d2b7c3e0078c5eae"
+        },
+        "numerical_recovery": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/identity.json",
+          "sha256": "a3f7b28061d85d86153e3f180016d93e629b2539cd9960047258d8a7ad8ce58a"
+        }
+      }
+    }
+  },
+  "provenance_limit": "This source-only design hashes small source/JSON files and copies existing declared large-artifact hashes. It does not decode new predictions, rehash/read large input arrays, run models, verify all transitive bytes, dispatch jobs or authorize uploads. All declared bytes and audit chains must be verified at later production freeze."
+}

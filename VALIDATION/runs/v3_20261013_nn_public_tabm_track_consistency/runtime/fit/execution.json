@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "stage": "fit",
+  "host": "GLAPTOP",
+  "pid": 3410,
+  "process_start": "780770",
+  "started_at": "2026-10-13T08:08:23.229520+00:00",
+  "plan": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/deployment_plan.json",
+    "sha256": "b2eef9641374e85f6cb2dcb1a4badec9c66ece88b635ea03f67f8555948fe4b7"
+  },
+  "child_pid": 3411,
+  "child_process_start": "780772",
+  "command": [
+    "/home/gunes/PRC/.venv/bin/python",
+    "-u",
+    "/home/gunes/PRC/VALIDATION/nn_public_tabm_track_consistency.py",
+    "fit"
+  ],
+  "returncode": 0,
+  "receipt": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/audit.json",
+    "sha256": "c007a8724a4978156405b5c47c614cc14980878b4af4f979154522625ba005b8"
+  },
+  "finished_at": "2026-10-13T08:35:41.862888+00:00"
+}

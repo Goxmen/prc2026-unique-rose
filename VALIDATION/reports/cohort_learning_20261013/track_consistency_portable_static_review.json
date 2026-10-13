@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "reviewer": "/root/final_recovery",
+  "scope": "Source-only independent review plus fabricated SQL/float/bootstrap/guard fixtures; no actual predictions, labels, checkpoints or fit outputs decoded.",
+  "producer": {
+    "path": "VALIDATION/track_consistency_portable_cv.py",
+    "sha256": "5aecf5cc18e1edcccd52d7b23288f4971f1c97c44a76d4872c23d76bd9b4ab42"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_track_consistency_portable_cv_20261013.py",
+    "sha256": "c0f94def151e69c2f2e0219779ce4dcc9c9f68ec06f0fa951fc95b8d83c6547b"
+  },
+  "fixture_source": {
+    "path": "VALIDATION/tools/check_track_consistency_portable_cv_20261013.py",
+    "sha256": "5e1741ce446e7704676354663ac2a5cffde1272266691f5b26ad3f6eaa9de377"
+  },
+  "fixture": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/track_consistency_portable_fixture.json",
+    "sha256": "560ab1c60b9a348d1f91eb5e9ebc3042fd55149475531101327b20f54267315c"
+  },
+  "design": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_production_design.json",
+    "sha256": "c9ad993ab67164059c5338b2f9476ec1abb151365bb655f626f19a4b1bcc5af3"
+  },
+  "checks": {
+    "primary_exact_v80_gate_unchanged_and_mandatory": true,
+    "failed_primary_producer_and_auditor_no_decode_paths_tested": true,
+    "all_six_model_prediction_receipts_and_primary_fit_audit_bound": true,
+    "unchanged_original_prefix_and_every_zero_control_stage_exact_gates": true,
+    "float64_three_member_order_and_original_mixture_literal_exact": true,
+    "raw_Jan_Jul_truth_ID_calendar_checks_reuse_pinned_independent_SQL": true,
+    "monthly_daily_lookup_joins_qualified_despite_duplicate_airport_columns": true,
+    "independent_scalar_constraint_and_daily_source_cell_fixtures_pass": true,
+    "independent_raw_row_whole_day_bootstrap_matches_SQL_2000": true,
+    "secondary_target_only_gate_and_no_weight_or_control_promotion": true,
+    "original_native_direct_replay_scope_honest_not_independently_rederived": true
+  },
+  "limitations": [
+    "This is prefit source evidence; actual all-row numerical checks remain pending completed six-fit exports and primary independent audit.",
+    "Native final_prediction is hash-pinned original code with exact zero controls, not a new independent posterior/correction implementation.",
+    "Jan/Jul evidence remains reused transductive development, not independent confirmation."
+  ],
+  "no_source_freeze_performed": true,
+  "no_numeric_experiment": true
+}

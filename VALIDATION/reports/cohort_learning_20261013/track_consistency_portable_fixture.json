@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_track_consistency_portable_cv_20261013.py",
+    "sha256": "5e1741ce446e7704676354663ac2a5cffde1272266691f5b26ad3f6eaa9de377"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_track_consistency_portable_cv_20261013.py",
+    "sha256": "c0f94def151e69c2f2e0219779ce4dcc9c9f68ec06f0fa951fc95b8d83c6547b"
+  },
+  "producer": {
+    "path": "VALIDATION/track_consistency_portable_cv.py",
+    "sha256": "5aecf5cc18e1edcccd52d7b23288f4971f1c97c44a76d4872c23d76bd9b4ab42"
+  },
+  "suffix": {
+    "rows": 96,
+    "arms": 4,
+    "cells": 24,
+    "qualified_duplicate_airport_joins_pass": true,
+    "independent_scalar_constraints_and_daily_cells": true,
+    "corrupted_stage_and_cell_rejected": true,
+    "strict_quality_edge_and_missing_quality_checked": true
+  },
+  "metrics": {
+    "rows": 8,
+    "bootstrap_replicates": 2000,
+    "references": 3,
+    "unsorted_first_occurrence_days_and_fractional_truth": true,
+    "raw_row_cluster_bootstrap_exact": true,
+    "corrupted_gate_and_interval_rejected": true
+  },
+  "guards": {
+    "producer_primary_failure_closes_before_decode": true,
+    "auditor_closed_route_before_decode": true,
+    "all_six_exports_required": true,
+    "missing_member_and_missing_completion_rejected": true
+  },
+  "pool": {
+    "rows": 257,
+    "float64_conversion_and_left_to_right_three_pool_exact": true,
+    "native_coefficient_operation_exact": true,
+    "premature_float32_pool_distinguished": true
+  },
+  "no_actual_labels_vectors_models_read": true,
+  "no_fit_no_inference_no_network": true
+}

@@ -1,0 +1,197 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_track_consistency_terminal_rng_20261013.py",
+    "sha256": "8fa2abd8523f356fb0e5f6d3c95c20fb7e95c5edddf66b4aef30eaba9f719aac"
+  },
+  "primary_audit": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/independent_audit.json",
+    "sha256": "63a89f752bc2eca4f07b49d08e74dc99803cb24052110d5737bcaed9dcc7836b"
+  },
+  "comparison_identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+    "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
+  },
+  "primary_result": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/result.json",
+    "sha256": "f4c43a0209115053a209d3d22c6ce2b86742bc30824ca36b8d32888d4a8bf8f2"
+  },
+  "inputs": [
+    {
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/supervised_control/networks/2025-01_s42.json",
+        "sha256": "4123eff5b8c30d4152dfd8bcd1005baf6c4a8e7e4c7b0e9284d49cfd3899e323"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/supervised_control/models/2025-01_s42.pt",
+        "sha256": "5d7ad64230d15ed96fd5b390055c0d828da59441bfc92e59934d6dbc8342a6c4"
+      }
+    },
+    {
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/training_consistency/networks/2025-01_s42.json",
+        "sha256": "d23f7a0d8a7abb78d036ad5e9c5006ab735f48dfb5bb2a64f20558ac18824756"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/training_consistency/models/2025-01_s42.pt",
+        "sha256": "d5f57cb3ef4cf8d74eba75cd58176477c041200dbd94cba4986eda59feb47732"
+      }
+    },
+    {
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/target_consistency/networks/2025-01_s42.json",
+        "sha256": "a181b4c1a05847649846e3c4e23f82dc6509d9f473be07a413a2b07a16bf68a0"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/target_consistency/models/2025-01_s42.pt",
+        "sha256": "259cd2843bb65e2505c035cbac92164dcecfac0c573b4f12035424e4db199f0a"
+      }
+    },
+    {
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/supervised_control/networks/2025-07_s42.json",
+        "sha256": "c403304f0d29757cf4fc6283d181f84028acbb3ab8ab5cf972d829e9fcdf19dd"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/supervised_control/models/2025-07_s42.pt",
+        "sha256": "a677181ced8be5b293277eb0e8bcfccf61098ad635a5606846cd2f6d7806f315"
+      }
+    },
+    {
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/training_consistency/networks/2025-07_s42.json",
+        "sha256": "588725478c7cb09d9a1b0db12db58acd3df8223d65350a820ab5ce48b7fead2a"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/training_consistency/models/2025-07_s42.pt",
+        "sha256": "a4bdca4747766b371927ca8ca8cdf0bc8964fb9a0ccc784505966aeb978835f5"
+      }
+    },
+    {
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/target_consistency/networks/2025-07_s42.json",
+        "sha256": "40865efc47e490d0a50fc67655b4d1e6e240fad248566d0f70119bbc0600248e"
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/target_consistency/models/2025-07_s42.pt",
+        "sha256": "6ad3e4f758a480b6ff5509fa10c8c7d86ef18f511e4ae15306d73529bf7d74b2"
+      }
+    }
+  ],
+  "months": {
+    "2025-01": {
+      "supervised_control": {
+        "cpu_rng": {
+          "dtype": "torch.uint8",
+          "elements": 5056,
+          "sha256": "5af2b61f2ff8cb4334f73726e16bb8dba5b7f013defead39dd19d31cd5c23d36"
+        },
+        "cuda_rng": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "8115ebd8043d7bf19aadbadd3794d85d9588f6b69478ea3fd02f3dce8d8d63f6"
+        },
+        "permutation_generator": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "31379f4e8f9c827f31684ff94d2974d0a3bc37399ccaddf74667f30d3c06b13b"
+        }
+      },
+      "training_consistency": {
+        "cpu_rng": {
+          "dtype": "torch.uint8",
+          "elements": 5056,
+          "sha256": "5af2b61f2ff8cb4334f73726e16bb8dba5b7f013defead39dd19d31cd5c23d36"
+        },
+        "cuda_rng": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "8115ebd8043d7bf19aadbadd3794d85d9588f6b69478ea3fd02f3dce8d8d63f6"
+        },
+        "permutation_generator": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "31379f4e8f9c827f31684ff94d2974d0a3bc37399ccaddf74667f30d3c06b13b"
+        }
+      },
+      "target_consistency": {
+        "cpu_rng": {
+          "dtype": "torch.uint8",
+          "elements": 5056,
+          "sha256": "5af2b61f2ff8cb4334f73726e16bb8dba5b7f013defead39dd19d31cd5c23d36"
+        },
+        "cuda_rng": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "8115ebd8043d7bf19aadbadd3794d85d9588f6b69478ea3fd02f3dce8d8d63f6"
+        },
+        "permutation_generator": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "31379f4e8f9c827f31684ff94d2974d0a3bc37399ccaddf74667f30d3c06b13b"
+        }
+      }
+    },
+    "2025-07": {
+      "supervised_control": {
+        "cpu_rng": {
+          "dtype": "torch.uint8",
+          "elements": 5056,
+          "sha256": "12ea2bf5228d0138e52ea2ca437477aac992b8fc04d6cbb28bbc5693c2c9735c"
+        },
+        "cuda_rng": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "69d1d28fe3319110cc600a5cd9578147da43f8157afcbefa8c4021544e560f24"
+        },
+        "permutation_generator": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "e1b88c6b070447000b0f9e51171b3c97425cc523b1d1a1558b35c959f1e0df59"
+        }
+      },
+      "training_consistency": {
+        "cpu_rng": {
+          "dtype": "torch.uint8",
+          "elements": 5056,
+          "sha256": "12ea2bf5228d0138e52ea2ca437477aac992b8fc04d6cbb28bbc5693c2c9735c"
+        },
+        "cuda_rng": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "69d1d28fe3319110cc600a5cd9578147da43f8157afcbefa8c4021544e560f24"
+        },
+        "permutation_generator": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "e1b88c6b070447000b0f9e51171b3c97425cc523b1d1a1558b35c959f1e0df59"
+        }
+      },
+      "target_consistency": {
+        "cpu_rng": {
+          "dtype": "torch.uint8",
+          "elements": 5056,
+          "sha256": "12ea2bf5228d0138e52ea2ca437477aac992b8fc04d6cbb28bbc5693c2c9735c"
+        },
+        "cuda_rng": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "69d1d28fe3319110cc600a5cd9578147da43f8157afcbefa8c4021544e560f24"
+        },
+        "permutation_generator": {
+          "dtype": "torch.uint8",
+          "elements": 16,
+          "sha256": "e1b88c6b070447000b0f9e51171b3c97425cc523b1d1a1558b35c959f1e0df59"
+        }
+      }
+    }
+  },
+  "all_three_arms_terminal_CPU_CUDA_permutation_streams_exact": true,
+  "additive_postfit_control_evidence": true,
+  "no_frozen_source_or_metrics_changed": true,
+  "no_model_inference": true,
+  "no_labels_read": true,
+  "no_fit": true,
+  "no_upload": true,
+  "seconds": 0.2118375259997265
+}

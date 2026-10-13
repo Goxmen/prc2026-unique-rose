@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T08:10:38.939449+00:00",
+  "updated_at": "2026-10-13T08:44:06.041270+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
@@ -10,49 +10,40 @@
   "desktop": {
     "stage": "idle",
     "owner": null,
-    "checked_at": "2026-10-13T07:54:28.227302+00:00"
+    "checked_at": "2026-10-13T08:44:06.041270+00:00"
   },
   "next": [
-    "Preserve laptop3410 six serial fits; new_signal returns all frozen checkpoints/receipts once complete",
-    "After all6 immutable predictions exist, root exactv80 three-arm score then final_recovery independent audit",
-    "Select production only through frozen target-arm gates; v82 portability comparison to be frozen before scores",
-    "Keep three slots, including last reserved; audited final candidates retained, no upload queued"
+    "Read-only distinct high-impact mechanism review by three agents; avoid closed experiments",
+    "Resolve conditional final clock transport evidence and select strongest retained final candidate only after promising work is resolved",
+    "Three remaining slots including last reserved; no upload queued, both machines idle"
   ],
   "native_goal_status": "active",
   "active_research": [
     {
       "owner": "root",
-      "scope": "Slot reservation, laptop dispatch, integrated scoring and final selection"
+      "scope": "Research integration, slot reservation and final selection"
     },
     {
       "owner": "cohort_learning",
-      "scope": "Frozen target track-view consistency runner and six-fit protocol"
+      "scope": "Read-only distinct high-value proposal"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent label firewall, teacher and prefit audit"
+      "scope": "Departure-specific paired-clock falsifiability review"
     },
     {
       "owner": "final_recovery",
-      "scope": "Independent saved-result score audit and final selection evidence"
+      "scope": "Read-only structural error mechanism proposal"
     }
   ],
   "laptop": {
-    "stage": "six_fixed_track_consistency_fits",
-    "owner": "new_signal_audit monitors and returns; root allocated",
-    "checked_at": "2026-10-13T08:10:38.939449+00:00",
-    "host": "GLAPTOP",
-    "launcher_pid": 3410,
-    "process_start": "780770",
-    "execution": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/fit/execution.json",
-    "allocation": {
-      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/allocation.json",
-      "sha256": "c35cf02d3a64a3bd1ae76ac3bfa7376a45501f3727436ef3bc239eeaad0e85dc"
-    },
-    "fit_count": 6,
-    "epochs": 2,
-    "source_frozen": true,
-    "no_duplicate_fit": true
+    "stage": "idle",
+    "owner": null,
+    "checked_at": "2026-10-13T08:41:20.135954+00:00",
+    "completed_return": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/return_audit.json",
+      "sha256": "44aca0515ab99573b61758dc740824926a300b131e0c22e85dfd8f4dee72bc85"
+    }
   },
   "duration_result": {
     "cv": {
@@ -348,7 +339,7 @@
     }
   },
   "target_track_consistency": {
-    "status": "six_serial_fits_active",
+    "status": "closed_failed_fixed_primary_gate",
     "identity": {
       "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
       "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
@@ -368,6 +359,42 @@
     "allocation": {
       "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/allocation.json",
       "sha256": "c35cf02d3a64a3bd1ae76ac3bfa7376a45501f3727436ef3bc239eeaad0e85dc"
+    },
+    "fit_audit": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/audit.json",
+      "sha256": "c007a8724a4978156405b5c47c614cc14980878b4af4f979154522625ba005b8"
+    },
+    "fit_return": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/return_audit.json",
+      "sha256": "44aca0515ab99573b61758dc740824926a300b131e0c22e85dfd8f4dee72bc85"
+    },
+    "primary_result": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/result.json",
+      "sha256": "f4c43a0209115053a209d3d22c6ce2b86742bc30824ca36b8d32888d4a8bf8f2"
+    },
+    "secondary_identity": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/portable_comparison/identity.json",
+      "sha256": "c2f80194c213d4aaedec17c4bb01d93c3b61c2e4e64262c1af9ef44ec499ce0f"
+    },
+    "closure": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/closed.json",
+      "sha256": "bcb4d55a353d06947813e94d8dcfcfd8e6b46a46b96c01b3624dd7e5ec897f2c"
+    },
+    "independent_audit": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/independent_audit.json",
+      "sha256": "63a89f752bc2eca4f07b49d08e74dc99803cb24052110d5737bcaed9dcc7836b"
+    },
+    "terminal_rng_audit": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/terminal_rng_audit.json",
+      "sha256": "401f6c2a1a2f5e4db35d7a19f3fcc7b00a2d8a670fdbe3f4def2bbfb44a7c4c7"
+    },
+    "secondary_closed": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/portable_comparison/closed.json",
+      "sha256": "58f9cfcf2097e3dd420532134dee7d64fc0da159228df0ba0af85deb848aece8"
+    },
+    "secondary_audit": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/portable_comparison/independent_audit.json",
+      "sha256": "b9adf871708c38810459afd72adfac3231b0840f087a2725c2648835b3019f93"
     }
   }
 }

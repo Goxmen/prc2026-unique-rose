@@ -1,0 +1,18 @@
+{
+  "design": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/target_track_consistency_production_design.json",
+    "sha256": "c9ad993ab67164059c5338b2f9476ec1abb151365bb655f626f19a4b1bcc5af3"
+  },
+  "v80_uploaded_artifact": {
+    "path": "submissions/unique-rose_v80.parquet",
+    "sha256": "50b986030af2efaab89b69bb69522ade6b060cc7f58fa324954e3fb06e0ef6f4"
+  },
+  "v80_remote_stat": {
+    "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/remote_stats/unique-rose_v80.parquet.json",
+    "sha256": "4222a1e40919b0f5f7931faef71235ce00c91d5b2b5768de965f0e43b96a6674"
+  },
+  "pin_policy": "Executable freeze must verify uploaded v80 bytes and remote-stat metadata, not infer upload identity only from combo output.",
+  "serialization": "All constrained suffix stages call existing portable_public_source.constrain: R(constrain_unserialized(values)); never round before matched/recovered constraints.",
+  "increment_dependency": "Saved joint/robust increments are independent of changed TabM component only; they depend on original input/prior/source packets.",
+  "no_numerical_evaluation": true
+}

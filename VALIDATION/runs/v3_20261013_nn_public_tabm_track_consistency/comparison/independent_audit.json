@@ -1,0 +1,250 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_track_consistency_scores_20261013.py",
+    "sha256": "c6c9dbd87343a4d66ffb290b055fcb08ea1fb34b2181a3f23c14d744f3799693"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+    "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/result.json",
+    "sha256": "f4c43a0209115053a209d3d22c6ce2b86742bc30824ca36b8d32888d4a8bf8f2"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/scored.parquet",
+    "sha256": "8aa482c039915d3aedbbd076229b69d1e8dbb89bf36394f81ced07e761cabf6f"
+  },
+  "fit_audit": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/audit.json",
+    "sha256": "c007a8724a4978156405b5c47c614cc14980878b4af4f979154522625ba005b8"
+  },
+  "members": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/supervised_control/networks/2025-01_s42.json",
+      "sha256": "4123eff5b8c30d4152dfd8bcd1005baf6c4a8e7e4c7b0e9284d49cfd3899e323"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/training_consistency/networks/2025-01_s42.json",
+      "sha256": "d23f7a0d8a7abb78d036ad5e9c5006ab735f48dfb5bb2a64f20558ac18824756"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/target_consistency/networks/2025-01_s42.json",
+      "sha256": "a181b4c1a05847649846e3c4e23f82dc6509d9f473be07a413a2b07a16bf68a0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/supervised_control/networks/2025-07_s42.json",
+      "sha256": "c403304f0d29757cf4fc6283d181f84028acbb3ab8ab5cf972d829e9fcdf19dd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/training_consistency/networks/2025-07_s42.json",
+      "sha256": "588725478c7cb09d9a1b0db12db58acd3df8223d65350a820ab5ce48b7fead2a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/target_consistency/networks/2025-07_s42.json",
+      "sha256": "40865efc47e490d0a50fc67655b4d1e6e240fad248566d0f70119bbc0600248e"
+    }
+  ],
+  "checkpoints": [
+    {
+      "month": "2025-01",
+      "arm": "supervised_control",
+      "state_tensors": 56,
+      "optimizer_parameters": 53,
+      "all_tensors_and_optimizer_finite": true,
+      "teacher_parameter_schema_exact": true,
+      "optimizer_updates": 1560,
+      "sampler_counts_and_PCG64_terminal_exact": true,
+      "CPU_only_no_inference": true
+    },
+    {
+      "month": "2025-01",
+      "arm": "training_consistency",
+      "state_tensors": 56,
+      "optimizer_parameters": 53,
+      "all_tensors_and_optimizer_finite": true,
+      "teacher_parameter_schema_exact": true,
+      "optimizer_updates": 1560,
+      "sampler_counts_and_PCG64_terminal_exact": true,
+      "CPU_only_no_inference": true
+    },
+    {
+      "month": "2025-01",
+      "arm": "target_consistency",
+      "state_tensors": 56,
+      "optimizer_parameters": 53,
+      "all_tensors_and_optimizer_finite": true,
+      "teacher_parameter_schema_exact": true,
+      "optimizer_updates": 1560,
+      "sampler_counts_and_PCG64_terminal_exact": true,
+      "CPU_only_no_inference": true
+    },
+    {
+      "month": "2025-07",
+      "arm": "supervised_control",
+      "state_tensors": 56,
+      "optimizer_parameters": 53,
+      "all_tensors_and_optimizer_finite": true,
+      "teacher_parameter_schema_exact": true,
+      "optimizer_updates": 1114,
+      "sampler_counts_and_PCG64_terminal_exact": true,
+      "CPU_only_no_inference": true
+    },
+    {
+      "month": "2025-07",
+      "arm": "training_consistency",
+      "state_tensors": 56,
+      "optimizer_parameters": 53,
+      "all_tensors_and_optimizer_finite": true,
+      "teacher_parameter_schema_exact": true,
+      "optimizer_updates": 1114,
+      "sampler_counts_and_PCG64_terminal_exact": true,
+      "CPU_only_no_inference": true
+    },
+    {
+      "month": "2025-07",
+      "arm": "target_consistency",
+      "state_tensors": 56,
+      "optimizer_parameters": 53,
+      "all_tensors_and_optimizer_finite": true,
+      "teacher_parameter_schema_exact": true,
+      "optimizer_updates": 1114,
+      "sampler_counts_and_PCG64_terminal_exact": true,
+      "CPU_only_no_inference": true
+    }
+  ],
+  "components": {
+    "supervised_control": {
+      "result": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/supervised_control/component/result.json",
+        "sha256": "e18ba92fd706dbec6422ccf5b79893a7879f0b300da63fb85d0f53d7c03deecd"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/supervised_control/component/audit.json",
+        "sha256": "c550d2073f896cd1ac6cd139a8451a1a391c891d9e47644245909088b8309ff4"
+      },
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/supervised_control/component/scored.parquet",
+        "sha256": "5dcb97c5bd5356e5dfbffd4b170f5292e882555967f2a86f27395c95342832d4"
+      }
+    },
+    "training_consistency": {
+      "result": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/training_consistency/component/result.json",
+        "sha256": "74aaa5b30cf6d30758b313ba6612116e4fd372e65bce6e29e040594609824483"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/training_consistency/component/audit.json",
+        "sha256": "56d1a3207fada80a3796c57fb0b24586ac63a2127124a3b942d9d3463196af41"
+      },
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/training_consistency/component/scored.parquet",
+        "sha256": "26172797655363115e23218fe53a3b8e6f7679433f283bb18185bdfbc029937d"
+      }
+    },
+    "target_consistency": {
+      "result": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/target_consistency/component/result.json",
+        "sha256": "7abf1cbd552f8c425c3e9bb4a8c2c5ec8b2ebd3e2809a6c4b5dd15643e147848"
+      },
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/target_consistency/component/audit.json",
+        "sha256": "af04c47e78a6d359dc30dd33a7fb286924116512c2c578d5faccd09675c4a036"
+      },
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/target_consistency/component/scored.parquet",
+        "sha256": "920d3763b4126199ff03dc27c84ac97e552a52ec8032f1bdbbb23a3ee13c0926"
+      }
+    }
+  },
+  "rows": 344419,
+  "raw_truth_files": [
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    }
+  ],
+  "all_raw_departures_ID_truth_UTC_calendar_exact": true,
+  "all_three_v80_component_transports_SQL_exact": true,
+  "original_selected_and_one_TabM_controls_exact": true,
+  "scores": {
+    "2025-01": {
+      "v80": 325.02854196957753,
+      "supervised_control": 325.04065924954784,
+      "training_consistency": 325.03800123946974,
+      "target_consistency": 325.0436473544999
+    },
+    "2025-07": {
+      "v80": 254.49701445100365,
+      "supervised_control": 254.4401836083565,
+      "training_consistency": 254.44856754183382,
+      "target_consistency": 254.48816453651295
+    }
+  },
+  "cv": {
+    "v80": 289.7627782102906,
+    "supervised_control": 289.7404214289522,
+    "training_consistency": 289.74328439065175,
+    "target_consistency": 289.76590594550646
+  },
+  "independent_paired": {
+    "v80": {
+      "change": 0.0031277352158411986,
+      "ci95": [
+        -0.013656893142724159,
+        0.02031275906456819
+      ],
+      "decision": "inconclusive"
+    },
+    "supervised_control": {
+      "change": 0.025484516554257652,
+      "ci95": [
+        0.016275142149516596,
+        0.03540542132303841
+      ],
+      "decision": "regression"
+    },
+    "training_consistency": {
+      "change": 0.022621554854652004,
+      "ci95": [
+        0.015228329832143927,
+        0.03103310602395872
+      ],
+      "decision": "regression"
+    }
+  },
+  "gate": {
+    "both_months": {
+      "v80": false,
+      "supervised_control": false,
+      "training_consistency": false
+    },
+    "intervals_below_zero": {
+      "v80": false,
+      "supervised_control": false,
+      "training_consistency": false
+    },
+    "minimum_gain": false,
+    "passed": false
+  },
+  "bootstrap": {
+    "seed": 0,
+    "reps": 2000,
+    "unit": "whole days within month",
+    "day_order": "first occurrence in saved output"
+  },
+  "no_control_promotion": true,
+  "no_threshold_or_weight_search": true,
+  "no_model_inference": true,
+  "checkpoint_loads_CPU_only": true,
+  "no_upload": true,
+  "reused_transductive_development": true,
+  "independent_confirmation": false,
+  "scope": "Independent saved-row arithmetic and receipt audit. Inherited native correction algorithm covered by frozen source and exact controls, not independently reimplemented.",
+  "seconds": 5.243093705999854
+}

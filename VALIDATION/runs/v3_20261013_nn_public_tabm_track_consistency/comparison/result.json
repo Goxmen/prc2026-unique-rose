@@ -1,0 +1,93 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+    "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
+  },
+  "fit_audit": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/audit.json",
+    "sha256": "c007a8724a4978156405b5c47c614cc14980878b4af4f979154522625ba005b8"
+  },
+  "components": {
+    "supervised_control": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/supervised_control/component/result.json",
+      "sha256": "e18ba92fd706dbec6422ccf5b79893a7879f0b300da63fb85d0f53d7c03deecd"
+    },
+    "training_consistency": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/training_consistency/component/result.json",
+      "sha256": "74aaa5b30cf6d30758b313ba6612116e4fd372e65bce6e29e040594609824483"
+    },
+    "target_consistency": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/target_consistency/component/result.json",
+      "sha256": "7abf1cbd552f8c425c3e9bb4a8c2c5ec8b2ebd3e2809a6c4b5dd15643e147848"
+    }
+  },
+  "scores": {
+    "2025-01": {
+      "v80": 325.02854196957753,
+      "supervised_control": 325.04065924954784,
+      "training_consistency": 325.03800123946974,
+      "target_consistency": 325.0436473544999
+    },
+    "2025-07": {
+      "v80": 254.49701445100365,
+      "supervised_control": 254.4401836083565,
+      "training_consistency": 254.44856754183382,
+      "target_consistency": 254.48816453651295
+    }
+  },
+  "cv": {
+    "v80": 289.7627782102906,
+    "supervised_control": 289.7404214289522,
+    "training_consistency": 289.74328439065175,
+    "target_consistency": 289.76590594550646
+  },
+  "paired": {
+    "v80": {
+      "change": 0.0031277352158411986,
+      "ci95": [
+        -0.013656893142724159,
+        0.02031275906456819
+      ],
+      "decision": "inconclusive"
+    },
+    "supervised_control": {
+      "change": 0.025484516554257652,
+      "ci95": [
+        0.016275142149516596,
+        0.03540542132303841
+      ],
+      "decision": "regression"
+    },
+    "training_consistency": {
+      "change": 0.022621554854652004,
+      "ci95": [
+        0.015228329832143927,
+        0.03103310602395872
+      ],
+      "decision": "regression"
+    }
+  },
+  "gate": {
+    "both_months": {
+      "v80": false,
+      "supervised_control": false,
+      "training_consistency": false
+    },
+    "intervals_below_zero": {
+      "v80": false,
+      "supervised_control": false,
+      "training_consistency": false
+    },
+    "minimum_gain": false,
+    "passed": false
+  },
+  "exact_v80_replay": true,
+  "all_row_component_transport_SQL_exact": true,
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/scored.parquet",
+    "sha256": "8aa482c039915d3aedbbd076229b69d1e8dbb89bf36394f81ced07e761cabf6f"
+  },
+  "independent_audit_pending": true,
+  "no_control_promotion": true,
+  "no_production_or_upload": true
+}
