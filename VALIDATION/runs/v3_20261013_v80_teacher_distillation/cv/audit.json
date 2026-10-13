@@ -1,0 +1,148 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_portable_v80_distill_20261013.py",
+    "sha256": "bcb4a921446378ac7d78c2e4a544afba7f3bc4ec4167eaf75b34bbcf170d1514"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+    "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+  },
+  "score": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/score.json",
+    "sha256": "8ec5d7f37cf1e776d93982e3b9ddce1ab0fe805b2b93e99610419309ba71543c"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/inference.json",
+    "sha256": "74afbf1771dca620158f8b217a460f1b73aa564a4e57e552d4f61d0618204b55"
+  },
+  "input_audit": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/input_audit.json",
+    "sha256": "20bb57c6be08c34b0913fcdd1b5c81133cc002422742cfa47d4241e5b0adb13e"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/predictions.parquet",
+    "sha256": "1702b9d9e2ff365dc08dc3a96871e1159bad0b2009dff62d9c9d0f3cd72ee5e7"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/scored.parquet",
+    "sha256": "15ddf4f1a8c5dec79893ceb939ed30dcd791174f89f1cc45c2734fb0461c7c3e"
+  },
+  "rows": 344419,
+  "fits": [
+    {
+      "relative_normal_residual": 1.8082147234992682e-17,
+      "condition_number": 552423.3768291859,
+      "cholesky_coefficient_max_error": 5.808964420594975e-13,
+      "ridge": 1.0,
+      "intercept": false,
+      "rows": 73910,
+      "independent_gram_einsum": true,
+      "coefficient": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_A.json",
+        "sha256": "e7e586a622fccc3051ebdc285e421fd8b0b7ade2991cfa49c1b72b2de32b5b05"
+      },
+      "outer": "2025-01",
+      "block": "A"
+    },
+    {
+      "relative_normal_residual": 6.863123845552426e-18,
+      "condition_number": 445057.15705284773,
+      "cholesky_coefficient_max_error": 7.23199278240827e-13,
+      "ridge": 1.0,
+      "intercept": false,
+      "rows": 70259,
+      "independent_gram_einsum": true,
+      "coefficient": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_B.json",
+        "sha256": "5e77665e6e98ff279efcac863fb3f5b8fdfa3551d33a255538d4528ff80fbf0d"
+      },
+      "outer": "2025-01",
+      "block": "B"
+    },
+    {
+      "relative_normal_residual": 5.4079902207546634e-18,
+      "condition_number": 910915.4647715272,
+      "cholesky_coefficient_max_error": 9.485467966641181e-14,
+      "ridge": 1.0,
+      "intercept": false,
+      "rows": 92550,
+      "independent_gram_einsum": true,
+      "coefficient": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_A.json",
+        "sha256": "fa124ab49e6ef950f8ebd6ed35b8143d515cc65d733318f3649d8087c7ffdb95"
+      },
+      "outer": "2025-07",
+      "block": "A"
+    },
+    {
+      "relative_normal_residual": 4.363715472764409e-18,
+      "condition_number": 975862.1333450405,
+      "cholesky_coefficient_max_error": 6.521727602404326e-13,
+      "ridge": 1.0,
+      "intercept": false,
+      "rows": 85837,
+      "independent_gram_einsum": true,
+      "coefficient": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_B.json",
+        "sha256": "6fe0c17521bcc645c2884042861dc3d03c45a7005afccd3f47ffb491381e8551"
+      },
+      "outer": "2025-07",
+      "block": "B"
+    }
+  ],
+  "months": {
+    "2025-01": {
+      "v82": 326.0645533981074,
+      "v80": 325.02854196957753,
+      "submitted": 325.30851132761796
+    },
+    "2025-07": {
+      "v82": 255.61429999771298,
+      "v80": 254.49701445100365,
+      "submitted": 253.90670521956807
+    }
+  },
+  "cv": {
+    "v82": 290.8394266979102,
+    "v80": 289.7627782102906,
+    "submitted": 289.60760827359303
+  },
+  "paired": {
+    "v82": {
+      "change": -1.2318184243171828,
+      "ci95": [
+        -1.9423492003701774,
+        -0.5552916940552836
+      ],
+      "decision": "improvement"
+    },
+    "v80": {
+      "change": -0.1551699366975754,
+      "ci95": [
+        -0.8396200643816613,
+        0.6814095731540383
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "teacher_fidelity": {
+    "2025-01": {
+      "student_RMSE": 27.10023968671678,
+      "anchor_RMSE": 33.44060197554619
+    },
+    "2025-07": {
+      "student_RMSE": 36.28874513524434,
+      "anchor_RMSE": 38.083454605849894
+    }
+  },
+  "gate": true,
+  "raw_SQL": {
+    "rows": 344419,
+    "full_raw_ID_calendar_constraint_and_zero_beta_checks": true
+  },
+  "reused_development": true,
+  "unseen_month_transfer_unvalidated": true,
+  "no_new_fit_or_base_inference": true,
+  "seconds": 4.83012939100081
+}

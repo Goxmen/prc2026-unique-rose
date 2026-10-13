@@ -1,0 +1,60 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+    "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/allocation.json",
+    "sha256": "fd4edae845245eb46b3e72dcc07ecab6adf24c33c5709a9cd4da305afb2be968"
+  },
+  "score": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/score.json",
+    "sha256": "8ec5d7f37cf1e776d93982e3b9ddce1ab0fe805b2b93e99610419309ba71543c"
+  },
+  "cv_audit": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/audit.json",
+    "sha256": "794f351288f86cf8a2741c6393e673b9e5e5a277e8ea2be591f4e47612323713"
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/model.json",
+    "sha256": "21031645415924c157af701784ea4ea4c5a7944cad601679df373cccdcc2065e"
+  },
+  "views": {
+    "cv": {
+      "rows": 344419,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/scored.parquet",
+        "sha256": "15ddf4f1a8c5dec79893ceb939ed30dcd791174f89f1cc45c2734fb0461c7c3e"
+      }
+    },
+    "old": {
+      "rows": 344841,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/old/predictions.parquet",
+        "sha256": "f6356ef27b1f3a5ddea829f528a74ea8a75dd19da800c019f2a90d04b6282d96"
+      },
+      "candidate": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/old/candidate.parquet",
+        "sha256": "088546b667234345409e66c1bf52250d762352ccb24ca4d452550ecb48d7017a"
+      }
+    },
+    "final": {
+      "rows": 670790,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/predictions.parquet",
+        "sha256": "3e5b4766e5cd57fb9a94dd688fda28968504517208a583e99b42b534f61995bb"
+      },
+      "candidate": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/candidate.parquet",
+        "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+      }
+    }
+  },
+  "solves": 1,
+  "no_taxi_labels_read": true,
+  "independent_audit_pending": true,
+  "no_upload": true,
+  "exact_v80_claim": false,
+  "old_prediction_caveat": "In-sample teacher distillation; original-ranking true taxi labels were never used. Official feedback remains unseen.",
+  "final_transfer_caveat": "Blocked same-month CV does not validate new February/June or clock-shifted final inputs."
+}

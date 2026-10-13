@@ -121,6 +121,17 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October 13, 11:52 Amsterdam: fixed v80 distillation passes; production audited.**
+Four same-month blocked ridge1 fits improve complete portable v82 CV
+290.839427→289.607608 (−1.231818; paired interval [−1.942349,−0.555292]),
+with both months better. Versus v80 is inconclusive and January worse. Exact
+input-scope, raw SQL, Cholesky and bootstrap audits pass. One separately released
+production solve generated all344841 old and670790 final rows; independent audit
+passes. Preserve five coefficients; do not repeat or tune. Run
+`v3_20261013_v80_teacher_distillation`; CV audit794f3512, production3eef9750.
+No official improvement claimed. Preparing v83 feedback; three slots remain,
+last reserved. Best v80 218.8525, live11:49 Amsterdam, rank9/246; target205 unmet.
+
 **October 13, 11:35 Amsterdam: final validation decision and one bounded follow-up.**
 Portable public-source v82 is the strongest admissible final fallback. Conditional
 shared-clock transport remains unselected: genuine paired-departure Jan/Jul CV

@@ -1,0 +1,151 @@
+{
+  "status": "source-only novelty and feasibility assessment; no fits or new scores",
+  "finding": "Not exactly tested. Mechanism overlaps the closed prediction-proxy family; expanded basis, full-v80 teacher and blocked honest taxi-performance evaluation are material changes, not a wholly new learning signal.",
+  "search": {
+    "index_distill": 0,
+    "index_ridge_matching_scopes": 27,
+    "direct_python_search": "Only final_affine_recovery_diagnostic.py fits prediction-only ridge to a teacher; portable_affine uses official-score geometry."
+  },
+  "closed_overlap": {
+    "ready_versions": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      38,
+      45,
+      46,
+      54,
+      57,
+      58,
+      64,
+      66,
+      68,
+      70
+    ],
+    "target": "Only expanded missing weighted affine residual anchored at v38; retain known nonlinear deltas separately.",
+    "method": "No intercept, ridge1; fit2026January/July separately for opposite-month fidelity, then both2026 for2025fidelity.",
+    "cross_month_RMS": {
+      "2026-01->2026-07": 58.079223876268266,
+      "2026-07->2026-01": 44.258886234033426
+    },
+    "historical_RMS": {
+      "2025-01": 27.063624837274045,
+      "2025-07": 83.32915999332391
+    },
+    "actual_taxi_CV": false,
+    "final_predictions": false
+  },
+  "validated_portable_baseline": {
+    "versions": [
+      1,
+      4,
+      8,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      30,
+      33,
+      34,
+      37,
+      38,
+      45,
+      46,
+      54,
+      56,
+      57,
+      58,
+      60,
+      61,
+      64,
+      70
+    ],
+    "method": "One fixed actual-own-score affine solve, sum weights1, bounds[-3,4],ridgeMSE1; no teacher target. Recomputed fixed public-source chain yieldsv82.",
+    "base_cv": {
+      "v70": 292.8677166942557,
+      "v80": 289.7627782102906,
+      "submitted": 297.0200759792034
+    },
+    "public_chain_cv": {
+      "B": 297.0200759792034,
+      "direct_reserve": 290.84397170714396,
+      "v80": 289.7627782102906,
+      "submitted": 290.8394266979102
+    },
+    "basis_input_bytes": {
+      "old": 28703082,
+      "cv": 28840437,
+      "v80_cv": 4371383
+    },
+    "all_required_old_CV_final_component_views": "Already audited for the28 portable basis; v82 full views also available."
+  },
+  "honest_minimal_path": {
+    "concept": "An explicit approximate final predictor; candidate could anchor at the complete portablev82 and fit its residual tov80 using fixed recoverable prediction differences. This is a prospective design choice, not a frozen experiment.",
+    "CV": "Within each Jan/Jul outer month, complete fixed day blocks are excluded from student fit. All teacher and input-basis models must exclude that entire outer month; teacher labels are outputs only. Decode taxi labels only after every student prediction is persisted.",
+    "production": "Fit same frozen mapping on original2026 ranking teacher outputs and audited old-view predictor basis, then apply to four-month final predictor basis. No exact-v80 claim; no new public correction layer after fitting fullteacher unless separately declared.",
+    "required_controls": "Exactv80/v82 saved-vector replay; zero student correction exactlyv82; actual serialized student taxiCV versusv82, both months and predeclared paired uncertainty. Teacher fidelity is secondary only.",
+    "data_scope": "No row IDs, dates or original teacher lookup as predictive inputs; fixed global coefficients, full-row output and template-ID audits; no coefficient/penalty/blend search.",
+    "alias_scope": "Whole days must handle boundary aliases conservatively or prove none; chronological blocks reduce same-source cohort dependence."
+  },
+  "limitations": [
+    "Within-month blocks test same-month conditional approximation, not2026Jan/Jul to newFeb/June transfer.",
+    "Cross-month CV cannot naively train on July teacher while scoringJanuary: July teacher base models includeJanuary labels. A common outer-safe teacher on both sides is required.",
+    "AllJan/Jul development remains reused; absence of direct student truth fitting is not independent confirmation.",
+    "Restricted official-score affine solve already minimizes old-label MSE in its declared span/objective; a closer teacher projection need not improve taxi accuracy.",
+    "Final clocks are shifted; distillation uses final model inputs normally and must not be presented as exact teacher transport.",
+    "Best plausible role is improving the admissible portable final, not evidence of reaching205."
+  ],
+  "cost_estimate": {
+    "base_model_fits": 0,
+    "new_downloads": 0,
+    "CPU": "A handful of28-parameter Gram solves, likely<60seconds on oneCPU plus source/provenance audits.",
+    "memory": "<1GiB target using selected-column float64 arrays; final inference670790x28 about150MB."
+  },
+  "recommendation": "Feasible bounded follow-up if root wants one explicitly approximate portable candidate. Freeze fixed basis/anchor/ridge/dayblocks and actualCV gate before any arrays or labels; do not repeat the old15-vector fidelity screen or select by teacher reconstruction.",
+  "evidence": [
+    {
+      "path": "VALIDATION/final_affine_recovery_diagnostic.py",
+      "sha256": "9d8ca1f2170e4cf84bcb92b06782c0abf7268abb52bd15ebfb5b52bdd772b4a0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_affine_recovery_diagnostic/result.json",
+      "sha256": "3731bf4aa121898085408d59f0f22bc04022656f2e63b758e382619e4d313788"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_final_affine_recovery_diagnostic/independent_audit.json",
+      "sha256": "c111c633e21097cd643947f183af667b2eff4213d03efc7999212e0373eebb96"
+    },
+    {
+      "path": "VALIDATION/portable_affine_20261013.py",
+      "sha256": "9cc07760aeb0fb27cdb97a0c1ff349558ad7c15da396940e23879c4fd847dc1e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_affine/identity.json",
+      "sha256": "9d9ab069c7213e8671ea422d3e80d1533022779cfc6970444c44d81e864e0a47"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_affine/result.json",
+      "sha256": "42558e43fe184b75ccedc91b6ea142591587526047ae75a101c2fd0b542acd5c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_affine/independent_audit.json",
+      "sha256": "ae6f009948a74d9e6f36fae45b008b989a5fb5a2ad7f61c9d4fd9fc024dd1d82"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    },
+    {
+      "path": "VALIDATION/research_registry.json",
+      "sha256": "615531f4b8fdd3f0f01ace01e1e340a2878e4991644fec9d72bebd4cb91daa6e"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "authority": "/root",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+    "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+  },
+  "state": "released_for_distillation_production",
+  "at": "2026-10-13T09:49:31.225618+00:00",
+  "machine": "GPC",
+  "cv_audit": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/audit.json",
+    "sha256": "794f351288f86cf8a2741c6393e673b9e5e5a277e8ea2be591f4e47612323713"
+  },
+  "score": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/score.json",
+    "sha256": "8ec5d7f37cf1e776d93982e3b9ddce1ab0fe805b2b93e99610419309ba71543c"
+  },
+  "scope": "Exactly one fixed mean-MSE ridge1 teacher solve on original2026 inputs, save coefficients then old344841 and final670790 predictions; no labels, no upload, independent production audit required",
+  "selection": "Passed fixed v82 comparator gate; v80 comparison inconclusive, no official score claim",
+  "no_automatic_retry": true
+}

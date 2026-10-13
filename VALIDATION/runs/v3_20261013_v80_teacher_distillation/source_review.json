@@ -1,0 +1,64 @@
+{
+  "status": "pass",
+  "reviewer": "/root/new_signal_audit",
+  "source": {
+    "path": "VALIDATION/portable_v80_distill_20261013.py",
+    "sha256": "4bf71651707b85306f21ef9cb0f6b394532b65db6b471a705968412374ba83bf"
+  },
+  "design": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_fixed_design.json",
+    "sha256": "c98c0f55f3cf4cb1dc17189aaf71d625c5852c7001551624fb416adbe891bc7b"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_portable_v80_distill_20261013.py",
+    "sha256": "bcb4a921446378ac7d78c2e4a544afba7f3bc4ec4167eaf75b34bbcf170d1514"
+  },
+  "input_auditor": {
+    "path": "VALIDATION/tools/audit_portable_v80_distill_inputs_20261013.py",
+    "sha256": "df5195cfaa6d95832cd3db07fc477bc90ea8befec658b32c9a8c54af7e4e0e9b"
+  },
+  "fixture": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/synthetic_preflight.json",
+    "sha256": "ae7e95786c099075b4b9cd8ec78ee987779dc715990efb279579caf646814f83"
+  },
+  "metadata": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/metadata_preflight.json",
+    "sha256": "5fc4d10a74eecdef8e55c03883d890930af726f6e40fda722d8c13bcc8cbd089"
+  },
+  "numerical_review": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_numerical_source_review.json",
+    "sha256": "f484cc4ddb52b30059f95049f86dd79513b5cd5755f357126ec494f393570a38"
+  },
+  "scope": "Source, footer metadata and synthetic checks only. Root owns freeze/allocation. No actual prediction/label arrays decoded, student solve or new score executed during review.",
+  "input_firewall": [
+    "CV uses exactly28 frozen component columns, v82 public-source submitted anchor and selected serialized v80 teacher. Every read projects explicit input/prediction fields. The separate truth projection is unopened until all4fits and full predictions exist and input_audit passes.",
+    "Each student fit uses only its own outer month: A holds days01\u201315 and fits17\u2013end; B holds16\u2013end and fits01\u201314. This avoids cross-outer teacher leakage and preserves one complete day at the split.",
+    "Independent input auditor authenticates parent artifacts, ordered IDs/columns, raw UTC dates/airport/has-ID/NM-gap, exact teacher/anchor controls and all4coefficient scope hashes before scoring. It never reads y or raw TAXITIME.",
+    "Original entire-outer-month base/teacher exclusions are inherited through existing audited CV lineage. Historical original27 v4/v8 reconstruction caveat remains explicit; this is not a refit/proof replacing historical records."
+  ],
+  "estimator": [
+    "Fixed seconds-scale no-intercept ridge1 on component-minus-v82 inputs to teacher-minus-v82 target, equal rows. No scaling/feature/ridge/weight scan.",
+    "All4coefficients saved before complete blocked outputs and before any true target access. Exclusive stage markers prevent implicit retry/duplicate solve.",
+    "Constraint order matches original fixed recovered exclusion and matched bounds before nonnegative nearest-even serialization. Zero coefficients replay v82. No public posterior/calibration recomputation."
+  ],
+  "independent_result_audit": [
+    "Separate author/source uses independent Gram reduction and Cholesky, row-wise prediction reconstruction, raw SQL truth/calendar/constraints and day-bootstrap scores.",
+    "Fixed fidelity-both-months plus actualv82>=.10gain/bothmonths/CI gate. No automatic promotion by teacher closeness or approximate old fidelity."
+  ],
+  "production": [
+    "Separate root release requires completed passed CV and numerical audit. Exactly one all-original2026 teacher solve produces both original-ranking and all-four-month final predictions.",
+    "The actual v80 uploaded vector and remote hash are pinned. Final predictions use audited final component features and same coefficients, without shared-ID teacher lookup or clock transport.",
+    "Same-month blocked CV does not directly validate newFebruary/June, separately jittered inputs, or full2025-versus-outer-model transfer. Approximate student, not exact v80 reconstruction."
+  ],
+  "prefreeze_fixes": [
+    "Detected absent airport in original teacher scored.parquet using footer metadata; truth projection corrected to mvt_id/month/day/y before freeze.",
+    "Producer metadata preflight now covers all real projected schemas; frozen metadata is authenticated by both source review and input audit."
+  ],
+  "input_auditor_tiny_checks": {
+    "AST_parse_and_source_stage_separation": true,
+    "y_and_raw_TAXITIME_rejected_before_source_access": true,
+    "no_real_arrays_decoded": true
+  },
+  "no_fit_score_candidate_or_upload": true,
+  "reused_development_not_independent_confirmation": true
+}

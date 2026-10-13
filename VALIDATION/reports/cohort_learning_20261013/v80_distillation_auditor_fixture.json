@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_portable_v80_distill_20261013.py",
+    "sha256": "8d3023e7c67fe509f979f2e7b354c85f83c28b0cb12c17ce5352c6e2e0152b5a"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_portable_v80_distill_20261013.py",
+    "sha256": "bcb4a921446378ac7d78c2e4a544afba7f3bc4ec4167eaf75b34bbcf170d1514"
+  },
+  "synthetic_only": true,
+  "ridge": {
+    "relative_normal_residual": 2.8749685517451586e-16,
+    "condition_number": 3.1268624459074,
+    "cholesky_coefficient_max_error": 1.1102230246251565e-15,
+    "ridge": 1.0,
+    "intercept": false,
+    "rows": 320,
+    "independent_gram_einsum": true
+  },
+  "corruption_rejected": true,
+  "constraint_rows": 11,
+  "full_SQL": {
+    "rows": 11,
+    "full_raw_ID_calendar_constraint_and_zero_beta_checks": true
+  },
+  "independent_bootstrap_reps": 2000
+}

@@ -1,22 +1,21 @@
 {
-  "updated_at": "2026-10-13T09:33:28.583238+00:00",
+  "updated_at": "2026-10-13T09:52:15.900364+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
-  "official_checked_at": "2026-10-13T07:19:40+00:00",
+  "official_checked_at": "2026-10-13T09:49:57+00:00",
   "slots_remaining": 3,
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 63,
   "desktop": {
     "stage": "idle",
     "owner": null,
-    "checked_at": "2026-10-13T09:17:08.660727+00:00"
+    "checked_at": "2026-10-13T09:52:15.900364+00:00"
   },
   "next": [
-    "Source review and freeze one expanded28-vector complete-v80 teacher distillation screen; no numeric run before reviewed release",
-    "Require blocked JanJul teacher fidelity and actual taxi gates before any production/official feedback",
-    "Use audited portable v82 as strongest admissible final fallback; conditional clock transport is unselected because no authentic paired-departure CV",
-    "Keep three remaining slots with last reserved for strongest validated final selection"
+    "Prepare one reviewed v83 old-ranking distillation submission for official feedback; both final and old production independently audited",
+    "Compare official feedback with v82 and preserve strongest admissible final candidate",
+    "Three slots remain including protected last slot; no final upload queued"
   ],
   "native_goal_status": "active",
   "active_research": [
@@ -431,12 +430,55 @@
     }
   },
   "v80_teacher_distillation": {
-    "status": "source_implementation_pending_review",
+    "status": "production_audited_packaging_pending",
     "run": "VALIDATION/runs/v3_20261013_v80_teacher_distillation",
     "design": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_fixed_design.json",
     "fits": 4,
     "no_new_base_model_fits": true,
-    "numeric_allocated": false,
-    "novelty": "Expanded28-vector follow-up to closed15-vector approximation; complete v82 anchor and actual blocked taxi CV"
+    "numeric_allocated": true,
+    "novelty": "Expanded28-vector follow-up to closed15-vector approximation; complete v82 anchor and actual blocked taxi CV",
+    "identity": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+      "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+    },
+    "score": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/score.json",
+      "sha256": "8ec5d7f37cf1e776d93982e3b9ddce1ab0fe805b2b93e99610419309ba71543c"
+    },
+    "cv_audit": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/audit.json",
+      "sha256": "794f351288f86cf8a2741c6393e673b9e5e5a277e8ea2be591f4e47612323713"
+    },
+    "cv": {
+      "v82": 290.8394266979102,
+      "v80": 289.7627782102906,
+      "submitted": 289.60760827359303
+    },
+    "paired": {
+      "v82": {
+        "change": -1.2318184243171828,
+        "ci95": [
+          -1.9423492003701774,
+          -0.5552916940552836
+        ],
+        "decision": "improvement"
+      },
+      "v80": {
+        "change": -0.1551699366975754,
+        "ci95": [
+          -0.8396200643816613,
+          0.6814095731540383
+        ],
+        "decision": "inconclusive"
+      }
+    },
+    "production": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+      "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+    },
+    "production_audit": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+      "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    }
   }
 }

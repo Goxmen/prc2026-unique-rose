@@ -1,0 +1,307 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_portable_v80_distill_inputs_20261013.py",
+    "sha256": "df5195cfaa6d95832cd3db07fc477bc90ea8befec658b32c9a8c54af7e4e0e9b"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+    "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/inference.json",
+    "sha256": "74afbf1771dca620158f8b217a460f1b73aa564a4e57e552d4f61d0618204b55"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/predictions.parquet",
+    "sha256": "1702b9d9e2ff365dc08dc3a96871e1159bad0b2009dff62d9c9d0f3cd72ee5e7"
+  },
+  "coefficients": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_A.json",
+      "sha256": "e7e586a622fccc3051ebdc285e421fd8b0b7ade2991cfa49c1b72b2de32b5b05"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_B.json",
+      "sha256": "5e77665e6e98ff279efcac863fb3f5b8fdfa3551d33a255538d4528ff80fbf0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_A.json",
+      "sha256": "fa124ab49e6ef950f8ebd6ed35b8143d515cc65d733318f3649d8087c7ffdb95"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_B.json",
+      "sha256": "6fe0c17521bcc645c2884042861dc3d03c45a7005afccd3f47ffb491381e8551"
+    }
+  ],
+  "fit_receipts": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_A.json",
+      "sha256": "e7e586a622fccc3051ebdc285e421fd8b0b7ade2991cfa49c1b72b2de32b5b05"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_B.json",
+      "sha256": "5e77665e6e98ff279efcac863fb3f5b8fdfa3551d33a255538d4528ff80fbf0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_A.json",
+      "sha256": "fa124ab49e6ef950f8ebd6ed35b8143d515cc65d733318f3649d8087c7ffdb95"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_B.json",
+      "sha256": "6fe0c17521bcc645c2884042861dc3d03c45a7005afccd3f47ffb491381e8551"
+    }
+  ],
+  "rows": 344419,
+  "versions": [
+    1,
+    4,
+    8,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    30,
+    33,
+    34,
+    37,
+    38,
+    45,
+    46,
+    54,
+    56,
+    57,
+    58,
+    60,
+    61,
+    64,
+    70
+  ],
+  "scopes": [
+    {
+      "outer": "2025-01",
+      "block": "A",
+      "train_rows": 73910,
+      "held_rows": 74935,
+      "train_ids_sha256": "90ac2217ca81e95eac0776997fb61bcf02248d23213abe2c65fb28b85318d6b7",
+      "held_ids_sha256": "de90b743dbb8153b3f8c45e6cc04c2f5e71e67a1dc9786457753706bad9fb402",
+      "one_complete_day_embargo": true,
+      "same_outer_only": true,
+      "permitted_recovered_constraints": 7,
+      "coefficient": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_A.json",
+        "sha256": "e7e586a622fccc3051ebdc285e421fd8b0b7ade2991cfa49c1b72b2de32b5b05"
+      }
+    },
+    {
+      "outer": "2025-01",
+      "block": "B",
+      "train_rows": 70259,
+      "held_rows": 78771,
+      "train_ids_sha256": "df1e3d23be1e474317eddb7f08bd72e60af72fc173fae02444314f238598f413",
+      "held_ids_sha256": "af7035aa8290169903e84b33b9b1a15fe5f647e12851eb79d9a7d45fbff96280",
+      "one_complete_day_embargo": true,
+      "same_outer_only": true,
+      "permitted_recovered_constraints": 4,
+      "coefficient": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_B.json",
+        "sha256": "5e77665e6e98ff279efcac863fb3f5b8fdfa3551d33a255538d4528ff80fbf0d"
+      }
+    },
+    {
+      "outer": "2025-07",
+      "block": "A",
+      "train_rows": 92550,
+      "held_rows": 91957,
+      "train_ids_sha256": "2af657161d90753c2938e879ec9c474c8498ec30868425c9cdebb457dbd3f11d",
+      "held_ids_sha256": "18087064cb4d12b3de8d5325be628729bb1074e0b60b46b1b66ec575b477ec66",
+      "one_complete_day_embargo": true,
+      "same_outer_only": true,
+      "permitted_recovered_constraints": 20,
+      "coefficient": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_A.json",
+        "sha256": "fa124ab49e6ef950f8ebd6ed35b8143d515cc65d733318f3649d8087c7ffdb95"
+      }
+    },
+    {
+      "outer": "2025-07",
+      "block": "B",
+      "train_rows": 85837,
+      "held_rows": 98756,
+      "train_ids_sha256": "eaeef82137c7ecfc457b7b25f9c5eaf24323d4d0fe7303d1c142dc676079106a",
+      "held_ids_sha256": "d730f160037c5d834e47e7ef631c02fd2aeabf8030f6524ab7660777aebb3616",
+      "one_complete_day_embargo": true,
+      "same_outer_only": true,
+      "permitted_recovered_constraints": 18,
+      "coefficient": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_B.json",
+        "sha256": "6fe0c17521bcc645c2884042861dc3d03c45a7005afccd3f47ffb491381e8551"
+      }
+    }
+  ],
+  "projected_reads": [
+    {
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+        "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+      },
+      "columns": [
+        "mvt_id",
+        "month",
+        "day",
+        "airport",
+        "submitted",
+        "v80"
+      ],
+      "rows": 344419
+    },
+    {
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261012_target205_geometry/cv_basis.parquet",
+        "sha256": "3485b8b1effbceb1b44f9e88670e50a7a3ba9e8da31da4b785b291c7d8e8dee2"
+      },
+      "columns": [
+        "mvt_id",
+        "month",
+        "day",
+        "airport",
+        "v1",
+        "v4",
+        "v8",
+        "v12",
+        "v13",
+        "v14",
+        "v15",
+        "v16",
+        "v17",
+        "v18",
+        "v19",
+        "v20",
+        "v21",
+        "v30",
+        "v33",
+        "v34",
+        "v37",
+        "v38",
+        "v45",
+        "v46",
+        "v54",
+        "v56",
+        "v57",
+        "v58",
+        "v60",
+        "v61",
+        "v64",
+        "v70"
+      ],
+      "rows": 344419
+    },
+    {
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+        "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+      },
+      "columns": [
+        "mvt_id",
+        "three_tabm_runway"
+      ],
+      "rows": 344419
+    },
+    {
+      "artifact": {
+        "path": "data/training_2025-01-01_2025-02-01.parquet",
+        "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+      },
+      "columns": [
+        "MVT_ID_mvt",
+        "PHASE_mvt",
+        "ADEP_mvt",
+        "MVT_TIME_UTC_mvt",
+        "FLIGHT_ID_mvt",
+        "LOBT_flt"
+      ],
+      "rows": 307257
+    },
+    {
+      "artifact": {
+        "path": "data/training_2025-07-01_2025-08-01.parquet",
+        "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+      },
+      "columns": [
+        "MVT_ID_mvt",
+        "PHASE_mvt",
+        "ADEP_mvt",
+        "MVT_TIME_UTC_mvt",
+        "FLIGHT_ID_mvt",
+        "LOBT_flt"
+      ],
+      "rows": 381161
+    },
+    {
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261011_daily_delay/rows2025.parquet",
+        "sha256": "1d03189886c39089caa80ad795360f2b2a86783f94fc660179377a044a65efe6"
+      },
+      "columns": [
+        "mvt_id",
+        "month",
+        "has_id",
+        "nm_gap"
+      ],
+      "rows": 2085047
+    },
+    {
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261011_recovered_exclusion_fixed/matches2025.parquet",
+        "sha256": "e629960cc2638535f74e7b18b2aa98ecc8ee39a107fd7690390248ac5abf75a3"
+      },
+      "columns": [
+        "mvt_id",
+        "accepted",
+        "recovered_gap",
+        "donor_mvt_id",
+        "donor_month"
+      ],
+      "rows": 200
+    },
+    {
+      "artifact": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/predictions.parquet",
+        "sha256": "1702b9d9e2ff365dc08dc3a96871e1159bad0b2009dff62d9c9d0f3cd72ee5e7"
+      },
+      "columns": [
+        "mvt_id",
+        "month",
+        "day",
+        "airport",
+        "v82",
+        "v80",
+        "block",
+        "raw",
+        "submitted"
+      ],
+      "rows": 344419
+    }
+  ],
+  "source_checks": {
+    "producer_AST_parses": true,
+    "inference_separated_from_score": true,
+    "scope": "Supplement to independently reviewed, hash-pinned source; not a sandbox claim."
+  },
+  "exact_raw_ID_calendar_airport_constraint_inputs": true,
+  "exact_teacher_anchor_and_basis_alignment": true,
+  "all_rows_held_once": true,
+  "all_four_coefficients_saved_before_truth": true,
+  "no_taxi_truth_decoded": true,
+  "no_fit_or_score": true,
+  "inherited_model_scope": "Existing audited outer-month CV vectors authenticated; this audit independently checks student scope, not a refit of all historical component models.",
+  "historical_cv_caveat": "v3-v9 use an archived original27 implementation; missing exact historical source is explicit in raw runner identity",
+  "numerical_audit": "Coefficient normal equations, prediction arithmetic, constraints, actual truth and score gates are verified separately after this scope gate.",
+  "seconds": 5.848857947999932
+}

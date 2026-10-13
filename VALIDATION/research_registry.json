@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T09:33:28.583238+00:00",
+  "updated_at": "2026-10-13T09:52:15.900364+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -15,7 +15,7 @@
     "reserved_final_slots": 1,
     "exploratory_slots_remaining": 2,
     "legacy_final_components": 30,
-    "official_checked_at": "2026-10-13T07:19:40+00:00",
+    "official_checked_at": "2026-10-13T09:49:57+00:00",
     "latest_version": 82,
     "latest_official_rmse": 221.524
   },
@@ -1387,30 +1387,86 @@
     },
     {
       "id": "v80_teacher_distillation_20261013",
-      "status": "source_implementation_pending_review",
+      "status": "production_audited_packaging_pending",
       "hypothesis": "An expanded28-vector portable student can approximate complete v80 and improve actual blocked JanJul taxi CV over portable v82",
       "run": "VALIDATION/runs/v3_20261013_v80_teacher_distillation",
-      "no_numeric_run": true,
+      "no_numeric_run": false,
       "novelty": "Same approximation family as closed15-vector proxy; new expanded basis and nonlinear v82 anchor with actual taxi gate",
       "prospective_protocol": "Four same-month blocked fits, one-day embargo, fixed mean-MSE ridge1, no intercept; all predictions before truth reads; no tuning",
       "evidence": [
         {
           "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_novelty_assessment.json",
           "sha256": "db7d21a952ea9064e2879e57fc4f49fbf02cc1f624a39ebc6229cf62b703ba1b"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/score.json",
+          "sha256": "8ec5d7f37cf1e776d93982e3b9ddce1ab0fe805b2b93e99610419309ba71543c"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/audit.json",
+          "sha256": "794f351288f86cf8a2741c6393e673b9e5e5a277e8ea2be591f4e47612323713"
         }
       ],
       "constraints": [
         "Last daily slot reserved",
         "No production before fixed gate and independent audit",
         "No claim of unseen February/June validation"
-      ]
+      ],
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+        "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+      },
+      "metrics": {
+        "cv": {
+          "v82": 290.8394266979102,
+          "v80": 289.7627782102906,
+          "submitted": 289.60760827359303
+        },
+        "paired": {
+          "v82": {
+            "change": -1.2318184243171828,
+            "ci95": [
+              -1.9423492003701774,
+              -0.5552916940552836
+            ],
+            "decision": "improvement"
+          },
+          "v80": {
+            "change": -0.1551699366975754,
+            "ci95": [
+              -0.8396200643816613,
+              0.6814095731540383
+            ],
+            "decision": "inconclusive"
+          }
+        },
+        "teacher_fidelity": {
+          "2025-01": {
+            "student_RMSE": 27.100239686716925,
+            "anchor_RMSE": 33.44060197554619
+          },
+          "2025-07": {
+            "student_RMSE": 36.28874513524436,
+            "anchor_RMSE": 38.083454605849894
+          }
+        },
+        "gate": true
+      },
+      "production": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+        "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+      },
+      "production_audit": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+        "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+      },
+      "conclusion": "Fixed blocked CV improves portable v82 by1.231818s, both months and interval pass. Versus v80 is inconclusive. Same one production solve yields audited old/final vectors; official feedback pending, no205 claim."
     }
   ],
   "next": [
-    "Source review and freeze one expanded28-vector complete-v80 teacher distillation screen; no numeric run before reviewed release",
-    "Require blocked JanJul teacher fidelity and actual taxi gates before any production/official feedback",
-    "Use audited portable v82 as strongest admissible final fallback; conditional clock transport is unselected because no authentic paired-departure CV",
-    "Keep three remaining slots with last reserved for strongest validated final selection"
+    "Prepare one reviewed v83 old-ranking distillation submission for official feedback; both final and old production independently audited",
+    "Compare official feedback with v82 and preserve strongest admissible final candidate",
+    "Three slots remain including protected last slot; no final upload queued"
   ],
   "active_research": [
     {

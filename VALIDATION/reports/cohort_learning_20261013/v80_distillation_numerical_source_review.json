@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "scope": "Source review and synthetic fixtures only; no actual predictions or labels decoded",
+  "source": {
+    "path": "VALIDATION/portable_v80_distill_20261013.py",
+    "sha256": "4bf71651707b85306f21ef9cb0f6b394532b65db6b471a705968412374ba83bf"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_portable_v80_distill_20261013.py",
+    "sha256": "bcb4a921446378ac7d78c2e4a544afba7f3bc4ec4167eaf75b34bbcf170d1514"
+  },
+  "design": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_fixed_design.json",
+    "sha256": "c98c0f55f3cf4cb1dc17189aaf71d625c5852c7001551624fb416adbe891bc7b"
+  },
+  "independent_fixture": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_auditor_fixture.json",
+    "sha256": "ce9baefcf4701db7652e270d48fe42e59830dc68b76587959a2f615ef9ec4a30"
+  },
+  "producer_fixture": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/synthetic_preflight.json",
+    "sha256": "ae7e95786c099075b4b9cd8ec78ee987779dc715990efb279579caf646814f83"
+  },
+  "metadata": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/metadata_preflight.json",
+    "sha256": "5fc4d10a74eecdef8e55c03883d890930af726f6e40fda722d8c13bcc8cbd089"
+  },
+  "checks": [
+    "Exact 28 predictors anchored on complete serialized v82; fixed ridge1 and no intercept or scaling",
+    "Four within-outer-month fits; A held1..15 fit17..end, B held16..end fit1..14; no cross-month teacher target transfer",
+    "Projected no-label data reads until all four coefficient artifacts and all predictions are saved and input audit passes",
+    "Whole raw student constrained before nearest-even serialization; zero-beta equality guards all views",
+    "Student fidelity descriptive gate plus actual serialized Jan/Jul mean gain>=0.10, both months and upper paired bound<0",
+    "Exactly one independently released production solve with same beta generating original and four-month views",
+    "Independent einsum normal equations and Cholesky, finite conditioning, row-wise coefficient predictions, full SQL constraints and raw calendar/truth",
+    "Independent SQL daily sums and PCG64 seed0 2000 paired-day resamples"
+  ],
+  "limitations": [
+    "Approximate distillation, not exact v80 recovery",
+    "Same-month blocked CV does not validate unseen February/June or full2025-versus-fold model shift",
+    "Historical v4/v8 CV provenance caveat retained",
+    "Reused development CV is not independent confirmation"
+  ],
+  "no_real_array_decoding": true,
+  "no_new_fit_or_score": true
+}

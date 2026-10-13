@@ -1,0 +1,71 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+    "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+  },
+  "inference": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/inference.json",
+    "sha256": "74afbf1771dca620158f8b217a460f1b73aa564a4e57e552d4f61d0618204b55"
+  },
+  "input_audit": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/input_audit.json",
+    "sha256": "20bb57c6be08c34b0913fcdd1b5c81133cc002422742cfa47d4241e5b0adb13e"
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/score/allocation.json",
+    "sha256": "ad0198acb394d8e1f64c1d20e432a640f090dda62a9a0b55bdc6c41a17491af2"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/scored.parquet",
+    "sha256": "15ddf4f1a8c5dec79893ceb939ed30dcd791174f89f1cc45c2734fb0461c7c3e"
+  },
+  "months": {
+    "2025-01": {
+      "v82": 326.0645533981074,
+      "v80": 325.02854196957753,
+      "submitted": 325.30851132761796
+    },
+    "2025-07": {
+      "v82": 255.61429999771298,
+      "v80": 254.49701445100365,
+      "submitted": 253.90670521956807
+    }
+  },
+  "cv": {
+    "v82": 290.8394266979102,
+    "v80": 289.7627782102906,
+    "submitted": 289.60760827359303
+  },
+  "paired": {
+    "v82": {
+      "change": -1.2318184243171828,
+      "ci95": [
+        -1.9423492003701774,
+        -0.5552916940552836
+      ],
+      "decision": "improvement"
+    },
+    "v80": {
+      "change": -0.1551699366975754,
+      "ci95": [
+        -0.8396200643816613,
+        0.6814095731540383
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "teacher_fidelity": {
+    "2025-01": {
+      "student_RMSE": 27.100239686716925,
+      "anchor_RMSE": 33.44060197554619
+    },
+    "2025-07": {
+      "student_RMSE": 36.28874513524436,
+      "anchor_RMSE": 38.083454605849894
+    }
+  },
+  "gate": true,
+  "reused_development": true,
+  "unseen_month_transfer_unvalidated": true,
+  "independent_audit_pending": true
+}

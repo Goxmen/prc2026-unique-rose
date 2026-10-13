@@ -1,0 +1,217 @@
+{
+  "schema": "portable_v80_teacher_distillation_fixed_design_v2",
+  "state": "source-only proposed fixed protocol; no student fits, new prediction reads or scores",
+  "purpose": "An explicitly approximate final-capable student tested againstv82; neither exactv80 restoration nor evidence of205.",
+  "novelty": "Direct follow-up to closed15-vector missing-residual proxy, now28 audited recoverable vectors plus completev82 anchor and wholev80 target with actual blocked taxiCV. This is not a new signal discovery.",
+  "basis": {
+    "versions": [
+      1,
+      4,
+      8,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      30,
+      33,
+      34,
+      37,
+      38,
+      45,
+      46,
+      54,
+      56,
+      57,
+      58,
+      60,
+      61,
+      64,
+      70
+    ],
+    "order": "Exactly frozen portable_affine identity versions, no additional66/68 or post-result feature selection.",
+    "predictors": "X_j = integer prediction(version_j) - integerv82; 28 columns, float64 seconds, no learned scaling.",
+    "anchor": "Existing fully audited portable public source submitted integer, identical tov82.",
+    "teacher": "Complete selectedv80 serialized integer (CVthree_tabm_runway; actual original2026 submitted file forproduction).",
+    "rows": {
+      "cv": {
+        "result": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+          "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+        },
+        "audit": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+          "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+        },
+        "anchor": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+          "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+        },
+        "rows": 344419
+      },
+      "old": {
+        "result": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+          "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+        },
+        "audit": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+          "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+        },
+        "anchor": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/stages.parquet",
+          "sha256": "cd3b79f39a9a436cd682dac1aa45380c374e32a3a5cc0432a0543d5791008197"
+        },
+        "rows": 344841
+      },
+      "final": {
+        "result": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/result.json",
+          "sha256": "d4680537bc417ab38b462cd88bf1ed8647fe6fb7c524721e7dd3cd0ad60458a3"
+        },
+        "audit": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/audit.json",
+          "sha256": "9a49947bbbbba84acea7cc65d8a2f9dfa84ff7d53d4fa0e7a58022342081712e"
+        },
+        "anchor": {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/stages.parquet",
+          "sha256": "4e02621fd49f8edf67c3dcc847900ab0c9da9f41458869fbc20893c30998e45c"
+        },
+        "rows": 670790
+      }
+    },
+    "component_identity": {
+      "path": "VALIDATION/runs/v3_20261013_portable_affine/identity.json",
+      "sha256": "9d9ab069c7213e8671ea422d3e80d1533022779cfc6970444c44d81e864e0a47"
+    },
+    "catalog": {
+      "path": "VALIDATION/runs/v3_20261012_final_basis_catalog/partial_30.json",
+      "sha256": "0025e880f0de6b7f77556381a1848104a8ebe1c5dbd72407fb603488e7aa79e3"
+    },
+    "CV": {
+      "path": "VALIDATION/runs/v3_20261012_target205_geometry/cv_basis.parquet",
+      "sha256": "3485b8b1effbceb1b44f9e88670e50a7a3ba9e8da31da4b785b291c7d8e8dee2"
+    },
+    "old": {
+      "path": "VALIDATION/runs/v3_20261012_target205_geometry/ranking_basis.parquet",
+      "sha256": "51e7dd25234d17d4bafa5e54a5314af62748adfdfdafd4c79be61390e61afe9f"
+    },
+    "teacher_CV": {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    },
+    "final": "Each exact audited component final artifact in portable_affine identity; join byID to finaltemplate, never positional substitution."
+  },
+  "estimator": {
+    "formula": "beta=solve(Xtrain.T@Xtrain/n + I28, Xtrain.T@(v80-v82)/n); raw=v82+X@beta",
+    "ridge_MSE_seconds_squared": 1.0,
+    "intercept": false,
+    "fit_weights": "Equal rows, no target cap, no per-airport/month coefficients, no weight clipping, no blends or scan.",
+    "serialization": "Apply unchanged portable_public_source.constrain(view,raw_inputs,IDs,raw,matches): matched-bound and recovered-exclusion first, then max0+round_even. Never pre-round raw. Exactzero-beta must replayv82 in all views.",
+    "postprocessing": "No public-posterior/calibration recomputation or added correction: wholeteacher already contains those effects; frozen constraints only."
+  },
+  "CV": {
+    "outer_months": [
+      "2025-01",
+      "2025-07"
+    ],
+    "block_A": "UTCday01..15 all held for student; fit only day17..last in same outer month.",
+    "block_B": "UTCday16..last all held for student; fit only day01..14 in same outer month.",
+    "fits": 4,
+    "embargo": "One complete UTCday between fit and test near the split. Score every original344419 row once; immutable day assignment before reads.",
+    "label_firewall": "Build all four student coefficients and all scored-row student outputs using projected input/prediction columns only. No y column or raw taxi labels read until predictions/fit receipts are saved and independent input-scope audit passes. Teacher and every basis predictor must retain the existing entire-outer-month model exclusions and historicalCVcaveat.",
+    "control": "Exact savedv80/v82 vectors and zero-beta serialization; no fitting/optimization using true taxi labels.",
+    "feature_eligibility": "All28 predictor columns finite, exactIDuniqueness/completeness and same originalCV parent alignment; no fallback for a missing component.",
+    "teacher_fidelity_gate": "Blocked unrounded student teacherRMSE strictly belowv82 teacherRMSE in each outer month; descriptive and insufficient by itself.",
+    "taxi_gate": "Serialized taxiCV mean delta versusv82 <=-0.10seconds, bothmonthdeltas<0, originalpaired-day95upper<0; allthree criteria plus independent audit. v80 comparison descriptive, not required to beatv80.",
+    "truth_scope": "Only unchanged existing Jan/Jul scorer reads truth after inference; everyrow remains out of its distillation-fit. Reused development, not independent confirmation.",
+    "failure": "Close fixedscreen on failed gate, no alternateblocks/ridge/features/anchor/airport gates/blends."
+  },
+  "production_if_selected": {
+    "allocation": "Separate root release only after CV and independent audit pass.",
+    "fit": "Exactly one same ridge solve on all344841 original2026 ranking rows, X fromaudited oldviews and teacheractualv80; no truths.",
+    "outputs": "From the same single fitted coefficient vector, predict all344841 originalranking rows for optionalofficialfeedback and all670790finalrows for finalselection. Both use audited appropriate-view modelvectors and originaltemplates. No extra solve or teacher lookup.",
+    "checks": "Normal-equation residuals, float64serialization/constraints independentSQL, outputID/schemahashes, complete source-model audits. Preserve all coefficients before downstreamwrites.",
+    "limitations": "Within-month blockedCV does not validate Jan/Jul2026-trained student weights on unseenFebruary/June or clock-jittered finalinputs; productionprior familyalso full2025 versushistorical outerfits. No syntheticunseen-month validation claim."
+  },
+  "provenance": {
+    "label_exclusion": "PriorCV history retains archived original27implementation for earlyversions; repeat no fits and disclose its existing caveat.",
+    "source_pins": "Before numeric execution pin runner+independent auditor, all manifests/receipts/basis packets, exactv80 upload+remote-stat record, old/finalv82 outputs, rawJanJul truth bytes for scorer and rawinput/template bytes for calendar/constraints.",
+    "retry": "Singleattempt eachfit; savecoefficients before predictions, preserve partialfailure and require root inspection; no automatic repeatedsolve."
+  },
+  "cost": {
+    "base_model_fits": 0,
+    "new_downloads": 0,
+    "CV_ridge_solves": 4,
+    "optionalproduction_ridge_solves": 1,
+    "estimated_CPU": "Under60seconds total math, oneCPU; source/hash and independent audit additional.",
+    "estimated_peak_memory": "<1GiB; selected-column CVmatrix~77MB and finalmatrix~150MB; chunkfinal if needed."
+  },
+  "expected_gain": "Unknown; actualCV decides. No unsupported several-second or205 forecast.",
+  "metadata_refs": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_affine/identity.json",
+      "sha256": "9d9ab069c7213e8671ea422d3e80d1533022779cfc6970444c44d81e864e0a47"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_affine/result.json",
+      "sha256": "42558e43fe184b75ccedc91b6ea142591587526047ae75a101c2fd0b542acd5c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_affine/independent_audit.json",
+      "sha256": "ae6f009948a74d9e6f36fae45b008b989a5fb5a2ad7f61c9d4fd9fc024dd1d82"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+      "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_novelty_assessment.json",
+      "sha256": "db7d21a952ea9064e2879e57fc4f49fbf02cc1f624a39ebc6229cf62b703ba1b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+      "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+      "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+      "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+      "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/result.json",
+      "sha256": "d4680537bc417ab38b462cd88bf1ed8647fe6fb7c524721e7dd3cd0ad60458a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/audit.json",
+      "sha256": "9a49947bbbbba84acea7cc65d8a2f9dfa84ff7d53d4fa0e7a58022342081712e"
+    }
+  ],
+  "amendment": {
+    "reason": "Root requested additive original-ranking prediction and candidate export for optionalofficialfeedback; nofit/basis/gate change; no numericalstudent evaluation occurred.",
+    "historical_design": {
+      "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_design_v1/v80_distillation_fixed_design.json",
+      "sha256": "77cd85614923b22f5a13efdff14ba4efcf7d155b72de074a4b440864f7e0e250"
+    },
+    "historical_review": {
+      "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_design_v1/v80_distillation_independent_design_review.json",
+      "sha256": "ac2ccf9dd61dac08d86d95bcddc21e957aba2ef1754aa17ba5a8c5f5b12182b7"
+    }
+  }
+}

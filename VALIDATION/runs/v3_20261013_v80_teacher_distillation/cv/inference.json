@@ -1,0 +1,64 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+    "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/allocation.json",
+    "sha256": "5bdf6ea487c7eabd7f35ce1cec9d8a7e630f9ca52406dcba85d670d4e81741a6"
+  },
+  "coefficients": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_A.json",
+      "sha256": "e7e586a622fccc3051ebdc285e421fd8b0b7ade2991cfa49c1b72b2de32b5b05"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_B.json",
+      "sha256": "5e77665e6e98ff279efcac863fb3f5b8fdfa3551d33a255538d4528ff80fbf0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_A.json",
+      "sha256": "fa124ab49e6ef950f8ebd6ed35b8143d515cc65d733318f3649d8087c7ffdb95"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_B.json",
+      "sha256": "6fe0c17521bcc645c2884042861dc3d03c45a7005afccd3f47ffb491381e8551"
+    }
+  ],
+  "fit_receipts": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_A.json",
+      "sha256": "e7e586a622fccc3051ebdc285e421fd8b0b7ade2991cfa49c1b72b2de32b5b05"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-01_B.json",
+      "sha256": "5e77665e6e98ff279efcac863fb3f5b8fdfa3551d33a255538d4528ff80fbf0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_A.json",
+      "sha256": "fa124ab49e6ef950f8ebd6ed35b8143d515cc65d733318f3649d8087c7ffdb95"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/models/2025-07_B.json",
+      "sha256": "6fe0c17521bcc645c2884042861dc3d03c45a7005afccd3f47ffb491381e8551"
+    }
+  ],
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/predictions.parquet",
+    "sha256": "1702b9d9e2ff365dc08dc3a96871e1159bad0b2009dff62d9c9d0f3cd72ee5e7"
+  },
+  "rows": 344419,
+  "teacher_fidelity": {
+    "2025-01": {
+      "student_RMSE": 27.100239686716925,
+      "anchor_RMSE": 33.44060197554619
+    },
+    "2025-07": {
+      "student_RMSE": 36.28874513524436,
+      "anchor_RMSE": 38.083454605849894
+    }
+  },
+  "all_four_fits_before_truth": true,
+  "seconds": 2.3253501770013827,
+  "no_taxi_labels_read": true
+}
