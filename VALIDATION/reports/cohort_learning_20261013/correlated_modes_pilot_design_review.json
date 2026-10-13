@@ -1,0 +1,87 @@
+{
+  "status": "design_review_pass_pending_implementation_review",
+  "reviewer": "/root/new_signal_audit",
+  "design": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_pilot_design.json",
+    "sha256": "c358503f4274f11e598e43fb63829edb45c7403ec01c2ca89fc8cc9fc02f7c87"
+  },
+  "receipt_checks": [
+    {
+      "outer": "2025-01",
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g0.json",
+        "sha256": "e29d481131155638945a179c8c8ecfb566e496de9e9039ea0aa01a2c0e87b75a"
+      },
+      "held_rows": 41876,
+      "metadata_scope_pass": true
+    },
+    {
+      "outer": "2025-01",
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g1.json",
+        "sha256": "2fc55103c472b6a2ea2333ad45f1750a1d6757ee8dae25dd20123ca54c0805f4"
+      },
+      "held_rows": 43330,
+      "metadata_scope_pass": true
+    },
+    {
+      "outer": "2025-01",
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g2.json",
+        "sha256": "24225f4fc44abefbf5cee67d13b3e62306838a15adfd795a13bf07b9bd42c894"
+      },
+      "held_rows": 41301,
+      "metadata_scope_pass": true
+    },
+    {
+      "outer": "2025-07",
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g0.json",
+        "sha256": "c40e50aa9e2b1b6e806957958884dc706238ec13fbfd3de79ed1bc7fd7716d34"
+      },
+      "held_rows": 38025,
+      "metadata_scope_pass": true
+    },
+    {
+      "outer": "2025-07",
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g1.json",
+        "sha256": "c3a5420801545d0bf184732be35a842f218d5784ce696051ef4824de2ee49e99"
+      },
+      "held_rows": 24834,
+      "metadata_scope_pass": true
+    },
+    {
+      "outer": "2025-07",
+      "receipt": {
+        "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g2.json",
+        "sha256": "de53d9a2fc0087c04caea99d07ab81cf4992724a4ad0f75eb6aa0f7430857ad1"
+      },
+      "held_rows": 23864,
+      "metadata_scope_pass": true
+    }
+  ],
+  "no_probability_or_target_arrays_decoded": true,
+  "scope": [
+    "Six whole-month held-out g0\u2013g2 R20 exports; no g3 input. Each model fit excludes its own predicted months and its outer held month.",
+    "Jan may be an allowed training month for the July outer design and vice versa; this is explicit and does not make the two windows independent.",
+    "Known-airline-only input filter avoids shared missing-carrier groups; original ICAO/IATA parser, UTC takeoff day and strata are fixed.",
+    "Only per-outer allowed month label caches may enter the diagnostic; no target clipping or outcome-dependent filtering.",
+    "Gap-scaled binary residual pair moments diagnose conditional clustering, not taxi RMSE or final support dependence."
+  ],
+  "novelty": "Independent-flight joint moments plus common source noise and airline/month marginal logit adaptation do not represent fixed-marginal target-peer dependence. Existing classifier context and probability screens are related but not this diagnostic.",
+  "required_implementation_checks": [
+    "Authenticate all six receipts, prediction/model artifacts, historical identity and ordered held IDs; reject outer scope leakage before joining labels.",
+    "Preserve whole residual/variance tuples under permutation; group/stratum indices come only from inputs.",
+    "Handle insufficient rows/pairs/days and nonpositive denominator as insufficient support.",
+    "Report month/day bootstrap conditional on observed strata and fixed estimated permutation null; classifier and finite-permutation-null uncertainty is omitted.",
+    "Preserve negative/inconclusive results and fixed gates without stratum or group retuning."
+  ],
+  "limitations": [
+    "Coarse strata do not remove unobserved day-varying marginal bias. A positive contrast does not identify causal recorder mode or distinguish all omitted-covariate mechanisms.",
+    "Gap is a fixed mode-separation proxy, not the selected tilted support separation. No equality to production marginals is required for this diagnostic, and no covariance estimate transfers automatically.",
+    "The two training windows overlap and are reused research data. Both-window agreement is not independent confirmation.",
+    "Existing source-noise calibration remains a separate mechanism; a future posterior must preserve exact marginal atom weights and model target-peer conditional changes."
+  ],
+  "decision": "Approve this bounded diagnostic design; await static source and independent synthetic fixtures before root numerical allocation."
+}

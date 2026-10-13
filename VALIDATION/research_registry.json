@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T08:44:06.041270+00:00",
+  "updated_at": "2026-10-13T09:17:08.660727+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 3,
     "repository": "PRIVATE verified 2026-10-13",
-    "laptop": "Idle: all six consistency fits returned/hash verified",
-    "desktop": "Idle; fixed consistency screen closed after independent audits",
+    "laptop": "Idle; six consistency fits complete and closed",
+    "desktop": "Idle; correlated-mode pilot closed after independent audit",
     "native_goal_status": "active",
     "used_utc_day_slots": 2,
     "slot_date_utc": "2026-10-13",
@@ -1296,45 +1296,125 @@
           "sha256": "8cec083fb109238731c58b3db46bf2aed75bf43acb431d13819d0e08bcec9e50"
         }
       ]
+    },
+    {
+      "id": "paired_release_noise_conditioning_20261013",
+      "status": "not_allocated_small_conditional_noise_scale_unidentified",
+      "hypothesis": "Use shared release movement differences to condition original departure measurement noise",
+      "conclusion": "No departure-specific released block endpoint or generator policy identifies the transform. Centered symmetric independent-noise assumptions suggest only about0.0554s ideal RMSE scale, not a measured gain. Existing model already conditions on old movement differences, so naive correction is not justified. No new numerical experiment or upload allocated. Existing final transport remains a separate explicitly conditional candidate.",
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/final_shared_clocks_20261013/departure_identifiability_review.json",
+          "sha256": "778c190059d07b42b79346e1fc73a1413065489b9cac20fb9da27524e856ecdd"
+        }
+      ]
+    },
+    {
+      "id": "correlated_rome_modes_pilot_20261013",
+      "status": "closed_fixed_dependence_gate_failed",
+      "hypothesis": "At fixed honest R20 marginal predictions, recording-mode innovations cluster within parsed-airline/observed-UTC-day groups beyond fixed airline/month/probability/gap/clock strata",
+      "conclusion": "Both windows have adequate coverage and positive point estimates, but both conditional day intervals cross zero; July permutation p=.06. Inconclusive dependence evidence, not proof of independence. Fixed materiality/uncertainty gate fails.",
+      "metrics": {
+        "2025-01": {
+          "coverage": {
+            "oof_rows": 126507,
+            "oof_ids_sha256": "94c9b777db7df86cc8d3a4270080c68ee0cee07fd4298b8d5efcee3f76702d05",
+            "input_eligible_rows": 14880,
+            "retained_rows": 12984,
+            "retained_strata": 557,
+            "groups": 5259,
+            "groups_with_pairs": 1946,
+            "days": 275,
+            "dropped_sparse_stratum_rows": 1896
+          },
+          "excess_variance_ratio": 0.4670867418631804,
+          "ci95": [
+            -0.020900325071635018,
+            1.1579919806362333
+          ],
+          "permutation_p": 0.005,
+          "gate": false
+        },
+        "2025-07": {
+          "coverage": {
+            "oof_rows": 86723,
+            "oof_ids_sha256": "023e37bedbf8eeb941c1d2720049150eca65542fdcefafd3401fc8ec1f727495",
+            "input_eligible_rows": 6937,
+            "retained_rows": 5714,
+            "retained_strata": 315,
+            "groups": 2875,
+            "groups_with_pairs": 951,
+            "days": 212,
+            "dropped_sparse_stratum_rows": 1223
+          },
+          "excess_variance_ratio": 0.34038631041407796,
+          "ci95": [
+            -0.16612381694716094,
+            0.8927979048357153
+          ],
+          "permutation_p": 0.06,
+          "gate": false
+        }
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/identity.json",
+          "sha256": "205d5623d6f4b14f1df81f1cc2a5c60ed028b29600379a0015da822afecff59e"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/source_review.json",
+          "sha256": "ad7a9dc05cf5046fc9ff66bca672e97deef05d6af9f04fc7560a437d407b5c4e"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/result.json",
+          "sha256": "a40776645b18d1e48b62153b0d678bdc98d1f8c7396abdc5117230b90139ac0c"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/independent_audit.json",
+          "sha256": "231f91788d137725bb36ce12856548eaf3d5cf798c1f2cd69d321b718338d8b8"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/closed.json",
+          "sha256": "7b67502c6f489d88f06fe0cddf02ca4ceec079d0f33129e6311fdd083d81881a"
+        }
+      ],
+      "resources": {
+        "seconds": 2.2683309169988206,
+        "peak_MiB": 516.1328125,
+        "new_model_fits": 0
+      },
+      "no_expansion_or_candidate": true
     }
   ],
   "next": [
-    "Read-only distinct high-impact mechanism review by three agents; avoid closed experiments",
-    "Resolve conditional final clock transport evidence and select strongest retained final candidate only after promising work is resolved",
-    "Three remaining slots including last reserved; no upload queued, both machines idle"
+    "Review strongest retained final candidate after both fixed screens failed; no candidate from either screen",
+    "Source-only assess information value and honest JanJul admissibility of final-view portable predictions transported back to ranking; do not assume permission to omit required CV",
+    "Three slots remain including last reserved; no new vector, version or upload queued"
   ],
   "active_research": [
     {
       "owner": "root",
-      "scope": "Research integration, slot reservation and final selection"
-    },
-    {
-      "owner": "cohort_learning",
-      "scope": "Read-only distinct high-value proposal"
-    },
-    {
-      "owner": "new_signal_audit",
-      "scope": "Departure-specific paired-clock falsifiability review"
+      "scope": "Final selection and protected-slot integration"
     },
     {
       "owner": "final_recovery",
-      "scope": "Read-only structural error mechanism proposal"
+      "scope": "Final candidate recommendation and paired-view feedback CV admissibility"
+    },
+    {
+      "owner": "new_signal_audit",
+      "scope": "Independent conditional clock feedback information-value review"
     }
   ],
   "machine_allocation": {
     "desktop": {
       "stage": "idle",
       "owner": null,
-      "checked_at": "2026-10-13T08:44:06.041270+00:00"
+      "checked_at": "2026-10-13T09:17:08.660727+00:00"
     },
     "laptop": {
       "stage": "idle",
       "owner": null,
-      "checked_at": "2026-10-13T08:41:20.135954+00:00",
-      "completed_return": {
-        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/return_audit.json",
-        "sha256": "44aca0515ab99573b61758dc740824926a300b131e0c22e85dfd8f4dee72bc85"
-      }
+      "checked_at": "2026-10-13T09:17:08.660727+00:00"
     }
   }
 }

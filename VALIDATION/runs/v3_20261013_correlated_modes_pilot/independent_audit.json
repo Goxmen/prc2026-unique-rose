@@ -1,0 +1,80 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_correlated_modes_pilot_20261013.py",
+    "sha256": "f2c30b35aeff98a74720a1250c1f968c5bfa68b6d767638404ce8e697e9e08d9"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/identity.json",
+    "sha256": "205d5623d6f4b14f1df81f1cc2a5c60ed028b29600379a0015da822afecff59e"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/result.json",
+    "sha256": "a40776645b18d1e48b62153b0d678bdc98d1f8c7396abdc5117230b90139ac0c"
+  },
+  "results": {
+    "2025-01": {
+      "status": "pass",
+      "coverage": {
+        "oof_rows": 126507,
+        "oof_ids_sha256": "94c9b777db7df86cc8d3a4270080c68ee0cee07fd4298b8d5efcee3f76702d05",
+        "input_eligible_rows": 14880,
+        "retained_rows": 12984,
+        "retained_strata": 557,
+        "groups": 5259,
+        "groups_with_pairs": 1946,
+        "days": 275,
+        "dropped_sparse_stratum_rows": 1896
+      },
+      "denominator": 4511604396.141125,
+      "observed_cross": 3369024029.03073,
+      "null_mean_cross": 1261713431.061571,
+      "mc_null_mean_cross": 1337683589.5109117,
+      "excess_variance_ratio": 0.46708674186318033,
+      "ci95": [
+        -0.020900325071635004,
+        1.157991980636233
+      ],
+      "permutation_p": 0.005,
+      "gate": false,
+      "full_raw_ID_calendar_label_and_probability_checks": true,
+      "exact_stratified_null_and_observed_pair_SQL": true,
+      "independent_199_permutations_and_2000_bootstrap": true
+    },
+    "2025-07": {
+      "status": "pass",
+      "coverage": {
+        "oof_rows": 86723,
+        "oof_ids_sha256": "023e37bedbf8eeb941c1d2720049150eca65542fdcefafd3401fc8ec1f727495",
+        "input_eligible_rows": 6937,
+        "retained_rows": 5714,
+        "retained_strata": 315,
+        "groups": 2875,
+        "groups_with_pairs": 951,
+        "days": 212,
+        "dropped_sparse_stratum_rows": 1223
+      },
+      "denominator": 1405423810.69413,
+      "observed_cross": 1032777313.777348,
+      "null_mean_cross": 554390288.2870802,
+      "mc_null_mean_cross": 582599385.5959007,
+      "excess_variance_ratio": 0.34038631041407774,
+      "ci95": [
+        -0.16612381694716147,
+        0.8927979048357151
+      ],
+      "permutation_p": 0.06,
+      "gate": false,
+      "full_raw_ID_calendar_label_and_probability_checks": true,
+      "exact_stratified_null_and_observed_pair_SQL": true,
+      "independent_199_permutations_and_2000_bootstrap": true
+    }
+  },
+  "gate": false,
+  "no_model_inference": true,
+  "no_held_outer_labels": true,
+  "no_taxi_score": true,
+  "no_upload": true,
+  "limitation": "Training-only residual dependence with coarse nuisance controls. Day bootstrap conditions on empirical stratum marginals; neither omitted daily bias nor nuisance uncertainty is eliminated. Two outer training windows overlap.",
+  "seconds": 5.719546755999545
+}

@@ -1,0 +1,174 @@
+{
+  "status": "closed_fixed_gate_failed",
+  "coverage": {
+    "oof_rows": 86723,
+    "oof_ids_sha256": "023e37bedbf8eeb941c1d2720049150eca65542fdcefafd3401fc8ec1f727495",
+    "input_eligible_rows": 6937,
+    "retained_rows": 5714,
+    "retained_strata": 315,
+    "groups": 2875,
+    "groups_with_pairs": 951,
+    "days": 212,
+    "dropped_sparse_stratum_rows": 1223
+  },
+  "denominator": 1405423810.69413,
+  "observed_cross": 1032777313.7773483,
+  "null_mean_cross": 554390288.2870798,
+  "mc_null_mean_cross": 582599385.5959007,
+  "permutation_p": 0.06,
+  "excess_variance_ratio": 0.34038631041407796,
+  "ci95": [
+    -0.16612381694716094,
+    0.8927979048357153
+  ],
+  "gate": false,
+  "bootstrap_conditions": "Observed coarse strata and exact empirical permutation means; classifier and nuisance-distribution uncertainty excluded.",
+  "interpretation": "Diagnostic original-family residual dependence, not production copula calibration, causal recorder proof or taxi-CV gain.",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/identity.json",
+    "sha256": "205d5623d6f4b14f1df81f1cc2a5c60ed028b29600379a0015da822afecff59e"
+  },
+  "outer": "2025-07",
+  "inputs": {
+    "months": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ],
+    "records": [
+      {
+        "receipt": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g0.json",
+          "sha256": "c40e50aa9e2b1b6e806957958884dc706238ec13fbfd3de79ed1bc7fd7716d34"
+        },
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g0.parquet",
+          "sha256": "cdcd706d2c222c6cf70db5a646b627e286a73f07fac29a320f3b3828af8261e4"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g0.txt",
+          "sha256": "172a31e77a2a428e577cb30d219e2ea72c2737d3f49217b8c8fb9951df2be62d"
+        },
+        "fitting_months": [
+          "2025-02",
+          "2025-03",
+          "2025-10",
+          "2025-11"
+        ],
+        "predicted_months": [
+          "2025-01",
+          "2025-09",
+          "2025-12"
+        ],
+        "held_rows": 38025,
+        "held_ids_sha256": "e8287824b65534f92ed48dc2b8a30e9c9e81c75cbc53efc46714e10db5873ee3"
+      },
+      {
+        "receipt": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g1.json",
+          "sha256": "c3a5420801545d0bf184732be35a842f218d5784ce696051ef4824de2ee49e99"
+        },
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g1.parquet",
+          "sha256": "73355f7c79f88d92cb09770722fb97a6ebad8ce41dc97b0daa6b44bb93cb4df0"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g1.txt",
+          "sha256": "2d6225651038be909399670f4ffc00459d6d28b6339458d40b6e142a651ca67e"
+        },
+        "fitting_months": [
+          "2025-01",
+          "2025-03",
+          "2025-09",
+          "2025-11",
+          "2025-12"
+        ],
+        "predicted_months": [
+          "2025-02",
+          "2025-10"
+        ],
+        "held_rows": 24834,
+        "held_ids_sha256": "e55c59f63a64b7ad8bf3c27865e43f47aab50eaf46ceb7a36f976bf1cb8a1b64"
+      },
+      {
+        "receipt": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g2.json",
+          "sha256": "de53d9a2fc0087c04caea99d07ab81cf4992724a4ad0f75eb6aa0f7430857ad1"
+        },
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g2.parquet",
+          "sha256": "6a591d925a706821f0d3ac66371e4763abe012cfaba8357823735928da3c18ac"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g2.txt",
+          "sha256": "6a1c6f12cda97d808baf6a5ee93196900ab12663dc9c998f759ebe7223550ab6"
+        },
+        "fitting_months": [
+          "2025-01",
+          "2025-02",
+          "2025-09",
+          "2025-10",
+          "2025-12"
+        ],
+        "predicted_months": [
+          "2025-03",
+          "2025-11"
+        ],
+        "held_rows": 23864,
+        "held_ids_sha256": "b2dea759c353a732852574a0768d6c496a5c10f2cef2eaccc4be05cc326b7e03"
+      }
+    ],
+    "labels": {
+      "2025-01": {
+        "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-01.parquet",
+        "sha256": "7e6246ea59b2944fa2823cab4c38246f9cea905e8f507839513a43998a192741"
+      },
+      "2025-02": {
+        "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-02.parquet",
+        "sha256": "6f628c6af212352338c51404d755b4531eb170a0bbbff8ca669d9e6e07d0729c"
+      },
+      "2025-03": {
+        "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-03.parquet",
+        "sha256": "916ac8af0d59657d321c19ff0a00843ef297c0ec0fbd9a6c01ac5716bc9c2da5"
+      },
+      "2025-09": {
+        "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-09.parquet",
+        "sha256": "5608e925e81fda94195542efa777cb8ea3e78e5647c8fa7608e8b376b91c7874"
+      },
+      "2025-10": {
+        "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-10.parquet",
+        "sha256": "7c700a064cd1571c417427c578e6ec85cbc69775f68db010cb5ea2315705ce42"
+      },
+      "2025-11": {
+        "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-11.parquet",
+        "sha256": "dd1950be3fb821c3d4e4c49c7712bb41cdda862f22d0c477b06e8dd066dfa681"
+      },
+      "2025-12": {
+        "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-12.parquet",
+        "sha256": "57a8fd44da0a7caaa401c5edd701cfdac4fe3330d74e0c04231c0b1941941f0d"
+      }
+    }
+  },
+  "outputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/2025-07/retained_rows.parquet",
+      "sha256": "69ff2960b6110f69b03e01da373faa491132117d6aa14143b53f7585524ba3c4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/2025-07/days.parquet",
+      "sha256": "570cf8fe94a531ffe9ed3e1b9490af49b7f27b07fa896922dbcfcb17e0e5e955"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/2025-07/permutations.parquet",
+      "sha256": "faf69898a2596bd478110e562be59e4d7ec7cb5c1c7eb5f768eda6b5cff7fbfb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/2025-07/bootstrap.npy",
+      "sha256": "a12330e4fa1d24b418c18e5d415e4f528b3e777be269a728599c0a9404b9e6e6"
+    }
+  ]
+}

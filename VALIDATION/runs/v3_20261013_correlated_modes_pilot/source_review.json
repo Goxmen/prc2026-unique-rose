@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "reviewer": "/root/new_signal_audit",
+  "source": {
+    "path": "VALIDATION/correlated_modes_pilot_20261013.py",
+    "sha256": "652695187a4ead8c56162472249e3439cc048cc377b7488fb83222a11c853cd7"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_correlated_modes_pilot_20261013.py",
+    "sha256": "f2c30b35aeff98a74720a1250c1f968c5bfa68b6d767638404ce8e697e9e08d9"
+  },
+  "design": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_pilot_design.json",
+    "sha256": "c21ce2e52600945bdfd93cdef519a2f930d70c91ee54f2f4b6d1d4ae18f899a4"
+  },
+  "prior_design_review": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_pilot_design_review.json",
+    "sha256": "75706cc7049426f48999c2efc8f7b05b7295ca5b294b7151898e299f0109da80"
+  },
+  "fixtures": [
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_analytic_null_fixture.json",
+      "sha256": "d7c176985b3e80ef809f59afe7eea189612b9bcbb2a5dc5888f7852d5be81596"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_producer_fixture.json",
+      "sha256": "1b6c24e5c1fd39d2b7858f9d5b0894da050462e154b5f39b91ce6f42db3cdbf2"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_pilot_numeric_fixture.json",
+      "sha256": "2b0182dfa045957b162d7d7aa57b51c303ab5a827e52fe2e8d1169720f8056dd"
+    }
+  ],
+  "amendment": "Pre-evaluation exact analytic permutation expectation plus p<=.05 both-window gate; original source/design and initial review remain history. No experiment values informed the amendment.",
+  "provenance": [
+    "Prerecorded historical metadata verified before deriving input cache references. All six g0\u2013g2 probability/model/receipt hashes plus common peer identity pinned. Original 63-feature/seed42/1700-round and removed-departure-history scope independently checked.",
+    "Exact expected 2025 raw monthly files and outer-specific month complements; ordered held IDs checked before labels. Label caches only opened after exact input membership; audit independently compares allowed raw labels. No g3 outer-held file is an input."
+  ],
+  "input_semantics": [
+    "UTC takeoff day fixed. Original ICAO/IATA airline parser retained; unknown/empty carriers excluded. Finite 3600<gap<50400 input-only eligibility and unchanged 60-second copy outcome.",
+    "Fixed p decile/gap/clock strata, at least four distinct days. No data-driven grouping or threshold choice. Cached physical inputs independently reconstructed from raw source fields."
+  ],
+  "statistics": [
+    "Ordered distinct-pair crossmoment equals squared group sum minus within-row squares. Gap scaling is an input proxy, not a fitted mode separation.",
+    "Analytic null includes finite-population within-stratum products and every cross-stratum mean product; exhaustive576 permutations agree.",
+    "199 PCG64 tuple permutations preserve empirical strata and day slots; one-sided plus-one randomization p includes ties. Fixed materiality/coverage/conditional-bootstrap/randomization gates all required.",
+    "2000 month-stratified whole-day bootstrap draws condition on observed empirical nuisance marginals. They omit classifier/nuisance-distribution uncertainty and do not create independent validation.",
+    "Nonpositive denominator or insufficient rows/pairs/days yields inconclusive support. Negative and inconclusive branches remain closed without retuning."
+  ],
+  "limitations": [
+    "A positive result is coarse-conditional residual clustering. Omitted day-varying marginal miscalibration remains an alternative to latent recorder dependence.",
+    "R20 crossfit marginals differ from selected final tilted supports; equality is unnecessary for this diagnostic but no estimated dependence automatically transfers.",
+    "Training windows overlap; no independent-confirmation or taxi-score claim. A subsequent posterior requires separately frozen marginal-preserving mathematics and source/CV checks."
+  ],
+  "execution": "Root owns allocation and single execution. No real probability/label/target arrays decoded during this independent source review; no fit, posterior, candidate or upload. Numerical reconstruction belongs to the separate frozen auditor."
+}

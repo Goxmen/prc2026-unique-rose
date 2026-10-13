@@ -1,0 +1,115 @@
+{
+  "status": "source_only_review_complete_no_new_experiment",
+  "scope": "Departure-specific identifiability of fixed final coefficient2 and original-ranking paired-release noise conditioning; no arrays, held departure labels, predictions, model inference or new score read. Existing metadata only plus prior all-column audit. Root closed further generator numerical search absent a new observable.",
+  "evidence": [
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/result.json",
+      "sha256": "ecb5f9d5fd0e2ff83950c85a4b637727af2ac9259e7a1859a74c0fb36fe57c02",
+      "bytes": 8740
+    },
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/coupling.json",
+      "sha256": "021f934f09023b03df51d7a21a61381e1e044eb0001bf7da9f61b0786c274d8e",
+      "bytes": 3201
+    },
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_numpy.json",
+      "sha256": "0f81f1a9d0081819e48cfa59b0c46749f26ec5d7155e0f108f9cd2780952ebe2",
+      "bytes": 13049
+    },
+    {
+      "path": "VALIDATION/tools/audit_final_shared_clocks_numpy_20261013.py",
+      "sha256": "36808cf65cac2705ff6769a8aebdc21ebb172c69ef17234c390514c69fdcbea1",
+      "bytes": 6329
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/final_shared_clock_transport_assessment.json",
+      "sha256": "ca85e48f940e4d20e239484fdf45e5ebdb3f1a66ef839c25e094ba0c75db5b42",
+      "bytes": 10079
+    },
+    {
+      "path": "VALIDATION/reports/SCOUT_EXCLUSIONS_20261012.md",
+      "sha256": "562b056315241d9856b1d3acbf79ce2dae22802c564e73a3bd13fb371886ca4c",
+      "bytes": 3288
+    },
+    {
+      "path": "VALIDATION/reports/source_clocks_20261012/paired_endpoint_closed.json",
+      "sha256": "1d3b1f21340ff593b473afa745e05300bcbd1f034f1e6b3798df74321ddbec81",
+      "bytes": 23787
+    },
+    {
+      "path": "VALIDATION/reports/source_clocks_20261012/phase_closed.json",
+      "sha256": "50a9c17faf567e6d4191bb6f2b901ea470c3b1797bac8d4fb9144b40abe7ea42",
+      "bytes": 37725
+    },
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4",
+      "bytes": 3210
+    },
+    {
+      "path": "data/FEATURES.md",
+      "sha256": "7a29a0be93be4a335c5b61a2147f7d2cb2e53ffac7df1c73f46897aba7d92410",
+      "bytes": 4719
+    }
+  ],
+  "novelty": {
+    "queries": [
+      "jitter",
+      "departure endpoint",
+      "perturbation",
+      "paired release",
+      "jitter averaging",
+      "noise conditioning"
+    ],
+    "method": "Capped incremental research index, then cited source/report inspection; no exhaustive absence claim.",
+    "prior_closed": "Naive label-preserving jitter averaging, original FPL phase feature screen and same-flight NM endpoint-error proxy. These do not test the conditional original-ranking estimator using a second release.",
+    "new_but_not_prioritized": "A second release can in principle condition original-release endpoint noise; its required departure phase and baseline-error assumptions are unverified, and its ideal noise-only scale is far below target gap."
+  },
+  "departure_observability": {
+    "shared_departures": 344841,
+    "independent_all30_columns_audit": "Only MVT_TIME changes in DEP. BLOCK and TAXITIME are NULL in both. All remaining source fields, including schedule and six FPL clocks, agree.",
+    "duplicate_endpoint_limitation": "The prior paired-endpoint audit has zero disagreements for duplicate FPL endpoint fields; these are plan/NM estimates, not a duplicate released hidden departure block.",
+    "footer_metadata_inspected": {
+      "ranking.parquet": {
+        "rows": 689534,
+        "row_groups": 1,
+        "created_by": "parquet-cpp-arrow version 24.0.0"
+      },
+      "final_ranking.parquet": {
+        "rows": 1341197,
+        "row_groups": 2,
+        "created_by": "parquet-cpp-arrow version 24.0.0"
+      },
+      "both": "Only ARROW:schema metadata (2744 bytes), identical30field schema; no export noise seed/generator/phase policy."
+    },
+    "counterexamples": "Holding every observed DEP field fixed, hidden block may change by -dt (coefficient2), 0 (coefficient1), or +dt (coefficient0). Existing observations cannot distinguish these.",
+    "decisive_missing_observable": "Authoritative phase-neutral export/noise generator or genuine paired departure block/target observations. No such source was found in local provenance; no repeat network search performed."
+  },
+  "original_ranking_conditioning": {
+    "notation": "old takeoff=t+eps_old; final takeoff=t+eps_new; dt=eps_new-eps_old. If hidden block shifts oppositely, old departure target=y_latent+2eps_old.",
+    "sufficient_assumptions": "Centered jointly sign-symmetric iid release errors independent of latent flight quantities imply E[eps_old|dt]=-dt/2. Generic iid alone is insufficient.",
+    "iid_counterexample": "For independent Exp(1)-1 errors, E[eps_old|dt=d]=-0.5+max(-d,0), not -d/2.",
+    "baseline_caveat": "pipeline/common.py:build_features already includes original movement minus schedule/LOBT/IOBT/EOBT1/AOBT3 plus calendar; other selected components also use original clocks. Thus -dt is not automatically an innovation relative to v80.",
+    "conditional_innovation": "Even assuming phase symmetry, compare E[y_old|old_inputs,final_time] to E[y_old|old_inputs], rather than adding an unconditional noise correction. There may also be a changed latent-time posterior. No such v80 residual dependence was established."
+  },
+  "saved_departure_delta_statistics": {
+    "rows": 344841,
+    "mean_seconds": 0.011750342911660737,
+    "rms_seconds": 4.92358548195352,
+    "second_moment_seconds2": 24.241693998103475,
+    "variance_seconds2": 24.241555927544933,
+    "minimum_seconds": -12.0,
+    "maximum_seconds": 12.0
+  },
+  "conditional_scale_calculation": {
+    "reference_rmse": 218.8525,
+    "single_release_noise_variance_seconds2": 12.120777963772467,
+    "ideal_two_release_noise_only_mse_reduction_seconds2": 24.241555927544933,
+    "ideal_rmse_gain_seconds": 0.05539032913975461,
+    "perfect_opposite_endpoint_noise_mse_reduction_seconds2": 48.48311185508987,
+    "ideal_oracle_rmse_gain_seconds": 0.11079468435858075,
+    "qualification": "Conditional centered symmetric iid noise-only calculations, not actual v80 improvements or universal upper bounds. Baseline errors need not be independent of perturbations."
+  },
+  "decision": "Preserve current final transform as explicitly conditional. No new candidate, score, departure generator scan, coefficient sweep or registry entry. Reopen only with a genuinely new departure observable/provenance source."
+}

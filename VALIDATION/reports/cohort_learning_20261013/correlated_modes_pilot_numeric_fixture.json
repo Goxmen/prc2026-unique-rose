@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_correlated_modes_pilot_20261013.py",
+    "sha256": "d0914bd2d2123bd019ccb54035414fd45e416fb29a12acba7c83ae24151d5a35"
+  },
+  "producer": {
+    "path": "VALIDATION/correlated_modes_pilot_20261013.py",
+    "sha256": "652695187a4ead8c56162472249e3439cc048cc377b7488fb83222a11c853cd7"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_correlated_modes_pilot_20261013.py",
+    "sha256": "f2c30b35aeff98a74720a1250c1f968c5bfa68b6d767638404ce8e697e9e08d9"
+  },
+  "design": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_pilot_design.json",
+    "sha256": "c21ce2e52600945bdfd93cdef519a2f930d70c91ee54f2f4b6d1d4ae18f899a4"
+  },
+  "synthetic_rows": 1080,
+  "independent_SQL_analytic_null_and_observed_pairs": true,
+  "all_199_permutation_statistics_bit_exact": true,
+  "all_2000_bootstrap_draws_reconstructed": true,
+  "separate_explicit_raw_pair_day_bootstrap": true,
+  "all_tied_randomization_p_equals_one": true,
+  "sparse_support_is_inconclusive_not_null": true,
+  "no_actual_labels_predictions_models_read": true
+}

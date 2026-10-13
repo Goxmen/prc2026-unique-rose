@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_correlated_modes_analytic_null_20261013.py",
+    "sha256": "efb264ed5e3bc817f2b05bee72c3e6f0b789a0bf6f6ee11cadab788adedd6265"
+  },
+  "synthetic_rows": 10,
+  "exhaustive_independent_permutations": 576,
+  "maximum_error": 4.163336342344337e-16,
+  "formula": "sum_s n_gs(n_gs-1)*(S_s^2-Q_s)/(N_s(N_s-1)) + sum_{s!=t} n_gs*n_gt*(S_s/N_s)*(S_t/N_t)",
+  "singleton_strata_same_stratum_term_zero": true,
+  "unequal_day_counts_and_cross_stratum_terms_checked": true,
+  "constant_propensity_mean_preserved": true,
+  "no_actual_labels_predictions_or_models_read": true,
+  "bootstrap_scope": "Future day bootstrap conditions on these empirical stratum marginals; it does not propagate nuisance-estimation uncertainty."
+}

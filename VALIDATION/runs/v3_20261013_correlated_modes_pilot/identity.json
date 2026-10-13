@@ -1,0 +1,581 @@
+{
+  "source": {
+    "path": "VALIDATION/correlated_modes_pilot_20261013.py",
+    "sha256": "652695187a4ead8c56162472249e3439cc048cc377b7488fb83222a11c853cd7"
+  },
+  "design": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_pilot_design.json",
+    "sha256": "c21ce2e52600945bdfd93cdef519a2f930d70c91ee54f2f4b6d1d4ae18f899a4"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_correlated_modes_pilot_20261013.py",
+    "sha256": "f2c30b35aeff98a74720a1250c1f968c5bfa68b6d767638404ce8e697e9e08d9"
+  },
+  "review": {
+    "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/source_review.json",
+    "sha256": "ad7a9dc05cf5046fc9ff66bca672e97deef05d6af9f04fc7560a437d407b5c4e"
+  },
+  "folds": {
+    "2025-01": {
+      "months": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "records": [
+        {
+          "receipt": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g0.json",
+            "sha256": "e29d481131155638945a179c8c8ecfb566e496de9e9039ea0aa01a2c0e87b75a"
+          },
+          "prediction": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g0.parquet",
+            "sha256": "5a9a2656deec41840745754098d258896949c401fca68ca77799baf6f395dc7a"
+          },
+          "model": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-01_g0.txt",
+            "sha256": "41299d8982dd77a2957ee5a5fd06b58f36c0d413d4ab33236b783c4c36dee58b"
+          },
+          "fitting_months": [
+            "2025-04",
+            "2025-05",
+            "2025-07",
+            "2025-08",
+            "2025-10",
+            "2025-11"
+          ],
+          "predicted_months": [
+            "2025-03",
+            "2025-06",
+            "2025-09"
+          ],
+          "held_rows": 41876,
+          "held_ids_sha256": "1d150e689c5cba77f2afec5a00c9bc5a8b0243009c556dda91098cd17f351974"
+        },
+        {
+          "receipt": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g1.json",
+            "sha256": "2fc55103c472b6a2ea2333ad45f1750a1d6757ee8dae25dd20123ca54c0805f4"
+          },
+          "prediction": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g1.parquet",
+            "sha256": "0ff6eb6a0fb2532a8f51c79f16af8b413b7fb97504730cbda7059ccf28f6d526"
+          },
+          "model": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-01_g1.txt",
+            "sha256": "435eec78dbcf677201dbf80715816350f34e94916bb9091d568eeb83ec887ac9"
+          },
+          "fitting_months": [
+            "2025-03",
+            "2025-05",
+            "2025-06",
+            "2025-08",
+            "2025-09",
+            "2025-11"
+          ],
+          "predicted_months": [
+            "2025-04",
+            "2025-07",
+            "2025-10"
+          ],
+          "held_rows": 43330,
+          "held_ids_sha256": "271c3c15993f5a924746a7431c6d58b88d22a5e39557593978fc023b45bcce85"
+        },
+        {
+          "receipt": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g2.json",
+            "sha256": "24225f4fc44abefbf5cee67d13b3e62306838a15adfd795a13bf07b9bd42c894"
+          },
+          "prediction": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g2.parquet",
+            "sha256": "6e4746a976fb814fc070e29f6d3421f81d19b50a050e58a46231e6bb6f5ec554"
+          },
+          "model": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-01_g2.txt",
+            "sha256": "c3bf21447e10c336caf65b1a90b809185ace2d6d749e8f892dd9b11540b837ea"
+          },
+          "fitting_months": [
+            "2025-03",
+            "2025-04",
+            "2025-06",
+            "2025-07",
+            "2025-09",
+            "2025-10"
+          ],
+          "predicted_months": [
+            "2025-05",
+            "2025-08",
+            "2025-11"
+          ],
+          "held_rows": 41301,
+          "held_ids_sha256": "00ecfdec1e95ebd85cc1e502e7954226ff1cad278ca6d0e4b29274f42636d146"
+        }
+      ],
+      "labels": {
+        "2025-03": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-03.parquet",
+          "sha256": "916ac8af0d59657d321c19ff0a00843ef297c0ec0fbd9a6c01ac5716bc9c2da5"
+        },
+        "2025-04": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-04.parquet",
+          "sha256": "9f0256dc1144167c2d633efe5e29763183d1390eb85da42a005d49bd2be84ffa"
+        },
+        "2025-05": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-05.parquet",
+          "sha256": "780ef84bb3c6252b67fa4f5a65a679b49abde6d77e53c8e57fd8128f63b8e3fb"
+        },
+        "2025-06": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-06.parquet",
+          "sha256": "ff0ca516abbb6cd7fac1a234e8e1e5eb5e21f0c8820170e08fe1f40953e7feb2"
+        },
+        "2025-07": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-07.parquet",
+          "sha256": "8c3a1da2cc53c14865321b3da9f464623d48c8d30c8cf6e346dc7243e5190c90"
+        },
+        "2025-08": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-08.parquet",
+          "sha256": "d2168b1c78548136fc2565d529acecff88ca26ad147d691d550348bd6ff0ef3c"
+        },
+        "2025-09": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-09.parquet",
+          "sha256": "5608e925e81fda94195542efa777cb8ea3e78e5647c8fa7608e8b376b91c7874"
+        },
+        "2025-10": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-10.parquet",
+          "sha256": "7c700a064cd1571c417427c578e6ec85cbc69775f68db010cb5ea2315705ce42"
+        },
+        "2025-11": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-11.parquet",
+          "sha256": "dd1950be3fb821c3d4e4c49c7712bb41cdda862f22d0c477b06e8dd066dfa681"
+        }
+      }
+    },
+    "2025-07": {
+      "months": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "records": [
+        {
+          "receipt": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g0.json",
+            "sha256": "c40e50aa9e2b1b6e806957958884dc706238ec13fbfd3de79ed1bc7fd7716d34"
+          },
+          "prediction": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g0.parquet",
+            "sha256": "cdcd706d2c222c6cf70db5a646b627e286a73f07fac29a320f3b3828af8261e4"
+          },
+          "model": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g0.txt",
+            "sha256": "172a31e77a2a428e577cb30d219e2ea72c2737d3f49217b8c8fb9951df2be62d"
+          },
+          "fitting_months": [
+            "2025-02",
+            "2025-03",
+            "2025-10",
+            "2025-11"
+          ],
+          "predicted_months": [
+            "2025-01",
+            "2025-09",
+            "2025-12"
+          ],
+          "held_rows": 38025,
+          "held_ids_sha256": "e8287824b65534f92ed48dc2b8a30e9c9e81c75cbc53efc46714e10db5873ee3"
+        },
+        {
+          "receipt": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g1.json",
+            "sha256": "c3a5420801545d0bf184732be35a842f218d5784ce696051ef4824de2ee49e99"
+          },
+          "prediction": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g1.parquet",
+            "sha256": "73355f7c79f88d92cb09770722fb97a6ebad8ce41dc97b0daa6b44bb93cb4df0"
+          },
+          "model": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g1.txt",
+            "sha256": "2d6225651038be909399670f4ffc00459d6d28b6339458d40b6e142a651ca67e"
+          },
+          "fitting_months": [
+            "2025-01",
+            "2025-03",
+            "2025-09",
+            "2025-11",
+            "2025-12"
+          ],
+          "predicted_months": [
+            "2025-02",
+            "2025-10"
+          ],
+          "held_rows": 24834,
+          "held_ids_sha256": "e55c59f63a64b7ad8bf3c27865e43f47aab50eaf46ceb7a36f976bf1cb8a1b64"
+        },
+        {
+          "receipt": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g2.json",
+            "sha256": "de53d9a2fc0087c04caea99d07ab81cf4992724a4ad0f75eb6aa0f7430857ad1"
+          },
+          "prediction": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g2.parquet",
+            "sha256": "6a591d925a706821f0d3ac66371e4763abe012cfaba8357823735928da3c18ac"
+          },
+          "model": {
+            "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g2.txt",
+            "sha256": "6a1c6f12cda97d808baf6a5ee93196900ab12663dc9c998f759ebe7223550ab6"
+          },
+          "fitting_months": [
+            "2025-01",
+            "2025-02",
+            "2025-09",
+            "2025-10",
+            "2025-12"
+          ],
+          "predicted_months": [
+            "2025-03",
+            "2025-11"
+          ],
+          "held_rows": 23864,
+          "held_ids_sha256": "b2dea759c353a732852574a0768d6c496a5c10f2cef2eaccc4be05cc326b7e03"
+        }
+      ],
+      "labels": {
+        "2025-01": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-01.parquet",
+          "sha256": "7e6246ea59b2944fa2823cab4c38246f9cea905e8f507839513a43998a192741"
+        },
+        "2025-02": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-02.parquet",
+          "sha256": "6f628c6af212352338c51404d755b4531eb170a0bbbff8ca669d9e6e07d0729c"
+        },
+        "2025-03": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-03.parquet",
+          "sha256": "916ac8af0d59657d321c19ff0a00843ef297c0ec0fbd9a6c01ac5716bc9c2da5"
+        },
+        "2025-09": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-09.parquet",
+          "sha256": "5608e925e81fda94195542efa777cb8ea3e78e5647c8fa7608e8b376b91c7874"
+        },
+        "2025-10": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-10.parquet",
+          "sha256": "7c700a064cd1571c417427c578e6ec85cbc69775f68db010cb5ea2315705ce42"
+        },
+        "2025-11": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-11.parquet",
+          "sha256": "dd1950be3fb821c3d4e4c49c7712bb41cdda862f22d0c477b06e8dd066dfa681"
+        },
+        "2025-12": {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-12.parquet",
+          "sha256": "57a8fd44da0a7caaa401c5edd701cfdac4fe3330d74e0c04231c0b1941941f0d"
+        }
+      }
+    }
+  },
+  "inputs": {
+    "rows.parquet": {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/rows.parquet",
+      "sha256": "fcac4a76df3d839993cfddc08ae474afe5f0bfe22e21e70c2f581d9729388d41"
+    },
+    "features.parquet": {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/features.parquet",
+      "sha256": "8877312f6dd2187cb6735f702903d70afe7576a243d63cd1402690afabc00976"
+    }
+  },
+  "raw": {
+    "2025-01": {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    "2025-02": {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    "2025-03": {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    "2025-04": {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    "2025-05": {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    "2025-06": {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    "2025-07": {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    "2025-08": {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    "2025-09": {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    "2025-10": {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    "2025-11": {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    "2025-12": {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  },
+  "peer_identity": {
+    "path": "VALIDATION/runs/v3_20261011_rome_public_peers/identity.json",
+    "sha256": "d28a7d9f882ae6bba5b659e7548798b161f720c1811b8d05c3fd389a771006c8"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/correlated_modes_pilot_20261013.py",
+      "sha256": "652695187a4ead8c56162472249e3439cc048cc377b7488fb83222a11c853cd7"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_pilot_design.json",
+      "sha256": "c21ce2e52600945bdfd93cdef519a2f930d70c91ee54f2f4b6d1d4ae18f899a4"
+    },
+    {
+      "path": "VALIDATION/reports/current_error_concentration_20261012/result.json",
+      "sha256": "deb35bca61136a40681516cc83eb6ef0d8749bed95d5cd9347e783c4cae52742"
+    },
+    {
+      "path": "VALIDATION/rome_hybrid.py",
+      "sha256": "27bfe7e0b16cd1b64e4571f063fd6fa0b4fb74ea99c335012c4723947db2fb23"
+    },
+    {
+      "path": "VALIDATION/rome_public_monthly_shift.py",
+      "sha256": "9565ac0eb8136e784db83311ae0b7e59532742b97cba365af9f769ad9d4c072e"
+    },
+    {
+      "path": "VALIDATION/rome_public_peers_jan_jul.py",
+      "sha256": "c25c11298ba930ea1ec6bbace973826d2509175154486405cc1599c964e7c974"
+    },
+    {
+      "path": "VALIDATION/rome_signals.py",
+      "sha256": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/identity.json",
+      "sha256": "d28a7d9f882ae6bba5b659e7548798b161f720c1811b8d05c3fd389a771006c8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-01_g0.txt",
+      "sha256": "41299d8982dd77a2957ee5a5fd06b58f36c0d413d4ab33236b783c4c36dee58b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-01_g1.txt",
+      "sha256": "435eec78dbcf677201dbf80715816350f34e94916bb9091d568eeb83ec887ac9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-01_g2.txt",
+      "sha256": "c3bf21447e10c336caf65b1a90b809185ace2d6d749e8f892dd9b11540b837ea"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g0.txt",
+      "sha256": "172a31e77a2a428e577cb30d219e2ea72c2737d3f49217b8c8fb9951df2be62d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g1.txt",
+      "sha256": "2d6225651038be909399670f4ffc00459d6d28b6339458d40b6e142a651ca67e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g2.txt",
+      "sha256": "6a1c6f12cda97d808baf6a5ee93196900ab12663dc9c998f759ebe7223550ab6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g0.json",
+      "sha256": "e29d481131155638945a179c8c8ecfb566e496de9e9039ea0aa01a2c0e87b75a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g0.parquet",
+      "sha256": "5a9a2656deec41840745754098d258896949c401fca68ca77799baf6f395dc7a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g1.json",
+      "sha256": "2fc55103c472b6a2ea2333ad45f1750a1d6757ee8dae25dd20123ca54c0805f4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g1.parquet",
+      "sha256": "0ff6eb6a0fb2532a8f51c79f16af8b413b7fb97504730cbda7059ccf28f6d526"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g2.json",
+      "sha256": "24225f4fc44abefbf5cee67d13b3e62306838a15adfd795a13bf07b9bd42c894"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g2.parquet",
+      "sha256": "6e4746a976fb814fc070e29f6d3421f81d19b50a050e58a46231e6bb6f5ec554"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g0.json",
+      "sha256": "c40e50aa9e2b1b6e806957958884dc706238ec13fbfd3de79ed1bc7fd7716d34"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g0.parquet",
+      "sha256": "cdcd706d2c222c6cf70db5a646b627e286a73f07fac29a320f3b3828af8261e4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g1.json",
+      "sha256": "c3a5420801545d0bf184732be35a842f218d5784ce696051ef4824de2ee49e99"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g1.parquet",
+      "sha256": "73355f7c79f88d92cb09770722fb97a6ebad8ce41dc97b0daa6b44bb93cb4df0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g2.json",
+      "sha256": "de53d9a2fc0087c04caea99d07ab81cf4992724a4ad0f75eb6aa0f7430857ad1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g2.parquet",
+      "sha256": "6a591d925a706821f0d3ac66371e4763abe012cfaba8357823735928da3c18ac"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/source_review.json",
+      "sha256": "ad7a9dc05cf5046fc9ff66bca672e97deef05d6af9f04fc7560a437d407b5c4e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/features.parquet",
+      "sha256": "8877312f6dd2187cb6735f702903d70afe7576a243d63cd1402690afabc00976"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-01.parquet",
+      "sha256": "7e6246ea59b2944fa2823cab4c38246f9cea905e8f507839513a43998a192741"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-02.parquet",
+      "sha256": "6f628c6af212352338c51404d755b4531eb170a0bbbff8ca669d9e6e07d0729c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-03.parquet",
+      "sha256": "916ac8af0d59657d321c19ff0a00843ef297c0ec0fbd9a6c01ac5716bc9c2da5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-04.parquet",
+      "sha256": "9f0256dc1144167c2d633efe5e29763183d1390eb85da42a005d49bd2be84ffa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-05.parquet",
+      "sha256": "780ef84bb3c6252b67fa4f5a65a679b49abde6d77e53c8e57fd8128f63b8e3fb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-06.parquet",
+      "sha256": "ff0ca516abbb6cd7fac1a234e8e1e5eb5e21f0c8820170e08fe1f40953e7feb2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-07.parquet",
+      "sha256": "8c3a1da2cc53c14865321b3da9f464623d48c8d30c8cf6e346dc7243e5190c90"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-08.parquet",
+      "sha256": "d2168b1c78548136fc2565d529acecff88ca26ad147d691d550348bd6ff0ef3c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-09.parquet",
+      "sha256": "5608e925e81fda94195542efa777cb8ea3e78e5647c8fa7608e8b376b91c7874"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-10.parquet",
+      "sha256": "7c700a064cd1571c417427c578e6ec85cbc69775f68db010cb5ea2315705ce42"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-11.parquet",
+      "sha256": "dd1950be3fb821c3d4e4c49c7712bb41cdda862f22d0c477b06e8dd066dfa681"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-12.parquet",
+      "sha256": "57a8fd44da0a7caaa401c5edd701cfdac4fe3330d74e0c04231c0b1941941f0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/rows.parquet",
+      "sha256": "fcac4a76df3d839993cfddc08ae474afe5f0bfe22e21e70c2f581d9729388d41"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/prepared.json",
+      "sha256": "1a3e42c591ec734abd0ce981e594691cb79bef8e3e39fa5d1bb2668f019f32a6"
+    },
+    {
+      "path": "VALIDATION/tools/audit_correlated_modes_pilot_20261013.py",
+      "sha256": "f2c30b35aeff98a74720a1250c1f968c5bfa68b6d767638404ce8e697e9e08d9"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066"
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390"
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9"
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724"
+    }
+  ],
+  "no_numeric_read_before_freeze": true,
+  "no_new_model_fit": true,
+  "no_held_outer_labels": true
+}

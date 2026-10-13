@@ -121,6 +121,17 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October 13, 11:15 Amsterdam: correlated-mode pilot closed; slots preserved.**
+Six retained honest R20 prediction banks supported one fixed training-only
+airline/day dependence test. Exact analytic permutation means, 199 conditional
+permutations and 2,000 day bootstraps pass independent raw-source/SQL audits.
+Adequate support, positive excess-variance ratios 0.4671/0.3404, but both intervals
+cross zero and July p=0.06: fixed gate fails. No grouping/threshold tuning,
+copula expansion, taxi CV or candidate. Source `correlated_modes_pilot_20261013.py`;
+run `v3_20261013_correlated_modes_pilot`, audit `231f9178…`. Both machines idle.
+Two audited final forms retained; source-only final-selection review continues.
+Best v80 218.8525; three slots remain, last reserved. No upload queued.
+
 **October 13, 10:45 Amsterdam: fixed track-consistency screen closed.**
 All six two-epoch fits returned with exact hashes. Target CV 289.765906 versus
 v80 289.762778 (+0.003128, interval [-0.013657,+0.020313]); target is worse

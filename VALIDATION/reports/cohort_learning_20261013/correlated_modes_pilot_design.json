@@ -1,0 +1,294 @@
+{
+  "schema": "correlated_rome_modes_fixed_training_falsifier_v2",
+  "created_utc": "2026-10-13T08:55:48.781784+00:00",
+  "state": "source-only preregistration; no label/statistic evaluation",
+  "hypothesis": "Conditional recording-mode innovations cluster within airline and observed UTC takeoff day; independent per-flight priors omit target-peer covariance. Not a claim of causal recorder state or taxi gain.",
+  "novelty": {
+    "queries": [
+      "markov",
+      "correlated prior",
+      "batch recorder",
+      "latent state"
+    ],
+    "direct_matches": 0,
+    "existing": "Joint public moments sum independent-flight covariance. Monthly odds shifts change marginal means; source/runway covariance changes observation noise. This diagnostic concerns dependence at fixed row marginals."
+  },
+  "grouping": "Existing rome_signals.airline_code(FLIGHT_mvt), with IATA fallback, crossed with observed UTC takeoff date. No assigned date, intraday window, missing-ID cluster, airline selection or grouping scan.",
+  "justification": "Airline flight-plan reporting channels and existing airline/handler signals motivate one carrier/day group at public temporal resolution. No actual handler/recording workflow identity is established.",
+  "folds": {
+    "2025-01": [
+      {
+        "receipt": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g0.json",
+          "sha256": "e29d481131155638945a179c8c8ecfb566e496de9e9039ea0aa01a2c0e87b75a"
+        },
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g0.parquet",
+          "sha256": "5a9a2656deec41840745754098d258896949c401fca68ca77799baf6f395dc7a"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-01_g0.txt",
+          "sha256": "41299d8982dd77a2957ee5a5fd06b58f36c0d413d4ab33236b783c4c36dee58b"
+        },
+        "fitting_months": [
+          "2025-04",
+          "2025-05",
+          "2025-07",
+          "2025-08",
+          "2025-10",
+          "2025-11"
+        ],
+        "predicted_months": [
+          "2025-03",
+          "2025-06",
+          "2025-09"
+        ],
+        "held_rows": 41876,
+        "held_ids_sha256": "1d150e689c5cba77f2afec5a00c9bc5a8b0243009c556dda91098cd17f351974"
+      },
+      {
+        "receipt": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g1.json",
+          "sha256": "2fc55103c472b6a2ea2333ad45f1750a1d6757ee8dae25dd20123ca54c0805f4"
+        },
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g1.parquet",
+          "sha256": "0ff6eb6a0fb2532a8f51c79f16af8b413b7fb97504730cbda7059ccf28f6d526"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-01_g1.txt",
+          "sha256": "435eec78dbcf677201dbf80715816350f34e94916bb9091d568eeb83ec887ac9"
+        },
+        "fitting_months": [
+          "2025-03",
+          "2025-05",
+          "2025-06",
+          "2025-08",
+          "2025-09",
+          "2025-11"
+        ],
+        "predicted_months": [
+          "2025-04",
+          "2025-07",
+          "2025-10"
+        ],
+        "held_rows": 43330,
+        "held_ids_sha256": "271c3c15993f5a924746a7431c6d58b88d22a5e39557593978fc023b45bcce85"
+      },
+      {
+        "receipt": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g2.json",
+          "sha256": "24225f4fc44abefbf5cee67d13b3e62306838a15adfd795a13bf07b9bd42c894"
+        },
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-01_g2.parquet",
+          "sha256": "6e4746a976fb814fc070e29f6d3421f81d19b50a050e58a46231e6bb6f5ec554"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-01_g2.txt",
+          "sha256": "c3bf21447e10c336caf65b1a90b809185ace2d6d749e8f892dd9b11540b837ea"
+        },
+        "fitting_months": [
+          "2025-03",
+          "2025-04",
+          "2025-06",
+          "2025-07",
+          "2025-09",
+          "2025-10"
+        ],
+        "predicted_months": [
+          "2025-05",
+          "2025-08",
+          "2025-11"
+        ],
+        "held_rows": 41301,
+        "held_ids_sha256": "00ecfdec1e95ebd85cc1e502e7954226ff1cad278ca6d0e4b29274f42636d146"
+      }
+    ],
+    "2025-07": [
+      {
+        "receipt": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g0.json",
+          "sha256": "c40e50aa9e2b1b6e806957958884dc706238ec13fbfd3de79ed1bc7fd7716d34"
+        },
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g0.parquet",
+          "sha256": "cdcd706d2c222c6cf70db5a646b627e286a73f07fac29a320f3b3828af8261e4"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g0.txt",
+          "sha256": "172a31e77a2a428e577cb30d219e2ea72c2737d3f49217b8c8fb9951df2be62d"
+        },
+        "fitting_months": [
+          "2025-02",
+          "2025-03",
+          "2025-10",
+          "2025-11"
+        ],
+        "predicted_months": [
+          "2025-01",
+          "2025-09",
+          "2025-12"
+        ],
+        "held_rows": 38025,
+        "held_ids_sha256": "e8287824b65534f92ed48dc2b8a30e9c9e81c75cbc53efc46714e10db5873ee3"
+      },
+      {
+        "receipt": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g1.json",
+          "sha256": "c3a5420801545d0bf184732be35a842f218d5784ce696051ef4824de2ee49e99"
+        },
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g1.parquet",
+          "sha256": "73355f7c79f88d92cb09770722fb97a6ebad8ce41dc97b0daa6b44bb93cb4df0"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g1.txt",
+          "sha256": "2d6225651038be909399670f4ffc00459d6d28b6339458d40b6e142a651ca67e"
+        },
+        "fitting_months": [
+          "2025-01",
+          "2025-03",
+          "2025-09",
+          "2025-11",
+          "2025-12"
+        ],
+        "predicted_months": [
+          "2025-02",
+          "2025-10"
+        ],
+        "held_rows": 24834,
+        "held_ids_sha256": "e55c59f63a64b7ad8bf3c27865e43f47aab50eaf46ceb7a36f976bf1cb8a1b64"
+      },
+      {
+        "receipt": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g2.json",
+          "sha256": "de53d9a2fc0087c04caea99d07ab81cf4992724a4ad0f75eb6aa0f7430857ad1"
+        },
+        "prediction": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/predictions/2025-07_g2.parquet",
+          "sha256": "6a591d925a706821f0d3ac66371e4763abe012cfaba8357823735928da3c18ac"
+        },
+        "model": {
+          "path": "VALIDATION/runs/v3_20261011_rome_public_peers/inner/models/2025-07_g2.txt",
+          "sha256": "6a1c6f12cda97d808baf6a5ee93196900ab12663dc9c998f759ebe7223550ab6"
+        },
+        "fitting_months": [
+          "2025-01",
+          "2025-02",
+          "2025-09",
+          "2025-10",
+          "2025-12"
+        ],
+        "predicted_months": [
+          "2025-03",
+          "2025-11"
+        ],
+        "held_rows": 23864,
+        "held_ids_sha256": "b2dea759c353a732852574a0768d6c496a5c10f2cef2eaccc4be05cc326b7e03"
+      }
+    ]
+  },
+  "probability_family": "Six retained63-feature source-blind R20 inner classifiers,1700rounds/seed42, three whole-month partitions perouter. Five departure-label-history fields removed. Exact own/peer-month exclusion. These are not final Cat3/R20 or tilted-support marginals. Never open g3 outer-held files.",
+  "scope": {
+    "membership": "Exact saved g0-g2 IDs, unique, receipt-held-ID hash and declared months validated before labels; full cached probability export remains complete.",
+    "input_filter": "LIRF, finite3600<gap<50400, nonmissing parsed ICAO/IATA-like carrier prefix, finite p in[0,1]. No y-based row selection.",
+    "label": "Original substituted outcome abs(gap-raw_taxi_sec)<=60 inclusive. Read only allowed training month label cache; assert all joined labels finite, no target cap.",
+    "inputs": "Reuse compact posterior-aware rows/features and separate month label parquets. Only airline spelling needs narrow label-free FLIGHT_mvt extraction from original allowed-month raw files; use original parser.",
+    "outer_exclusion": "Exclusion is per outer fold: Jan can be allowed training for July and July for Jan; never read that particular outer held month in its own computation."
+  },
+  "control": {
+    "stratum": "airline\u00d7UTC month\u00d7floor(10*p) clamped0..9\u00d7gapband(<=14400,>14400)\u00d7clockband(missing,abs(AOBT3-schedule)<=60,other)",
+    "clock": "AOBT3-schedule=gap-mvt_minus_aobt3_sec from cached input features.",
+    "fixed_eligibility": "Retain strata represented on>=4 distinct observed UTC days; report all attrition.",
+    "permutation": "199 PCG64(seed20261013) permutations of whole(u,v) tuples within each stratum across fixed day slots; sort IDs first. Preserve stratum/day counts; no cross-stratum or cross-outer shuffling.",
+    "limitation": "Controls stable/coarse marginal propensity, not omitted day-varying marginal bias. Positive dependence need not be caused by recorder state."
+  },
+  "statistic": {
+    "z": "1[abs(gap-y)<=60]",
+    "u": "gap*(z-p)",
+    "v": "gap^2*p*(1-p)",
+    "cross": "For each airline/day, (sum u)^2-sum(u^2), ordered distinct pairs; singleton0.",
+    "contrast": "sum(observed_cross-exact_permutation_expected_cross)/sum(v). Fixed input gap is a mode-separation proxy, not a fitted endpoint. Denominator invariant to tuple permutation. Report as excess mode-variance ratio, not correlation or taxi gain.",
+    "uncertainty": "2000 PCG64(seed20261014) whole-UTC-day bootstrap samples within each month; reuse exact analytic null day means and recompute numerator/denominator ratio. Conditional on observed coarse strata and empirical nuisance marginals, excludes classifier and nuisance-distribution uncertainty. Outer windows overlap and are not independent confirmation.",
+    "analytic_null": "For each group: (sum_s n_gs*mu_s)^2-sum_s(n_gs*mu_s)^2+sum_s n_gs*(n_gs-1)*beta_s; mu_s=sumu/n_s; beta_s=((sumu)^2-sumu2)/(n_s*(n_s-1)), zero for singleton strata. Includes cross-stratum mean products.",
+    "randomization_p": "One-sided conditional randomization p=(1+count(permuted_total_cross>=observed_total_cross))/200, retaining all 199 permutations, including ties. Fixed p<=0.05 required in each outer."
+  },
+  "gate": {
+    "each_outer": {
+      "retained_rows_min": 1000,
+      "groups_with_pairs_min": 100,
+      "days_min": 50,
+      "excess_variance_ratio_min": 0.1,
+      "bootstrap95_lower_strictly_above": 0,
+      "conditional_randomization_p_max": 0.05
+    },
+    "pass": "All conditions in both original training windows plus independent source/scope/statistic audit.",
+    "fail": "With adequate support, failed materiality/uncertainty gate closes this fixed pilot only; no causal null claim, grouping/threshold/stratum tuning, copula fit, taxi CV, production or upload.",
+    "positive": "Only permission to consider a separately frozen posterior experiment; no candidate automatically follows.",
+    "insufficient_coverage": "Inconclusive/insufficient support, no further allocation; do not interpret as absence of dependence."
+  },
+  "outputs": "Hashes/coverage/attrition, aggregate per-day numerator+denominator, permutation distribution, bootstrap interval and explicit decisions. No rowwise taxi candidate.",
+  "cost": {
+    "new_model_fits": 0,
+    "new_downloads": 0,
+    "probability_bytes_approx": 3400000,
+    "runtime": "20\u201360sec anticipated, oneCPU, <1GiB. Root allocation after source/independent synthetic checks."
+  },
+  "future_requirements": [
+    "Preserve each selected final tilted support atom/mass, not raw classifierp.",
+    "Zero-dependence must replay original controls exactly.",
+    "Condition peer means and covariance on target state; variance inflation alone is insufficient.",
+    "Keep source-minus-truth calibrated measurement noise separate from prior-mode dependence.",
+    "Out-of-block public aggregate predictive calibration and actual-v80 CV/audit required before any selection."
+  ],
+  "headroom": "Several-second improvement remains unproven. Existing v80 diagnosis shows material Rome-mode error; two unobserved LFPG outliers dominate other apparent oracle headroom.",
+  "metadata_sources": [
+    {
+      "path": "VALIDATION/rome_public_peers_jan_jul.py",
+      "sha256": "c25c11298ba930ea1ec6bbace973826d2509175154486405cc1599c964e7c974"
+    },
+    {
+      "path": "VALIDATION/rome_hybrid.py",
+      "sha256": "27bfe7e0b16cd1b64e4571f063fd6fa0b4fb74ea99c335012c4723947db2fb23"
+    },
+    {
+      "path": "VALIDATION/rome_signals.py",
+      "sha256": "4722967eaffc56ef6d20c3781d08d80623e7a6e2263e562606dd975a494cfae7"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d"
+    },
+    {
+      "path": "VALIDATION/rome_public_monthly_shift.py",
+      "sha256": "9565ac0eb8136e784db83311ae0b7e59532742b97cba365af9f769ad9d4c072e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/prepared.json",
+      "sha256": "1a3e42c591ec734abd0ce981e594691cb79bef8e3e39fa5d1bb2668f019f32a6"
+    },
+    {
+      "path": "VALIDATION/reports/current_error_concentration_20261012/result.json",
+      "sha256": "deb35bca61136a40681516cc83eb6ef0d8749bed95d5cd9347e783c4cae52742"
+    }
+  ],
+  "registry_at_design": {
+    "path": "VALIDATION/research_registry.json",
+    "sha256": "50bde8d5acf344a00f7adaae4e2c5b7c709fe67a00ace5439e67b5fd34c17d27"
+  },
+  "no_held_outer_labels": true,
+  "no_new_scores": true,
+  "no_registry_write": true,
+  "amendment": {
+    "reason": "Root-requested pre-evaluation numerical precision and conditional randomization check; no label/statistic evaluation has occurred. Exact null replaces Monte Carlo mean as primary; original mean retained diagnostic only.",
+    "historical_design": {
+      "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_prefreeze_v1/correlated_modes_pilot_design.json",
+      "sha256": "c358503f4274f11e598e43fb63829edb45c7403ec01c2ca89fc8cc9fc02f7c87"
+    },
+    "historical_source": {
+      "path": "VALIDATION/reports/cohort_learning_20261013/correlated_modes_prefreeze_v1/correlated_modes_pilot_20261013.py",
+      "sha256": "28b577e983d190162d0c461a87d0d4f6830b1798858e28523d5f055f4cb6b01c"
+    }
+  }
+}
