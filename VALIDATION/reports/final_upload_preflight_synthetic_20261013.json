@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_final_upload_preflight_20261013.py",
+    "sha256": "5198b2e8aa1bb3e74c373276758e886ecb4d1c98be015a72df1ca7f03f06865d"
+  },
+  "validator": {
+    "path": "VALIDATION/final_candidate_upload_preflight_20261013.py",
+    "sha256": "13c793e645ea6db5b7dfcda6ddd8271b3818581d800ad9c5f1f0b87a79d6b6ff"
+  },
+  "policy": {
+    "path": "VALIDATION/submission_slot_policy.json",
+    "sha256": "740157ea2ac5a162c7dc15607eeebdd7fe3c28d06c71962b399445bc977ac296"
+  },
+  "checks": [
+    "Exact template IDs/schema, zero and positive integer values",
+    "Reject negative target",
+    "Reject null target",
+    "Reject different audited source",
+    "Reject wrong order",
+    "Reject duplicate IDs",
+    "Three current-day uploads permitted before reserved slot",
+    "Reject reserved fourth-used slot without selection",
+    "Reject five-upload quota",
+    "Reject occupied final filename",
+    "Reject duplicate live records",
+    "Reject missing upload time",
+    "Reject timezone-free time",
+    "Quota dates normalized to UTC",
+    "Complete portable CV bound to matching source identity and independent audited metrics",
+    "Reject misstated complete CV",
+    "Conditional transfer has null CV and separately authenticated fallback-only score",
+    "Reject fallback score misrepresented as complete transfer CV",
+    "Reject wrong transfer CV scope",
+    "Final selection independently required with zero used slots",
+    "Reject missing final selection despite unused slots",
+    "Reject wrong final selection date",
+    "Reject wrong final selection hash",
+    "Reject unresolved promising experiments"
+  ],
+  "no_network": true,
+  "no_real_arrays": true,
+  "no_upload": true
+}

@@ -1,0 +1,121 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_audited_final_upload_20261013.py",
+    "sha256": "d0c86555d8206d2c102807c99deb1ef0feb0b3b544a06ee72183813fda3814f7"
+  },
+  "uploader": {
+    "path": "VALIDATION/audited_final_upload_20261013.py",
+    "sha256": "6c418ece79aac7d301c4263b9b703933d7cdd58033efcaca47f713a9030b7c00"
+  },
+  "validator": {
+    "path": "VALIDATION/final_candidate_upload_preflight_20261013.py",
+    "sha256": "13c793e645ea6db5b7dfcda6ddd8271b3818581d800ad9c5f1f0b87a79d6b6ff"
+  },
+  "transport": {
+    "path": "VALIDATION/scored_blend_submit.py",
+    "sha256": "dad8a2fc685bb203479196e8e945163505f8025ca651441773b5c03efe70875f"
+  },
+  "slot_policy": {
+    "path": "VALIDATION/submission_slot_policy.py",
+    "sha256": "883ad62af19c14bba8729a522e985e5658c3f94a0893925cf65d723f57474413"
+  },
+  "cases": [
+    {
+      "name": "local_validation_failure",
+      "status": "pass",
+      "rejection": "AssertionError",
+      "put_calls": 0
+    },
+    {
+      "name": "live_read_failure",
+      "status": "pass",
+      "rejection": "RuntimeError",
+      "put_calls": 0
+    },
+    {
+      "name": "occupied_filename",
+      "status": "pass",
+      "rejection": "AssertionError",
+      "put_calls": 0
+    },
+    {
+      "name": "five_used_slots",
+      "status": "pass",
+      "rejection": "AssertionError",
+      "put_calls": 0
+    },
+    {
+      "name": "fifth_slot_missing_selection",
+      "status": "pass",
+      "rejection": "AssertionError",
+      "put_calls": 0
+    },
+    {
+      "name": "selection_required_before_fifth_slot",
+      "status": "pass",
+      "rejection": "KeyError",
+      "put_calls": 0
+    },
+    {
+      "name": "unresolved_selection",
+      "status": "pass",
+      "rejection": "AssertionError",
+      "put_calls": 0
+    },
+    {
+      "name": "concurrent_attempt_exclusive_create",
+      "status": "pass",
+      "rejection": "FileExistsError",
+      "put_calls": 0
+    },
+    {
+      "name": "successful_delivery",
+      "status": "pass",
+      "put_calls": 1,
+      "repeat_upload_rejected": true,
+      "read_only_reconciliation": true,
+      "score_acceptance_unverified": true
+    },
+    {
+      "name": "selected_fifth_slot_delivery",
+      "status": "pass",
+      "put_calls": 1,
+      "repeat_upload_rejected": true,
+      "read_only_reconciliation": true,
+      "score_acceptance_unverified": true
+    },
+    {
+      "name": "fail_before",
+      "status": "pass",
+      "put_calls": 1,
+      "no_put_retry": true,
+      "reconciliation_succeeds_only_for_exact_object": false
+    },
+    {
+      "name": "uncertain_after",
+      "status": "pass",
+      "put_calls": 1,
+      "no_put_retry": true,
+      "reconciliation_succeeds_only_for_exact_object": true
+    },
+    {
+      "name": "wrong_hash",
+      "status": "pass",
+      "put_calls": 1,
+      "no_put_retry": true,
+      "reconciliation_succeeds_only_for_exact_object": false
+    },
+    {
+      "name": "changed_prepared_manifest",
+      "status": "pass",
+      "reconciliation_rejected_before_network": true
+    }
+  ],
+  "full_parquet_validation": "Separately tested validator; stubbed here to isolate uploader transitions",
+  "network_calls_mocked": true,
+  "no_network": true,
+  "no_upload": true,
+  "no_real_manifest_or_policy_modified": true,
+  "temporary_fixtures_removed": true
+}

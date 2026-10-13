@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T07:31:14.739828+00:00",
+  "updated_at": "2026-10-13T07:43:02.238998+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 3,
     "repository": "PRIVATE verified 2026-10-13",
-    "laptop": "Idle; fixed target track-view consistency implementation/preflight",
-    "desktop": "Final support bracketing recovery in source review;54-vector geometry closed",
+    "laptop": "Target track-view consistency source/preflight review; no fits yet",
+    "desktop": "Idle; both final candidate forms independently audited",
     "native_goal_status": "active",
     "used_utc_day_slots": 2,
     "slot_date_utc": "2026-10-13",
@@ -1056,10 +1056,19 @@
         {
           "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/official_result.json",
           "sha256": "4de8fa76b25951adfd8e3e843b23921ff9236d01e8a015172c5bfa29f402ac96"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/audit.json",
+          "sha256": "9a49947bbbbba84acea7cc65d8a2f9dfa84ff7d53d4fa0e7a58022342081712e"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/handoff.json",
+          "sha256": "ab417c23797d77f2f95c11b1de4817782ffdf37c3436b54671d8566936959fd2"
         }
       ],
       "version": 82,
-      "official_score": 221.524
+      "official_score": 221.524,
+      "final_status": "complete_independently_audited"
     },
     {
       "id": "portable_direct_reserve_20261013",
@@ -1121,9 +1130,9 @@
     },
     {
       "id": "final_shared_clock_transport_20261013",
-      "status": "source_audited_builder_unexecuted",
+      "status": "audited_final_candidate_unselected",
       "hypothesis": "Transfer shared-ID teacher by twice observed takeoff shift under inferred endpoint mechanism",
-      "conclusion": "All344693 arrivals have opposite endpoint residual within1s. Departure mechanism unobserved: conditional, not CV improvement or exact final-v80 replay. Distinct from already known arrival anticorrelation.",
+      "conclusion": "All344693 arrivals have opposite endpoint residual within1s. Departure mechanism unobserved: conditional, not CV improvement or exact final-v80 replay. Distinct from already known arrival anticorrelation. Built670790-row candidate with fixedv80 teacher on344841sharedIDs and v82portable fallback325949newIDs; independent all-row SQL/source/schema checks pass. Conditional assumption remains.",
       "evidence": [
         {
           "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_numpy.json",
@@ -1132,6 +1141,18 @@
         {
           "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_transport_review.json",
           "sha256": "1f3dca9dce90d60478290965ae5a907d3c8343773191820555051ccf6a5c342d"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/identity.json",
+          "sha256": "2d445d1e96050b0aed5918e29fa0ab3931084bd99a9842204a5a11eebb683679"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/result.json",
+          "sha256": "1f1ef272dd79620a44339a785e1c453bbc479cc69e778731441d127a0f81334d"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/audit.json",
+          "sha256": "940095032b7762e779eb0dfd97fb490d37d71eb768e117e15326d795c96ca610"
         }
       ]
     },
@@ -1174,9 +1195,9 @@
     }
   ],
   "next": [
-    "Finish audited additive final support bracketing recovery; preserve37completedgroups",
-    "Complete target track-view consistency source/preflight and allocate laptop after independentreview",
-    "Reserve two exploratory slots and final slot; all failed screens closed"
+    "Finish target track-view consistency source/preflight audit and allocate laptop",
+    "Preserve audited portable and conditional shared-clock final candidates while research continues",
+    "Last slot reserved; two exploratory slots also available, no upload queued"
   ],
   "active_research": [
     {
@@ -1198,9 +1219,9 @@
   ],
   "machine_allocation": {
     "desktop": {
-      "stage": "idle_pending_reviewed_final_tilt_recovery",
-      "owner": "final_recovery",
-      "checked_at": "2026-10-13T07:31:14.739828+00:00"
+      "stage": "idle",
+      "owner": null,
+      "checked_at": "2026-10-13T07:43:02.238998+00:00"
     },
     "laptop": {
       "stage": "idle_pending_target_consistency_prefit",

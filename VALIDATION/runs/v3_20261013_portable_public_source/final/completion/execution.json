@@ -1,0 +1,34 @@
+{
+  "status": "failed_preserved_stop",
+  "pid": 60912,
+  "source": {
+    "path": "VALIDATION/tools/complete_portable_public_final_20261013.py",
+    "sha256": "788ae8752f98d75981d7a30a43b44382661de71105a31cd6e30227afb31ee9ac"
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/allocation.json",
+    "sha256": "9c803ecccf5797d9eff410122c9f67a6fd7e68a4250b134742807dc4ef1e600e"
+  },
+  "steps": [
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/portable_public_source_20261013.py",
+        "infer",
+        "--view",
+        "final"
+      ],
+      "started_unix": 1791875687.5705235,
+      "returncode": 1,
+      "finished_unix": 1791875869.2195406,
+      "log": {
+        "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/completion/01.log",
+        "sha256": "9d69079ac489078b1fb60cf92c851cbefacd2aa54aef343e866d344916118867"
+      }
+    }
+  ],
+  "started_unix": 1791875687.5703495,
+  "no_upload": true,
+  "no_fit": true,
+  "finished_unix": 1791875869.2199938
+}

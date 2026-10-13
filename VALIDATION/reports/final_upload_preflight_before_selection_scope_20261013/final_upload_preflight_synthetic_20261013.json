@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_final_upload_preflight_20261013.py",
+    "sha256": "b3152132ca4c76a45b7213f4bb16afbb46f19c94e89344efe7137ede72ed2981"
+  },
+  "validator": {
+    "path": "VALIDATION/final_candidate_upload_preflight_20261013.py",
+    "sha256": "4f0d5d67acfb7d90f1e6c05aeabe1ba42a6cad8b6ec4de89bb66c21d17850cc2"
+  },
+  "policy": {
+    "path": "VALIDATION/submission_slot_policy.json",
+    "sha256": "740157ea2ac5a162c7dc15607eeebdd7fe3c28d06c71962b399445bc977ac296"
+  },
+  "checks": [
+    "Exact template IDs/schema, zero and positive integer values",
+    "Reject negative target",
+    "Reject null target",
+    "Reject different audited source",
+    "Reject wrong order",
+    "Reject duplicate IDs",
+    "Three current-day uploads permitted before reserved slot",
+    "Reject reserved fourth-used slot without selection",
+    "Reject five-upload quota",
+    "Reject occupied final filename",
+    "Reject duplicate live records",
+    "Reject missing upload time",
+    "Reject timezone-free time",
+    "Quota dates normalized to UTC"
+  ],
+  "no_network": true,
+  "no_real_arrays": true,
+  "no_upload": true
+}

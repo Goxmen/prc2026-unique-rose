@@ -1,0 +1,279 @@
+{
+  "status": "pass",
+  "view": "final",
+  "source": {
+    "path": "VALIDATION/tools/audit_portable_public_source_20261013.py",
+    "sha256": "2f8bc3e8dab2da4c0bbc52e5444b4e1b3fcce7769c779ee0a293a51a07a376c2"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+    "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/result.json",
+    "sha256": "d4680537bc417ab38b462cd88bf1ed8647fe6fb7c524721e7dd3cd0ad60458a3"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/stages.parquet",
+    "sha256": "4e02621fd49f8edf67c3dcc847900ab0c9da9f41458869fbc20893c30998e45c"
+  },
+  "rows": 670790,
+  "raw_rows": 670790,
+  "cells": {
+    "monthly_cells": 56,
+    "daily_cells": 3989,
+    "max_shift_errors": {
+      "2026-01": 1.8474111129762605e-13,
+      "2026-02": 1.6342482922482304e-13,
+      "2026-06": 9.237055564881302e-14,
+      "2026-07": 1.5987211554602254e-13
+    }
+  },
+  "posterior": {
+    "days": 1200,
+    "ordinary_all_rows_checked": true,
+    "sampled_convolutions": [
+      {
+        "month": "2026-01",
+        "airport": "EDDM",
+        "day": "2026-01-20",
+        "long_rows": 7,
+        "grid_size": 450,
+        "offset_error": 1.1368683772161603e-13
+      },
+      {
+        "month": "2026-01",
+        "airport": "LIRF",
+        "day": "2026-01-20",
+        "long_rows": 8,
+        "grid_size": 668,
+        "offset_error": 2.2737367544323206e-13
+      },
+      {
+        "month": "2026-01",
+        "airport": "LSZH",
+        "day": "2026-01-14",
+        "long_rows": 6,
+        "grid_size": 807,
+        "offset_error": 0.0
+      },
+      {
+        "month": "2026-02",
+        "airport": "EDDM",
+        "day": "2026-02-10",
+        "long_rows": 6,
+        "grid_size": 389,
+        "offset_error": 3.410605131648481e-13
+      },
+      {
+        "month": "2026-02",
+        "airport": "LEBL",
+        "day": "2026-02-10",
+        "long_rows": 5,
+        "grid_size": 488,
+        "offset_error": 3.637978807091713e-12
+      },
+      {
+        "month": "2026-02",
+        "airport": "LIRF",
+        "day": "2026-02-04",
+        "long_rows": 8,
+        "grid_size": 709,
+        "offset_error": 0.0
+      },
+      {
+        "month": "2026-02",
+        "airport": "LSZH",
+        "day": "2026-02-03",
+        "long_rows": 7,
+        "grid_size": 1001,
+        "offset_error": 4.547473508864641e-13
+      },
+      {
+        "month": "2026-06",
+        "airport": "EDDM",
+        "day": "2026-06-05",
+        "long_rows": 7,
+        "grid_size": 617,
+        "offset_error": 4.547473508864641e-13
+      }
+    ],
+    "unsampled_airport_months": [
+      {
+        "month": "2026-01",
+        "airport": "EDDF",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-01",
+        "airport": "EGLL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-01",
+        "airport": "EHAM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-01",
+        "airport": "LEBL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-01",
+        "airport": "LEMD",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-01",
+        "airport": "LFPG",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-01",
+        "airport": "LTFM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-02",
+        "airport": "EDDF",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-02",
+        "airport": "EGLL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-02",
+        "airport": "EHAM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-02",
+        "airport": "LEMD",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-02",
+        "airport": "LFPG",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-02",
+        "airport": "LTFM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-06",
+        "airport": "EDDF",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-06",
+        "airport": "EGLL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-06",
+        "airport": "EHAM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-06",
+        "airport": "LEBL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-06",
+        "airport": "LEMD",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-06",
+        "airport": "LFPG",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-06",
+        "airport": "LIRF",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-06",
+        "airport": "LSZH",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-06",
+        "airport": "LTFM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "EDDF",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "EDDM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "EGLL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "EHAM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "LEBL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "LEMD",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "LFPG",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "LIRF",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "LSZH",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2026-07",
+        "airport": "LTFM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      }
+    ],
+    "sampling": "One first lexical bounded day per eligible airport/month, prefer nonempty long support; larger groups covered by all-source/ordinary checks and pinned original algorithms only",
+    "reused_primitive": "Pinned daily_delay_posterior.support only; numerical likelihood/convolution/leave-one products independent",
+    "tolerance_sec": 2e-06
+  },
+  "metrics": null,
+  "all_stage_SQL_serialization_constraints_exact": true,
+  "parameter_refits": 0,
+  "model_fits": 0,
+  "calibration": "Exact historical allowed-month/full2025 parameter bytes; no new calibration",
+  "joint": "Exact original v70-prior increments transported; not posterior updates of the new base",
+  "seconds": 19.21718417899956,
+  "no_upload": true,
+  "candidate": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/candidate.parquet",
+    "sha256": "4c9e8a3c7962c84daefee2523c5cfaca5c180b9c90ef1d27d2b7c3e0078c5eae"
+  }
+}

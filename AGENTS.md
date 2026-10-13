@@ -121,6 +121,18 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October13,09:43 Amsterdam: final candidates audited; last slot untouched.**
+Public-source v82 final670790-row output is complete and independently audited.
+One interior exponential-tilt root needed a wider bracket; original successful
+weights, tolerance and37completedgroups are preserved. IndependentBrent agrees.
+The separate fixedv80/shared-clock2delta candidate also passes all-row audits,
+using v82 on325949newIDs. Departure perturbation remains an unverified assumption;
+no genuine paired-departureCV or final score claim. Both are retained, unselected.
+Final uploader passes14offlinechecks. Desktop idle; target track-view consistency
+source/preflight review continues for laptop. Bestv80 218.8525; latestv82 221.5240;
+three slots remain, including last reserved. No further upload queued.
+
+
 **October13,09:24 Amsterdam: two portable candidates scored; three slots remain.**
 V81 direct229.8034; v82 public-source221.5240, both344841rows and exact remote
 hashes. Bestv80 remains218.8525; last daily slot reserved, two exploratory slots

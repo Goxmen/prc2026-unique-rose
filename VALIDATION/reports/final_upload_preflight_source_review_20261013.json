@@ -1,0 +1,30 @@
+{
+  "status": "pass_source_and_synthetic_only",
+  "validator": {
+    "path": "VALIDATION/final_candidate_upload_preflight_20261013.py",
+    "sha256": "13c793e645ea6db5b7dfcda6ddd8271b3818581d800ad9c5f1f0b87a79d6b6ff"
+  },
+  "synthetic": {
+    "path": "VALIDATION/reports/final_upload_preflight_synthetic_20261013.json",
+    "sha256": "df5537b3e054630a81cd8afe8f37be70d4179b63b4aba2fd42280619ea8e061a"
+  },
+  "independent_reviewer": "/root/final_recovery",
+  "reviewed_validator_sha256": "13c793e645ea6db5b7dfcda6ddd8271b3818581d800ad9c5f1f0b87a79d6b6ff",
+  "checks": [
+    "Canonical final filename,670790-row template schema/order/every preserved column and exact audited source candidate values",
+    "Finite nonnegative integer targets and hash-bound result/audit/identity/source chains",
+    "Complete portable Jan/Jul CV authenticated through independent monthly audit; conditional final-only transport requires null CV and separate fallback score",
+    "A selected_best_available receipt is mandatory even before the last daily slot; exact file/hash/date/evidence and resolved alternatives required",
+    "Strict live bucket read, occupied filename rejection, UTC daily limit5 and unchanged original reserved-slot guard",
+    "No upload command, no manifest mutation; preflight is an observation and does not replace upload-time freshness/atomic creation"
+  ],
+  "manifest_contract": {
+    "final_source_prediction": "Audited final candidate parquet at result.candidate or result.views.final.candidate; not stage prediction packet",
+    "complete_portable_CV": "jan_jul_cv numeric, jan_jul_cv_scope=complete_portable_recipe, jan_jul_cv_source independent CV audit artifact",
+    "conditional_transfer_CV": "jan_jul_cv=null, jan_jul_cv_scope=unavailable_for_conditional_shared_clock_transport, fallback_jan_jul_cv numeric, fallback_jan_jul_cv_source independent fallback CV audit",
+    "final_selection": "reserved_slot_selection artifact; source-pinned and required for all final submissions"
+  },
+  "no_real_candidate_read": true,
+  "no_live_network": true,
+  "no_upload": true
+}

@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_portable_public_tilt_recovery_20261013.py",
+    "sha256": "4c38719c5d5e7edb343bb5261de7fcacc558a06297750d308cb1166ffc4e1438"
+  },
+  "recovery_identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/identity.json",
+    "sha256": "a3f7b28061d85d86153e3f180016d93e629b2539cd9960047258d8a7ad8ce58a"
+  },
+  "recovery_result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/result.json",
+    "sha256": "68fe2ac53c1487d18e640a7886ad053974b7584178a94aa822cb2dd656aec628"
+  },
+  "final_result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/result.json",
+    "sha256": "d4680537bc417ab38b462cd88bf1ed8647fe6fb7c524721e7dd3cd0ad60458a3"
+  },
+  "events": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/events.jsonl",
+    "sha256": "bb8a0ff94ebe8eff815eb9579aca32e132e7f7d77556856bae9d491fefc6dad8"
+  },
+  "event_checks": [
+    {
+      "mvt_id": 213141563.0,
+      "airport": "LIRF",
+      "day": "2026-07-02",
+      "root": 189.2115492716996,
+      "max_weight_error": 1.1102230246251565e-16,
+      "mean_error": 0.0,
+      "atoms": 22
+    }
+  ],
+  "preserved_groups": 37,
+  "new_groups": 3,
+  "independently_rebuilt_atoms_and_Brent_weights": true,
+  "no_mean_tolerance_change": true,
+  "original_success_branch_unmodified": true,
+  "no_completed_group_repeated": true,
+  "unsaved_partial_LIRF_group_restarted": true,
+  "no_labels_read": true,
+  "no_posterior_inference": true,
+  "seconds": 0.5277809420003905
+}

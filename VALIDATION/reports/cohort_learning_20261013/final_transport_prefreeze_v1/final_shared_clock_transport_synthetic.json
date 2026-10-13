@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "builder": {
+    "path": "VALIDATION/final_shared_clock_transport_20261013.py",
+    "sha256": "b24fccdb88760d2358dfdbb54b189494091467a09564b383adea5521365be39b"
+  },
+  "source": {
+    "path": "VALIDATION/tools/check_final_shared_clock_transport_20261013.py",
+    "sha256": "8bdd2199dd7f30afcea3686a125afe0c7f68af5bdb0df3e8135e14b17d58e193"
+  },
+  "fixtures": [
+    "exact sign, ID routing, clipping and fallback",
+    "both ID permutations",
+    "25 inverse nonclipped transforms"
+  ],
+  "rejected": [
+    "duplicate_final",
+    "duplicate_old",
+    "missing_old_ID",
+    "noninteger_ID",
+    "unserialized_fallback",
+    "negative_fallback",
+    "nan_fallback",
+    "unserialized_v80",
+    "fractional_delta",
+    "outside_observed_delta",
+    "int32_overflow"
+  ],
+  "real_data_read": false,
+  "final_predictions_written": false,
+  "validation": "Pure operator correctness only; not predictive CV or departure-generator evidence"
+}

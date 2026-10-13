@@ -1,0 +1,169 @@
+{
+  "source": {
+    "path": "VALIDATION/tools/diagnose_portable_tilt_20261013.py",
+    "sha256": "4720d9b5af9692d12b24f2e929779ec213c75d49b9caa7517ea7db9784b12f9b"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+    "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+  },
+  "original_tilt_source": {
+    "path": "VALIDATION/daily_delay_posterior.py",
+    "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+  },
+  "raw": {
+    "path": "VALIDATION/runs/v3_20261012_final_correction_inputs/final/daily.parquet",
+    "sha256": "2f8e6082b9a385b43c29f06be2bbcf11e4bd7be636712c09d708c5818852d85b"
+  },
+  "base": {
+    "path": "VALIDATION/runs/v3_20261013_portable_affine/final.parquet",
+    "sha256": "dcdec1929fae6d5d591d861473cef5d03c14b85aecc470e7a8768a85d62f0c86"
+  },
+  "parameters": {
+    "path": "VALIDATION/runs/v3_20261011_daily_delay_submit/submission_v72/parameters.json",
+    "sha256": "530d036319e8c425dd407c8c40f46a81f9d4267f5a23e825295b18766f5ad4f5"
+  },
+  "failure_log": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/completion/01.log",
+    "sha256": "9d69079ac489078b1fb60cf92c851cbefacd2aa54aef343e866d344916118867"
+  },
+  "row": {
+    "mvt_id": 213141563.0,
+    "month": "2026-07",
+    "day": "2026-07-02",
+    "airport": "LIRF",
+    "gap": 4554.0,
+    "has_id": true,
+    "nm_gap": -186.0,
+    "prior": 2856.0
+  },
+  "support": {
+    "values": [
+      555.1738935393864,
+      723.1738935393864,
+      791.1738935393864,
+      854.1738935393864,
+      915.1738935393864,
+      977.1738935393864,
+      1037.1738935393864,
+      1136.1738935393864,
+      1201.1738935393864,
+      1269.1738935393864,
+      1379.1738935393864,
+      1501.1738935393864,
+      1638.1738935393864,
+      1929.1738935393864,
+      2770.7238935393857,
+      30.0,
+      595.5,
+      1161.0,
+      1726.5,
+      2292.0,
+      2857.5,
+      2856.0
+    ],
+    "base_weights": [
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.03250131262710297,
+      0.005555555555555556,
+      0.005555555555555556,
+      0.005555555555555556,
+      0.005555555555555556,
+      0.005555555555555556,
+      0.005555555555555556,
+      1e-08
+    ],
+    "minimum": 30.0,
+    "maximum": 2857.5,
+    "original_weights": [
+      2.852810447908253e-45,
+      5.730795726104174e-42,
+      1.2448586128253101e-40,
+      2.1563700085727005e-39,
+      3.411974676174104e-38,
+      5.648702267926442e-37,
+      8.542221562049233e-36,
+      7.550007350120174e-34,
+      1.431763765109067e-32,
+      3.110115138825342e-31,
+      4.5229008808941683e-29,
+      1.1323536982140884e-26,
+      5.5905260064638086e-24,
+      2.94184702414015e-18,
+      0.10322947477448847,
+      2.3066776706385407e-56,
+      3.026395261227013e-45,
+      3.970675397677969e-34,
+      5.2095849196289874e-23,
+      6.83505255823663e-12,
+      0.8967690170061392,
+      1.5082125371507914e-06
+    ],
+    "original_mean": 2848.5421458409114,
+    "original_error": -7.457854159088583
+  },
+  "bracket_witness": [
+    {
+      "lower": -128.0,
+      "upper": 128.0,
+      "lower_mean_z": -0.9994694959682583,
+      "upper_mean_z": -0.0026376142030374327
+    },
+    {
+      "lower": -128.0,
+      "upper": 256.0,
+      "lower_mean_z": -0.9994694959682583,
+      "upper_mean_z": 0.000461146653362139
+    }
+  ],
+  "fixed": {
+    "root_parameter": 189.2115492716996,
+    "mean": 2856.0,
+    "weights": [
+      7.060034683295336e-67,
+      5.385995871049602e-62,
+      5.099170039263104e-60,
+      3.454790267512153e-58,
+      2.04747857752462e-56,
+      1.2974161586645704e-54,
+      7.191421175148879e-53,
+      5.419736481858186e-50,
+      4.197830299930108e-48,
+      3.974279039159891e-46,
+      6.253262067094105e-43,
+      2.1963522225186147e-39,
+      2.104898707407311e-35,
+      6.030426076262342e-27,
+      0.017285836634766728,
+      6.590141615269593e-83,
+      1.7930859163795294e-66,
+      4.878737500980088e-50,
+      1.3274366490775423e-33,
+      3.6117705799097185e-17,
+      0.9827125634181175,
+      1.5999471158063534e-06
+    ],
+    "independent_brent_root": 189.2115492716996,
+    "independent_mean": 2856.0
+  },
+  "explanation": "Original fixed +/-128 interval does not bracket zero; 55 iterations cannot correct missing root. The target is inside the feasible support hull.",
+  "proposed_recovery": "Call unchanged original tilt first. Return its exact weights whenever its existing mean assertion passes. Only on that same assertion failure, require failed root bracketing and expand endpoints until monotone root is enclosed; retain55 bisections and the unchanged mean assertion.",
+  "unchanged_prior_success_proof": "Every completed CV/OLD and37FINAL checkpoint required the exact original support mean assertion to pass. A fallback activated only on that same assertion failure is unreachable on those completed calls.",
+  "no_labels": true,
+  "no_posterior_inference": true,
+  "no_file_source_mutation": true,
+  "original_failure": "\nNot equal to tolerance rtol=1e-08, atol=1e-05\n\nMismatched elements: 1 / 1 (100%)\nMax absolute difference among violations: 7.45785416\nMax relative difference among violations: 0.00261129\n ACTUAL: array(2848.542146)\n DESIRED: array(2856.)"
+}

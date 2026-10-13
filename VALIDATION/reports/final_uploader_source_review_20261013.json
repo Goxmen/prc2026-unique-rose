@@ -1,0 +1,32 @@
+{
+  "status": "pass_static_review_and_offline_controls",
+  "source": {
+    "path": "VALIDATION/audited_final_upload_20261013.py",
+    "sha256": "6c418ece79aac7d301c4263b9b703933d7cdd58033efcaca47f713a9030b7c00"
+  },
+  "validator": {
+    "path": "VALIDATION/final_candidate_upload_preflight_20261013.py",
+    "sha256": "13c793e645ea6db5b7dfcda6ddd8271b3818581d800ad9c5f1f0b87a79d6b6ff"
+  },
+  "test_receipt": {
+    "path": "VALIDATION/reports/final_uploader_offline_preflight_20261013.json",
+    "sha256": "b39379805cc8533b9baf5b884a3cc34cba6219b50953a986cf9fc21496d18e83"
+  },
+  "controls": [
+    "Source-pinned prepared final manifest and separate complete parquet validation",
+    "Fresh strict bucket read; five-slot daily limit; reserved fifth slot; selection receipt required for every final",
+    "Exclusive attempt record before one create-only If-None-Match PUT",
+    "No PUT retry after any attempt, including uncertain success",
+    "Read-only remote reconciliation requires exact SHA256 and unchanged prepared manifest",
+    "Delivered state records byte verification and explicitly leaves score acceptance unverified"
+  ],
+  "test_cases": 14,
+  "qualifications": [
+    "Synthetic transport confirms command/header construction and state transitions; server atomic header enforcement remains transport contract, not established by a live mutation test",
+    "Live quota and final selection must still be checked at actual upload; no upload authorized by this report",
+    "Full parquet validator independently tested; uploader transition tests replace its heavy table read with a local fixture"
+  ],
+  "no_network": true,
+  "no_upload": true,
+  "no_source_changes": true
+}

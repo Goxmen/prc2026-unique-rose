@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "builder": {
+    "path": "VALIDATION/final_shared_clock_transport_20261013.py",
+    "sha256": "483a2972037354bcaf53186861b884d8595889a89ada3c6dd3ced0b9007f7956"
+  },
+  "assessment": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/final_shared_clock_transport_assessment.json",
+    "sha256": "ca85e48f940e4d20e239484fdf45e5ebdb3f1a66ef839c25e094ba0c75db5b42"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_final_shared_clock_transport_20261013.py",
+    "sha256": "8e5482b2afc44ac5a1d12fb46a8f8d11b441460e8469b4601dfa02d2fb996bbe"
+  },
+  "independent_SQL_preflight": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/final_shared_clock_auditor_preflight.json",
+    "sha256": "c7cd57d8f90eb0b948a668b55884bb267fc9189f2d726b2bd2f5bc528834b173"
+  },
+  "independent_evidence_review": {
+    "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_transport_review.json",
+    "sha256": "1f3dca9dce90d60478290965ae5a907d3c8343773191820555051ccf6a5c342d"
+  },
+  "pure_transform_synthetic": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/final_shared_clock_transport_synthetic_v2.json",
+    "sha256": "c9d99a21070d22ecebfeb5a6a3e56536e432e0cd3646955199999749cd13a230"
+  },
+  "synthetic_provenance_note": "Pure transform bytecode/source unchanged by subsequent metadata-only third portable receipt contract; current independent SQL fixture exercises final auditor.",
+  "checks": [
+    "Unique-ID fixed v80+2*(final_takeoff-old_takeoff) shared transport; nonshared audited portable integer values unchanged",
+    "Nearest-even nonnegative integer serialization, all-template schema/order/non-target preservation, no additional public correction",
+    "All three explicit portable receipt layouts bind independent audit, result, final candidate and source identity",
+    "Original official v80 artifact/upload/audit chain, raw old/final clock hashes, template and source-review/auditor pins",
+    "Separate root allocation guard before real build, no implicit retry/overwrite",
+    "Independent all-row SQL reconstructs raw clocks, ID membership, hidden nulls, sign, bound, clamp and fallback; tiny shuffled fixture plus eight corruptions pass"
+  ],
+  "qualifications": [
+    "Arrival clock coupling is evidence only; hidden departure block-clock relation remains unverified",
+    "This does not replay final v80 models and cannot improve the old leaderboard route",
+    "No genuine paired-departure Jan/Jul CV or independent predictive-gain claim",
+    "Fallback is not selected by this review; root pins the complete audited parent before freeze"
+  ],
+  "no_real_transport_build": true,
+  "no_fit": true,
+  "no_upload": true
+}

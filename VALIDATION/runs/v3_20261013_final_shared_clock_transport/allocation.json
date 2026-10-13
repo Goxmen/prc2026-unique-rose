@@ -1,0 +1,44 @@
+{
+  "authority": "/root",
+  "at": "2026-10-13T07:39:59.443148+00:00",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/identity.json",
+    "sha256": "2d445d1e96050b0aed5918e29fa0ab3931084bd99a9842204a5a11eebb683679"
+  },
+  "action": "build_fixed_shared_clock_transport",
+  "fallback_version": 82,
+  "fallback_reason": "Actual old-population score221.5240 versus direct229.8034; same CV quality, source chain preferred. Final numerical recovery independently audited.",
+  "fallback_comparison": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v81/official_result.json",
+      "sha256": "a16cfabce68712cd46355441f97b492e71711cb3aa4190723db0534d6651072d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/official_result.json",
+      "sha256": "4de8fa76b25951adfd8e3e843b23921ff9236d01e8a015172c5bfa29f402ac96"
+    }
+  ],
+  "portable_numerical_supplement": {
+    "numerical_recovery": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/identity.json",
+      "sha256": "a3f7b28061d85d86153e3f180016d93e629b2539cd9960047258d8a7ad8ce58a"
+    },
+    "supplement_result": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/result.json",
+      "sha256": "68fe2ac53c1487d18e640a7886ad053974b7584178a94aa822cb2dd656aec628"
+    },
+    "event_audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/independent_event_audit.json",
+      "sha256": "a7fbe3b72568b3fc5db7b64020d7c34d3e8f90c3a130547114848e40b3d0a747"
+    }
+  },
+  "handoff": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/handoff.json",
+    "sha256": "ab417c23797d77f2f95c11b1de4817782ffdf37c3436b54671d8566936959fd2"
+  },
+  "teacher_version": 80,
+  "departure_clock_assumption_unverified": true,
+  "selected_for_final_upload": false,
+  "other_promising_experiment": "target_track_consistency_pending",
+  "no_upload": true
+}

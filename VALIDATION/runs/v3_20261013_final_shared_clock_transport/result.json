@@ -1,0 +1,35 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/identity.json",
+    "sha256": "2d445d1e96050b0aed5918e29fa0ab3931084bd99a9842204a5a11eebb683679"
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/allocation.json",
+    "sha256": "24d99d900a7f9f989bd2c14e8d6ceeb0b1b5f3260bb38da5965b7398bd094426"
+  },
+  "rows": 670790,
+  "shared_rows": 344841,
+  "portable_rows": 325949,
+  "candidate": {
+    "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/candidate.parquet",
+    "sha256": "f9945e795f34b1bde3fb2513b5169b3cb6a76f249b5ab6c51ddd477107071a3c"
+  },
+  "trace": {
+    "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/trace.parquet",
+    "sha256": "a92d92444efac59e2ce2430f99049df75de4079a88ebb776292e2fdad3d89e26"
+  },
+  "qualifications": {
+    "departure_assumption": "Hidden departure block change is the opposite of observed takeoff change up to the same rounding residual seen in arrivals; unverified for departures.",
+    "arrival_evidence": "All344693 shared arrivals satisfy delta_block+delta_movement in {-1,0,1}; independently reproduced from supplied data.",
+    "validation_limit": "No genuine paired-departure Jan/Jul CV; synthetic shifted-target checks are not predictive evidence.",
+    "not_exact_v80_final_replay": true,
+    "old_leaderboard_improvement_claim": false,
+    "final_score_known": false
+  },
+  "coefficient": 2,
+  "independent_audit_pending": true,
+  "selected_for_final": false,
+  "no_new_cv_score": true,
+  "no_fit": true,
+  "no_upload": true
+}

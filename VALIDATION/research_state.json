@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T07:31:14.739828+00:00",
+  "updated_at": "2026-10-13T07:43:02.238998+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
@@ -8,14 +8,14 @@
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 58,
   "desktop": {
-    "stage": "idle_pending_reviewed_final_tilt_recovery",
-    "owner": "final_recovery",
-    "checked_at": "2026-10-13T07:31:14.739828+00:00"
+    "stage": "idle",
+    "owner": null,
+    "checked_at": "2026-10-13T07:43:02.238998+00:00"
   },
   "next": [
-    "Finish audited additive final support bracketing recovery; preserve37completedgroups",
-    "Complete target track-view consistency source/preflight and allocate laptop after independentreview",
-    "Reserve two exploratory slots and final slot; all failed screens closed"
+    "Finish target track-view consistency source/preflight audit and allocate laptop",
+    "Preserve audited portable and conditional shared-clock final candidates while research continues",
+    "Last slot reserved; two exploratory slots also available, no upload queued"
   ],
   "native_goal_status": "active",
   "active_research": [
@@ -273,7 +273,7 @@
       "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
     },
     "preferred_portable_parent": 82,
-    "final_public_state": "stopped37_of40_support_root_not_bracketed; original assertion preserved"
+    "final_public_state": "complete_independently_audited; one interior unbracketed tilt recovered,37groups unchanged"
   },
   "latest_version": 82,
   "latest_official_rmse": 221.524,
@@ -292,5 +292,46 @@
       "sha256": "43bc096da4dbcfd3ae2bc04ee8e978009904b56530847063df228292dcaa3bbf"
     },
     "no_upload": true
+  },
+  "final_portable_candidate": {
+    "status": "complete_independently_audited",
+    "parent_version": 82,
+    "result": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/result.json",
+      "sha256": "d4680537bc417ab38b462cd88bf1ed8647fe6fb7c524721e7dd3cd0ad60458a3"
+    },
+    "audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/audit.json",
+      "sha256": "9a49947bbbbba84acea7cc65d8a2f9dfa84ff7d53d4fa0e7a58022342081712e"
+    },
+    "numerical_supplement": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/handoff.json",
+      "sha256": "ab417c23797d77f2f95c11b1de4817782ffdf37c3436b54671d8566936959fd2"
+    }
+  },
+  "final_shared_clock_candidate": {
+    "status": "complete_independently_audited_unselected",
+    "result": {
+      "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/result.json",
+      "sha256": "1f1ef272dd79620a44339a785e1c453bbc479cc69e778731441d127a0f81334d"
+    },
+    "audit": {
+      "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/audit.json",
+      "sha256": "940095032b7762e779eb0dfd97fb490d37d71eb768e117e15326d795c96ca610"
+    },
+    "no_paired_departure_cv": true,
+    "departure_mechanism_conditional": true,
+    "no_upload": true
+  },
+  "final_uploader": {
+    "status": "source_reviewed_14_offline_checks_pass_no_upload",
+    "source": {
+      "path": "VALIDATION/audited_final_upload_20261013.py",
+      "sha256": "6c418ece79aac7d301c4263b9b703933d7cdd58033efcaca47f713a9030b7c00"
+    },
+    "review": {
+      "path": "VALIDATION/reports/final_uploader_source_review_20261013.json",
+      "sha256": "74e7417320beffc96ffee128e9755470673df07ddf5bf324707a521addf1cce1"
+    }
   }
 }
