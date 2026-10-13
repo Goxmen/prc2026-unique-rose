@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T19:50:17.674951+00:00",
+  "updated_at": "2026-10-13T20:06:09.407370+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -1620,6 +1620,44 @@
       "publication_schedule": "release/publication_schedule.json",
       "publication_timer": "release/publication_timer.json",
       "publication_status": "armed_waiting_for_deadline"
+    },
+    {
+      "id": "four_month_reduced_three_manual_20261013",
+      "category": "validation_protocol_amendment",
+      "status": "ready_for_user_manual_distributed_launch",
+      "candidates": [
+        "C05",
+        "C07",
+        "C10"
+      ],
+      "neural_seeds": {
+        "calls_ple": [
+          42,
+          1042,
+          2042
+        ],
+        "public_tabm": [
+          42
+        ]
+      },
+      "neural_fit_count": 16,
+      "original_neural_fit_count": 36,
+      "command": ".venv/bin/python -u tools/final_selection/run_distributed.py",
+      "host_folds": {
+        "desktop": [
+          "2025-01",
+          "2025-07"
+        ],
+        "laptop": [
+          "2025-02",
+          "2025-06"
+        ]
+      },
+      "retained": "January10completed selectedcomponents; Februarycompleteinputpreparation; unusedphysicalcheckpoint",
+      "logs_inspected": false,
+      "research_loop_resumed": false,
+      "submissions": false,
+      "updated_at": "2026-10-13T20:06:09.407370+00:00"
     }
   ],
   "next": [
@@ -1644,16 +1682,8 @@
     }
   ],
   "machine_allocation": {
-    "desktop": {
-      "stage": "paused_by_user_no_active_job",
-      "owner": null,
-      "checked_at": "2026-10-13T11:43:01.379276+00:00"
-    },
-    "laptop": {
-      "stage": "paused_by_user_no_python_job",
-      "owner": null,
-      "checked_at": "2026-10-13T11:43:01.379276+00:00"
-    }
+    "desktop": "idle; user will launchJanJul",
+    "laptop": "idle; user will launchFebJun"
   },
   "native_goal_status": "paused",
   "user_pause": {

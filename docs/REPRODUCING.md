@@ -167,7 +167,7 @@ new models under historical version names.
 ## Four-month candidate selection currently in progress
 
 [FINAL_MONTH_SELECTION.md](../VALIDATION/docs/FINAL_MONTH_SELECTION.md) documents
-the newer ten-candidate suite. Every fold excludes the held-out month and its
+the newer suite, now reduced to three finalists (C05/C07/C10). Every fold excludes the held-out month and its
 immediate preceding/following calendar months. The four held-out months are
 January, February, June and July 2025; each trains on nine months. The primary
 summary is the equally weighted mean of those four monthly RMSEs; pooled RMSE
@@ -175,7 +175,10 @@ and the January/July and February/June summaries are reported separately.
 
 Those are new direct recipes, **not historical v80/v83 replays**. They use fresh
 training-only feature/calibration fits and fixed seeds/configurations, preserve
-models and hashes, and share the same postprocessing across all ten candidates.
+models and hashes, and share the same postprocessing across all three candidates. Callsign retains three seeds; TabM uses seed42.
+Desktop owns January/July and laptop owns February/June. The new controller
+reuses original worker artifacts and returns compact scoring packets while
+retaining full input pickles on their producing host.
 The runner does not automatically select a winner, produce a full-year model,
 replace the accepted final, or upload anything.
 

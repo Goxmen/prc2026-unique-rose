@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T19:50:17.674951+00:00",
+  "updated_at": "2026-10-13T20:06:09.407370+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
@@ -8,9 +8,9 @@
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 69,
   "desktop": {
-    "stage": "paused_by_user_no_active_job",
+    "stage": "manual_validation_ready_idle",
     "owner": null,
-    "checked_at": "2026-10-13T11:43:01.379276+00:00"
+    "checked_at": "2026-10-13T20:06:09.407370+00:00"
   },
   "next": [
     "Wait for explicit user command to resume",
@@ -35,9 +35,9 @@
     }
   ],
   "laptop": {
-    "stage": "paused_by_user_no_python_job",
+    "stage": "manual_validation_ready_idle",
     "owner": null,
-    "checked_at": "2026-10-13T11:43:01.379276+00:00"
+    "checked_at": "2026-10-13T20:06:09.407370+00:00"
   },
   "duration_result": {
     "cv": {
@@ -595,12 +595,44 @@
     "no_submission_queued": true
   },
   "manual_validation": {
-    "status": "user_launched_running",
+    "status": "ready_for_user_manual_distributed_launch",
     "report": "VALIDATION/reports/final_month_selection_setup_20261013.json",
-    "command": ".venv/bin/python -u VALIDATION/final_month_selection.py run --threads 4",
+    "command": ".venv/bin/python -u tools/final_selection/run_distributed.py",
     "automatic_execution": false,
     "old_research_loop_remains_paused": true,
-    "user_launch_confirmed_at": "2026-10-13T19:26:51.415029+00:00"
+    "user_launch_confirmed_at": "2026-10-13T19:26:51.415029+00:00",
+    "candidates": [
+      "C05",
+      "C07",
+      "C10"
+    ],
+    "neural_seeds": {
+      "calls_ple": [
+        42,
+        1042,
+        2042
+      ],
+      "public_tabm": [
+        42
+      ]
+    },
+    "neural_fit_count": 16,
+    "original_neural_fit_count": 36,
+    "host_folds": {
+      "desktop": [
+        "2025-01",
+        "2025-07"
+      ],
+      "laptop": [
+        "2025-02",
+        "2025-06"
+      ]
+    },
+    "retained": "January10completed selectedcomponents; Februarycompleteinputpreparation; unusedphysicalcheckpoint",
+    "logs_inspected": false,
+    "research_loop_resumed": false,
+    "submissions": false,
+    "updated_at": "2026-10-13T20:06:09.407370+00:00"
   },
   "release_preparation": {
     "status": "private_draft_uploaded_verified",

@@ -188,7 +188,7 @@ includes April and May in training. See the [frozen four-fold protocol](VALIDATI
 Its mean monthly RMSE is distinct from the official test score. These development
 data have been reused extensively; bootstrap intervals do not make them independent
 confirmation. The [method guide](docs/METHOD.md) explains the final ensemble and
-the distinction between historical versions and the ten new candidate recipes.
+the distinction between historical versions and the three shortlisted direct candidate recipes (reduced from ten).
 
 ## Results
 

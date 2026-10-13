@@ -1,9 +1,15 @@
 # Four-month model selection
 
-Prepared on 13 October 2026 at the user's request and subsequently launched by
-the user on the desktop. **Results and final selection are pending.** The user
-will return the scores and then choose the final model. The earlier research
-loop remains paused. This runner never uploads or selects a final model.
+The original ten-recipe run was launched by the user on 13 October. At the
+user's subsequent request, it was reduced to **three finalists** and distributed
+across desktop and laptop. Results and final selection remain pending. The earlier
+research loop remains paused; validation never uploads or selects a final model.
+
+The active controller is `tools/final_selection/reduced_three.py`. The original
+runner and its 456 frozen Python sources remain byte-for-byte unchanged, so
+completed January components retain their original provenance. The old scheduler
+and its unselected physical-PLE worker were stopped; the latter's last atomic
+checkpoint is retained. Do not restart the old ten-recipe command.
 
 ## Validation
 
@@ -43,26 +49,30 @@ during earlier work. The four-fold score is not an untouched test estimate;
 small differences should be considered alongside the monthly changes and
 bootstrap intervals (which are exploratory and not multiplicity-adjusted).
 
-## Ten candidates
+## Three active finalists
 
-`Trees` below is the equal mean of C01–C03's ordinary regression outputs.
-For C05–C10 the ordinary blend is **71% neural / 29% Trees**, preserving the
-previously selected overall neural share. Mixtures happen before shared
-postprocessing. All ten use the same freshly fitted Rome R20/public CatBoost
-probability mixture and training-only correction recipe.
+`Trees` is the equal mean of main LightGBM184, per-airport LightGBM168, and
+CatBoost174. Every finalist keeps the frozen 71% neural / 29% Trees share and
+identical freshly fitted Rome mixture, rules, and training-only corrections.
 
 | ID | Ordinary model recipe |
 | --- | --- |
-| C01 | Main LightGBM with 184 inputs, including callsign, public delay and daily taxi features |
-| C02 | Per-airport LightGBM with 168 inputs, including public delay features |
-| C03 | CatBoost with 174 inputs, including callsign and public delay features |
-| C04 | Trees: equal mean of main LightGBM, per-airport LightGBM and CatBoost |
-| C05 | Callsign PLE pool + Trees |
-| C06 | Physical-track PLE pool + Trees |
-| C07 | Public physical-track TabM pool + Trees |
-| C08 | Equal callsign/physical PLE pools + Trees |
-| C09 | Equal callsign PLE, physical PLE and public TabM pools + Trees |
-| C10 | Equal callsign PLE/public TabM pools + Trees; fixed comparison reference |
+| C05 | Callsign PLE pool (three seeds) + Trees |
+| C07 | Public physical-track TabM (seed42) + Trees |
+| C10 | Equal callsign PLE pool / public TabM neural blend + Trees |
+
+C10 remains the fixed comparison reference. These retain the callsign model and
+the public TabM family that improved the historical physical-PLE replacement.
+The single-family alternatives test whether combining the two is beneficial on
+the revised months. Physical PLE and standalone tree candidates are excluded.
+No new four-month scores were consulted to choose this shortlist.
+
+Callsign uses seeds42/1042/2042; TabM uses seed42 only, consistently in every fold.
+This preserves all three completed January callsign fits and reduces neural work
+from36 to16 fits (12 callsign,4 TabM). Original C07/C10 used three TabM seeds;
+these budget-reduced versions are explicitly distinct, potentially noisier models.
+The three-member callsign recipe C05 is unchanged. The discarded original
+candidate definitions remain available in the unmodified original source.
 
 These are **new, reproducible direct recipes, not v80/v83 replays**. The historical
 versions also relied on many earlier affine components and public posterior
@@ -78,50 +88,55 @@ airport. Ordinary CatBoost: K07, 10,000 rounds. Each uses seed42. Rome R20 uses
 1,182 rounds for January/February and 1,401 for June/July, inherited from the
 earlier seasonal settings. No new hyperparameter search is performed.
 
-Each neural family averages seeds42/1042/2042, with 21 epochs from the original
-24-epoch schedule. This consistent prospectively chosen schedule replaces the
+Both neural families use21 epochs from the original24-epoch schedule.
+The active per-family seed counts are specified above. This consistent prospectively chosen schedule replaces the
 historical month-specific stops. Callsign uses three members rather than the
 historical fifteen. All use effective batch2048 with microbatches512; the
 callsign dropout execution therefore differs from its historical implementation.
 These differences are explicit rather than claims of identical old models.
 
-## Run manually
+## Distributed execution and resumption
 
-From the desktop repository:
+The replacement jobs are stopped at the user's request for manual launch.
+January's ten completed selected components and February's completed input
+preparation are retained. No new model or submission is selected.
 
-```bash
-cd /home/gunes/PRC
-.venv/bin/python -u VALIDATION/final_month_selection.py run --threads 4
-```
-
-This is an overnight-sized GPU workload: 36 neural fits plus shared ordinary
-and Rome tree fits. Historical laptop timings put the twelve TabM fits alone
-near nine hours; desktop time and fresh-fold preprocessing may differ. There is
-no promised completion time. Only one component runs at a time, on this host.
-The command does not contact the laptop or start other paused experiments.
-
-Logs and artifacts are under
-`VALIDATION/runs/v3_20261013_final_month_selection/`.
-Each stage prints its log path; the final compact table is printed and written
-to `scores.txt`, with `scores.csv` and the full provenance/uncertainty report in
-`scores.json`. Paste the table back into the conversation.
+Run this single command from the desktop repository:
 
 ```bash
-cat VALIDATION/runs/v3_20261013_final_month_selection/scores.txt
+.venv/bin/python -u tools/final_selection/run_distributed.py
 ```
 
-The same run command verifies and reuses completed components. Neural fits
-resume from completed epoch checkpoints. A tree fit interrupted before its model
-was saved is retained as incomplete and fails explicitly rather than silently
-refitting; its log/marker must be reviewed. Do not delete completed artifacts.
-The runner locks its output directory against concurrent starts and refuses
-mixed source/input identities. Keep the code and cached input sources unchanged
-while it is running.
+It verifies matching frozen identities, runs January/July on the desktop and
+February/June on the laptop, returns completed laptop artifacts, and prints the
+three-candidate score table when all four months are complete. Keep the terminal
+and both machines online. Only one heavy worker runs per host. The agent does
+not need to remain active or monitor training.
 
-`--folds 2025-01 2025-02` can restrict a manual batch; omitted folds must still
-be completed in the same run directory before a selection table is produced.
-This is not an automatic two-machine scheduler. `report` regenerates the table
-from all four completed fold outputs without training.
+The underlying per-host commands are `tools/final_selection/reduced_three.py run
+--threads 4 --folds 2025-01 2025-07` (desktop) and the same with `2025-02 2025-06`
+(laptop). Do not launch these alongside the distributed command. Original run
+locks prevent duplicate controllers. Neural checkpoints may resume only on
+their original host and execution settings.
+
+The reduced protocol, frozen controller hash, compact evaluation packets, and
+results live under `VALIDATION/runs/v3_20261013_final_month_selection/reduced_three/`.
+Original component models and input receipts remain in the parent run's `folds/`.
+The collector returns completed laptop models, checkpoints, receipts and compact
+scoring packets. The4GB full input pickles and large encoded arrays stay on their
+producing host. Full input hashes are verified there; the desktop report verifies
+the transferred packets and their provenance without claiming to rehash absent
+remote inputs. Every prediction is fixed before any four-month scores are computed.
+
+```bash
+.venv/bin/python tools/final_selection/reduced_three.py status
+cat VALIDATION/runs/v3_20261013_final_month_selection/reduced_three/scores.txt
+```
+
+The final table has only C05, C07 and C10. All four folds are required; no partial
+fold result selects a candidate. `scores.csv` and `scores.json` retain detailed
+metrics/provenance and paired day-bootstrap comparisons. Logs are saved to disk;
+the user requested that the agent not inspect them.
 
 ## Setup checks
 

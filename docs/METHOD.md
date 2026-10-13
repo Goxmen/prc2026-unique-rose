@@ -12,7 +12,7 @@ aligned to the organizer's movement IDs and serialized to the template schema.
 |---|---|
 | v80 | Best original Jan/Jul leaderboard result, **218.8525 seconds** on 344,841 departures. Its exact full ensemble was not recovered for every final row. |
 | v83-derived accepted final | Distilled portable ensemble; original leaderboard result **220.9278**, historical Jan/Jul CV **289.607608**. `unique-rose_final.parquet` was accepted on all **670,790** final departures, with no final numeric score published. |
-| C01–C10 four-month validation | Ten newly frozen direct recipes, scored on January, February, June and July 2025. User-launched selection experiment; these are neither exact v80/v83 reconstructions nor an automatically selected replacement submission. |
+| C05/C07/C10 four-month validation | Three shortlisted direct recipes, scored on January, February, June and July 2025. User-launched selection experiment; these are neither exact v80/v83 reconstructions nor an automatically selected replacement submission. |
 
 Authoritative final identity, score and receipt references are in the release
 manifest and `VALIDATION/runs/v3_20261013_v80_teacher_distillation/`. The accepted
@@ -119,16 +119,18 @@ The older July fold also excluded April and May. Its historical scores must not
 be mixed with the new July scores. Both use 2025 development data rather than
 the hidden 2026 final labels.
 
-The ten recipes compare individual global/per-airport/CatBoost trees, their
-equal blend, and fixed combinations with callsign PLE, physical-track PLE and
-public physical-track TabM. Neural family means use seeds 42/1042/2042; blended
-recipes allocate 0.71 total neural and 0.29 total tree weight. All recipes share
-fresh fold-fitted Rome/rule/correction stages. Exact C01–C10 weights, features,
-rounds, checkpoints and commands are documented in
+The original ten recipes were narrowed at the user's request to C05 (callsign
+PLE plus trees), C07 (public physical-track TabM plus trees), and C10 (their
+neural blend plus trees). Callsign retains seeds42/1042/2042; TabM uses seed42
+only, equally across all four folds. This reduces neural fits from36 to16.
+Blended recipes retain0.71 total neural and0.29 total tree weight and share fresh
+fold-fitted Rome/rule/correction stages. Desktop computes January/July; laptop
+computes February/June. Original completed components and source hashes are
+preserved. Exact recipes and commands are documented in
 [FINAL_MONTH_SELECTION.md](../VALIDATION/docs/FINAL_MONTH_SELECTION.md).
 
 The primary metric is the unweighted mean of four all-row monthly RMSEs. Pooled
-RMSE and each month's RMSE are also reported. All ten prediction arrays are
+RMSE and each month's RMSE are also reported. All three candidate arrays in all four folds are
 assembled before scoring; selection is manual after the completed results.
 Bootstrap comparisons against fixed C10 are diagnostic, not independent
 confirmation after repeated development-data use.
