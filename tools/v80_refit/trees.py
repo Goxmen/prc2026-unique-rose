@@ -197,6 +197,30 @@ def apply_categories(frame, cats):
     return frame
 
 
+def retained_training_frame(frame, target, retained):
+    """Reuse the saved model's encoding only after exact row/value checks.
+
+    Filtering before category discovery changes encounter order and drops unused
+    levels. These are equivalent training values, but the retained model must
+    keep the category codes with which it was fitted.
+    """
+    saved = retained["X"]
+    pd.testing.assert_index_equal(frame.columns, saved.columns, exact=True)
+    pd.testing.assert_index_equal(frame.index, saved.index, exact=True)
+    np.testing.assert_array_equal(target, retained["y"])
+    for name in frame:
+        actual, expected = frame[name], saved[name]
+        categorical = isinstance(actual.dtype, pd.CategoricalDtype)
+        if categorical != isinstance(expected.dtype, pd.CategoricalDtype):
+            raise ValueError(f"Retained categorical dtype differs: {name}")
+        if categorical:
+            if actual.cat.ordered != expected.cat.ordered:
+                raise ValueError(f"Retained category ordering flag differs: {name}")
+            actual, expected = actual.astype(object), expected.astype(object)
+        pd.testing.assert_series_equal(actual, expected, check_exact=True)
+    return saved
+
+
 def fit_saved(out, name, X, y, params, rounds, inputs, reuse=None):
     """Save models before inference. A completed model is never fitted twice."""
     folder = out / "models"
@@ -217,8 +241,12 @@ def fit_saved(out, name, X, y, params, rounds, inputs, reuse=None):
     print(f"trees: {'reuse' if reuse else 'fit'} {name} ({rounds} rounds, {len(y)} rows)", flush=True)
     if reuse:
         src = verify(reuse)
+        booster = lgb.Booster(model_file=str(src))
+        if booster.pandas_categorical != list(cfg["categories"].values()):
+            raise ValueError(f"Retained model category mapping differs: {name}")
+        if booster.feature_name() != list(X) or booster.current_iteration() != rounds:
+            raise ValueError(f"Retained model shape/rounds differ: {name}")
         shutil.copyfile(src, model)
-        booster = lgb.Booster(model_file=str(model))
     else:
         save(folder / f"{name}.started.json", dict(config=cfg, at=time.time()))
         booster = lgb.train(params, lgb.Dataset(X, np.asarray(y, float),
@@ -269,8 +297,7 @@ def fit_early(out, threads):
             # Retained v5 was fitted at eight threads. Keep its actual provenance.
             params["num_threads"] = 8
             retained = pd.read_pickle(EARLY_RUN / "v5/training.pkl")
-            pd.testing.assert_frame_equal(X, retained["X"], check_exact=True)
-            np.testing.assert_array_equal(y[keep], retained["y"])
+            X = retained_training_frame(X, y[keep], retained)
             del retained
         model = fit_saved(out, f"v{version}", X, y[keep], params, cfg["rounds"], [source], reuse)
         del X, model

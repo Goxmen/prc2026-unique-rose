@@ -61,6 +61,14 @@ retained. A changed source, input, model or configuration stops the run rather
 than silently mixing artifacts. A tree model saved without its completion receipt
 is preserved and needs inspection, rather than being fitted again automatically.
 
+The first run stopped when the rebuilt v5 frame used newly discovered category
+codes instead of the retained model's codes. The repair checks every training
+value, index and target exactly, then keeps the saved frame's category mapping,
+including unused levels, and checks it against the model. Completed v2/v3 weights
+are unchanged. Original source identities and completion receipts are archived
+under `recovery/`; the recorded source-only migration preserves their pre-repair
+provenance. These records are included in the eventual replay bundle.
+
 Before delivery the runner checks all 670,790 IDs, schema, integer predictions,
 component arithmetic and exact standalone replay. The final PUT is conditional
 on the reviewed v83 object's ETag. An attempted PUT is recorded first; uncertain

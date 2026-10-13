@@ -166,11 +166,14 @@ def export_bundle(out, source_commit):
     shutil.copyfile(ROOT / 'data/final_submitting.parquet', bundle / 'template.parquet')
     save(bundle / 'recipe.json', dict(versions=identity['versions'], weights=identity['weights'],
          arithmetic='v79=rint(max(P@w,0)); v80=rint(max(v79+(tabm_v78-v78)+(robust_v78-v78),0))', threads=1))
-    provenance = [out / 'assembly_identity.json', out / 'audit.json',
+    provenance = [out / 'run_identity.json', out / 'assembly_identity.json', out / 'audit.json',
                   out / 'trees/identity.json', out / 'trees/result.json',
                   out / 'neural/identity.json', out / 'neural/result.json']
     provenance += sorted((out / 'trees/models').glob('*.json'))
     provenance += sorted((out / 'neural/models').glob('*/complete.json'))
+    # Source repairs preserve original identities/receipts and their migration
+    # record here. Include them so reviewers can distinguish pre-repair fits.
+    provenance += sorted(p for p in (out / 'recovery').rglob('*') if p.is_file())
     for path in provenance:
         dest = bundle / 'provenance' / path.relative_to(out)
         dest.parent.mkdir(parents=True, exist_ok=True)

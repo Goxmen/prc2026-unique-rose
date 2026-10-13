@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 import numpy as np
 import pandas as pd
@@ -38,6 +38,47 @@ class TreeContracts(unittest.TestCase):
         self.assertEqual(got.mvt_id.tolist(), [10, 20, 30])
         self.assertEqual(got.v2.tolist(), [2, 4, 0])
         self.assertTrue(pd.api.types.is_integer_dtype(got.v2))
+
+    def test_retained_model_keeps_original_codes_and_unused_levels(self):
+        current = pd.DataFrame({"cat": pd.Categorical(["B", "A", None], categories=["B", "A"]),
+                                "numeric": [1., 2., 3.]}, index=[20, 10, 30])
+        saved = current.copy()
+        saved["cat"] = saved.cat.cat.set_categories(["A", "unused", "B"])
+        retained = {"X": saved, "y": np.array([5., 6., 7.])}
+        got = trees.retained_training_frame(current, retained["y"], retained)
+        self.assertIs(got, saved)
+        self.assertEqual(got.cat.cat.codes.tolist(), [2, 0, -1])
+        self.assertEqual(current.cat.cat.codes.tolist(), [0, 1, -1])
+
+    def test_retained_encoding_cannot_hide_changed_values_rows_or_targets(self):
+        X = pd.DataFrame({"cat": pd.Categorical(["A", "B", None]), "n": [1., 2., 3.]})
+        for change in ("category", "missing", "numeric", "index", "target", "dtype", "columns"):
+            with self.subTest(change=change):
+                saved, y = X.copy(), np.array([4., 5., 6.])
+                if change == "category": saved.loc[0, "cat"] = "B"
+                if change == "missing": saved.loc[2, "cat"] = "A"
+                if change == "numeric": saved.loc[0, "n"] += 1e-9
+                if change == "index": saved = saved.iloc[::-1]
+                if change == "target": y[0] += 1
+                if change == "dtype": saved["cat"] = saved.cat.astype(object)
+                if change == "columns": saved = saved[["n", "cat"]]
+                with self.assertRaises((AssertionError, ValueError)):
+                    trees.retained_training_frame(X, [4., 5., 6.], {"X": saved, "y": y})
+
+    def test_wrong_retained_model_mapping_rejected_before_copy(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            trees.save(root / "identity.json", {"test": True})
+            source = root / "retained.txt"
+            source.write_text("fake model")
+            X = pd.DataFrame({"cat": pd.Categorical(["A", "B"], categories=["A", "B"])})
+            booster = Mock(pandas_categorical=[["B", "A"]])
+            with patch.object(trees.lgb, "Booster", return_value=booster), \
+                 patch.object(trees.lgb, "train") as fit:
+                with self.assertRaisesRegex(ValueError, "category mapping"):
+                    trees.fit_saved(root, "v5", X, [1., 2.], {"num_threads": 1}, 800, [], trees.artifact(source))
+                fit.assert_not_called()
+            self.assertFalse((root / "models/v5.txt").exists())
 
     def test_bad_coverage_and_nan_rejected(self):
         for ids, pred in [([1, 1], [2., 3.]), ([1, 3], [2., 3.]), ([1, 2], [2., float("nan")])]:
