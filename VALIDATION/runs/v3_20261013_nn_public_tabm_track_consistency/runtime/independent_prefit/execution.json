@@ -1,0 +1,44 @@
+{
+  "state": "complete",
+  "stage": "independent_prefit_audit",
+  "authority": "/root",
+  "host": "GLAPTOP",
+  "pid": 3266,
+  "process_start": "761496",
+  "started_at": "2026-10-13T08:04:51.688030+00:00",
+  "source": {
+    "path": "VALIDATION/tools/run_track_consistency_prefit_audit_remote_20261013.py",
+    "sha256": "ad19a1aec0b84ba3ad05748d05f0a0421ce04c0d3efa7ae137e798d487332860"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_track_consistency_prefit_20261013.py",
+    "sha256": "a0e02a23b6b645945263d6b6aa94957dabdb55278b14662fefefd406c41cb517"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+    "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+  },
+  "preflight": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/preflight.json",
+    "sha256": "3cefcb6e9cb5dd5a988fd86f01381b07dfacef1dd464f94f48bb951c1faf367c"
+  },
+  "preflight_execution": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/preflight/execution.json",
+    "sha256": "0108327f32b00ff9dd2db9f7ac5a6b5ea9ec4dc5394e1575dc394cba6592ecad"
+  },
+  "no_fit_or_inference": true,
+  "child_pid": 3267,
+  "child_process_start": "761498",
+  "command": [
+    "/home/gunes/PRC/.venv/bin/python",
+    "-u",
+    "/home/gunes/PRC/VALIDATION/tools/audit_track_consistency_prefit_20261013.py",
+    "audit"
+  ],
+  "returncode": 0,
+  "finished_at": "2026-10-13T08:04:59.927536+00:00",
+  "receipt": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_audit.json",
+    "sha256": "f521589b8b8c04c2ab6a0841699c8814fc1f4691ea4e37b012f134bdbf90284e"
+  }
+}

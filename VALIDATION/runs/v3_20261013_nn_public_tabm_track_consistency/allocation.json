@@ -1,0 +1,49 @@
+{
+  "authority": "/root",
+  "action": "fit_fixed_track_consistency",
+  "allocated_at": "2026-10-13T08:08:23.861801+00:00",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+    "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+  },
+  "prefit_audit": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_audit.json",
+    "sha256": "f521589b8b8c04c2ab6a0841699c8814fc1f4691ea4e37b012f134bdbf90284e"
+  },
+  "preflight": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/preflight.json",
+    "sha256": "3cefcb6e9cb5dd5a988fd86f01381b07dfacef1dd464f94f48bb951c1faf367c"
+  },
+  "prefit_return": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_return_audit.json",
+    "sha256": "bb6fa92dcb6bbfb35368b0840d2d2b37656edca44a7e20596e19964470cf5877"
+  },
+  "comparison_identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+    "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
+  },
+  "deployment_plan": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/deployment_plan.json",
+    "sha256": "b2eef9641374e85f6cb2dcb1a4badec9c66ece88b635ea03f67f8555948fe4b7"
+  },
+  "host": "GLAPTOP",
+  "arms": [
+    "supervised_control",
+    "training_consistency",
+    "target_consistency"
+  ],
+  "months": [
+    "2025-01",
+    "2025-07"
+  ],
+  "epochs": 2,
+  "fit_count": 6,
+  "one_heavy_job_per_host": true,
+  "source_and_inputs_frozen": true,
+  "no_early_scores": true,
+  "no_hpo": true,
+  "no_production_or_upload": true,
+  "release_basis": "Independent scope/scaler/eligibility audit and exact344419-row teacher replay; CUDA parity/capacity pass",
+  "estimated_serial_training_minutes": 23.496239602720514,
+  "estimate_excludes_loading_inference_and_save": true
+}

@@ -1,0 +1,82 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+    "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+  },
+  "month": "2025-07",
+  "inputs": {
+    "matrix": {
+      "path": "VALIDATION/runs/v3_20261010_arrival_plan_jan_jul/inputs/2025-07.pkl",
+      "sha256": "888a51db63d881d247b7d6f89a2014ac0e0865da1fc680d410abd2c5ab8fb835",
+      "audited_candidate_record": {
+        "path": "VALIDATION/runs/v3_20261010_callsign_lgb_jan_jul/predictions/2025-07_s42.json",
+        "sha256": "6895725874f13b83a901f242734ee2eb31655e6dd93cde1ad218e5e36fe1e8ac"
+      }
+    },
+    "preprocessing": {
+      "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+      "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+    },
+    "rows": 1140233,
+    "held_rows": 190713,
+    "reference_record": {
+      "path": "VALIDATION/runs/v3_20261011_nn_public_scratch/public/networks/2025-07_s42.json",
+      "sha256": "c70cea646789fdccd2584f95eca80f072a3666a3dc59888c3e5765eb23bea817"
+    }
+  },
+  "scope": {
+    "train_rows": 1140233,
+    "held_rows": 190713,
+    "train_ids_sha256": "4d6094d6c82a1204d2e0c880ea00ebbb7ef82bdbff54e4d963c0c8a138addfac",
+    "held_ids_sha256": "bb7b8fda63f4e827faa10205eb6323353d3593b129c4eacf6da974557bb5395b",
+    "train_months": [
+      "2025-01",
+      "2025-02",
+      "2025-03",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ],
+    "held_months": [
+      "2025-07"
+    ],
+    "held_labels_absent_from_cache": true,
+    "held_metadata_columns": [
+      "mvt_id",
+      "month"
+    ],
+    "adapter_targets_all_nan": true
+  },
+  "model": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/models/2025-07_tabm.pt",
+    "sha256": "aae2406f6e2d7bd8d7f8238927de795d7a8525f9a2f35ea82cc1cb056e672304"
+  },
+  "control_prediction": {
+    "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-07_tabm.parquet",
+    "sha256": "6b94b5ce799a4eb8a0d193754c3eb219e2f12839da8fbb06c779ce6b2bceae0a"
+  },
+  "preprocessing": {
+    "path": "VALIDATION/runs/v3_20261010_nn_sparse_track_jan_jul/preprocessing/2025-07.pkl",
+    "sha256": "e9d0ef1f860e2d1b8e552cb76b45233b9758a9bf1ac332aa708def17d8fa4f35"
+  },
+  "train_mean": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-07/train_mean.npy",
+    "sha256": "5b09e4b12c19747f5ddd638ec97ab0fa29be0249ad50f24046e0ebbcf4fdc97d"
+  },
+  "held_mean": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-07/held_mean.npy",
+    "sha256": "1f425c76508554ca5fa93b24c5c46de60a3c80127cd56a4f80c7f4817c14f0b8"
+  },
+  "mu": 984.585199691642,
+  "sd": 415.52853761999114,
+  "eligible": {
+    "train": 902678,
+    "held": 152490
+  },
+  "all_held_original_exact": true,
+  "repeated_first_chunk_exact": true,
+  "teacher_frozen": true,
+  "full_inputs": true,
+  "unclipped_standardized_mean": true
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T08:02:49.824081+00:00",
+  "updated_at": "2026-10-13T08:10:38.939449+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -1195,9 +1195,9 @@
     },
     {
       "id": "target_track_consistency_20261013",
-      "status": "laptop_preflight_active",
+      "status": "six_serial_fits_active",
       "hypothesis": "Frozen-teacher track thinning consistency on unlabeled held-month inputs improves the exactv80 seed42 component beyond matched supervised and training-input consistency controls",
-      "conclusion": "Fixed2epochs/3arms/2folds, no held labels or tuning. All source reviews and CPU/SQL fixtures pass. Actual teacher/GPU/independent prefit gates required before allocation. No candidate fit or upload yet.",
+      "conclusion": "All source, CPU, CUDA, memory and independent input/teacher audits pass; all344419 teacher predictions exactly replay. Six fixed serial2epoch fits allocated on laptop08:08UTC. No new scores, production or upload.",
       "evidence": [
         {
           "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
@@ -1214,6 +1214,18 @@
         {
           "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/transfer_inventory.json",
           "sha256": "a3ad46e8e0b1ef40af8d46d2b17b174bd433ece20722829cf370aa50c3584c0f"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_audit.json",
+          "sha256": "f521589b8b8c04c2ab6a0841699c8814fc1f4691ea4e37b012f134bdbf90284e"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_return_audit.json",
+          "sha256": "bb6fa92dcb6bbfb35368b0840d2d2b37656edca44a7e20596e19964470cf5877"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/allocation.json",
+          "sha256": "c35cf02d3a64a3bd1ae76ac3bfa7376a45501f3727436ef3bc239eeaad0e85dc"
         }
       ],
       "decision_protocol": {
@@ -1231,9 +1243,10 @@
     }
   ],
   "next": [
-    "Finish target track-view consistency source/preflight audit and allocate laptop",
-    "Preserve audited portable and conditional shared-clock final candidates while research continues",
-    "Last slot reserved; two exploratory slots also available, no upload queued"
+    "Preserve laptop3410 six serial fits; new_signal returns all frozen checkpoints/receipts once complete",
+    "After all6 immutable predictions exist, root exactv80 three-arm score then final_recovery independent audit",
+    "Select production only through frozen target-arm gates; v82 portability comparison to be frozen before scores",
+    "Keep three slots, including last reserved; audited final candidates retained, no upload queued"
   ],
   "active_research": [
     {
@@ -1260,16 +1273,21 @@
       "checked_at": "2026-10-13T07:54:28.227302+00:00"
     },
     "laptop": {
-      "stage": "target_track_consistency_teacher_GPU_preflight",
-      "owner": "new_signal_audit",
-      "checked_at": "2026-10-13T08:02:49.824081+00:00",
+      "stage": "six_fixed_track_consistency_fits",
+      "owner": "new_signal_audit monitors and returns; root allocated",
+      "checked_at": "2026-10-13T08:10:38.939449+00:00",
       "host": "GLAPTOP",
-      "launcher_pid": 2982,
-      "process_start": "742082",
-      "execution": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/preflight/execution.json",
-      "verified_inputs": 178,
-      "transferred_bytes": 4027878,
-      "fit_not_allocated": true
+      "launcher_pid": 3410,
+      "process_start": "780770",
+      "execution": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/fit/execution.json",
+      "allocation": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/allocation.json",
+        "sha256": "c35cf02d3a64a3bd1ae76ac3bfa7376a45501f3727436ef3bc239eeaad0e85dc"
+      },
+      "fit_count": 6,
+      "epochs": 2,
+      "source_frozen": true,
+      "no_duplicate_fit": true
     }
   }
 }

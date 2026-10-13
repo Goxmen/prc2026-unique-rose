@@ -1,0 +1,122 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+    "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+  },
+  "preflight": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/preflight.json",
+    "sha256": "3cefcb6e9cb5dd5a988fd86f01381b07dfacef1dd464f94f48bb951c1faf367c"
+  },
+  "teachers": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-01/receipt.json",
+      "sha256": "957901e10b86a8d2e675e9bf49c5a2d78a62d3e4d54d909bdbd5b4ec5086f27d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-07/receipt.json",
+      "sha256": "926fbae7eace6fe67a42164e96e10e2a3b1c37b1e8313d69efdd986a732c031c"
+    }
+  ],
+  "source": {
+    "path": "VALIDATION/tools/audit_track_consistency_prefit_20261013.py",
+    "sha256": "a0e02a23b6b645945263d6b6aa94957dabdb55278b14662fefefd406c41cb517"
+  },
+  "fixture": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/track_consistency_independent_fixture.json",
+    "sha256": "14f96f76f036bd4ec0cbd4e5a18b17926090a18804014167b29c3d1177ddb033"
+  },
+  "folds": [
+    {
+      "month": "2025-01",
+      "teacher": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-01/receipt.json",
+        "sha256": "957901e10b86a8d2e675e9bf49c5a2d78a62d3e4d54d909bdbd5b4ec5086f27d"
+      },
+      "scope": {
+        "train_rows": 1596201,
+        "held_rows": 153706,
+        "train_ids_sha256": "e38e05ef17a489e464339cb8614d00b167d94292f97255ba25e151a483b962dd",
+        "held_ids_sha256": "86144323c2dae4a81dd6bd996483a5ff9579fbe9d39a11e87e8dd98a92266339",
+        "train_months": [
+          "2025-03",
+          "2025-04",
+          "2025-05",
+          "2025-06",
+          "2025-07",
+          "2025-08",
+          "2025-09",
+          "2025-10",
+          "2025-11"
+        ],
+        "held_months": [
+          "2025-01"
+        ],
+        "held_labels_absent_from_cache": true,
+        "held_metadata_columns": [
+          "mvt_id",
+          "month"
+        ],
+        "adapter_targets_all_nan": true
+      },
+      "eligible": {
+        "train": 1266644,
+        "held": 114027
+      },
+      "target_mu": 979.7989827095711,
+      "target_sd": 395.16688026413607,
+      "all_held_float32_teacher_replay_exact": true,
+      "contiguous_prefix_masks_proved_by_frozen_RaggedTracks_source": true,
+      "peak_allocated_bytes": 3899393536
+    },
+    {
+      "month": "2025-07",
+      "teacher": {
+        "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-07/receipt.json",
+        "sha256": "926fbae7eace6fe67a42164e96e10e2a3b1c37b1e8313d69efdd986a732c031c"
+      },
+      "scope": {
+        "train_rows": 1140233,
+        "held_rows": 190713,
+        "train_ids_sha256": "4d6094d6c82a1204d2e0c880ea00ebbb7ef82bdbff54e4d963c0c8a138addfac",
+        "held_ids_sha256": "bb7b8fda63f4e827faa10205eb6323353d3593b129c4eacf6da974557bb5395b",
+        "train_months": [
+          "2025-01",
+          "2025-02",
+          "2025-03",
+          "2025-09",
+          "2025-10",
+          "2025-11",
+          "2025-12"
+        ],
+        "held_months": [
+          "2025-07"
+        ],
+        "held_labels_absent_from_cache": true,
+        "held_metadata_columns": [
+          "mvt_id",
+          "month"
+        ],
+        "adapter_targets_all_nan": true
+      },
+      "eligible": {
+        "train": 902678,
+        "held": 152490
+      },
+      "target_mu": 984.585199691642,
+      "target_sd": 415.52853761999114,
+      "all_held_float32_teacher_replay_exact": true,
+      "contiguous_prefix_masks_proved_by_frozen_RaggedTracks_source": true,
+      "peak_allocated_bytes": 3195686912
+    }
+  ],
+  "comparison": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
+    "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
+  },
+  "verified_files": 176,
+  "no_held_label_column_decoded": true,
+  "no_fit_or_model_inference": true,
+  "GPU_replay_and_preprocessing_execution": "Original immutable laptop receipts; saved means independently checked here",
+  "limitation": "Branch-view regularization and transductive reused development; no sparse-sensor invariance claim"
+}

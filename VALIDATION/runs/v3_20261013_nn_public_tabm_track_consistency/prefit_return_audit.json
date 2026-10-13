@@ -1,0 +1,96 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/return_track_consistency_prefit_20261013.py",
+    "sha256": "7ddc6192a239d1a59d03b9489bdcff07a68d43de554a51ada0adfa7ffe5cce73",
+    "bytes": 4156
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+    "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+  },
+  "preflight": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/preflight.json",
+    "sha256": "3cefcb6e9cb5dd5a988fd86f01381b07dfacef1dd464f94f48bb951c1faf367c",
+    "bytes": 3923
+  },
+  "prefit_audit": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_audit.json",
+    "sha256": "f521589b8b8c04c2ab6a0841699c8814fc1f4691ea4e37b012f134bdbf90284e",
+    "bytes": 4361
+  },
+  "remote_manifest": {
+    "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_return/remote_manifest.json",
+    "sha256": "460d5c513b768df69c2b22713c6f1a088d8ea44591cdbb4198eb3369bb4cfa14",
+    "bytes": 21897
+  },
+  "files": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_audit.json",
+      "sha256": "f521589b8b8c04c2ab6a0841699c8814fc1f4691ea4e37b012f134bdbf90284e",
+      "bytes": 4361
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/preflight.json",
+      "sha256": "3cefcb6e9cb5dd5a988fd86f01381b07dfacef1dd464f94f48bb951c1faf367c",
+      "bytes": 3923
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/independent_prefit/execution.json",
+      "sha256": "a43a4f45f92b62a8c6cbddccdc7b412058e07080e84e4e0cc159e9b354437f95",
+      "bytes": 1695
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/independent_prefit/worker.log",
+      "sha256": "1f426af49d1d0391dcc1b5b560ddb44ea4c7b8293ec4ef45c093aca24acfb4a6",
+      "bytes": 198
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/preflight/execution.json",
+      "sha256": "0108327f32b00ff9dd2db9f7ac5a6b5ea9ec4dc5394e1575dc394cba6592ecad",
+      "bytes": 838
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/preflight/worker.log",
+      "sha256": "1ae6befb30c42b1e02da0f2da5da552232da82600d28576b7fefdf6d48cf1af8",
+      "bytes": 2325
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-01/held_mean.npy",
+      "sha256": "42c5d2ddc74a3d70243c76b3a407a40753ed47b8003677a18bbdc5a932abb0bd",
+      "bytes": 614952
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-01/receipt.json",
+      "sha256": "957901e10b86a8d2e675e9bf49c5a2d78a62d3e4d54d909bdbd5b4ec5086f27d",
+      "bytes": 3022
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-01/train_mean.npy",
+      "sha256": "b2b76a6e50ff51ac82c02fe19c71b07511306adb54601ded16acd28ad02695c1",
+      "bytes": 6384932
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-07/held_mean.npy",
+      "sha256": "1f425c76508554ca5fa93b24c5c46de60a3c80127cd56a4f80c7f4817c14f0b8",
+      "bytes": 762980
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-07/receipt.json",
+      "sha256": "926fbae7eace6fe67a42164e96e10e2a3b1c37b1e8313d69efdd986a732c031c",
+      "bytes": 2986
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/teacher/2025-07/train_mean.npy",
+      "sha256": "5b09e4b12c19747f5ddd638ec97ab0fa29be0249ad50f24046e0ebbcf4fdc97d",
+      "bytes": 4561060
+    }
+  ],
+  "source_files_verified": 113,
+  "returned_files": 12,
+  "returned_bytes": 12343272,
+  "audit_executed_on": "GLAPTOP using separate unchanged independent source",
+  "reason": "The exact frozen fold pickle containers are laptop-only; no2.55GB redundant transfer.",
+  "no_fit_or_inference": true,
+  "no_frozen_source_mutation": true
+}

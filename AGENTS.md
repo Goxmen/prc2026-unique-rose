@@ -121,6 +121,16 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October 13, 10:08 Amsterdam: six fixed track-consistency fits on laptop.**
+Run `v3_20261013_nn_public_tabm_track_consistency` passed independent source,
+CUDA/memory and input/teacher audits; all 344419 original predictions replay.
+Root allocation `c35cf02d…` starts six serial two-epoch fits: three arms, Jan/Jul,
+sole target-input candidate, no tuning. Laptop launcher 3410/start 780770;
+new_signal_audit owns completed checkpoint return. Do not duplicate workers,
+pull or change frozen source. Exact-v80 scoring and independent audit require
+all six immutable exports. Original fold matrices remain laptop-only. Desktop
+idle. Best v80 218.8525; three slots remain and the last is reserved.
+
 **October13,09:43 Amsterdam: final candidates audited; last slot untouched.**
 Public-source v82 final670790-row output is complete and independently audited.
 One interior exponential-tilt root needed a wider bracket; original successful

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T08:02:49.824081+00:00",
+  "updated_at": "2026-10-13T08:10:38.939449+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
@@ -13,9 +13,10 @@
     "checked_at": "2026-10-13T07:54:28.227302+00:00"
   },
   "next": [
-    "Finish target track-view consistency source/preflight audit and allocate laptop",
-    "Preserve audited portable and conditional shared-clock final candidates while research continues",
-    "Last slot reserved; two exploratory slots also available, no upload queued"
+    "Preserve laptop3410 six serial fits; new_signal returns all frozen checkpoints/receipts once complete",
+    "After all6 immutable predictions exist, root exactv80 three-arm score then final_recovery independent audit",
+    "Select production only through frozen target-arm gates; v82 portability comparison to be frozen before scores",
+    "Keep three slots, including last reserved; audited final candidates retained, no upload queued"
   ],
   "native_goal_status": "active",
   "active_research": [
@@ -37,16 +38,21 @@
     }
   ],
   "laptop": {
-    "stage": "target_track_consistency_teacher_GPU_preflight",
-    "owner": "new_signal_audit",
-    "checked_at": "2026-10-13T08:02:49.824081+00:00",
+    "stage": "six_fixed_track_consistency_fits",
+    "owner": "new_signal_audit monitors and returns; root allocated",
+    "checked_at": "2026-10-13T08:10:38.939449+00:00",
     "host": "GLAPTOP",
-    "launcher_pid": 2982,
-    "process_start": "742082",
-    "execution": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/preflight/execution.json",
-    "verified_inputs": 178,
-    "transferred_bytes": 4027878,
-    "fit_not_allocated": true
+    "launcher_pid": 3410,
+    "process_start": "780770",
+    "execution": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/runtime/fit/execution.json",
+    "allocation": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/allocation.json",
+      "sha256": "c35cf02d3a64a3bd1ae76ac3bfa7376a45501f3727436ef3bc239eeaad0e85dc"
+    },
+    "fit_count": 6,
+    "epochs": 2,
+    "source_frozen": true,
+    "no_duplicate_fit": true
   },
   "duration_result": {
     "cv": {
@@ -342,7 +348,7 @@
     }
   },
   "target_track_consistency": {
-    "status": "laptop_preflight_active",
+    "status": "six_serial_fits_active",
     "identity": {
       "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
       "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
@@ -350,6 +356,18 @@
     "comparison_identity": {
       "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/identity.json",
       "sha256": "c6b5c366725c62ce656f52a7f556c6e7e9b5f8b352415c8bd8aabcb3810618fd"
+    },
+    "prefit_audit": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_audit.json",
+      "sha256": "f521589b8b8c04c2ab6a0841699c8814fc1f4691ea4e37b012f134bdbf90284e"
+    },
+    "prefit_return": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/prefit_return_audit.json",
+      "sha256": "bb6fa92dcb6bbfb35368b0840d2d2b37656edca44a7e20596e19964470cf5877"
+    },
+    "allocation": {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/allocation.json",
+      "sha256": "c35cf02d3a64a3bd1ae76ac3bfa7376a45501f3727436ef3bc239eeaad0e85dc"
     }
   }
 }
