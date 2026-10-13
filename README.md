@@ -32,8 +32,9 @@ Predict the **taxi-out time** (`TAXITIME_SEC_mvt`, in seconds) of departing flig
 - A team's rank is its **best RMSE across its scored submissions**. The user
   authorized autonomous uploads on 11 October; the **225.00** target was achieved
   with **v71 at 224.3602** on the accepted original January/July population.
-  The active target is now **205.00 or lower**. Best/latest is **v80 at 218.8525**
-  on all 344,841 original departures (live check 12 October 12:27 Amsterdam).
+  The active target is now **205.00 or lower**. Best is **v80 at 218.8525** on 344,841 original departures; latest scored
+  is **v83 at 220.9278**. The separate final submission was accepted on all
+  670,790 rows on 13 October; its score is unpublished.
 - Leaderboard REST API: `https://datacomp.opensky-network.org/api/competitions/bb3693e1-26bc-4a9e-8619-4fe78b4eab0c/leaderboard` (paginate via `nextCursor`; Swagger docs at `https://datacomp.opensky-network.org/api/swagger-ui/`).
 
 ### Timeline & prizes
@@ -60,7 +61,8 @@ The final files were released on 8 October. Shared old/final movements have
 jittered timestamps, so retain separate flight-keyed features and predictions.
 The first four-month upload, v63, was rejected by the versioned leaderboard
 route, which scores the old population. The separately named final route is
-documented below; its acceptance has not yet been verified by this team.
+documented below; our final submission was accepted on 13 October with all
+670,790 rows, without a published numeric score.
 See [AGENTS.md](AGENTS.md) for current submission state.
 
 Each row carries movement fields (`*_mvt`: airport, phase, times, aircraft type, runway, stand, taxi time) joined with flight-plan fields (`*_flt`: callsign, operator, market segment, wake category, OBT/ARVT timestamps). Note from the organizers: *"Real world data is messy. You will find some inconsistencies between movement and flight information."*

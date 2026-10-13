@@ -1,41 +1,28 @@
 {
-  "updated_at": "2026-10-13T10:32:45.750373+00:00",
+  "updated_at": "2026-10-13T10:37:09.575181+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
-  "official_checked_at": "2026-10-13T09:58:05+00:00",
-  "slots_remaining": 2,
+  "official_checked_at": "2026-10-13T10:35:21+00:00",
+  "slots_remaining": 1,
   "registry": "VALIDATION/research_registry.json",
   "hypotheses": 64,
   "desktop": {
     "stage": "idle",
     "owner": null,
-    "checked_at": "2026-10-13T09:52:15.900364+00:00"
+    "checked_at": "2026-10-13T10:37:09.575181+00:00"
   },
   "next": [
-    "Package exact audited v83 final under root selection and retained complete CV provenance",
-    "Fresh read-only final preflight; one create-only upload, verify hash and check acceptance",
-    "No additional experiment/candidate queued;205 target remains unmet"
+    "Await published final score; accepted670790 rows without numeric score",
+    "Retain last UTC-day slot; no additional candidate/upload queued",
+    "Do not repeat completed fits, certificate, or unique final upload; target205 remains unmet"
   ],
   "native_goal_status": "active",
-  "active_research": [
-    {
-      "owner": "root",
-      "scope": "Deliver selected audited v83 final; reserve remaining slot"
-    },
-    {
-      "owner": "final_recovery",
-      "scope": "Artifact-only final packaging"
-    },
-    {
-      "owner": "new_signal_audit",
-      "scope": "Independent final packaging review"
-    }
-  ],
+  "active_research": [],
   "laptop": {
     "stage": "idle",
     "owner": null,
-    "checked_at": "2026-10-13T09:17:08.660727+00:00"
+    "checked_at": "2026-10-13T10:37:09.575181+00:00"
   },
   "duration_result": {
     "cv": {
@@ -231,7 +218,7 @@
     "status": "closed_inconclusive"
   },
   "reserved_final_slots": 1,
-  "used_utc_day_slots": 3,
+  "used_utc_day_slots": 4,
   "slot_date_utc": "2026-10-13",
   "posterior_aware_screen": {
     "status": "closed_negative_audited",
@@ -325,7 +312,7 @@
     }
   },
   "final_uploader": {
-    "status": "source_reviewed_14_offline_checks_pass_no_upload",
+    "status": "completed_single_create_only_upload_and_acceptance_verified",
     "source": {
       "path": "VALIDATION/audited_final_upload_20261013.py",
       "sha256": "6c418ece79aac7d301c4263b9b703933d7cdd58033efcaca47f713a9030b7c00"
@@ -488,7 +475,7 @@
     }
   },
   "final_distillation_candidate": {
-    "status": "selected_best_available_pending_delivery",
+    "status": "accepted_final_score_unpublished",
     "parent_version": 83,
     "production": {
       "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
@@ -502,10 +489,22 @@
       "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/candidate.parquet",
       "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
     },
-    "no_final_upload": true,
+    "no_final_upload": false,
     "selection": {
       "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/selection.json",
       "sha256": "50fb869eac099df1f9d84642f8f7a80f130ba36243cdfc75f05616ac288b43e0"
+    },
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/manifest.json",
+      "sha256": "61611fb36d3d3a81ac162fa1a18d8e7e488e77bc7ac3ac7966c3b480308c7e46"
+    },
+    "acceptance": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/acceptance.json",
+      "sha256": "9ee97b35c6ec49a7536a84176c9067793537e260fe5a32041cc8d46138d25038"
+    },
+    "delivery": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/final_delivery.json",
+      "sha256": "b96ffbec57f9aad9a2ade15eaedc1e11792f3d8cf77f201b3c2b1a6fd65d3891"
     }
   },
   "v83_residual_certificate": {
@@ -539,5 +538,7 @@
     "conservative_oracle_gain_seconds": 1.8191209818496645e-05,
     "optimistic_oracle_gain_seconds": 9.454755084448152e-05,
     "no_candidate_or_upload": true
-  }
+  },
+  "latest_upload": "unique-rose_final.parquet",
+  "latest_upload_status": "accepted_final_score_unpublished"
 }

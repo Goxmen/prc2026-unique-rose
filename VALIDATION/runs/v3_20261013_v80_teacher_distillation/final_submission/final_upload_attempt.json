@@ -1,0 +1,78 @@
+{
+  "at": "2026-10-13T10:35:01.673843+00:00",
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/manifest.json",
+    "sha256": "27103ff7fd66dc0898f026743f8ad0666d6c8c0cd7131bf6a9bd98d77bad3efe"
+  },
+  "uploader": {
+    "path": "VALIDATION/audited_final_upload_20261013.py",
+    "sha256": "6c418ece79aac7d301c4263b9b703933d7cdd58033efcaca47f713a9030b7c00"
+  },
+  "file": {
+    "path": "submissions/unique-rose_final.parquet",
+    "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+  },
+  "validation": {
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/manifest.json",
+      "sha256": "27103ff7fd66dc0898f026743f8ad0666d6c8c0cd7131bf6a9bd98d77bad3efe"
+    },
+    "file": {
+      "path": "submissions/unique-rose_final.parquet",
+      "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+    },
+    "template": {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    "final_source_prediction": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/candidate.parquet",
+      "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+    },
+    "final_source_result": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+      "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+    },
+    "final_source_audit": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+      "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    },
+    "source_kind": "audited_nested_final_candidate",
+    "table_checks": {
+      "rows": 670790,
+      "minimum": 0,
+      "maximum": 103078,
+      "all_template_columns_preserved": true,
+      "all_audited_source_columns_exact": true
+    },
+    "cv_provenance": {
+      "scope": "complete_portable_recipe",
+      "jan_jul_cv": 289.60760827359303,
+      "audited_score": 289.60760827359303,
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+        "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+      },
+      "score_is_fallback_only": false
+    }
+  },
+  "live_slots": {
+    "uploads_today": [
+      "unique-rose_v81.parquet",
+      "unique-rose_v82.parquet",
+      "unique-rose_v83.parquet"
+    ],
+    "daily_limit": 5,
+    "filename_unoccupied": true,
+    "slot_policy": {
+      "policy_sha256": "740157ea2ac5a162c7dc15607eeebdd7fe3c28d06c71962b399445bc977ac296",
+      "reserved_slots": 1
+    }
+  },
+  "final_selection": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/selection.json",
+    "sha256": "50fb869eac099df1f9d84642f8f7a80f130ba36243cdfc75f05616ac288b43e0"
+  },
+  "authorization": "User authorized autonomous uploads; final delivery reserved for the strongest validated candidate. Root supplied the resolved selection receipt.",
+  "atomic_create_only": true
+}

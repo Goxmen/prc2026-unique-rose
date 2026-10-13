@@ -1,3 +1,15 @@
+**October13,12:37 Amsterdam: v83 final accepted; one slot remains reserved.**
+The exact audited670790-row v83 final was uploaded once at12:35Amsterdam as
+`unique-rose_final.parquet`; remote SHA f4f6a15f… matches. Official result is
+Succeeded on all670790 rows with no numeric score published. Best public v80
+remains218.8525, rank9/246; target205 is unmet. Jan/Jul CV289.607608 supports
+v83 over portable v82; exact complete v80 final remains unavailable. The sole
+remaining residual certificate fails materially (optimistic oracle gain<0.0001s),
+with independent audit passing after preserved JSON-only recovery. All currently
+allocated research is resolved; both machines idle. No upload queued or repeated.
+Keep the last daily slot and private repository. See student/final_submission
+selection, delivery, acceptance and live-status receipts in the run registry.
+
 **October13,12:05 Amsterdam: portable student v83 scored220.9278.**
 Audited blocked CV improves v82 by1.231818 seconds; official score improves it
 by0.5962. Bestv80 remains218.8525; v83 is the strongest validated portable final

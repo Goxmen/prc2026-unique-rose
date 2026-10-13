@@ -121,6 +121,19 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October13,12:37 Amsterdam: v83 final accepted; one slot remains reserved.**
+The exact audited670790-row v83 final was uploaded once at12:35Amsterdam as
+`unique-rose_final.parquet`; remote SHA f4f6a15f… matches. Official result is
+Succeeded on all670790 rows with no numeric score published. Best public v80
+remains218.8525, rank9/246; target205 is unmet. Jan/Jul CV289.607608 supports
+v83 over portable v82; exact complete v80 final remains unavailable. The sole
+remaining residual certificate fails materially (optimistic oracle gain<0.0001s),
+with independent audit passing after preserved JSON-only recovery. All currently
+allocated research is resolved; both machines idle. No upload queued or repeated.
+Keep the last daily slot and private repository. See student/final_submission
+selection, delivery, acceptance and live-status receipts in the run registry.
+
+
 **October13,12:05 Amsterdam: v83 officially220.9278; final slot protected.**
 Student uploaded once11:57, exact remoteSHA088546b6, scored11:58 on344841rows.
 It improves portablev82 by0.5962 but trails bestv80 by2.0753. Audited four-month
