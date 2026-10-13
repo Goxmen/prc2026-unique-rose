@@ -1,0 +1,54 @@
+{
+  "status": "pass_for_source_implementation_only",
+  "reviewer": "/root/new_signal_audit",
+  "protocol": {
+    "path": "VALIDATION/reports/tabicl_frontier_20261013/fixed_protocol.json",
+    "sha256": "2adf4bdc851ba77f92aea8246391bd522e2cb1e319e65a3d6927a4d43d44bba4",
+    "bytes": 9796
+  },
+  "compatibility_amendment": {
+    "path": "VALIDATION/reports/tabicl_frontier_20261013/dependency_compatibility_amendment.json",
+    "sha256": "5bdd3fb40e479d39a0d563345c90c112e53d790aff9b6c6f5bd066b0fbb05b88",
+    "bytes": 5615
+  },
+  "prior_source_review": {
+    "path": "VALIDATION/reports/tabicl_frontier_20261013/independent_feasibility_review.json",
+    "sha256": "eef25774830c99187a0ac50ef87e1a6115778c2e03023dc6aefbad5bba33ce54",
+    "bytes": 7194
+  },
+  "input_scope_audit": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_audit.json",
+    "sha256": "d230a1be848cd96a0e90a2ba40c335b60a05e93a1584700bb2d9a090e47a1149",
+    "bytes": 2668
+  },
+  "checks": [
+    "Same audited alias-purged training IDs and all175288 April queries;37 raw features; per-airport contexts, no query-label fitting or new selection",
+    "Native mean8-estimator settings fixed prospectively, no tail/encoder/context/precision sweep; uncapped training targets with native float32 conversion/StandardScaler are explicit",
+    "Fixed two-control\u22651second and paired-day upper<0 gate is honest mechanism evidence, not matched architecture isolation or v80 gain",
+    "Fixed mathSDPA/noAMP/noFA3/noTF32 plus CPUoffload/chunk256 make a reproducible capacity question; caps are gates, not proven performance guarantees",
+    "Local checkpoint revision/LFS-SHA/bytes specified; metadata is not model-byte verification and download/load remain separate stages",
+    "Separate environment and full hash-locked transitive wheel resolution required; original direct hub2.1.1/tokenizers<2 incompatibility preserved and prospective1.33.0 amendment acknowledged"
+  ],
+  "implementation_requirements": [
+    "Actual model load asserts regression and999 output quantiles against checkpoint configuration; auto-download disabled",
+    "Categorical projection preserves unknown/missing semantics; normalize pd.NA/None to numerical missing markers rather than literal strings; no query fitting",
+    "Preflight cached/uncached calls reuse identical fitted preprocessing/feature permutations, compare saved native quantiles and seconds; verify query-order/chunk independence and repeatability with no labels",
+    "Guard resolved backend/AMP/offload settings including highest float32 matmul precision and runtime versions; predeclare hardware/resource failure handling",
+    "Bind existing input-audit recovery identity and immutable model/context/package/preflight provenance in independent inference receipt before truth access",
+    "Full inference saves complete canonical prediction IDs and finite values before scoring; any partial or resource failure is retained and does not permit adaptive setting change"
+  ],
+  "explicit_limitations": [
+    "Native interior-quantile mean approximates conditional mean and may underrepresent rare tails; no calibration guarantee",
+    "Each TabICL context uses all retained per-airport training labels, whereas learned retrieval exposes512 donor labels explicitly and learns from alltraining rows; comparison is practical family comparison, not isolated label-attention effect",
+    "April historical reuse and no current-parent Jan/Jul evidence remain explicit; accepted final is immutable",
+    "Dependency lock, wheel build, actual checkpoint config, parity and resource feasibility remain unresolved; no installation or numerical-stage approval implied"
+  ],
+  "actions": {
+    "metadata_and_source_only": true,
+    "real_arrays_decoded": false,
+    "April_outcomes_read": false,
+    "installation": false,
+    "checkpoint_download": false,
+    "fit_or_inference": false
+  }
+}

@@ -79,3 +79,39 @@ lbstack_G.npy
 
 # Private working summary requested by the user; never commit this file.
 /LOCAL_PROGRESS.md
+
+# User-launched four-month validation: large prepared matrices and full logs.
+/VALIDATION/runs/v3_20261013_final_month_selection/folds/*/inputs.pkl*
+/VALIDATION/runs/v3_20261013_final_month_selection/logs/
+
+# Release exports and regenerated predictions remain local until distributed
+# explicitly as release assets. Source and small integrity manifests are tracked.
+/release/artifacts/
+/release/bundles/
+/release/reproduced/
+
+# Research artifacts can also be written directly under a run, outside models/.
+# Keep source/configuration/receipts, but never accidentally stage large caches.
+VALIDATION/runs/**/*.pkl
+VALIDATION/runs/**/*.pickle
+VALIDATION/runs/**/*.pt
+VALIDATION/runs/**/*.pth
+VALIDATION/runs/**/*.npy
+VALIDATION/runs/**/*.npz
+VALIDATION/runs/**/*.cbm
+VALIDATION/runs/**/*.bin
+VALIDATION/runs/**/*.so
+VALIDATION/runs/**/model.txt
+VALIDATION/runs/**/ordinary.txt
+VALIDATION/runs/**/classifier.txt
+VALIDATION/runs/**/*.log
+VALIDATION/runs/**/live_scores.json
+VALIDATION/runs/**/inputs/scaler.json
+VALIDATION/reports/**/*.log
+
+# Downloaded upstream TabICL sources are review caches, not team-authored code.
+# Exact upstream revision, URLs and hashes remain in the retained source inventory.
+/VALIDATION/reports/tabicl_frontier_20261013/upstream/
+/VALIDATION/reports/tabicl_frontier_20261013/regressor.py
+/VALIDATION/reports/tabicl_frontier_20261013/inference_config.py
+/VALIDATION/reports/tabicl_frontier_20261013/pyproject.toml

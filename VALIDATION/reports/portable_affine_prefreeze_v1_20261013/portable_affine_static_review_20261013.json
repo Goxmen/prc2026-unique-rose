@@ -1,0 +1,43 @@
+{
+  "status": "pass_static_source_and_auditor_review_before_freeze",
+  "producer": {
+    "path": "VALIDATION/portable_affine_20261013.py",
+    "sha256": "6942941dc1f7d98fd7b2119334c2b14c1535b20adf05e5ff6fbaa73d4024292a"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_portable_affine_20261013.py",
+    "sha256": "8d24b9231b91f34a7b60a36c79a2acd8971fd2bf59b2422e4833772a987bb4a6"
+  },
+  "preflight": {
+    "path": "VALIDATION/reports/portable_affine_auditor_preflight_20261013.json",
+    "sha256": "d350b16d8ed0b5c68e01efcd5525df0aaa5f658d908e711ed068e788e6036163"
+  },
+  "scope": "One explicitly new portable affine base from audited catalog intersection of original retained51, no substitution and no v80-equivalence claim. No real solve or output audit run.",
+  "checks": [
+    "Basis order fixed by existing51; missing versions excluded explicitly; v66/v68 remain excluded;64/70 required.",
+    "Every selected old/final component requires passed independent artifact chain and all old integer values must equal the geometry basis.",
+    "Only actual Succeeded own scores on344841 pairs enter fixed sum1 bounds[-3,4],ridge1,reference64 solve. Snapshot explicitly pinned.",
+    "Weight checkpoint permits output completion without a second solve; weights, expanded MSE and exact identity retained.",
+    "Producer serializes stored float64 products with maximum0 and round-to-even; final template schema/IDs preserved.",
+    "CV uses retained basis and actual three_tabm_runway control, averaging separate Jan/Jul RMSE and paired-day intervals; official-score projection remains distinct from CV.",
+    "New auditor source pinned before producer freeze; raw ranking/final and original Jan/Jul truth files pinned; final serializer source pinned.",
+    "V80 control provenance uses actual production independent audit -> production identity/result -> CV result/scored chain."
+  ],
+  "independent_auditor": [
+    "All old/final component columns, raw IDs/calendars/no-label status, full344419 CV truth/control and all template columns.",
+    "Independent SQL ordered affine arithmetic within1e-7, exact stored-value round-even serialization, SQL rounding-order differences reported without patching.",
+    "Direct expanded MSE plus reference Gram identity, fixed KKT strong-convexity objective-gap certificate<0.01 MSE, score-rounding interval and serialization triangle bound.",
+    "Independent SQL per-month scores and2000 fixed-seed paired-day bootstrap; no optimizer/model inference."
+  ],
+  "limitations": [
+    "Weights selected on leaderboard scores; no independent-validation or final hidden-accuracy claim.",
+    "Historical CV implementation caveats remain.",
+    "The25-minute cap recovery outcome may change available catalog before freeze, but frozen portable basis must never change after its one solve."
+  ],
+  "fixes_reviewed": [
+    "Explicit score snapshot record.",
+    "fill_template and raw validation input source pins.",
+    "Actual v80 receipt-chain binding."
+  ],
+  "heavy_execution": false
+}

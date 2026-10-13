@@ -1,0 +1,36 @@
+{
+  "status": "pass_source_only_with_synthetic_fixture",
+  "reviewer": "/root/final_recovery",
+  "producer": {
+    "path": "VALIDATION/arrival_boundary_transfer_pilot_20261013.py",
+    "sha256": "ab1a0de232e157b8377f8d503ac11ba4881cda0c4e5546f0e3a1755e95a77633"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_arrival_boundary_transfer_20261013.py",
+    "sha256": "e503f0893f96e5829ab374f0b80b54b60011b3bade1ef2485c5e36a86305e37c"
+  },
+  "design": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_design.json",
+    "sha256": "e2e79e4b427960ca14ab408f3ce098862a77586f8be77abe8528d3cb87067588"
+  },
+  "fixture": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/independent_auditor_fixture.json",
+    "sha256": "6be8753adc0f2406f2d9956409a6c04a852ebc8d9ca1f6079e7e160f049a74e6"
+  },
+  "checks": [
+    "Independent reconstruction of allowed12-date query membership, other-movement window exclusions, identical retained slots, units and 22 feature formulas.",
+    "DEP cached raw columns age_ms/lat/lon/alt/gs/gap; timestamp=event-age is chronological by source sort/dedup; ARR and DEP speed share deciknot units.",
+    "No target clocks in features or masks; source-only target orientation and legacy negative-ARR NULL semantics independently reconstructed.",
+    "Sample IDs chosen before label values; fixed5000 per half/phase cap, finite supervised coverage, fixed two temporal directions.",
+    "Per-flight weights, fixed50/50 augmentation and ridge objective/gradient verified independently from saved coefficients, with no duplicate optimization.",
+    "All four fit receipts and fit/score-start preparation-audit lineage checked.",
+    "Full held losses, independent SQL day sums, paired bootstrap and no-fit motion/nuisance diagnostic gates.",
+    "Empty-half insufficient-coverage closure can be audited.",
+    "Synthetic20-case feature arithmetic equality includes1ms intervals, tangential geometry, far stand and airborne adjacency; independent SQL/bootstrap/CSV fixtures pass."
+  ],
+  "scope_limitations": [
+    "No real input arrays or fitted states were read during review.",
+    "Model convergence and all actual arithmetic remain later numerical auditor work.",
+    "Pilot supports only a separately reviewed Jan/Jul experiment, not selected-v80 residual headroom."
+  ]
+}

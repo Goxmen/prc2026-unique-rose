@@ -1,0 +1,8 @@
+{
+  "stage": "freeze",
+  "error": "AssertionError (17, old)",
+  "cause": "Legacy combined audit binds final vector and asserts old SQL exactness, but omits old prediction path/hash",
+  "no_identity": true,
+  "no_solve": true,
+  "correction": "Final audit binding remains mandatory. Frozen old file hash is checked and both producer and independent audit must reproduce every original retained ranking integer."
+}

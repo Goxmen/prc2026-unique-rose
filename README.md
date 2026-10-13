@@ -2,9 +2,34 @@
 
 Predicting taxi-out times at major European airports for the [PRC Data Challenge 2026](https://prc-data-challenge-2026.netlify.app/).
 
-Current experiments, retained models and submission approvals are tracked in
-[AGENTS.md](AGENTS.md), [SUBMISSIONS.md](SUBMISSIONS.md) and the
-[current research report](VALIDATION/reports/TARGET205_RESEARCH.md).
+This repository contains the team's feature engineering, model training,
+validation, and final prediction code. Models combine LightGBM, CatBoost,
+piecewise-linear-embedding networks and TabM, with a separate treatment of
+Rome's recorded taxi-time modes and public operational aggregates.
+
+## Reproducing the submission
+
+Start with [the reproduction guide](docs/REPRODUCING.md). It distinguishes
+exact replay of the accepted final prediction ensemble from retraining models
+and from the current four-month model-selection experiment. Reproduction
+commands never submit predictions.
+
+| Document | Contents |
+| --- | --- |
+| [Reproduction](docs/REPRODUCING.md) | Environment, required artifacts, executable commands and output verification |
+| [Method](docs/METHOD.md) | Features, models, calibration, validation and limitations |
+| [Data sources](docs/DATA_SOURCES.md) | Acquisition, snapshots, provider terms and attribution |
+| [Third-party work](docs/THIRD_PARTY.md) | Dependencies, upstream implementations and our contributions |
+| [Release checklist](docs/RELEASE_CHECKLIST.md) | Competition obligations and remaining publication steps |
+| [Four-month validation](VALIDATION/docs/FINAL_MONTH_SELECTION.md) | Ten candidate definitions and embargoed folds |
+| [Submission record](SUBMISSIONS.md) | Actual uploads and selected candidates |
+
+The accepted final artifact is the v83-derived submission uploaded on
+13 October 2026: 670,790 predictions, SHA-256
+`f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.
+Acceptance is not a published final RMSE. The current four-month experiment
+does not replace that artifact automatically; selecting and training its
+winner is a separate step.
 
 ## Competition rules & key information
 
@@ -29,10 +54,8 @@ Predict the **taxi-out time** (`TAXITIME_SEC_mvt`, in seconds) of departing flig
 - Submissions are scored by **Root Mean Square Error (RMSE)** on predicted
   taxi-out times for the accepted evaluation population. Historical scores
   through v61 use the 344,841 original January/July departures.
-- A team's rank is its **best RMSE across its scored submissions**. The user
-  authorized autonomous uploads on 11 October; the **225.00** target was achieved
-  with **v71 at 224.3602** on the accepted original January/July population.
-  The active target is now **205.00 or lower**. Best is **v80 at 218.8525** on 344,841 original departures; latest scored
+- A team's rank is its **best RMSE across its scored submissions**. As recorded
+  on 13 October, best is **v80 at 218.8525** on 344,841 original departures; latest scored
   is **v83 at 220.9278**. The separate final submission was accepted on all
   670,790 rows on 13 October; its score is unpublished.
 - Leaderboard REST API: `https://datacomp.opensky-network.org/api/competitions/bb3693e1-26bc-4a9e-8619-4fe78b4eab0c/leaderboard` (paginate via `nextCursor`; Swagger docs at `https://datacomp.opensky-network.org/api/swagger-ui/`).
@@ -63,7 +86,7 @@ The first four-month upload, v63, was rejected by the versioned leaderboard
 route, which scores the old population. The separately named final route is
 documented below; our final submission was accepted on 13 October with all
 670,790 rows, without a published numeric score.
-See [AGENTS.md](AGENTS.md) for current submission state.
+See [SUBMISSIONS.md](SUBMISSIONS.md) for the recorded submission history.
 
 Each row carries movement fields (`*_mvt`: airport, phase, times, aircraft type, runway, stand, taxi time) joined with flight-plan fields (`*_flt`: callsign, operator, market segment, wake category, OBT/ARVT timestamps). Note from the organizers: *"Real world data is messy. You will find some inconsistencies between movement and flight information."*
 
@@ -108,7 +131,11 @@ mc cp unique-rose_vN.parquet opensky/prc-2026-unique-rose/
 
 ## Setup
 
-Works on Linux/WSL and macOS. You need Python 3.11+, git, and the MinIO client `mc`.
+The recorded training environment is Linux/WSL, Python 3.12.3, and NVIDIA CUDA.
+The current neural validation requires an NVIDIA GPU. CPU-only artifact replay
+is documented separately. See [the environment snapshot](release/environment.json)
+and [reproduction guide](docs/REPRODUCING.md) for hardware and runtime details.
+You also need git and the MinIO client `mc` for competition data access.
 
 ```sh
 git clone https://github.com/Goxmen/PRC.git
@@ -127,25 +154,21 @@ mc alias set opensky https://s3.opensky-network.org ACCESS_KEY SECRET_KEY
 mc mirror opensky/prc-2026-datasets/ data/
 ```
 
-The team MinIO keys are shared privately (ask a teammate) — never commit them.
+Use credentials issued to your own OpenSky account; team submission credentials
+are not needed to reproduce predictions. Never commit credentials.
 
-### Where credentials live (never commit them)
-
-- **GitHub** — authenticated via the `gh` CLI (`gh auth login`); the token sits in
-  `~/.config/gh/hosts.yml` and `gh` acts as git's credential helper, so `git push`
-  needs no further setup. Check with `gh auth status`. A GitHub PAT for this repo
-  is also stored as `GHP` in the gitignored root `.env` for direct API access when
-  `gh` is unavailable. Never commit `.env` or token values.
-- **OpenSky MinIO** — keys in `~/.mc/config.json` (the `opensky` alias set above).
-
-`AGENTS.md` documents this environment for AI coding agents.
+Credentials belong in local client configuration or ignored environment files.
+The repository contains no example requiring real keys. Local operational
+instructions for contributors are in `AGENTS.md`.
 
 ### Repo layout
 
 - `data/` — parquet datasets, gitignored; refresh with `mc mirror` (see above). `data/FEATURES.md` documents the columns.
 - `eda/` — exploratory analysis scripts, notebooks, and generated figures.
-- `pipeline/` — training & submission pipeline. `train.py` fits the model and reports holdout RMSE (Nov+Dec 2025); `predict.py` fills the submission template into `submissions/` (gitignored, like `models/`).
+- `pipeline/` — feature utilities and the historical baseline pipeline. Its `train.py`/`predict.py` commands do not reproduce the final ensemble; use the reproduction guide above.
 - `VALIDATION/` — the validation protocol ([v3](VALIDATION/docs/PROTOCOL.md)) and the harness that runs it; see [VALIDATION/README.md](VALIDATION/README.md) and [VALIDATION/archive/FINDINGS_20260907.md](VALIDATION/archive/FINDINGS_20260907.md).
+- `tools/release/` — offline final-ensemble replay and repository publication checks.
+- `release/` — portable environment, final-model provenance and release records; large bundles stay outside git.
 - `dashboard/` — source of the team's live leaderboard page (a Claude artifact). `pipeline/dashboard_data.py` rebuilds the data payloads from the leaderboard API + team bucket into `tmp/dashboard/`; the page reads them from the artifact's database, so refreshing the data needs no republish. `pipeline/leaderboard_status.py` provides the same live score history and public standings directly in text or JSON (`--json`), without using the webpage.
 
 ## Approach
@@ -157,12 +180,15 @@ classifier handles schedule-copy recording behavior, followed by retained
 corrections. The target is the recorded taxi duration, which sometimes differs
 from physical surface movement alone.
 
-New candidates use the two-fold January/July validation in
-[`VALIDATION/tuning_seasonal.py`](VALIDATION/tuning_seasonal.py). Its monthly
-RMSE average is distinct from the official test score. These development months
-have been reused extensively; bootstrap intervals do not make them independent
-confirmation. Full recipes, failed ideas and reproducible run locations are in
-the [research report](VALIDATION/reports/RESEARCH_NETWORK_20261010.md).
+Historical candidates used January/July validation in
+[`VALIDATION/tuning_seasonal.py`](VALIDATION/tuning_seasonal.py). Final model
+selection now uses January, February, June and July 2025, with exactly one
+adjacent month excluded on each side of each held month; the July fold now
+includes April and May in training. See the [frozen four-fold protocol](VALIDATION/docs/FINAL_MONTH_SELECTION.md).
+Its mean monthly RMSE is distinct from the official test score. These development
+data have been reused extensively; bootstrap intervals do not make them independent
+confirmation. The [method guide](docs/METHOD.md) explains the final ensemble and
+the distinction between historical versions and the ten new candidate recipes.
 
 ## Results
 

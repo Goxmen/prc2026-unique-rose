@@ -1,0 +1,47 @@
+{
+  "status": "source_only_no_install_download_weights_or_fit",
+  "utc": "2026-10-13T11:15:38.721857+00:00",
+  "revision": "c91f00df184a5097e584cb376f7e699e9f3444c4",
+  "sources": [
+    {
+      "upstream": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/soda-inria/tabicl/c91f00df184a5097e584cb376f7e699e9f3444c4/pyproject.toml",
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/upstream/pyproject.toml",
+      "sha256": "00dab3ec09b38ae3dfcb89a3251337724dfab84740e210b0ec6c6a931a61361c",
+      "bytes": 3507
+    },
+    {
+      "upstream": "src/tabicl/_finetune/regressor.py",
+      "url": "https://raw.githubusercontent.com/soda-inria/tabicl/c91f00df184a5097e584cb376f7e699e9f3444c4/src/tabicl/_finetune/regressor.py",
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/upstream/src/tabicl/_finetune/regressor.py",
+      "sha256": "068d51719518490a46162128d1806b4fb16f253b3d6ed5f9de7f5daad43af741",
+      "bytes": 14426
+    },
+    {
+      "upstream": "src/tabicl/_sklearn/regressor.py",
+      "url": "https://raw.githubusercontent.com/soda-inria/tabicl/c91f00df184a5097e584cb376f7e699e9f3444c4/src/tabicl/_sklearn/regressor.py",
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/upstream/src/tabicl/_sklearn/regressor.py",
+      "sha256": "9bfc15027a63211e7ab15a2924c13eb7537937dbd3d53e2799b18cdbc8d09731",
+      "bytes": 34574
+    },
+    {
+      "upstream": "tutorials/finetune_regressor.py",
+      "url": "https://raw.githubusercontent.com/soda-inria/tabicl/c91f00df184a5097e584cb376f7e699e9f3444c4/tutorials/finetune_regressor.py",
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/upstream/tutorials/finetune_regressor.py",
+      "sha256": "e2cd5837581f1e5130607ba63abd39b8357f0e166ebac646144b804ac703e9b0",
+      "bytes": 10900
+    }
+  ],
+  "installed": {
+    "torch": "2.14.1",
+    "scikit-learn": null,
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "huggingface-hub": null,
+    "tabicl": null,
+    "einops": null,
+    "safetensors": null
+  },
+  "reason": "Distinct pretrained in-context mechanism identified in earlier source review; feasibility assessment only, no allocation",
+  "download_note": "Initial basename-only source cache detected two different regressor.py files and stopped; files preserved, paths now retained explicitly. No code execution."
+}

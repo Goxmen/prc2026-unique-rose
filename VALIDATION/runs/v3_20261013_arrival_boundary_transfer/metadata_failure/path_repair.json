@@ -1,0 +1,42 @@
+{
+  "status": "metadata_only_no_array_decode",
+  "old_design": {
+    "path": "VALIDATION/runs/v3_20261013_arrival_boundary_transfer/metadata_failure/arrival_boundary_transfer_design.json",
+    "sha256": "e2e79e4b427960ca14ab408f3ce098862a77586f8be77abe8528d3cb87067588"
+  },
+  "new_design": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_design.json",
+    "sha256": "58fcf9f2ce6f4bc670a93144412ffb64009e0fd1ecd55549a40b3242c9d8e644"
+  },
+  "changed_field": "inputs.training_raw_allowlist only",
+  "resolved": [
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3"
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a"
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f"
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0"
+    }
+  ],
+  "storage": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/storage_contract.json",
+    "sha256": "b247486ba95009342943c56d9d11d91fb7ef01f65b6bdcc441cfbc001e289c86"
+  },
+  "producer": {
+    "path": "VALIDATION/arrival_boundary_transfer_pilot_20261013.py",
+    "sha256": "ab1a0de232e157b8377f8d503ac11ba4881cda0c4e5546f0e3a1755e95a77633"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_arrival_boundary_transfer_20261013.py",
+    "sha256": "e503f0893f96e5829ab374f0b80b54b60011b3bade1ef2485c5e36a86305e37c"
+  }
+}

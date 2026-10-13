@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "scope": "Retained-component replay only",
+  "rows": 670790,
+  "manifest_sha256": "019021aa429548f028a563a8cdf24174d4e412932c7776468799a65c19639d12",
+  "output_sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f",
+  "accepted_final_sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f",
+  "byte_exact": true,
+  "values_exact": true,
+  "no_training": true,
+  "no_network": true,
+  "no_upload": true,
+  "bundle": "release/bundles/v83-component-replay",
+  "bundle_files": 43,
+  "bundle_artifact_bytes": 124256721,
+  "bundle_contains_accepted_final_output": false,
+  "synthetic_tests": 7,
+  "replay_environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "pyarrow": "25.0.1"
+  },
+  "source_sha256": "41ef94e8ca5051bc7d7741fbef64200ab13dcbc2c66b620a0e98e07f4ea0cc15",
+  "limitation": "Exact retained-component assembly; not a demonstrated raw-data training rebuild",
+  "standalone_script_replay_from_outside_repository": true,
+  "standalone_receipt": "release/reproduced/offline_unique-rose_final.parquet.replay.json"
+}

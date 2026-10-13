@@ -1,0 +1,28 @@
+{
+  "status": "additive_correction_and_scope_closure",
+  "original_review": {
+    "path": "VALIDATION/reports/final_shared_clocks_20261013/reverse_shared_clock_feedback_review.json",
+    "sha256": "79249ee47c35070b8b021608c40acdf11844e1f11a799d95d6d758830d59a76c"
+  },
+  "correction": "Original review accidentally linked direct-reserve provenance while naming v82. Manifest mapping is v81=latest_direct_public_model_reserve, v82=portable_public_source_v1. Conditional algebra remains generic and unchanged, but the direct-reserve source references must not authenticate v82.",
+  "correct_version_manifests": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v81/manifest.json",
+      "sha256": "c034842b8a6a657ab47cd050155fafb214d59bfee5adaa923c8d303da12e1a34"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/manifest.json",
+      "sha256": "f5708ffc9c2f8bf0b1e1b7850d228db7189700903f8ad6b7ea41d8a9e9e949bd"
+    }
+  ],
+  "v82_final_result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/result.json",
+    "sha256": "d4680537bc417ab38b462cd88bf1ed8647fe6fb7c524721e7dd3cd0ad60458a3"
+  },
+  "v82_final_audit": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/audit.json",
+    "sha256": "9a49947bbbbba84acea7cc65d8a2f9dfa84ff7d53d4fa0e7a58022342081712e"
+  },
+  "root_decision": "Reverse-feedback candidate declined because no genuine paired Jan/Jul CV; no exception request. No final selection made by this review. Portable v82 is the strongest currently admissible final fallback; prior hybrid advice was conditional mathematics and did not satisfy the new-recipe validation rule.",
+  "no_new_vector_score_or_upload": true
+}

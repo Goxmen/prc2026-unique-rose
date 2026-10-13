@@ -1,0 +1,95 @@
+{
+  "status": "source_feasible_pending_fixed_design_and_isolated_preflight",
+  "reviewer": "/root/new_signal_audit",
+  "utc": "2026-10-13T11:22:18.013199+00:00",
+  "revision": "c91f00df184a5097e584cb376f7e699e9f3444c4",
+  "evidence": [
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/assessment.json",
+      "sha256": "fc1db39f422f6693d47d9f055377c8ffd2b761d66ad8155990386ed4fda7aff5",
+      "bytes": 2281
+    },
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/source_inventory.json",
+      "sha256": "27fa26ec5f41869dcccb44359f17186a34404af344967c749a9f49deabadbc7c",
+      "bytes": 2324
+    },
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/independent_source_inventory.json",
+      "sha256": "24815d1afd3bd757f5bb1e7b08b2ef76b266213928e50ea57f9564e8b707f606",
+      "bytes": 2271
+    },
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/independent_attention_source.json",
+      "sha256": "1d9ff6b132c5425bb3b2a7c9193e46a8f569582eefe277c67ce03d4a2556dceb",
+      "bytes": 355
+    }
+  ],
+  "key_finding": "Upstream regression mean is the arithmetic average of interior predicted quantiles, not its available analytical tail-corrected mean. Both cached and uncached routes do this. It is an approximate conditional-mean estimator and cannot be described as exact uncapped-tail integration.",
+  "conditional_mean": {
+    "evidence": [
+      "src/tabicl/_model/tabicl.py:524-610,799-910",
+      "src/tabicl/_model/quantile_dist.py:1330-1374,1478-1543",
+      "src/tabicl/_sklearn/regressor.py:737-752"
+    ],
+    "details": [
+      "The default architecture predicts999 evenly spaced interior quantiles; sorting fixes crossings before output. predict_stats(mean) takes their arithmetic average.",
+      "QuantileDistribution.mean separately integrates piecewise-linear quantiles plus fitted exponential tails by default, but the sklearn mean API does not call it. The existence of this function is not proof of calibration for sparse extreme taxi modes.",
+      "StandardScaler is fitted only to training y, after float32 conversion; it does not clip targets. The output inverse affine transform and ensemble averaging preserve the chosen approximate-mean semantics.",
+      "Native mean is a reproducible prospective pilot choice, provided its tail approximation is stated. Any replacement with tail integration must be separately frozen before outcome inspection, never selected using April error. No such alternative is proposed for a sweep."
+    ]
+  },
+  "preprocessing": {
+    "evidence": [
+      "src/tabicl/_sklearn/regressor.py:385-435,705-735",
+      "src/tabicl/_sklearn/preprocessing.py:59-192,1026-1090,1143-1220"
+    ],
+    "findings": [
+      "DataFrame dtype controls categorical identification. Preserve the11 existing categorical fields explicitly; passing an already encoded numeric array changes treatment. OrdinalEncoder learns training categories, unknown/missing=-1; numeric SimpleImputer and all-empty handling fit training only.",
+      "Constant-feature removal, normalization/outlier bounds and feature permutations fit only training context. predict uses transform and combines cached training inputs with queries. No query labels are required.",
+      "Use the independently audited input-only alias-purged train/query selection and raw37 packets; retain Jan/Jul exclusions and train-only targets. Each airport context must fit its own preprocessing without April fitting. A global scaler fitted to target inputs would violate this scope.",
+      "High-cardinality ordinal features are supported but upstream warns they may be poorly represented. This is a model limitation, not justification to choose a new encoder after results."
+    ]
+  },
+  "query_and_cache": {
+    "evidence": [
+      "src/tabicl/_model/embedding.py:535-545,736-888",
+      "src/tabicl/_model/encoders.py:120-145,149-205,312-401",
+      "src/tabicl/_model/tabicl.py:524-610,799-910",
+      "src/tabicl/_sklearn/regressor.py:448-620"
+    ],
+    "findings": [
+      "Default embed_with_test=False restricts column inducing representations to training rows. ICL attention is restricted to training keys/values; query rows should not provide context to other queries. Row interaction is within each row. This supports mathematical query-batch invariance, not byte-exact GPU equivalence.",
+      "Cached inference stores training column/ICL state and passes only test rows later. Different attention kernels, automatic mixed precision and chunk shapes can change floating-point results; require a fixed no-label representative parity test before prediction.",
+      "batch_size controls ensemble-member batches, not requested query-row chunk size. Chunk the outer predict calls explicitly and retain canonical query IDs.",
+      "Preflight fixed ID-selected queries: single/all/chunked/permuted calls, cached versus uncached route, repeated calls, target-column poison/removal; compare raw quantiles and seconds predictions using a prospectively frozen numerical tolerance. No held truth, no tuning cache mode by prediction quality.",
+      "Pin resolved AMP/attention/offload/inference configuration, package revision, checkpoint SHA/config and serializer. Do not let auto settings silently differ across devices."
+    ]
+  },
+  "environment": {
+    "evidence": [
+      "pyproject.toml",
+      "src/tabicl/_sklearn/regressor.py:285-355"
+    ],
+    "recommendation": [
+      "Use an isolated environment with explicit locked versions and an installation dry-run; do not install into the established research .venv. Retain existing torch/numpy/scipy/pandas versions where compatible and reuse verified local wheel caches. No dependency resolution or installation was performed.",
+      "Use an explicit local model_path, allow_auto_download=False and a recorded checkpoint SHA. Checkpoint config/state are loaded with weights_only=True and strict state matching; package source commit alone does not identify the learned model.",
+      "No runtime/memory guarantee from source alone. One airport context at a time and bounded query chunks make capacity testing plausible; eight ensemble members and full KV caching can multiply storage. Actual10GB-GPU capacity/timing preflight is mandatory before any large run."
+    ]
+  },
+  "interpretation": [
+    "Synthetic-pretrained regression remains distinct from our task-trained learned-retrieval model and prior plain label KNN. Neither retrieval success nor failure should choose TabICL settings.",
+    "A fixed pilot needs a predeclared matched conventional baseline on identical allowed contexts and April population; any improvement is mechanism evidence only. There is no supported numerical headroom estimate or current-v80 gain claim.",
+    "A production candidate would still require a separate genuine Jan/Jul comparison and complete portable final route; accepted final submission stays immutable."
+  ],
+  "actions_performed": {
+    "additional_primary_source_files": 6,
+    "source_bytes": 216861,
+    "source_execution": false,
+    "installations": false,
+    "checkpoint_download": false,
+    "real_data_arrays": false,
+    "fits": false,
+    "candidate_scoring": false
+  }
+}

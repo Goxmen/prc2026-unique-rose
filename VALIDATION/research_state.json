@@ -1,42 +1,43 @@
 {
-  "updated_at": "2026-10-13T11:36:07.115861+00:00",
+  "updated_at": "2026-10-13T19:26:51.415029+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-13T10:35:21+00:00",
   "slots_remaining": 1,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 68,
+  "hypotheses": 69,
   "desktop": {
-    "stage": "ARR_preparation_SQL_recovery_no_fit",
-    "owner": "cohort_learning",
-    "run": "VALIDATION/runs/v3_20261013_arrival_boundary_transfer",
-    "checked_at": "2026-10-13T11:36:07.115861+00:00"
+    "stage": "paused_by_user_no_active_job",
+    "owner": null,
+    "checked_at": "2026-10-13T11:43:01.379276+00:00"
   },
   "next": [
-    "Complete narrow ARR SQL preparation recovery without rebuilding inputs, audit then fixed pilot",
-    "Finish fixed TabICL source and isolated dependency/checkpoint preflight; no configuration sweep",
-    "Preserve accepted final and reserved lastdaily slot; no upload queued"
+    "Wait for explicit user command to resume",
+    "Read saved state; if authorized resume, audit existing ARR preparation before any fixed fit. Never repeat completed target recovery."
   ],
-  "native_goal_status": "active",
+  "native_goal_status": "paused",
   "active_research": [
     {
       "owner": "cohort_learning",
-      "scope": "ARR independent input/result auditor; retrieval source support"
+      "scope": "ARR independent input/result auditor; retrieval source support",
+      "status": "paused_by_user"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Retrieval independent prefit/prescore auditor"
+      "scope": "Retrieval independent prefit/prescore auditor",
+      "status": "paused_by_user"
     },
     {
       "owner": "final_recovery",
-      "scope": "ARR producer and auditor/source review"
+      "scope": "ARR producer and auditor/source review",
+      "status": "paused_by_user"
     }
   ],
   "laptop": {
-    "stage": "idle",
+    "stage": "paused_by_user_no_python_job",
     "owner": null,
-    "checked_at": "2026-10-13T10:37:09.575181+00:00"
+    "checked_at": "2026-10-13T11:43:01.379276+00:00"
   },
   "duration_result": {
     "cv": {
@@ -578,5 +579,36 @@
       "owner": "final_recovery",
       "reviewer": "new_signal_audit"
     }
-  ]
+  ],
+  "user_pause": {
+    "status": "paused_by_user",
+    "utc": "2026-10-13T11:43:01.379276+00:00",
+    "reason": "pause the processes. wait for my command to start back",
+    "desktop_active_research_processes": 0,
+    "laptop_python_processes": 0,
+    "active_agent_interrupted": "final_recovery",
+    "ARR_target_recovery_completed": true,
+    "ARR_prepare_audit_completed": false,
+    "ARR_fit_started": false,
+    "resume_next": "Read saved state; if authorized resume, audit existing ARR preparation before any fixed fit. Never repeat completed target recovery.",
+    "last_daily_slot": "reserved",
+    "no_submission_queued": true
+  },
+  "manual_validation": {
+    "status": "user_launched_running",
+    "report": "VALIDATION/reports/final_month_selection_setup_20261013.json",
+    "command": ".venv/bin/python -u VALIDATION/final_month_selection.py run --threads 4",
+    "automatic_execution": false,
+    "old_research_loop_remains_paused": true,
+    "user_launch_confirmed_at": "2026-10-13T19:26:51.415029+00:00"
+  },
+  "release_preparation": {
+    "status": "preparing_private_release",
+    "docs": "docs/RELEASE_CHECKLIST.md",
+    "reproduction": "docs/REPRODUCING.md",
+    "accepted_final_replay": "tools/release/accepted_final_replay.json",
+    "external_source_use": "User clarified permitted competition use on 2026-10-13; provider terms retained.",
+    "research_loop_resumed": false,
+    "frozen_validation_sources_unchanged": true
+  }
 }

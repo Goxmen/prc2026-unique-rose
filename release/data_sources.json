@@ -1,0 +1,1485 @@
+{
+  "schema": "prc_release_data_sources_v1",
+  "prepared_date": "2026-10-13",
+  "scope": [
+    "accepted_v83_final",
+    "C01_C10_four_month_selection"
+  ],
+  "verification": "Expected artifact hashes copied from retained receipts; small receipt bytes hashed during release preparation. Large input contents not rehashed here.",
+  "team_clarification": {
+    "date": "2026-10-13",
+    "source": "team owner in this conversation",
+    "statement": "it's fine, we are good",
+    "scope": "Previously raised EUROCONTROL performance-source use question",
+    "not_an_organizer_statement": true,
+    "does_not_change_source_licenses": true
+  },
+  "source_declaration": "docs/DATA_SOURCES.md",
+  "provenance_gaps": [
+    {
+      "path": "data/external/metar/manifest.json",
+      "status": "absent_on_desktop",
+      "retained_snapshot": "data/external/metar/metar.parquet"
+    },
+    {
+      "path": "data/external/stand_maps/manifest.json",
+      "status": "absent_on_desktop",
+      "retained_snapshots": [
+        "data/external/stand_maps/stand_coords.parquet",
+        "data/external/stand_maps/runway_ends.parquet"
+      ]
+    }
+  ],
+  "receipt_files": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json",
+      "sha256": "64f01809bb0399dc12b70130fa91b69c437e8dd24b04b2192672099c8db9d15a",
+      "bytes": 69873
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+      "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41",
+      "bytes": 83583
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+      "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660",
+      "bytes": 49599
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/manifest.json",
+      "sha256": "7e2cf43c6d6de298140687d0eef83ed6ff17e8658e2402c760c8abef88dbb175",
+      "bytes": 1457
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/manifest.json",
+      "sha256": "432a6a2685ffd837f1824d858fa168319fbcd6f0ba03e1fb770773a11a028bbc",
+      "bytes": 6824
+    },
+    {
+      "path": "data/external/conditions_20261008/weather_manifest.json",
+      "sha256": "e94af4105f57ab2dd21648a11df536974dce11d8d63489319661e0466bf088b1",
+      "bytes": 19727
+    },
+    {
+      "path": "data/external/conditions_final_20261012/manifest.json",
+      "sha256": "596729407065e30f3f19e4e8fafc5182cfe9260490a3f6467f38f3e95da09177",
+      "bytes": 39269
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full.json",
+      "sha256": "723cb02477e53b3c3e6b265fa98d3bd67a8e531b45d37943c6f527de5735d6da",
+      "bytes": 236550
+    },
+    {
+      "path": "data/derived/aircraft_rotation_20261010/identity.json",
+      "sha256": "2211ff67e6caa271b71c3d4b066222b4d34e56a74b4b5820013489a9bd250c65",
+      "bytes": 181651
+    },
+    {
+      "path": "data/derived/callsign_clocks_20261010/manifest.json",
+      "sha256": "6026c63a2448522a75dabc10e5bd690a88723cc8d72edc9141f2dfbcb126523b",
+      "bytes": 72899
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "data/derived/aircraft_rotation_20261010/identity.json",
+      "sha256": "2211ff67e6caa271b71c3d4b066222b4d34e56a74b4b5820013489a9bd250c65",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/derived/aircraft_rotation_20261010/identity.parquet",
+      "sha256": "375df42a9386dc090dce60abda3d116054008a0bd1aeb72c3fef3b8215870d2f",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/derived/callsign_clocks_20261010/manifest.json",
+      "sha256": "6026c63a2448522a75dabc10e5bd690a88723cc8d72edc9141f2dfbcb126523b",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/derived/callsign_clocks_20261010/shared.parquet",
+      "sha256": "91145d4829e3568cc5de9a8e870d8eaab162c1581683b6cca2c660ef83a4b089",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_index.parquet",
+      "sha256": "e294daa8d56f4484f09e187e28afa887e4fadc5675bbadf51606f529d201f684",
+      "bytes": 59178304,
+      "exists": true,
+      "hash_provenance": [
+        "data/derived/sparse_track_sequence_20261010/full.json"
+      ]
+    },
+    {
+      "path": "data/derived/sparse_track_sequence_20261010/full_points.bin",
+      "sha256": "e24e96f34f4fd536c621a3f5c36dd7fc8eae0f037fb0a32b59c1c1b84392d147",
+      "bytes": 2030980080,
+      "exists": true,
+      "hash_provenance": [
+        "data/derived/sparse_track_sequence_20261010/full.json"
+      ]
+    },
+    {
+      "path": "data/external/adsblol_heatmap/adsb_features.parquet",
+      "sha256": "50c544d3e5c4fde7af30a3e5358bcaef224cc3b6c36fbc9bc5ae6dddd4ee7da6",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/external/adsblol_heatmap/adsb_stand_features.parquet",
+      "sha256": "4d78bc0c98a4e2812ab86bf8d04508cf54d36aedb87976c06bbb314aa78353fc",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDF_2025.json",
+      "sha256": "bd786abe5cac066fe1902258edde153629b6003687d5b52e9880f6a566d235b1",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=50.0333&longitude=8.5706&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDF_2026-01.json",
+      "sha256": "f27b253d6c1d1071158db9106b254f408f880877d9fc23ac4388a623626acc77",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=50.0333&longitude=8.5706&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDF_2026-07.json",
+      "sha256": "5d014c8e828f8a156c183425dcc8a74ee56f74b8b144ebff1206d2f8f0efb908",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=50.0333&longitude=8.5706&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDM_2025.json",
+      "sha256": "bcd223a24dab291c545d268e62f588da0e968c7a5d237c92880e3b8ded0ccd09",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=48.3538&longitude=11.7861&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDM_2026-01.json",
+      "sha256": "e863738a217c113a061732e20abed5a48f03f3d2f7fd62c4080f1d17759e66d1",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=48.3538&longitude=11.7861&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EDDM_2026-07.json",
+      "sha256": "859dac221760ee496d42db292ac52f6374e1dd1af9875c8503700c820e5f3d31",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=48.3538&longitude=11.7861&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EGLL_2025.json",
+      "sha256": "789012296f340e3a4fe77e7890952641ba32230ccc649974a0c6791995d8755f",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=51.47&longitude=-0.4543&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EGLL_2026-01.json",
+      "sha256": "6fec73759135b19e187a1ef83307d959043eb4f3ee26210803d6bf7b3017d634",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=51.47&longitude=-0.4543&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EGLL_2026-07.json",
+      "sha256": "b76d9ea81b1069b8a2557daedb8824adad838f92631a7d813fd90dada1b8947d",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=51.47&longitude=-0.4543&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EHAM_2025.json",
+      "sha256": "3f05a6e005fc88150a6e80a0913420361efc08ae4ad6b361799399a3f80c766a",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=52.3086&longitude=4.7639&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EHAM_2026-01.json",
+      "sha256": "7cd032bc13d67f48400d992939d9067c6bfd8c8761054f77f001882242925321",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=52.3086&longitude=4.7639&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/EHAM_2026-07.json",
+      "sha256": "ec32d618ac1919c7873669265117af8632d89cc9a2a26ca275a98960f9949b31",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=52.3086&longitude=4.7639&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEBL_2025.json",
+      "sha256": "96d54b090287d65660b3a55f2e25dcbd6561ed8a52786b457eaff90897156e4d",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2971&longitude=2.0785&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEBL_2026-01.json",
+      "sha256": "8bc3c04f50039718cb21ec3a0dcfabdc163b8d2023383dd9904926a1441fca0b",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2971&longitude=2.0785&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEBL_2026-07.json",
+      "sha256": "b40ab19f9c4e2e90f19b0bffd3a523da8f76136ffecccfbb6a84abff9197b8ae",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2971&longitude=2.0785&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEMD_2025.json",
+      "sha256": "7fe715f5cb5a4491e037f6050f74ffcaedbb36fa9bb69b131ad0d47fbb721d76",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=40.4719&longitude=-3.5626&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEMD_2026-01.json",
+      "sha256": "f406a6f9bbfc3d7e1e653dc0cebd28f3f113849b694b6d455d4e98dd72b8ab0f",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=40.4719&longitude=-3.5626&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LEMD_2026-07.json",
+      "sha256": "26bb7a4d125e2c080c55e90037144cb3f13c9a060c5708dee877a98d24e176e6",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=40.4719&longitude=-3.5626&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LFPG_2025.json",
+      "sha256": "90b0490987c1194d0928f238e7900d0893ef370fe955aa7f82ee9d5135f90c6d",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=49.0097&longitude=2.5479&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LFPG_2026-01.json",
+      "sha256": "4282f302711f2617d79339b0f85eab966af8527e5b0c70668fb60f53eeed63ab",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=49.0097&longitude=2.5479&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LFPG_2026-07.json",
+      "sha256": "0021d98c19ca6a73c6f8807b5d2648e28152c9fc80666463e3314a7df65d3e87",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=49.0097&longitude=2.5479&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LIRF_2025.json",
+      "sha256": "2c62ceb248829f43a2245856436572f40f086fc2ae6ea5f37ad529bbd0b613fd",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.8003&longitude=12.2389&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LIRF_2026-01.json",
+      "sha256": "afbfbae33e7035d0ede9b111faa67d243b36394dc152c36f020438aff4c1fd6b",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.8003&longitude=12.2389&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LIRF_2026-07.json",
+      "sha256": "7c9146e741e82c24f415a2f6aaab4c331266c1f65f279cb2ad720354f4795aaa",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.8003&longitude=12.2389&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LSZH_2025.json",
+      "sha256": "8fcb2554ac574786f07a42d3ac5b38fa2c33969c70a27b273ccffa8ca06e2760",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=47.4647&longitude=8.5492&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LSZH_2026-01.json",
+      "sha256": "df2d296aeede38a61b81d1d518078bea9269f6410c5bddcca9297a77eb2203eb",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=47.4647&longitude=8.5492&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LSZH_2026-07.json",
+      "sha256": "6ae02e39c74bbe0779893393420708570c3bd52f9314af97159b26509b5c7661",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=47.4647&longitude=8.5492&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LTFM_2025.json",
+      "sha256": "a7076108a05e34b99f0e6a4e900335ce150e5627bc8a3795f702d7f19106c402",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2753&longitude=28.7519&start_date=2024-12-29&end_date=2025-12-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LTFM_2026-01.json",
+      "sha256": "f488504976590e8259c187407e84897c9c029b5bbbdee760d101fa8ed6ecb61e",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2753&longitude=28.7519&start_date=2025-12-29&end_date=2026-01-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather/LTFM_2026-07.json",
+      "sha256": "6acc5dc568942470b0ffa56683ada5b419199c77acc4a04d53c38971649f805b",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_20261008/weather_manifest.json",
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2753&longitude=28.7519&start_date=2026-06-29&end_date=2026-07-31&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_20261008/weather_manifest.json",
+      "sha256": "e94af4105f57ab2dd21648a11df536974dce11d8d63489319661e0466bf088b1",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "bytes": 19727
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EDDF_2026-02.json",
+      "sha256": "e3ba06ccb302675a8fce57a3e9d54193d03737808b529ad92b4032877baae467",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=50.0333&longitude=8.5706&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32510,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EDDF_2026-06.json",
+      "sha256": "08edfd44c856d178f52746337107a00f012f0143aaef7fce1c0834e5814b9765",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=50.0333&longitude=8.5706&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35230,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EDDM_2026-02.json",
+      "sha256": "8c3a3d0c9e8758f75d66d0442212e810f5c2f5cc2b80189a2d20dae309783a64",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=48.3538&longitude=11.7861&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32533,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EDDM_2026-06.json",
+      "sha256": "519d4b2e0b787b7a0179a6364e0fbcd8b66d2c97874249be0796c20bd6904262",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=48.3538&longitude=11.7861&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35218,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EGLL_2026-02.json",
+      "sha256": "a4d743e6f231cdc83e09c8b6eaed0812291e8378b48b43a14eb9f7019c8198a1",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=51.47&longitude=-0.4543&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32548,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EGLL_2026-06.json",
+      "sha256": "b4f8e1adba05ab68527861cc0887ab2242d4db12ebfb69615b33d52efd8b85ae",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=51.47&longitude=-0.4543&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35218,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EHAM_2026-02.json",
+      "sha256": "f6772176eb8c61e6b8de784b209bec8dcda12adbae418d125cd256fa4282fde7",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=52.3086&longitude=4.7639&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32503,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/EHAM_2026-06.json",
+      "sha256": "dde14da44348fba19eb4d137b63db591e26e066e7a60cc1e0756e432c69be4e5",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=52.3086&longitude=4.7639&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35236,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LEBL_2026-02.json",
+      "sha256": "03481b906a8c03b7b1bec1d5b1c35a47d0ce2d2ce52706868ccdf1488ad056d9",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2971&longitude=2.0785&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32968,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LEBL_2026-06.json",
+      "sha256": "0fcd2b2c0a46b022287130603c3071f0823b0a8925926b18ccacbfb4feee2dd8",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2971&longitude=2.0785&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35233,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LEMD_2026-02.json",
+      "sha256": "d9f200f919b2b9a2f493a0413dd5ddf64c33a2a18ac44ed351a39935cb2c8791",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=40.4719&longitude=-3.5626&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32694,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LEMD_2026-06.json",
+      "sha256": "5bcc79bbd2171f6751f63b0f773fe85da82c34cb50c7d774f1bcd19e6b04b702",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=40.4719&longitude=-3.5626&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35236,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LFPG_2026-02.json",
+      "sha256": "db8799de32faeed59f6d4cb3b4cef33a40fc50fb164e9bf02fc7a9f41b05d53b",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=49.0097&longitude=2.5479&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32626,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LFPG_2026-06.json",
+      "sha256": "b9b54320053b68faa53fb0a2a81babb30e632359d0b98c08f84fb319f0d4c11b",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=49.0097&longitude=2.5479&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35224,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LIRF_2026-02.json",
+      "sha256": "d3ac916e0dd19c81d2f3c52bc21a696e9f20a041becb198d47dc41d8b5cc4d5a",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.8003&longitude=12.2389&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32964,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LIRF_2026-06.json",
+      "sha256": "64e65ea845bca848bc34a4b0d6f09ce7219f0b76e4c13037995c3a99c3fa75e5",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.8003&longitude=12.2389&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35236,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LSZH_2026-02.json",
+      "sha256": "b324c30924bc9daf11056a1cd517033677f17a34157140cea9ef0587014c3e0b",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=47.4647&longitude=8.5492&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32481,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LSZH_2026-06.json",
+      "sha256": "972880fa8afcaf036b7c0aca6e966e0f0a41997d58020d0e3e161e76129636ea",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=47.4647&longitude=8.5492&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35228,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LTFM_2026-02.json",
+      "sha256": "5cab629a21f55fd7ba855d70433a3a68f608e57367ae5b590b21190a13a154aa",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2753&longitude=28.7519&start_date=2026-01-29&end_date=2026-02-28&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 32651,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/conditions_final_20261012/weather/LTFM_2026-06.json",
+      "sha256": "a9a9d7bdab998c6806b1bd31937cb2971701a4bd63b9d72ffe7083ae2701f06b",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/conditions_final_20261012/manifest.json"
+      ],
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=41.2753&longitude=28.7519&start_date=2026-05-29&end_date=2026-06-30&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m&models=era5&timezone=GMT&wind_speed_unit=ms",
+      "bytes": 35238,
+      "units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "precipitation": "mm",
+        "rain": "mm",
+        "snowfall": "cm",
+        "wind_speed_10m": "m/s"
+      }
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/EDDF_request.json",
+      "sha256": "7943d0a7d87eed857f031f434cff0a87bad57c9fdd886394ad8f9562eeb7cdd2",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/EDDF_response.json",
+      "sha256": "c71adcd1ead35c314445828992f767470b4191c61081f3c25cc8aed607566f08",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/EDDM_request.json",
+      "sha256": "0ea53ef6a409472f58637e8d6c5d921fe12a7e67515ca09a996b818123c5218b",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/EDDM_response.json",
+      "sha256": "023cc77c81e123325fd7539753fcc0e7843e77661cd1463fd2d0aab743b1ab48",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/EGLL_request.json",
+      "sha256": "ef1861df46cd5e7d81095ae693196ea8d071b8fbfd84d46888d35096756b1f54",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/EGLL_response.json",
+      "sha256": "57c527d243212781c3b57080181dc6312c6f0ca0d62ffa0a4ac7a5b589e42384",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/EHAM_request.json",
+      "sha256": "56566b978c2019090ae1f04a92ade160bc8b900cb4a0398530baa8593af6aad6",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/EHAM_response.json",
+      "sha256": "5bdd0ff3d3ebd4cfc4da3348e233c0dad8f67445f10b1461d00be947278516b2",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LEBL_request.json",
+      "sha256": "6de007cbbf1d7594f30e95968e1d1c410bb4fcb6e9d7b53800a01a1c4895320e",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LEBL_response.json",
+      "sha256": "fefb243f8480ce40f47ecdf244e6353d8f2df7c0bf2c4214dd5b897228092edb",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LEMD_request.json",
+      "sha256": "fd90245a7658e919653a73a7cb546006c6f867766cafbbedefd01d97a1f2b89f",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LEMD_response.json",
+      "sha256": "c42611d6cf98816d3a3a672ad0cacb5d83c182d6a46c7f7fc49f23c21d6adb76",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LFPG_request.json",
+      "sha256": "33bed5b4443b30afeb7715de830205968a516eed941f7f3add5ec1c148dfc80e",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LFPG_response.json",
+      "sha256": "d38e1b92f7b190bf99a99bce62dae8b0d301b20e029570b4cb72ffe5154d0276",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LIRF_request.json",
+      "sha256": "2bfe4ab844a4cac94267063eb0aaaa25a6a401257d327f5a027dd48a80a6795e",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LIRF_response.json",
+      "sha256": "e35b9b211285032e86b52658ea895cc0d8f2e5c3f680e3c0a93d13e6db68a0d9",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LSZH_request.json",
+      "sha256": "94b06cd6c1551266abf6186e1d5da4a7bec468900846c4269bc7f7832e4de02c",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LSZH_response.json",
+      "sha256": "ba14ab7a89bdfbf186e52b8376239ebdbc1b5a867d040db4e08dae0c78431fd6",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LTFM_request.json",
+      "sha256": "d40e30f275aa985d4761084d77b7f2216544bd3616edc6aea6fdb86c078ae90c",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/LTFM_response.json",
+      "sha256": "4d7a5e1242413ea21d47370a4a397f20ac7259ccc7ace86c660195e507783b60",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/daily_runway.parquet",
+      "sha256": "5670e3d5a2cc0da243f57bae515c22cc5401e2450af6d463c58b21bed58f72d5",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json",
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/manifest.json",
+      "sha256": "432a6a2685ffd837f1824d858fa168319fbcd6f0ba03e1fb770773a11a028bbc",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/models.json",
+      "sha256": "14eda6e13a4cac674adb2d7d1e8d7bfd98d321a613b4e799d8335f8019afd543",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/powerbi.html",
+      "sha256": "369cfc52f1178914e88a3c69568371b784d34720b36144ba53f6ec62a03ca416",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/schema.json",
+      "sha256": "b3e20b52fac1b27a0782aef562e62d0f47a70d16c5539a78abcf9c295f9974f1",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_daily_taxi_20261011/taxiout.html",
+      "sha256": "1cf618e234fc75823ccd593d9928278fa988312f53371df9a58e98ec160590e4",
+      "exists": true,
+      "hash_provenance": [
+        "data/external/eurocontrol_daily_taxi_20261011/manifest.json"
+      ]
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2025.csv",
+      "sha256": "d742eeb626e5f9f7e0c756e2ae3cf90078f4627e989a2e31b8ed21ba8f5510be",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json",
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "data/external/eurocontrol_performance_20261011/manifest.json"
+      ],
+      "url": "https://www.eurocontrol.int/performance/data/download/csv/all_pre_departure_delays_2025.csv",
+      "bytes": 6503341
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/all_pre_departure_delays_2026.csv",
+      "sha256": "5952d20ef5f9c4245018dd6986064c5c4aa15d568a6c0c2dcdcbc73bf8a43fd2",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "data/external/eurocontrol_performance_20261011/manifest.json"
+      ],
+      "url": "https://www.eurocontrol.int/performance/data/download/csv/all_pre_departure_delays_2026.csv",
+      "bytes": 4344094
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/taxi_out_additional_time_2025.csv",
+      "sha256": "4aedf19520d3f84bebc418b56835762c907b714a9c19e751bb8658f9e62ce598",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "data/external/eurocontrol_performance_20261011/manifest.json"
+      ],
+      "url": "https://www.eurocontrol.int/performance/data/download/csv/taxi_out_additional_time_2025.csv",
+      "bytes": 92885
+    },
+    {
+      "path": "data/external/eurocontrol_performance_20261011/taxi_out_additional_time_2026.csv",
+      "sha256": "b72040e0987e6c7d5706279d645ef9f814a6506165c83f89d8509022154a1076",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "data/external/eurocontrol_performance_20261011/manifest.json"
+      ],
+      "url": "https://www.eurocontrol.int/performance/data/download/csv/taxi_out_additional_time_2026.csv",
+      "bytes": 54100
+    },
+    {
+      "path": "data/external/metar/metar.parquet",
+      "sha256": "2186da174e0ad9f84e27191c44cf0085df79089915e92adbe1b593da3dcb11b5",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/external/opdi/opdi_features.parquet",
+      "sha256": "c1b6e3372403b909e5a69ee7487d7bf04e7a408165097f4725e6d396db8fb5b6",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/external/stand_maps/runway_ends.parquet",
+      "sha256": "91c4ceff31bf1295d795a850a69ad15453f8bfad510f8dc790b55d696d25a853",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/external/stand_maps/stand_coords.parquet",
+      "sha256": "217ff73ec7cb09e3c552efea72d586790db957529df6bc86921428e0a330b2c8",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/final_ranking.parquet",
+      "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json"
+      ]
+    },
+    {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json"
+      ]
+    },
+    {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json"
+      ]
+    },
+    {
+      "path": "data/submitting.parquet",
+      "sha256": "0d383408ed5ac27bfcfd12d6b961cee77c8a6364b10dad9fe3ec81115c79652b",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json",
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json",
+        "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+        "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724",
+      "exists": true,
+      "hash_provenance": [
+        "VALIDATION/runs/v3_20261013_final_month_selection/folds/2025-01/inputs.json"
+      ]
+    }
+  ]
+}

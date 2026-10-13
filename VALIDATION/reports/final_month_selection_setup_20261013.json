@@ -1,0 +1,58 @@
+{
+  "status": "prepared_waiting_for_user_launch",
+  "updated_at": "2026-10-13T17:16:43.414263+00:00",
+  "scope": "Four fresh 2025 folds, exactly one adjacent month excluded each side, ten direct recipes",
+  "held_months": [
+    "2025-01",
+    "2025-02",
+    "2025-06",
+    "2025-07"
+  ],
+  "july_correction": "Train Jan-May and Sep-Dec; historical July excluded Apr-May as well",
+  "candidates": 10,
+  "neural_fits": 36,
+  "model_selection": "manual after user returns all four fold scores",
+  "historical_v80_v83_replay": false,
+  "validation_executed": false,
+  "real_preparation_executed": false,
+  "research_loop_status": "paused",
+  "uploads": false,
+  "command": ".venv/bin/python -u VALIDATION/final_month_selection.py run --threads 4",
+  "documentation": "VALIDATION/docs/FINAL_MONTH_SELECTION.md",
+  "validation": {
+    "synthetic_tests": 21,
+    "passed": 21,
+    "source_ast_parse": true,
+    "real_end_to_end_run": false
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/final_month_selection.py",
+      "sha256": "ded9f24a3d9607ed6761e12ea9f6dfb127a00136a0c7dfe71d226089c37f2ce0"
+    },
+    {
+      "path": "VALIDATION/final_month_inputs.py",
+      "sha256": "c85bcae2660c6aed4c2dbe593fab67553fa819a8e18c5c24053d5d7de730247e"
+    },
+    {
+      "path": "VALIDATION/final_month_models.py",
+      "sha256": "82b0fd29396baa8b7743e8fd48cbeff3580431028d88a5dfef8f7f09567f54ce"
+    },
+    {
+      "path": "VALIDATION/final_month_neural.py",
+      "sha256": "8a6e52575411123f9f0a5c39e3fc584ce0483954b66074bc7707a853f670a3f8"
+    },
+    {
+      "path": "VALIDATION/tests/test_final_month_selection.py",
+      "sha256": "0f8391a43fcaccfd0e0f02c90739135025ec7108126afa0cb0781bbf36fb7594"
+    },
+    {
+      "path": "VALIDATION/tests/test_final_month_inputs.py",
+      "sha256": "fd400900c4d4a542eee482621890f60dbab3399bf29c99e39dd83b431c0ed390"
+    },
+    {
+      "path": "VALIDATION/tests/test_final_month_neural.py",
+      "sha256": "4e9c4c9e696c8c6617cab82367cbfea8352e5667c21e9922c71b5360470b026e"
+    }
+  ]
+}

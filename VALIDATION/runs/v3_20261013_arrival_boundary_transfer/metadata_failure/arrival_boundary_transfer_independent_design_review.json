@@ -1,0 +1,101 @@
+{
+  "status": "pass_for_source_implementation_only",
+  "created_utc": "2026-10-13T10:58:55.810098+00:00",
+  "reviewer": "/root/new_signal_audit",
+  "design": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_design.json",
+    "sha256": "e2e79e4b427960ca14ab408f3ce098862a77586f8be77abe8528d3cb87067588"
+  },
+  "assessment": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/ASSESSMENT.md",
+    "sha256": "acbf84cb4f4723153edac01c9717f8adae009900a5fac6c258d2c14e1cc8815e"
+  },
+  "scope": "Static design/code/metadata review only. No arrays, labels, fit, score, download, network or final-artifact access in this review. Root retains numerical allocation.",
+  "source_records_checked": 20,
+  "fatal_flaw_found": false,
+  "verdict": "A distinct, bounded test of fixed ARR-supervised augmentation is defensible after the prospective clarifications below. No current evidence establishes taxi-out CV improvement, marginal v80 headroom, or a several-second gain.",
+  "novelty": {
+    "closest_closed": {
+      "path": "VALIDATION/nn_track_boundary.py",
+      "sha256": "f208f58513a5ea982b20c1a89addfa90805b2064aba8868c587b9d01efef4e02"
+    },
+    "closed_result": {
+      "path": "VALIDATION/runs/v3_20261011_nn_track_boundary_jan_jul/score.json",
+      "sha256": "ddbf1e1e28ac5ceac2d5abbf18dad1c452a32abfbd499500aab2ae43249c7254"
+    },
+    "closed_matched_cv_seconds": 0.16970238579725105,
+    "distinction": "Additional training-date ARR labels supervising shared motion coefficients; prior screen used only DEP point labels. This does not reopen shared arrival clock drift, scalar stand lag, paired endpoints or DEP-only loss-weight tuning."
+  },
+  "findings": [
+    {
+      "topic": "calendar and target firewall",
+      "decision": "pass as designed",
+      "evidence": "March/September/October/November belong to intersection of tuning_seasonal.FOLDS. Only fit-side ARR labels train each temporal direction; no Jan/Jul or ranking values. Query/point selection, ID-hash cap and geometry are persisted before targets; exact source-observation overlap and movementID overlap are guarded.",
+      "limitation": "These dates are not claimed never previously inspected elsewhere. The internal transfer test is not fresh challenge CV."
+    },
+    {
+      "topic": "target and endpoint tautology",
+      "decision": "pass as designed; implementation proof required",
+      "evidence": "DEP taxi-side sigmoid(point-offblock)/30 and ARR sigmoid(inblock-point)/30 have consistent moving-side orientation. Inputs omit BLOCK, taxi, original clock channels14/15, movement-relative time and point ordinal. Fixed movement-anchored windows are input-defined.",
+      "limitation": "Recorded BLOCK is noisy and is not an independent physical boundary. Legacy ARR cache uses target>=0 then NULL otherwise; design now preserves and reports this rather than silently recovering labels."
+    },
+    {
+      "topic": "motion and sample contamination",
+      "decision": "pass with explicit limitations",
+      "evidence": "ARR radial derivative alone changes sign. Pairs remain adjacent original retained slots, both ground/speed-known, with0<dt<=120; no bridge over rejected airborne slots. Known other movement anchors exclude contaminated windows before labels.",
+      "limitation": "Direction normalization is not exact time reversal; different phase windows/coverage may remain detectable. Absence of another observed movement does not prove no unobserved rotation."
+    },
+    {
+      "topic": "objective and nuisance prevalence",
+      "decision": "qualified",
+      "evidence": "50/50 policy halves DEP contribution and adds equal normalized ARR mass, preserving nominal total loss mass andL2. Original DEP objective is not unchanged. Candidate motion12/control intercept+airport10 diagnostic is fixed before data and uses no extra fit.",
+      "limitation": "The no-fit coefficient swap is a parameterized counterfactual, not a complete causal decomposition. A primary pass without loss improvement from that diagnostic in BOTH directions is mechanism_inconclusive, not grounds to expand solely on representation claims."
+    },
+    {
+      "topic": "statistical gate",
+      "decision": "appropriate only for pilot advancement",
+      "evidence": "At least5% DEP soft-label BCE improvement and negative upper paired-day95% interval in both directions, plus motion-only qualification. Both arms use identical held flights.",
+      "limitation": "Only six day clusters per direction; conditional bootstrap is imprecise and reused development evidence. Boundary BCE does not imply taxi RMSE improvement. A pass can justify one separately frozen matched Jan/Jul test; no automatic production or final change."
+    },
+    {
+      "topic": "cost",
+      "decision": "planning cap plausible after prospective cap, not benchmarked",
+      "evidence": "Input-only SHA256 selection limits5000 flights/phase/half; at most1,280,000 training points/split. 22 float64 features are225.28MB before buffers; streamed512-flight evaluation avoids decoding all evaluation features at once.",
+      "limitation": "Preparation, temporary dataframe copies, optimizer buffers and actual wall time still need bounded implementation/measurement;2GB/5min are stop limits, not demonstrated costs."
+    }
+  ],
+  "prospective_changes_reviewed": [
+    "Preserved oldca220001 draft before amendment.",
+    "Added unchanged-nuisance no-fit motion diagnostic and qualified advancement.",
+    "Preserved original slot adjacency; clarified raw radial metres/sign handling.",
+    "Made50/50 DEP reweighting explicit.",
+    "Preserved legacy ARR negative-target NULL semantics and raw/cache audit.",
+    "Added input-ID hash cap before labels with no replacement and post-cap finite-label coverage>=500."
+  ],
+  "implementation_requirements_before_numerical_release": [
+    "Pin and verify actual input identities, raw allowed-date projections, units and exact cached/raw label-null agreement.",
+    "Synthetic poison-label tests must keep selected IDs/features/point weights/hash sampling bit-exact; label function alone changes.",
+    "Independent features/phase/adjacency/objective-gradient/weights/partition fixtures; no pre-existing encoded clock feature may enter.",
+    "Compute coverage separately for input-eligible, sampled, finite-label and held populations; fail before fitting if gates fail.",
+    "All four model/fit receipts and held predictions saved before evaluation summaries; no post-result retry or tuning.",
+    "Independent numeric audit of actual result and honest Jan/Jul successor remain separate root allocations."
+  ],
+  "additional_sources": [
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "VALIDATION/sparse_track_sequence.py",
+      "sha256": "f51a4f96dbe57fdfddb1403e82cbb14e5474a7c89418f2c96604d4862a71b22e"
+    },
+    {
+      "path": "VALIDATION/aircraft_rotation.py",
+      "sha256": "f3602d272d512dfb807309b3ee6da0ca31532d338454e40aac8c293917e8bdc2"
+    },
+    {
+      "path": "VALIDATION/arrival_clock_context_pilot.py",
+      "sha256": "ca6797d287f1a6a3d3b51b8836750ebc46b4b97c9f5e8a27415f9d126eefd154"
+    }
+  ]
+}

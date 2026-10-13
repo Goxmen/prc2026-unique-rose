@@ -1,0 +1,58 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/arrival_boundary_transfer_pilot_20261013.py",
+    "sha256": "ab1a0de232e157b8377f8d503ac11ba4881cda0c4e5546f0e3a1755e95a77633"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_arrival_boundary_transfer_20261013.py",
+    "sha256": "e503f0893f96e5829ab374f0b80b54b60011b3bade1ef2485c5e36a86305e37c"
+  },
+  "design": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_design.json",
+    "sha256": "58fcf9f2ce6f4bc670a93144412ffb64009e0fd1ecd55549a40b3242c9d8e644"
+  },
+  "producer_review": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_producer_source_review.json",
+    "sha256": "467ab029284824d23491abf06d36af9bfb0d95df796f0d4ca8c7b0fa1184c351"
+  },
+  "auditor_review": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_auditor_source_review.json",
+    "sha256": "91624e2df9782a1ec0283853da0f045e04ff6e628526add7f63b6df44bec772b"
+  },
+  "design_review": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_independent_design_review.json",
+    "sha256": "d995f056373d9addff0c82e6a6dfc2bae548a1f602e626a09d64e172ca2680a4"
+  },
+  "producer_fixture": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/synthetic_preflight.json",
+    "sha256": "af7302f26559c28d10c5afb50b8aeca24a9347ce79a77b16638b9b2802ed261a"
+  },
+  "independent_fixture": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/independent_auditor_fixture.json",
+    "sha256": "6be8753adc0f2406f2d9956409a6c04a852ebc8d9ca1f6079e7e160f049a74e6"
+  },
+  "independent_fixture_source": {
+    "path": "VALIDATION/tools/check_arrival_boundary_auditor_20261013.py",
+    "sha256": "3e3d6633e14ae53ae7c411f942e61ae7fd0c410757280807a00e67ccca664a03"
+  },
+  "storage": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/storage_contract.json",
+    "sha256": "b247486ba95009342943c56d9d11d91fb7ef01f65b6bdcc441cfbc001e289c86"
+  },
+  "scope": "Source and synthetic only; no actual arrays, labels or models decoded. Freeze and numerical stages remain root-owned and require allocation.",
+  "reviewers": [
+    "/root/final_recovery",
+    "/root/cohort_learning",
+    "/root/new_signal_audit"
+  ],
+  "metadata_path_repair": {
+    "path": "VALIDATION/runs/v3_20261013_arrival_boundary_transfer/metadata_failure/path_repair.json",
+    "sha256": "ae50fd5c85a25b5f50671416158375eccf6f2b699d2c8a9f0007bc154798b12d"
+  },
+  "metadata_path_independent_review": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/path_repair_independent_review.json",
+    "sha256": "e7e81dc9be29b301f678e66951d3acf64562df82147bb2fab74303ac034e2665"
+  },
+  "historical_design_review_scope": "Original design review remains unchanged historical evidence; current design differs only in four resolved raw-file paths, covered by independent path repair review. Synthetic source fixtures unchanged and not repeated."
+}

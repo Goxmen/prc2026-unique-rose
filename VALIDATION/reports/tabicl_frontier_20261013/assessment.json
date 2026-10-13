@@ -1,0 +1,29 @@
+{
+  "status": "distinct_source_only_feasibility_pending_review",
+  "utc": "2026-10-13T11:16:38.146286+00:00",
+  "hypothesis": "A synthetic-pretrained tabular in-context regressor may provide a different inductive prior than task-trained MLP/TabM or label retrieval.",
+  "novelty": "Prior index/source review found no TabICL/TabPFN implementation; not the learned small retrieval pilot, not a rerun of failed raw KNN.",
+  "official_sources": [
+    "https://github.com/soda-inria/tabicl/blob/c91f00df184a5097e584cb376f7e699e9f3444c4/README.md",
+    "https://tabicl.readthedocs.io/en/latest/api.html"
+  ],
+  "revision": "c91f00df184a5097e584cb376f7e699e9f3444c4",
+  "facts": [
+    "Official current regression checkpoint is tabicl-regressor-v2-20260212.ckpt; upstream supports explicitly local model_path and disabling automatic download.",
+    "Regressor source uses train-only StandardScaler for y and a separate fit-time ensemble preprocessor; exact categorical, test batching and cache semantics still require source review.",
+    "Required missing local dependencies include scikit-learn, einops and huggingface-hub; do not mutate the established environment while existing pilots depend on it."
+  ],
+  "possible_bounded_test": "Reuse fixed input-driven alias-purged retrieval train/query population and raw37-feature frames, with per-airport training contexts; independently freeze package/checkpoint/configuration and all prediction outputs before any target scoring. Need a defensible comparison and separate Jan/Jul current-parent gate before a candidate.",
+  "unresolved": [
+    "Per-airport versus pooled context fixed prospectively",
+    "Conditional mean vs quantile-head integration and tail behavior",
+    "Prediction independence from query batching; KV cache numerical parity",
+    "Isolated dependency pinning, checkpoint exact hash, 10GB GPU resource preflight",
+    "Pilot comparison must not be confused with marginalv80 gain"
+  ],
+  "cost": "Unmeasured. No package installation, checkpoint download, execution or numerical pilot allocated.",
+  "decision": "Retain as a third distinct possible frontier. Finish two already-reviewed pilots; do not make a post-result configuration sweep.",
+  "no_submission": true,
+  "no_fit": true,
+  "no_new_data_arrays": true
+}

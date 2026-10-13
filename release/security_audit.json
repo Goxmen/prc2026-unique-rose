@@ -1,0 +1,1076 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-13T19:32:57.865875+00:00",
+  "head": "08595ad60aecbd1578a0d38e8f8d3a2fc0ce7e46",
+  "is_shallow_repository": false,
+  "scope": "Tracked worktree files, untracked source/documentation, index, and all local/remote branch and tag histories; ignored files, untracked non-source artifacts, and nonstandard refs are excluded.",
+  "limitations": [
+    "Pattern matching cannot establish absence of secrets.",
+    "Binary-extension files and objects over 20 MB are not inspected for embedded content.",
+    "Local Codex checkpoint refs may contain ignored/private files and must not be pushed or bundled.",
+    "Re-run after staging final release changes; untracked raw data/artifacts are excluded."
+  ],
+  "excluded_nonstandard_refs": [
+    "refs/codex/turn-diffs/checkpoints/4417c6500a26fd8817adc394bd4d7dd6/58d25bafa66c2394e36477cfec87e91c/1791918976115/4785c6ac-30d4-4bb3-be77-167818ae28b8",
+    "refs/codex/turn-diffs/checkpoints/733f21f9a66e5528a66ebd358861ce78/4971aa146948dfc59433560d5870d1b1/1791483259495/86459a88-dcec-4f7c-acfe-c88475db824d"
+  ],
+  "coverage": {
+    "tracked_paths": 4374,
+    "history_or_index_blobs": 5146,
+    "history_or_index_blob_bytes": 137680066,
+    "historical_pathnames_checked": 4274,
+    "tracked_worktree_bytes": 95669275,
+    "worktree_files_scanned": 4295,
+    "history_blobs_scanned": 5067,
+    "history_bytes_scanned": 125121625
+  },
+  "findings": [],
+  "tracked_artifact_paths": [],
+  "tracked_files_over_5_mb": [
+    {
+      "path": "eda/feature_sweep.ipynb",
+      "bytes": 7038353
+    },
+    {
+      "path": "VALIDATION/reports/scored_residuals/index.html",
+      "bytes": 6514739
+    }
+  ],
+  "ignored_path_checks": {
+    ".env": true,
+    "LOCAL_PROGRESS.md": true,
+    "data/probe.parquet": true,
+    "submissions/probe.parquet": true
+  },
+  "untracked_source_paths": [],
+  "untracked_artifact_ignore_gaps": [],
+  "skipped": [
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/OVERNIGHT_SUMMARY_20260917.pdf",
+      "bytes": 22758,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/OVERNIGHT_SUMMARY_20260917.png",
+      "bytes": 142647,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/fold_alignment.pdf",
+      "bytes": 63566,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/fold_alignment.png",
+      "bytes": 394606,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/leaderboard_cv_changes.pdf",
+      "bytes": 32830,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/leaderboard_cv_changes.png",
+      "bytes": 127758,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/recording_artifacts_20260919/candidate_changes.pdf",
+      "bytes": 20367,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/recording_artifacts_20260919/candidate_changes.png",
+      "bytes": 72801,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/recording_artifacts_20260919/error_concentration.pdf",
+      "bytes": 20934,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/recording_artifacts_20260919/error_concentration.png",
+      "bytes": 109649,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/rome_adsb_coverage.png",
+      "bytes": 239257,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/rome_classifier_room.png",
+      "bytes": 157623,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/01_coverage.png",
+      "bytes": 179302,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/02_residual_shapes.png",
+      "bytes": 418699,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/03_airports.png",
+      "bytes": 243435,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/04_regimes.png",
+      "bytes": 226709,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/05_extreme_flights.png",
+      "bytes": 622707,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/06_operational.png",
+      "bytes": 401321,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/07_time_and_folds.png",
+      "bytes": 416823,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/08_shared_errors.png",
+      "bytes": 266414,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/09_rome_calibration.pdf",
+      "bytes": 42926,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/09_rome_calibration.png",
+      "bytes": 342376,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/scored_residuals/residual_atlas.pdf",
+      "bytes": 310387,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage1_comparison.pdf",
+      "bytes": 32884,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage1_comparison.png",
+      "bytes": 109367,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage2_comparison.pdf",
+      "bytes": 34175,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage2_comparison.png",
+      "bytes": 100690,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage2_threshold_sweep.pdf",
+      "bytes": 28768,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage2_threshold_sweep.png",
+      "bytes": 160312,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage2_threshold_sweep_low.pdf",
+      "bytes": 28948,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage2_threshold_sweep_low.png",
+      "bytes": 184490,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage3_comparison.pdf",
+      "bytes": 30623,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage3_comparison.png",
+      "bytes": 95831,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage3_training_loss.pdf",
+      "bytes": 189123,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage3_training_loss.png",
+      "bytes": 238308,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage4_comparison.pdf",
+      "bytes": 30536,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage4_comparison.png",
+      "bytes": 93446,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage4_training_loss.pdf",
+      "bytes": 207048,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/stage4_training_loss.png",
+      "bytes": 187680,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/sweeps/taxi_tail_20260915T214618922334Z_training_loss.png",
+      "bytes": 197028,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/01_concentration.pdf",
+      "bytes": 37343,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/01_concentration.png",
+      "bytes": 355318,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/02_labels.pdf",
+      "bytes": 52314,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/02_labels.png",
+      "bytes": 433923,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/03_rome.pdf",
+      "bytes": 126498,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/03_rome.png",
+      "bytes": 458793,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/04_airports.pdf",
+      "bytes": 27420,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/04_airports.png",
+      "bytes": 204048,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/05_time.pdf",
+      "bytes": 33313,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/05_time.png",
+      "bytes": 384741,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/06_fleet.pdf",
+      "bytes": 31253,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/06_fleet.png",
+      "bytes": 458282,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/07_conditions.pdf",
+      "bytes": 29517,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/07_conditions.png",
+      "bytes": 258505,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/08_stability.pdf",
+      "bytes": 34702,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/reports/v28_failures/08_stability.png",
+      "bytes": 292286,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260915T225301657023Z/training_loss.pdf",
+      "bytes": 44947,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260915T225301657023Z/training_loss.png",
+      "bytes": 267372,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260916T095948645262Z/training_loss.pdf",
+      "bytes": 36335,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260916T095948645262Z/training_loss.png",
+      "bytes": 264428,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260916T102029635587Z/training_loss.pdf",
+      "bytes": 36071,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260916T102029635587Z/training_loss.png",
+      "bytes": 263438,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260916T104452470012Z/training_loss.pdf",
+      "bytes": 36177,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260916T104452470012Z/training_loss.png",
+      "bytes": 260823,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260916T113256202842Z/training_loss.pdf",
+      "bytes": 35871,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "VALIDATION/runs/v3_20260916T113256202842Z/training_loss.png",
+      "bytes": 262275,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/01_taxiout_hist.png",
+      "bytes": 42146,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/02_taxiout_by_airport.png",
+      "bytes": 36214,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/03_taxiout_by_hour.png",
+      "bytes": 58257,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/04_taxiout_by_month.png",
+      "bytes": 44926,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/05_categorical_mix.png",
+      "bytes": 84850,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/06_taxiout_by_runway.png",
+      "bytes": 69716,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/07_mix_train_vs_ranking.png",
+      "bytes": 70253,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/08_hour_mix_train_vs_ranking.png",
+      "bytes": 63627,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/09_implied_taxi_train_vs_ranking.png",
+      "bytes": 82504,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/bottom_1000_taxi_out.pdf",
+      "bytes": 39108,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/bottom_1000_taxi_out.png",
+      "bytes": 196875,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/top_10000_taxi_out.pdf",
+      "bytes": 47570,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "worktree",
+      "path": "eda/figures/top_10000_taxi_out.png",
+      "bytes": 171250,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/OVERNIGHT_SUMMARY_20260917.pdf",
+      "object_id": "b125acb861ab1ec65991829375a40c0f29904b20",
+      "bytes": 22758,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/OVERNIGHT_SUMMARY_20260917.png",
+      "object_id": "d57cf07a96a18a3b096439724cd2212885ed7c8f",
+      "bytes": 142647,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/fold_alignment.pdf",
+      "object_id": "6d5ba42b3a79b033eb5491caefb7e6e24af351a4",
+      "bytes": 63566,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/fold_alignment.png",
+      "object_id": "ce8a411e43f28e82e64652cb4f265a0b8ab45fd2",
+      "bytes": 394606,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/leaderboard_cv_changes.pdf",
+      "object_id": "057bf7051f54cce1b511040090cf6df2bacf81e0",
+      "bytes": 32830,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/leaderboard_cv_changes.png",
+      "object_id": "7149b8d78004ffe8b9aa43930dbb259283024343",
+      "bytes": 127758,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/recording_artifacts_20260919/candidate_changes.pdf",
+      "object_id": "82a91c45febe52875d1d598b42cb2fe14b2556b1",
+      "bytes": 20367,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/recording_artifacts_20260919/candidate_changes.png",
+      "object_id": "3741ac7ba4da38fdf67677d99809d2448109a045",
+      "bytes": 72801,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/recording_artifacts_20260919/error_concentration.pdf",
+      "object_id": "690688cdce83ce10509119ef98aaede2d41d382d",
+      "bytes": 20934,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/recording_artifacts_20260919/error_concentration.png",
+      "object_id": "e0868bae2c8e883efcfa84e34b702752f86c7a4d",
+      "bytes": 109649,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/rome_adsb_coverage.png",
+      "object_id": "9cb8aca657f321bbcc9a18c2c59a451b6638f255",
+      "bytes": 239257,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/rome_classifier_room.png",
+      "object_id": "cce006eeebcbeb5921484c138205f16311fdd92c",
+      "bytes": 157623,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/01_coverage.png",
+      "object_id": "63a1faff80877af97adf100c1116e3e6ab77789d",
+      "bytes": 179302,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/02_residual_shapes.png",
+      "object_id": "1fd38bd044b229c90b10a3af0ec54a2b655b4199",
+      "bytes": 418699,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/03_airports.png",
+      "object_id": "2553644aa9292c15feb8be63c56b2941e0253f60",
+      "bytes": 243435,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/04_regimes.png",
+      "object_id": "dba82ae37063946288b0414e0726ae682184e860",
+      "bytes": 226709,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/05_extreme_flights.png",
+      "object_id": "c9e72b521352b975b09858e14a3ab538ebeb9a18",
+      "bytes": 622707,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/06_operational.png",
+      "object_id": "d87d2ff69980d51213820421f6cd9b4df828243b",
+      "bytes": 401321,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/07_time_and_folds.png",
+      "object_id": "7018f8ea08c6edff5059254b992cec8ffe3dfd4f",
+      "bytes": 416823,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/08_shared_errors.png",
+      "object_id": "84ae842ae69675a48e25135c0333674d27d5ec7c",
+      "bytes": 266414,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/09_rome_calibration.pdf",
+      "object_id": "f0a17c0fe014fb4e7b1b91847cc6d883f7404344",
+      "bytes": 42926,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/09_rome_calibration.png",
+      "object_id": "51980111e83282323b3ead5630ab6ea7b991524d",
+      "bytes": 342376,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/scored_residuals/residual_atlas.pdf",
+      "object_id": "5909a203e23e491cc1595e94884485f6180dfcbc",
+      "bytes": 310387,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage1_comparison.pdf",
+      "object_id": "a8f5d213270d24c7f87788c20fbc752ca54e698c",
+      "bytes": 32884,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage1_comparison.png",
+      "object_id": "286f4ad42a5dc51d6b1d69f5bb9afdee5e284ea8",
+      "bytes": 109367,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage2_comparison.pdf",
+      "object_id": "9070bd7d1a284c96c4b84b40c922a9c8b63f370d",
+      "bytes": 34175,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage2_comparison.png",
+      "object_id": "e2d4d6f11827519f2236fe2fc141589ea1a0ea0f",
+      "bytes": 100690,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage2_threshold_sweep.pdf",
+      "object_id": "b2f01bdc082078b5c93fc452be349071065b2d8a",
+      "bytes": 28768,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage2_threshold_sweep.png",
+      "object_id": "3af61a9af7b99a831282a950b95d39fb8f86dde5",
+      "bytes": 160312,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage2_threshold_sweep_low.pdf",
+      "object_id": "63535afbea9e567f1b2e977f7a3e26c5b52ea8a3",
+      "bytes": 28948,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage2_threshold_sweep_low.png",
+      "object_id": "97fd551116689a566fb0a3b00139fce01a84a453",
+      "bytes": 184490,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage3_comparison.pdf",
+      "object_id": "1bc5955f0fd5d6756f9d7aeaa136bfc132ff6def",
+      "bytes": 30623,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage3_comparison.png",
+      "object_id": "f992861d5875d4088610853976e6d42592b81ce9",
+      "bytes": 95831,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage3_training_loss.pdf",
+      "object_id": "d851e2551963c5f5b1e4080c1a704d000a4cf7f3",
+      "bytes": 189123,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage3_training_loss.png",
+      "object_id": "3d2c49105475309b6fa6406dbc0d1a195b6bd0f3",
+      "bytes": 238308,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage4_comparison.pdf",
+      "object_id": "cd76f036d006a38a4b323168c4f027b594122a82",
+      "bytes": 30536,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage4_comparison.png",
+      "object_id": "b72dbd1bc4c234a76c8c9b7d4d7a5cc35c96a587",
+      "bytes": 93446,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage4_training_loss.pdf",
+      "object_id": "14ed08bcd394801a4243c1cadfe2a5a7938229a4",
+      "bytes": 207048,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/stage4_training_loss.png",
+      "object_id": "aa548a0232e06d19a49cc042ebfeead715112707",
+      "bytes": 187680,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/sweeps/taxi_tail_20260915T214618922334Z_training_loss.png",
+      "object_id": "7118087125690cb3efb19e361249ee064b6bba09",
+      "bytes": 197028,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/01_concentration.pdf",
+      "object_id": "046785196ae8140ef701603ebf9a231a06351229",
+      "bytes": 37343,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/01_concentration.png",
+      "object_id": "f543c244bf074db7be4a4af34e851d171fb2b94d",
+      "bytes": 355318,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/02_labels.pdf",
+      "object_id": "60ff30a87576c408f56aee36c2554a5e34bbf530",
+      "bytes": 52314,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/02_labels.png",
+      "object_id": "59a167614839b7e6452fc5b443726b6a92c58f92",
+      "bytes": 433923,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/03_rome.pdf",
+      "object_id": "efc8fa2645559451f4bc7bd54b2383578b8105a8",
+      "bytes": 126498,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/03_rome.png",
+      "object_id": "9f017dce66d91a1ef7a83dd42572b58053448138",
+      "bytes": 458793,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/04_airports.pdf",
+      "object_id": "9b516d77613a0d4f1862e2e9bdb04c1a218fce6e",
+      "bytes": 27420,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/04_airports.png",
+      "object_id": "1be858822d1cf502390e44a47843150306f3173f",
+      "bytes": 204048,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/05_time.pdf",
+      "object_id": "0288996fb531dd6f0fd211568d191374085ef070",
+      "bytes": 33313,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/05_time.png",
+      "object_id": "ee784f9b01d63a6e789c48c75e34c11c201dfede",
+      "bytes": 384741,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/06_fleet.pdf",
+      "object_id": "8b26df02cbfdfeed92c6ae6776a8ec39073f9b44",
+      "bytes": 31253,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/06_fleet.png",
+      "object_id": "1725d704d623a21f472668025a68a67176a8d2df",
+      "bytes": 458282,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/07_conditions.pdf",
+      "object_id": "cc79ac59d029ee5539df1be293cf91fdc1a0363a",
+      "bytes": 29517,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/07_conditions.png",
+      "object_id": "95c590398f8ff2379cb03b6225af636ae128384a",
+      "bytes": 258505,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/08_stability.pdf",
+      "object_id": "00eb3f5fc983f07bcff0a22f1294fb211fb5ebc9",
+      "bytes": 34702,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/reports/v28_failures/08_stability.png",
+      "object_id": "2e0b3b00071c66839f68836af6b71f45f781cb76",
+      "bytes": 292286,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260915T225301657023Z/training_loss.pdf",
+      "object_id": "aef545ec83151f613e802a90e65081891e711ab1",
+      "bytes": 44947,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260915T225301657023Z/training_loss.png",
+      "object_id": "67fada0b7e55a732e56e84a80bac4d7ceecc9963",
+      "bytes": 267372,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260916T095948645262Z/training_loss.pdf",
+      "object_id": "af0f105879a2c0842a8c0a82c636abef578656f8",
+      "bytes": 36335,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260916T095948645262Z/training_loss.png",
+      "object_id": "00c6b2dc58e7bbe0699d3b18d350e4b1f669d7d4",
+      "bytes": 264428,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260916T102029635587Z/training_loss.pdf",
+      "object_id": "e62b617b4011c8e636a731ddbe4a7d769b7153d4",
+      "bytes": 36071,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260916T102029635587Z/training_loss.png",
+      "object_id": "0a8d0f5a6792fb569b450bbd6e5105cfac6cd3f1",
+      "bytes": 263438,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260916T104452470012Z/training_loss.pdf",
+      "object_id": "acd32887609c2ba549a5516e13b1e3190d0aeca8",
+      "bytes": 36177,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260916T104452470012Z/training_loss.png",
+      "object_id": "4d55940d0b9d4a367b4629489c6c36ff8943983a",
+      "bytes": 260823,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260916T113256202842Z/training_loss.pdf",
+      "object_id": "77d181760307f8ab784f9481c88333a4555409c5",
+      "bytes": 35871,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "VALIDATION/runs/v3_20260916T113256202842Z/training_loss.png",
+      "object_id": "3d390702912d9b4cebc28f07f5ee1db1fadcffe6",
+      "bytes": 262275,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/01_taxiout_hist.png",
+      "object_id": "c162204757de1d6de3a3a7cc32bffe06468111c7",
+      "bytes": 42146,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/02_taxiout_by_airport.png",
+      "object_id": "a6493c6039ecbfc65f1113b9e4437f44ae3599a3",
+      "bytes": 36214,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/03_taxiout_by_hour.png",
+      "object_id": "17e21e8f2730da28561dd57c23f15da16a9cc7ce",
+      "bytes": 58257,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/04_taxiout_by_month.png",
+      "object_id": "3c05ab980737613cd8c6f1c7a9b7205b80930176",
+      "bytes": 44926,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/05_categorical_mix.png",
+      "object_id": "f64a9245a40dd01116772875b9525d9606cd846b",
+      "bytes": 84850,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/06_taxiout_by_runway.png",
+      "object_id": "654ea9fbfc0034e5bfb8c805d30cfadac817d785",
+      "bytes": 69716,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/07_mix_train_vs_ranking.png",
+      "object_id": "888384e9127275c420da89d45a158804898e0533",
+      "bytes": 70253,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/08_hour_mix_train_vs_ranking.png",
+      "object_id": "fc1e01e959d880170479234913efeb232d19fdb6",
+      "bytes": 63627,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/09_implied_taxi_train_vs_ranking.png",
+      "object_id": "64f8fd538429bfecaf83149e1672db6a79a671fa",
+      "bytes": 82504,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/bottom_1000_taxi_out.pdf",
+      "object_id": "3883f2e8d3ee348c91362851ee5477e692b37e1c",
+      "bytes": 39108,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/bottom_1000_taxi_out.png",
+      "object_id": "98e565809d6a2fe3562bc2fd6b7a20a681948be1",
+      "bytes": 196875,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/top_10000_taxi_out.pdf",
+      "object_id": "74af7e844838062a2b29b7ddd12d932dc7eb9cf9",
+      "bytes": 47570,
+      "reason": "binary_extension"
+    },
+    {
+      "scope": "history_or_index",
+      "path": "eda/figures/top_10000_taxi_out.png",
+      "object_id": "013da728cace20301cab78217efda0245517610f",
+      "bytes": 171250,
+      "reason": "binary_extension"
+    }
+  ]
+}

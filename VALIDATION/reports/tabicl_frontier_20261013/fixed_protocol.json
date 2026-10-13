@@ -1,0 +1,259 @@
+{
+  "status": "prospective_fixed_protocol_before_April_outcome_decode",
+  "utc": "2026-10-13T11:31:26.957186+00:00",
+  "hypothesis": "Synthetic-pretrained tabular in-context regression supplies a distinct prior on the fixed37-feature train-label context.",
+  "package": {
+    "repository": "soda-inria/tabicl",
+    "revision": "c91f00df184a5097e584cb376f7e699e9f3444c4"
+  },
+  "checkpoint": {
+    "source_url": "https://huggingface.co/api/models/jingang/TabICL?blobs=true",
+    "repository": "jingang/TabICL",
+    "revision": "4dcd344ece2c00be9e831fdd35bed57b5ad83e19",
+    "file": {
+      "rfilename": "tabicl-regressor-v2-20260212.ckpt",
+      "blobId": "344d778912a87ff22560770a044c77ff5fd6e5c1",
+      "size": 114324594,
+      "lfs": {
+        "sha256": "0db9cb538f114e79026bf08f45f41ad8dd7ad2de2aaca9a5ca8cd3bd9748ae7a",
+        "size": 114324594,
+        "pointerSize": 134
+      }
+    },
+    "network_scope": "JSON metadata only; no checkpoint download",
+    "metadata_sha256": "96e3a77f8789317fb6ffa1cdfb9c43f9cf7f14ee69a43d6197baa20b7ec83f61"
+  },
+  "inputs": {
+    "inherited_identity": {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+      "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+      "bytes": 7262
+    },
+    "prepared": {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prepared.json",
+      "sha256": "72bdb1f1056e61d2d45b49928353f88c6eb955fca2f9fd382d3c85d94cd8749a",
+      "bytes": 13037
+    },
+    "independent_input_audit": {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_audit.json",
+      "sha256": "d230a1be848cd96a0e90a2ba40c335b60a05e93a1584700bb2d9a090e47a1149",
+      "bytes": 2668
+    },
+    "training_context": "Exactly existing selected/purged4096-per-airport train rows, no resampling; per-airport context only.",
+    "training_months": [
+      "2025-02",
+      "2025-03",
+      "2025-05",
+      "2025-06",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ],
+    "query_month": "2025-04",
+    "query_population": "All175288 existing April input rows, original canonical order; no outcome filtering before prediction.",
+    "features": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "hour",
+      "dow",
+      "month",
+      "mvt_minus_sched_sec",
+      "mvt_minus_lobt_sec",
+      "mvt_minus_iobt_sec",
+      "mvt_minus_eobt1_sec",
+      "mvt_minus_aobt3_sec",
+      "physical_0",
+      "physical_1",
+      "physical_2",
+      "physical_3",
+      "physical_4",
+      "physical_5",
+      "physical_6",
+      "physical_7",
+      "physical_8",
+      "physical_9",
+      "physical_10",
+      "physical_11",
+      "physical_12",
+      "physical_13",
+      "physical_14",
+      "physical_15",
+      "physical_16",
+      "missing_flight_id",
+      "airline"
+    ],
+    "categorical": [
+      "airport",
+      "dest",
+      "aircraft_type",
+      "runway",
+      "stand",
+      "flight_rule",
+      "market_segment",
+      "flight_type",
+      "wake_cat",
+      "operator",
+      "airline"
+    ],
+    "numerical": [
+      "hour",
+      "dow",
+      "month",
+      "mvt_minus_sched_sec",
+      "mvt_minus_lobt_sec",
+      "mvt_minus_iobt_sec",
+      "mvt_minus_eobt1_sec",
+      "mvt_minus_aobt3_sec",
+      "physical_0",
+      "physical_1",
+      "physical_2",
+      "physical_3",
+      "physical_4",
+      "physical_5",
+      "physical_6",
+      "physical_7",
+      "physical_8",
+      "physical_9",
+      "physical_10",
+      "physical_11",
+      "physical_12",
+      "physical_13",
+      "physical_14",
+      "physical_15",
+      "physical_16",
+      "missing_flight_id"
+    ],
+    "files": [
+      "inputs/train_features.parquet",
+      "inputs/query_features.parquet",
+      "inputs/train_y.npy",
+      "inputs/train_meta.npy",
+      "inputs/query_meta.npy"
+    ],
+    "preprocessing": "Raw37 DataFrame; categorical fields explicit object strings with original missing semantics. Native per-airport train-only preprocessing and target StandardScaler. No inherited retrieval encoder/scaler arrays, no query fit, no extra features.",
+    "audit_reuse": "Reuse existing independent input audit/recovery; do not reimplement raw feature or selection audit."
+  },
+  "model": {
+    "n_estimators": 8,
+    "norm_methods": [
+      "none",
+      "power"
+    ],
+    "feat_shuffle_method": "latin",
+    "outlier_threshold": 4.0,
+    "random_state": 42,
+    "batch_size": 1,
+    "kv_cache": "kv",
+    "model_path": "Local exact-hash checkpoint",
+    "allow_auto_download": false,
+    "checkpoint_version": "tabicl-regressor-v2-20260212.ckpt",
+    "device": "cuda:0",
+    "use_amp": false,
+    "use_fa3": false,
+    "offload_mode": "cpu",
+    "disk_offload_dir": null,
+    "n_jobs": 1,
+    "verbose": false,
+    "external_query_chunk_rows": 256,
+    "airport_order": "lexicographic",
+    "torch_tf32": false,
+    "sdpa_backends": [
+      "math"
+    ],
+    "embed_with_test": false,
+    "prediction": "native mean; fixed R=max(0,np.rint(mean)) for loss comparison",
+    "target_clipping": null,
+    "tail_caveat": "Native mean averages999 interior predicted quantiles; it is not analytical exponential-tail integration. No tail correction, quantile choice or output calibration."
+  },
+  "preflight": {
+    "status": "not_executed_and_no_environment_created",
+    "scope": "No April labels; first32 input-hash queries of largest context airport (ties lexicographic), plus first256 for capacity. Compare cached/uncached, repeated, single/chunked/permuted mean and native999 quantiles under same fitted preprocessing; poison/drop target fields must not enter actual37 projection.",
+    "fixed_numerical_tolerance": {
+      "seconds_RMS": 0.01,
+      "seconds_max_abs": 0.1,
+      "standardized_quantile_atol": 5e-05,
+      "standardized_quantile_rtol": 5e-06
+    },
+    "resource_caps": {
+      "GPU_allocated_MiB": 9216,
+      "process_RSS_MiB": 8192,
+      "preflight_seconds": 600,
+      "full_prediction_seconds": 1800
+    },
+    "failure_policy": "Close as resource/numerical infeasible under this fixed configuration; no alternative cache/precision/ensemble/context/encoder/target policy selected after failure. No prediction-quality selection.",
+    "unresolved": "Actual dependency compatibility, checkpoint config and host capacity are not yet validated; no claim of runtime or cache equivalence."
+  },
+  "evaluation": {
+    "controls": [
+      "labels_off",
+      "labels_on"
+    ],
+    "reuse": "Both fixed retrieval arms if their completed predictions and independent audits pass; no new fits. If either unavailable, comparison is incomplete and cannot advance.",
+    "truth_firewall": "All TabICL April predictions and inference/input bindings saved and independently checked before TabICL scoring. Designer has read no April outcomes.",
+    "primary": "Same serialized all-finite-target April RMSE and same population as existing retrieval scoring.",
+    "gate": "At least1.0second RMSE improvement versus EACH fixed retrieval control AND paired UTC-day95% bootstrap upper<0 against EACH; no airport/month subsetting.",
+    "bootstrap": {
+      "replicates": 2000,
+      "generator": "PCG64",
+      "seed": 20261013,
+      "unit": "entire April UTC day"
+    },
+    "secondary": "Airport losses/negative-native counts/extreme-target errors are descriptive only; no retuning.",
+    "interpretation": "This is mechanism evidence against two fixed practical controls, not an isolated matched architecture effect or selected-v80 gain.",
+    "successor": "Only after pass may root freeze a genuine Jan/Jul model/current-parent comparison with all leakage controls and complete final capability. No candidate from April alone.",
+    "final_submission": "Already accepted final remains immutable."
+  },
+  "environment": {
+    "mutation_of_existing_venv": false,
+    "plan": "Separate environment with exact current numerical-runtime pins, direct missing dependency pins from metadata plan; root-authorized dry-run must resolve and hash-lock ALL transitive wheels before install. Build exact package commit into recorded wheel; disable auto model downloads.",
+    "checkpoint_download": false,
+    "installation": false
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/assessment.json",
+      "sha256": "fc1db39f422f6693d47d9f055377c8ffd2b761d66ad8155990386ed4fda7aff5",
+      "bytes": 2281
+    },
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/independent_feasibility_review.json",
+      "sha256": "eef25774830c99187a0ac50ef87e1a6115778c2e03023dc6aefbad5bba33ce54",
+      "bytes": 7194
+    },
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/source_inventory.json",
+      "sha256": "27fa26ec5f41869dcccb44359f17186a34404af344967c749a9f49deabadbc7c",
+      "bytes": 2324
+    },
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/independent_source_inventory.json",
+      "sha256": "24815d1afd3bd757f5bb1e7b08b2ef76b266213928e50ea57f9564e8b707f606",
+      "bytes": 2271
+    },
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/checkpoint_metadata.json",
+      "sha256": "52c672e73996b0fe05d586701299a310692a408dd28bbda5808a9350da8dceb8",
+      "bytes": 633
+    },
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/environment_metadata.json",
+      "sha256": "ca89142d57ad2d9fa20ee2fe0c1bbbace25cf7ccca6db34b09e0f72fc61f0f14",
+      "bytes": 538
+    },
+    {
+      "path": "VALIDATION/reports/tabicl_frontier_20261013/dependency_metadata_plan.json",
+      "sha256": "6042622ce132890ad6eb774eb86df584a9e0717db640863e1c1c7d02639e3682",
+      "bytes": 37172
+    }
+  ]
+}

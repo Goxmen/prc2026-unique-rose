@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/arrival_boundary_transfer_pilot_20261013.py",
+    "sha256": "ab1a0de232e157b8377f8d503ac11ba4881cda0c4e5546f0e3a1755e95a77633"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_arrival_boundary_transfer_20261013.py",
+    "sha256": "e503f0893f96e5829ab374f0b80b54b60011b3bade1ef2485c5e36a86305e37c"
+  },
+  "design": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_design.json",
+    "sha256": "e2e79e4b427960ca14ab408f3ce098862a77586f8be77abe8528d3cb87067588"
+  },
+  "producer_review": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_producer_source_review.json",
+    "sha256": "c549a0f53dcb0cfc48bc73f3cb787bb344eeeac23bb5b3055baa16df5a252597"
+  },
+  "auditor_review": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_auditor_source_review.json",
+    "sha256": "7f1334b4e205d5d14e677dd11e1eb58e3588e372b012300c4c729765412db71c"
+  },
+  "design_review": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_independent_design_review.json",
+    "sha256": "d995f056373d9addff0c82e6a6dfc2bae548a1f602e626a09d64e172ca2680a4"
+  },
+  "producer_fixture": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/synthetic_preflight.json",
+    "sha256": "af7302f26559c28d10c5afb50b8aeca24a9347ce79a77b16638b9b2802ed261a"
+  },
+  "independent_fixture": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/independent_auditor_fixture.json",
+    "sha256": "6be8753adc0f2406f2d9956409a6c04a852ebc8d9ca1f6079e7e160f049a74e6"
+  },
+  "independent_fixture_source": {
+    "path": "VALIDATION/tools/check_arrival_boundary_auditor_20261013.py",
+    "sha256": "3e3d6633e14ae53ae7c411f942e61ae7fd0c410757280807a00e67ccca664a03"
+  },
+  "storage": {
+    "path": "VALIDATION/reports/privileged_learning_frontier_20261013/storage_contract.json",
+    "sha256": "5a1b117fc9b15de813c91e4b529b3642a4fa6820d8d9c0597be9249f9f00b6b3"
+  },
+  "scope": "Source and synthetic only; no actual arrays, labels or models decoded. Freeze and numerical stages remain root-owned and require allocation.",
+  "reviewers": [
+    "/root/final_recovery",
+    "/root/cohort_learning",
+    "/root/new_signal_audit"
+  ]
+}
