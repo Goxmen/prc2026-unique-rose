@@ -1,0 +1,41 @@
+{
+  "status": "armed_waiting_for_deadline",
+  "not_before_utc": "2026-10-14T10:00:00Z",
+  "display_time": "14 October 2026 12:00 Europe/Amsterdam",
+  "timer_status": "NextElapseUSecRealtime=Wed 2026-10-14 12:00:00 CEST\nLastTriggerUSec=\nActiveState=active\nSubState=waiting",
+  "user_linger_enabled": true,
+  "installed_units": [
+    {
+      "unit": "prc-publish-final-20261014.service",
+      "sha256": "a5f997906d7e978fb53ab110529c60433482e8c41b34d7114017f6612819e32c"
+    },
+    {
+      "unit": "prc-publish-final-20261014.timer",
+      "sha256": "ece0f53c8a7c2e684931b6b4d49ea6d7882e821d87b79a9def65df94b51fa9aa"
+    }
+  ],
+  "preflight": {
+    "status": "read_only_preflight_passed",
+    "checked_at_utc": "2026-10-13T19:49:34.322280+00:00",
+    "reviewed_main": "2ba488839f0f62226f67d4990808318707618f51",
+    "repository_private": true,
+    "release_draft": true,
+    "release_url": "https://github.com/Goxmen/PRC/releases/tag/untagged-3ab6808549be85d4af23",
+    "audit_findings": 0,
+    "audit_coverage": {
+      "tracked_paths": 4380,
+      "history_or_index_blobs": 5162,
+      "history_or_index_blob_bytes": 138070088,
+      "historical_pathnames_checked": 4401,
+      "tracked_worktree_bytes": 95690834,
+      "worktree_files_scanned": 4301,
+      "history_blobs_scanned": 5083,
+      "history_bytes_scanned": 125511647
+    },
+    "assets_verified": 2
+  },
+  "publication_receipt": "release/artifacts/publication.json",
+  "cancel_command": "systemctl --user disable --now prc-publish-final-20261014.timer; systemctl --user stop prc-publish-final-20261014.service",
+  "host_requirement": "Desktop Windows and Ubuntu WSL must remain online.",
+  "no_competition_submission": true
+}
