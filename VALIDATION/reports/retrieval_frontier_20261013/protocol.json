@@ -1,0 +1,209 @@
+{
+  "status": "fixed source-only protocol; no preparation, arrays, synthetic execution or fits yet",
+  "owner": "/root/cohort_learning",
+  "historical_assessment": {
+    "path": "VALIDATION/reports/retrieval_frontier_20261013/assessment.json",
+    "sha256": "00d0a168bef6a0e2a55691c1f60d6208598cf6f47d30f438edc0865c13360de7",
+    "bytes": 9979
+  },
+  "prospective_clarifications": [
+    "April may have been examined historically. It is completely excluded from this new pilot fit, preprocessing, reference bank and metric fitting; this is neither untouched data nor independent confirmation.",
+    "Training selection is exclusively input-driven. All selected training targets must be finite; otherwise fail, never resample. Query target finiteness is considered only by score().",
+    "The same UTC-day donor exclusion applies to both training and April queries.",
+    "Additional conservative known-FLIGHT_ID alias purge/exclusion was added before any numerical evaluation; the original assessment remains unchanged as history."
+  ],
+  "hypothesis": "Jointly learned conditional retrieval of permitted training labels adds predictive information to an otherwise identical input-only retrieval model.",
+  "novelty_limit": "Plain gain-weighted label KNN was actually tested and failed. This learned key/attention/label-value mechanism is untested in the searched source. This pilot does not compare to or claim information absent from current v80.",
+  "train_months": [
+    "2025-02",
+    "2025-03",
+    "2025-05",
+    "2025-06",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+  ],
+  "query_month": "2025-04",
+  "population": "All departure rows represented in the audited all-input 2025 physical bank. April query includes every input-eligible departure, all airports, unknown/VFR retained; finite target filter occurs only at scoring.",
+  "selection": {
+    "train": "Per airport at most4096 rows, ascending SHA256(UTF8 retrieval42:MVT_ID), movement ID as hash tie-break. All selected rows then sorted by MVT_ID.",
+    "purge": "Purge initially selected train rows aliased to any April input by any rule below, before feature preprocessing or bank choice. No resampling. Save initial and final row indices and each exclusion reason.",
+    "bank": "Per airport at most512 rows from final selected train, ascending independent SHA256(UTF8 bank42:MVT_ID), movement ID tie-break. Final combined bank globally sorted by MVT_ID.",
+    "label_use": "No labels used for IDs, rare-type sampling, alias purge, donor bank, or metric shortlist. All selected train raw targets must be finite or the fixed screen is unexecutable.",
+    "coverage": "Save train/query airport, aircraft_type, flight_rule, market_segment and flight_type counts without label-based strata; full query eligible coverage, per-row admissible donor counts, min>=16 for train/query mandatory."
+  },
+  "aliases": {
+    "MVT_ID": "Same movement ID always excluded.",
+    "FLIGHT_ID": "Same nonmissing/nonblank FLIGHT_ID_mvt string after whitespace stripping always excluded, regardless day. Input-only alias code0 denotes missing and never becomes a model feature.",
+    "HEX": "Same known numeric aircraft HEX and absolute takeoff separation <=120000ms. Unknown HEX=-1 does not alias.",
+    "signature": "Same airport plus exact takeoff epochms, finite AOBT epochms, known stand and runway codes. Codes from original label-free bank vocabulary retain raw identity; not model category0.",
+    "query_training_purge": "All four rules above remove selected train rows aliased to any April input before fit/preprocessing/bank. HEX purge is conservatively global, not restricted to airport.",
+    "donor_mask": "Same airport required; same UTC takeoff day forbidden; exclude own/FLIGHT_ID/HEX120s/signature aliases. At least16 admissible required for every train/query row, otherwise fail with no K change."
+  },
+  "features": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "physical_0",
+    "physical_1",
+    "physical_2",
+    "physical_3",
+    "physical_4",
+    "physical_5",
+    "physical_6",
+    "physical_7",
+    "physical_8",
+    "physical_9",
+    "physical_10",
+    "physical_11",
+    "physical_12",
+    "physical_13",
+    "physical_14",
+    "physical_15",
+    "physical_16",
+    "missing_flight_id",
+    "airline"
+  ],
+  "categorical": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "airline"
+  ],
+  "numerical": [
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "physical_0",
+    "physical_1",
+    "physical_2",
+    "physical_3",
+    "physical_4",
+    "physical_5",
+    "physical_6",
+    "physical_7",
+    "physical_8",
+    "physical_9",
+    "physical_10",
+    "physical_11",
+    "physical_12",
+    "physical_13",
+    "physical_14",
+    "physical_15",
+    "physical_16",
+    "missing_flight_id"
+  ],
+  "physical": "First15 exact cached input-only scalars: first4 arcsinh(sec/3600), stand x/y clip(meters/2000,-10,10), other masks/counts unchanged. Append arcsinh(schedule gap/7200) clip[-10,10], absent gap0 and explicit finite flag. FLIGHT_ID missingness plus first3 FLIGHT_mvt chars are existing37-feature semantics.",
+  "preprocessing": "Only selected, alias-purged train rows fit category vocab sorted strings (unknown0) and numerical median/IQR (all-missing median0, zero/undefined IQR1). Numerical values imputed train median, scaled and clipped[-10,10]; append26 missing flags. Alias vocabulary may observe target inputs but is used only to exclude identities. Raw training target mean/std(ddof0), no clipping/cap; zero std or nonfinite values fail.",
+  "architecture": {
+    "category_dim": 8,
+    "hidden": 128,
+    "key_dim": 64,
+    "context": 16,
+    "encoder_dropout": 0.0,
+    "predictor_dropout": 0.1,
+    "label_encoder_zero_init": true,
+    "epochs": 10,
+    "batch": 256,
+    "seed": 42,
+    "lr": 0.001,
+    "weight_decay": 0.0003,
+    "arms": [
+      "labels_off",
+      "labels_on"
+    ],
+    "train_per_airport": 4096,
+    "bank_per_airport": 512
+  },
+  "mechanism": "11 category embeddings8 plus52 numeric/missing inputs ->128 ReLU ->128 ReLU. Keys linear128->64. Exact computational L2 shortlist16 from train bank (no ANN), stable tie by donor MVT_ID. Selected contexts recomputed with gradients. Attention softmax negative squared key difference. Value = zero-initialized linear(normalized donor target->128) +64->128 ReLU->128 key-difference MLP. Add to query128 ->128 ReLU dropout.1 ->1. No encoder dropout.",
+  "arms": [
+    "labels_off",
+    "labels_on"
+  ],
+  "controls": "Same parameter structure/initial weights, train targets and examples, PCG64(seed42) row permutation per epoch, torchseed42/dropout streams, AdamW update count, optimizer and ten epochs. labels_off replaces every donor value with0; it is not a shuffle proxy. Labels_on uses permitted normalized raw train targets. Per-arm terminal CPU/CUDA/NumPy RNG and optimizer states saved and matching RNG asserted.",
+  "execution": "Two serial fits on one host. Freeze -> root-allocated prepare -> root-allocated preflight -> independent prefit audit -> root-allocated fit -> independent prescore audit -> root-allocated score -> independent result audit. Every operation has exclusive durable attempt marker; no automatic retry. Save final model before reload/inference; save all full-April predictions for both arms before any April target decode.",
+  "synthetic_and_preflight": "Pure synthetic target-poison/removal check at actual input projection boundary, modelAPI has no query target argument, initial labelsON/OFF exact parity, nonzero label gradient, active label effect, OFF donor poison invariance, own excluded target poison invariance, canonical bank permutation including ties, alias boundaries. Actual train/query masks min>=16, GPU fullbatch finite backward and peakmemory. Exact all-row prediction reload. Runtime versions/device recorded and must match fit.",
+  "score": "Raw finite April TAXITIME_SEC_mvt, prediction seconds from normalized output, serialized exactly rint(max(value,0)) once. Primary labels_on minus labels_off RMSE; negative delta AND upper95% paired UTC-takeoff-day bootstrap interval<0. Bootstrap2000 draws PCG64(seed20261013), sample observed days with replacement using day SSE and counts. Report raw row count/finite excluded count, RMSE/effect/interval, descriptive airports only; no subgroup selection.",
+  "failure": "Failure closes only this fixed37-feature <=40960train/<=5120donor/K16/tenepoch screen. It neither rules out full TabR/ICL nor permits tweaks, new seeds/epochs or production within this protocol. Positive result justifies a separately reviewed stronger-family Jan/Jul experiment.",
+  "cost": "Unbenchmarked estimate10-30minutes oneGPU plus projected input prep. Existing torch only, no new installs/weights/downloads. Params/compact arrays small; active selected-context tensor4096x128 and distance256x5120 perbatch; <=8GB GPU expected, actual preflight mandatory.",
+  "firewall": "Raw input columns projected explicitly, excluding TAXITIME and BLOCK_TIME. No Jan/Jul file pinned/opened. Training target reads restricted to fixed selected trainIDs in9 allowed months. Sole April target decode is score() after both immutable inference receipts and independent prescore audit. No teacher/current-model embeddings.",
+  "source_metadata": [
+    {
+      "path": "VALIDATION/flight_cohort_context.py",
+      "sha256": "28255a6101f113e5462bc4aa916260d5bc67e2a0f51c28b32c4acf1a7a307e1e",
+      "bytes": 14151
+    },
+    {
+      "path": "data/derived/flight_cohort_context_20261012/train/manifest.json",
+      "sha256": "32316dc19f86857149109ad41d0048c91670117f387314ea32c53f93db63999b",
+      "bytes": 30629
+    },
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4",
+      "bytes": 3210
+    },
+    {
+      "path": "VALIDATION/daily_cohort_bank.py",
+      "sha256": "41fa243dfff8855797159d622feb2ac5ef85894ff8cdb8e7d5d69402c4239b1a",
+      "bytes": 9292
+    },
+    {
+      "path": "VALIDATION/posterior_aware_crossfit.py",
+      "sha256": "29ef9fed78aa6ac169a8dd38c60aeb59b807707fce8527749ecf2ed152f5ea87",
+      "bytes": 28835
+    }
+  ],
+  "receipt_interface": {
+    "OUT": "VALIDATION/runs/v3_20261013_train_label_retrieval",
+    "prefit_audit": [
+      "status=pass",
+      "identity=artifact",
+      "prepared=artifact",
+      "preflight=artifact"
+    ],
+    "prescore_audit": [
+      "status=pass",
+      "identity=artifact",
+      "fit=artifact"
+    ],
+    "prepared": "artifacts list covers selected rows, raw inputs, features, transformed arrays, target/scalers; no_query_labels_loaded true",
+    "fit": "dependencies=both arm inference receipts; per-arm training binds model and prepared/preflight/prefit_audit; inference binds training+prediction",
+    "prediction_columns": [
+      "mvt_id",
+      "prediction",
+      "serialized"
+    ],
+    "result": "RMSE{labels_off,labels_on},delta,CI95,gate,rows,scored_rows,nonfinite_target_rows,artifacts scored.parquet/bootstrap.npy"
+  },
+  "production": "No production route, final modification, candidate file or upload. This is research on new fit-excluded training-period input/target information."
+}

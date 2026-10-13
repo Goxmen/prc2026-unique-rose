@@ -1,0 +1,99 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/allocation.json",
+    "sha256": "b7156f3a70845c7ac8d400d7ffceac3224eb82591b1b3803eb2a6dfb2c0ad831",
+    "bytes": 778
+  },
+  "dependencies": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prepared.json",
+      "sha256": "72bdb1f1056e61d2d45b49928353f88c6eb955fca2f9fd382d3c85d94cd8749a",
+      "bytes": 13037
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/train_admissible_counts.npy",
+      "sha256": "94fdea40721aa59cb1f0e83757ed27e09483f247d13879c232dc68727b9e0fba",
+      "bytes": 327808
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/query_admissible_counts.npy",
+      "sha256": "f55b09bc1c7e4f4b5fcb1e1e91f4f79f37c691d403dc3430dc52a95c353756b6",
+      "bytes": 1402432
+    }
+  ],
+  "checks": {
+    "cpu": {
+      "device": "cpu",
+      "init_exact": true,
+      "label_gradient_nonzero": true,
+      "active_dictionary_labels_matter": true,
+      "labels_off_poison_invariant": true,
+      "excluded_own_target_invariant": true,
+      "canonical_bank_permutation_exact": true,
+      "alias_midnight_boundary_exact": true,
+      "query_label_argument_absent": true
+    },
+    "loader": {
+      "query_target_poison_and_removal_exact": true,
+      "projected_columns": [
+        "MVT_ID_mvt",
+        "PHASE_mvt",
+        "FLIGHT_ID_mvt",
+        "FLIGHT_mvt",
+        "ADEP_mvt",
+        "ADES_mvt",
+        "AIRCRAFT_TYPE_mvt",
+        "RUNWAY_mvt",
+        "STAND_mvt",
+        "FLIGHT_RULE_mvt",
+        "MARKET_SEGMENT_flt",
+        "FLIGHT_TYPE_flt",
+        "WK_TBL_CAT_flt",
+        "AIRCRAFT_OPERATOR_flt",
+        "MVT_TIME_UTC_mvt",
+        "SCHED_TIME_UTC_mvt",
+        "LOBT_flt",
+        "IOBT_flt",
+        "EOBT_1_flt",
+        "AOBT_3_flt"
+      ],
+      "calls": 3
+    },
+    "device": {
+      "device": "cuda",
+      "init_exact": true,
+      "label_gradient_nonzero": true,
+      "active_dictionary_labels_matter": true,
+      "labels_off_poison_invariant": true,
+      "excluded_own_target_invariant": true,
+      "canonical_bank_permutation_exact": true,
+      "alias_midnight_boundary_exact": true,
+      "query_label_argument_absent": true
+    }
+  },
+  "minimum_admissible": {
+    "train": 505,
+    "query": 512
+  },
+  "device": "cuda",
+  "capacity_loss_finite": true,
+  "no_optimizer_fit": true,
+  "no_query_labels_loaded": true,
+  "runtime": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "device": "cuda",
+    "cuda": "13.0",
+    "GPU": "NVIDIA GeForce RTX 3080"
+  },
+  "peak_device_bytes": 152601600
+}

@@ -1,0 +1,123 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/allocation.json",
+    "sha256": "b7156f3a70845c7ac8d400d7ffceac3224eb82591b1b3803eb2a6dfb2c0ad831",
+    "bytes": 778
+  },
+  "dependencies": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/fit.json",
+      "sha256": "db56f4841ef3feff620306aee6aa14445b2e4a4e554c071d87351c5a4f83788c",
+      "bytes": 951
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prescore_audit.json",
+      "sha256": "42560e66a30bf0170a650624e61d7ec54278253cb2bea6b6fd47ab0a457d2138",
+      "bytes": 3154
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/scored.parquet",
+      "sha256": "c4a8a10b70dd711f8ac1e75f4f7baa57d9a6d2777084277da3a3defee6cccd17",
+      "bytes": 1798668
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/bootstrap.npy",
+      "sha256": "bc504f4ae8dab47eebe2ab3fb737cdccb1bfae174f7b750173eeaa7f36e45655",
+      "bytes": 16128
+    }
+  ],
+  "rows": 175288,
+  "scored_rows": 175288,
+  "nonfinite_target_rows": 0,
+  "RMSE": {
+    "labels_off": 290.20356526827567,
+    "labels_on": 382.1035962549421
+  },
+  "delta": 91.90003098666642,
+  "CI95": [
+    20.997945393842155,
+    160.03781961557095
+  ],
+  "gate": false,
+  "airports": {
+    "EDDF": {
+      "rows": 19583,
+      "RMSE": [
+        203.5348784976455,
+        207.89841696005837
+      ]
+    },
+    "EDDM": {
+      "rows": 14326,
+      "RMSE": [
+        171.78223091954436,
+        257.4767233908564
+      ]
+    },
+    "EGLL": {
+      "rows": 20229,
+      "RMSE": [
+        250.02859018882177,
+        255.58615332934457
+      ]
+    },
+    "EHAM": {
+      "rows": 20935,
+      "RMSE": [
+        181.16363981157446,
+        214.36991024608767
+      ]
+    },
+    "LEBL": {
+      "rows": 15374,
+      "RMSE": [
+        222.0355613194391,
+        225.26432589604545
+      ]
+    },
+    "LEMD": {
+      "rows": 17348,
+      "RMSE": [
+        219.9851383403334,
+        226.63625962763157
+      ]
+    },
+    "LFPG": {
+      "rows": 20002,
+      "RMSE": [
+        245.56015631808614,
+        260.5312391006984
+      ]
+    },
+    "LIRF": {
+      "rows": 14028,
+      "RMSE": [
+        676.769851885316,
+        982.0621131855908
+      ]
+    },
+    "LSZH": {
+      "rows": 11162,
+      "RMSE": [
+        183.79156012698593,
+        204.7309880287708
+      ]
+    },
+    "LTFM": {
+      "rows": 22301,
+      "RMSE": [
+        297.29309433274767,
+        448.55459085448877
+      ]
+    }
+  },
+  "scope": "April fresh-fit-excluded mechanism screen; no v80 or official score claim",
+  "failure_scope": "Only this fixed37-feature 4096-per-airport/512-donor learned retrieval test"
+}

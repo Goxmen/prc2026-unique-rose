@@ -1,0 +1,93 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "arm": "labels_off",
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/allocation.json",
+    "sha256": "b7156f3a70845c7ac8d400d7ffceac3224eb82591b1b3803eb2a6dfb2c0ad831",
+    "bytes": 778
+  },
+  "initial_state_sha256": "9a44fe7a5206be72ec0f949ada75e4b1d45c9c1511b78079135da5a1474bc4dc",
+  "permutation_sha256": "b5c6dcdbe06cda633b14cbdbd31c1b6c613934f7bcf42b8444d885999557ac2e",
+  "updates": 1600,
+  "terminal_rng_sha256": "996c4f1f8b88c6c15ba12b60c009a2d5d435095fd3f41ea59955bbb68098bbfd",
+  "runtime": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "device": "cuda",
+    "cuda": "13.0",
+    "GPU": "NVIDIA GeForce RTX 3080"
+  },
+  "curve": [
+    {
+      "epoch": 1,
+      "normalized_train_MSE": 0.7861335369758308
+    },
+    {
+      "epoch": 2,
+      "normalized_train_MSE": 0.6566453516017645
+    },
+    {
+      "epoch": 3,
+      "normalized_train_MSE": 0.6024797529913485
+    },
+    {
+      "epoch": 4,
+      "normalized_train_MSE": 0.5958701792638749
+    },
+    {
+      "epoch": 5,
+      "normalized_train_MSE": 0.44882668191567066
+    },
+    {
+      "epoch": 6,
+      "normalized_train_MSE": 0.3131717049051076
+    },
+    {
+      "epoch": 7,
+      "normalized_train_MSE": 0.3504700127989054
+    },
+    {
+      "epoch": 8,
+      "normalized_train_MSE": 0.8639292872510851
+    },
+    {
+      "epoch": 9,
+      "normalized_train_MSE": 0.3395247261505574
+    },
+    {
+      "epoch": 10,
+      "normalized_train_MSE": 0.23308286713436246
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_off/model.pt",
+      "sha256": "29f32890d957b101011d783937e0158c3f48facfe475644f65ba2bc4373f1923",
+      "bytes": 1485883
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prepared.json",
+      "sha256": "72bdb1f1056e61d2d45b49928353f88c6eb955fca2f9fd382d3c85d94cd8749a",
+      "bytes": 13037
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/preflight.json",
+      "sha256": "64440fe5a1d2fc21622ced9040b920a845b11191a57bae42bd2416e9a2c5e6fb",
+      "bytes": 2883
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_audit.json",
+      "sha256": "d230a1be848cd96a0e90a2ba40c335b60a05e93a1584700bb2d9a090e47a1149",
+      "bytes": 2668
+    }
+  ],
+  "no_query_labels_loaded": true
+}

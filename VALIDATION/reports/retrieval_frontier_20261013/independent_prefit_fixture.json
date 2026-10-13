@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_retrieval_prefit_audit_20261013.py",
+    "sha256": "b4dc3f1865088b49e48918c126cc19eaa014fe532148dff0ecb7d409620b3b6d",
+    "bytes": 4290
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_retrieval_frontier_prefit_20261013.py",
+    "sha256": "319cbc8e739b4bd85bf2f0e7a21b0e35882e42e4f1a9bb003a6cecce4de4e0a0",
+    "bytes": 23486
+  },
+  "producer": {
+    "path": "VALIDATION/retrieval_frontier_20261013.py",
+    "sha256": "904b496859e32689ae82cc84f77601a40a60597778c722dd56a61709adb04a41",
+    "bytes": 27044
+  },
+  "model": {
+    "path": "VALIDATION/retrieval_label_model.py",
+    "sha256": "66e0147fa1b3219030cf2c0f68a0a84ca442da0586c880133ed16b00d33b1332",
+    "bytes": 7422
+  },
+  "checks": [
+    "37 fabricated features exact",
+    "microsecond/millisecond timestamp parity",
+    "independent keyed alias purge",
+    "independent per-airport donor counts",
+    "fixed hash selection and canonical ordering",
+    "checkpoint optimizer topology"
+  ],
+  "real_input_arrays_loaded": false,
+  "real_model_fits": false
+}

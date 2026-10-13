@@ -1,0 +1,46 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_retrieval_frontier_result_20261013.py",
+    "sha256": "fcd7814e1cfb0b79c58f744eaa284814c71a419cb7ebe71b4a6c3bbdd8c34f44",
+    "bytes": 8721
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/result.json",
+    "sha256": "540e4c7562d3d5051384013fb058af9c8d7d53e19d830341a90efdd81fb26fdc",
+    "bytes": 2929
+  },
+  "prescore": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prescore_audit.json",
+    "sha256": "42560e66a30bf0170a650624e61d7ec54278253cb2bea6b6fd47ab0a457d2138",
+    "bytes": 3154
+  },
+  "rows": 175288,
+  "scored_rows": 175288,
+  "utc_days": 30,
+  "SQL_RMSE": {
+    "labels_off": 290.20356526827567,
+    "labels_on": 382.1035962549421
+  },
+  "delta": 91.90003098666642,
+  "CI95": [
+    20.997945393842155,
+    160.03781961557095
+  ],
+  "gate": false,
+  "checks": [
+    "source and receipt hashes",
+    "raw April labels and UTC dates",
+    "all query IDs and target exclusions",
+    "both saved rounded predictions",
+    "independent SQL RMSE and airport diagnostics",
+    "independent paired UTC-day weighted bootstrap",
+    "fixed decision gate"
+  ],
+  "scope": "Fixed small retrieval mechanism pilot; not v80 or official validation"
+}

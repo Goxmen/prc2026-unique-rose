@@ -1,0 +1,298 @@
+{
+  "status": "complete_bounded_source_review",
+  "completed_utc": "2026-10-13T10:47:51.843248+00:00",
+  "scope": "Fresh public primary-source search only; historical per-flight offblock/startup/targetoffblock or source-recording metadata for10airports Jan/Jul2025 and2026.",
+  "airports": [
+    "EDDF",
+    "EDDM",
+    "EGLL",
+    "EHAM",
+    "LEBL",
+    "LEMD",
+    "LFPG",
+    "LIRF",
+    "LSZH",
+    "LTFM"
+  ],
+  "conclusion": "No new openly accessible historical per-flight ground timestamp source with required2025+2026 coverage was established. This is evidence-bound to reviewed providers/endpoints, not a global exhaustion claim.",
+  "new_actionable_signal": null,
+  "known_downloadable_but_duplicate": "OPDI parking-exit/ground-event Parquets; exact existing feature overlap.",
+  "new_documentary_caveat": "ADRR Oct2026 metadata explicitly permits inferred AOBT=takeoff−airport-standard-taxi. No challenge row flag or2026 file exists in reviewed public evidence; do not infer independent ground truth.",
+  "sources": [
+    {
+      "id": "adrr",
+      "airports": "European network; individual challenge coverage not sampled",
+      "url": "https://www.eurocontrol.int/dashboard/aviation-data-research",
+      "access": "Public description; full data requires OneSky registration and vetted ADRR subscription",
+      "coverage_evidence": "October2026 announcement expands to all12months of2015–2025 with one-year delay. No2026 release coverage established.",
+      "decision": "Exclude: no open2026 per-flight route and approval required.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "adrr_metadata",
+      "airports": "European network",
+      "url": "https://www.eurocontrol.int/sites/default/files/2026-10/eurocontrol-aviation-data-repository-research-metadata.pdf",
+      "access": "Public7-page metadata; published1Oct2026",
+      "coverage_evidence": "Actual off-block may come from NM updates or be calculated as known takeoff minus an airport standard taxi value. Monthly inclusion uses planned departure time.",
+      "decision": "Include as source-recording documentation only. It does not establish that challenge BLOCK uses this fallback, nor identify affected challenge rows.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "opdi_downloads",
+      "airports": "Network; actual per-airport event completeness not sampled in this search",
+      "url": "https://www.opdi.aero/flight-event-data",
+      "access": "Public explicit Parquet links and automated URL format",
+      "coverage_evidence": "Flight-events v0.0.2 published coverage1Jan2022–31Jul2026,10-day files with exclusive end.",
+      "decision": "Actual downloadable historical coverage exists; event information already used locally, not a new signal.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "opdi_methodology",
+      "airports": "Network",
+      "url": "https://www.opdi.aero/methodology",
+      "access": "Public method and code links",
+      "coverage_evidence": "v0.0.2 includes entry/exit parking, taxiway and runway events derived from OSN trajectories and OSM/H3.",
+      "decision": "Exact local overlap: VALIDATION/opdi.py already consumes parking-exit clocks, including own-stand and first-stand seconds; no download or new pilot.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "opdi_roadmap",
+      "airports": "Network",
+      "url": "https://www.opdi.aero/roadmap",
+      "access": "Public roadmap",
+      "coverage_evidence": "Off-block and in-block still listed as upcoming event additions. Conceptual gate-to-gate diagrams are not release evidence.",
+      "decision": "No distinct newly released actual off-block field established.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "frankfurt_csa",
+      "airports": [
+        "EDDF"
+      ],
+      "url": "https://cdm.frankfurt-airport.com/content/fraport-company-cdm/en/local-a-cdm-procedure/csa-tool.html",
+      "access": "Partner tool; application and agreement documents",
+      "coverage_evidence": "AO/GH can manage TOBT for their flights; no anonymous2025/2026 historical records shown.",
+      "decision": "Exclude partner portal.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "frankfurt_app",
+      "airports": [
+        "EDDF"
+      ],
+      "url": "https://cdm.frankfurt-airport.com/content/fraport-company-cdm/en/local-a-cdm-procedure/a-cdm-app.html",
+      "access": "Free operational app explicitly for A-CDM partners, not private individuals",
+      "coverage_evidence": "Current TOBT/TSAT/EOBT/CTOT/stand/runway notifications; no historical export documented.",
+      "decision": "Exclude; free app is not unrestricted historical data.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "munich",
+      "airports": [
+        "EDDM"
+      ],
+      "url": "https://www.munich-airport.com/airport-cdm/en/faq",
+      "access": "Public process FAQ; postoperation enquiries directed to local representatives",
+      "coverage_evidence": "Documents clock/update rules and operational procedures, not a historical per-flight download.",
+      "decision": "Metadata only; no new usable coverage established; no contact made.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "heathrow",
+      "airports": [
+        "EGLL"
+      ],
+      "url": "https://developer.heathrow.com/api-flights",
+      "access": "Public API description; documentation link leads to APIs list without exposed technical entries in fetched page",
+      "coverage_evidence": "Scheduled-flight information enriched with real-time status/gate/terminal updates. No Jan/Jul2025 or2026 off-block archive documented.",
+      "decision": "Exclude from current candidate set; lack of evidence does not prove no private historical service exists.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "schiphol",
+      "airports": [
+        "EHAM"
+      ],
+      "url": "https://developer.schiphol.nl/apis/flight-api/overview?version=latest",
+      "access": "Actual open redirected to https://developer.schiphol.nl/login",
+      "coverage_evidence": "Search-index release notes mention app_id/app_key and a max3-day query interval. That interval is NOT evidence of historical retention length.",
+      "decision": "No openly accessible historical off-block coverage verified; no signup/key request.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "aena_status",
+      "airports": [
+        "LEBL",
+        "LEMD"
+      ],
+      "url": "https://www.aena.es/es/infovuelos.html",
+      "access": "Public flight status",
+      "coverage_evidence": "Official page limits displayed scheduled flights to2hours before through14days after the query. All displayed times local.",
+      "decision": "Exclude: insufficient historical reach for required months.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "enaire_lebl",
+      "airports": [
+        "LEBL"
+      ],
+      "url": "https://aip.enaire.es/AIP/contenido_AIP/AD/AD2/LEBL/LE_AD_2_LEBL_es.html",
+      "access": "Public AIP",
+      "coverage_evidence": "TOBT entered/updated by AO/GH; EOBT alignment and TSAT/startup procedures documented.",
+      "decision": "Process metadata, not historical per-flight data or a challenge-generator identity.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "enaire_lemd",
+      "airports": [
+        "LEMD"
+      ],
+      "url": "https://aip.enaire.es/AIP/contenido_AIP/AD/AD2/LEMD/LE_AD_2_LEMD_es.html",
+      "access": "Public AIP",
+      "coverage_evidence": "Documents TOBT/TSAT clearance windows; no individual historical source table.",
+      "decision": "Metadata only.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "paris",
+      "airports": [
+        "LFPG"
+      ],
+      "url": "https://www.cdmparis.net/Pages/LegalMentionsCDM.aspx",
+      "access": "Accounts approved by site administrator; operational airport partners only",
+      "coverage_evidence": "CDG/ORY portal is partner-restricted. Public homepage describes current real-time indicators.",
+      "decision": "Exclude; no account request or access attempted.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "rome",
+      "airports": [
+        "LIRF"
+      ],
+      "url": "https://www.adr.it/web/aeroporti-di-roma-en/airport-cdm",
+      "access": "Public operational leaflets; FAST access requires authorization",
+      "coverage_evidence": "Public documentation describes16milestones, TOBT/TSAT updates and an access form; no historic per-flight export.",
+      "decision": "No new openly accessible source.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "rome_access",
+      "airports": [
+        "LIRF"
+      ],
+      "url": "https://www.adr.it/documents/17615/13328867/fast%2Baccess%2Bform%2Beng.pdf/91dedee9-523b-46f5-80ea-f4f9d6971eb8",
+      "access": "Public access form confirms required authorization",
+      "coverage_evidence": "Roles include view-only and TOBT updates; actual data not publicly exposed here.",
+      "decision": "Exclude partner-only source; no request made.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "zurich",
+      "airports": [
+        "LSZH"
+      ],
+      "url": "https://www.flughafen-zuerich.ch/de/unternehmen/politik-und-verantwortung/laerm-und-schallschutz/bewegungsstatistik",
+      "access": "Public starts/landings and aggregate downloads",
+      "coverage_evidence": "Individual recent starts/landings cover last10days; archived downloads are route/monthly movement aggregates.",
+      "decision": "Exclude: no Jan/Jul historical per-flight off-block coverage from this endpoint. Swiss open-data catalogue search returned monthly/yearly aggregates, not a usable endpoint.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "istanbul_cdm",
+      "airports": [
+        "LTFM"
+      ],
+      "url": "https://cdm.igairport.aero/",
+      "access": "Public landing page is username/password login",
+      "coverage_evidence": "Operational AirportCDM portal; no anonymous export/history surfaced.",
+      "decision": "Exclude login-gated feed; no login attempted.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    },
+    {
+      "id": "istanbul_aip",
+      "airports": [
+        "LTFM"
+      ],
+      "url": "https://www.dhmi.gov.tr/AIPDocuments/LT_AD_2_LTFM_en.pdf",
+      "access": "Public AIP",
+      "coverage_evidence": "AO/GH report/update TOBT; EOBT inconsistency beyond15min triggers update alarm.",
+      "decision": "Source-process metadata only; no historical record table or row-level challenge linkage.",
+      "accessed_utc_date": "2026-10-13",
+      "evidence_type": "primary_source_page_or_pdf"
+    }
+  ],
+  "local_exclusions": [
+    {
+      "path": "VALIDATION/reports/remaining_source_frontier_review_20261013.json",
+      "sha256": "348adf9b1f935af45642d3cdc089356b66aba5c2c844772fb9ed92a0e2657901"
+    },
+    {
+      "path": "VALIDATION/reports/SCOUT_EXCLUSIONS_20261012.md",
+      "sha256": "562b056315241d9856b1d3acbf79ce2dae22802c564e73a3bd13fb371886ca4c"
+    },
+    {
+      "path": "VALIDATION/reports/recording_artifacts_20260919/RAW_PATTERN_FINDINGS.md",
+      "sha256": "4d797cf07ef96ce6661b80ba162df3cda8597a88445de421de42e934fbb4a0e9"
+    },
+    {
+      "path": "VALIDATION/reports/research_network_20261010/public_source_terms.json",
+      "sha256": "c6a264812041141d1d9136741be7e2dffb64623970dc97563ceb6945a4148b60"
+    },
+    {
+      "path": "VALIDATION/opdi.py",
+      "sha256": "10acfd0ed69fdf33200c73879207cdf814f3a2074d6e63375e230452fb7eb869"
+    },
+    {
+      "path": "VALIDATION/tools/fetch_opdi.py",
+      "sha256": "ea711d748779bb73992aa2ddcfbcd36b9a4b596e4f9a880b78cac7f4255c8f62"
+    },
+    {
+      "path": "VALIDATION/tools/index_research.py",
+      "sha256": "6c8afd748b7d8f6c96f9c51a27342e680643cdb963126021122d5e6e96c6c2f1"
+    }
+  ],
+  "index_queries": [
+    "offblock source",
+    "target startup",
+    "Schiphol",
+    "parking event",
+    "standard taxi"
+  ],
+  "search_families": [
+    "EUROCONTROL ADRR2026/OPDI offblock historical coverage",
+    "airport official developer portals Heathrow/Schiphol",
+    "Frankfurt/Munich A-CDM access/process metadata",
+    "Madrid/Barcelona Aena/ENAIRE TOBT/data",
+    "Paris-CDG CDM access",
+    "Rome ADR FAST/A-CDM access",
+    "Zurich airport statistics and opendata.swiss",
+    "Istanbul IGA/DHMI A-CDM/TOBT"
+  ],
+  "scope_limits": [
+    "Web descriptions and public methodology inspected; no actual new flight record downloaded or full archival inventory enumerated.",
+    "No claim3-day Schiphol query window equals history retention.",
+    "No claim airport TOBT procedures explain challenge BLOCK generation or release perturbations.",
+    "No paid source, credentials, partner registration, email or other external write used.",
+    "No raw challenge arrays, labels, models or candidate scores decoded or recomputed.",
+    "Known CODA/ATFM/daily taxi source and already-used OPDI features are excluded from novelty.",
+    "Final submission unchanged and last slot untouched."
+  ]
+}

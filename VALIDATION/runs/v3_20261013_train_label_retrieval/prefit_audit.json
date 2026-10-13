@@ -1,0 +1,75 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_retrieval_frontier_prefit_20261013.py",
+    "sha256": "319cbc8e739b4bd85bf2f0e7a21b0e35882e42e4f1a9bb003a6cecce4de4e0a0",
+    "bytes": 23486
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prepared.json",
+    "sha256": "72bdb1f1056e61d2d45b49928353f88c6eb955fca2f9fd382d3c85d94cd8749a",
+    "bytes": 13037
+  },
+  "preflight": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/preflight.json",
+    "sha256": "64440fe5a1d2fc21622ced9040b920a845b11191a57bae42bd2416e9a2c5e6fb",
+    "bytes": 2883
+  },
+  "rows": {
+    "train": 40960,
+    "query": 175288,
+    "bank": 5120,
+    "sampled": 40960,
+    "purged": 0,
+    "meta_alias_purged": 0,
+    "flight_id_purged": 0
+  },
+  "minimum_admissible": {
+    "train": 505,
+    "query": 512
+  },
+  "raw37_exact": true,
+  "all_input_selection_scaling_and_aliases_exact": true,
+  "training_uncapped_targets_exact": true,
+  "no_April_target_read": true,
+  "no_January_July_raw_file_read": true,
+  "physical_source_scope": "Exact pinned label-free 15-scalar bank reused; no reconstruction of upstream sensors",
+  "independent_donor_mask": "NumPy same-airport blocks, all train and April queries",
+  "population_scope_recovery": {
+    "allowed_union_rows": 1740628,
+    "exact_April_rows": 175288,
+    "all_raw_input_timestamps_match_bank": true,
+    "crossings": {
+      "185722540": {
+        "file_month": "2025-03",
+        "takeoff": "2025-02-28 23:59:57+00:00"
+      },
+      "196701297": {
+        "file_month": "2025-09",
+        "takeoff": "2025-08-31 23:59:57+00:00"
+      }
+    },
+    "crossing_IDs_absent_selected_train_and_query": true,
+    "no_January_July_file_or_April_target_read": true
+  },
+  "audit_recovery": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_population_recovery/recovery_identity.json",
+    "sha256": "6a2ba2fad1739019077063d3851cdeeb2ec1a3422db23384a8f554f2dc59a834",
+    "bytes": 6082
+  },
+  "executed_auditor": {
+    "path": "VALIDATION/tools/recover_retrieval_prefit_population_20261013.py",
+    "sha256": "80dadb0c3fb222669182094741513c477f6ef08a9cbe6f07cf53d6503392c6fc",
+    "bytes": 8319
+  },
+  "executed_snapshot": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_population_recovery/executed_auditor_snapshot.py",
+    "sha256": "833c1c75ece8ce12b1f811eca9d0ffec4290b108db5977dbf0e383b1ea99bedc",
+    "bytes": 23470
+  }
+}

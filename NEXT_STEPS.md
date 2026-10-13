@@ -1,3 +1,16 @@
+**October13,13:37 Amsterdam: learned-retrieval pilot closed; slot protected.**
+The fixed small April screen worsens RMSE290.203565→382.103596 when donor labels
+are enabled, delta+91.900031, paired-day95% interval[20.997945,160.037820].
+All175288 rows and both saved models pass independent audits. An audit-only
+calendar repair preserves two unselected month-boundary records and all inputs.
+Keep both checkpoints; no tuning, expansion, candidate or upload follows.
+ARR motion-supervision inputs are complete; a narrow SQL-alias recovery resumes
+target preparation without rebuilding inputs. A distinct pretrained TabICL
+protocol was fixed before April scoring and remains source-only. This April
+screen is fit-excluded here, historically reused, and has no marginalv80 claim.
+Best218.8525 and target205 are unchanged; accepted final stays intact and the
+last daily slot remains reserved. See the registry for executable stage state.
+
 **October13,12:37 Amsterdam: v83 final accepted; one slot remains reserved.**
 The exact audited670790-row v83 final was uploaded once at12:35Amsterdam as
 `unique-rose_final.parquet`; remote SHA f4f6a15f… matches. Official result is
@@ -99,10 +112,11 @@ joint posterior are audited. Honest posterior-aware crossfits are being designed
 
 
 **Active target: 205.00 seconds or lower.** Best is **v80 at218.8525**; latest
-**v83 at220.9278**, scored13 October11:58 Amsterdam on344,841 flights. The target
-gap remains13.8525 seconds. Public snapshot11:49 reports rank9/246. Autonomous
-uploads and both machines remain authorized, one heavy job per host. Three
-October13 UTC slots are used; two remain, including the reserved last slot.
+scored original **v83 at220.9278**, on344,841 flights. The latest upload is the
+accepted670790-row final; its numeric score is unpublished. The target gap
+remains13.8525 seconds. Public snapshot12:35 reports rank9/246. Autonomous
+uploads and both machines remain authorized, one heavy job per host. Four
+October13 UTC slots are used; the remaining last slot is reserved.
 
 | Candidate | Change | Jan/Jul CV | Official RMSE |
 | --- | --- | ---: | ---: |

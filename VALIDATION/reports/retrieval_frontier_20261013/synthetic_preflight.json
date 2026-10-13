@@ -1,0 +1,79 @@
+{
+  "source": {
+    "path": "VALIDATION/retrieval_frontier_20261013.py",
+    "sha256": "904b496859e32689ae82cc84f77601a40a60597778c722dd56a61709adb04a41",
+    "bytes": 27044
+  },
+  "model": {
+    "path": "VALIDATION/retrieval_label_model.py",
+    "sha256": "66e0147fa1b3219030cf2c0f68a0a84ca442da0586c880133ed16b00d33b1332",
+    "bytes": 7422
+  },
+  "protocol": {
+    "path": "VALIDATION/reports/retrieval_frontier_20261013/protocol.json",
+    "sha256": "7f971209391a1d4baf826c4d5bf2b5a016a64bc03ffb48e74743aa1e0260b14b",
+    "bytes": 11715
+  },
+  "scope": "Synthetic only, no real arrays or training",
+  "checks": {
+    "loader": {
+      "query_target_poison_and_removal_exact": true,
+      "projected_columns": [
+        "MVT_ID_mvt",
+        "PHASE_mvt",
+        "FLIGHT_ID_mvt",
+        "FLIGHT_mvt",
+        "ADEP_mvt",
+        "ADES_mvt",
+        "AIRCRAFT_TYPE_mvt",
+        "RUNWAY_mvt",
+        "STAND_mvt",
+        "FLIGHT_RULE_mvt",
+        "MARKET_SEGMENT_flt",
+        "FLIGHT_TYPE_flt",
+        "WK_TBL_CAT_flt",
+        "AIRCRAFT_OPERATOR_flt",
+        "MVT_TIME_UTC_mvt",
+        "SCHED_TIME_UTC_mvt",
+        "LOBT_flt",
+        "IOBT_flt",
+        "EOBT_1_flt",
+        "AOBT_3_flt"
+      ],
+      "calls": 3
+    },
+    "cpu": {
+      "device": "cpu",
+      "init_exact": true,
+      "label_gradient_nonzero": true,
+      "active_dictionary_labels_matter": true,
+      "labels_off_poison_invariant": true,
+      "excluded_own_target_invariant": true,
+      "canonical_bank_permutation_exact": true,
+      "alias_midnight_boundary_exact": true,
+      "query_label_argument_absent": true
+    },
+    "cuda": {
+      "device": "cuda",
+      "init_exact": true,
+      "label_gradient_nonzero": true,
+      "active_dictionary_labels_matter": true,
+      "labels_off_poison_invariant": true,
+      "excluded_own_target_invariant": true,
+      "canonical_bank_permutation_exact": true,
+      "alias_midnight_boundary_exact": true,
+      "query_label_argument_absent": true
+    }
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "device": "cuda",
+    "cuda": "13.0",
+    "GPU": "NVIDIA GeForce RTX 3080"
+  },
+  "status": "pass",
+  "seconds": 1.7375421739998274
+}

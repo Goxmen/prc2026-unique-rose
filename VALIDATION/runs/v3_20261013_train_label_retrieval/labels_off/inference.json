@@ -1,0 +1,25 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "arm": "labels_off",
+  "dependencies": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_off/training.json",
+      "sha256": "b469bdf59d7c4804454019d8632a6ff58fc363935ec9fbf71e7e36af409e66e1",
+      "bytes": 2630
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_off/predictions.parquet",
+      "sha256": "385d9d8fd68681d93cd88f7f76b1d8089fe96831ff0b95b1c13604290f0c92bf",
+      "bytes": 2905740
+    }
+  ],
+  "rows": 175288,
+  "exact_reload": true,
+  "no_query_labels_loaded": true
+}

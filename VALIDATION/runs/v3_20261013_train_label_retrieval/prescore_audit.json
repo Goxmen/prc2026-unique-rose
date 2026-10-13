@@ -1,0 +1,79 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_retrieval_frontier_prefit_20261013.py",
+    "sha256": "319cbc8e739b4bd85bf2f0e7a21b0e35882e42e4f1a9bb003a6cecce4de4e0a0",
+    "bytes": 23486
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "fit": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/fit.json",
+    "sha256": "db56f4841ef3feff620306aee6aa14445b2e4a4e554c071d87351c5a4f83788c",
+    "bytes": 951
+  },
+  "prefit": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_audit.json",
+    "sha256": "d230a1be848cd96a0e90a2ba40c335b60a05e93a1584700bb2d9a090e47a1149",
+    "bytes": 2668
+  },
+  "members": [
+    {
+      "arm": "labels_off",
+      "training": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_off/training.json",
+        "sha256": "b469bdf59d7c4804454019d8632a6ff58fc363935ec9fbf71e7e36af409e66e1",
+        "bytes": 2630
+      },
+      "inference": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_off/inference.json",
+        "sha256": "b70056e46af3a590311e6302fc0dc4a530ccabbf5af9a3f176b235490593f9c2",
+        "bytes": 774
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_off/model.pt",
+        "sha256": "29f32890d957b101011d783937e0158c3f48facfe475644f65ba2bc4373f1923",
+        "bytes": 1485883
+      },
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_off/predictions.parquet",
+        "sha256": "385d9d8fd68681d93cd88f7f76b1d8089fe96831ff0b95b1c13604290f0c92bf",
+        "bytes": 2905740
+      }
+    },
+    {
+      "arm": "labels_on",
+      "training": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_on/training.json",
+        "sha256": "256ab7bdc86092278daae4343ee29dea2b72fe2e7b091569bcf5b6a7e5f92731",
+        "bytes": 2625
+      },
+      "inference": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_on/inference.json",
+        "sha256": "845beeb839b6adb7b95d6410950483a8423ccc994231fcbdab46bac5adbf9589",
+        "bytes": 771
+      },
+      "model": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_on/model.pt",
+        "sha256": "3480b385e10ae0dd76865b362b4d63f67f9a7f75d47e62098de9598fc03e3f03",
+        "bytes": 1485883
+      },
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_on/predictions.parquet",
+        "sha256": "4804e3f183655ba038f821282155c63be443631cda51fff3794ea9026eb6f4b5",
+        "bytes": 2910043
+      }
+    }
+  ],
+  "updates_per_arm": 1600,
+  "all_parameters_and_optimizer_states_finite": true,
+  "initial_state_reconstructed_exact": true,
+  "matched_actual_terminal_RNG": true,
+  "full_query_ID_rounding_exact": true,
+  "no_April_target_read": true,
+  "no_model_inference_repeated": true,
+  "reload_scope": "Exact producer all-query reload receipts; independent audit checks saved state and artifacts"
+}

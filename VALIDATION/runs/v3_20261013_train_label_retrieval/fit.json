@@ -1,0 +1,30 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/allocation.json",
+    "sha256": "b7156f3a70845c7ac8d400d7ffceac3224eb82591b1b3803eb2a6dfb2c0ad831",
+    "bytes": 778
+  },
+  "dependencies": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_off/inference.json",
+      "sha256": "b70056e46af3a590311e6302fc0dc4a530ccabbf5af9a3f176b235490593f9c2",
+      "bytes": 774
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/labels_on/inference.json",
+      "sha256": "845beeb839b6adb7b95d6410950483a8423ccc994231fcbdab46bac5adbf9589",
+      "bytes": 771
+    }
+  ],
+  "artifacts": [],
+  "arms": [
+    "labels_off",
+    "labels_on"
+  ],
+  "no_query_labels_loaded": true
+}

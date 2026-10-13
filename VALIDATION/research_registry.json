@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T10:37:09.575181+00:00",
+  "updated_at": "2026-10-13T11:36:07.115861+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -1516,19 +1516,111 @@
       "conservative_oracle_gain_seconds": 1.8191209818496645e-05,
       "optimistic_oracle_gain_seconds": 9.454755084448152e-05,
       "no_candidate_or_upload": true
+    },
+    {
+      "id": "learned_retrieval_pilot_20261013",
+      "status": "closed_fixed_screen_failed",
+      "hypothesis": "Jointly learned training-label retrieval can improve a matched input-only retrieval predictor",
+      "novelty": "Historical raw nearest-label means failed; jointly learned query-donor metric and target embedding not found in source/index",
+      "design": "VALIDATION/reports/retrieval_frontier_20261013/assessment.json",
+      "scope": "Fixed small fresh-fit April2025 training-period pilot; excludesJan/Jul labels, no old-model embeddings",
+      "no_numeric_run": false,
+      "no_candidate_or_upload": true,
+      "owner": "cohort_learning",
+      "protocol": "VALIDATION/reports/retrieval_frontier_20261013/protocol.json",
+      "synthetic": "VALIDATION/reports/retrieval_frontier_20261013/synthetic_preflight.json",
+      "identity": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+        "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+        "bytes": 7262
+      },
+      "run": "VALIDATION/runs/v3_20261013_train_label_retrieval",
+      "prefit_audit": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_audit.json",
+      "audit_recovery": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_population_recovery/recovery_result.json",
+      "result": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/result.json",
+        "sha256": "540e4c7562d3d5051384013fb058af9c8d7d53e19d830341a90efdd81fb26fdc",
+        "bytes": 2929
+      },
+      "independent_audit": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/result_audit.json",
+        "sha256": "1668a9be0674f3c7033e76e45aaf9adead3c9a486f0cc2b3999204cda1b1b85a",
+        "bytes": 1473
+      },
+      "closure": {
+        "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/closed.json",
+        "sha256": "131e567697a4b5491c37eca3548d5a27a14881bc263cb166c228684246dbf725",
+        "bytes": 2148
+      },
+      "RMSE": {
+        "labels_off": 290.20356526827567,
+        "labels_on": 382.1035962549421
+      },
+      "delta": 91.90003098666642,
+      "CI95": [
+        20.997945393842155,
+        160.03781961557095
+      ]
+    },
+    {
+      "id": "arrival_supervised_boundary_pilot_20261013",
+      "status": "input_packets_complete_SQL_preparation_recovery_pending",
+      "hypothesis": "Additional arrival in-block supervision improves phase-normalized departure ground-boundary representation",
+      "novelty": "Prior departure-only boundary supervision and scalar arrival-clock transfer do not establish cross-phase representation learning",
+      "scope": "Proposed fixed training-date paired-control pilot on existing cached inputs; any effect is not evidence of marginalv80 gain",
+      "no_numeric_run": false,
+      "no_candidate_or_upload": true,
+      "owner": "final_recovery",
+      "reviewer": "cohort_learning",
+      "protocol": "VALIDATION/reports/privileged_learning_frontier_20261013/arrival_boundary_transfer_design.json",
+      "synthetic": "VALIDATION/reports/privileged_learning_frontier_20261013/synthetic_preflight.json",
+      "run": "VALIDATION/runs/v3_20261013_arrival_boundary_transfer"
+    },
+    {
+      "id": "fresh_public_source_frontier_20261013",
+      "status": "closed_no_new_public_historical_ground_clock",
+      "hypothesis": "Fresh primary sources might expose usable historical flight ground times",
+      "result": "VALIDATION/reports/fresh_source_frontier_20261013/result.json",
+      "conclusion": "Bounded ten-airport primary-source search found no new open historical source covering both2025 and2026. OPDI stand event is already implemented; available alternatives are restricted or recent-only.",
+      "no_numeric_run": true,
+      "no_candidate_or_upload": true
+    },
+    {
+      "id": "tabicl_pretrained_pilot_20261013",
+      "status": "fixed_source_protocol_implementation_only",
+      "hypothesis": "Pretrained tabular ICL prior may improve per-airport predictions on fixed fit-excluded April",
+      "protocol": "VALIDATION/reports/tabicl_frontier_20261013/fixed_protocol.json",
+      "independent_review": "VALIDATION/reports/tabicl_frontier_20261013/fixed_protocol_independent_review.json",
+      "scope": "Protocol fixed before April scoring, compare to both fixed completed retrieval arms; no currentv80 gain claim.",
+      "no_numeric_run": true,
+      "no_candidate_or_upload": true
     }
   ],
   "next": [
-    "Await published final score; accepted670790 rows without numeric score",
-    "Retain last UTC-day slot; no additional candidate/upload queued",
-    "Do not repeat completed fits, certificate, or unique final upload; target205 remains unmet"
+    "Complete narrow ARR SQL preparation recovery without rebuilding inputs, audit then fixed pilot",
+    "Finish fixed TabICL source and isolated dependency/checkpoint preflight; no configuration sweep",
+    "Preserve accepted final and reserved lastdaily slot; no upload queued"
   ],
-  "active_research": [],
+  "active_research": [
+    {
+      "owner": "cohort_learning",
+      "scope": "ARR independent input/result auditor; retrieval source support"
+    },
+    {
+      "owner": "new_signal_audit",
+      "scope": "Retrieval independent prefit/prescore auditor"
+    },
+    {
+      "owner": "final_recovery",
+      "scope": "ARR producer and auditor/source review"
+    }
+  ],
   "machine_allocation": {
     "desktop": {
-      "stage": "idle",
-      "owner": null,
-      "checked_at": "2026-10-13T10:37:09.575181+00:00"
+      "stage": "ARR_preparation_SQL_recovery_no_fit",
+      "owner": "cohort_learning",
+      "run": "VALIDATION/runs/v3_20261013_arrival_boundary_transfer",
+      "checked_at": "2026-10-13T11:36:07.115861+00:00"
     },
     "laptop": {
       "stage": "idle",

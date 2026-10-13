@@ -1,0 +1,107 @@
+{
+  "status": "source_only_distinct_testable_hypothesis_no_execution",
+  "owner": "/root/cohort_learning",
+  "scope": "Index first, then semantic source and retained JSON summaries; primary external docs only. No new prediction/label array read, fit, numerical screen, installation, checkpoint download, final change or upload.",
+  "novelty": {
+    "index": "Cached index: TabR/TabICL no matches; retrieval only METAR. Nearest/KNN entries led to direct source inspection. Full source search found no TabR/TabICL/TabPFN/metric-learning implementation.",
+    "actual_existing_label_test": "similar_rows_jan_jul.py lines333-432 is more than training-subset selection: same-airport weighted-percentile nearest training LABEL means for K5/20/50/200, then other-month-fitted residual blending against the older v58 practice recipe.",
+    "saved_failures": {
+      "K5_CV_change": 0.236831063510607,
+      "K20_CV_change": 0.2705822942293423,
+      "K50_CV_change": 0.28392276614218304,
+      "K200_CV_change": 0.2710964566592793,
+      "standalone_KNN_January_RMSE_range": [
+        497.6174580480666,
+        502.47694150034016
+      ],
+      "standalone_KNN_July_RMSE_range": [
+        653.7026233125409,
+        658.7418512644408
+      ]
+    },
+    "other_overlaps": "Nearest-50 subset refitting was tested as v59; local/full-day neural cohort branches used input-only peers and explicitly prohibited donor labels. Existing grouped history target averages do not implement learned query-donor attention.",
+    "not_tested_in_searched_evidence": "Trainable retrieval metric plus query-donor feature-difference values and training-target embeddings, jointly trained for prediction; pretrained TabICLv2 regression/ICL.",
+    "claim_limit": "Plain label-KNN is failed historical evidence, not novel. No located learned-retrieval implementation means untested, not proven promising or failed. This is a new conditional-memory mechanism rather than width/depth tuning."
+  },
+  "primary_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/yandex-research/tabular-dl-tabr/main/bin/tabr.py",
+      "use": "Official TabR source: learned K keys, nearest-candidate search, softmax squared-distance attention, label embedding plus key-difference transform, self removal, and training-only candidate labels. The small screen below is explicitly inspired by this mechanism, not a claim of reproducing paper settings."
+    },
+    {
+      "url": "https://github.com/yandex-research/tabular-dl-tabr",
+      "use": "Official implementation uses Faiss and offers memory-efficient/context-freeze variants. Full million-row dynamic-bank cost should not be assumed small."
+    },
+    {
+      "url": "https://github.com/soda-inria/tabicl/blob/main/README.md",
+      "use": "Current TabICLv2 supports regression; original v1/v1.1 were classification-only. Current documentation reports good 300-100000-row benchmark coverage and larger offloading modes. This is a separate pretrained ICL approach, not an already-tested or already-installed PRC model."
+    },
+    {
+      "url": "https://tabicl.readthedocs.io/en/latest/api.html",
+      "use": "Regressor checkpoint/API and caching exist; pretrained weights/dependencies would need separately reviewed pinning. No download/install proposed for this first screen."
+    }
+  ],
+  "fixed_small_falsifier": {
+    "hypothesis": "Observed labels of learned-nearby training flights contain useful local conditional information beyond an otherwise identical input-only retrieval model.",
+    "test_month": "2025-04 only; all eligible departures, every airport. This is a training-period research holdout, not the reused Jan/Jul development set and not official/final validation.",
+    "training_months": [
+      "2025-02",
+      "2025-03",
+      "2025-05",
+      "2025-06",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12"
+    ],
+    "sampling": "At most4096 input-selected training departures per airport, ascending SHA256(retrieval42:MVT_ID); at most512 donor rows per airport from that same selected training set, separate fixed SHA256(bank42:MVT_ID) ordering. No label-based oversampling/filtering except finite supervised targets; persist exclusions. Full finite-target April population used for scoring.",
+    "features": "Exactly the37 source-blind raw/physical columns from posterior_aware_crossfit.FEATURES, expanded from its prior Rome-only projection to all airports. Existing all-airport input-only flight_cohort_context meta/values supply17 physical transforms. No history target encodings, public-source calibration, saved-model embeddings or teacher predictions.",
+    "preprocessing": "Fit categorical vocabularies and numerical median/IQR scales on selected training rows only; unknown categories map to0, missing numeric flags retained, zero IQR maps to1. Numeric values clipped to[-10,10] after scaling. Target mean/std from training labels only, std0 fails closed.",
+    "architecture": "Category embeddings8; two128-unit ReLU encoder layers, no encoder dropout; learned64-dimensional key. Exact PyTorch same-airport K16 retrieval. Context value =128-dimensional linear normalized-label encoding plus64->128->128 ReLU key-difference transform. Add context to128-dimensional query representation; one128-unit ReLU/dropout0.1 predictor block and scalar linear output. Label encoder starts with zero weights/bias in both arms.",
+    "arms": [
+      "labels_on: actual permitted donor targets",
+      "labels_off: same donor features/architecture/parameters, all context target inputs replaced with0"
+    ],
+    "matched_training": "Seed42; identical initial weights, row permutations, batches and dropout streams; AdamW lr0.001, weight_decay0.0003, batch256, exactly10epochs, no early stopping, scheduler, sweep or selected checkpoint. Same training labels/examples and optimizer-update count in both arms. Save both final checkpoints/predictions before any April labels are read.",
+    "retrieval_execution": "Encode donor keys without gradients each batch, select exact nearest candidates, then recompute selected keys/values with gradients. Stable distance ties by original donor movement ID. Query and donor search keys contain inputs only; no target-dependent neighbor selection.",
+    "label_firewall": "April excluded from preprocessing, reference/metric fitting, donor bank and all optimization. January/July labels never opened. Query own movement and shared-identity/signature/120-second aircraft aliases excluded; purge any selected train row aliased to April using inputs only. During training also exclude same UTC-day donors so training cannot rely on contemporaneous labels unavailable to whole-month queries. Fewer than16 admissible donors fails preflight, with no changed K.",
+    "checks_before_labels": "Input/ID/scope audit; April-label poison invariance; bank permutation equivariance and self/alias exclusion; labels_on/off initialization parity; exact checkpoint reload; outputs finite and complete. Float outputs converted once by max(0)+nearest-even for both arms; no additional old recipe/posterior correction.",
+    "evaluation_and_gate": "One raw April taxi RMSE comparison labels_on versus labels_off, paired UTC-day bootstrap2000 draws seed20261013. Allocation signal requires improvement and upper95% delta<0. Report effect size, airport results and donor coverage descriptively; no group-specific selection. A pass justifies a separately designed full-feature current-family test, not an upload or v80 gain claim.",
+    "failure_interpretation": "A negative screen closes this fixed low-cost37-feature/bank/architecture test. It does not prove all retrieval models fail; a positive result also does not show information missing from the much stronger current TabM/v80 stack.",
+    "resources": "Existing torch/numpy/scipy available; faiss/tabicl/sklearn absent in current environment. Exact blocked PyTorch search avoids installations. At most40960 training rows and5120 donors; compact matrices/keys are tens of MB, distance block about5MB at256x5120 float32. Estimate10-30minutes one GPU plus narrow-column preparation/exports; unbenchmarked, memory/runtime preflight required before allocation.",
+    "why_not_full_Tabr_or_TabICL_first": "No honest untouched-month current TabM encoder is available for free: existing checkpoints were trained on other training months including April. Starting fresh is necessary. Full2M dynamic retrieval or external foundation-model setup is unnecessary for this bounded mechanism test."
+  },
+  "scientific_expectation": "Gain is unknown. Prior plain-KNN failures lower the prior probability of benefit, but do not test jointly learned retrieval. No advance1-second official gain claim is required or made.",
+  "execution_status": "Proposal only. Source implementation, independent design/scope review and explicit host allocation remain required.",
+  "local_sources": [
+    {
+      "path": "VALIDATION/similar_rows_jan_jul.py",
+      "sha256": "7269f250f5f0b20fa729d7df7db8fdc8c64b908d74c935b853c035b802837275"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261007_similar_rows_jan_jul/neighbour_labels.json",
+      "sha256": "7c03bdc717016be894e5eb50c1b25d216e5b00822a1232363f872353108edb88"
+    },
+    {
+      "path": "VALIDATION/flight_cohort_context.py",
+      "sha256": "28255a6101f113e5462bc4aa916260d5bc67e2a0f51c28b32c4acf1a7a307e1e"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm.py",
+      "sha256": "9372661a5b92ed9708e90f8c0226d1d203d868997e1e8c6ac352ac6f9f9bbc19"
+    },
+    {
+      "path": "VALIDATION/posterior_aware_crossfit.py",
+      "sha256": "29ef9fed78aa6ac169a8dd38c60aeb59b807707fce8527749ecf2ed152f5ea87"
+    },
+    {
+      "path": "VALIDATION/research_registry.json",
+      "sha256": "631039347c986bff9a584fe0218d14b5a0bf86dafdd28c375fc7613201b3bd78"
+    },
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4"
+    }
+  ]
+}

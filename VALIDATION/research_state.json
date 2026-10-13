@@ -1,24 +1,38 @@
 {
-  "updated_at": "2026-10-13T10:37:09.575181+00:00",
+  "updated_at": "2026-10-13T11:36:07.115861+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-13T10:35:21+00:00",
   "slots_remaining": 1,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 64,
+  "hypotheses": 68,
   "desktop": {
-    "stage": "idle",
-    "owner": null,
-    "checked_at": "2026-10-13T10:37:09.575181+00:00"
+    "stage": "ARR_preparation_SQL_recovery_no_fit",
+    "owner": "cohort_learning",
+    "run": "VALIDATION/runs/v3_20261013_arrival_boundary_transfer",
+    "checked_at": "2026-10-13T11:36:07.115861+00:00"
   },
   "next": [
-    "Await published final score; accepted670790 rows without numeric score",
-    "Retain last UTC-day slot; no additional candidate/upload queued",
-    "Do not repeat completed fits, certificate, or unique final upload; target205 remains unmet"
+    "Complete narrow ARR SQL preparation recovery without rebuilding inputs, audit then fixed pilot",
+    "Finish fixed TabICL source and isolated dependency/checkpoint preflight; no configuration sweep",
+    "Preserve accepted final and reserved lastdaily slot; no upload queued"
   ],
   "native_goal_status": "active",
-  "active_research": [],
+  "active_research": [
+    {
+      "owner": "cohort_learning",
+      "scope": "ARR independent input/result auditor; retrieval source support"
+    },
+    {
+      "owner": "new_signal_audit",
+      "scope": "Retrieval independent prefit/prescore auditor"
+    },
+    {
+      "owner": "final_recovery",
+      "scope": "ARR producer and auditor/source review"
+    }
+  ],
   "laptop": {
     "stage": "idle",
     "owner": null,
@@ -540,5 +554,29 @@
     "no_candidate_or_upload": true
   },
   "latest_upload": "unique-rose_final.parquet",
-  "latest_upload_status": "accepted_final_score_unpublished"
+  "latest_upload_status": "accepted_final_score_unpublished",
+  "new_frontier_pilots": [
+    {
+      "id": "learned_retrieval_pilot_20261013",
+      "status": "source_only_design_and_implementation",
+      "hypothesis": "Jointly learned training-label retrieval can improve a matched input-only retrieval predictor",
+      "novelty": "Historical raw nearest-label means failed; jointly learned query-donor metric and target embedding not found in source/index",
+      "design": "VALIDATION/reports/retrieval_frontier_20261013/assessment.json",
+      "scope": "Fixed small fresh-fit April2025 training-period pilot; excludesJan/Jul labels, no old-model embeddings",
+      "no_numeric_run": true,
+      "no_candidate_or_upload": true,
+      "owner": "cohort_learning"
+    },
+    {
+      "id": "arrival_supervised_boundary_pilot_20261013",
+      "status": "source_only_conditional_design_review",
+      "hypothesis": "Additional arrival in-block supervision improves phase-normalized departure ground-boundary representation",
+      "novelty": "Prior departure-only boundary supervision and scalar arrival-clock transfer do not establish cross-phase representation learning",
+      "scope": "Proposed fixed training-date paired-control pilot on existing cached inputs; any effect is not evidence of marginalv80 gain",
+      "no_numeric_run": true,
+      "no_candidate_or_upload": true,
+      "owner": "final_recovery",
+      "reviewer": "new_signal_audit"
+    }
+  ]
 }

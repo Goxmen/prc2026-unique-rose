@@ -1,0 +1,33 @@
+{
+  "state": "prefit_audit_failed_before_fit",
+  "utc": "2026-10-13T11:24:03.544307+00:00",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_retrieval_frontier_prefit_20261013.py",
+    "sha256": "319cbc8e739b4bd85bf2f0e7a21b0e35882e42e4f1a9bb003a6cecce4de4e0a0",
+    "bytes": 23486
+  },
+  "log": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_audit.log",
+    "sha256": "a73ce7b0608739e13114e65cd884932a87ef6d63b8ad9f8a8566cffb5766ad9d",
+    "bytes": 1269
+  },
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prepared.json",
+    "sha256": "72bdb1f1056e61d2d45b49928353f88c6eb955fca2f9fd382d3c85d94cd8749a",
+    "bytes": 13037
+  },
+  "preflight": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/preflight.json",
+    "sha256": "64440fe5a1d2fc21622ced9040b920a845b11191a57bae42bd2416e9a2c5e6fb",
+    "bytes": 2883
+  },
+  "failure": "Auditor assumption raw-file month equals full bank movement-time month; one-row population size difference encountered. Cause/selected-row impact unresolved.",
+  "no_fit_started": true,
+  "no_query_targets_read": true,
+  "action": "Preserve fixed sources and arrays; independent input-only diagnosis before any fit."
+}

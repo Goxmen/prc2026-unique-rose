@@ -1,0 +1,25 @@
+{
+  "authority": "/root",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "state": "released_for_fixed_sequential_pilot",
+  "stages": [
+    "prepare",
+    "preflight",
+    "fit",
+    "score"
+  ],
+  "host": "GPC",
+  "device": "cuda",
+  "one_heavy_job_per_host": true,
+  "utc": "2026-10-13T11:19:52.597404+00:00",
+  "conditions": [
+    "Run stages sequentially, preserve immutable allocation",
+    "Independent prefit audit must pass before either fixed fit",
+    "Both complete models and predictions plus prescore audit must precede April score",
+    "No retry, tuning, production or upload; last slot stays reserved"
+  ]
+}

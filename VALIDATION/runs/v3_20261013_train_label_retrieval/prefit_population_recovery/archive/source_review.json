@@ -1,0 +1,78 @@
+{
+  "status": "pass",
+  "reviewer": "/root/new_signal_audit",
+  "sources": [
+    {
+      "path": "VALIDATION/retrieval_frontier_20261013.py",
+      "sha256": "904b496859e32689ae82cc84f77601a40a60597778c722dd56a61709adb04a41",
+      "bytes": 27044
+    },
+    {
+      "path": "VALIDATION/retrieval_label_model.py",
+      "sha256": "66e0147fa1b3219030cf2c0f68a0a84ca442da0586c880133ed16b00d33b1332",
+      "bytes": 7422
+    },
+    {
+      "path": "VALIDATION/reports/retrieval_frontier_20261013/protocol.json",
+      "sha256": "7f971209391a1d4baf826c4d5bf2b5a016a64bc03ffb48e74743aa1e0260b14b",
+      "bytes": 11715
+    },
+    {
+      "path": "VALIDATION/tools/audit_retrieval_frontier_prefit_20261013.py",
+      "sha256": "319cbc8e739b4bd85bf2f0e7a21b0e35882e42e4f1a9bb003a6cecce4de4e0a0",
+      "bytes": 23486
+    },
+    {
+      "path": "VALIDATION/tools/audit_retrieval_frontier_result_20261013.py",
+      "sha256": "fcd7814e1cfb0b79c58f744eaa284814c71a419cb7ebe71b4a6c3bbdd8c34f44",
+      "bytes": 8721
+    },
+    {
+      "path": "VALIDATION/reports/retrieval_frontier_20261013/synthetic_preflight.json",
+      "sha256": "beb56fffba7c88528385e51b43484f02f5f9e9a820d2ec93026a7701f2360c98",
+      "bytes": 2245
+    },
+    {
+      "path": "VALIDATION/reports/retrieval_frontier_20261013/independent_prefit_fixture.json",
+      "sha256": "5cc770708de5d598044f206fc37f375316b080453cfc314aeafc9a76fd0a51b9",
+      "bytes": 1096
+    },
+    {
+      "path": "VALIDATION/tools/check_retrieval_prefit_audit_20261013.py",
+      "sha256": "b4dc3f1865088b49e48918c126cc19eaa014fe532148dff0ecb7d409620b3b6d",
+      "bytes": 4290
+    }
+  ],
+  "scope": "Source-only approval plus fabricated-data fixtures; no real arrays, actual fits or held truth read. Root alone allocates frozen stages.",
+  "findings": [
+    "All nine training months are explicit; January/July raw files are absent; April inputs are projected without target/BLOCK and April truth is decoded only after both models and predictions pass independent prescore audit.",
+    "Selection precedes train labels: fixed per-airport hash sample, all April input aliases purged without resampling, fixed canonical bank. Same-known-FLIGHT_ID, MVT_ID, HEX120s and known clock/stand/runway aliases are excluded.",
+    "37 source-blind fields preserve original definitions. Categories, median/IQR and uncapped target mean/std fit only retained training IDs. Global alias vocabulary is input-only metadata and never a predictive feature.",
+    "The two arms have identical model/init/optimizer/epochs/minibatches and dropout streams; only permitted donor label values differ. Label projection starts at zero. Saved full optimizer and terminal RNG permit independent post-fit parity checks.",
+    "Exact brute-force K16 stable ties follow globally sorted bank IDs; preflight fails rather than changing K if any training/query row lacks16 donors.",
+    "Every state is saved before reload and terminal-RNG diagnostic; completed stages have exclusive attempt markers and no automatic restart. Immutable shared allocation is required.",
+    "Independent prefit reconstructs raw populations, selection/purges,37features, all transformed inputs, training labels and all donor counts. Prescore reconstructs initial model hash and checks all state/optimizer/RNG/IDs/rounding without learned inference. Separate result auditor reconstructs raw April truth, SQL RMSE and paired-day bootstrap."
+  ],
+  "prospective_fixes_before_data": [
+    "Explicit millisecond timestamps instead of dtype-dependent epoch conversion",
+    "Known FLIGHT_ID input-only purge/donor exclusion",
+    "Terminal optimizer/RNG saved, exact random-stream parity, checkpoint saved before parity diagnostic"
+  ],
+  "limitations": [
+    "April may have appeared in earlier studies; this is fresh-fit exclusion, not historically untouched validation.",
+    "Control is the same small input-only learned retrieval model; a pass does not establish gain over current v80 and only justifies separately frozen Jan/Jul validation.",
+    "Reuses exact pinned label-free physical bank; upstream sensor extraction is not rerun.",
+    "Runtime/memory remain estimates until actual preflight. A failure closes only this fixed small configuration; no parameter or seed sweep."
+  ],
+  "reciprocal_review": {
+    "reviewer": "/root/cohort_learning",
+    "status": "pass",
+    "auditor": {
+      "path": "VALIDATION/tools/audit_retrieval_frontier_prefit_20261013.py",
+      "sha256": "319cbc8e739b4bd85bf2f0e7a21b0e35882e42e4f1a9bb003a6cecce4de4e0a0",
+      "bytes": 23486
+    },
+    "notes": "Seven-column metadata, nullable features, optimizer/state schema and CPU initial hash checked; no blocker."
+  },
+  "no_real_data_decoded": true
+}

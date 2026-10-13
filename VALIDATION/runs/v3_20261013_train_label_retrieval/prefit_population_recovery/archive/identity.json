@@ -1,0 +1,266 @@
+{
+  "settings": {
+    "category_dim": 8,
+    "hidden": 128,
+    "key_dim": 64,
+    "context": 16,
+    "encoder_dropout": 0.0,
+    "predictor_dropout": 0.1,
+    "label_encoder_zero_init": true,
+    "epochs": 10,
+    "batch": 256,
+    "seed": 42,
+    "lr": 0.001,
+    "weight_decay": 0.0003,
+    "arms": [
+      "labels_off",
+      "labels_on"
+    ],
+    "train_per_airport": 4096,
+    "bank_per_airport": 512
+  },
+  "training_months": [
+    "2025-02",
+    "2025-03",
+    "2025-05",
+    "2025-06",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+  ],
+  "query_month": "2025-04",
+  "features": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "physical_0",
+    "physical_1",
+    "physical_2",
+    "physical_3",
+    "physical_4",
+    "physical_5",
+    "physical_6",
+    "physical_7",
+    "physical_8",
+    "physical_9",
+    "physical_10",
+    "physical_11",
+    "physical_12",
+    "physical_13",
+    "physical_14",
+    "physical_15",
+    "physical_16",
+    "missing_flight_id",
+    "airline"
+  ],
+  "categorical": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "airline"
+  ],
+  "numerical": [
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "physical_0",
+    "physical_1",
+    "physical_2",
+    "physical_3",
+    "physical_4",
+    "physical_5",
+    "physical_6",
+    "physical_7",
+    "physical_8",
+    "physical_9",
+    "physical_10",
+    "physical_11",
+    "physical_12",
+    "physical_13",
+    "physical_14",
+    "physical_15",
+    "physical_16",
+    "missing_flight_id"
+  ],
+  "raw_columns": [
+    "MVT_ID_mvt",
+    "PHASE_mvt",
+    "FLIGHT_ID_mvt",
+    "FLIGHT_mvt",
+    "ADEP_mvt",
+    "ADES_mvt",
+    "AIRCRAFT_TYPE_mvt",
+    "RUNWAY_mvt",
+    "STAND_mvt",
+    "FLIGHT_RULE_mvt",
+    "MARKET_SEGMENT_flt",
+    "FLIGHT_TYPE_flt",
+    "WK_TBL_CAT_flt",
+    "AIRCRAFT_OPERATOR_flt",
+    "MVT_TIME_UTC_mvt",
+    "SCHED_TIME_UTC_mvt",
+    "LOBT_flt",
+    "IOBT_flt",
+    "EOBT_1_flt",
+    "AOBT_3_flt"
+  ],
+  "sources": [
+    {
+      "path": "VALIDATION/retrieval_frontier_20261013.py",
+      "sha256": "904b496859e32689ae82cc84f77601a40a60597778c722dd56a61709adb04a41",
+      "bytes": 27044
+    },
+    {
+      "path": "VALIDATION/retrieval_label_model.py",
+      "sha256": "66e0147fa1b3219030cf2c0f68a0a84ca442da0586c880133ed16b00d33b1332",
+      "bytes": 7422
+    },
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4",
+      "bytes": 3210
+    },
+    {
+      "path": "VALIDATION/reports/retrieval_frontier_20261013/protocol.json",
+      "sha256": "7f971209391a1d4baf826c4d5bf2b5a016a64bc03ffb48e74743aa1e0260b14b",
+      "bytes": 11715
+    },
+    {
+      "path": "VALIDATION/tools/audit_retrieval_frontier_prefit_20261013.py",
+      "sha256": "319cbc8e739b4bd85bf2f0e7a21b0e35882e42e4f1a9bb003a6cecce4de4e0a0",
+      "bytes": 23486
+    },
+    {
+      "path": "VALIDATION/tools/audit_retrieval_frontier_result_20261013.py",
+      "sha256": "fcd7814e1cfb0b79c58f744eaa284814c71a419cb7ebe71b4a6c3bbdd8c34f44",
+      "bytes": 8721
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/source_review.json",
+      "sha256": "8ddba05be0fae39f16703df147ec908ae0ec8dc8daf2715d447f586bc7f51a97",
+      "bytes": 4723
+    },
+    {
+      "path": "data/derived/flight_cohort_context_20261012/train/manifest.json",
+      "sha256": "32316dc19f86857149109ad41d0048c91670117f387314ea32c53f93db63999b",
+      "bytes": 30629
+    },
+    {
+      "path": "VALIDATION/flight_cohort_context.py",
+      "sha256": "28255a6101f113e5462bc4aa916260d5bc67e2a0f51c28b32c4acf1a7a307e1e",
+      "bytes": 14151
+    },
+    {
+      "path": "VALIDATION/daily_cohort_bank.py",
+      "sha256": "41fa243dfff8855797159d622feb2ac5ef85894ff8cdb8e7d5d69402c4239b1a",
+      "bytes": 9292
+    },
+    {
+      "path": "VALIDATION/posterior_aware_crossfit.py",
+      "sha256": "29ef9fed78aa6ac169a8dd38c60aeb59b807707fce8527749ecf2ed152f5ea87",
+      "bytes": 28835
+    },
+    {
+      "path": "VALIDATION/reports/retrieval_frontier_20261013/assessment.json",
+      "sha256": "00d0a168bef6a0e2a55691c1f60d6208598cf6f47d30f438edc0865c13360de7",
+      "bytes": 9979
+    },
+    {
+      "path": "data/derived/flight_cohort_context_20261012/train/clock.npy",
+      "sha256": "6611e01e4b798b51711afb224ff1128dedc2f233dabff0bf4b4dbbb6657193fc",
+      "bytes": 16680504
+    },
+    {
+      "path": "data/derived/flight_cohort_context_20261012/train/meta.npy",
+      "sha256": "6a2f03022055a6fab2b23c28a1814297e4c25fdc23879359d7024c024b0eeb24",
+      "bytes": 100082384
+    },
+    {
+      "path": "data/derived/flight_cohort_context_20261012/train/values.npy",
+      "sha256": "4ab969226b87374cc245169023e82fa6e4d41bbbaf4e7304a103f5bb5d2de9d2",
+      "bytes": 125102948
+    },
+    {
+      "path": "data/training_2025-02-01_2025-03-01.parquet",
+      "sha256": "b6f9ff2cdb1cfe07c5442f4e1f11bbcdbeafe52852dcb0b8175f62ab84c6a066",
+      "bytes": 19824510
+    },
+    {
+      "path": "data/training_2025-03-01_2025-04-01.parquet",
+      "sha256": "58fde7e5f8b539546af63b41d7f6ec0f2884fdc3d3dd9b6bfca7c59a420dcdd3",
+      "bytes": 22606072
+    },
+    {
+      "path": "data/training_2025-05-01_2025-06-01.parquet",
+      "sha256": "5481c0642a8fbb4dc395f93bc713c57f4cc16854fb361d404967077e1fce2ff9",
+      "bytes": 25187756
+    },
+    {
+      "path": "data/training_2025-06-01_2025-07-01.parquet",
+      "sha256": "c3ef5080f2cc636c3416baf1555f7d0ee3519f9046e8043c1c0c8f017a244025",
+      "bytes": 24991697
+    },
+    {
+      "path": "data/training_2025-08-01_2025-09-01.parquet",
+      "sha256": "6c8d2aa7a1b6c9dff9a0305a37eb02de1e87a68d07557264f41b77738272c540",
+      "bytes": 25969246
+    },
+    {
+      "path": "data/training_2025-09-01_2025-10-01.parquet",
+      "sha256": "955308a4000947e32a00586d3ee13928949d2231b67f84f6dfb0631893f3754a",
+      "bytes": 25102673
+    },
+    {
+      "path": "data/training_2025-10-01_2025-11-01.parquet",
+      "sha256": "4a31a35601c1bdcd74b8cd6379231ba516a48324e4c2478bf1c9360cd23e687f",
+      "bytes": 25392098
+    },
+    {
+      "path": "data/training_2025-11-01_2025-12-01.parquet",
+      "sha256": "ac36b17db7a537e3baeb682fa4763dacaa1fcc5d9bfa6bf32b3ee5d9f91300b0",
+      "bytes": 22173840
+    },
+    {
+      "path": "data/training_2025-12-01_2026-01-01.parquet",
+      "sha256": "2d357f2f403a86778a69e93f72d8754effe77f1ac0942399b3d1b7728241f724",
+      "bytes": 22653598
+    },
+    {
+      "path": "data/training_2025-04-01_2025-05-01.parquet",
+      "sha256": "9ffe0cf5741c4863799c41be81475dfaecedabe0ba687b8f8e4eacba992f9390",
+      "bytes": 23840340
+    }
+  ],
+  "no_January_July_files": true,
+  "no_real_arrays_decoded_before_freeze": true,
+  "experiment": "small mechanism falsifier; not current-v80 validation"
+}

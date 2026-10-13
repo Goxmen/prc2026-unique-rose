@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/recover_retrieval_prefit_population_20261013.py",
+    "sha256": "80dadb0c3fb222669182094741513c477f6ef08a9cbe6f07cf53d6503392c6fc",
+    "bytes": 8319
+  },
+  "original": {
+    "path": "VALIDATION/tools/audit_retrieval_frontier_prefit_20261013.py",
+    "sha256": "319cbc8e739b4bd85bf2f0e7a21b0e35882e42e4f1a9bb003a6cecce4de4e0a0",
+    "bytes": 23486
+  },
+  "diagnosis": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/prefit_membership_diagnosis/result.json",
+    "sha256": "dce7c1d45c207d362fa08c514fe197729ffd1e1e9d761c7c06078f60386cb6eb",
+    "bytes": 6238
+  },
+  "reviewer": "/root/new_signal_audit",
+  "independent_reviewer": "/root/final_recovery",
+  "independent_status": "pass",
+  "scope": "Audit-only recovery; source/AST checks, no numerical stage executed",
+  "checks": [
+    "Exactly one original population assertion replaced; reverse AST equality preserves all other checks",
+    "Original source/log/identity/prepared/preflight/allocation remain immutable and archived",
+    "Every allowed raw ID/timestamp must match source bank; full allowed union exact and unique",
+    "April source population remains exact; both crossing IDs absent selected train/query",
+    "Final prefit receipt explicitly binds executed wrapper/snapshot/recovery identity",
+    "Exclusive recovery audit attempt prevents automatic retries"
+  ],
+  "no_model_or_preparation_change": true
+}

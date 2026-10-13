@@ -121,6 +121,19 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October13,13:37 Amsterdam: fixed learned-retrieval screen closed.**
+The small37-feature/40960-training/5120-donor/10epoch pilot worsens April RMSE
+290.203565→382.103596 with donor labels, delta+91.900031 and paired-day95% interval
+[20.997945,160.037820]. Independent175288-row audits pass; preserve both models,
+optimizer/RNG states and predictions. No expansion, tuning, candidate or upload.
+Original full-population audit failed on two raw-file/month crossings; the
+reviewed additive recovery proves neither affected selected training or April.
+ARR input packets are saved, but target preparation stopped on a bare SQL day
+alias. Recover only that statement and reuse inputs; no refit/rebuild. A distinct
+pretrained TabICL protocol was fixed before April scoring and is source-only.
+Registry/state contain exact stages. Bestv80 remains218.8525, target205 unmet;
+accepted final is unchanged and one last daily slot remains reserved.
+
 **October13,12:37 Amsterdam: v83 final accepted; one slot remains reserved.**
 The exact audited670790-row v83 final was uploaded once at12:35Amsterdam as
 `unique-rose_final.parquet`; remote SHA f4f6a15f… matches. Official result is

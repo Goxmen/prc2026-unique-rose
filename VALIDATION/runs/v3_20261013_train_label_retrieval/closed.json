@@ -1,0 +1,61 @@
+{
+  "status": "closed_fixed_screen_failed",
+  "utc": "2026-10-13T11:36:07.115861+00:00",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/identity.json",
+    "sha256": "dc2fa14c2b505f4c8f694af6b370f2942b3aa3e56963831e85bfcee3a051c6b1",
+    "bytes": 7262
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/result.json",
+    "sha256": "540e4c7562d3d5051384013fb058af9c8d7d53e19d830341a90efdd81fb26fdc",
+    "bytes": 2929
+  },
+  "independent_audit": {
+    "path": "VALIDATION/runs/v3_20261013_train_label_retrieval/result_audit.json",
+    "sha256": "1668a9be0674f3c7033e76e45aaf9adead3c9a486f0cc2b3999204cda1b1b85a",
+    "bytes": 1473
+  },
+  "RMSE": {
+    "labels_off": 290.20356526827567,
+    "labels_on": 382.1035962549421
+  },
+  "delta": 91.90003098666642,
+  "CI95": [
+    20.997945393842155,
+    160.03781961557095
+  ],
+  "diagnostics": {
+    "labels_off": {
+      "first_epoch_train_MSE": 0.7861335369758308,
+      "last_epoch_train_MSE": 0.23308286713436246,
+      "query_prediction_quantiles": {
+        "min": 0.0,
+        "median": 928.0,
+        "p99": 1818.0,
+        "p999": 2664.4259999999776,
+        "max": 18534.0
+      }
+    },
+    "labels_on": {
+      "first_epoch_train_MSE": 0.7513784772250801,
+      "last_epoch_train_MSE": 0.4471020525321364,
+      "query_prediction_quantiles": {
+        "min": 0.0,
+        "median": 888.0,
+        "p99": 1797.0,
+        "p999": 2652.4259999999776,
+        "max": 79240.0
+      }
+    }
+  },
+  "interpretation": "Adding donor targets to this fixed small learned retrieval model materially worsens April error; no causal error mechanism is established by descriptive training/prediction summaries.",
+  "scope": "Only fixed37-feature40k-training/512-per-airport-bank/K16/10epoch seed42 learned retrieval screen. Neither a test of full TabR/TabICL nor currentv80 marginal gain. April was fit-excluded here but historically reused.",
+  "retained": [
+    "both model checkpoints",
+    "optimizer and RNG states",
+    "both full predictions",
+    "all original and recovery audits"
+  ],
+  "no_expansion_tuning_candidate_or_upload": true
+}
