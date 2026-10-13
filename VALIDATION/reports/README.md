@@ -1,5 +1,10 @@
 # Reports
 
+Concise historical reports remain tracked. Detailed generated tables, plots,
+HTML exports and operational diagnostics stay local; some historical links below
+refer to those regenerable outputs. Final-review material is indexed in the
+[repository contents guide](../../docs/REPOSITORY_CONTENTS.md).
+
 - [Snow and arrival features on v39/v40](OPDI_DISRUPTION_EXPERIMENT.md): Weighted CV improves by 0.77/0.75 s with matched rebuilt controls; January is essentially unchanged. All fits and independent audits are complete; no promotion or submission-table changes.
 - [Test-like snow and congestion cases](OPDI_DISRUPTION_STRESS_CHECK.md): no meaningful gain on matched historical snow; only 23% of prolonged-snow test flights have matches, and none of the severe arrival-delay cases qualify. [Before/after examples](OPDI_DISRUPTION_STRESS_EXAMPLES.md) are selected by inputs, including regressions.
 - [Snow and arrival-congestion experiment](DISRUPTION_EXPERIMENT.md): Weighted CV improves by 0.735 s versus v38 across all seeds, but the separate January check regresses, including EHAM missing-ID flights. No promotion; all control replays and independent feature checks pass.

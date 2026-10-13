@@ -25,7 +25,9 @@ local validation RMSE are different measurements.
 Use the pinned [requirements.txt](../requirements.txt). The verified replay
 environment is Linux/WSL with Python 3.12.3, NumPy 2.5.2, pandas 3.0.5 and
 PyArrow 25.0.1. The original research environment requires an NVIDIA CUDA-capable GPU for
-CatBoost/neural training. Hardware used is documented in [AGENTS.md](../AGENTS.md).
+CatBoost/neural training. The desktop uses a Ryzen 7 7800X3D and RTX 3080;
+the laptop uses an i7-13650HX and RTX 5060 Laptop. The pinned desktop environment
+is recorded in [environment.json](../release/environment.json).
 GPU/backend versions and exact execution details vary between historical runs;
 their individual identity and training receipts are authoritative. No universal
 bitwise training guarantee is claimed across GPUs, package versions or hosts.
@@ -149,7 +151,7 @@ The retained dependency path is:
 | --- | --- |
 | Movement inputs, history and features | `pipeline/`, `VALIDATION/modeling.py`, `VALIDATION/seasonal.py`, `VALIDATION/tuning_seasonal.py`; individual run configuration/identity receipts |
 | Callsign/rotation and observed tracks | `VALIDATION/callsign_clocks.py`, `VALIDATION/adsblol.py`, `VALIDATION/sparse_track_sequence.py`; their input manifests |
-| Historical base-model training | Individual historical run recipes in `VALIDATION/runs/`; indexed by `VALIDATION/research_registry.json` |
+| Historical base-model training | Selected historical run recipes in `VALIDATION/runs/`; retained metadata is listed in [reviewer_files.json](../release/reviewer_files.json) |
 | Saved-model final inference and reconstruction | `VALIDATION/final_legacy_*.py`, `VALIDATION/final_missing_*.py`, `VALIDATION/final_weather_inference.py`; each component's result/audit receipt |
 | Portable affine mixture | `VALIDATION/portable_affine_20261013.py`; run `v3_20261013_portable_affine` |
 | Public-source correction anchor | `VALIDATION/portable_public_source_20261013.py`; run `v3_20261013_portable_public_source`, including the retained final tilt-recovery supplement |

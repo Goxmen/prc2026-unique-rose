@@ -1,8 +1,0 @@
-{
-  "status": "Exploratory follow-up chosen after the first conditional analysis; not an independent confirmation.",
-  "reason": "A yes/no snow flag leaves an EHAM tail increase within weather groups. Distinguish brief snowfall from prolonged snowfall before interpreting this as label or recording drift.",
-  "measure": "At each half-hour UTC sample, use only the latest preceding EHAM report, at most 90 minutes old. Snow means SN/SG. Calculate the share of the preceding 48 half-hour samples with snow, requiring at least 40 known samples. Align arrivals to the latest preceding sample. This approximates duration of reported snowfall; it does not measure snow depth, accumulation, runway closures or congestion.",
-  "bins": "0, (0,10%], (10%,25%], (25%,50%], (50%,100%]; fixed descriptive duration categories, missing separate.",
-  "comparisons": "January 2025 to January 2026; all-2025 EHAM to January 2026 as sensitivity. Retain the original coarse results. Show support coverage before interpreting conditional estimates.",
-  "external_context": "Consult official Schiphol reports for the dates identified locally. Published operational explanations corroborate context; they do not validate each individual taxi label and will not become model inputs. No datasets are downloaded."
-}

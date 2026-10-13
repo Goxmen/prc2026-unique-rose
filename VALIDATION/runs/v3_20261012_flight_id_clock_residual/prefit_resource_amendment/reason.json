@@ -1,5 +1,0 @@
-{
-  "before_competition_execution": true,
-  "change": "Use independent stdlib bisect instead of full Python scans for the same fixed scalar-audit locations; interpolation formula and design unchanged",
-  "reason": "Avoid unnecessary O(rows x audit locations) Python work inside the60second source-only budget"
-}

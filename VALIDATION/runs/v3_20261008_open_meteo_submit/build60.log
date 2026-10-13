@@ -1,9 +1,0 @@
-Traceback (most recent call last):
-  File "/home/gunes/PRC/VALIDATION/open_meteo_submit.py", line 285, in <module>
-    elif args.stage=='build': build(args.version)
-                              ^^^^^^^^^^^^^^^^^^^
-  File "/home/gunes/PRC/VALIDATION/open_meteo_submit.py", line 236, in build
-    assert np.max(np.abs(c.pred.reindex(parent.MVT_ID_mvt).to_numpy()-parent.TAXITIME_SEC_mvt.to_numpy()))<1e-6
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError
-[16:59:05] v60 prepared and validated: {"2026-01": {"rows": 152719, "changed": 11046, "mean_change": 0.04802006401997248, "mean_abs_change": 0.8828008334919341, "max_abs_change": 16230.710138337732, "over_1h": 1, "correction_masks": {"clock12": 0, "clock2": 0, "day": 1, "rule_band": 12, "rule_confidence": 0, "twins": 5}}, "2026-07": {"rows": 192122, "changed": 15808, "mean_change": -0.17589938598195928, "mean_abs_change": 1.3251990996732534, "max_abs_change": 2190.820295352495, "over_1h": 0, "correction_masks": {"clock12": 1, "clock2": 2, "day": 4, "rule_band": 20, "rule_confidence": 0, "twins": 11}}}

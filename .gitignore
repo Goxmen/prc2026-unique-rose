@@ -6,6 +6,50 @@ tmp
 
 # secrets — never track
 .env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# Local agent operations and research coordination are not reviewer deliverables.
+/AGENTS.md
+/NEXT_STEPS.md
+/.agents/
+/.codex/
+/VALIDATION/IMPROVEMENT_PLAN.md
+/VALIDATION/research_registry.json
+/VALIDATION/research_state.json
+
+# Model weights, prepared matrices, databases, logs and packaged exports stay local.
+*.pkl
+*.pickle
+*.pkl.gz
+*.joblib
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.cbm
+*.onnx
+*.safetensors
+*.h5
+*.hdf5
+*.bin
+*.parquet.tmp
+*.sqlite
+*.sqlite3
+*.db
+*.log
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # WSL download-marker junk
 *:Zone.Identifier

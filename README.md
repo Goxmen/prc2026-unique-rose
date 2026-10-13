@@ -18,6 +18,11 @@ See [selected final status](release/SELECTED_FINAL.md) for the authoritative
 accepted artifact. The separate [manual v80 refit command](tools/v80_refit/README.md)
 does upload a replacement when the owner runs it.
 
+[Repository contents](docs/REPOSITORY_CONTENTS.md) explains which source and
+provenance files are retained for review. Datasets, weights, caches, detailed
+experiment outputs and internal coordination remain local; replay bundles are
+distributed separately as release assets.
+
 | Document | Contents |
 | --- | --- |
 | [Reproduction](docs/REPRODUCING.md) | Environment, required artifacts, executable commands and output verification |

@@ -53,8 +53,9 @@ The [January/July seasonal comparison](docs/SEASONAL_VALIDATION.md) is also comp
 [results](runs/seasonal_jan_jul/comparison.md) show closer absolute scores, but
 worse alignment in change sizes than v3. No replacement protocol is selected.
 
-Start with the [improvement plan](IMPROVEMENT_PLAN.md) and
-[Stage 4 results](reports/STAGE4.md). **Stages 1–4 are complete. M1 regresses;
+For final-solution review, start with the [reproduction guide](../docs/REPRODUCING.md).
+The sections below describe historical research; internal improvement plans and
+generated detailed outputs remain local. See [Stage 4 results](reports/STAGE4.md). **Stages 1–4 are complete. M1 regresses;
 keep Q0 as the conservative control.** The [frozen mixture recipe](docs/TIMESTAMP_MIXTURE.md)
 and report record the failed classifier and false high predictions.
 The [exact feature list and examples](docs/STAGE2_STAGE3_EXAMPLES.md)
@@ -74,7 +75,7 @@ comparison explicit when continuing.
 
 | Location | Purpose |
 |---|---|
-| [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) | Current decisions, next step, experiment ledger and handoff |
+| [Reviewer contents](../docs/REPOSITORY_CONTENTS.md) | Source, selected provenance and local-artifact policy |
 | [reports/OVERNIGHT_SUMMARY_20260917.md](reports/OVERNIGHT_SUMMARY_20260917.md) | Five new submissions, held-out CV verdict, current best and remaining evidence gap |
 | [docs/OVERNIGHT_STUDY_20260917.md](docs/OVERNIGHT_STUDY_20260917.md) | Frozen overnight candidate design and discovery/confirmation split |
 | `overnight_run.py`, `overnight_models.py` | Resumable study fits/refits and fixed model interventions; completed run is retained |

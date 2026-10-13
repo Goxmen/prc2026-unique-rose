@@ -1,9 +1,0 @@
-{
-  "reason": "Step-2 weather-distance correction, preserving the first run for comparison.\n\nAn IQR and p90-p10 of zero previously fell back to one physical unit, even when\nthe weather variable varied outside its central 80%. One foot or one metre is\nan arbitrary, often tiny scale. This uses the observed donor range next. Truly\nconstant donor variables use a binary changed/not-changed encoding; an entirely\nmissing donor variable contributes only its missing indicator. All quantities\ncome from the same permitted source donor bank. Other groups are unchanged.\n\nThis is a documented correction after inspecting the initial outputs, not an\nindependent confirmation. No models or previously selected weights are changed.\n",
-  "original_design_sha256": "a2f3a1b305ad320dbaed9fac6f7ebd59ceb99787923e66a8ec4f4afb1e03f171",
-  "groups": "Only weather numeric scaling changes; raw distances, classifiers, day splits and priors unchanged.",
-  "scale": "IQR, then p90-p10, then observed donor range. Truly constant variables: binary deviation. All missing donors: missingness alone.",
-  "status": "Correction after seeing initial results; preserves initial outputs and repeats all 20 airport/month comparisons with the same method.",
-  "utility_sha256": "02885e820da15a5580bafd72724b00c610657bf77dd90276e107cb662c8ccb62",
-  "script_sha256": "ae51bd32362de3490d5b8fb0bd32a54990fc0765fe6d8fec5b0e521eeb8ae4ed"
-}
