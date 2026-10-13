@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T09:17:08.660727+00:00",
+  "updated_at": "2026-10-13T09:33:28.583238+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -1384,25 +1384,50 @@
         "new_model_fits": 0
       },
       "no_expansion_or_candidate": true
+    },
+    {
+      "id": "v80_teacher_distillation_20261013",
+      "status": "source_implementation_pending_review",
+      "hypothesis": "An expanded28-vector portable student can approximate complete v80 and improve actual blocked JanJul taxi CV over portable v82",
+      "run": "VALIDATION/runs/v3_20261013_v80_teacher_distillation",
+      "no_numeric_run": true,
+      "novelty": "Same approximation family as closed15-vector proxy; new expanded basis and nonlinear v82 anchor with actual taxi gate",
+      "prospective_protocol": "Four same-month blocked fits, one-day embargo, fixed mean-MSE ridge1, no intercept; all predictions before truth reads; no tuning",
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_novelty_assessment.json",
+          "sha256": "db7d21a952ea9064e2879e57fc4f49fbf02cc1f624a39ebc6229cf62b703ba1b"
+        }
+      ],
+      "constraints": [
+        "Last daily slot reserved",
+        "No production before fixed gate and independent audit",
+        "No claim of unseen February/June validation"
+      ]
     }
   ],
   "next": [
-    "Review strongest retained final candidate after both fixed screens failed; no candidate from either screen",
-    "Source-only assess information value and honest JanJul admissibility of final-view portable predictions transported back to ranking; do not assume permission to omit required CV",
-    "Three slots remain including last reserved; no new vector, version or upload queued"
+    "Source review and freeze one expanded28-vector complete-v80 teacher distillation screen; no numeric run before reviewed release",
+    "Require blocked JanJul teacher fidelity and actual taxi gates before any production/official feedback",
+    "Use audited portable v82 as strongest admissible final fallback; conditional clock transport is unselected because no authentic paired-departure CV",
+    "Keep three remaining slots with last reserved for strongest validated final selection"
   ],
   "active_research": [
     {
       "owner": "root",
-      "scope": "Final selection and protected-slot integration"
+      "scope": "Fixed distillation release and protected final slot"
+    },
+    {
+      "owner": "cohort_learning",
+      "scope": "Distillation producer implementation only"
     },
     {
       "owner": "final_recovery",
-      "scope": "Final candidate recommendation and paired-view feedback CV admissibility"
+      "scope": "Independent distillation result auditor/source review"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent conditional clock feedback information-value review"
+      "scope": "Independent projected-input/label firewall audit"
     }
   ],
   "machine_allocation": {

@@ -121,6 +121,16 @@ CatBoost on the GPU ran faster on the laptop's 5060 (30–36 min per fit) than o
 
 ## Current improvement work — handoff
 
+**October 13, 11:35 Amsterdam: final validation decision and one bounded follow-up.**
+Portable public-source v82 is the strongest admissible final fallback. Conditional
+shared-clock transport remains unselected: genuine paired-departure Jan/Jul CV
+is unavailable, and the final filename does not exempt a new transform from CV.
+No reverse-clock feedback upload or validation exception is requested. Expanded
+28-vector complete-v80 teacher distillation is in source review: four same-month
+blocked ridge1 solves, one-day embargo, all predictions before truth reads,
+actual taxi gate required. No numeric execution or production allocated yet.
+Best v80 218.8525; three slots remain, last reserved; both machines idle.
+
 **October 13, 11:15 Amsterdam: correlated-mode pilot closed; slots preserved.**
 Six retained honest R20 prediction banks supported one fixed training-only
 airline/day dependence test. Exact analytic permutation means, 199 conditional

@@ -1,35 +1,40 @@
 {
-  "updated_at": "2026-10-13T09:17:08.660727+00:00",
+  "updated_at": "2026-10-13T09:33:28.583238+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-13T07:19:40+00:00",
   "slots_remaining": 3,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 58,
+  "hypotheses": 63,
   "desktop": {
     "stage": "idle",
     "owner": null,
     "checked_at": "2026-10-13T09:17:08.660727+00:00"
   },
   "next": [
-    "Review strongest retained final candidate after both fixed screens failed; no candidate from either screen",
-    "Source-only assess information value and honest JanJul admissibility of final-view portable predictions transported back to ranking; do not assume permission to omit required CV",
-    "Three slots remain including last reserved; no new vector, version or upload queued"
+    "Source review and freeze one expanded28-vector complete-v80 teacher distillation screen; no numeric run before reviewed release",
+    "Require blocked JanJul teacher fidelity and actual taxi gates before any production/official feedback",
+    "Use audited portable v82 as strongest admissible final fallback; conditional clock transport is unselected because no authentic paired-departure CV",
+    "Keep three remaining slots with last reserved for strongest validated final selection"
   ],
   "native_goal_status": "active",
   "active_research": [
     {
       "owner": "root",
-      "scope": "Final selection and protected-slot integration"
+      "scope": "Fixed distillation release and protected final slot"
+    },
+    {
+      "owner": "cohort_learning",
+      "scope": "Distillation producer implementation only"
     },
     {
       "owner": "final_recovery",
-      "scope": "Final candidate recommendation and paired-view feedback CV admissibility"
+      "scope": "Independent distillation result auditor/source review"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent conditional clock feedback information-value review"
+      "scope": "Independent projected-input/label firewall audit"
     }
   ],
   "laptop": {
@@ -303,10 +308,11 @@
     "numerical_supplement": {
       "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/handoff.json",
       "sha256": "ab417c23797d77f2f95c11b1de4817782ffdf37c3436b54671d8566936959fd2"
-    }
+    },
+    "selection_status": "strongest_admissible_fallback_pending_fixed_distillation"
   },
   "final_shared_clock_candidate": {
-    "status": "complete_independently_audited_unselected",
+    "status": "unselected_no_authentic_paired_departure_CV",
     "result": {
       "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/result.json",
       "sha256": "1f1ef272dd79620a44339a785e1c453bbc479cc69e778731441d127a0f81334d"
@@ -317,7 +323,11 @@
     },
     "no_paired_departure_cv": true,
     "departure_mechanism_conditional": true,
-    "no_upload": true
+    "no_upload": true,
+    "selection_resolution": {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/final_selection_validation_resolution_20261013.json",
+      "sha256": "f9c54438cb410c052b1ecbc227ade4f918f64c4af321e3c16f174c4382fba671"
+    }
   },
   "final_uploader": {
     "status": "source_reviewed_14_offline_checks_pass_no_upload",
@@ -419,5 +429,14 @@
       "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/independent_audit.json",
       "sha256": "231f91788d137725bb36ce12856548eaf3d5cf798c1f2cd69d321b718338d8b8"
     }
+  },
+  "v80_teacher_distillation": {
+    "status": "source_implementation_pending_review",
+    "run": "VALIDATION/runs/v3_20261013_v80_teacher_distillation",
+    "design": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_fixed_design.json",
+    "fits": 4,
+    "no_new_base_model_fits": true,
+    "numeric_allocated": false,
+    "novelty": "Expanded28-vector follow-up to closed15-vector approximation; complete v82 anchor and actual blocked taxi CV"
   }
 }

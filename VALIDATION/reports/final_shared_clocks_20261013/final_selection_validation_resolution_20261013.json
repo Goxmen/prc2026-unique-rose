@@ -1,0 +1,30 @@
+{
+  "status": "source_only_protocol_resolution_no_selection_action",
+  "supersedes_recommendation_in": [
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/final_recovery_selection_review.json",
+      "sha256": "bf60494b01ece02fe2415def5880db2090ead3411c6b1ac5b26bd392d57512ff"
+    },
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/back_transport_feedback_protocol_review.json",
+      "sha256": "47069bb7855bb8c03e47ac8388e0d4102edf2eae0528c0b215e887e1f48ee0d9"
+    }
+  ],
+  "instruction_source": {
+    "path": "AGENTS.md",
+    "sha256": "b43500233d9254e3ec56fb24fe94b3710ff997c2493bfa6cd177579247091ea6"
+  },
+  "instruction": "User rule: score every new row on Jan/Jul CV.",
+  "applicability": "A final delivery with a new prediction transform remains a new candidate recipe. Treating the final filename as an exception would bypass the validation requirement; no such exception was given.",
+  "distinction": {
+    "portable_v82": "Same complete recipe has genuine Jan/Jul predictions and independent audit; applying it to four new months requires distributional generalization but adds no new unvalidated predictor operator.",
+    "shared_clock_hybrid": "The routing and2dt target transform are new. Existing base-model CV does not test their complete behavior; no genuine paired departure Jan/Jul view exists. Visible arrival agreement supplies conditional mechanism evidence only."
+  },
+  "recommendation": "Select independently audited portable public-source v82 as the strongest admissible final candidate. Retain shared-clock hybrid as unselected conditional research.",
+  "reason": "Both recent research screens are closed/audited; no stronger fully validated final-capable recipe remains. Conditional expected preference alone cannot override the current validation requirement.",
+  "no_exception_request": true,
+  "no_approval_flow": true,
+  "no_candidate_build_or_upload": true,
+  "no_new_labels_predictions_or_scores_read": true,
+  "root_owns_final_selection": true
+}

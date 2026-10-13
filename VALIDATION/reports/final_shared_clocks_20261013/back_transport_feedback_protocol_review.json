@@ -1,0 +1,80 @@
+{
+  "status": "source_only_protocol_review_no_candidate_built",
+  "proposal": "On all original344841 IDs, nearest-even nonnegative serialization of final-v82 prediction minus2*(final_takeoff-old_takeoff), preserving original template.",
+  "information_value": {
+    "use": "An official result would compare final-view v82 against old v80 on exactly shared movements, conditional on the clock transport law.",
+    "identity": "Let r=(final_block-old_block)+(final_takeoff-old_takeoff). Then y_final=y_old+2dt-r, so before clipping e_back=e_final-r. Score transfer is approximate only if departure r is small.",
+    "limitation": "Arrival r RMS0.707s is mechanism evidence, not an observed departure residual bound. Nonnegative serialization can make reverse/forward composition noninvertible and must be audited separately if ever authorized."
+  },
+  "validation": {
+    "authentic_paired_JanJul_departure_views_available": false,
+    "genuine_complete_recipe_CV": null,
+    "existing_v82_CV_scope": "Base portable recipe only; not validation of reverse paired-release transform.",
+    "invalid_substitutes": [
+      "Inheriting v82 Jan/Jul score as a full transformed candidate score",
+      "Setting unavailable Jan/Jul dt to zero and calling the control a transport validation",
+      "Generating shifted targets from the assumed2dt law and treating arithmetic success as predictive evidence",
+      "Using arrival-label agreement as departure Jan/Jul validation"
+    ]
+  },
+  "protocol_decision": {
+    "new_leaderboard_candidate_admissible_under_current_rule": false,
+    "reason": "User requires every new model/submission row to have Jan/Jul CV. Autonomous upload authorization does not waive that validation requirement.",
+    "would_require": "An explicit validation exception or authentic paired Jan/Jul departure observations; do not relabel the upload a diagnostic to evade the rule."
+  },
+  "updated_final_recommendation": {
+    "new_screens": "Target-track consistency and correlated-mode dependence both fail their fixed independently audited gates; neither supplies a new final candidate.",
+    "strongest_complete_CV_validated_final_recipe": "Audited portable public-source v82, including its explicitly bound final support-recovery supplement.",
+    "conditional_preference": "If selecting under the already explicit phase-neutral clock assumption, retain shared old-v80+2dt plus unchanged v82 on new IDs; this remains my conditional preference among retained final options.",
+    "reason": "v80 outperformed v82 on original shared IDs by2.6715s officially, and the visible arrival release transformation supports but does not prove departure phase symmetry.",
+    "unavailable_claims": [
+      "No new full-hybrid Jan/Jul score",
+      "No measured final departure score",
+      "No guarantee of improved final rank or target205"
+    ]
+  },
+  "sources": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "b43500233d9254e3ec56fb24fe94b3710ff997c2493bfa6cd177579247091ea6"
+    },
+    {
+      "path": "VALIDATION/final_shared_clock_transport_20261013.py",
+      "sha256": "483a2972037354bcaf53186861b884d8595889a89ada3c6dd3ced0b9007f7956"
+    },
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/departure_identifiability_review.json",
+      "sha256": "778c190059d07b42b79346e1fc73a1413065489b9cac20fb9da27524e856ecdd"
+    },
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/final_recovery_selection_review.json",
+      "sha256": "bf60494b01ece02fe2415def5880db2090ead3411c6b1ac5b26bd392d57512ff"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/result.json",
+      "sha256": "d4680537bc417ab38b462cd88bf1ed8647fe6fb7c524721e7dd3cd0ad60458a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/audit.json",
+      "sha256": "9a49947bbbbba84acea7cc65d8a2f9dfa84ff7d53d4fa0e7a58022342081712e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/result.json",
+      "sha256": "1f1ef272dd79620a44339a785e1c453bbc479cc69e778731441d127a0f81334d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_final_shared_clock_transport/audit.json",
+      "sha256": "940095032b7762e779eb0dfd97fb490d37d71eb768e117e15326d795c96ca610"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/comparison/independent_audit.json",
+      "sha256": "63a89f752bc2eca4f07b49d08e74dc99803cb24052110d5737bcaed9dcc7836b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_correlated_modes_pilot/independent_audit.json",
+      "sha256": "231f91788d137725bb36ce12856548eaf3d5cf798c1f2cd69d321b718338d8b8"
+    }
+  ],
+  "no_prediction_or_raw_label_arrays_read": true,
+  "no_numeric_score_fit_inference_build_upload": true
+}
