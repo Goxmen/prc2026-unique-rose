@@ -1,0 +1,113 @@
+{
+  "status": "pass_conditional_selection_review_not_selection",
+  "reviewer": "/root/cohort_learning",
+  "scope": "Existing saved JSON evidence and metadata hash-chain checks only; no prediction/label arrays, new numerical experiment, source modification, live leaderboard query or upload.",
+  "condition": "If the sole prospective residual certificate fails its fixed gate and root resolves its independent audit, select the audited v83-derived final candidate. The certificate and any remaining authorized work remain pending in this review; no experiment is marked resolved.",
+  "recommendation": "v83 is the strongest currently available, fully audited final-capable recipe. Retain v82 as fallback. The better original-ranking v80 score does not create an available exact four-month final predictor.",
+  "candidate": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/candidate.parquet",
+    "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+  },
+  "final_rows": 670790,
+  "evidence": {
+    "v83_official_original_ranking": 220.9278,
+    "v82_official_original_ranking": 221.524,
+    "same_official_rows": 344841,
+    "official_feedback_direction": "v83 improves v82 by the saved 0.5962-second difference, agreeing with the prospectively gated CV preference.",
+    "student_CV": 289.60760827359303,
+    "v82_CV": 290.8394266979102,
+    "versus_v82": {
+      "change": -1.2318184243171828,
+      "ci95": [
+        -1.9423492003701774,
+        -0.5552916940552836
+      ],
+      "decision": "improvement"
+    },
+    "both_CV_months_better_than_v82": true,
+    "versus_v80": {
+      "change": -0.1551699366975754,
+      "ci95": [
+        -0.8396200643816613,
+        0.6814095731540383
+      ],
+      "decision": "inconclusive"
+    },
+    "v80_saved_official_best": 218.8525,
+    "production_and_CV_audits": "pass; complete 670790-row final template/ID/constraint/serialization checks already recorded",
+    "no_repeat_audit_needed": "Historical result files retain independent_audit_pending=true; later hash-bound passing audit receipts resolve those historical flags."
+  },
+  "limitations": [
+    "v83 does not beat v80 officially; CV versus v80 is inconclusive and January is worse. No exact-v80 recovery or 205 attainment claim.",
+    "Original-ranking production was fitted to soft teacher predictions on those rows. Its hidden-label official score is genuine evidence there, not an independent test of unseen-month distillation.",
+    "Blocked within-month 2025 CV does not directly validate February/June 2026 or changed final clocks. Both CV reuse and historical early-component provenance caveats remain.",
+    "The shared-clock hybrid remains ineligible for selection under the current genuine Jan/Jul validation requirement; arrival-clock evidence does not establish the hidden departure mechanism."
+  ],
+  "remaining_blockers": [
+    {
+      "kind": "pending_research",
+      "detail": "Root must complete and independently audit the sole allocated residual certificate before stating remaining alternatives resolved."
+    },
+    {
+      "kind": "selection_record",
+      "detail": "Root must write the immutable selected_best_available receipt identifying this exact final candidate and the resolved alternatives; this review is conditional and cannot substitute for it."
+    },
+    {
+      "kind": "delivery",
+      "detail": "Canonical unique-rose_final.parquet packaging and the reviewed upload preflight must bind exact audited bytes, complete portable CV, current selection and fresh bucket/slot state. Then root may perform the one authorized upload and verify remote SHA."
+    }
+  ],
+  "no_additional_model_or_statistical_blocker_identified": true,
+  "no_new_fit_or_candidate_transform_needed": true,
+  "root_owns_selection_packaging_upload": true,
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/audit.json",
+      "sha256": "794f351288f86cf8a2741c6393e673b9e5e5a277e8ea2be591f4e47612323713"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+      "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+      "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/submission_v83/manifest.json",
+      "sha256": "81cf69349d1481c467478b4c3dbafa97fee5d55696f0a270acbcb3063301ef46"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/submission_v83/official_result.json",
+      "sha256": "ca50c9483ea697295d0692452ba75de00d148a0840e0069a87b6a4d28b7e78bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/manifest.json",
+      "sha256": "f5708ffc9c2f8bf0b1e1b7850d228db7189700903f8ad6b7ea41d8a9e9e949bd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/official_result.json",
+      "sha256": "4de8fa76b25951adfd8e3e843b23921ff9236d01e8a015172c5bfa29f402ac96"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/v80_distillation_final_selection_assessment.json",
+      "sha256": "f2fc6b7a0aefcd1403fd1154265b857f65bdcd0f488dbec04e547bd118691683"
+    },
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/final_selection_validation_resolution_20261013.json",
+      "sha256": "f9c54438cb410c052b1ecbc227ade4f918f64c4af321e3c16f174c4382fba671"
+    },
+    {
+      "path": "VALIDATION/reports/final_upload_preflight_source_review_20261013.json",
+      "sha256": "d562c0017bb1b6870d83f86ac1c4e4d978beabb0c2c3adb01294e0b245cc59df"
+    },
+    {
+      "path": "VALIDATION/reports/final_uploader_source_review_20261013.json",
+      "sha256": "74e7417320beffc96ffee128e9755470673df07ddf5bf324707a521addf1cce1"
+    },
+    {
+      "path": "VALIDATION/research_state.json",
+      "sha256": "311a5fc58427821d5f1344670484e3ea7577592499eb70837fab7e4307eda8b0"
+    }
+  ]
+}

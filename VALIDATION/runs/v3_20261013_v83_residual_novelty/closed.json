@@ -1,0 +1,28 @@
+{
+  "status": "closed_material_novelty_gate_failed",
+  "authority": "/root",
+  "at": "2026-10-13T10:32:14.052087+00:00",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/identity.json",
+    "sha256": "f0ee362284422b63b76f62b6b5b6fbefb415d2614960dd0c5496759a39015fe8"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/result.json",
+    "sha256": "59290126d1decbe4b5f5be459fdac9a211d4c6c18c964c311acade9fc3952060"
+  },
+  "independent_audit": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/independent_audit.json",
+    "sha256": "1d951f83b2cf6fe4669e72cb383089adc12c772ec909395ff9db6df6db5bb7ee"
+  },
+  "serialization_recovery": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/recovery_result.json",
+    "sha256": "60b76f64151d86d15f05008ed6f2d914bf5919d4a63ff69d11012e094ccbe3e9"
+  },
+  "conservative_oracle_gain_seconds": 1.8191209818496645e-05,
+  "optimistic_oracle_gain_seconds": 9.454755084448152e-05,
+  "decision": "no_half_second_oracle_headroom_within_fixed_intervals",
+  "no_optimizer_or_cv_followup": true,
+  "no_candidate_or_upload": true,
+  "no_certificate_repeated": true,
+  "interpretation": "The fixed numerical residual direction has less than0.0001s oracle headroom within the published-score and arithmetic intervals. No material follow-up is supported. This is not a global proof that all modeling ideas are exhausted."
+}

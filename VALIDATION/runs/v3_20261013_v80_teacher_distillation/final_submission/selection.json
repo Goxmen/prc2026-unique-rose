@@ -1,0 +1,109 @@
+{
+  "status": "selected_best_available",
+  "authority": "/root",
+  "selected_at": "2026-10-13T10:32:14.052087+00:00",
+  "utc_date": "2026-10-13",
+  "file": "submissions/unique-rose_final.parquet",
+  "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f",
+  "candidate": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/candidate.parquet",
+    "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+  },
+  "parent_version": 83,
+  "rows": 670790,
+  "jan_jul_cv": 289.60760827359303,
+  "remaining_promising_experiments_resolved": true,
+  "compared_candidates": [
+    {
+      "candidate": "v83 portable distilled student",
+      "decision": "selected",
+      "official_original_rmse": 220.9278,
+      "jan_jul_cv": 289.60760827359303
+    },
+    {
+      "candidate": "v82 complete portable parent",
+      "decision": "fallback; worse in both CV months and original official score",
+      "official_original_rmse": 221.524,
+      "jan_jul_cv": 290.8394266979102
+    },
+    {
+      "candidate": "v80 best original ranking",
+      "decision": "exact complete final unavailable after preserved recovery attempts; not silently substituted",
+      "official_original_rmse": 218.8525
+    },
+    {
+      "candidate": "conditional shared-clock hybrid",
+      "decision": "unselected; no genuine paired-view Jan/Jul validation"
+    },
+    {
+      "candidate": "residual feedback optimization",
+      "decision": "no candidate; fixed novelty certificate fails materially"
+    }
+  ],
+  "selection_reason": "Choose the strongest available fully audited portable recipe. V83 improves its complete v82 parent by1.231818s on blocked Jan/Jul CV with both months better and a fixed paired-day interval below zero, and by0.5962s officially on the original ranking. All670790 final rows pass retained independent production checks. The sole remaining allocated residual certificate fails and bounded frontier reviews identify no supported pending candidate. Preserve unused capacity rather than spend a slot on a duplicate or failed experiment.",
+  "limitations": [
+    "No claim of a globally optimal model, exact v80 recovery, unseen-month independent validation, or205 attainment.",
+    "Development CV reuse, historical early-component provenance, within-month teacher-transfer mismatch and changed final clocks remain documented.",
+    "Official original-ranking teacher fit uses soft targets on those same rows; final score is unknown."
+  ],
+  "evidence": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+      "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/score.json",
+      "sha256": "8ec5d7f37cf1e776d93982e3b9ddce1ab0fe805b2b93e99610419309ba71543c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/audit.json",
+      "sha256": "794f351288f86cf8a2741c6393e673b9e5e5a277e8ea2be591f4e47612323713"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+      "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+      "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/submission_v83/official_result.json",
+      "sha256": "ca50c9483ea697295d0692452ba75de00d148a0840e0069a87b6a4d28b7e78bb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_feedback_candidates/submission_v82/official_result.json",
+      "sha256": "4de8fa76b25951adfd8e3e843b23921ff9236d01e8a015172c5bfa29f402ac96"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/closed.json",
+      "sha256": "213be39b59d52288094dd050c8f5e582ee2f65c066b3f16225c28e6bc58b49f0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/independent_audit.json",
+      "sha256": "1d951f83b2cf6fe4669e72cb383089adc12c772ec909395ff9db6df6db5bb7ee"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/v83_conditional_final_selection_review.json",
+      "sha256": "d9ca6ddbbe8374bd0d12925b2bb9e6aef1b9440252e883aede5dcd4cc049a0d2"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/remaining_structural_frontier_after_v83.json",
+      "sha256": "a175f7ff2223ce3c0006814196d921e6a961aeb16063d19416f5da3f2a4dacc2"
+    },
+    {
+      "path": "VALIDATION/reports/remaining_source_frontier_review_20261013.json",
+      "sha256": "348adf9b1f935af45642d3cdc089356b66aba5c2c844772fb9ed92a0e2657901"
+    },
+    {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/final_selection_validation_resolution_20261013.json",
+      "sha256": "f9c54438cb410c052b1ecbc227ade4f918f64c4af321e3c16f174c4382fba671"
+    },
+    {
+      "path": "VALIDATION/reports/final_submission_route_recheck_20261013.json",
+      "sha256": "e7dfe7b25e47ccc6cca1ddb1ff02ad275c72ee0735e26bc0e7a4de4f7ceaedb7"
+    }
+  ],
+  "no_refit_or_transform": true,
+  "no_automatic_additional_upload": true
+}

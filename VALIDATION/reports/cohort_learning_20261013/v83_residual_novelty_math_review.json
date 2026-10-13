@@ -1,0 +1,51 @@
+{
+  "status": "pass_source_only_math_review",
+  "reviewer": "/root/cohort_learning",
+  "sources": [
+    {
+      "path": "VALIDATION/v83_residual_novelty_20261013.py",
+      "sha256": "f14820cfa77d438c698f358bd3f8b3b7e73e17a55f3f87af150b060777479080"
+    },
+    {
+      "path": "VALIDATION/reports/v83_residual_novelty_design_20261013.json",
+      "sha256": "775fca2944d562187b6961e094e056d68f61e29475fb12c29d15f447f3737ff6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/synthetic_preflight.json",
+      "sha256": "b1554c2e3522c3cbe3031c382055312bf1ebb95fa294e69e4278fd9594b8fd12"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/v83_feedback_geometry_novelty_assessment.json",
+      "sha256": "2d57e0b698f7963ed495e72dec390c303c2f2db94798089fc5008f26148d91d6"
+    }
+  ],
+  "scope": "Read source/design and retained synthetic receipt only. No original-ranking arrays, CV arrays, hidden taxi labels, model inference, solve, certificate execution, candidate or upload.",
+  "algebra": [
+    "The raw student is an affine vector in the existing 54-column basis. Adding its raw column cannot establish new predictive information and can change ridge/bounds by reparameterization.",
+    "For A=D/sqrt(n), z=(p83-p64)/sqrt(n), and fixed returned float64 alpha, r=z-A alpha and q=r^T r represent the one prospective numerical residual direction. Treating alpha as fixed removes any need to assume an exact SVD solution when applying the score-moment identity.",
+    "h64=(M83-M64-z^Tz-alpha^T(Mj-M64-columnNormSquared))/2 and h80=h64+A80^T r are exact real-arithmetic identities for those coordinates. The normalized correction now has the correct sqrt(n) scaling.",
+    "All score coefficients include the shared M64 coefficient explicitly. Sign-selected squared-score endpoints give a conservative interval over the full independent score-rounding box; dependence between moment and M80 need not be ignored as independence to obtain this outer bound.",
+    "q_upper and minabs(h_interval) yield a conservative one-direction oracle MSE reduction. Using R80_upper yields the lower seconds gain because R-sqrt(R^2-K) decreases with R for fixed valid K. K_min>R80_upper^2 is inconsistent and fails closed.",
+    "For upper headroom, if K_max<=R80_lower^2 use R80_lower-sqrt(R80_lower^2-K_max); otherwise min(R80_upper,sqrt(K_max)). The repaired branch bounds the whole RMSE interval."
+  ],
+  "precision": [
+    "Fixed eps*max(n,53)*smax rank threshold, factor-two rank gap, residual-MSE-to-envelope ratio, and orthogonality guard are predeclared; no rank or tolerance scan follows this diagnostic.",
+    "The h envelope now includes smax*(1+norm(z)+smax*norm(alpha)), addressing cancellation in A80 dot r and amplification of residual reconstruction error that abs(A80 dot r) alone would miss.",
+    "The q and h envelopes are deliberately conservative floating-point guards. Their actual adequacy and complete source/array bindings remain for the separately allocated independent numerical audit.",
+    "Large alpha automatically widens the official score interval, exposing unstable cancellation rather than converting tiny residuals into apparently precise headroom.",
+    "Discarded singular values and left-coordinate energy are reported. This is novelty relative to the fixed numerical tangent, not proof of exact mathematical rank. Under original effective-coordinate boxes, 4*sqrt(53)*smax_discarded is a valid bound on the discarded component of any boxed tangent vector."
+  ],
+  "interpretation": [
+    "A passing 0.5-second lower bound means rounding-robust unconstrained one-direction oracle information on the original ranking only. It is not an attainable box/ridge-constrained or serialized candidate improvement, honest CV evidence, independent confirmation, or final portability.",
+    "If the lower bound fails while the upper bound remains material, the correct conclusion is insufficient evidence or precision. Only an upper bound below 0.5 rules out that amount of oracle headroom for this fixed numerical residual and intervals.",
+    "The old 54-vector basis still contains missing final components. No deployable final residual or coefficient counterpart may be silently substituted.",
+    "No broad geometry reopening or follow-up optimization is authorized by this source review."
+  ],
+  "requested_repairs_completed": [
+    "Normalized h80 correction",
+    "Absolute reconstruction scale in h envelope",
+    "Exact high-reduction upper-headroom branch",
+    "Numerical-rank and failed-gate interpretation"
+  ],
+  "remaining": "Root may freeze and allocate the single diagnostic after independent source/input-auditor review; all numerical gates and independent result audit remain pending."
+}

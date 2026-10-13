@@ -1,0 +1,46 @@
+{
+  "status": "pass_source_only_math_review",
+  "reviewer": "/root/cohort_learning",
+  "sources": [
+    {
+      "path": "VALIDATION/v83_residual_novelty_20261013.py",
+      "sha256": "34d6fd6e36a4f3f68de285034484967ea5a66cbb26df6cc6d2d35ce2b55a393b"
+    },
+    {
+      "path": "VALIDATION/reports/v83_residual_novelty_design_20261013.json",
+      "sha256": "912ba7aec519e09b5e79f31c08e5ff05c6cd1cdce4dac006cadeed3a917770b7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/synthetic_preflight.json",
+      "sha256": "bc6ae7317832ed60c43b01c116d42ba81e8def084a8c6d766af4939f16b65318"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/v83_fixed_alpha_forward_bound_derivation.json",
+      "sha256": "1caa87af3f73e09638b25a7705633fa4f9f20ea652c697ce97cf053755ee9cd1"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/v83_residual_novelty_math_review.json",
+      "sha256": "724f0e24c19a6dbe080ec754d3321554e2bf3855cafa3ba1f5eef1748e7cdd65"
+    }
+  ],
+  "scope": "Reviewed fixed-alpha forward-error source/design amendment only; no real prediction/CV/label arrays or certificate execution. Existing broad-envelope review remains historical.",
+  "checks": {
+    "same_one_SVD_and_fixed_rank_policy": true,
+    "exact_integer_unscaled_moments": true,
+    "rowwise_matvec_subtraction_error": true,
+    "residual_norm_q_error_instead_of_large_projection_squared": true,
+    "absolute_product_signed_cross_bound": true,
+    "reference_score_coefficient_sum_error": true,
+    "constant_and_score_interval_roundoff": true,
+    "lower_and_upper_oracle_headroom_envelopes": true,
+    "fixed_float64_alpha_interpretation": true,
+    "numerical_rank_and_no_portability_caveats": true
+  },
+  "reasoning": "With eps64 used conservatively as unit roundoff and each gamma below .01, the factors2 dominate positive-bound evaluation errors. Exact integer differences remove normalization from moments. Reconstruction error is first order in the short matvec arithmetic and q uncertainty scales with the actual residual RMS; the remaining long-dot bound multiplies actual q. h separately covers input moment errors, signed cross cancellation/reconstruction, alpha dot arithmetic, reference coefficient sum and interval evaluation. This is a justified numerical-method refinement made before data, with no rank, gate or outcome-dependent choice.",
+  "limitations": [
+    "Independent numerical audit must still authenticate inputs and compare fixed-alpha moments/Decimal endpoints with these envelopes.",
+    "The calculation concerns a fixed numerical residual on original ranking only; it is not a proof of exact mathematical span, box/ridge feasibility, serialized candidate gain, honest CV or final portability.",
+    "A failed material lower bound may be inconclusive when the upper bound remains material.",
+    "No automatic follow-up optimization or production is authorized."
+  ]
+}

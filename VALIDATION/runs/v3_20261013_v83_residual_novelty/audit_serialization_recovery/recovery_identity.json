@@ -1,0 +1,85 @@
+{
+  "source": {
+    "path": "VALIDATION/tools/recover_v83_novelty_audit_serialization_20261013.py",
+    "sha256": "74d02d178290e22a5e27026f3efe7a80443f0d6d253a34d8e8b67441cfc90683"
+  },
+  "original_auditor": {
+    "path": "VALIDATION/tools/audit_v83_residual_novelty_20261013.py",
+    "sha256": "812cb1458de3b2be848494a93581d7c9686a1dbabae1a066b2a3e47e17cc141c"
+  },
+  "original_identity": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/identity.json",
+    "sha256": "f0ee362284422b63b76f62b6b5b6fbefb415d2614960dd0c5496759a39015fe8"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/result.json",
+    "sha256": "59290126d1decbe4b5f5be459fdac9a211d4c6c18c964c311acade9fc3952060"
+  },
+  "decomposition": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/decomposition.npz",
+    "sha256": "494022a414c1c558eca2c6f783cdb581f3b9729279c3c044821fbba573ae91f4"
+  },
+  "partial": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/independent_audit.json",
+    "sha256": "6291df511dd6502702c6a9b96d5c9b562372e5cea9e7b49d84131188cbb86eac"
+  },
+  "archive": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/archive.json",
+    "sha256": "517eea8093392b72148b610740b3ed7d75ec9164b876424c2eac0db3c133d387"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tools/recover_v83_novelty_audit_serialization_20261013.py",
+      "sha256": "74d02d178290e22a5e27026f3efe7a80443f0d6d253a34d8e8b67441cfc90683"
+    },
+    {
+      "path": "VALIDATION/tools/audit_v83_residual_novelty_20261013.py",
+      "sha256": "812cb1458de3b2be848494a93581d7c9686a1dbabae1a066b2a3e47e17cc141c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/source_review.json",
+      "sha256": "bce0b9de500273dcc895c5ef022d8d3800b9b46547f58fb3125992ac191fe832"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/archive.json",
+      "sha256": "517eea8093392b72148b610740b3ed7d75ec9164b876424c2eac0db3c133d387"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/identity.json",
+      "sha256": "f0ee362284422b63b76f62b6b5b6fbefb415d2614960dd0c5496759a39015fe8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/result.json",
+      "sha256": "59290126d1decbe4b5f5be459fdac9a211d4c6c18c964c311acade9fc3952060"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/decomposition.npz",
+      "sha256": "494022a414c1c558eca2c6f783cdb581f3b9729279c3c044821fbba573ae91f4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/allocation.json",
+      "sha256": "5154e151adfd29a912cf7b547a77de9b4514134e089579bf024f9560d6edb469"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/audit_v83_residual_novelty_20261013.py",
+      "sha256": "812cb1458de3b2be848494a93581d7c9686a1dbabae1a066b2a3e47e17cc141c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/identity.json",
+      "sha256": "f0ee362284422b63b76f62b6b5b6fbefb415d2614960dd0c5496759a39015fe8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/result.json",
+      "sha256": "59290126d1decbe4b5f5be459fdac9a211d4c6c18c964c311acade9fc3952060"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/audit.log",
+      "sha256": "4ff29516a0574c28dec4f0fbc3df4195017c709dd71841a11ca896e98605d779"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/partial_independent_audit.json",
+      "sha256": "6291df511dd6502702c6a9b96d5c9b562372e5cea9e7b49d84131188cbb86eac"
+    }
+  ],
+  "scope": "Only report serialization np.bool_\u2192bool and explicit recovery provenance; original audit body unchanged."
+}

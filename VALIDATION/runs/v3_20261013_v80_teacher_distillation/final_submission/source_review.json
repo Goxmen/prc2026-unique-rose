@@ -1,0 +1,95 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/package_final_v83_20261013.py",
+    "sha256": "282f31adca80262bd271addb593eb9acdbddc52b201ec741db4447225302332b"
+  },
+  "reviewer": "/root/new_signal_audit",
+  "created_at": "2026-10-13T10:33:17.095573+00:00",
+  "helpers": [
+    {
+      "path": "VALIDATION/final_candidate_upload_preflight_20261013.py",
+      "sha256": "13c793e645ea6db5b7dfcda6ddd8271b3818581d800ad9c5f1f0b87a79d6b6ff"
+    },
+    {
+      "path": "VALIDATION/audited_final_upload_20261013.py",
+      "sha256": "6c418ece79aac7d301c4263b9b703933d7cdd58033efcaca47f713a9030b7c00"
+    },
+    {
+      "path": "VALIDATION/scored_blend_submit.py",
+      "sha256": "dad8a2fc685bb203479196e8e945163505f8025ca651441773b5c03efe70875f"
+    },
+    {
+      "path": "pipeline/dashboard_data.py",
+      "sha256": "b0b110e7db95f7e7e3dc01eba4fe562b1600d1a4d311c4ade03602d2e967a1a3"
+    },
+    {
+      "path": "VALIDATION/submission_slot_policy.py",
+      "sha256": "883ad62af19c14bba8729a522e985e5658c3f94a0893925cf65d723f57474413"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/submission_slot_policy.json",
+      "sha256": "740157ea2ac5a162c7dc15607eeebdd7fe3c28d06c71962b399445bc977ac296"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/identity.json",
+      "sha256": "94b63f64ca5021036422f70304664d7128beecdd418aa051b3257227cf638d41"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/score.json",
+      "sha256": "8ec5d7f37cf1e776d93982e3b9ddce1ab0fe805b2b93e99610419309ba71543c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/audit.json",
+      "sha256": "794f351288f86cf8a2741c6393e673b9e5e5a277e8ea2be591f4e47612323713"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+      "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+      "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/handoff.json",
+      "sha256": "ab417c23797d77f2f95c11b1de4817782ffdf37c3436b54671d8566936959fd2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/identity.json",
+      "sha256": "a3f7b28061d85d86153e3f180016d93e629b2539cd9960047258d8a7ad8ce58a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/final/tilt_recovery/independent_event_audit.json",
+      "sha256": "a7fbe3b72568b3fc5db7b64020d7c34d3e8f90c3a130547114848e40b3d0a747"
+    }
+  ],
+  "scope": "Independent source and actual JSON-schema/receipt-chain review only. No production inference, candidate copy, model work, repeated numeric audit, live access or upload.",
+  "actual_receipt_contract_check": {
+    "status": "pass",
+    "student_source_records": 286,
+    "tilt_recovery_source_records": 127,
+    "production_views": [
+      "cv",
+      "old",
+      "final"
+    ],
+    "no_prediction_arrays_decoded": true
+  },
+  "checks": [
+    "Hard-pinned actual complete distillation identity, CV score/audit, one production model/result/audit and final candidate f4f6a15f. Original immutable receipts already expose all cv/old/final views; no metadata adaptation is needed.",
+    "Complete blocked Jan/Jul recipe CV289.60760827359303 comes from audited production.views.cv and original score. Final unseen-month transfer and reused-development limitations are explicit; no final score or exact-v80 claim.",
+    "Final anchor is bound through the student identity to the public final prediction; retained tilt handoff/result/event audit/identity chain validates the numerical-domain extension without repeating posterior inference.",
+    "All inherited286 student inputs/sources and127 tilt supplement sources are pinned. Current validation/upload/transport/dashboard/slot/records helpers must match this review before packaging.",
+    "Root-provided selected-best receipt must match actual final hash, filename/date and resolved-evidence contract; every evidence artifact is pinned. Builder does not make a selection or contact the live bucket.",
+    "Runtime checks use exact canonical670790-row final template, unique IDs/schema/order, all unchanged columns and finite integer nonnegative targets. Exclusive destination creation and source-byte SHA equality preserve the audited final candidate.",
+    "Existing complete local final preflight runs after copy; unchanged uploader owns later strict live filename/quota and reserved-slot checks. No upload command is present in builder."
+  ],
+  "execution": "Root may package only after its final selection. This source review is not selection or upload evidence."
+}

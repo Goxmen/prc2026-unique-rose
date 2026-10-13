@@ -1,39 +1,35 @@
 {
-  "updated_at": "2026-10-13T10:05:04.870567+00:00",
+  "updated_at": "2026-10-13T10:32:45.750373+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-13T09:58:05+00:00",
   "slots_remaining": 2,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 63,
+  "hypotheses": 64,
   "desktop": {
     "stage": "idle",
     "owner": null,
     "checked_at": "2026-10-13T09:52:15.900364+00:00"
   },
   "next": [
-    "One fixed residual novelty certificate in source review; no optimization/candidate allocated",
-    "Resolve certificate before final delivery selection; v83 strongest admissible portable, v82 fallback",
-    "Two slots remain including reserved last; preserve all completed solves/uploads"
+    "Package exact audited v83 final under root selection and retained complete CV provenance",
+    "Fresh read-only final preflight; one create-only upload, verify hash and check acceptance",
+    "No additional experiment/candidate queued;205 target remains unmet"
   ],
   "native_goal_status": "active",
   "active_research": [
     {
       "owner": "root",
-      "scope": "Protect final slot and final selection"
+      "scope": "Deliver selected audited v83 final; reserve remaining slot"
     },
     {
       "owner": "final_recovery",
-      "scope": "Source-only residual novelty certificate"
-    },
-    {
-      "owner": "cohort_learning",
-      "scope": "Independent certificate math/precision review"
+      "scope": "Artifact-only final packaging"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent certificate source/result audit"
+      "scope": "Independent final packaging review"
     }
   ],
   "laptop": {
@@ -492,7 +488,7 @@
     }
   },
   "final_distillation_candidate": {
-    "status": "audited_strongest_admissible_portable_pending_remaining_certificate",
+    "status": "selected_best_available_pending_delivery",
     "parent_version": 83,
     "production": {
       "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
@@ -506,6 +502,42 @@
       "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/candidate.parquet",
       "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
     },
-    "no_final_upload": true
+    "no_final_upload": true,
+    "selection": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/selection.json",
+      "sha256": "50fb869eac099df1f9d84642f8f7a80f130ba36243cdfc75f05616ac288b43e0"
+    }
+  },
+  "v83_residual_certificate": {
+    "id": "v83_residual_novelty_20261013",
+    "status": "closed_material_novelty_gate_failed",
+    "hypothesis": "The separately scored v83 constraint/rounding residual may add material information outside the closed54-vector numerical affine tangent",
+    "run": "VALIDATION/runs/v3_20261013_v83_residual_novelty",
+    "design": "VALIDATION/reports/v83_residual_novelty_design_20261013.json",
+    "inputs": "Only retained original-ranking prediction vectors and actual official scores; no CV packets/raw taxi labels",
+    "scope": "Fixed SVD projection and rounding-aware residual moment certificate, no candidate/weight optimization",
+    "gate": "Precision and score-interval checks plus \u22650.5s conservative unconstrained oracle headroom; this is not attainable model-gain evidence",
+    "limitations": [
+      "Original54 includes unavailable final components",
+      "No naive55-column optimization or altered effective ridge/boxes",
+      "Final portability and honest CV require separate design if information gate passes"
+    ],
+    "no_numeric_run": false,
+    "prefreeze_refinement": "Replace broad cancellation envelope with justified fixed-alpha forward error bounds before any data or freeze; preserve broad version",
+    "result": {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/result.json",
+      "sha256": "59290126d1decbe4b5f5be459fdac9a211d4c6c18c964c311acade9fc3952060"
+    },
+    "independent_audit": {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/independent_audit.json",
+      "sha256": "1d951f83b2cf6fe4669e72cb383089adc12c772ec909395ff9db6df6db5bb7ee"
+    },
+    "closure": {
+      "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/closed.json",
+      "sha256": "213be39b59d52288094dd050c8f5e582ee2f65c066b3f16225c28e6bc58b49f0"
+    },
+    "conservative_oracle_gain_seconds": 1.8191209818496645e-05,
+    "optimistic_oracle_gain_seconds": 9.454755084448152e-05,
+    "no_candidate_or_upload": true
   }
 }

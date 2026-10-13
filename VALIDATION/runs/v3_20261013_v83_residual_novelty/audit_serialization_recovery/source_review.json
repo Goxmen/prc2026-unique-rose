@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/recover_v83_novelty_audit_serialization_20261013.py",
+    "sha256": "74d02d178290e22a5e27026f3efe7a80443f0d6d253a34d8e8b67441cfc90683"
+  },
+  "created_at": "2026-10-13T10:30:56.390062+00:00",
+  "original_auditor": {
+    "path": "VALIDATION/tools/audit_v83_residual_novelty_20261013.py",
+    "sha256": "812cb1458de3b2be848494a93581d7c9686a1dbabae1a066b2a3e47e17cc141c"
+  },
+  "archive": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/audit_serialization_recovery/archive.json",
+    "sha256": "517eea8093392b72148b610740b3ed7d75ec9164b876424c2eac0db3c133d387"
+  },
+  "scope": "Reporting-only numpy.bool_ conversion at frozen auditor write; shared nested gate also serves its stdout JSON. No numerical source, result, identity, SVD or certificate changes.",
+  "reviewers": [
+    "/root",
+    "/root/final_recovery"
+  ],
+  "checks": [
+    "Archived original auditor/log/partial output/identity/result remain byte-identical.",
+    "Recovery metadata names are distinct from archived original identity/result.",
+    "Frozen audit body is imported with its original source identity; only writer replaced.",
+    "Failed report path is moved to retained partial_at_retry before audit-only rerun.",
+    "Only numpy.bool_ is accepted by generic encoder conversion; exact known report field is normalized in-place for stdout compatibility.",
+    "Report serialization completes before opening output. Final report explicitly binds executed wrapper, recovery identity and original numeric source.",
+    "Tiny nested-object file/stdout roundtrip and unsupported ndarray rejection pass."
+  ],
+  "execution": "Root alone may freeze then rerun the independent audit. No certificate rerun and no upload."
+}

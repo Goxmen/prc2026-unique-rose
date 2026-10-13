@@ -1,0 +1,74 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/package_final_v83_20261013.py",
+    "sha256": "282f31adca80262bd271addb593eb9acdbddc52b201ec741db4447225302332b"
+  },
+  "manifest": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/manifest.json",
+    "sha256": "27103ff7fd66dc0898f026743f8ad0666d6c8c0cd7131bf6a9bd98d77bad3efe"
+  },
+  "file": {
+    "path": "submissions/unique-rose_final.parquet",
+    "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+  },
+  "source_candidate": {
+    "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/candidate.parquet",
+    "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+  },
+  "table_checks": {
+    "rows": 670790,
+    "minimum": 0,
+    "maximum": 103078,
+    "all_template_columns_preserved": true,
+    "all_audited_source_columns_exact": true
+  },
+  "local_preflight": {
+    "manifest": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/manifest.json",
+      "sha256": "27103ff7fd66dc0898f026743f8ad0666d6c8c0cd7131bf6a9bd98d77bad3efe"
+    },
+    "file": {
+      "path": "submissions/unique-rose_final.parquet",
+      "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+    },
+    "template": {
+      "path": "data/final_submitting.parquet",
+      "sha256": "b3445d80e29bf599a5583ca9675f63ddf57b51fdf1ca3f498facb38ea84f3924"
+    },
+    "final_source_prediction": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/final/candidate.parquet",
+      "sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f"
+    },
+    "final_source_result": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/result.json",
+      "sha256": "34b7e9b08bb2c005312a5776eb12e34cdff57ebf510e7f45cffaed802783d1d2"
+    },
+    "final_source_audit": {
+      "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+      "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+    },
+    "source_kind": "audited_nested_final_candidate",
+    "table_checks": {
+      "rows": 670790,
+      "minimum": 0,
+      "maximum": 103078,
+      "all_template_columns_preserved": true,
+      "all_audited_source_columns_exact": true
+    },
+    "cv_provenance": {
+      "scope": "complete_portable_recipe",
+      "jan_jul_cv": 289.60760827359303,
+      "audited_score": 289.60760827359303,
+      "audit": {
+        "path": "VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json",
+        "sha256": "3eef97502ec645fbb8f5b2ed7995c1d49d3e8b8cc92411b0ae54dd5c91454c4c"
+      },
+      "score_is_fallback_only": false
+    }
+  },
+  "byte_exact_copy": true,
+  "no_prediction_changes": true,
+  "no_live_bucket_access": true,
+  "no_upload": true
+}

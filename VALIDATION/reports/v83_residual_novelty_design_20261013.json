@@ -1,0 +1,42 @@
+{
+  "status": "prospective source-only certificate; no real arrays read",
+  "purpose": "Determine whether actual scoredv83 supplies material residual information beyond the closed54-vector numerical affine tangent; never produce a candidate or weights.",
+  "inputs": "Exact pinned old54 ranking_basis (projectID+predictions only), auditedv83 original-ranking candidate/model/prediction, historical54 actual scores and actualv83 official result. NoCV packets/rawtaxi labels.",
+  "normalization": "A=(P_except64-p64)/sqrt(n),z=(v83-p64)/sqrt(n); one economy float64 SciPy gesdd SVD.",
+  "rank": "tau=eps64*max(n,53)*smax; retain s>tau. Rank-gap precision requires minretained>2tau and maxdiscarded<tau/2. No rank sweep or retry.",
+  "projection": "alpha=Vr.T*((Ur.T@z)/sr), r=z-Aalpha; store singularvalues/rightvectors/leftcoordinates/alpha/projectedDelta/residual and exactIDs. Returnedalpha treated as fixed coefficients for moment identity.",
+  "moments": "q=r.T r; h64=.5*(M83-M64-z.Tz-alpha.T*(Mj-M64-diag(A.TA))); h80=h64+A80.T r. Retain measured nonorthogonality correction.",
+  "score_intervals": "Each officialRMSE in [s-.00005,s+.00005]. h80 affine in scoreMSEs; evaluate exact sign-selected extrema, widen by numerical envelope and one outward nextafter.",
+  "numeric_envelopes": {
+    "proof_scope": "Returnedfloat64alpha is fixed; moments use unnormalized exactinteger D=Pj-p64,d=v83-p64, inputs0..2^52. SVD only selects alpha. No data-dependent numerical method choice.",
+    "gamma": "gamma(m)=m*eps64/(1-m*eps64); g=gamma(2*n+4),b=gamma(2*p+4); both<.01.",
+    "row_reconstruction": "ehat=d-Dalpha; E=2*b*(abs(d)+abs(D)@abs(alpha)); delta=2*sqrt(E.T E/n).",
+    "q_error": "qhat=ehat.T ehat/n; numeric_q=2*(g*qhat+2*sqrt(qhat)*delta+delta\u00b2).",
+    "moment_errors": "m_j=Dj.T Dj/n,z2=d.Td/n,c=D80.Tehat/n; E_m=2*g*m,E_z=2*g*z2,E_c=2*(g*mean(abs(D80*ehat))+mean(abs(D80)*E)).",
+    "constant_error": "E_const=.5*(E_z+sum(abs(alpha)*E_m))+E_c+2*gamma(2*p+10)*(1+z2+sum(abs(alpha)*m)+abs(c)).",
+    "coefficient_error": "E_coef64=gamma(2*p+4)*(1+sumabs(alpha)).",
+    "interval_error": "E_interval=2*gamma(2*(p+2)+10)*(1+abs(C)+sum(abs(scorecoeff)*Mupper)).",
+    "h_error": "numeric_h=2*(E_const+E_coef64*M64upper+E_interval). Finalfactors2 cover positive-bound aggregation arithmetic; include score endpoint/square error.",
+    "orthogonality": "maxabs(A.T r)<=128eps64*max(n,p)*smax*(1+||z||2+smax||alpha||2).",
+    "precision": "q>100*q_error and fixedrankgap and orthogonality. No statistical uncertainty claim."
+  },
+  "headroom": "hmin=0 if hinterval contains0 else minabsendpoints; Kmin=hmin\u00b2/(q+qerror); require Kmin<=R80upper\u00b2; lowergain=R80upper-sqrt(R80upper\u00b2-Kmin). Uppergain uses maxabsh\u00b2/(q-qerror) and R80lower if q>qerror. If Kmax>R80lower\u00b2, uppergain=min(R80upper,sqrt(Kmax)); otherwise R80lower-sqrt(R80lower\u00b2-Kmax). This is an envelope, not a feasiblecandidate.",
+  "gate": "All precision/consistency checks, hinterval excludes0 and conservative oracle gain>=0.5seconds. Failed lowergate with upper>=0.5 is insufficient evidence, not proof no novelty. No materialheadroom claim unless roundingrobust.",
+  "exact_checks": "Complete original IDs/integers, actual83candidate exactsavedproduction, rawstudent affine replay and sum1/box[-3,4], decomposition reconstruction, samehost1thread.",
+  "limitations": [
+    "Numerical tangent rank only; report discarded singularvalues and arbitrary null-left coordinate energy. Under original[-3,4]effectiveweights, discarded RMS contribution <=4sqrt(53)*maxdiscardedsingular.",
+    "Unconstrained one-direction oracle is not a fixed future predictor and does not establish oldbox/ridge feasibility, serialized blend gain or honestJanJulCV.",
+    "The54basis contains missing final model families. No corresponding final residual exists by assumption; passedgate is not production authorization.",
+    "No naive55-column rerun: duplicate columns change oldeffectivebox/ridge. Any later action requires separate frozen design, properfinalportability and genuineCV."
+  ],
+  "cost": {
+    "CPU": "One thread; one344841x53 economySVD, estimated20\u201390seconds plus hashes/audit",
+    "memory": "Estimated<1GiB; originalmatrix~149MB plusSVDwork arrays",
+    "fits": 0,
+    "weight_optimizations": 0,
+    "CV_label_reads": 0,
+    "uploads": 0
+  },
+  "failure": "Preserve singleattempt artifacts; no retries or tolerance/rank changes without explicitrootreview; no automatic follow-up solve.",
+  "scope_note": "Single prospective fixed-alpha forward-error refinement replaces broad envelopes before any numerical arrays or freeze. Broad design/source/fixture/auditor retained under prefreeze_broad_envelope; fixedSVD/rank/gate unchanged."
+}

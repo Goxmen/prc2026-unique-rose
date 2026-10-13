@@ -1,0 +1,41 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_v83_residual_novelty_20261013.py",
+    "sha256": "812cb1458de3b2be848494a93581d7c9686a1dbabae1a066b2a3e47e17cc141c"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/identity.json",
+    "sha256": "f0ee362284422b63b76f62b6b5b6fbefb415d2614960dd0c5496759a39015fe8"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/result.json",
+    "sha256": "59290126d1decbe4b5f5be459fdac9a211d4c6c18c964c311acade9fc3952060"
+  },
+  "decomposition": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/decomposition.npz",
+    "sha256": "494022a414c1c558eca2c6f783cdb581f3b9729279c3c044821fbba573ae91f4"
+  },
+  "rows": 344841,
+  "rank": 53,
+  "source_and_actual_score_bindings": true,
+  "all_ID_and_raw_student_checks": true,
+  "SVD_verification": "Stored right factors and fixed cutoff verified; no second decomposition/rank method",
+  "right_factor_max_error": 1.1641532182693481e-09,
+  "right_factor_bound": 0.019221138776419632,
+  "left_coordinate_equation_error": 1.291482476517558e-10,
+  "left_coordinate_equation_bound": 0.0009742574735124757,
+  "discarded_coordinate_caveat": "Near-null left coordinates are basis-dependent; only moment/equation consistency is checked, not an exact mathematical null-space certificate.",
+  "longdouble_q": 0.7848657323861292,
+  "longdouble_h80": -0.12963876135646712,
+  "numeric_q_difference": 3.3306690738754696e-16,
+  "numeric_h_difference": 6.2878591222670366e-12,
+  "decimal_official_interval_before_numeric": [
+    -0.18020477905396248,
+    -0.07907274365511167
+  ],
+  "gate": {
+    "precision": true,
+    "excludes_zero": true,
+    "score_moment_consistent": true,
+    "minimum_half_second": 

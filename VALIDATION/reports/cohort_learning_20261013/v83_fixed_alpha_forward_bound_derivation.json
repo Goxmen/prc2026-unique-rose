@@ -1,0 +1,31 @@
+{
+  "status": "prospective_source_only_method_refinement",
+  "scope": "Mathematical derivation only, before real prediction-array decode or certificate freeze. No method/tolerance chosen from outcomes.",
+  "convention": "u=eps64=2^-52, conservatively twice the usual unit roundoff; gamma(m)=m*u/(1-m*u). Require g=gamma(2*n+4)<0.01 and b=gamma(2*p+4)<0.01, all intermediates finite, and no relevant subnormal/overflow arithmetic.",
+  "fixed_alpha": "SVD and rank policy unchanged. Returned float64 alpha is treated as exact data. Compute fixed-alpha certificate moments using unnormalized integer D=Pactive-pref and d=p83-pref, rather than the rounded normalized SVD matrix.",
+  "exact_inputs": "Nonnegative integer prediction entries <=2^52 ensure D,d are exactly representable integer differences.",
+  "residual": {
+    "computed": "ehat=fl(d-fl(D@alpha)); qhat=fl(dot(ehat,ehat)/n)",
+    "row_bound": "E=2*b*(abs(d)+abs(D)@abs(alpha)), evaluated in float64. The factor 2 covers construction of the positive bound as well as matvec/subtraction error because b<0.01.",
+    "norm_bound": "delta=2*sqrt(fl(dot(E,E)/n)) upper-bounds RMS(ehat-e_exact), including positive-dot/sqrt rounding.",
+    "q_error": "2*(g*qhat+2*sqrt(qhat)*delta+delta^2)",
+    "proof": "Exact squared residual differs from squared computed residual by at most 2*RMS(ehat)*delta+delta^2. Dot/divide error is <=g/(1-g)*qhat. With g<0.01, the outer factor2 also covers converting computed sqrt(qhat) to exact RMS and evaluating the positive bound."
+  },
+  "moments": {
+    "computed": "m_j=fl(dot(Dj,Dj)/n), z2=fl(dot(d,d)/n), c=fl(dot(D80,ehat)/n)",
+    "nonnegative_errors": "E_mj=2*g*m_j; E_z=2*g*z2.",
+    "signed_cross_error": "E_c=2*(g*fl(mean(abs(D80*ehat)))+fl(mean(abs(D80)*E)))",
+    "proof": "The first term bounds signed-dot cancellation using absolute products; the second bounds propagation of row reconstruction error. The factor2 covers positive-bound evaluation under g<0.01."
+  },
+  "cross_moment": {
+    "coefficient_order": "active score coefficients -alpha/2, reference coefficient (sum(alpha)-1)/2, new score coefficient1/2",
+    "constant": "C=-0.5*(z2-alpha@m)+c",
+    "E_constant": "0.5*(E_z+sum(abs(alpha)*E_m))+E_c+2*gamma(2*p+10)*(1+z2+sum(abs(alpha)*m)+abs(c))",
+    "E_reference_coefficient": "gamma(2*p+4)*(1+sum(abs(alpha)))",
+    "E_interval": "2*gamma(2*(p+2)+10)*(1+abs(C)+sum(abs(score_coefficients)*MSE_upper))",
+    "h_error": "2*(E_constant+E_reference_coefficient*MSE64_upper+E_interval)",
+    "proof": "Moment error, signed dot/constant arithmetic, the rounded sum in the reference coefficient, and squared-score interval endpoint/dot arithmetic are accounted for separately. Final factor2 covers arithmetic in the positive bound. Half-multiplication of finite normal alpha components is exact; the aggregate envelope also dominates negligible subnormal rounding at zero-scale coefficients."
+  },
+  "audit": "Independent long-double unnormalized moments and exact Decimal fixed-float-alpha score endpoints should fall within these predetermined envelopes. No SVD/rank alternative or tolerance search is introduced.",
+  "interpretation": "This improves numerical power only. It does not establish actual residual signal, attainable candidate gain, CV or final portability."
+}

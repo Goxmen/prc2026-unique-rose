@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "created_at": "2026-10-13T10:21:29.171632+00:00",
+  "reviewer": "/root/new_signal_audit",
+  "source": {
+    "path": "VALIDATION/v83_residual_novelty_20261013.py",
+    "sha256": "34d6fd6e36a4f3f68de285034484967ea5a66cbb26df6cc6d2d35ce2b55a393b"
+  },
+  "design": {
+    "path": "VALIDATION/reports/v83_residual_novelty_design_20261013.json",
+    "sha256": "912ba7aec519e09b5e79f31c08e5ff05c6cd1cdce4dac006cadeed3a917770b7"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_v83_residual_novelty_20261013.py",
+    "sha256": "812cb1458de3b2be848494a93581d7c9686a1dbabae1a066b2a3e47e17cc141c"
+  },
+  "fixture": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/synthetic_preflight.json",
+    "sha256": "bc6ae7317832ed60c43b01c116d42ba81e8def084a8c6d766af4939f16b65318"
+  },
+  "independent_fixture": {
+    "path": "VALIDATION/runs/v3_20261013_v83_residual_novelty/independent_synthetic_preflight.json",
+    "sha256": "9cef60c5e87590aeaf1a0459c886f198aea7d64aa89de9fcb555b3d9a3db90b3"
+  },
+  "independent_fixture_source": {
+    "path": "VALIDATION/tools/check_v83_residual_novelty_auditor_20261013.py",
+    "sha256": "68d0a4e9f72c3608ac1c321ac2adb21901d2507a4a1e3f4630b14835692c32cc"
+  },
+  "mathematical_review": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/v83_residual_novelty_forward_bound_review.json",
+    "sha256": "3e1fcc57314f7f0b3320a3e925dcef8b8c52ab42fee66b7cc6f061cc26ee7da8"
+  },
+  "derivation": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/v83_fixed_alpha_forward_bound_derivation.json",
+    "sha256": "1caa87af3f73e09638b25a7705633fa4f9f20ea652c697ce97cf053755ee9cd1"
+  },
+  "scope": "Independent source/input-contract/math review and synthetic fixtures only; no real prediction arrays, taxi CV labels, projection certificate, optimizer or upload executed.",
+  "checks": [
+    "Exact original54 versions and score receipts, actual scored v83 hash/result, audited student old prediction/model, all IDs and integer columns authenticated; strict prediction-only projections.",
+    "One fixed p64-anchored economy SVD and numerical cutoff; independent audit checks saved factors/coordinates without a second decomposition or rank search.",
+    "Unscaled integer differences and returned float64 alpha define exact fixed-coordinate score algebra; prospective gamma forward bounds include row reconstruction, dot cancellation, anchor-coefficient summation and interval arithmetic.",
+    "All published four-decimal scores enter sign-aware MSE interval extrema. Independent Decimal endpoints and long-double moments verify numerical envelopes. Conservative and optimistic oracle-headroom bounds have distinct decisions.",
+    "Unconstrained numerical residual potential is not ridge/box-feasible gain, a serialized candidate, exact mathematical rank, honest taxi CV or final portability. Missing final54 components are explicitly retained as a limitation.",
+    "Independent synthetic127x54 integer/dependent test executes actual auditor arithmetic; rejects corrupt projection and interval, checks Decimal corner extrema and input firewall. No real-data method or threshold tuning."
+  ],
+  "history": "Initial broad numerical envelopes and auditor preserved before prospective fixed-alpha refinement. No real data was read under either design.",
+  "reciprocal_review": "Producer owner /root/final_recovery reviewed final auditor812cb145 and found no blocker; /root/cohort_learning mathematical receipt passes final source34d6fd6e.",
+  "execution_authority": "Root alone freezes, allocates and executes one certificate then audit. No follow-up optimization is authorized by this receipt."
+}
