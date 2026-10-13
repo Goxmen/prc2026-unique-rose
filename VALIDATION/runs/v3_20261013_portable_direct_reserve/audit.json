@@ -1,0 +1,58 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/identity.json",
+    "sha256": "07cf3c15dc3f3e85860df71a408ebf318ee3644f7b5c6f7823d64db8eee5cfb3"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_portable_direct_reserve_20261013.py",
+    "sha256": "97a7a38d751013e4caf3457c0b4ce4c4bf8fd6b30615d92ea8bbeae64e39395d"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/result.json",
+    "sha256": "6f149f26067d0f97e8eb9224db2fd70f0329e9526b157439d84e4759c2bc93c6"
+  },
+  "views": {
+    "cv": {
+      "rows": 344419,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/cv/predictions.parquet",
+        "sha256": "0f88fde82fa647449771ef8f27d63bcb88db02ae335928d6eba0af4e7e30e569"
+      },
+      "all_SQL_values_exact": true,
+      "months": {
+        "2025-01": 325.5212608696311,
+        "2025-07": 256.1666825446568
+      },
+      "cv": 290.84397170714396
+    },
+    "old": {
+      "rows": 344841,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/old/predictions.parquet",
+        "sha256": "d8a5ef010c4a6c2ad11927b0fa3afb1f43a56b4616fa908fccf3fd896c9e6d64"
+      },
+      "all_SQL_values_exact": true,
+      "candidate": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/old/candidate.parquet",
+        "sha256": "84285fe2be7aa308a1b59b4fedcc5876888a618605d94c1b9b2144160552eba4"
+      }
+    },
+    "final": {
+      "rows": 670790,
+      "prediction": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/final/predictions.parquet",
+        "sha256": "a8fd6452b7855d9bb062c5067561c8819323d59395fdf7fb539d0ccefb49dc10"
+      },
+      "all_SQL_values_exact": true,
+      "candidate": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/final/candidate.parquet",
+        "sha256": "17dd41296b16967d461be9ca184aab7189d3d4a89b7d2437e1d0a15ec40c0709"
+      }
+    }
+  },
+  "serialized_nearest_even_exact": true,
+  "no_fit_or_model_inference": true,
+  "no_upload": true,
+  "selected": false
+}

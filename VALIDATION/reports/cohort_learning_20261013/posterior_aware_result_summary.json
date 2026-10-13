@@ -1,0 +1,60 @@
+{
+  "status": "closed negative fixed screen; independent result audit passes",
+  "hypothesis": "Honest posterior-estimator training of a four-parameter fixed-message support tilt",
+  "configuration": "Six source-blind37-feature800-round Rome LightGBM priors; two inner complements per outer Jan/Jul; matched half J-D estimator; fixed ridge0.001",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/identity.json",
+    "sha256": "acab0bee4edd1ae7c5ba84493239e133b2bf029164a05a891efb8ed9427132c4"
+  },
+  "prefit_audit": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/prefit_audit.json",
+    "sha256": "e7fc03053453e27c07aff37d4a2dbb814a0d45b8d25f5e3994394341e00777d2"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/result.json",
+    "sha256": "00613f1ff2966d709f33db4b89d534a0484b724aaa42688c6fea82187ec36426"
+  },
+  "return_audit": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/return_audit.json",
+    "sha256": "1f1ad66004ccd88d432d8a32e96800235c81f7eb24adfd0590f8b93ababc03b0"
+  },
+  "cv": {
+    "control": 289.7627782102906,
+    "zero": 289.7627782102906,
+    "prior": 290.6564808992031,
+    "posterior": 289.9245529840923,
+    "zero_family": 290.6528559629337,
+    "prior_family": 291.3013086002526,
+    "posterior_family": 290.6498103949498
+  },
+  "month_deltas": {
+    "2025-01": 0.008026568915227017,
+    "2025-07": 0.31552297868822166
+  },
+  "paired": {
+    "control": {
+      "change": 0.16177477380172434,
+      "ci95": [
+        -0.04007535104063855,
+        0.4143208053284858
+      ],
+      "decision": "inconclusive"
+    },
+    "prior": {
+      "change": -0.7319279151107878,
+      "ci95": [
+        -1.5537555170558566,
+        -0.05837544482127412
+      ],
+      "decision": "improvement"
+    }
+  },
+  "gate": false,
+  "conclusion": "Does not improve exact v80. Being better than the worse prior-MSE control does not establish an improvement. Family substitution is separately worse.",
+  "next": "Retain all models and frozen artifacts. No production, tuning, seed/feature expansion or upload.",
+  "resources": "Laptop CPU only; both hosts released from this experiment;114returned artifacts140561517bytes",
+  "independent_result_audit": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/independent_result_audit.json",
+    "sha256": "b9fb5a0d48c0c0b78dbd2bc09c5bc6486b06c9902ced329c9f1af398d35647ee"
+  }
+}

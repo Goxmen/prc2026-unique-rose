@@ -1,0 +1,331 @@
+{
+  "view": "cv",
+  "source": {
+    "path": "VALIDATION/tools/recover_portable_public_audit_joins_20261013.py",
+    "sha256": "28f7bc934a86602bdc61d28b6fc8de725edee37b29cbf00331b735c2eb8a76c3"
+  },
+  "original_identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+    "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+    "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+  },
+  "original_auditor": {
+    "path": "VALIDATION/tools/audit_portable_public_source_20261013.py",
+    "sha256": "2f8bc3e8dab2da4c0bbc52e5444b4e1b3fcce7769c779ee0a293a51a07a376c2"
+  },
+  "executed_auditor": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit_sql_join_recovery/executed_auditor.py",
+    "sha256": "873de6f6ff83796c558e50f3cec96c7b2978df55d41cf448e29ddd52f6753f00"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tools/recover_portable_public_audit_joins_20261013.py",
+      "sha256": "28f7bc934a86602bdc61d28b6fc8de725edee37b29cbf00331b735c2eb8a76c3"
+    },
+    {
+      "path": "VALIDATION/tools/audit_portable_public_source_20261013.py",
+      "sha256": "2f8bc3e8dab2da4c0bbc52e5444b4e1b3fcce7769c779ee0a293a51a07a376c2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit_sql_join_recovery/original_auditor.py",
+      "sha256": "2f8bc3e8dab2da4c0bbc52e5444b4e1b3fcce7769c779ee0a293a51a07a376c2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit_sql_join_recovery/executed_auditor.py",
+      "sha256": "873de6f6ff83796c558e50f3cec96c7b2978df55d41cf448e29ddd52f6753f00"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+      "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+      "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+      "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/monthly_cells.parquet",
+      "sha256": "9bc1c0c2b4c68d77cbb701d820fc054d7dd23200c6c70efc7fcd78745b4a60d0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/daily_cells.parquet",
+      "sha256": "e349a77994fa1b1ba8817599a9a9840fe9812c3cdd0262fe229523efec802fee"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/allocation.json",
+      "sha256": "671db34aeb727c11856a12b19e2a3da7cac16a78b383ea53f5155931a158e632"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/completion/03.log",
+      "sha256": "a1d5d6c9792c57bf101ab7546bca4d80ceee9f6721a83013983c15b378cb30f0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/completion/execution.json",
+      "sha256": "142febeac6377e0d7553a7ff6bb5c8e4bb5294090af7e2350e2b02164b8ddf49"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EDDF.json",
+      "sha256": "ad72ba5f1ee95bc425fc2e558ab1ed0eee888c0e610ec76c686ad5857a9c59a9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EDDF.parquet",
+      "sha256": "78bb2fa05526a23f8b40697f019c8f4ad5b1760c47dcfa1d24b5552177011600"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EDDF_days.parquet",
+      "sha256": "05e7492861a111b0b4e3046b9ae03fd34dc57876ee07885bdc9ab0eeacf7b46f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EDDM.json",
+      "sha256": "bdf45c3f19724b787b5950d86d1d71dbcaf33e60170d2366faf07c15fc0f574c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EDDM.parquet",
+      "sha256": "bec8cb9c30172628596c1e40fb89cab45d0ce63c6a923403c166c7e5cf28b0eb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EDDM_days.parquet",
+      "sha256": "e8f4a8607987471927b0a2a701c180c577b6c31bdc6c4e4078751e59e9ceda66"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EGLL.json",
+      "sha256": "1b443d0e2eec06803392ce2a90e32d9b01562a38fa9175791986cf78458f29e6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EGLL.parquet",
+      "sha256": "461ecdcbe6575b6f9b76b1671863fb4bfc2a936376f534920fa5da6578d2f87d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EGLL_days.parquet",
+      "sha256": "afcab303b557119ab6cee1993e020601c6d8023b8faaad4a577f8087f9876778"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EHAM.json",
+      "sha256": "0147dd4715352537ce840579b5ed34b2b6f7dd9c20d29d0eee3a646dac19ca84"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EHAM.parquet",
+      "sha256": "1b11e57670d152ef6f668bed707fbc496250e620250beeafd8628fb909c57e7e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_EHAM_days.parquet",
+      "sha256": "41c618d87ce488b1fcb9e0696eb9376180a7636d465476c5782e3245c6fb6b63"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LEBL.json",
+      "sha256": "fdc34a43e8dbaa43125a54ac7a73304f28a273cbc0c8681d5b245e74ea0b37c6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LEBL.parquet",
+      "sha256": "71984b8c6eaf3d6fe709337110486784e977f8bbb394722d87ff007cbea83440"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LEBL_days.parquet",
+      "sha256": "0981d9881572ccf7e79d4ee54e0fa7a7285632f2a1cf362ae6900df091565f07"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LEMD.json",
+      "sha256": "90216c7d8d89b993462cacf673ef47d9e3e385074339c84255ca629716d9d788"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LEMD.parquet",
+      "sha256": "71e843ad85bcf171a5f8f7b3e92414219abf5fc4060b06720d3d869695063cb5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LEMD_days.parquet",
+      "sha256": "81f6d2aaa44270f4c6a2c87897e62186395152177e763afd945220ab5e23ea21"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LFPG.json",
+      "sha256": "918860a8193daa9a0173fe1b1773ca663b5303d013741e25bed6d309a9d42074"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LFPG.parquet",
+      "sha256": "0ec4e5768a88fea8f94d2f7cc108f67eb590e5d35a12deb203c478639f301b94"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LFPG_days.parquet",
+      "sha256": "4aef8ca50a8a5c0ba0ad7843ec91ec71753dd0b97d0bd03a598c5ef226145de9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LIRF.json",
+      "sha256": "674f3def0977d63c36dbd1c2e52f6b96b8efe02776aed95d44eec2f4fb372ae8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LIRF.parquet",
+      "sha256": "311cd836d56bc436d5ec3ac94aae89b466d7a45e414f3d75f6e7b954392b9b80"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LIRF_days.parquet",
+      "sha256": "fcc0f8d32a8071620dd03c80661ec2d219328d0e24f84a7d54f2bdea01d4b32c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LSZH.json",
+      "sha256": "1972b5788e51c6a2a29990bd313c4acf647f4bb54e5ddb7c60083f90d19272cf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LSZH.parquet",
+      "sha256": "276aca455140657671a8417d30c5502c22eb5dcbbb8373837d66be391916697a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LSZH_days.parquet",
+      "sha256": "bb2e59dd2071cba0a2329e753560c8f2c9259bdc89e4e7ea10bfbbd4aebfd140"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LTFM.json",
+      "sha256": "f00c20efd8b4de4ca6f247662758dc0a6d7107c05feec04fa57fab283f584075"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LTFM.parquet",
+      "sha256": "0d640b56f2e09cddd077d3ac9ee086247bd6f67c66b608f9a392a1395bd8e0ea"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-01_LTFM_days.parquet",
+      "sha256": "c991aa3de4c26d58969d9644896d9e0953f55d2f7785dae5c4bc0752a64ec768"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EDDF.json",
+      "sha256": "af554a678d8b59138d8ee28f93a64792ec37d74d3213d263c5a476aec231d535"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EDDF.parquet",
+      "sha256": "c8114cf5d181f1779cd03ef0e6f25e5bd099f7f47ad3757e27ca86bdc2bbb434"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EDDF_days.parquet",
+      "sha256": "7dae0411370928c30eeafb051edae42a10874b0a4d35c6bbac84a50f2518ef9a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EDDM.json",
+      "sha256": "5532e9fb296705fd86fcc7cb6d9ecac000014c469b955d9f4370cbd9f1d4d005"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EDDM.parquet",
+      "sha256": "9cbd8baaf19b5ea6c0acf6ac32a6b64b28a9dc272fbd117f473888756e9f8159"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EDDM_days.parquet",
+      "sha256": "226a835419bf256315bdd5881b17b732dda283232f92aa1355688076de0adeb7"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EGLL.json",
+      "sha256": "30b0e2f1296a1fa03608cb4ded5c7e6ba81e5bc306db463538c95556682a524a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EGLL.parquet",
+      "sha256": "a49e0db40681b9d287d07ba2f4b7e05cd2cd99787c567366e9e534c3d75a0460"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EGLL_days.parquet",
+      "sha256": "b8617ed47f3af77245abf568237a168fdc4615dc2af79ed197dda86c664f031f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EHAM.json",
+      "sha256": "15b39945430b677336409d6d600f7df4b6d7b22d59e8117825b85ab9b8f0fa06"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EHAM.parquet",
+      "sha256": "4a3f096f21be95c7fd5520a8f28914807e505a69069c662d44a21efdaab40b2e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_EHAM_days.parquet",
+      "sha256": "930cda7b79ee0179f6aae996df23929f461aeddc8adaa14a152a1853feb0e3f2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LEBL.json",
+      "sha256": "42c60cf8563baae23b5f911a0557bc8088e4ce072bc3a714e896529bc512c3a4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LEBL.parquet",
+      "sha256": "afb020ccdfcf6ee9627c3bbb7ac3a2947bcb24550650a1389280dbc8c5b3ca7e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LEBL_days.parquet",
+      "sha256": "541b8a54d831465b6c467b6151dced1a111a9f3f8cc6c9c825824a650cf03609"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LEMD.json",
+      "sha256": "e4159409e64451ac7f540563e5afa6b335e61d5c914a4c6ec592321e19815585"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LEMD.parquet",
+      "sha256": "274f7f2a5ac9c407fdcfd40d678644198991cb016143a4000d8d6ca9c4a4ca02"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LEMD_days.parquet",
+      "sha256": "479641a6ad18e8b1319e3cf651deff969bf876123e7ec780b704239ba2904ddd"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LFPG.json",
+      "sha256": "7281cab90fdfa63cad3510bb9d26a64c40023e48662d13bd322c61b1459fa6cb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LFPG.parquet",
+      "sha256": "9a42695616bbe439adac744df947f6c5ceb9e1f3555f0ac19337f9832350028f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LFPG_days.parquet",
+      "sha256": "12709af53d8c025884527ea5d306dbf45511600902eff74a8f1242f6e9383615"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LIRF.json",
+      "sha256": "fc96e72da32ff52247110d1404666f31fbbc34e88a6770d10e57d158df648a93"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LIRF.parquet",
+      "sha256": "bb434673cebe420243fb752d2a3a68d68bf29e1e25266460c21a25e807fc38da"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LIRF_days.parquet",
+      "sha256": "cf5b5b9c312168f294558a9f030f15f9ccf5ea110486096dd9f3c44ba4501d45"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LSZH.json",
+      "sha256": "253a5ac6df31ee3509c189763d52a846dfcfdfba062df51038fc3f1b76dacaaa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LSZH.parquet",
+      "sha256": "b8d5d423243cef382a56e8e17370e76eb1b8d1a3c317a05c085849c21a1ffa29"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LSZH_days.parquet",
+      "sha256": "66b61713acf861e9e6ef174c92ce41f200859b5bc467621735ab35cb01d67a45"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LTFM.json",
+      "sha256": "5382ef6f307f5c0643c55dbc09a18a0a78db30f5adae77b16f4c7a167dea6615"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LTFM.parquet",
+      "sha256": "d19d8993819e1bacc4f4abeb61be2043bfbbb14e6941438ceb04f4161307de2b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/posterior/2025-07_LTFM_days.parquet",
+      "sha256": "3f3c003e646d7a69fe709205e5e538a38b0497c9d38eba6257320e2a246ade2c"
+    }
+  ],
+  "patches": [
+    {
+      "before": "LEFT JOIN mc USING(airport,local_month)",
+      "after": "LEFT JOIN mc ON m.airport=mc.airport AND m.local_month=mc.local_month"
+    },
+    {
+      "before": "LEFT JOIN dc USING(airport,local_day,runway)",
+      "after": "LEFT JOIN dc ON i.airport=dc.airport AND i.local_day=dc.local_day AND i.runway=dc.runway"
+    }
+  ],
+  "only_two_SQL_string_constants_changed": true,
+  "no_inference_repeat": true,
+  "no_predictions_changed": true,
+  "no_scores_changed": true
+}

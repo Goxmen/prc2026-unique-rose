@@ -1,0 +1,39 @@
+{
+  "status": "pass_review",
+  "assessment": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/final_shared_clock_transport_assessment.json",
+    "sha256": "ca85e48f940e4d20e239484fdf45e5ebdb3f1a66ef839c25e094ba0c75db5b42"
+  },
+  "independent_reproduction": {
+    "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_numpy.json",
+    "sha256": "0f81f1a9d0081819e48cfa59b0c46749f26ec5d7155e0f108f9cd2780952ebe2"
+  },
+  "source": {
+    "path": "VALIDATION/tools/audit_final_shared_clocks_numpy_20261013.py",
+    "sha256": "36808cf65cac2705ff6769a8aebdc21ebb172c69ef17234c390514c69fdcbea1"
+  },
+  "SQL_result": {
+    "path": "VALIDATION/reports/final_shared_clocks_20261013/result.json",
+    "sha256": "ecb5f9d5fd0e2ff83950c85a4b637727af2ac9259e7a1859a74c0fb36fe57c02"
+  },
+  "SQL_coupling": {
+    "path": "VALIDATION/reports/final_shared_clocks_20261013/coupling.json",
+    "sha256": "021f934f09023b03df51d7a21a61381e1e044eb0001bf7da9f61b0786c274d8e"
+  },
+  "checks": [
+    "All60 null-aware field/phase counts agree exactly between independent Pandas and SQL",
+    "All344693 arrival identities/histogram and tenairport metrics match; tolerances1e-12 only correlation aggregation",
+    "All344841 old departures one-to-one inside final; visible movement shifts integer\u00b112; hidden blocks/targets remain null",
+    "NumPy code imports no SQL or original diagnostic helpers, uses columnwise reading and independent Index.get_indexer",
+    "Fixed2dt operator uses correct departure duration sign; no other public correction after inherited v80 stages",
+    "Explicit nonidentifiability counterexamples and prior-Oct12 anticorrelation knowledge retained; no genuine paired departure CV claim"
+  ],
+  "decision": "No mathematical or source-review blocker for a separately labelled conditional final-only portability candidate. Exact nonshared fallback and construction require root selection.",
+  "limitations": [
+    "This review compares returned independent artifacts, does not repeat raw reads",
+    "Departure block-phase coupling is not identified by released arrivals; teacher transport is conditional",
+    "No score-improvement evidence, candidate or upload created"
+  ],
+  "no_fit": true,
+  "no_candidate": true
+}

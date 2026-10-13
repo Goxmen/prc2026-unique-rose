@@ -1,0 +1,50 @@
+{
+  "authority": "/root",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/identity.json",
+    "sha256": "07cf3c15dc3f3e85860df71a408ebf318ee3644f7b5c6f7823d64db8eee5cfb3"
+  },
+  "state": "released_for_direct_reserve_serialization",
+  "views": [
+    "cv",
+    "old",
+    "final"
+  ],
+  "created_unix": 1791874722.0776718,
+  "completion_source": {
+    "path": "VALIDATION/tools/complete_portable_feedback_parents_20261013.py",
+    "sha256": "f0a41190020a5990264b6f4ee3db5497cb73bb085009bc1688d3bd828437159a"
+  },
+  "public_identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+    "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+  },
+  "frozen_sources": [
+    {
+      "path": "VALIDATION/reports/portable_direct_reserve_static_review_20261013.json",
+      "sha256": "e40be80716ca7ed50dd2d1da4d0ca1cd7ed57f54808affe5e3f1e8f3e6288415"
+    },
+    {
+      "path": "VALIDATION/reports/portable_final_feedback_plan_20261013.json",
+      "sha256": "1e5d1c6b70c6097fd97c4344a245f37c788b23da880b3e5a0925bf6490215a18"
+    },
+    {
+      "path": "VALIDATION/tools/recover_portable_public_audit_joins_20261013.py",
+      "sha256": "28f7bc934a86602bdc61d28b6fc8de725edee37b29cbf00331b735c2eb8a76c3"
+    },
+    {
+      "path": "VALIDATION/portable_public_source_20261013.py",
+      "sha256": "c570f8e4dd812cf316aab841d4ebf6e209fb6a044f5853cf82730f65ff65a1a3"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+      "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit_sql_join_recovery/identity.json",
+      "sha256": "1dbfbb791b2e03b3a8c5e95e141256c1b43d02ce4284444e37fa88e64069e49a"
+    }
+  ],
+  "threads": 1,
+  "scope": "Direct saved-array serialization+audit, followed by OLD public posterior+additive SQL audit and one saved old/CV comparison. No final public posterior, version, upload or tuning."
+}

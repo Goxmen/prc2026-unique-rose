@@ -1,0 +1,55 @@
+{
+  "status": "proposed fixed protocol; independent source review and host allocation required before any fit",
+  "mechanism": "Four-parameter target-support tilt trained through the actual fixed half joint-minus-departure source increment; every peer message remains frozen.",
+  "novelty": "Individual-label posterior-estimator training differs from the closed public-total monthly logit shift, endpoint reconstruction, continuous Rome mean calibration and public-conditioned neural losses. It introduces no new public observations.",
+  "parent": "Exact serialized v80 Jan/Jul vector, CV 289.7627782102906; no official gain claimed.",
+  "six_priors": {
+    "2025-01": {"inner_A": ["2025-03", "2025-05", "2025-07", "2025-09", "2025-11"], "inner_B": ["2025-04", "2025-06", "2025-08", "2025-10"]},
+    "2025-07": {"inner_A": ["2025-01", "2025-03", "2025-10", "2025-12"], "inner_B": ["2025-02", "2025-09", "2025-11"]},
+    "per_outer": "Train B -> all raw A peers; train A -> all raw B peers; train A union B -> all raw outer-held peers. No other fit or seed.",
+    "population": "Rome departures. Base supervised labels finite and in [1,200000] seconds; predictions cover every raw row, including VFR and excluded supervised rows. Source/tilt labels are not clipped.",
+    "family": "Source-blind raw 18 clock/category features, 17 fixed-scaled physical scalar inputs, missing flight-ID flag, raw callsign prefix category; 37 total. No public totals, label histories, movement IDs or recorded block endpoint as model features.",
+    "preprocessing": "Category maps learned only from each base fit's supervised training rows; unseen -> missing. Native numeric missing values; fixed physical scaling only. No fitted imputer or global target-derived preprocessing.",
+    "model": {"objective": "regression", "num_boost_round": 800, "learning_rate": 0.05, "num_leaves": 255, "min_data_in_leaf": 200, "feature_fraction": 0.9, "bagging_fraction": 0.8, "bagging_freq": 1, "seed": 42, "num_threads": 8, "verbosity": -1},
+    "output": "Nonnegative unrounded floating prediction, exact all-row saved-model reload, complete raw ID coverage. No held target enters fit/evaluation callback."
+  },
+  "calibration": {
+    "inner": "For each inner prediction bank, all support quantiles/tau and public source calibration use only its base fitting complement. Source records are public; source residual truth is complement-only.",
+    "departure_noise": "Replicate daily_offblock_alignment.screen: exclude explicit VFR, assign true_day only during calibration, retain true offblock days interior to each allowed month, then daily_delay_posterior.fit. Never accidentally use default takeoff-day noise.",
+    "support": "Replicate original daily_delay_posterior.fit on the original raw training-month population; support tau/spread are separate from offblock noise tau/spread, matching selected joint parameters.",
+    "taxi": "Unchanged taxi_count_sum_jan_jul.calibrate: complete local days, valid taxi [0,7200], >=100 source cells and >=100 retained covariance cells, fixed Huber and covariance rule. No threshold relaxation.",
+    "outer": "Reuse original audited Jan/Jul taxi/offblock/support parameters, whose allowed months match the all-training prior; no outer calibration refit.",
+    "pre_fit_feasibility": "Review then prepare train-only inner calibrations and count gates before any of the six base priors; stop if any fixed complement lacks the original minimum cells."
+  },
+  "likelihood": {
+    "model": "Original joint_public_moments normal/discrete support moments and t5 joint/departure likelihoods, fixed original covariance and common-day settings.",
+    "calendar": "UTC takeoff-month inner partitions; all raw peer predictions retained. Once-estimated offblock day from takeoff minus base prediction, then original per-month interior guard. Taxi source local-day cohorts must be complete within the predicted month set, including local midnight boundary handling.",
+    "no_label_peers": "No query or peer held label enters prior, support, calibration, assigned day, group membership or likelihood. Inner-held labels enter only tilt loss after immutable packets exist.",
+    "tilt": "w(theta) proportional to w0 exp((x @ theta)*(support-prior)/max(gap-tau,60)); same target tilt in joint and departure posteriors. Peer supports/covariances and likelihood arrays never change with theta.",
+    "features": ["1", "log(gap/3600)", "logit(clip((prior-tau)/(gap-tau),1e-6,1-1e-6))", "product"],
+    "estimator": "D0 + 0.5*(J(theta)-D(theta)), with D0 fixed. This is a discriminative, target-only one-pass approximation, not coherent global joint optimization.",
+    "derivative": "0.5*(Var_J(theta)-Var_D(theta))/max(gap-tau,60) * x. Gate actual cancellation, magnitude, rank and finite differences; earlier J-only sensitivity is not evidence of incremental gradient.",
+    "zero_control": "Exact same saved supports/messages for all arms; theta=0 reproduces original apply() joint, departure and touched outputs to fixed 1e-8 absolute tolerance. Unchanged outside supported targets."
+  },
+  "learning": {
+    "arms": ["zero tilt", "prior-MSE tilt", "incremental posterior-estimator-MSE tilt"],
+    "loss": "Mean squared error in units of 3600 seconds plus 0.001*sum(theta**2). Prior arm uses tilted prior mean; posterior arm uses D0+0.5*(Jtheta-Dtheta). Identical supported target set and raw finite y, no clipping or label-based selection.",
+    "optimizer": {"method": "L-BFGS-B", "initial_theta": [0,0,0,0], "maxiter": 200, "ftol": 1e-12, "gtol": 1e-8, "analytic_gradient": true, "multistarts": false},
+    "scope": "One four-vector per outer fold, pooled across its two honest inner prediction banks. No optimizer callback reads outer labels. No hyperparameter/feature/seed/weight scan.",
+    "failure": "Persist optimizer failure and stop; do not silently retry with different settings."
+  },
+  "held_evaluation": {
+    "primary_objective_transport": "round_even(max(0, exact_v80 + 0.5*((Jpost-Dpost)-(J0-D0)))) across all 344419 rows; prior-MSE arm uses identical transport; zero delta exactly replays v80.",
+    "family_substitution_diagnostic": "Separately report exact_v80 + 0.5*((J0-D0)-(J70-D70)), and the same total substitution for prior/posterior arms. A family substitution gain must not be credited to the objective.",
+    "gate": "Primary posterior objective transport improves both months and paired-day bootstrap upper<0 versus exact v80 AND versus identically transported prior-MSE control. Label-blind algebra/source/ID/model reload audits must pass. No scan after outcomes.",
+    "scope_note": "This defines an exact additive candidate on serialized v80; it does not claim to replay every historical affine/public correction stage with a different prior. Reused development data do not constitute independent confirmation."
+  },
+  "availability": {
+    "missing": "54 historical Rome inner predictions referenced by 18 calibrators are absent.",
+    "broader_actual_path_inventory": "766 actual model artifacts in 92 families; overnight retained models provide 72 outer-Jan-admissible model references but no outer-July-admissible equivalent. Existing raw-clock priors differ from v70, and current outer models cannot predict their own training peers honestly. Limited earlier explicit-path scan must not be mistaken for absence of all models.",
+    "reuse": "Existing raw training parquet, aligned raw calendar cache, flat physical bank, monthly source quality, daily taxi and predeparture sources, original outer parameters and exact v80. No repeated large network downloads."
+  },
+  "resources": {"host": "laptop after root allocation", "jobs": "one sequential CPU job", "threads": 8, "gpu": false, "estimated_minutes": [10,25], "estimated_peak_GB": [2,4], "portable_input_MB_estimate": 50, "message_and_optimizer_minutes_estimate": 3},
+  "no_fit_yet": true,
+  "no_upload": true
+}

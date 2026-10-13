@@ -1,0 +1,83 @@
+{
+  "status": "Source-design review passes subject to listed execution and parity checks; no numeric evaluation",
+  "at": "2026-10-13T06:09:48.277065+00:00",
+  "sources": [
+    {
+      "path": "VALIDATION/reports/portable_public_source_design_20261013.json",
+      "sha256": "b7683d93de165fe1dc8295ee638172404a59a0fc3dc043e83c4598d1bda46902"
+    },
+    {
+      "path": "VALIDATION/daily_heavy_tail_stack.py",
+      "sha256": "148ae443ab9995c6d6719d4ca5ec27c1f298cebb4a23d923c4c5f73bca9c3392"
+    },
+    {
+      "path": "VALIDATION/final_public_corrections.py",
+      "sha256": "fb82861e8630a3a2f4593409fbabe5873858ea30df9af144ee0a242d83aa6ec8"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/monthly_taxi_reconcile.py",
+      "sha256": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572"
+    },
+    {
+      "path": "VALIDATION/nn_public_tabm_pool3_stack.py",
+      "sha256": "f55d193f387c05d084a4240bd785f504186dcd4ab1c49fb91bc86860908d0214"
+    },
+    {
+      "path": "VALIDATION/final_public_direct_components.py",
+      "sha256": "bf945746fd5ce3aef0e58afe6d7b5962716cab9348dd05a76b1478ff2e1e542b"
+    },
+    {
+      "path": "VALIDATION/final_selected_stack.py",
+      "sha256": "82de3d5800ae85f3a1de326bea80a68b0f67d6c9a5c13c3600049b5530ee3c14"
+    },
+    {
+      "path": "VALIDATION/portable_direct_cv_20261013.py",
+      "sha256": "8ba1cc2c47db991111c10e3f8f5d121a98558f3c746718c48579dc50906af59d"
+    }
+  ],
+  "daily_weight_assessment": "Prefer one predeclared historical v73 coefficient0.4032872515123992 over unit t5; full t5 removes historical attenuation with no validation. This is not exact v80 effective exposure, nor evidence of new accuracy.",
+  "daily": {
+    "CV": "heavy.old.OUT/screen.json parameters[heldmonth][airport], original UTC takeoff-day cohort, original allowed training months. No offblock parameters.",
+    "production": "Original V72 parameters.json parameters[airport] fit on full2025; same saved t5 likelihood/support; compute on actual serialized portable B.",
+    "serialization": "T=R(t5(B)); D=R(B+w72*(T-B)); keep both boundaries; do not multiply raw unrounded posterior delta."
+  },
+  "monthly": {
+    "CV": "V74 parameters.json folds[month]",
+    "production": "V74 parameters.json full_year",
+    "exact_full_formula": "half=original monthly.apply(rows,float64(D),source,parameters)[0]; full=max(0,2*half-D); preserve inner nonnegative clipping and missing-source zero shifts.",
+    "membership": "Recompute from actual D. Do not transport historical monthly shifts."
+  },
+  "direct": {
+    "CV_packet": "v3_20261013_portable_direct_cv/packet.parquet, columns control/tabm_direct; no numeric build yet",
+    "production": "Audited final_public_direct_components/{old,final}.parquet columns control/tabm_direct",
+    "mix": "Same calls+TabM seeds42/1042/2042, main184/airport/full174Cat, public RomeCat3+R20, original postprocessing.",
+    "proof": "Exact selected v77 intermediate/output, selected v78 and original three-TabM-v78 gates required before packet admission."
+  },
+  "daily_quality": {
+    "parameters": "Retain fold/full2025 calibration and original counts/noise/caps.",
+    "membership": "Original stand/runway eligibility plus incoming N between0and7200, recomputed on N.",
+    "gate": "Monthly public invalid-share<.05 is source-only and can be reused; unavailable source quality rejects correction."
+  },
+  "constraints": {
+    "CV": "Original matched bound plus recovered-plan exclusion with donors in allowed training months plus held input-only month.",
+    "production": "Same methods, separately jittered old/final audited raw namespaces.",
+    "boundaries": "Constrain then nonnegative nearest-even integer after fullmonthly, direct replacement, dailyquality, joint addition, robust addition separately. No collapsing joint+robust rounding."
+  },
+  "joint_robust": {
+    "provenance": "Fixed retained v70 prior inference. Reuse audited increments; label as additive transport, never a posterior recomputed from the portable candidate.",
+    "sequential": "J=R(constrain(Q+.5*joint)); F=R(constrain(J+.5*robust)); same separate operations in CV/old/final.",
+    "caveat": "This explicit new chain differs from v80 affine delta transport; no exact v80 identity or score can be assigned."
+  },
+  "pending": [
+    "Freeze runner actual source and all data/calibration/packet hashes.",
+    "Execute complete Jan/Jul once and independent arithmetic/ID/calendar/source audits.",
+    "Apply matching old/final namespaces and preserve posterior checkpoints before downstream diagnostics."
+  ],
+  "no_parameter_fit_or_scan": true,
+  "no_cv_or_production_execution": true,
+  "no_upload": true
+}

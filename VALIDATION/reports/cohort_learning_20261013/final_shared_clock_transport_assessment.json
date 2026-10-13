@@ -1,0 +1,126 @@
+{
+  "status": "fixed_design_proposal_pending_root_review_no_candidate",
+  "date": "2026-10-13",
+  "recommendation": "Retain as a separate final-only portability option; first compare the complete audited portable chain. Independent source facts pass, but departure phase transfer remains an explicit untestable-from-released-departures assumption. Do not call it an exact final v80 replay or a new Jan/Jul improvement.",
+  "novelty": {
+    "search": "Research index findall jitter, transport clock, affine recovery; relevant raw source/report search and historical exclusions inspected before proposing.",
+    "previously_known": "SCOUT_EXCLUSIONS_20261012.md already recorded all old DEP overlap, <=12 s movement changes, unchanged plan clocks and arrival anticorrelation -0.9896965721; it rejected naive label-preserving augmentation. The correlation itself is not new.",
+    "distinct_mechanism": "Match the same released movement across exports and transport its own retained prediction using a fixed endpoint identity; no across-flight regression or missing-model approximation.",
+    "closed_nonoverlap": [
+      "Across-flight missing-affine recovery ridge predictions",
+      "Same-flight departure-to-arrival endpoint proxy",
+      "Earlier arrival context for another departure",
+      "Clock phase/model-feature screens",
+      "Naive old/final view averaging"
+    ],
+    "prior_record": {
+      "path": "VALIDATION/reports/SCOUT_EXCLUSIONS_20261012.md",
+      "sha256": "562b056315241d9856b1d3acbf79ce2dae22802c564e73a3bd13fb371886ca4c"
+    }
+  },
+  "evidence": {
+    "raw_diagnostic": {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/result.json",
+      "sha256": "ecb5f9d5fd0e2ff83950c85a4b637727af2ac9259e7a1859a74c0fb36fe57c02"
+    },
+    "coupling": {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/coupling.json",
+      "sha256": "021f934f09023b03df51d7a21a61381e1e044eb0001bf7da9f61b0786c274d8e"
+    },
+    "independent_numpy": {
+      "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_numpy.json",
+      "sha256": "0f81f1a9d0081819e48cfa59b0c46749f26ec5d7155e0f108f9cd2780952ebe2"
+    },
+    "independent_source": {
+      "path": "VALIDATION/tools/audit_final_shared_clocks_numpy_20261013.py",
+      "sha256": "36808cf65cac2705ff6769a8aebdc21ebb172c69ef17234c390514c69fdcbea1"
+    },
+    "shared_movements": 689534,
+    "shared_departures": 344841,
+    "shared_arrivals": 344693,
+    "final_departures": 670790,
+    "nonshared_departures": 325949,
+    "shared_departure_fraction": 0.5140819034273021,
+    "field_preservation": "All 30 columns compared by phase with null equality; only movement/block/taxi fields change. All other fields including all flight-plan clocks and phase/airport/ID are exact.",
+    "arrival_identity": "delta_y = delta_block - delta_movement exactly on all 344693 arrivals.",
+    "arrival_antiphase_residual": {
+      "definition": "r = delta_block + delta_movement",
+      "histogram": {
+        "-1": 86014,
+        "0": 172383,
+        "1": 86296
+      },
+      "rms_seconds": 0.7070319007446653,
+      "max_abs_seconds": 1,
+      "all_airports": 10
+    },
+    "departure_observed": "All 344841 movement deltas are integer seconds in [-12,12]; both block times and taxi labels are null in both views.",
+    "independent_execution": "Idle laptop, existing raw SHA-exact cache, Pandas/NumPy implementation independent of root SQL; 1.46 s, peak591 MiB; no predictions, training or CV labels."
+  },
+  "conditional_algebra": {
+    "definitions": "dt = takeoff_final - takeoff_old; db = block_final - block_old; r = db + dt.",
+    "arrival": "For y_arr = block - landing, delta_y_arr = -2*dt + r (observed).",
+    "departure": "For y_dep = takeoff - block, delta_y_dep = 2*dt - r. This is algebra, but r for departures is unobserved.",
+    "transport": "p_final = p_old + 2*dt gives e_final = e_old + r before clipping.",
+    "bound": "Only if departure |r|<=1, row error changes by <=1 s before clipping; only if its RMS matches arrival .707, RMSE changes by <=.707 s before clipping. These are conditional bounds, not measured departure performance.",
+    "identifiability_counterexample": "An export process that applies opposite clocks to arrivals but leaves departure hidden block unchanged fits every released field yet requires coefficient1. A phase-specific process preserving hidden departure labels can also fit visible fields. Matching movement distributions cannot rule either out.",
+    "no_gain_claim": "The benefit could be preserving the stronger old v80 predictions on shared records, not extracting a proven multi-second gain from small clock jitter. Delta is zero on the old leaderboard view."
+  },
+  "fixed_operator": {
+    "one_coefficient": 2,
+    "selector": "Exact MVT_ID membership in original submitting/v80; never calendar/airport/error-selected. Verify one-to-one joins and exact final template order.",
+    "shared_formula": "round_to_nearest_even(max(0, v80_old[id] + 2*(final_MVT_TIME_UTC_mvt[id]-old_MVT_TIME_UTC_mvt[id]).total_seconds()))",
+    "shared_v80": {
+      "path": "submissions/unique-rose_v80.parquet",
+      "sha256": "50b986030af2efaab89b69bb69522ade6b060cc7f58fa324954e3fb06e0ef6f4"
+    },
+    "v80_manifest": {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_candidate/submission_v80/manifest.json",
+      "sha256": "8f04994d90ea2704c2cf808f3ef93744bec8f258c876df1568536f72ff9e3dd4"
+    },
+    "nonshared": "Use the complete audited portable final recipe, unchanged; its exact artifact/recipe hash must be selected and pinned by root after the current full-chain comparison and before any candidate build.",
+    "integer_rule": "Assert dt integral before use. Old v80 integers plus2dt are integral, so rounding is identity except the explicit nonnegative clamp.",
+    "pipeline_rule": "No additional public/daily/runway correction after transporting old v80, which already contains those stages. Keep old/final feature caches separate.",
+    "forbidden_adaptation": "No coefficient/threshold/airport scans, fitted residual correction, synthetic score selection or hidden departure labels.",
+    "future_build_gates": [
+      "Root reviews this fixed design and complete portable-chain comparison",
+      "Freeze exact raw/template/v80/portable manifests and file hashes",
+      "Independent implementation and all-row arithmetic/IDs/clamp audit",
+      "Report inherited controls separately from unsupported final transform validation"
+    ],
+    "construction_authorized": false
+  },
+  "honest_validation": {
+    "available": "Existing original-view Jan/Jul2025 CV validates v80 and the portable recipe individually. Released arrival view changes validate only the arrival transform.",
+    "unavailable": "There is no authentic paired 2025 departure export with both targets. No genuine Jan/Jul taxi-out CV can directly evaluate this hidden departure transform.",
+    "synthetic_cv": "Applying2dt to both held target and prediction is tautological; only an implementation/metamorphic check, never new predictive evidence.",
+    "arrival_proxy": "Old visible arrival taxi minus2dt predicts the new visible arrival taxi with .707 s residual RMS. This is the observed transform diagnostic, not taxi-out model performance.",
+    "split_caveat": "All-arrival statistics were already inspected on Oct12. Subsequent airport/month/source/boundary splits are falsification/stability checks, not untouched confirmation.",
+    "portfolio_caveat": "Do not report old v80 CV or its official score as the whole final hybrid score; the nonshared half is a different model and the phase transform is unverified."
+  },
+  "bounded_next_falsification": {
+    "completed": "Independent raw SHA/unique-ID/phase/nonclock equality and all-arrival identity/residual histogram reproduced, including all10 airports. This rejects accidental join/SQL artifacts, not the phase-symmetry counterexamples.",
+    "optional_fixed_source_only": "If root wants more stability detail, predeclare Jan/Jul, airport, raw flight-ID-missing, movement rule, UTC day-boundary +/-12s, and signed integer dt groups; count arrival identity/residual violations and departure movement support differences. No fits or new departure labels.",
+    "stop_policy": "Any unexpected source/ID/phase/integer-clock difference or arrival identity violation blocks the fixed recipe pending explanation; do not tune a subset gate.",
+    "decisive_missing_evidence": "An authoritative phase-neutral export/generator definition, or real paired departure labels, would resolve the hidden-block assumption. Neither is currently available."
+  },
+  "public_provenance_and_eligibility": {
+    "checked_on": "2026-10-13",
+    "data_page": {
+      "url": "https://prc-data-challenge-2026.netlify.app/data.html",
+      "supports": "Departure target is takeoff minus block; original ranking has Jan/Jul2026 and blank departure block/target; final adds Feb/June2026. No jitter mechanism is specified."
+    },
+    "eligibility_page": {
+      "url": "https://prc-data-challenge-2026.netlify.app/eligibility.html",
+      "supports": "Prize conditions require open documented data, original work, reproducible documentation and GPLv3 GitHub source."
+    },
+    "bounded_generator_search": "Official data/home pages and searches for PRC Data Challenge2026 with jitter/noise/generation/GitHub found no authoritative generator implementation. This is a bounded negative search, not proof none exists.",
+    "methodological_position": "Uses only organizer-provided old/final observations, visible arrival labels and our retained predictions; no access to hidden departure ground truth. Document the conditional phase assumption and reproducible artifact chain. The pages do not explicitly adjudicate this particular transport; do not claim organizer approval.",
+    "privacy": "This assessment does not change repository visibility; the user privacy instruction remains in force."
+  },
+  "no_fit": true,
+  "no_new_cv_labels": true,
+  "no_candidate": true,
+  "no_final_predictions": true,
+  "no_upload": true
+}

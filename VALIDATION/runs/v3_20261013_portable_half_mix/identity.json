@@ -1,0 +1,134 @@
+{
+  "design": {
+    "created_at": "2026-10-13T06:45:08.553745+00:00",
+    "status": "fixed design before new aggregation or mixture score",
+    "parents": [
+      "portable_public_source_v1",
+      "latest direct public-model reserve"
+    ],
+    "motivation": "Two distinct portable recipes have nearly equal Jan/Jul RMSE; test their fixed equal mixture for complementary errors. Parents and v80 scores already viewed; reused development, not independent confirmation.",
+    "formula": "R(0.5*serialized_portable_public_chain+0.5*serialized_direct_reserve), R=nearest-even max(value,0)",
+    "weights": [
+      0.5,
+      0.5
+    ],
+    "no_weight_search": true,
+    "no_new_constraints": true,
+    "no_fit": true,
+    "no_posterior_repeat": true,
+    "cv": "One Jan/Jul score, both months plus paired-day bootstrap against both parents and exactv80",
+    "selection_gate": "Improve both months versus v80 and paired-day interval upper<0 against v80 and both portable parents",
+    "if_fail": "No weight sweep, no expansion, no submission for this equal mixture",
+    "novelty": "Explicit new28-component portable base plus current direct public-model family; distinct from closed exactv80 neural-share0.85 change. No changes to frozen parents.",
+    "sources": [
+      {
+        "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+        "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+        "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+      },
+      {
+        "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+        "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+      }
+    ],
+    "no_version": true,
+    "no_upload": true
+  },
+  "design_source": {
+    "path": "VALIDATION/reports/portable_half_mix_design_20261013.json",
+    "sha256": "e713840a56e0b2f87eb0c0492c1ff826a808e99bb16768462307b74a0c083fe0"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/portable_half_mix_20261013.py",
+      "sha256": "598af11ab5b005fb287f15f2399237eb690dd274fc6b89cb1a10d5154f7a0785"
+    },
+    {
+      "path": "VALIDATION/reports/portable_half_mix_design_20261013.json",
+      "sha256": "e713840a56e0b2f87eb0c0492c1ff826a808e99bb16768462307b74a0c083fe0"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/audit.json",
+      "sha256": "75353017a80bb13ea006302fa68f9d5b8e1a4dc16697415cc42c155187ff0172"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/identity.json",
+      "sha256": "65af735fcd3198834744f823230e9c977976cfe66b58ad35099aae747c4bb7d6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/packet.parquet",
+      "sha256": "ee0f1900b4f4c383c872de13bac818781fd8a9d1bca1b4949a649de9e56d4f26"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/result.json",
+      "sha256": "7c23669f2f5f007931a5989fd4cd4c86cee94edc382c506d3832940774bd6cdc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+      "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+      "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+      "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+      "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    },
+    {
+      "path": "VALIDATION/tools/audit_portable_half_mix_20261013.py",
+      "sha256": "066b8bf4d926cd36cc3495a6af985ad03e6a820b929d9328d2401b320666f033"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "data/training_2025-01-01_2025-02-01.parquet",
+      "sha256": "a4dc8f152c082c650cd7eb745fe9c641089f34f74df127e6944a188990a0ed94"
+    },
+    {
+      "path": "data/training_2025-07-01_2025-08-01.parquet",
+      "sha256": "34d1c5bba7c8596a1c20c09edd3cb2f63277b5a684fa801911660fe0eaf63c9d"
+    }
+  ],
+  "source": {
+    "path": "VALIDATION/portable_half_mix_20261013.py",
+    "sha256": "598af11ab5b005fb287f15f2399237eb690dd274fc6b89cb1a10d5154f7a0785"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_portable_half_mix_20261013.py",
+    "sha256": "066b8bf4d926cd36cc3495a6af985ad03e6a820b929d9328d2401b320666f033"
+  },
+  "chain": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+    "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+  },
+  "direct": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/packet.parquet",
+    "sha256": "ee0f1900b4f4c383c872de13bac818781fd8a9d1bca1b4949a649de9e56d4f26"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5"
+  },
+  "weights": [
+    0.5,
+    0.5
+  ],
+  "rows": 344419,
+  "no_fit": true,
+  "no_upload": true
+}

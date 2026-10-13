@@ -1,0 +1,67 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/identity.json",
+    "sha256": "acab0bee4edd1ae7c5ba84493239e133b2bf029164a05a891efb8ed9427132c4"
+  },
+  "scores": {
+    "2025-01": {
+      "control": 325.02854196957753,
+      "zero": 325.02854196957753,
+      "prior": 325.01460211479196,
+      "posterior": 325.03656853849276,
+      "zero_family": 325.0255602211619,
+      "prior_family": 324.9884056509227,
+      "posterior_family": 325.03953140109405
+    },
+    "2025-07": {
+      "control": 254.49701445100365,
+      "zero": 254.49701445100365,
+      "prior": 256.29835968361425,
+      "posterior": 254.81253742969187,
+      "zero_family": 256.2801517047054,
+      "prior_family": 257.61421154958254,
+      "posterior_family": 256.2600893888055
+    }
+  },
+  "cv": {
+    "control": 289.7627782102906,
+    "zero": 289.7627782102906,
+    "prior": 290.6564808992031,
+    "posterior": 289.9245529840923,
+    "zero_family": 290.6528559629337,
+    "prior_family": 291.3013086002526,
+    "posterior_family": 290.6498103949498
+  },
+  "paired": {
+    "control": {
+      "change": 0.16177477380172434,
+      "ci95": [
+        -0.04007535104063855,
+        0.4143208053284858
+      ],
+      "decision": "inconclusive"
+    },
+    "prior": {
+      "change": -0.7319279151107878,
+      "ci95": [
+        -1.5537555170558566,
+        -0.05837544482127412
+      ],
+      "decision": "improvement"
+    }
+  },
+  "gate": false,
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/scored.parquet",
+    "sha256": "185389d4fc1532989f3bad1cb9f605729f5aa4d27fda8facaa1fdc4e3cb237a4"
+  },
+  "current": {
+    "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+    "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+  },
+  "exact_zero_replay": true,
+  "raw_peer_prediction_rows": 26528,
+  "scored_rows": 344419,
+  "interpretation": "Fixed additive serialized-v80 transport; reused development; family substitution reported separately",
+  "no_production_or_upload": true
+}

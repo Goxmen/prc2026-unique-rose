@@ -1,0 +1,56 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/identity.json",
+    "sha256": "acab0bee4edd1ae7c5ba84493239e133b2bf029164a05a891efb8ed9427132c4"
+  },
+  "arm": {
+    "key": "2025-01_B",
+    "outer": "2025-01",
+    "part": "B",
+    "train": [
+      "2025-03",
+      "2025-05",
+      "2025-07",
+      "2025-09",
+      "2025-11"
+    ],
+    "held": [
+      "2025-04",
+      "2025-06",
+      "2025-08",
+      "2025-10"
+    ]
+  },
+  "counts": {
+    "retained_original_outer": false,
+    "allowed": [
+      "2025-03",
+      "2025-05",
+      "2025-07",
+      "2025-09",
+      "2025-11"
+    ],
+    "training_rows": 68291,
+    "canonical_rows": 63797,
+    "cells": 253,
+    "covariance_cells": 194
+  },
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/calibration_cells.parquet",
+      "sha256": "34c2e6d64bbea1962ad8bedbbca0acfb789bf4d02f968b0eb08d0b08b45425b4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/calibration_ids.parquet",
+      "sha256": "9de183b6cd005cb86abaed89e599b9d602ba749519b95c9a97804afd311675ba"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/offblock_calibration_ids.parquet",
+      "sha256": "4f036965317819d8ba8aa42044e81643459d7f052ef364cc2124da5e7a9f678b"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/parameters.json",
+      "sha256": "39cfaaf944a52cf18b0d9f2b0303c96dd621e37a5942dd6a06fba707f5ab9894"
+    }
+  ]
+}

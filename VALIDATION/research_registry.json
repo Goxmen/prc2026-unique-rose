@@ -1,20 +1,21 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T06:32:45.528222+00:00",
+  "updated_at": "2026-10-13T07:05:17.668513+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
     "best_official_rmse": 218.8525,
     "slots_remaining": 5,
     "repository": "PRIVATE verified 2026-10-13",
-    "laptop": "Idle; posterior-aware fixed gate failed, returned artifacts awaiting final audit",
-    "desktop": "Idle; portable public assembler independent preflight in preparation",
+    "laptop": "Idle; posterior crossfit closed negative and audited",
+    "desktop": "Idle after portable parent audits; two upload manifests in preparation",
     "native_goal_status": "active",
     "used_utc_day_slots": 0,
     "slot_date_utc": "2026-10-13",
     "reserved_final_slots": 1,
     "exploratory_slots_remaining": 4,
-    "legacy_final_components": 30
+    "legacy_final_components": 30,
+    "official_checked_at": "2026-10-13T05:49:16Z"
   },
   "interpretation": "Curated hypothesis index. Numeric results only where independently audited; full provenance in linked reports. Report hashes identify index-time versions, not immutable future documents.",
   "entries": [
@@ -940,7 +941,7 @@
     {
       "id": "posterior_aware_source_sensitivity",
       "hypothesis": "Feature-dependent support tilts can alter source-conditioned predictions within cohorts",
-      "status": "feasibility_pass_training_not_started",
+      "status": "feasibility_pass_followup_closed_negative",
       "conclusion": "Independent all-row sensitivity audit passes; 2336 supported targets and four-dimensional joint-only derivative. No predictive gain established. Incremental joint-minus-departure objective needs its own frozen design.",
       "evidence": [
         {
@@ -995,42 +996,158 @@
           "sha256": "ae6f009948a74d9e6f36fae45b008b989a5fb5a2ad7f61c9d4fd9fc024dd1d82"
         }
       ]
+    },
+    {
+      "id": "posterior_aware_crossfit_20261013",
+      "status": "closed_negative",
+      "hypothesis": "Honest priors and incremental posterior objective improve v80",
+      "conclusion": "All6 priors and independent audits pass, but both months regress; no expansion, tuning, production or upload.",
+      "metrics": {
+        "cv": 289.924553,
+        "change_v80": 0.1617748
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/closed.json",
+          "sha256": "10364ca1233f7f78f7617d9613a1e9477eebbb6c92e7227588a8726c5b0b413a"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/result_report.json",
+          "sha256": "4df966b8f428df20d1323e36f18b8f51b4cb28863133387ef2c34584743c1cde"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/independent_result_audit.json",
+          "sha256": "b9fb5a0d48c0c0b78dbd2bc09c5bc6486b06c9902ced329c9f1af398d35647ee"
+        }
+      ]
+    },
+    {
+      "id": "portable_public_source_20261013",
+      "status": "old_cv_audited_feedback_candidate",
+      "hypothesis": "Fixed public corrections restore reduced portable affine base",
+      "conclusion": "CV improves portable base by6.180649s; trails v80. Old audit passes; final not run. Two independent-auditor SQL joins repaired in additive recovery, producer unchanged.",
+      "metrics": {
+        "cv": 290.8394266979102,
+        "change_v80": 1.0766484876196
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+          "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+          "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+          "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+          "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+        }
+      ]
+    },
+    {
+      "id": "portable_direct_reserve_20261013",
+      "status": "old_cv_final_audited_feedback_candidate",
+      "hypothesis": "Saved direct public-model stack supplies final fallback",
+      "conclusion": "All3 views audited; trails v80. Official feedback can distinguish from materially different public-source candidate.",
+      "metrics": {
+        "cv": 290.84397170714396,
+        "change_v80": 1.08119349685336
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/result.json",
+          "sha256": "6f149f26067d0f97e8eb9224db2fd70f0329e9526b157439d84e4759c2bc93c6"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/audit.json",
+          "sha256": "c8a5c6ba172811dca7868173835389c226bae4b16feaca3c71dd0264060e5f35"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/chain_comparison.json",
+          "sha256": "ee7d02002f91577454af4f5064bf98ca2a85fe7d203e25f26a0cb81716b53729"
+        }
+      ]
+    },
+    {
+      "id": "portable_fixed_half_mix_20261013",
+      "status": "closed_inconclusive_gate_failed",
+      "hypothesis": "One predeclared equal mixture exploits portable-parent complementarity",
+      "conclusion": "January worsens; interval[-2.617734,+1.190731] crosses zero vs v80. All-row/SQL/bootstrap audit passes; no weight search, production or upload.",
+      "metrics": {
+        "cv": 289.1213537122926,
+        "change_v80": -0.6414244979979742
+      },
+      "evidence": [
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_half_mix/result.json",
+          "sha256": "bd2b4f71cdc62847776f2ec58347f27740271d0253afd8172980390e095bf106"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_half_mix/audit.json",
+          "sha256": "fe5c988540680a6f2600652d7b4d61ad3ad11e7e055239702693f1373d79cb70"
+        },
+        {
+          "path": "VALIDATION/runs/v3_20261013_portable_half_mix/disagreement.json",
+          "sha256": "3b4f1981fbf3b0858f9da5f5ee993bd2bd62fcfcc9a0ee3dc3e2a336302a5d6c"
+        }
+      ]
+    },
+    {
+      "id": "final_shared_clock_transport_20261013",
+      "status": "source_audited_builder_unexecuted",
+      "hypothesis": "Transfer shared-ID teacher by twice observed takeoff shift under inferred endpoint mechanism",
+      "conclusion": "All344693 arrivals have opposite endpoint residual within1s. Departure mechanism unobserved: conditional, not CV improvement or exact final-v80 replay. Distinct from already known arrival anticorrelation.",
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_numpy.json",
+          "sha256": "0f81f1a9d0081819e48cfa59b0c46749f26ec5d7155e0f108f9cd2780952ebe2"
+        },
+        {
+          "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_transport_review.json",
+          "sha256": "1f3dca9dce90d60478290965ae5a907d3c8343773191820555051ccf6a5c342d"
+        }
+      ]
     }
   ],
   "next": [
-    "Run predeclared portable public-source CV after independent source audit",
-    "Audit fixed posterior-aware failure; no expansion or production",
-    "Assess explicit same-flight final clock transport separately; hidden departure transform unobserved",
-    "Compare final candidates and protect last daily slot; no upload queued"
+    "Review at most two versioned portable-parent feedback uploads; keep fifth slot reserved",
+    "Complete final transport source review and select fallback from actual evidence",
+    "Assess one novel high-impact hypothesis with novelty checks",
+    "No expansion of closed half mixture or posterior crossfit"
   ],
   "active_research": [
     {
       "owner": "root",
-      "scope": "Portable affine final alignment, research integration, reserved submission slot"
+      "scope": "Candidate selection, feedback, integration and reserved slot"
     },
     {
       "owner": "final_recovery",
-      "scope": "Frozen portable public-source assembler; no additional recovery fits"
-    },
-    {
-      "owner": "cohort_learning",
-      "scope": "Honest posterior-aware crossfit protocol; laptop execution after audit"
+      "scope": "Portable feedback manifests and separate final uploader"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent crossfit prefit and final-alignment audits"
+      "scope": "Final transport audit and submission-source review"
+    },
+    {
+      "owner": "cohort_learning",
+      "scope": "Novel high-impact hypothesis assessment; source only"
     }
   ],
   "machine_allocation": {
     "desktop": {
-      "stage": "portable_public_source_prefit_review",
-      "owner": "new_signal_audit",
-      "checked_at": "2026-10-13T06:32:45.528222+00:00"
+      "stage": "idle_after_completed_audits",
+      "owner": null,
+      "checked_at": "2026-10-13T07:05:17.668513+00:00"
     },
     "laptop": {
-      "stage": "idle_after_closed_posterior_screen",
+      "stage": "idle_after_completed_audits",
       "owner": null,
-      "checked_at": "2026-10-13T06:32:45.528222+00:00"
+      "checked_at": "2026-10-13T07:05:17.668513+00:00"
     }
   }
 }

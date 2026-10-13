@@ -1,0 +1,61 @@
+{
+  "status": "cv_old_final_serialized_independently_audited",
+  "name": "portable_direct_reserve_v1",
+  "sources": [
+    {
+      "path": "VALIDATION/portable_direct_reserve_20261013.py",
+      "sha256": "a0cdb4d88c0211c8ea4f0e9ff34acb0f393670a3792e8085d161a384bae5fffe"
+    },
+    {
+      "path": "VALIDATION/tools/audit_portable_direct_reserve_20261013.py",
+      "sha256": "97a7a38d751013e4caf3457c0b4ce4c4bf8fd6b30615d92ea8bbeae64e39395d"
+    }
+  ],
+  "transformation": "R(existing tabm_direct), nonnegative nearest-even integer; no corrections",
+  "views": {
+    "cv": 344419,
+    "old": 344841,
+    "final": 670790
+  },
+  "cv_preexisting": 290.84397170714396,
+  "required": "Root allocation after active desktop audits release",
+  "steps": [
+    "freeze",
+    "build all three views once under root allocation",
+    "separate SQL raw-ID/schema/rounding/CV audit",
+    "one saved-array chain comparison when root selects available audited views"
+  ],
+  "comparison": "All, month, airport, month\u00d7airport RMS/changed/mean/max deltas; CV errors and original paired CI. Missing chain old/final explicitly reported, no inference.",
+  "no_fit": true,
+  "no_model_inference": true,
+  "no_upload": true,
+  "selected": false,
+  "existing_cv_disagreement": {
+    "source": {
+      "path": "VALIDATION/runs/v3_20261013_portable_half_mix/disagreement.json",
+      "sha256": "3b4f1981fbf3b0858f9da5f5ee993bd2bd62fcfcc9a0ee3dc3e2a336302a5d6c"
+    },
+    "audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_half_mix/audit.json",
+      "sha256": "fe5c988540680a6f2600652d7b4d61ad3ad11e7e055239702693f1373d79cb70"
+    },
+    "scope": "All/month/airport/month\u00d7airport chain-versus-direct comparison completed in audited fixed half-mixture screen; no duplicate CV aggregation needed."
+  },
+  "packaging_status": "Ready for root review; no version or upload.",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/identity.json",
+    "sha256": "07cf3c15dc3f3e85860df71a408ebf318ee3644f7b5c6f7823d64db8eee5cfb3"
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/allocation.json",
+    "sha256": "9c3d73aa5e2f1eb1003f8763071ee093acf1727bd27d6c83ed6c486b90fce9cf"
+  },
+  "review": {
+    "path": "VALIDATION/reports/portable_direct_reserve_static_review_20261013.json",
+    "sha256": "e40be80716ca7ed50dd2d1da4d0ca1cd7ed57f54808affe5e3f1e8f3e6288415"
+  },
+  "ready": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/ready_for_root_review.json",
+    "sha256": "158b8e9bdc737e80370d86aa5581c18be96e85175159eba2676bfa30dab6fdf1"
+  }
+}

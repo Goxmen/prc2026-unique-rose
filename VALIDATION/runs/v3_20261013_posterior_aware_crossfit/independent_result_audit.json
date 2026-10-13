@@ -1,0 +1,141 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_posterior_aware_result_20261013.py",
+    "sha256": "41594f74a2cb33fc4c047c9f2712d0b9835116919796d734541f76155c2abd9e"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/identity.json",
+    "sha256": "acab0bee4edd1ae7c5ba84493239e133b2bf029164a05a891efb8ed9427132c4"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/result.json",
+    "sha256": "00613f1ff2966d709f33db4b89d534a0484b724aaa42688c6fea82187ec36426"
+  },
+  "prefit_audit": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/prefit_audit.json",
+    "sha256": "e7fc03053453e27c07aff37d4a2dbb814a0d45b8d25f5e3994394341e00777d2"
+  },
+  "return_audit": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/return_audit.json",
+    "sha256": "1f1ad66004ccd88d432d8a32e96800235c81f7eb24adfd0590f8b93ababc03b0"
+  },
+  "scored": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/scored.parquet",
+    "sha256": "185389d4fc1532989f3bad1cb9f605729f5aa4d27fda8facaa1fdc4e3cb237a4"
+  },
+  "rows": 344419,
+  "arms": [
+    {
+      "arm": "2025-01_A",
+      "training_rows": 58325,
+      "complete_peer_rows": 68291,
+      "targets": 4009,
+      "finite_tree_values": 858893,
+      "positive_infinity_NaN_threshold_splits": 203,
+      "trees": 800,
+      "reload_receipt_verified": true
+    },
+    {
+      "arm": "2025-01_B",
+      "training_rows": 68291,
+      "complete_peer_rows": 58325,
+      "targets": 3257,
+      "finite_tree_values": 1005345,
+      "positive_infinity_NaN_threshold_splits": 145,
+      "trees": 800,
+      "reload_receipt_verified": true
+    },
+    {
+      "arm": "2025-01_outer",
+      "training_rows": 126616,
+      "complete_peer_rows": 11317,
+      "targets": 307,
+      "finite_tree_values": 1220591,
+      "positive_infinity_NaN_threshold_splits": 209,
+      "trees": 800,
+      "reload_receipt_verified": true
+    },
+    {
+      "arm": "2025-07_A",
+      "training_rows": 36698,
+      "complete_peer_rows": 50071,
+      "targets": 2011,
+      "finite_tree_values": 542001,
+      "positive_infinity_NaN_threshold_splits": 169,
+      "trees": 800,
+      "reload_receipt_verified": true
+    },
+    {
+      "arm": "2025-07_B",
+      "training_rows": 50071,
+      "complete_peer_rows": 36698,
+      "targets": 1577,
+      "finite_tree_values": 738118,
+      "positive_infinity_NaN_threshold_splits": 468,
+      "trees": 800,
+      "reload_receipt_verified": true
+    },
+    {
+      "arm": "2025-07_outer",
+      "training_rows": 86769,
+      "complete_peer_rows": 15211,
+      "targets": 2097,
+      "finite_tree_values": 1220423,
+      "positive_infinity_NaN_threshold_splits": 371,
+      "trees": 800,
+      "reload_receipt_verified": true
+    }
+  ],
+  "optimizers": [
+    {
+      "outer": "2025-01",
+      "kind": "prior",
+      "loss": 0.25130136821296994,
+      "gradient_max": 2.3841053562768943e-09
+    },
+    {
+      "outer": "2025-01",
+      "kind": "posterior",
+      "loss": 0.24242828466289415,
+      "gradient_max": 6.151557500042905e-09
+    },
+    {
+      "outer": "2025-07",
+      "kind": "prior",
+      "loss": 0.1459489421296104,
+      "gradient_max": 2.955478869449968e-10
+    },
+    {
+      "outer": "2025-07",
+      "kind": "posterior",
+      "loss": 0.1506445489035613,
+      "gradient_max": 2.639325867316014e-09
+    }
+  ],
+  "all_SQL_truth_control_deltas_family_serialization_scores_exact": true,
+  "paired": {
+    "control": {
+      "change": 0.16177477380172434,
+      "ci95": [
+        -0.04007535104063855,
+        0.4143208053284858
+      ]
+    },
+    "prior": {
+      "change": -0.7319279151107878,
+      "ci95": [
+        -1.5537555170558566,
+        -0.05837544482127412
+      ]
+    }
+  },
+  "gate": false,
+  "conclusion": "Closed without tuning, production or upload; both months regress against exact v80.",
+  "source_parameter_refits": 0,
+  "model_fits": 0,
+  "model_inference": 0,
+  "source_likelihood_reruns": 0,
+  "limits": "Original all-row saved-model reload and zero-source replay verified from frozen laptop receipts; independent audit rederives packet algebra, objective/gradient and scores, not original likelihood evaluation.",
+  "seconds": 7.0291499180002575
+}

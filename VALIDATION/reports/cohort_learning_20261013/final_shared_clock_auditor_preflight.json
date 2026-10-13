@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/check_final_shared_clock_auditor_20261013.py",
+    "sha256": "a32eb907e66f7e85746294454a899943b1cabf736ded9e82e15ba4042912ae09"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_final_shared_clock_transport_20261013.py",
+    "sha256": "8e5482b2afc44ac5a1d12fb46a8f8d11b441460e8469b4601dfa02d2fb996bbe"
+  },
+  "SQL_statements_parsed": 10,
+  "fixture_rows": 5,
+  "checks": [
+    "Shuffled unique IDs, positive and negative shared shifts, zero shift, negative clamp and unchanged two-month fallback",
+    "Reject wrong shared prediction",
+    "Reject wrong fallback",
+    "Reject wrong trace",
+    "Reject wrong membership",
+    "Reject wrong delta sign",
+    "Reject visible hidden truth",
+    "Reject wrong phase",
+    "Reject oversized clock shift"
+  ],
+  "no_competition_arrays_read": true,
+  "no_candidate": true,
+  "no_model_or_posterior_inference": true
+}

@@ -1,3 +1,13 @@
+**October13,09:05 Amsterdam: two portable parents audited; new screens closed.**
+Direct reserve CV290.843972 and public-source chain CV290.839427 both trail v80;
+their old predictions differ63.9731s RMS. Both old files pass independent audits;
+direct final is audited, public final not run. At most two official feedback uploads
+are being prepared to select a final fallback; none uploaded, last slot reserved.
+Fixed equal mix fails its gate (January worse, interval crosses zero): no tuning
+or upload. Posterior crossfit closes negative after independent audit. Shared-clock
+transfer remains conditional on the hidden departure mechanism; builder unexecuted.
+Both hosts idle; target205 unmet.
+
 **October13,08:32 Amsterdam: portable final base audited; new crossfit gate fails.**
 Best remains v80 at218.8525. All five daily slots are unused; last slot reserved.
 Thirty historical components are audited. Fixed28-component portable base now

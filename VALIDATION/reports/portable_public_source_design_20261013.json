@@ -1,0 +1,30 @@
+{
+  "status": "source-design only; no numerical evaluation or selection",
+  "created_at": "2026-10-13T06:05:32.730665+00:00",
+  "name": "portable_public_source_v1",
+  "base": "One frozen portable_affine_v1 basis; not v80 and no missing component proxy",
+  "formula": [
+    "B=round_even(max(portable_affine_raw,0))",
+    "T=round_even(max(t5_daily_posterior(B),0))",
+    "D=round_even(max(B+0.4032872515123992*(T-B),0))",
+    "M=round_even(max(constrain(full_monthly_correction(D)),0))",
+    "N=round_even(max(constrain(M+latest_tabm_direct-original_direct_control),0))",
+    "Q=round_even(max(constrain(N+source_quality_gated_daily_taxi_shift(N)),0))",
+    "J=round_even(max(constrain(Q+0.5*retained_v70_joint_increment),0))",
+    "F=round_even(max(constrain(J+0.5*retained_v70_robust_extra_runway_delta),0))"
+  ],
+  "daily_weight": "Historical v73 coefficient, not an assertion about complete v80 effective exposure",
+  "daily_calendar": "Original UTC takeoff-day cohort; fixed t5 ordinary grid; actual new B support weights; original allowed-month CV or full2025 production source calibration",
+  "daily_CV_parameters": "daily_heavy_tail.old.OUT/screen.json:parameters; not offblock parameters",
+  "monthly": "Original allowed-month or full2025 coefficients and full multiplier1, eligibility/source gate unchanged; recompute actual incoming means",
+  "direct": "Existing three TabM, callsign pool, daily-main184, airport, Cat174 and selected Rome probability/corrections; no new weights/models",
+  "daily_quality": "Original calibration, monthly invalid-share<0.05, recomputed incoming eligible0..7200 rows and same count gates/caps",
+  "constraints": "Original matched-bound and recovered_plan_exclusion_fixed, CV donors from allowed training months+held input-only month; final donors same audited inputcache",
+  "joint": "Reuse independently audited source inference from retained v70 prior; explicit fixed additive transport, not posterior inference from new ensemble",
+  "serialization": "Distinct nonnegative nearest-even integer boundaries listed above; no combined joint/robust addition",
+  "evaluation": "One complete Jan/Jul score, compare base and exactv80 and explicitly retained direct reserve; report all months/paired-day uncertainty, no parameter/weight/airport sweep",
+  "final_selection": "Not selected by this design; no official score or final accuracy guaranteed",
+  "independent_audit_required": true,
+  "no_new_fit": true,
+  "no_upload": true
+}

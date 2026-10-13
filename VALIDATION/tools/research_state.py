@@ -52,7 +52,7 @@ print(json.dumps(r))
 """
 
 
-def status(remote=False):
+def status(remote=False,write=False):
     objective=read(RUNS/'v3_20261011_target215/objective.json')
     value=dict(updated_at=datetime.now(timezone.utc).isoformat(),target=objective['target_rmse'],
         best_version=objective['current_best_version'],best_official_rmse=objective['current_best_rmse'],
@@ -175,14 +175,24 @@ def status(remote=False):
     allocation=read(REGISTRY).get('machine_allocation',{})
     if 'desktop' in allocation:value['desktop']=allocation['desktop']
     if not remote and 'laptop' in allocation:value['laptop']=dict(allocation['laptop'],stale=True)
-    destination=STATE.with_suffix('.json.tmp');destination.write_text(json.dumps(value,indent=2)+'\n');destination.replace(STATE)
+    # Historical receipt refreshes must not erase later research milestones or
+    # replace today's slot accounting with the October11 objective snapshot.
+    prior=read(STATE) if STATE.exists() else {}
+    current=read(REGISTRY)['current']
+    for key in ['target','best_version','best_official_rmse','official_checked_at',
+                'slots_remaining','reserved_final_slots','used_utc_day_slots','slot_date_utc']:
+        if key in current:value[key]=current[key]
+    value={**prior,**value}
+    if write:
+        destination=STATE.with_suffix('.json.tmp');destination.write_text(json.dumps(value,indent=2)+'\n');destination.replace(STATE)
     print(json.dumps(value,separators=(',',':')))
 
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['status','find'])
-    p.add_argument('query',nargs='?',default='');p.add_argument('--remote',action='store_true');a=p.parse_args()
-    if a.command=='status':status(a.remote)
+    p.add_argument('query',nargs='?',default='');p.add_argument('--remote',action='store_true')
+    p.add_argument('--write',action='store_true',help='Persist refreshed status; default is read-only');a=p.parse_args()
+    if a.command=='status':status(a.remote,a.write)
     else:
         terms=a.query.lower().split()
         for row in read(REGISTRY)['entries']:

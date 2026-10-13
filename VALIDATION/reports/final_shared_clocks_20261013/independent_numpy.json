@@ -1,0 +1,656 @@
+{
+  "status": "pass",
+  "method": "Independent Pandas ID indexer; column-wise null-aware equality and NumPy arithmetic; no original SQL/helper imports",
+  "source": {
+    "path": "VALIDATION/tools/audit_final_shared_clocks_numpy_20261013.py",
+    "sha256": "36808cf65cac2705ff6769a8aebdc21ebb172c69ef17234c390514c69fdcbea1"
+  },
+  "inputs": {
+    "ranking": {
+      "path": "data/ranking.parquet",
+      "sha256": "9db75e3a56fa09b87aab72e191a53da3fe763d9887ad2b23aea9cde6a6325f86"
+    },
+    "final_ranking": {
+      "path": "data/final_ranking.parquet",
+      "sha256": "4b0692a792846079516a2749e034b0abda55df72c213eabdcda52a4d1f6bc69f"
+    }
+  },
+  "host": "GLAPTOP",
+  "libraries": {
+    "numpy": "2.5.2",
+    "pandas": "3.0.5"
+  },
+  "shared_rows": 689534,
+  "final_rows": 1341197,
+  "fields": [
+    {
+      "field": "MVT_ID_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "MVT_ID_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_ID_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_ID_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_RULE_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_RULE_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "ADEP_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "ADEP_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "ADES_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "ADES_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "PHASE_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "PHASE_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "MVT_TIME_UTC_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 317088
+    },
+    {
+      "field": "MVT_TIME_UTC_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 316651
+    },
+    {
+      "field": "BLOCK_TIME_UTC_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 316835
+    },
+    {
+      "field": "BLOCK_TIME_UTC_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "SCHED_TIME_UTC_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "SCHED_TIME_UTC_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "AIRCRAFT_TYPE_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "AIRCRAFT_TYPE_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "RUNWAY_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "RUNWAY_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "STAND_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "STAND_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "TAXITIME_SEC_mvt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 330721
+    },
+    {
+      "field": "TAXITIME_SEC_mvt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "LOBT_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "LOBT_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "CALLSIGN_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "CALLSIGN_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "ADEP_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "ADEP_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "ADES_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "ADES_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "ADES_FILED_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "ADES_FILED_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "MARKET_SEGMENT_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "MARKET_SEGMENT_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "IOBT_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "IOBT_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_RULE_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_RULE_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_TYPE_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "FLIGHT_TYPE_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "AIRCRAFT_TYPE_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "AIRCRAFT_TYPE_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "WK_TBL_CAT_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "WK_TBL_CAT_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "AIRCRAFT_OPERATOR_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "AIRCRAFT_OPERATOR_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "EOBT_1_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "EOBT_1_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "ARVT_1_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "ARVT_1_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "AOBT_3_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "AOBT_3_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    },
+    {
+      "field": "ARVT_3_flt",
+      "phase": "ARR",
+      "rows": 344693,
+      "changed": 0
+    },
+    {
+      "field": "ARVT_3_flt",
+      "phase": "DEP",
+      "rows": 344841,
+      "changed": 0
+    }
+  ],
+  "overall": {
+    "n": 344693,
+    "correlation": -0.9896965720707872,
+    "residual_rms": 0.7070319007446653,
+    "maximum_absolute": 1.0,
+    "label_identity_failures": 0,
+    "outside_one_second": 0,
+    "residual_histogram": [
+      {
+        "residual": -1.0,
+        "n": 86014
+      },
+      {
+        "residual": 0.0,
+        "n": 172383
+      },
+      {
+        "residual": 1.0,
+        "n": 86296
+      }
+    ]
+  },
+  "airports": [
+    {
+      "airport": "EDDF",
+      "n": 36253,
+      "correlation": -0.9894290566107011,
+      "residual_rms": 0.7109291392842866,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 9048
+        },
+        {
+          "residual": 0.0,
+          "n": 17930
+        },
+        {
+          "residual": 1.0,
+          "n": 9275
+        }
+      ]
+    },
+    {
+      "airport": "EDDM",
+      "n": 25935,
+      "correlation": -0.9896873680535312,
+      "residual_rms": 0.7080195553551999,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 6546
+        },
+        {
+          "residual": 0.0,
+          "n": 12934
+        },
+        {
+          "residual": 1.0,
+          "n": 6455
+        }
+      ]
+    },
+    {
+      "airport": "EGLL",
+      "n": 39837,
+      "correlation": -0.9896594593135938,
+      "residual_rms": 0.707896215547764,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 9884
+        },
+        {
+          "residual": 0.0,
+          "n": 19874
+        },
+        {
+          "residual": 1.0,
+          "n": 10079
+        }
+      ]
+    },
+    {
+      "airport": "EHAM",
+      "n": 38143,
+      "correlation": -0.9897325475348462,
+      "residual_rms": 0.7062071007726866,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 9543
+        },
+        {
+          "residual": 0.0,
+          "n": 19120
+        },
+        {
+          "residual": 1.0,
+          "n": 9480
+        }
+      ]
+    },
+    {
+      "airport": "LEBL",
+      "n": 29973,
+      "correlation": -0.9897123409217052,
+      "residual_rms": 0.70636325934234,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 7431
+        },
+        {
+          "residual": 0.0,
+          "n": 15018
+        },
+        {
+          "residual": 1.0,
+          "n": 7524
+        }
+      ]
+    },
+    {
+      "airport": "LEMD",
+      "n": 37093,
+      "correlation": -0.9897502007391875,
+      "residual_rms": 0.7062007044274418,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 9468
+        },
+        {
+          "residual": 0.0,
+          "n": 18594
+        },
+        {
+          "residual": 1.0,
+          "n": 9031
+        }
+      ]
+    },
+    {
+      "airport": "LFPG",
+      "n": 39733,
+      "correlation": -0.9897003793675827,
+      "residual_rms": 0.7065459702766423,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 9722
+        },
+        {
+          "residual": 0.0,
+          "n": 19898
+        },
+        {
+          "residual": 1.0,
+          "n": 10113
+        }
+      ]
+    },
+    {
+      "airport": "LIRF",
+      "n": 26839,
+      "correlation": -0.9896458446123033,
+      "residual_rms": 0.7076203464009743,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 6745
+        },
+        {
+          "residual": 0.0,
+          "n": 13400
+        },
+        {
+          "residual": 1.0,
+          "n": 6694
+        }
+      ]
+    },
+    {
+      "airport": "LSZH",
+      "n": 23123,
+      "correlation": -0.9896618602057561,
+      "residual_rms": 0.7074583664856281,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 5832
+        },
+        {
+          "residual": 0.0,
+          "n": 11550
+        },
+        {
+          "residual": 1.0,
+          "n": 5741
+        }
+      ]
+    },
+    {
+      "airport": "LTFM",
+      "n": 47764,
+      "correlation": -0.9898949341846366,
+      "residual_rms": 0.7043924066818671,
+      "maximum_absolute": 1.0,
+      "label_identity_failures": 0,
+      "outside_one_second": 0,
+      "residual_histogram": [
+        {
+          "residual": -1.0,
+          "n": 11795
+        },
+        {
+          "residual": 0.0,
+          "n": 24065
+        },
+        {
+          "residual": 1.0,
+          "n": 11904
+        }
+      ]
+    }
+  ],
+  "departure_movement_delta": {
+    "rows": 344841,
+    "integer_seconds": true,
+    "min": -12.0,
+    "max": 12.0,
+    "rms": 4.92358548195352
+  },
+  "departure_hidden_values_all_null": true,
+  "no_model": true,
+  "no_candidate": true,
+  "no_departure_label_claim": true,
+  "no_cv_claim": true,
+  "elapsed_seconds": 1.4618159100000412,
+  "peak_rss_MiB": 591.3671875,
+  "conclusion": "Visible arrival identity independently reproduced on every shared row. Hidden departure block-clock transfer remains unobserved."
+}

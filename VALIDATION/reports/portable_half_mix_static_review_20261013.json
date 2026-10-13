@@ -1,0 +1,33 @@
+{
+  "status": "pass_static_preexecution",
+  "producer": {
+    "path": "VALIDATION/portable_half_mix_20261013.py",
+    "sha256": "598af11ab5b005fb287f15f2399237eb690dd274fc6b89cb1a10d5154f7a0785"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_portable_half_mix_20261013.py",
+    "sha256": "066b8bf4d926cd36cc3495a6af985ad03e6a820b929d9328d2401b320666f033"
+  },
+  "design": {
+    "path": "VALIDATION/reports/portable_half_mix_design_20261013.json",
+    "sha256": "e713840a56e0b2f87eb0c0492c1ff826a808e99bb16768462307b74a0c083fe0"
+  },
+  "preflight": {
+    "path": "VALIDATION/reports/portable_half_mix_auditor_preflight_20261013.json",
+    "sha256": "1e11c2fe2fc7cd10461e1d38a67627578f392ccf923854628193f041c28dea58"
+  },
+  "checks": [
+    "Audited full portable parent recipes and exact serialized vectors used",
+    "Fixed0.5/0.5 before mixture score/disagreement aggregation; no parameter/constraint change",
+    "Parent scores were seen; reused development explicit, no independent-confirmation claim",
+    "Distinct from closed globalv80 neural-share0.85 change, which held different ensemble basis",
+    "All-row raw truth/calendar/ID and SQLnearest-even verified by separate auditor",
+    "Squared-error complementarity identity and quantization contribution checked separately per month and row",
+    "SQL day aggregation and independent2000seed0 bootstrap against both parents and v80",
+    "Exact root gate: both months improve v80 and interval upper<0 against all three; no sweep if failed"
+  ],
+  "limitation": "Arithmetic averaging may enter an excluded nonconvex recovered-plan interval; declared no-extra-constraints rule remains fixed and CV gate decides selection.",
+  "no_execution": true,
+  "no_fit": true,
+  "no_upload": true
+}

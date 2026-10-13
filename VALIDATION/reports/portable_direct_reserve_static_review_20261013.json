@@ -1,0 +1,23 @@
+{
+  "status": "pass_static_preexecution",
+  "producer": {
+    "path": "VALIDATION/portable_direct_reserve_20261013.py",
+    "sha256": "a0cdb4d88c0211c8ea4f0e9ff34acb0f393670a3792e8085d161a384bae5fffe"
+  },
+  "auditor": {
+    "path": "VALIDATION/tools/audit_portable_direct_reserve_20261013.py",
+    "sha256": "97a7a38d751013e4caf3457c0b4ce4c4bf8fd6b30615d92ea8bbeae64e39395d"
+  },
+  "checks": [
+    "Exact saved tabm_direct retained; only nonnegative nearest-even integer serialization",
+    "Original selected CV mixture and allold/final direct source receipts bind exact prediction hashes",
+    "Frozen raw Jan/Jul and old/final files, template hashes and root allocation",
+    "Alloutput rowcounts/unique IDs checked before joins; allrawtruth/calendar/phase/source-arithmetic SQL checks",
+    "Full final schema/template ordering and every unchanged non-target field checked",
+    "Same direct CV already evaluated by public parent, no new model experiment or tuning",
+    "Optional parent comparison uses auditedsaved arrays, no fitting or modification"
+  ],
+  "no_model_inference": true,
+  "no_fit": true,
+  "no_upload": true
+}

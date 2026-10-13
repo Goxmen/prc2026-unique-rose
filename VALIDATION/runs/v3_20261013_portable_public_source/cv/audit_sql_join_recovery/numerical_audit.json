@@ -1,0 +1,210 @@
+{
+  "status": "pass",
+  "view": "cv",
+  "source": {
+    "path": "VALIDATION/tools/audit_portable_public_source_20261013.py",
+    "sha256": "2f8bc3e8dab2da4c0bbc52e5444b4e1b3fcce7769c779ee0a293a51a07a376c2"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+    "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+    "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+    "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+  },
+  "rows": 344419,
+  "raw_rows": 344419,
+  "cells": {
+    "monthly_cells": 28,
+    "daily_cells": 2005,
+    "max_shift_errors": {
+      "2025-01": 1.0658141036401503e-13,
+      "2025-07": 2.2026824808563106e-13
+    }
+  },
+  "posterior": {
+    "days": 620,
+    "ordinary_all_rows_checked": true,
+    "sampled_convolutions": [
+      {
+        "month": "2025-01",
+        "airport": "EDDF",
+        "day": "2025-01-28",
+        "long_rows": 8,
+        "grid_size": 645,
+        "offset_error": 2.7284841053187847e-12
+      },
+      {
+        "month": "2025-01",
+        "airport": "EDDM",
+        "day": "2025-01-07",
+        "long_rows": 8,
+        "grid_size": 1185,
+        "offset_error": 9.094947017729282e-13
+      },
+      {
+        "month": "2025-01",
+        "airport": "LEBL",
+        "day": "2025-01-14",
+        "long_rows": 8,
+        "grid_size": 1115,
+        "offset_error": 4.547473508864641e-13
+      },
+      {
+        "month": "2025-01",
+        "airport": "LIRF",
+        "day": "2025-01-16",
+        "long_rows": 7,
+        "grid_size": 681,
+        "offset_error": 1.3642420526593924e-12
+      },
+      {
+        "month": "2025-01",
+        "airport": "LSZH",
+        "day": "2025-01-07",
+        "long_rows": 5,
+        "grid_size": 516,
+        "offset_error": 1.8189894035458565e-12
+      }
+    ],
+    "unsampled_airport_months": [
+      {
+        "month": "2025-01",
+        "airport": "EGLL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-01",
+        "airport": "EHAM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-01",
+        "airport": "LEMD",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-01",
+        "airport": "LFPG",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-01",
+        "airport": "LTFM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "EDDF",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "EDDM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "EGLL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "EHAM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "LEBL",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "LEMD",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "LFPG",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "LIRF",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "LSZH",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      },
+      {
+        "month": "2025-07",
+        "airport": "LTFM",
+        "reason": "No day under fixed8-long/5000-grid bound; all source/group/ordinary checks still run"
+      }
+    ],
+    "sampling": "One first lexical bounded day per eligible airport/month, prefer nonempty long support; larger groups covered by all-source/ordinary checks and pinned original algorithms only",
+    "reused_primitive": "Pinned daily_delay_posterior.support only; numerical likelihood/convolution/leave-one products independent",
+    "tolerance_sec": 2e-06
+  },
+  "metrics": {
+    "months": {
+      "2025-01": {
+        "B": 328.19552202599834,
+        "direct_reserve": 325.5212608696311,
+        "v80": 325.02854196957753,
+        "submitted": 326.0645533981074
+      },
+      "2025-07": {
+        "B": 265.8446299324084,
+        "direct_reserve": 256.1666825446568,
+        "v80": 254.49701445100365,
+        "submitted": 255.61429999771298
+      }
+    },
+    "paired": {
+      "B": {
+        "change": -6.180649281293171,
+        "ci95": [
+          -8.431406092221291,
+          -4.362514752829564
+        ],
+        "decision": "improvement"
+      },
+      "direct_reserve": {
+        "change": -0.004545009233737574,
+        "ci95": [
+          -3.1199762640550794,
+          3.4927604365127904
+        ],
+        "decision": "inconclusive"
+      },
+      "v80": {
+        "change": 1.0766484876196074,
+        "ci95": [
+          0.19628563967615625,
+          2.1441180575291914
+        ],
+        "decision": "regression"
+      }
+    },
+    "score": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    },
+    "reused_development": true
+  },
+  "all_stage_SQL_serialization_constraints_exact": true,
+  "parameter_refits": 0,
+  "model_fits": 0,
+  "calibration": "Exact historical allowed-month/full2025 parameter bytes; no new calibration",
+  "joint": "Exact original v70-prior increments transported; not posterior updates of the new base",
+  "seconds": 10.841440438000063,
+  "no_upload": true
+}

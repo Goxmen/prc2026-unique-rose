@@ -1,0 +1,830 @@
+{
+  "source": {
+    "path": "VALIDATION/portable_direct_reserve_20261013.py",
+    "sha256": "a0cdb4d88c0211c8ea4f0e9ff34acb0f393670a3792e8085d161a384bae5fffe"
+  },
+  "inputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/result.json",
+      "sha256": "6f149f26067d0f97e8eb9224db2fd70f0329e9526b157439d84e4759c2bc93c6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/audit.json",
+      "sha256": "c8a5c6ba172811dca7868173835389c226bae4b16feaca3c71dd0264060e5f35"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+      "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+      "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/stages.parquet",
+      "sha256": "302a82e9893fb1fe6b280a8316d83765ffd807142c74fa211c008780f031de1a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/cv/predictions.parquet",
+      "sha256": "0f88fde82fa647449771ef8f27d63bcb88db02ae335928d6eba0af4e7e30e569"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+      "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+      "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/stages.parquet",
+      "sha256": "cd3b79f39a9a436cd682dac1aa45380c374e32a3a5cc0432a0543d5791008197"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/old/predictions.parquet",
+      "sha256": "d8a5ef010c4a6c2ad11927b0fa3afb1f43a56b4616fa908fccf3fd896c9e6d64"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    }
+  ],
+  "rows": [
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "all",
+      "rows": 344419,
+      "changed": 337891,
+      "rms": 62.44475603539086,
+      "mean_delta": -7.297907490585595,
+      "max_abs": 12738.0,
+      "direct_rmse": 289.1805070125615,
+      "chain_rmse": 289.18300618697094,
+      "rmse_change": 0.0024991744094222668
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "all",
+      "rows": 153706,
+      "changed": 150797,
+      "rms": 38.7950745799828,
+      "mean_delta": -13.818354520968603,
+      "max_abs": 3412.0,
+      "direct_rmse": 325.5212608696311,
+      "chain_rmse": 326.0645533981074,
+      "rmse_change": 0.5432925284763428
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "all",
+      "rows": 190713,
+      "changed": 187094,
+      "rms": 76.34812468760987,
+      "mean_delta": -2.042723883531799,
+      "max_abs": 12738.0,
+      "direct_rmse": 256.1666825446568,
+      "chain_rmse": 255.61429999771298,
+      "rmse_change": -0.5523825469438179
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "EDDF",
+      "rows": 36830,
+      "changed": 36200,
+      "rms": 38.55234284379599,
+      "mean_delta": -18.78886777083899,
+      "max_abs": 371.0,
+      "direct_rmse": 129.78056795462916,
+      "chain_rmse": 134.0091703006961,
+      "rmse_change": 4.2286023460669355
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "EDDM",
+      "rows": 27091,
+      "changed": 26488,
+      "rms": 24.426050523736063,
+      "mean_delta": -10.304529179432285,
+      "max_abs": 269.0,
+      "direct_rmse": 126.32507357877866,
+      "chain_rmse": 126.10588683981166,
+      "rmse_change": -0.21918673896699659
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "EGLL",
+      "rows": 40210,
+      "changed": 39555,
+      "rms": 36.039636294402,
+      "mean_delta": -11.727306640139268,
+      "max_abs": 521.0,
+      "direct_rmse": 237.09627343108272,
+      "chain_rmse": 236.8690810906358,
+      "rmse_change": -0.22719234044691916
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "EHAM",
+      "rows": 40949,
+      "changed": 39901,
+      "rms": 19.594611247948777,
+      "mean_delta": -6.005348115949108,
+      "max_abs": 354.0,
+      "direct_rmse": 135.82345747253996,
+      "chain_rmse": 135.0584784294114,
+      "rmse_change": -0.7649790431285624
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "LEBL",
+      "rows": 28986,
+      "changed": 28440,
+      "rms": 29.86459472019832,
+      "mean_delta": 6.099427309735734,
+      "max_abs": 382.0,
+      "direct_rmse": 183.46362889043394,
+      "chain_rmse": 181.3601769001839,
+      "rmse_change": -2.1034519902500506
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "LEMD",
+      "rows": 35328,
+      "changed": 34674,
+      "rms": 27.933339001320288,
+      "mean_delta": -10.706719882246377,
+      "max_abs": 262.0,
+      "direct_rmse": 165.2312532360909,
+      "chain_rmse": 164.8194666243992,
+      "rmse_change": -0.4117866116916957
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "LFPG",
+      "rows": 39612,
+      "changed": 38786,
+      "rms": 44.000877537539104,
+      "mean_delta": -9.027542158941735,
+      "max_abs": 2205.0,
+      "direct_rmse": 563.8002135990076,
+      "chain_rmse": 564.7708661467115,
+      "rmse_change": 0.9706525477038213
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "LIRF",
+      "rows": 26528,
+      "changed": 26144,
+      "rms": 189.51537030151064,
+      "mean_delta": -5.735713208685163,
+      "max_abs": 12738.0,
+      "direct_rmse": 512.3742725095341,
+      "chain_rmse": 514.3583665251446,
+      "rmse_change": 1.9840940156104807
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "LSZH",
+      "rows": 22346,
+      "changed": 21563,
+      "rms": 21.11614368700283,
+      "mean_delta": 3.1003311554640653,
+      "max_abs": 592.0,
+      "direct_rmse": 131.56549205110178,
+      "chain_rmse": 132.541363574793,
+      "rmse_change": 0.975871523691211
+    },
+    {
+      "view": "cv",
+      "month": "all",
+      "airport": "LTFM",
+      "rows": 46539,
+      "changed": 46140,
+      "rms": 48.90375702509968,
+      "mean_delta": -3.9319925224005674,
+      "max_abs": 3591.0,
+      "direct_rmse": 247.5059895276467,
+      "chain_rmse": 243.0195569502011,
+      "rmse_change": -4.486432577445612
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "EDDF",
+      "rows": 15496,
+      "changed": 15367,
+      "rms": 54.537422086556184,
+      "mean_delta": -39.60286525554982,
+      "max_abs": 371.0,
+      "direct_rmse": 141.49693522971137,
+      "chain_rmse": 151.24741301328478,
+      "rmse_change": 9.750477783573416
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "EDDM",
+      "rows": 11266,
+      "changed": 10876,
+      "rms": 17.76825790042193,
+      "mean_delta": -0.8567370850346174,
+      "max_abs": 235.0,
+      "direct_rmse": 90.22598607840396,
+      "chain_rmse": 92.85531696224542,
+      "rmse_change": 2.6293308838414617
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "EGLL",
+      "rows": 19420,
+      "changed": 19138,
+      "rms": 32.23967274113062,
+      "mean_delta": -8.697734294541709,
+      "max_abs": 478.0,
+      "direct_rmse": 204.47712184340708,
+      "chain_rmse": 203.03874577602863,
+      "rmse_change": -1.4383760673784423
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "EHAM",
+      "rows": 18460,
+      "changed": 18000,
+      "rms": 22.412259404493362,
+      "mean_delta": -2.2473997833152763,
+      "max_abs": 354.0,
+      "direct_rmse": 162.8974331503638,
+      "chain_rmse": 162.62001385359105,
+      "rmse_change": -0.2774192967727629
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "LEBL",
+      "rows": 12234,
+      "changed": 11883,
+      "rms": 18.027527404475375,
+      "mean_delta": -5.608713421611902,
+      "max_abs": 169.0,
+      "direct_rmse": 105.81173885931364,
+      "chain_rmse": 107.01979400395065,
+      "rmse_change": 1.2080551446370151
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "LEMD",
+      "rows": 16510,
+      "changed": 16269,
+      "rms": 31.030267945514783,
+      "mean_delta": -13.465536038764386,
+      "max_abs": 176.0,
+      "direct_rmse": 165.22151164529805,
+      "chain_rmse": 166.25367968402898,
+      "rmse_change": 1.03216803873093
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "LFPG",
+      "rows": 17900,
+      "changed": 17464,
+      "rms": 44.89741441585529,
+      "mean_delta": -10.418603351955307,
+      "max_abs": 1859.0,
+      "direct_rmse": 797.1537856579663,
+      "chain_rmse": 798.7543874386631,
+      "rmse_change": 1.6006017806968202
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "LIRF",
+      "rows": 11317,
+      "changed": 11145,
+      "rms": 67.78984126269837,
+      "mean_delta": -15.653088274277636,
+      "max_abs": 3412.0,
+      "direct_rmse": 356.23021597788033,
+      "chain_rmse": 354.7345543459347,
+      "rmse_change": -1.4956616319456089
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "LSZH",
+      "rows": 9735,
+      "changed": 9426,
+      "rms": 18.205345845658663,
+      "mean_delta": 5.0769388803287105,
+      "max_abs": 592.0,
+      "direct_rmse": 142.0886092597008,
+      "chain_rmse": 142.71185461035702,
+      "rmse_change": 0.6232453506562194
+    },
+    {
+      "view": "cv",
+      "month": "2025-01",
+      "airport": "LTFM",
+      "rows": 21368,
+      "changed": 21229,
+      "rms": 43.82649487397976,
+      "mean_delta": -32.06107263197304,
+      "max_abs": 248.0,
+      "direct_rmse": 215.0911870307574,
+      "chain_rmse": 212.19922235525914,
+      "rmse_change": -2.891964675498258
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "EDDF",
+      "rows": 21334,
+      "changed": 20833,
+      "rms": 20.135455795856018,
+      "mean_delta": -3.6705727946001687,
+      "max_abs": 334.0,
+      "direct_rmse": 120.558563392547,
+      "chain_rmse": 119.94477651853293,
+      "rmse_change": -0.6137868740140675
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "EDDM",
+      "rows": 15825,
+      "changed": 15612,
+      "rms": 28.224507294305763,
+      "mean_delta": -17.030521327014217,
+      "max_abs": 269.0,
+      "direct_rmse": 146.7080336607383,
+      "chain_rmse": 145.20959673045866,
+      "rmse_change": -1.498436930279638
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "EGLL",
+      "rows": 20790,
+      "changed": 20417,
+      "rms": 39.258332755183204,
+      "mean_delta": -14.557239057239057,
+      "max_abs": 521.0,
+      "direct_rmse": 263.94928975340616,
+      "chain_rmse": 264.5911858375022,
+      "rmse_change": 0.6418960840960608
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "EHAM",
+      "rows": 22489,
+      "changed": 21901,
+      "rms": 16.934964125027218,
+      "mean_delta": -9.090044021521633,
+      "max_abs": 263.0,
+      "direct_rmse": 108.67092815302169,
+      "chain_rmse": 107.26687798077988,
+      "rmse_change": -1.40405017224181
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "LEBL",
+      "rows": 16752,
+      "changed": 16557,
+      "rms": 36.13728317727517,
+      "mean_delta": 14.649892550143267,
+      "max_abs": 382.0,
+      "direct_rmse": 223.74872060270357,
+      "chain_rmse": 220.33589408027194,
+      "rmse_change": -3.4128265224316294
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "LEMD",
+      "rows": 18818,
+      "changed": 18405,
+      "rms": 24.901038055636818,
+      "mean_delta": -8.286268466361994,
+      "max_abs": 262.0,
+      "direct_rmse": 165.23979956214183,
+      "chain_rmse": 163.5508003003407,
+      "rmse_change": -1.688999261801115
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "LFPG",
+      "rows": 21712,
+      "changed": 21322,
+      "rms": 43.24777161250404,
+      "mean_delta": -7.880711127487104,
+      "max_abs": 2205.0,
+      "direct_rmse": 236.73970556470283,
+      "chain_rmse": 236.51284803251386,
+      "rmse_change": -0.22685753218897275
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "LIRF",
+      "rows": 15211,
+      "changed": 14999,
+      "rms": 243.34881261124562,
+      "mean_delta": 1.6428242719084873,
+      "max_abs": 12738.0,
+      "direct_rmse": 602.8551604552639,
+      "chain_rmse": 606.4472371631,
+      "rmse_change": 3.5920767078360996
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "LSZH",
+      "rows": 12611,
+      "changed": 12137,
+      "rms": 23.113761609384767,
+      "mean_delta": 1.57449845373087,
+      "max_abs": 339.0,
+      "direct_rmse": 122.82716640173798,
+      "chain_rmse": 124.12164699485696,
+      "rmse_change": 1.2944805931189762
+    },
+    {
+      "view": "cv",
+      "month": "2025-07",
+      "airport": "LTFM",
+      "rows": 25171,
+      "changed": 24911,
+      "rms": 52.8323698724996,
+      "mean_delta": 19.94716141591514,
+      "max_abs": 3591.0,
+      "direct_rmse": 272.0085816066858,
+      "chain_rmse": 266.3996177673484,
+      "rmse_change": -5.608963839337434
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "all",
+      "rows": 344841,
+      "changed": 338280,
+      "rms": 63.97310126925233,
+      "mean_delta": -12.194469335142863,
+      "max_abs": 11512.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "all",
+      "rows": 152719,
+      "changed": 149205,
+      "rms": 56.886862627236354,
+      "mean_delta": -10.039222362639881,
+      "max_abs": 8411.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "all",
+      "rows": 192122,
+      "changed": 189075,
+      "rms": 69.08942983190757,
+      "mean_delta": -13.907688864367433,
+      "max_abs": 11512.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "EDDF",
+      "rows": 36317,
+      "changed": 35471,
+      "rms": 25.2409409946161,
+      "mean_delta": -0.8565134785362227,
+      "max_abs": 377.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "EDDM",
+      "rows": 25966,
+      "changed": 25452,
+      "rms": 29.07124714317967,
+      "mean_delta": -16.177616883617038,
+      "max_abs": 564.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "EGLL",
+      "rows": 39840,
+      "changed": 39024,
+      "rms": 24.60410377743443,
+      "mean_delta": 0.7696536144578313,
+      "max_abs": 414.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "EHAM",
+      "rows": 38182,
+      "changed": 37093,
+      "rms": 32.13359312028407,
+      "mean_delta": -6.598868576816301,
+      "max_abs": 582.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "LEBL",
+      "rows": 30080,
+      "changed": 29795,
+      "rms": 28.571721764263142,
+      "mean_delta": -20.965824468085106,
+      "max_abs": 366.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "LEMD",
+      "rows": 36954,
+      "changed": 36181,
+      "rms": 32.82260752029697,
+      "mean_delta": -7.7885749851166315,
+      "max_abs": 435.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "LFPG",
+      "rows": 39872,
+      "changed": 38859,
+      "rms": 42.18647782781651,
+      "mean_delta": 0.3702096709470305,
+      "max_abs": 2194.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "LIRF",
+      "rows": 26899,
+      "changed": 26608,
+      "rms": 189.7897239021615,
+      "mean_delta": -22.26673854046619,
+      "max_abs": 11512.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "LSZH",
+      "rows": 23150,
+      "changed": 22504,
+      "rms": 26.534987702168088,
+      "mean_delta": -3.224622030237581,
+      "max_abs": 1276.0
+    },
+    {
+      "view": "old",
+      "month": "all",
+      "airport": "LTFM",
+      "rows": 47581,
+      "changed": 47293,
+      "rms": 61.86793949136814,
+      "mean_delta": -41.095626405497995,
+      "max_abs": 575.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "EDDF",
+      "rows": 15667,
+      "changed": 15135,
+      "rms": 26.356093145226872,
+      "mean_delta": -1.8345567115593284,
+      "max_abs": 377.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "EDDM",
+      "rows": 10953,
+      "changed": 10533,
+      "rms": 21.667637927791137,
+      "mean_delta": -3.164795033324203,
+      "max_abs": 396.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "EGLL",
+      "rows": 19283,
+      "changed": 18985,
+      "rms": 27.198502602074488,
+      "mean_delta": 7.11248249753669,
+      "max_abs": 414.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "EHAM",
+      "rows": 16232,
+      "changed": 15760,
+      "rms": 45.40719471284796,
+      "mean_delta": -3.3145638245441105,
+      "max_abs": 582.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "LEBL",
+      "rows": 12201,
+      "changed": 12048,
+      "rms": 24.508677494280388,
+      "mean_delta": -16.924760265552003,
+      "max_abs": 262.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "LEMD",
+      "rows": 16802,
+      "changed": 16463,
+      "rms": 41.329231115541376,
+      "mean_delta": -22.661349839304844,
+      "max_abs": 435.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "LFPG",
+      "rows": 18129,
+      "changed": 17571,
+      "rms": 38.094785704704556,
+      "mean_delta": 2.2369132329416956,
+      "max_abs": 1972.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "LIRF",
+      "rows": 11061,
+      "changed": 10879,
+      "rms": 144.83082449684946,
+      "mean_delta": 5.703010577705451,
+      "max_abs": 8411.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "LSZH",
+      "rows": 9995,
+      "changed": 9575,
+      "rms": 25.900266637738557,
+      "mean_delta": 4.287143571785893,
+      "max_abs": 443.0
+    },
+    {
+      "view": "old",
+      "month": "2026-01",
+      "airport": "LTFM",
+      "rows": 22396,
+      "changed": 22256,
+      "rms": 76.01235523178815,
+      "mean_delta": -49.66739596356492,
+      "max_abs": 575.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "EDDF",
+      "rows": 20650,
+      "changed": 20336,
+      "rms": 24.360850583717877,
+      "mean_delta": -0.11447941888619854,
+      "max_abs": 232.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "EDDM",
+      "rows": 15013,
+      "changed": 14919,
+      "rms": 33.454449029410924,
+      "mean_delta": -25.67135149537068,
+      "max_abs": 564.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "EGLL",
+      "rows": 20557,
+      "changed": 20039,
+      "rms": 21.892793356124944,
+      "mean_delta": -5.180084642700783,
+      "max_abs": 318.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "EHAM",
+      "rows": 21950,
+      "changed": 21333,
+      "rms": 16.47549433066078,
+      "mean_delta": -9.02760820045558,
+      "max_abs": 222.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "LEBL",
+      "rows": 17879,
+      "changed": 17747,
+      "rms": 31.040612171874095,
+      "mean_delta": -23.72353039879188,
+      "max_abs": 366.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "LEMD",
+      "rows": 20152,
+      "changed": 19718,
+      "rms": 23.481925046521052,
+      "mean_delta": 4.611800317586344,
+      "max_abs": 331.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "LFPG",
+      "rows": 21743,
+      "changed": 21288,
+      "rms": 45.31650893102047,
+      "mean_delta": -1.1862208526882214,
+      "max_abs": 2194.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "LIRF",
+      "rows": 15838,
+      "changed": 15729,
+      "rms": 215.7005853445806,
+      "mean_delta": -41.80035357999748,
+      "max_abs": 11512.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "LSZH",
+      "rows": 13155,
+      "changed": 12929,
+      "rms": 27.007269880123076,
+      "mean_delta": -8.931965032307108,
+      "max_abs": 1276.0
+    },
+    {
+      "view": "old",
+      "month": "2026-07",
+      "airport": "LTFM",
+      "rows": 25185,
+      "changed": 25037,
+      "rms": 45.753424990400376,
+      "mean_delta": -33.4730990669049,
+      "max_abs": 314.0
+    }
+  ],
+  "chain_views_unavailable": [
+    "final"
+  ],
+  "equal_month_cv": {
+    "direct": 290.84397170714396,
+    "chain": 290.8394266979102,
+    "paired": {
+      "change": -0.004545009233737574,
+      "ci95": [
+        -3.1199762640550794,
+        3.4927604365127904
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "no_tuning": true,
+  "no_upload": true
+}

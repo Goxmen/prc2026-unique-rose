@@ -1,0 +1,83 @@
+{
+  "status": "pass",
+  "source": {
+    "path": "VALIDATION/tools/audit_portable_half_mix_20261013.py",
+    "sha256": "066b8bf4d926cd36cc3495a6af985ad03e6a820b929d9328d2401b320666f033"
+  },
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_half_mix/identity.json",
+    "sha256": "8befc085e4988b2fa8d25d6bc02423718d3f51e7079d72e46ec881c503e52540"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_half_mix/result.json",
+    "sha256": "bd2b4f71cdc62847776f2ec58347f27740271d0253afd8172980390e095bf106"
+  },
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261013_portable_half_mix/predictions.parquet",
+    "sha256": "b5bbe5fb0051e01b6773b282acf6779eedbf2e226a613530d84287ca57d399db"
+  },
+  "rows": 344419,
+  "all_raw_ID_truth_calendar_parent_SQL_serialization_exact": true,
+  "error_identity": [
+    {
+      "month": "2025-01",
+      "unrounded_MSE": 105764.82767751421,
+      "parent_average_MSE_minus_quarter_disagreement": 105764.82767751421,
+      "parent_disagreement_MSE": 1505.057811666428,
+      "rounding_MSE_change": 0.3717031215437263,
+      "independent_rounding_expansion": 0.3717031215437263,
+      "rounded_half_ties": 76704
+    },
+    {
+      "month": "2025-07",
+      "unrounded_MSE": 64022.76076879919,
+      "parent_average_MSE_minus_quarter_disagreement": 64022.76076879919,
+      "parent_disagreement_MSE": 5829.036143314824,
+      "rounding_MSE_change": -0.05371159805571723,
+      "independent_rounding_expansion": -0.05371159805571723,
+      "rounded_half_ties": 95158
+    }
+  ],
+  "pointwise_max_identity_errors": [
+    0.0,
+    0.0
+  ],
+  "paired": {
+    "chain": {
+      "change": -1.7180729856175816,
+      "ci95": [
+        -3.9327597554787883,
+        0.19820841914564782
+      ],
+      "decision": "inconclusive"
+    },
+    "direct": {
+      "change": -1.7226179948513192,
+      "ci95": [
+        -3.053753131603698,
+        -0.4014761196374872
+      ],
+      "decision": "improvement"
+    },
+    "v80": {
+      "change": -0.6414244979979742,
+      "ci95": [
+        -2.6177341356958186,
+        1.1907310882290396
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "gate": {
+    "both_months_vs_v80": false,
+    "intervals_below_zero_vs_all_three": false,
+    "passed": false
+  },
+  "no_extra_constraints": true,
+  "reused_development": true,
+  "independent_confirmation": false,
+  "no_models_or_inference": true,
+  "no_weight_scan": true,
+  "no_upload": true,
+  "seconds": 2.6593381470001987
+}

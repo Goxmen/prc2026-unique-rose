@@ -1,0 +1,75 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_half_mix/identity.json",
+    "sha256": "8befc085e4988b2fa8d25d6bc02423718d3f51e7079d72e46ec881c503e52540"
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_portable_half_mix/allocation.json",
+    "sha256": "06556ef69261b3875e2a018b0587a9e112864e17592111f114ca22c408a55a79"
+  },
+  "rows": 344419,
+  "prediction": {
+    "path": "VALIDATION/runs/v3_20261013_portable_half_mix/predictions.parquet",
+    "sha256": "b5bbe5fb0051e01b6773b282acf6779eedbf2e226a613530d84287ca57d399db"
+  },
+  "disagreement": {
+    "path": "VALIDATION/runs/v3_20261013_portable_half_mix/disagreement.json",
+    "sha256": "3b4f1981fbf3b0858f9da5f5ee993bd2bd62fcfcc9a0ee3dc3e2a336302a5d6c"
+  },
+  "months": {
+    "2025-01": {
+      "chain": 326.0645533981074,
+      "direct": 325.5212608696311,
+      "v80": 325.02854196957753,
+      "mix": 325.215619828808
+    },
+    "2025-07": {
+      "chain": 255.61429999771298,
+      "direct": 256.1666825446568,
+      "v80": 254.49701445100365,
+      "mix": 253.02708759577726
+    }
+  },
+  "cv": {
+    "chain": 290.8394266979102,
+    "direct": 290.84397170714396,
+    "v80": 289.7627782102906,
+    "mix": 289.1213537122926
+  },
+  "paired": {
+    "chain": {
+      "change": -1.7180729856175816,
+      "ci95": [
+        -3.9327597554787883,
+        0.19820841914564782
+      ],
+      "decision": "inconclusive"
+    },
+    "direct": {
+      "change": -1.7226179948513192,
+      "ci95": [
+        -3.053753131603698,
+        -0.4014761196374872
+      ],
+      "decision": "improvement"
+    },
+    "v80": {
+      "change": -0.6414244979979742,
+      "ci95": [
+        -2.6177341356958186,
+        1.1907310882290396
+      ],
+      "decision": "inconclusive"
+    }
+  },
+  "gate": {
+    "both_months_vs_v80": false,
+    "intervals_below_zero_vs_all_three": false,
+    "passed": false
+  },
+  "reused_development": true,
+  "no_weight_search": true,
+  "independent_audit_pending": true,
+  "no_version": true,
+  "no_upload": true
+}

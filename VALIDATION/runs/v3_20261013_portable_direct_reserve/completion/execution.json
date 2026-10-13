@@ -1,0 +1,129 @@
+{
+  "status": "complete",
+  "pid": 47510,
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/allocation.json",
+    "sha256": "9c3d73aa5e2f1eb1003f8763071ee093acf1727bd27d6c83ed6c486b90fce9cf"
+  },
+  "source": {
+    "path": "VALIDATION/tools/complete_portable_feedback_parents_20261013.py",
+    "sha256": "f0a41190020a5990264b6f4ee3db5497cb73bb085009bc1688d3bd828437159a"
+  },
+  "started_unix": 1791874722.146456,
+  "steps": [
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/portable_direct_reserve_20261013.py",
+        "build"
+      ],
+      "started_unix": 1791874722.1466525,
+      "returncode": 0,
+      "finished_unix": 1791874733.4881542,
+      "log": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/completion/01.log",
+        "sha256": "3653362a86ee6bb11bd80773084afd6b74fb2cfe7d73369007a79304029c0770"
+      }
+    },
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/tools/audit_portable_direct_reserve_20261013.py"
+      ],
+      "started_unix": 1791874733.4886117,
+      "returncode": 0,
+      "finished_unix": 1791874736.1726553,
+      "log": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/completion/02.log",
+        "sha256": "8c0c358c9d708a614a7a5add6859dafda0786ddc6fae9ef96afb73ebd68c5488"
+      }
+    },
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/portable_public_source_20261013.py",
+        "infer",
+        "--view",
+        "old"
+      ],
+      "started_unix": 1791874736.174925,
+      "returncode": 0,
+      "finished_unix": 1791874855.8781796,
+      "log": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/completion/03.log",
+        "sha256": "ef200389ec73adc62110e909b91302a129d3c0dc71b1c59699692ea191794013"
+      }
+    },
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/tools/recover_portable_public_audit_joins_20261013.py",
+        "freeze",
+        "--view",
+        "old"
+      ],
+      "started_unix": 1791874855.878681,
+      "returncode": 0,
+      "finished_unix": 1791874855.9903417,
+      "log": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/completion/04.log",
+        "sha256": "94bea4023b9dd9ae4119c79f99e1f1b06c9307f50913390a34b20cc5967e61eb"
+      }
+    },
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/tools/recover_portable_public_audit_joins_20261013.py",
+        "audit",
+        "--view",
+        "old"
+      ],
+      "started_unix": 1791874855.9907749,
+      "returncode": 0,
+      "finished_unix": 1791874861.5784032,
+      "log": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/completion/05.log",
+        "sha256": "51ed594f0fb35e11a2d083289d70b48d6dc640d0e0f2fa4af656affa33638bd6"
+      }
+    },
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/portable_direct_reserve_20261013.py",
+        "compare"
+      ],
+      "started_unix": 1791874861.5790977,
+      "returncode": 0,
+      "finished_unix": 1791874862.9498963,
+      "log": {
+        "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/completion/06.log",
+        "sha256": "c03e256387248d9751dd6d43b5e3e86f158a1c4ecbbef0b02d091bba03581f1f"
+      }
+    }
+  ],
+  "no_upload": true,
+  "no_final_public_posterior": true,
+  "finished_unix": 1791874862.95038,
+  "outputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/result.json",
+      "sha256": "6f149f26067d0f97e8eb9224db2fd70f0329e9526b157439d84e4759c2bc93c6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/audit.json",
+      "sha256": "c8a5c6ba172811dca7868173835389c226bae4b16feaca3c71dd0264060e5f35"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/chain_comparison.json",
+      "sha256": "ee7d02002f91577454af4f5064bf98ca2a85fe7d203e25f26a0cb81716b53729"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+      "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+      "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "status": "design_and_code_pending_no_fit_approval",
+  "scope": "Independent preliminary review of six Rome-only source-blind prior fits, inner crossfit and posterior-aware target-only tilt; no data execution or heavy job.",
+  "proposed_features": {
+    "common_raw": 18,
+    "fixed_physical_scalars": 17,
+    "missing_flight_id_and_callsign_airline": 2,
+    "public_totals": false,
+    "departure_label_history": false
+  },
+  "actionable_requirements": [
+    {
+      "topic": "Full peer population",
+      "requirement": "Predict every raw Rome row in each held month, including rows excluded from supervised fit and tilt targets. No known peer-label subtraction. Preserve fixed IFR/quality/membership and missing-source gates; hash row IDs."
+    },
+    {
+      "topic": "Nested calibration",
+      "requirement": "Inner model, encoder/category maps, support quantiles/tau and source bias/noise must use only that inner training complement, disjoint from inner held and outer held labels. Define fixed complete-month partitions and calendar-edge exclusions."
+    },
+    {
+      "topic": "Offblock calibration API",
+      "requirement": "Default daily_delay_posterior.fit calls takeoff-day base.fit_noise. Selected joint uses offblock-calendar parameters. Rebuild the original offblock calibration on allowed inner rows; do not reuse outer calibration or accidentally switch calendars."
+    },
+    {
+      "topic": "Small-fold source calibration feasibility",
+      "requirement": "taxi_count_sum_jan_jul.calibrate requires >=100 supported complete-day source cells and >=100 retained covariance cells. Check fixed complements before prior fit allocation; do not lower thresholds after seeing outcomes."
+    },
+    {
+      "topic": "Objectives and inference",
+      "requirement": "Freeze raw versus clipped y, four-feature scaling, optimizer, update count, penalty and bounds before evaluation. All three arms share support, incoming priors, frozen assigned dates/memberships and per-target peer likelihood; only theta fitting objective changes."
+    },
+    {
+      "topic": "Family substitution and final transport",
+      "requirement": "The new 37-feature LGB prior differs materially from original v70. Score zero-tilt family replacement separately, then prior-MSE versus posterior-MSE under matched conditions. Freeze whether contribution is Jtheta-D0 or Jtheta-Dtheta; the latter is not directly optimized by posterior MSE on Jtheta. Reproduce exact v80 control and original bounded/rounded component route."
+    },
+    {
+      "topic": "Allocation and cost",
+      "requirement": "Six prior fits plus packet preparation need concrete rounds, memory footprint, source fit counts and host plan. No fit allocation or heavy execution supplied by this review."
+    }
+  ],
+  "nonclaims": [
+    "Source sensitivity rank does not establish predictive gain.",
+    "No new feature mechanism is implied by fitting a small surrogate prior.",
+    "Jan/Jul remains reused development data; paired-day intervals are not independent confirmation."
+  ],
+  "sources": [
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4"
+    },
+    {
+      "path": "VALIDATION/daily_cohort_bank.py",
+      "sha256": "41fa243dfff8855797159d622feb2ac5ef85894ff8cdb8e7d5d69402c4239b1a"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+    },
+    {
+      "path": "VALIDATION/daily_delay_reconcile.py",
+      "sha256": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06"
+    },
+    {
+      "path": "VALIDATION/daily_offblock_alignment.py",
+      "sha256": "08f48001e826e1442a4fe188d05a88a2e69a1ce1d3ad87b1b144158243a9afec"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_jan_jul.py",
+      "sha256": "770aed0e2502912bbae5559ad968eeec3f46fdb804eef6f5cb94f5598b6058ec"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments_cv.py",
+      "sha256": "4a790c670c852d54ec8c0df647504d723b45874870dacddff305f1137f3842c0"
+    }
+  ],
+  "numerical_work_run": false,
+  "held_labels_loaded": false,
+  "learner_code_reviewed": false
+}

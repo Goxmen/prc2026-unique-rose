@@ -1,0 +1,19 @@
+{
+  "host": "glaptop-wsl",
+  "cwd": "/home/gunes/PRC",
+  "sequential_stages": [
+    "fit_priors",
+    "packetize",
+    "learn",
+    "infer",
+    "score"
+  ],
+  "command_prefix": [
+    ".venv/bin/python",
+    "VALIDATION/posterior_aware_crossfit.py"
+  ],
+  "logs": "tmp/research_20261013/posterior_aware/{stage}.log",
+  "start_gate": "independent prefit_audit.json pins frozen identity, preflight and all6 calibration receipts",
+  "failure_policy": "Stop at first nonzero exit. Retain models and partial optimizer records. No refit/retry/configuration change.",
+  "return": "All new arm model/prediction/packet/optimizer/result artifacts and stage logs; preserve pre-existing calibrated artifacts exactly."
+}

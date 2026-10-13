@@ -1,0 +1,368 @@
+{
+  "plan": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/posterior_aware_protocol.json",
+    "sha256": "bd23b1d5bf1528efc068a56c52603f0450f9a30969be4a2485c32fd23945f23c"
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/posterior_aware_crossfit.py",
+      "sha256": "29ef9fed78aa6ac169a8dd38c60aeb59b807707fce8527749ecf2ed152f5ea87"
+    },
+    {
+      "path": "VALIDATION/posterior_aware_learning.py",
+      "sha256": "e19ad1e9ae21efbc97133596b40bff21f4c750b67ec68aa27a3e1d882fac06cb"
+    },
+    {
+      "path": "VALIDATION/posterior_aware_sensitivity.py",
+      "sha256": "5c808fe09a0662b69769177e0a6023f3e79725ddc73288c2e8d0347c7a14042b"
+    },
+    {
+      "path": "VALIDATION/joint_public_moments.py",
+      "sha256": "81e64049f601edd1aad8fe04f73d22377f67a43000e5448ea16b6bce59ade36d"
+    },
+    {
+      "path": "VALIDATION/daily_delay_posterior.py",
+      "sha256": "6c47d9efabdeaf445291fa066edf8125944f377efdb87c94eb221d2eb19dd131"
+    },
+    {
+      "path": "VALIDATION/daily_delay_reconcile.py",
+      "sha256": "20652b426a8c83db5e0f12515f5c59057232376bba82a19efa7f0281384c1c06"
+    },
+    {
+      "path": "VALIDATION/daily_offblock_alignment.py",
+      "sha256": "08f48001e826e1442a4fe188d05a88a2e69a1ce1d3ad87b1b144158243a9afec"
+    },
+    {
+      "path": "VALIDATION/taxi_count_sum_jan_jul.py",
+      "sha256": "770aed0e2502912bbae5559ad968eeec3f46fdb804eef6f5cb94f5598b6058ec"
+    },
+    {
+      "path": "VALIDATION/public_daily_taxi.py",
+      "sha256": "c50ab31c93fd6fba742a0b7c74bc31c963dc584fea0676e05d01597d196b8570"
+    },
+    {
+      "path": "VALIDATION/monthly_taxi_reconcile.py",
+      "sha256": "d7f39db441cd4807fe8d003915f07402bd40a351f08a2537a8bbd46bf12c8572"
+    },
+    {
+      "path": "VALIDATION/records.py",
+      "sha256": "bc44b549b5e70a56f7f9162798f335cb4b61ba5aa413b1b6094967e2c660a056"
+    },
+    {
+      "path": "VALIDATION/tuning_seasonal.py",
+      "sha256": "4755438a54f0c1dc7deadbea2774717904a80020e570e2624bbbfba66856d9d3"
+    },
+    {
+      "path": "VALIDATION/reports/cohort_learning_20261013/posterior_aware_protocol.json",
+      "sha256": "bd23b1d5bf1528efc068a56c52603f0450f9a30969be4a2485c32fd23945f23c"
+    },
+    {
+      "path": "pipeline/common.py",
+      "sha256": "1e9e1d04502ee75047a703142688c358f525bb900a7537a6d2a62f333ce771c4"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/delay_source.parquet",
+      "sha256": "0297c445250693f4f1bc93b94a4bc409920aab5db4b55e84b39f20118000c52d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/features.parquet",
+      "sha256": "8877312f6dd2187cb6735f702903d70afe7576a243d63cd1402690afabc00976"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-01.parquet",
+      "sha256": "7e6246ea59b2944fa2823cab4c38246f9cea905e8f507839513a43998a192741"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-02.parquet",
+      "sha256": "6f628c6af212352338c51404d755b4531eb170a0bbbff8ca669d9e6e07d0729c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-03.parquet",
+      "sha256": "916ac8af0d59657d321c19ff0a00843ef297c0ec0fbd9a6c01ac5716bc9c2da5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-04.parquet",
+      "sha256": "9f0256dc1144167c2d633efe5e29763183d1390eb85da42a005d49bd2be84ffa"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-05.parquet",
+      "sha256": "780ef84bb3c6252b67fa4f5a65a679b49abde6d77e53c8e57fd8128f63b8e3fb"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-06.parquet",
+      "sha256": "ff0ca516abbb6cd7fac1a234e8e1e5eb5e21f0c8820170e08fe1f40953e7feb2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-07.parquet",
+      "sha256": "8c3a1da2cc53c14865321b3da9f464623d48c8d30c8cf6e346dc7243e5190c90"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-08.parquet",
+      "sha256": "d2168b1c78548136fc2565d529acecff88ca26ad147d691d550348bd6ff0ef3c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-09.parquet",
+      "sha256": "5608e925e81fda94195542efa777cb8ea3e78e5647c8fa7608e8b376b91c7874"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-10.parquet",
+      "sha256": "7c700a064cd1571c417427c578e6ec85cbc69775f68db010cb5ea2315705ce42"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-11.parquet",
+      "sha256": "dd1950be3fb821c3d4e4c49c7712bb41cdda862f22d0c477b06e8dd066dfa681"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/labels_2025-12.parquet",
+      "sha256": "57a8fd44da0a7caaa401c5edd701cfdac4fe3330d74e0c04231c0b1941941f0d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/old_inputs.parquet",
+      "sha256": "fd68d2697514820f35e5abde5277629198aebe3d1168d1705f0ff97785a7c9b9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/old_predictions.parquet",
+      "sha256": "d1a99ca1e558432a5650a14dcd6f8edda427dbeeeefb9575b5aa3ec1554397e9"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/outer_parameters.json",
+      "sha256": "d4c54a7374f67797ee1b7da8c0283d849a73cd0abf6b16be3e7224eb56299989"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/rows.parquet",
+      "sha256": "fcac4a76df3d839993cfddc08ae474afe5f0bfe22e21e70c2f581d9729388d41"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/inputs/taxi_source.parquet",
+      "sha256": "581b5fa86dc0a70b91d271b21b969047303f359d85a2e45b94bcbdc7f51d9b8e"
+    }
+  ],
+  "prepared": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/prepared.json",
+    "sha256": "1a3e42c591ec734abd0ce981e594691cb79bef8e3e39fa5d1bb2668f019f32a6"
+  },
+  "preparation_source": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/preparation_source.py",
+    "sha256": "d392d538fc1961e7a3d8eac45041bf02116347ec0238fab9942ca7cb29d9fea6"
+  },
+  "score_inputs": [
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_candidate/submission_v80/manifest.json",
+      "sha256": "8f04994d90ea2704c2cf808f3ef93744bec8f258c876df1568536f72ff9e3dd4"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/scored.parquet",
+      "sha256": "1bd37ab9c18325c57635caa2d19549ffe0e4606496ef39024c3cf52d0b1b13dc"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/result.json",
+      "sha256": "30677d0fd9d0b10b61936bcecd75d31a1e8116ca8c84e5db264c57d89292fb20"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo/identity.json",
+      "sha256": "e0357056ade91db7c53da7eff7cdaf1f9d45094ec97bd1f80dbf30c7849ed04c"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_tabm_pool3_other_runway_combo_submit/independent_audit.json",
+      "sha256": "8fb46e1602da5a51294a56c1c315b7db6f08dd60d995785db991dd76a9516aae"
+    }
+  ],
+  "arms": [
+    {
+      "key": "2025-01_A",
+      "outer": "2025-01",
+      "part": "A",
+      "train": [
+        "2025-04",
+        "2025-06",
+        "2025-08",
+        "2025-10"
+      ],
+      "held": [
+        "2025-03",
+        "2025-05",
+        "2025-07",
+        "2025-09",
+        "2025-11"
+      ]
+    },
+    {
+      "key": "2025-01_B",
+      "outer": "2025-01",
+      "part": "B",
+      "train": [
+        "2025-03",
+        "2025-05",
+        "2025-07",
+        "2025-09",
+        "2025-11"
+      ],
+      "held": [
+        "2025-04",
+        "2025-06",
+        "2025-08",
+        "2025-10"
+      ]
+    },
+    {
+      "key": "2025-01_outer",
+      "outer": "2025-01",
+      "part": "outer",
+      "train": [
+        "2025-03",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11"
+      ],
+      "held": [
+        "2025-01"
+      ]
+    },
+    {
+      "key": "2025-07_A",
+      "outer": "2025-07",
+      "part": "A",
+      "train": [
+        "2025-02",
+        "2025-09",
+        "2025-11"
+      ],
+      "held": [
+        "2025-01",
+        "2025-03",
+        "2025-10",
+        "2025-12"
+      ]
+    },
+    {
+      "key": "2025-07_B",
+      "outer": "2025-07",
+      "part": "B",
+      "train": [
+        "2025-01",
+        "2025-03",
+        "2025-10",
+        "2025-12"
+      ],
+      "held": [
+        "2025-02",
+        "2025-09",
+        "2025-11"
+      ]
+    },
+    {
+      "key": "2025-07_outer",
+      "outer": "2025-07",
+      "part": "outer",
+      "train": [
+        "2025-01",
+        "2025-02",
+        "2025-03",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "held": [
+        "2025-07"
+      ]
+    }
+  ],
+  "features": [
+    "airport",
+    "dest",
+    "aircraft_type",
+    "runway",
+    "stand",
+    "flight_rule",
+    "market_segment",
+    "flight_type",
+    "wake_cat",
+    "operator",
+    "hour",
+    "dow",
+    "month",
+    "mvt_minus_sched_sec",
+    "mvt_minus_lobt_sec",
+    "mvt_minus_iobt_sec",
+    "mvt_minus_eobt1_sec",
+    "mvt_minus_aobt3_sec",
+    "physical_0",
+    "physical_1",
+    "physical_2",
+    "physical_3",
+    "physical_4",
+    "physical_5",
+    "physical_6",
+    "physical_7",
+    "physical_8",
+    "physical_9",
+    "physical_10",
+    "physical_11",
+    "physical_12",
+    "physical_13",
+    "physical_14",
+    "physical_15",
+    "physical_16",
+    "missing_flight_id",
+    "airline"
+  ],
+  "base_settings": {
+    "objective": "regression",
+    "learning_rate": 0.05,
+    "num_leaves": 255,
+    "min_data_in_leaf": 200,
+    "feature_fraction": 0.9,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "seed": 42,
+    "num_threads": 8,
+    "verbosity": -1
+  },
+  "rounds": 800,
+  "checks": {
+    "incremental_derivative": {
+      "rows": 2,
+      "incremental_derivative_rank": 2,
+      "singular_values": [
+        419.24269994619794,
+        162.08195549830413
+      ],
+      "cancellation_abs_difference_over_sum": [
+        0.09949038666962204,
+        0.14097493427148738,
+        0.3069131246789488,
+        0.47285131508641026,
+        0.5143358626882756
+      ],
+      "per_row_gradient_norm_quantiles": [
+        207.69953458013904,
+        226.79133034259033,
+        303.15851339239543,
+        379.52569644220057,
+        398.61749220465185
+      ],
+      "signed_variance_difference_quantiles": [
+        -3052233.529713368,
+        -3001468.647210112,
+        -2798409.117197088,
+        -2595349.587184064,
+        -2544584.704680808
+      ],
+      "finite_difference_max_abs": 3.799973669060819e-08,
+      "nonzero_rows": 2,
+      "target_only_fixed_messages": true,
+      "no_predictive_gain_claim": true
+    },
+    "loss_analytic_gradient": true,
+    "identical_source_likelihood_cancels_exactly": true,
+    "fixed_baseline_no_gradient": true
+  }
+}

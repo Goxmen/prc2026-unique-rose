@@ -1,0 +1,70 @@
+{
+  "status": "failed_preserved_stop",
+  "pid": 33571,
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+    "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+  },
+  "source": {
+    "path": "VALIDATION/tools/complete_portable_public_cv_20261013.py",
+    "sha256": "bdd7ea0042bcb71ea733f4fc49d18f566529528273d7ca84b33de160eead7786"
+  },
+  "allocation": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/allocation.json",
+    "sha256": "671db34aeb727c11856a12b19e2a3da7cac16a78b383ea53f5155931a158e632"
+  },
+  "started_unix": 1791873320.105363,
+  "steps": [
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/portable_public_source_20261013.py",
+        "infer",
+        "--view",
+        "cv"
+      ],
+      "started_unix": 1791873320.1055326,
+      "log": "VALIDATION/runs/v3_20261013_portable_public_source/cv/completion/01.log",
+      "returncode": 0,
+      "finished_unix": 1791873447.0515776,
+      "log_artifact": {
+        "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/completion/01.log",
+        "sha256": "8d9f4164f2b8e5c42ebcae0f7940ffa49959fa843727be4c6e19981cc300b9ea"
+      }
+    },
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/portable_public_source_20261013.py",
+        "score"
+      ],
+      "started_unix": 1791873447.052132,
+      "log": "VALIDATION/runs/v3_20261013_portable_public_source/cv/completion/02.log",
+      "returncode": 0,
+      "finished_unix": 1791873449.8765512,
+      "log_artifact": {
+        "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/completion/02.log",
+        "sha256": "953538330a2b7cc0ec0527a9f9d4cedd1403bfdba8cd1fedf0274dd39b84ccef"
+      }
+    },
+    {
+      "command": [
+        "/home/gunes/PRC/.venv/bin/python",
+        "VALIDATION/tools/audit_portable_public_source_20261013.py",
+        "--view",
+        "cv"
+      ],
+      "started_unix": 1791873449.877048,
+      "log": "VALIDATION/runs/v3_20261013_portable_public_source/cv/completion/03.log",
+      "returncode": 1,
+      "finished_unix": 1791873456.224464,
+      "log_artifact": {
+        "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/completion/03.log",
+        "sha256": "a1d5d6c9792c57bf101ab7546bca4d80ceee9f6721a83013983c15b378cb30f0"
+      }
+    }
+  ],
+  "no_old_final_expansion": true,
+  "no_upload": true,
+  "finished_unix": 1791873456.2246473
+}

@@ -1,46 +1,46 @@
 {
-  "updated_at": "2026-10-13T06:32:45.528222+00:00",
+  "updated_at": "2026-10-13T07:05:17.668513+00:00",
   "target": 205.0,
   "best_version": 80,
   "best_official_rmse": 218.8525,
   "official_checked_at": "2026-10-13T05:49:16Z",
   "slots_remaining": 5,
   "registry": "VALIDATION/research_registry.json",
-  "hypotheses": 52,
+  "hypotheses": 57,
   "desktop": {
-    "stage": "portable_public_source_prefit_review",
-    "owner": "new_signal_audit",
-    "checked_at": "2026-10-13T06:32:45.528222+00:00"
+    "stage": "idle_after_completed_audits",
+    "owner": null,
+    "checked_at": "2026-10-13T07:05:17.668513+00:00"
   },
   "next": [
-    "Run predeclared portable public-source CV after independent source audit",
-    "Audit fixed posterior-aware failure; no expansion or production",
-    "Assess explicit same-flight final clock transport separately; hidden departure transform unobserved",
-    "Compare final candidates and protect last daily slot; no upload queued"
+    "Review at most two versioned portable-parent feedback uploads; keep fifth slot reserved",
+    "Complete final transport source review and select fallback from actual evidence",
+    "Assess one novel high-impact hypothesis with novelty checks",
+    "No expansion of closed half mixture or posterior crossfit"
   ],
   "native_goal_status": "active",
   "active_research": [
     {
       "owner": "root",
-      "scope": "Portable affine final alignment, research integration, reserved submission slot"
+      "scope": "Candidate selection, feedback, integration and reserved slot"
     },
     {
       "owner": "final_recovery",
-      "scope": "Frozen portable public-source assembler; no additional recovery fits"
-    },
-    {
-      "owner": "cohort_learning",
-      "scope": "Honest posterior-aware crossfit protocol; laptop execution after audit"
+      "scope": "Portable feedback manifests and separate final uploader"
     },
     {
       "owner": "new_signal_audit",
-      "scope": "Independent crossfit prefit and final-alignment audits"
+      "scope": "Final transport audit and submission-source review"
+    },
+    {
+      "owner": "cohort_learning",
+      "scope": "Novel high-impact hypothesis assessment; source only"
     }
   ],
   "laptop": {
-    "stage": "idle_after_closed_posterior_screen",
+    "stage": "idle_after_completed_audits",
     "owner": null,
-    "checked_at": "2026-10-13T06:32:45.528222+00:00"
+    "checked_at": "2026-10-13T07:05:17.668513+00:00"
   },
   "duration_result": {
     "cv": {
@@ -113,6 +113,11 @@
       68,
       70
     ],
+    "excluded_mappings": [
+      12,
+      13,
+      15
+    ],
     "additional_receipts": [
       "VALIDATION/runs/v3_20261012_final_legacy_airport_mean_replay/result.json",
       "VALIDATION/runs/v3_20261012_final_missing_basic_reconstruct/baseline/independent_audit.json",
@@ -120,17 +125,8 @@
       "VALIDATION/runs/v3_20261012_final_missing_stand_reconstruct/independent_audit.json",
       "VALIDATION/runs/v3_20261012_final_missing_flightnumber_reconstruct/independent_audit.json",
       "VALIDATION/runs/v3_20261012_final_weather_inference/independent_audit.json",
-      "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/independent_audit.json"
-    ],
-    "catalog": {
-      "path": "VALIDATION/runs/v3_20261012_final_basis_catalog/partial_30.json",
-      "sha256": "0025e880f0de6b7f77556381a1848104a8ebe1c5dbd72407fb603488e7aa79e3"
-    },
-    "excluded_mappings_note": "Historical failed substitutions only; v12/v13/v15 later recovered by exact separately audited recipes",
-    "historical_excluded_mappings": [
-      12,
-      13,
-      15
+      "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v4/independent_audit.json",
+      "VALIDATION/runs/v3_20261012_final_missing_early_reconstruct/v8/independent_audit.json"
     ]
   },
   "depth3_completion": {
@@ -242,36 +238,40 @@
   "reserved_final_slots": 1,
   "used_utc_day_slots": 0,
   "slot_date_utc": "2026-10-13",
-  "portable_direct_cv": {
-    "status": "pass",
-    "result": {
-      "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/result.json",
-      "sha256": "7c23669f2f5f007931a5989fd4cd4c86cee94edc382c506d3832940774bd6cdc"
-    },
-    "audit": {
-      "path": "VALIDATION/runs/v3_20261013_portable_direct_cv/audit.json",
-      "sha256": "75353017a80bb13ea006302fa68f9d5b8e1a4dc16697415cc42c155187ff0172"
-    }
-  },
-  "portable_affine_base": {
-    "status": "audited_base_not_selected",
-    "result": {
-      "path": "VALIDATION/runs/v3_20261013_portable_affine/result.json",
-      "sha256": "42558e43fe184b75ccedc91b6ea142591587526047ae75a101c2fd0b542acd5c"
-    },
-    "audit": {
-      "path": "VALIDATION/runs/v3_20261013_portable_affine/independent_audit.json",
-      "sha256": "ae6f009948a74d9e6f36fae45b008b989a5fb5a2ad7f61c9d4fd9fc024dd1d82"
-    }
-  },
   "posterior_aware_screen": {
-    "status": "gate_failed_independent_audit_pending",
-    "cv_change_v80": 0.161775,
-    "both_months_worse": true,
-    "no_expansion": true,
+    "status": "closed_negative_audited",
+    "cv_change_v80": 0.1617748,
+    "audit": {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/independent_result_audit.json",
+      "sha256": "b9fb5a0d48c0c0b78dbd2bc09c5bc6486b06c9902ced329c9f1af398d35647ee"
+    }
+  },
+  "portable_half_mix": {
+    "status": "closed_inconclusive_gate_failed",
     "result": {
-      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/result.json",
-      "sha256": "00613f1ff2966d709f33db4b89d534a0484b724aaa42688c6fea82187ec36426"
+      "path": "VALIDATION/runs/v3_20261013_portable_half_mix/result.json",
+      "sha256": "bd2b4f71cdc62847776f2ec58347f27740271d0253afd8172980390e095bf106"
+    },
+    "audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_half_mix/audit.json",
+      "sha256": "fe5c988540680a6f2600652d7b4d61ad3ad11e7e055239702693f1373d79cb70"
+    },
+    "no_weight_search": true,
+    "no_upload": true
+  },
+  "portable_parents": {
+    "status": "audited_preparing_feedback_uploads",
+    "plan": {
+      "path": "VALIDATION/reports/portable_final_feedback_plan_20261013.json",
+      "sha256": "1e5d1c6b70c6097fd97c4344a245f37c788b23da880b3e5a0925bf6490215a18"
+    },
+    "direct_audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/audit.json",
+      "sha256": "c8a5c6ba172811dca7868173835389c226bae4b16feaca3c71dd0264060e5f35"
+    },
+    "public_old_audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+      "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
     }
   }
 }

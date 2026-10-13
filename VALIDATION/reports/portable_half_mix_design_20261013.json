@@ -1,0 +1,38 @@
+{
+  "created_at": "2026-10-13T06:45:08.553745+00:00",
+  "status": "fixed design before new aggregation or mixture score",
+  "parents": [
+    "portable_public_source_v1",
+    "latest direct public-model reserve"
+  ],
+  "motivation": "Two distinct portable recipes have nearly equal Jan/Jul RMSE; test their fixed equal mixture for complementary errors. Parents and v80 scores already viewed; reused development, not independent confirmation.",
+  "formula": "R(0.5*serialized_portable_public_chain+0.5*serialized_direct_reserve), R=nearest-even max(value,0)",
+  "weights": [
+    0.5,
+    0.5
+  ],
+  "no_weight_search": true,
+  "no_new_constraints": true,
+  "no_fit": true,
+  "no_posterior_repeat": true,
+  "cv": "One Jan/Jul score, both months plus paired-day bootstrap against both parents and exactv80",
+  "selection_gate": "Improve both months versus v80 and paired-day interval upper<0 against v80 and both portable parents",
+  "if_fail": "No weight sweep, no expansion, no submission for this equal mixture",
+  "novelty": "Explicit new28-component portable base plus current direct public-model family; distinct from closed exactv80 neural-share0.85 change. No changes to frozen parents.",
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+      "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+      "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    }
+  ],
+  "no_version": true,
+  "no_upload": true
+}

@@ -1,0 +1,92 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/identity.json",
+    "sha256": "acab0bee4edd1ae7c5ba84493239e133b2bf029164a05a891efb8ed9427132c4"
+  },
+  "arm": {
+    "key": "2025-07_B",
+    "outer": "2025-07",
+    "part": "B",
+    "train": [
+      "2025-01",
+      "2025-03",
+      "2025-10",
+      "2025-12"
+    ],
+    "held": [
+      "2025-02",
+      "2025-09",
+      "2025-11"
+    ]
+  },
+  "training_rows": 50071,
+  "predicted_raw_peers": 36698,
+  "all_row_reload_exact": true,
+  "seconds": 5.193171344999882,
+  "dependencies": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/prefit_audit.json",
+      "sha256": "e7fc03053453e27c07aff37d4a2dbb814a0d45b8d25f5e3994394341e00777d2"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/preflight.json",
+      "sha256": "c1e76bc2730ff77890b5042e7c68eb5e434cec3b30b77c91e5db35ea90f27d77"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-07_B/calibration.json",
+      "sha256": "3f1477c0d0680a78281610cc17e93d4eea0e63b95bb316284ff6f2c87b92299a"
+    }
+  ],
+  "runtime": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 20,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  },
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-07_B/model.txt",
+      "sha256": "279d291413cca846fe4a416e8d72ad7b65ad87d745a77d4cac03ea69fe6cfa06"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-07_B/categories.json",
+      "sha256": "82dc83cb7ec74f8df1bf97f7d1b61e952fdf23138bd0c271f19380f73de9ac92"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-07_B/prior_training_ids.parquet",
+      "sha256": "742e94b40065c15f68dfdd82689d5057faceb697d5f83a922bf258d182213194"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-07_B/prior.parquet",
+      "sha256": "eaec5cc979e5a2b50d7d49ebd3b040ae131ed933dbdedf09547ebf64ef24d7ff"
+    }
+  ]
+}

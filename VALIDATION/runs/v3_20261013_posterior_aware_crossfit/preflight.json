@@ -1,0 +1,206 @@
+{
+  "status": "pass",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/identity.json",
+    "sha256": "acab0bee4edd1ae7c5ba84493239e133b2bf029164a05a891efb8ed9427132c4"
+  },
+  "source": {
+    "path": "VALIDATION/posterior_aware_crossfit.py",
+    "sha256": "29ef9fed78aa6ac169a8dd38c60aeb59b807707fce8527749ecf2ed152f5ea87"
+  },
+  "synthetic": {
+    "incremental_derivative": {
+      "rows": 2,
+      "incremental_derivative_rank": 2,
+      "singular_values": [
+        419.2426999461983,
+        162.0819554983045
+      ],
+      "cancellation_abs_difference_over_sum": [
+        0.09949038666962222,
+        0.14097493427148755,
+        0.30691312467894893,
+        0.47285131508641026,
+        0.5143358626882756
+      ],
+      "per_row_gradient_norm_quantiles": [
+        207.69953458013953,
+        226.79133034259078,
+        303.1585133923958,
+        379.52569644220085,
+        398.6174922046521
+      ],
+      "signed_variance_difference_quantiles": [
+        -3052233.529713369,
+        -3001468.6472101132,
+        -2798409.117197091,
+        -2595349.587184069,
+        -2544584.7046808135
+      ],
+      "finite_difference_max_abs": 3.79996514254799e-08,
+      "nonzero_rows": 2,
+      "target_only_fixed_messages": true,
+      "no_predictive_gain_claim": true
+    },
+    "loss_analytic_gradient": true,
+    "identical_source_likelihood_cancels_exactly": true,
+    "fixed_baseline_no_gradient": true
+  },
+  "historical_incremental_diagnostics": [
+    {
+      "rows": 275,
+      "incremental_derivative_rank": 4,
+      "singular_values": [
+        11237.741770411685,
+        1586.2418350135142,
+        711.5148168159129,
+        254.28524646255806
+      ],
+      "cancellation_abs_difference_over_sum": [
+        0.0002396353910835921,
+        0.012408809623571456,
+        0.05353199942644787,
+        0.26635421913882656,
+        0.9433431265639953
+      ],
+      "per_row_gradient_norm_quantiles": [
+        0.2445220597844352,
+        6.478881136886312,
+        36.233659385119246,
+        224.27039935019806,
+        10203.248015861767
+      ],
+      "signed_variance_difference_quantiles": [
+        -3380513.4597409265,
+        -305320.0538820271,
+        -19313.27011586103,
+        441522.0218017501,
+        127229257.35850513
+      ],
+      "finite_difference_max_abs": 2.155778929591179e-06,
+      "nonzero_rows": 275,
+      "target_only_fixed_messages": true,
+      "no_predictive_gain_claim": true,
+      "month": "2025-01",
+      "old_output_replay": true,
+      "poisoned_labels_invariant": true
+    },
+    {
+      "rows": 2061,
+      "incremental_derivative_rank": 4,
+      "singular_values": [
+        23177.796382291257,
+        4541.906781926468,
+        3230.264216238114,
+        700.3441036076555
+      ],
+      "cancellation_abs_difference_over_sum": [
+        0.00018109137501405099,
+        0.006125997711977368,
+        0.05430736088786993,
+        0.23759357230755887,
+        0.8509266751227959
+      ],
+      "per_row_gradient_norm_quantiles": [
+        0.19370565095144335,
+        5.383362060171688,
+        48.87732358710354,
+        383.20539197876684,
+        8862.384646937106
+      ],
+      "signed_variance_difference_quantiles": [
+        -60500207.04432744,
+        -1321032.081586083,
+        10760.526575300377,
+        343699.8360925362,
+        19309780.73931358
+      ],
+      "finite_difference_max_abs": 4.313599674787838e-06,
+      "nonzero_rows": 2061,
+      "target_only_fixed_messages": true,
+      "no_predictive_gain_claim": true,
+      "month": "2025-07",
+      "old_output_replay": true,
+      "poisoned_labels_invariant": true
+    }
+  ],
+  "calibrations": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_A/calibration.json",
+      "sha256": "eef2f2b64f7052b941683ed4844bad80bec96aac138c3aded62cefc30e69f68a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/calibration.json",
+      "sha256": "8a8f2c7669e5e8f6324d45adbe7363b06483ec4490d6786803044fca5687a4da"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_outer/calibration.json",
+      "sha256": "32215aa3796830bb01011aae62a47cae297b04d0b386ceb7d224dd464c3faaf8"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-07_A/calibration.json",
+      "sha256": "035a64fa025f3b38b6075982ffc85444f009e5e3a3c7f2928451439cbfd78cd6"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-07_B/calibration.json",
+      "sha256": "3f1477c0d0680a78281610cc17e93d4eea0e63b95bb316284ff6f2c87b92299a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-07_outer/calibration.json",
+      "sha256": "4e827eb1695a3f3f72a89f5757c689f8a48810ecb7076bc45d0539656c44834b"
+    }
+  ],
+  "raw_peer_counts": {
+    "2025-01": 11317,
+    "2025-02": 10703,
+    "2025-03": 12544,
+    "2025-04": 14028,
+    "2025-05": 14541,
+    "2025-06": 14696,
+    "2025-07": 15211,
+    "2025-08": 15459,
+    "2025-09": 14667,
+    "2025-10": 14142,
+    "2025-11": 11328,
+    "2025-12": 12068
+  },
+  "historical_peer_counts": {
+    "2025-01": 11317,
+    "2025-07": 15211
+  },
+  "no_model_or_tilt_fit": true,
+  "runtime": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "logical_cpus": 20,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "versions": {
+      "duckdb": "1.5.5",
+      "lightgbm": "4.7.0",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5"
+    }
+  }
+}

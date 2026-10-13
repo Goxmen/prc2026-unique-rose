@@ -1,0 +1,86 @@
+{
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/identity.json",
+    "sha256": "acab0bee4edd1ae7c5ba84493239e133b2bf029164a05a891efb8ed9427132c4"
+  },
+  "arm": {
+    "key": "2025-01_B",
+    "outer": "2025-01",
+    "part": "B",
+    "train": [
+      "2025-03",
+      "2025-05",
+      "2025-07",
+      "2025-09",
+      "2025-11"
+    ],
+    "held": [
+      "2025-04",
+      "2025-06",
+      "2025-08",
+      "2025-10"
+    ]
+  },
+  "diagnostics": {
+    "rows": 3257,
+    "incremental_derivative_rank": 4,
+    "singular_values": [
+      21631.891241651127,
+      9143.40201360943,
+      4007.678070228873,
+      1446.8128686225668
+    ],
+    "cancellation_abs_difference_over_sum": [
+      4.241030779448837e-05,
+      0.007930904293346242,
+      0.04603885478319153,
+      0.2177640731772221,
+      0.9301211414115974
+    ],
+    "per_row_gradient_norm_quantiles": [
+      0.043818218601084896,
+      7.407079069923878,
+      44.65418412125724,
+      292.9284344621753,
+      10392.938687557991
+    ],
+    "signed_variance_difference_quantiles": [
+      -76333962.94216286,
+      -750001.5608773612,
+      -31336.24892574153,
+      303388.67788241425,
+      50780843.397530995
+    ],
+    "finite_difference_max_abs": 6.886926371407753e-06,
+    "nonzero_rows": 3257,
+    "target_only_fixed_messages": true,
+    "no_predictive_gain_claim": true
+  },
+  "complete_raw_peers": 58325,
+  "targets": 3257,
+  "original_apply_zero_replay": true,
+  "dependencies": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/prior.json",
+      "sha256": "d4f53d1c57b523325635decfd33f90022df7eb615a835ccbd7b8a6da77f72e4f"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/calibration.json",
+      "sha256": "8a8f2c7669e5e8f6324d45adbe7363b06483ec4490d6786803044fca5687a4da"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/posterior_inputs.parquet",
+      "sha256": "c066fbd73d001369a5b6d761d48412fc37fc2a5a3b7b914d4445702381727cbf"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/zero.parquet",
+      "sha256": "0434c78a0d909fcb627e3d789d929aca68f464b91686e1fa88aef3b0f5782b2d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/arms/2025-01_B/packet.npz",
+      "sha256": "2d70c8f4f2ed289456f2ad90b6330c0088461f79ebe631b239a9174601d6b5c3"
+    }
+  ]
+}

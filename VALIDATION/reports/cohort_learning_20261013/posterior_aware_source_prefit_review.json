@@ -1,0 +1,42 @@
+{
+  "status": "pass_prefit",
+  "sources": [
+    {
+      "path": "VALIDATION/posterior_aware_crossfit.py",
+      "sha256": "29ef9fed78aa6ac169a8dd38c60aeb59b807707fce8527749ecf2ed152f5ea87"
+    },
+    {
+      "path": "VALIDATION/posterior_aware_learning.py",
+      "sha256": "e19ad1e9ae21efbc97133596b40bff21f4c750b67ec68aa27a3e1d882fac06cb"
+    },
+    {
+      "path": "VALIDATION/tools/audit_posterior_aware_prefit_20261013.py",
+      "sha256": "974826df2937cd6ac936a530b7b8120e7db8cbfb7aa253e4fcf3e09f781d7f81"
+    }
+  ],
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/identity.json",
+    "sha256": "acab0bee4edd1ae7c5ba84493239e133b2bf029164a05a891efb8ed9427132c4"
+  },
+  "prefit_audit": {
+    "path": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/prefit_audit.json",
+    "sha256": "e7fc03053453e27c07aff37d4a2dbb814a0d45b8d25f5e3994394341e00777d2"
+  },
+  "protocol_review": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/posterior_aware_protocol_review.json",
+    "sha256": "43bd17405464f99d345fa532ea383d4f74a7d36d9f0cfd196da699ec288a2182"
+  },
+  "checks": [
+    "Six fixed source-blind37-feature priors with complement-only category maps/supervised label caps; all raw peers predicted",
+    "Separate inner support/offblock/taxi calibration excludes held months; complete local days; outer historical parameters retained",
+    "Fixed incremental D0+0.5*(Jtheta-Dtheta) and matched prior-MSE/posterior-MSE controls",
+    "Receipt dependencies and partial-fit fail-closed gates reviewed; original preparation snapshot archived",
+    "All-row raw projection and nested parameters independently pass"
+  ],
+  "limitations": [
+    "No prior/tilt fit or predictive score exists yet",
+    "Immutable preflight derivative/poison-label/replay receipts verified; original full likelihood not rerun"
+  ],
+  "cost": "Six sequential bounded CPU fits; root allocation required",
+  "audit_only_failures": "VALIDATION/runs/v3_20261013_posterior_aware_crossfit/prefit_audit_failures"
+}

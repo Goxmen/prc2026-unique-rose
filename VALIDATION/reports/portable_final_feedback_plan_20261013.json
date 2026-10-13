@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-10-13T06:55:00.257644+00:00",
+  "purpose": "Compare materially distinct fully portable final-model options using limited official feedback; not a claim they improve v80.",
+  "candidates": [
+    "latest_direct_public_model_reserve",
+    "portable_public_source_v1"
+  ],
+  "maximum_exploratory_uploads": 2,
+  "last_daily_slot_reserved": true,
+  "cv_interpretation": "Both parents about1.08s worse than exactv80 on reused Jan/Jul. Their0.0045s difference is inconclusive. Their62.44s prediction-disagreement RMS makes feedback informative for choosing the new-month final fallback.",
+  "half_mix": "Closed by frozen gate (January worse, intervals cross zero); no expansion, weight search or upload.",
+  "execution": "Prepare and independently audit direct old/final serialization and public-chain old inference first. Root reviews files/metrics before autonomous upload.",
+  "selection": "Compare actual portable candidates using CV, source reliability and official feedback; shared-ID teacher transfer remains conditional and separate.",
+  "sources": [
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+      "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_half_mix/result.json",
+      "sha256": "bd2b4f71cdc62847776f2ec58347f27740271d0253afd8172980390e095bf106"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_portable_half_mix/audit.json",
+      "sha256": "fe5c988540680a6f2600652d7b4d61ad3ad11e7e055239702693f1373d79cb70"
+    }
+  ],
+  "no_upload_yet": true
+}

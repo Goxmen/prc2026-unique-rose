@@ -1,0 +1,68 @@
+{
+  "status": "cv_independently_audited_not_selected",
+  "identity": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+    "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+  },
+  "result": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/result.json",
+    "sha256": "4656c09046160b5fbb065381bdc9f69bd866d893828f5774fbd6fc720cd97cd5"
+  },
+  "score": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+    "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+  },
+  "execution": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/completion/execution.json",
+    "sha256": "142febeac6377e0d7553a7ff6bb5c8e4bb5294090af7e2350e2b02164b8ddf49"
+  },
+  "posterior_checkpoints": 20,
+  "inference_seconds": 126.946044921875,
+  "repeat_inference": false,
+  "desktop": "released_to_root",
+  "old_final_allocated": false,
+  "selected_for_final": false,
+  "no_upload": true,
+  "audit": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+    "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+  },
+  "audit_recovery": {
+    "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit_sql_join_recovery/identity.json",
+    "sha256": "1dbfbb791b2e03b3a8c5e95e141256c1b43d02ce4284444e37fa88e64069e49a"
+  },
+  "execution_status": "CV numerical stages complete and independently audited via exact two-JOIN SQL repair; frozen producer and predictions unchanged. No old/final allocation.",
+  "cv": {
+    "B": 297.0200759792034,
+    "direct_reserve": 290.84397170714396,
+    "v80": 289.7627782102906,
+    "submitted": 290.8394266979102
+  },
+  "comparisons": {
+    "B": {
+      "change": -6.180649281293171,
+      "ci95": [
+        -8.431406092221291,
+        -4.362514752829564
+      ],
+      "decision": "improvement"
+    },
+    "direct_reserve": {
+      "change": -0.004545009233737574,
+      "ci95": [
+        -3.1199762640550794,
+        3.4927604365127904
+      ],
+      "decision": "inconclusive"
+    },
+    "v80": {
+      "change": 1.0766484876196074,
+      "ci95": [
+        0.19628563967615625,
+        2.1441180575291914
+      ],
+      "decision": "regression"
+    }
+  },
+  "failure_history": "Frozen independent auditor cell half monthly join uses ambiguous airport key; source-only repair delegated new_signal_audit. All original sources and outputs retained."
+}

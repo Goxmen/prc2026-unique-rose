@@ -1,0 +1,75 @@
+{
+  "status": "ready_for_root_review_no_upload",
+  "direct": {
+    "identity": {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/identity.json",
+      "sha256": "07cf3c15dc3f3e85860df71a408ebf318ee3644f7b5c6f7823d64db8eee5cfb3"
+    },
+    "result": {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/result.json",
+      "sha256": "6f149f26067d0f97e8eb9224db2fd70f0329e9526b157439d84e4759c2bc93c6"
+    },
+    "audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/audit.json",
+      "sha256": "c8a5c6ba172811dca7868173835389c226bae4b16feaca3c71dd0264060e5f35"
+    },
+    "old_candidate": {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/old/candidate.parquet",
+      "sha256": "84285fe2be7aa308a1b59b4fedcc5876888a618605d94c1b9b2144160552eba4"
+    },
+    "final_candidate": {
+      "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/final/candidate.parquet",
+      "sha256": "17dd41296b16967d461be9ca184aab7189d3d4a89b7d2437e1d0a15ec40c0709"
+    },
+    "cv": 290.84397170714396
+  },
+  "public_chain": {
+    "identity": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/identity.json",
+      "sha256": "b186449ec102d81434c3b0e0ef9483c44e18146a855214e42c6a9c5313c7d660"
+    },
+    "old_result": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/result.json",
+      "sha256": "df0a464d622e42e08118207e5ce73b6fc2d8223256f90353787d2e0991ca2020"
+    },
+    "old_audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/audit.json",
+      "sha256": "1234cfcb5c1d6a648f8a1b835dba413f52d5cbf529a91133cfc9dae61ddf1a9f"
+    },
+    "old_candidate": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/old/candidate.parquet",
+      "sha256": "30b388168bec0c657dbff5731157e7cd635cb002af5f8be75891c5323f2bf8e0"
+    },
+    "cv_score": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/score.json",
+      "sha256": "f5f1e055fa0611db884f394e0b88dda16593d465cf37f465b5bd1e0d3bd93240"
+    },
+    "cv_audit": {
+      "path": "VALIDATION/runs/v3_20261013_portable_public_source/cv/audit.json",
+      "sha256": "1bb548e34b737e7ca387559ec332e41be48b667da9ec193ff869ca2d2bfe0a2e"
+    },
+    "final_inference": "not allocated or run"
+  },
+  "comparison": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/chain_comparison.json",
+    "sha256": "ee7d02002f91577454af4f5064bf98ca2a85fe7d203e25f26a0cb81716b53729"
+  },
+  "execution": {
+    "path": "VALIDATION/runs/v3_20261013_portable_direct_reserve/completion/execution.json",
+    "sha256": "80438246cc1fe165015a08e745b67b555e2eed44fe662664987fc8425d7eb240"
+  },
+  "feedback_plan": {
+    "path": "VALIDATION/reports/portable_final_feedback_plan_20261013.json",
+    "sha256": "1e5d1c6b70c6097fd97c4344a245f37c788b23da880b3e5a0925bf6490215a18"
+  },
+  "limitations": [
+    "Both portable parents regress exact v80 CV by about1.08s on reused development; they are explicitly distinct alternatives, not recovered v80.",
+    "Their equal half mix failed its predeclared gate and remains closed.",
+    "Public posterior audit checks all source/population/prior/ordinary rows, with3 bounded OLD independent convolution groups and17 explicitly unsampled groups.",
+    "Public joint/robust increments retain original v70 prior as fixed additive transport."
+  ],
+  "desktop": "released_to_root",
+  "selected": false,
+  "version_assigned": false,
+  "no_upload": true
+}

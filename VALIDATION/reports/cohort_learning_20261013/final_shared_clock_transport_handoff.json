@@ -1,0 +1,38 @@
+{
+  "status": "source_only_prepared_waiting_independent_review_and_root_fallback_choice",
+  "assessment": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/final_shared_clock_transport_assessment.json",
+    "sha256": "ca85e48f940e4d20e239484fdf45e5ebdb3f1a66ef839c25e094ba0c75db5b42"
+  },
+  "builder": {
+    "path": "VALIDATION/final_shared_clock_transport_20261013.py",
+    "sha256": "483a2972037354bcaf53186861b884d8595889a89ada3c6dd3ced0b9007f7956"
+  },
+  "independent_raw_reproduction": {
+    "path": "VALIDATION/reports/final_shared_clocks_20261013/independent_numpy.json",
+    "sha256": "0f81f1a9d0081819e48cfa59b0c46749f26ec5d7155e0f108f9cd2780952ebe2"
+  },
+  "metadata_affine": {
+    "path": "VALIDATION/reports/cohort_learning_20261013/final_shared_clock_transport_metadata.json",
+    "sha256": "571317015a4a807be94fb3173a0421afb9c7c4532effd9328b4538af2a451d00"
+  },
+  "fixed_teacher": "original_v80_only",
+  "coefficient": 2,
+  "allowed_portable_contracts": [
+    "audited_final_candidate",
+    "audited_nested_final_candidate",
+    "audited_three_view_submitted"
+  ],
+  "next": [
+    "Independent source/auditor review",
+    "Real direct-reserve metadata preflight once result and audit exist",
+    "Root selects fallback after complete comparison/possible official feedback",
+    "Only then root may freeze reviewed sources and allocate build"
+  ],
+  "real_identity_exists": false,
+  "candidate_exists": false,
+  "no_departure_phase_claim": true,
+  "no_new_CV_claim": true,
+  "no_fit": true,
+  "no_upload": true
+}
