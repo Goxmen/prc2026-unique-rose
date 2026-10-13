@@ -1,0 +1,78 @@
+{
+  "design": {
+    "current_seeds": 3,
+    "proposed_seeds": 5,
+    "ordinary_coefficient": 0.355,
+    "variance": "unbiased per-row sample variance over retained seeds42/1042/2042",
+    "expectation": "squared ordinary coefficient * mean seed variance * (1/3 - 1/5)",
+    "assumptions": [
+      "Seeds are exchangeable samples of one fixed learning algorithm.",
+      "Expected risk is over hypothetical training seeds, not the realized selected pool.",
+      "Only ordinary linear component is represented; nonlinear corrections can change the effect.",
+      "Three seeds supply a noisy variance estimate; no independence claim for reused CV."
+    ],
+    "no_labels": true,
+    "no_model_fit": true,
+    "no_candidate": true,
+    "no_complete_score_claim": true
+  },
+  "sources": [
+    {
+      "path": "VALIDATION/tabm_seed_variance_feasibility_20261013.py",
+      "sha256": "7f3bc1263d6437e64508f7b57befe34420b24bbf29f7f692410e5ff18999e8ae"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261013_nn_public_tabm_track_consistency/identity.json",
+      "sha256": "9dd40491e2d5d12f505a7311cc7852a803bf3cc2d3b22ce63cfd0bae395a8a56"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-01_tabm.json",
+      "sha256": "de792ea70ae9c8ea8ceddaae6604b922e4c9e5ca3697e05c030603d2bafd4373"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-01_tabm.json",
+      "sha256": "4ca762b07a667c8bcb264bd45fc138915433347d7506f5c766a27cf82d34f9c5"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-01_tabm.json",
+      "sha256": "21681c016807b0337c23c8dd39c8a5820dda62aea6fdc01db21261c76dd075ed"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-07_tabm.json",
+      "sha256": "db5d9245cdca9856e15698bd5ec34b48776879fe441026342e95359a43c6a0ff"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-07_tabm.json",
+      "sha256": "aa815e98d8976a0bc3ba35bead152d3ad7d75f905a9ef046c79ef1844eede89d"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-07_tabm.json",
+      "sha256": "cc61a7a70b776d6dbcc4501ddcc682937e5ebb6c8abd49f92706109061323751"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-01_tabm.parquet",
+      "sha256": "9e2d6af81dab59c4d5f33ca8f24c2367415d7913602b7b0131d9edb9886d77d1"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-01_tabm.parquet",
+      "sha256": "10958dbc91bb4e65afbcff6721abfc788e2344afc57df3542da741d0886d03ca"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-01_tabm.parquet",
+      "sha256": "2e838bd77a3bab855279d2d65b5a1979e8833a1c6c4b4d86eb312a79e41cab4a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm/networks/2025-07_tabm.parquet",
+      "sha256": "6b94b5ce799a4eb8a0d193754c3eb219e2f12839da8fbb06c779ce6b2bceae0a"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k1/networks/2025-07_tabm.parquet",
+      "sha256": "85782c5f0a0bc66a750534f418b6455c5742963b94500d06dfa3769ed51d5d65"
+    },
+    {
+      "path": "VALIDATION/runs/v3_20261012_nn_public_tabm_pool3/k2/networks/2025-07_tabm.parquet",
+      "sha256": "892099d8a1f863fe22c72d7f8a396ed6cffb049e77d5c9e94f18dbcffd58e3d2"
+    }
+  ],
+  "frozen_at": "2026-10-13T08:17:52.706112+00:00"
+}

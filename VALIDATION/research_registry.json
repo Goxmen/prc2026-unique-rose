@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T08:10:38.939449+00:00",
+  "updated_at": "2026-10-13T08:27:26.722395+00:00",
   "current": {
     "target": 205.0,
     "best_version": 80,
@@ -1240,6 +1240,26 @@
         "no_control_promotion": true,
         "development_is_reused_and_transductive": true
       }
+    },
+    {
+      "id": "tabm_extra_seed_allocation_20261013",
+      "status": "allocation_declined_small_linear_variance_proxy",
+      "hypothesis": "Adding two more seeds materially reduces algorithmic variance in the selected three-TabM pool",
+      "conclusion": "Prioritize the already-running distinct objective experiment; no extra seed fits are justified by this limited ordinary-variance proxy. This is not a complete-model RMSE estimate or upper bound. No new model scored.",
+      "evidence": [
+        {
+          "path": "VALIDATION/reports/tabm_seed_variance_20261013/identity.json",
+          "sha256": "0e3a34a9e4864c7cf86946bf669d78f54ea38c1ff05020e43a5e42c78eff0e45"
+        },
+        {
+          "path": "VALIDATION/reports/tabm_seed_variance_20261013/result.json",
+          "sha256": "3e8653440448457d5b534fa3b1c5e359705d8baa1e6f701492dea07d52182d3c"
+        },
+        {
+          "path": "VALIDATION/reports/tabm_seed_variance_20261013/allocation_decision.json",
+          "sha256": "8cec083fb109238731c58b3db46bf2aed75bf43acb431d13819d0e08bcec9e50"
+        }
+      ]
     }
   ],
   "next": [
