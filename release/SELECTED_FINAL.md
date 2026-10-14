@@ -17,4 +17,4 @@ and3 correction inputs. This certifies component assembly, not full raw-data
 retraining or arbitrary-new-input inference. See [artifact manifest](artifact_manifest.json).
 
 The repository and reviewed v84 release remain private until the authorized
-**14 October 2026, 10:00 UTC / 12:00 Amsterdam** publication time.
+**14 October 2026, 09:30 UTC / 11:30 Amsterdam** publication time.

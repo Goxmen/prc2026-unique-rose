@@ -4,7 +4,7 @@ The owner selected **v84 as the competition final** on 14 October 2026. See
 [the selected final](../../release/SELECTED_FINAL.md) for submission/acceptance
 receipts and [reproduction instructions](../../docs/REPRODUCING.md) for the
 standalone archive. Selection does not authorize publication before the
-scheduled 10:00 UTC / 12:00 Amsterdam deadline.
+scheduled publication time of 09:30 UTC / 11:30 Amsterdam.
 
 v84 keeps the fixed historical v80 ensemble arithmetic, with recovered original
 tree models, a reconstruction using the recovered v3 source and saved neural

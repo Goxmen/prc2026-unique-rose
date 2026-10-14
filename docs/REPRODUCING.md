@@ -27,8 +27,8 @@ from a clean clone. The replay does not require those missing weights.
 The release tag is `prc-final-v84-76938ead67f3`. Its source is frozen at
 `16ce6238236051555a6296d1a6d733de90a2b253`; later documentation and delivery
 receipts do not change the frozen computation. The repository and draft remain
-private until the authorized publication at 14 October 2026, 10:00 UTC /
-12:00 Amsterdam. After publication, obtain these two assets from the
+private until the authorized publication at 14 October 2026, 09:30 UTC /
+11:30 Amsterdam. After publication, obtain these two assets from the
 [v84 release](https://github.com/Goxmen/PRC/releases/tag/prc-final-v84-76938ead67f3):
 
 - `v84-final-76938ead67f333e1.tar` — 78,264,320 bytes.

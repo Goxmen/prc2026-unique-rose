@@ -62,7 +62,7 @@ data are not bundled into git.
    repository. Preserve research artifacts locally; do not move or change source
    files or input caches used by an active validation run.
 5. Public GitHub availability is required for prize eligibility. The owner has
-   authorized publication at **14 October, 10:00 UTC / 12:00 Amsterdam**, and
+   authorized publication at **14 October, 09:30 UTC / 11:30 Amsterdam**, and
    privacy until then. See [the scheduled policy](../release/publication_schedule.json).
    Obtain the organizer's repository-handoff instructions if not otherwise announced.
 6. Make required reproduction artifacts available through an appropriate
@@ -76,7 +76,7 @@ status are recorded in the reproduction guide and release manifests.
 ## Scheduled publication
 
 The desktop user timer `prc-publish-final-20261014.timer` starts the guarded
-publisher at 10:00 UTC. It audits current source/history, verifies local/remote
+publisher at 09:30 UTC (11:30 Amsterdam). It audits current source/history, verifies local/remote
 `main` agreement and the exact draft assets, changes repository visibility, then
 publishes the draft release. It verifies both actions and records a receipt.
 The time guard prohibits early publication, including an accidental manual start.
