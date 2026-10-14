@@ -69,6 +69,14 @@ are unchanged. Original source identities and completion receipts are archived
 under `recovery/`; the recorded source-only migration preserves their pre-repair
 provenance. These records are included in the eventual replay bundle.
 
+The overnight run completed both training workers, then encountered an
+unbracketed support-tilt root during final assembly. Resume now verifies the
+collected exports and skips training and laptop access. The numerical repair
+widens only a failing root bracket, keeps the same 55 bisections and original
+mean tolerance, and independently checks repaired weights with Brent's method.
+Successful weights and completed airport-day predictions are retained. The
+source/receipt migration and original records are preserved under `recovery/`.
+
 Before delivery the runner checks all 670,790 IDs, schema, integer predictions,
 component arithmetic and exact standalone replay. The final PUT is conditional
 on the reviewed v83 object's ETag. An attempted PUT is recorded first; uncertain

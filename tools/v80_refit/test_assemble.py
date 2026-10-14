@@ -84,7 +84,8 @@ class AssemblyContracts(unittest.TestCase):
                 return prior + (1 if kwargs else 2), dict(offset=0.)
             function = Mock(side_effect=condition)
             c = types.SimpleNamespace(V72=folder, base=types.SimpleNamespace(public=lambda _: source),
-                                      heavy=types.SimpleNamespace(condition=function, GAUSSIAN="gaussian"))
+                                      heavy=types.SimpleNamespace(condition=function, GAUSSIAN="gaussian",
+                                                                  old=types.SimpleNamespace(tilt=Mock())))
             ids = np.array([7, 8, 9])
             rows = pd.DataFrame(dict(airport=["AAAA"] * 3, day=["2026-01-01", "2026-01-01", "2026-01-02"],
                                       gap=[100., 200., 300.], has_id=[False] * 3, nm_gap=[np.nan] * 3))
@@ -137,6 +138,41 @@ class AssemblyContracts(unittest.TestCase):
             path.write_text("tampered")
             with self.assertRaises(ValueError):
                 assembly.verify(record)
+
+    def test_tilt_keeps_successful_weights_exactly(self):
+        import sys
+        sys.path.insert(0, str(assembly.ROOT / "VALIDATION"))
+        from daily_delay_posterior import tilt
+        values, weights = np.array([0., 1., 2.]), np.array([.2, .3, .5])
+        for target in [0., .25, 1., 1.75, 2.]:
+            events = []
+            actual = assembly.bracketed_tilt(tilt, values, weights, target, events)
+            np.testing.assert_array_equal(actual, tilt(values, weights, target))
+            self.assertEqual(events, [])
+
+    def test_tilt_extends_bracket_and_matches_independent_root(self):
+        import sys
+        sys.path.insert(0, str(assembly.ROOT / "VALIDATION"))
+        from daily_delay_posterior import tilt
+        values, weights, target = np.array([0., 1., 1e6]), np.array([1e-8, .999, .001]), .1
+        self.assertFalse(np.isclose(values @ tilt(values, weights, target), target, atol=1e-5, rtol=1e-8))
+        events = []
+        result = assembly.bracketed_tilt(tilt, values, weights, target, events)
+        self.assertEqual(len(events), 1)
+        self.assertLess(events[0]["bracket"][0], -128.)
+        np.testing.assert_allclose(values @ result, target, atol=1e-5, rtol=1e-8)
+        assembly.audit_tilt_event(events[0])
+        events[0]["weights"][0] += .001
+        with self.assertRaises(AssertionError):
+            assembly.audit_tilt_event(events[0])
+
+    def test_tilt_does_not_hide_other_failures_and_restores_original(self):
+        broken = lambda *args: np.array([1., 0., 0.])
+        posterior = types.SimpleNamespace(tilt=broken)
+        with self.assertRaisesRegex(ValueError, "valid original bracket"):
+            with assembly.repaired_tilt(posterior, []):
+                posterior.tilt(np.array([0., 1., 2.]), np.array([.2, .3, .5]), 1.)
+        self.assertIs(posterior.tilt, broken)
 
 
 if __name__ == "__main__":

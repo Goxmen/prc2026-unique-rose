@@ -10,6 +10,7 @@ the selected ordered affine coefficients. It neither fits nor uploads.
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
 import gc
 import hashlib
 import json
@@ -339,6 +340,82 @@ def basis(view, out, identity, c):
     return result
 
 
+def bracketed_tilt(original, values, weights, target, events):
+    """Extend only a failed root bracket; preserve every successful old result.
+
+    Same recovery as portable_public_tilt_recovery_20261013: no new prior,
+    tolerance, calibration, or iteration count.
+    """
+    import numpy as np
+    from scipy.special import logsumexp
+    result = original(values, weights, target)
+    if np.isclose(values @ result, target, atol=1e-5, rtol=1e-8):
+        return result
+    if not (np.isfinite(values).all() and np.isfinite(weights).all()
+            and np.isfinite(target) and (weights >= 0).all() and weights.sum() > 0
+            and values.min() < target < values.max()):
+        raise ValueError("Invalid or infeasible tilt support")
+    z = (values - target) / max(np.ptp(values), 1.)
+    lw = np.log(np.maximum(weights, 1e-300))
+    def at(parameter):
+        mass = np.exp(lw + parameter * z - logsumexp(lw + parameter * z))
+        return mass, float(mass @ z)
+    lo, hi = -128., 128.
+    low, high = at(lo)[1], at(hi)[1]
+    if low <= 0 <= high:
+        raise ValueError("Tilt failed despite a valid original bracket; requires separate diagnosis")
+    for _ in range(32):
+        if low <= 0 <= high:
+            break
+        if low > 0: lo *= 2
+        if high < 0: hi *= 2
+        low, high = at(lo)[1], at(hi)[1]
+        if not np.isfinite([lo, hi, low, high]).all():
+            raise ValueError("Nonfinite tilt bracket")
+    else:
+        raise ValueError("Unable to bracket tilt root")
+    bracket = [lo, hi]
+    for _ in range(55):
+        mid = (lo + hi) / 2
+        mass, residual = at(mid)
+        if residual > 0: hi = mid
+        else: lo = mid
+    np.testing.assert_allclose(values @ mass, target, atol=1e-5, rtol=1e-8)
+    event = dict(values=values.tolist(), base_weights=weights.tolist(), target=float(target),
+                 original_mean=float(values @ result), weights=mass.tolist(), bracket=bracket,
+                 root=float(mid), iterations=55, atol=1e-5, rtol=1e-8)
+    audit_tilt_event(event)
+    events.append(event)
+    return mass
+
+
+def audit_tilt_event(event):
+    """Independent Brent root and max-shift normalization, on repaired cases."""
+    import numpy as np
+    from scipy.optimize import brentq
+    values, base = np.asarray(event["values"]), np.asarray(event["base_weights"])
+    target = event["target"]
+    z = (values - target) / max(float(np.ptp(values)), 1.)
+    def at(parameter):
+        logits = np.log(np.maximum(base, 1e-300)) + parameter * z
+        mass = np.exp(logits - logits.max())
+        return mass / mass.sum()
+    root = brentq(lambda x: float(at(x) @ z), *event["bracket"], xtol=1e-12, rtol=1e-14)
+    reference = at(root)
+    np.testing.assert_allclose(reference, event["weights"], atol=1e-10, rtol=0)
+    np.testing.assert_allclose(reference @ values, target, atol=1e-5, rtol=1e-8)
+
+
+@contextmanager
+def repaired_tilt(posterior, events):
+    original = posterior.tilt
+    posterior.tilt = lambda values, weights, target: bracketed_tilt(original, values, weights, target, events)
+    try:
+        yield
+    finally:
+        posterior.tilt = original
+
+
 def daily_posterior(folder, identity_record, ids, rows, p71, c):
     """Checkpoint each independent airport-day; never repeat completed solves."""
     import numpy as np
@@ -368,13 +445,16 @@ def daily_posterior(folder, identity_record, ids, rows, p71, c):
         args = (group.gap.to_numpy(float), p71[at].astype(float), group.has_id.to_numpy(bool),
                 group.nm_gap.to_numpy(float), airport, params[airport], float(public.total),
                 float(public.n_public - len(group)))
-        gaussian[at], ginfo = c.heavy.condition(*args, logprior=c.heavy.GAUSSIAN)
-        student[at], sinfo = c.heavy.condition(*args)
+        recovery = []
+        with repaired_tilt(c.heavy.old, recovery):
+            gaussian[at], ginfo = c.heavy.condition(*args, logprior=c.heavy.GAUSSIAN)
+            student[at], sinfo = c.heavy.condition(*args)
         frame = pd.DataFrame(dict(mvt_id=ids[at], v71=p71[at], gaussian=gaussian[at], student=student[at]))
         parquet(frame, p)
         diagnostic = dict(airport=airport, day=day, rows=len(group), public_total=float(public.total),
                           public_count=float(public.n_public), gaussian_offset=ginfo["offset"], **sinfo)
-        write(r, dict(identity=identity_record, prediction=art(p), diagnostic=diagnostic))
+        write(r, dict(identity=identity_record, prediction=art(p), diagnostic=diagnostic,
+                      tilt_recovery=recovery))
         cells.append(diagnostic)
     if not np.isfinite(gaussian).all() or not np.isfinite(student).all():
         raise ValueError("Incomplete daily posterior")
@@ -529,6 +609,9 @@ def audit(view, out, identity, mods):
         raise ValueError("Result identity mismatch")
     for record in result["outputs"]:
         verify(record)
+    for receipt in sorted((folder / "posterior_days").glob("*.json")):
+        for event in read(receipt).get("tilt_recovery", []):
+            audit_tilt_event(event)
     template_path = ROOT / "data" / ("submitting.parquet" if view == "old" else "final_submitting.parquet")
     template = pq.read_table(template_path)
     ids = template["MVT_ID_mvt"].to_numpy()

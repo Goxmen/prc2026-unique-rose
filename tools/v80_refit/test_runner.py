@@ -81,6 +81,22 @@ class UploadContracts(unittest.TestCase):
                 mc.assert_not_called()
 
 class RunnerContracts(unittest.TestCase):
+    def test_completed_exports_resume_without_remote_access(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            self.assertFalse(runner.completed_components(root))
+            rec = dict(path='saved', sha256='good')
+            for family in ('trees', 'neural'):
+                runner.save(root/family/'result.json', dict(status='pass', identity=rec,
+                    predictions={'old':rec, 'final':rec}, models=[rec], artifacts=[rec]))
+            with patch.object(runner, 'verify') as verify, \
+                 patch.object(runner, 'remote_python', side_effect=AssertionError('no remote access')):
+                self.assertTrue(runner.completed_components(root))
+                self.assertEqual(verify.call_count, 10)
+            with patch.object(runner, 'verify', side_effect=ValueError('corrupt saved output')):
+                with self.assertRaisesRegex(ValueError, 'corrupt'):
+                    runner.completed_components(root)
+
     def test_pid_reuse_is_not_our_worker(self):
         with patch.object(host,'process_start',return_value='222'):
             self.assertFalse(host.alive({'pid':123,'process_start':'111'}))

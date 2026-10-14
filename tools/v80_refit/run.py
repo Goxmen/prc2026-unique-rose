@@ -177,6 +177,25 @@ def stage_run(module, action, out, threads):
     if result.returncode:
         raise RuntimeError(f'{module} {action} failed; see {relative(log)}. Completed stages remain saved.')
 
+
+def completed_components(out):
+    """Finished local exports allow assembly to resume without either trainer."""
+    paths = [out / family / 'result.json' for family in ('trees', 'neural')]
+    if not all(path.is_file() for path in paths):
+        return False
+    for path in paths:
+        result = read(path)
+        if result.get('status') != 'pass' or set(result['predictions']) != {'old', 'final'}:
+            raise ValueError('Completed component receipt is invalid: ' + str(path))
+        records = [result['identity'], *result['predictions'].values(),
+                   *result['models'], *result.get('artifacts', [])]
+        if 'prepared' in result:
+            records.append(result['prepared'])
+        for record in records:
+            verify(record)
+    return True
+
+
 def run(out, threads, desktop_only):
     out.mkdir(parents=True,exist_ok=True)
     with (out/'runner.lock').open('a') as lock:
@@ -205,7 +224,9 @@ def run(out, threads, desktop_only):
                 raise RuntimeError('Desktop already has a heavy model job; no second job started')
             if shutil.disk_usage(ROOT).free<15*(1<<30):
                 raise RuntimeError('Need at least 15 GiB free desktop disk for retained refits and replay')
-            if not desktop_only:
+            if completed_components(out):
+                announce('Saved tree and neural outputs verified; resuming assembly without training or laptop access.')
+            elif not desktop_only:
                 health=bootstrap_health()
                 remote_state=remote_worker_state(out)
                 if not remote_state['alive'] and health['available_kb']<8*1024*1024:
