@@ -1,14 +1,22 @@
-# Selected final status
+# v80 full-year refit final
 
-The currently accepted final remains **v83**, uploaded on 13 October 2026,
-with 670,790 rows and SHA-256
-`f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.
-Its final numeric score is unpublished.
+Accepted replacement final: 670,790 predictions; SHA-256 `3d996ed6c12f32500c46738c1b89133282239903f94d82329c83dc97a7f4ae20`.
 
-The owner has requested a full v80 recipe refit and final replacement. The
-[manual runner](../tools/v80_refit/README.md) is prepared but has **not been run**.
-It replaces this record, the replay release and the deadline publication policy
-only after the new final's hash and official acceptance have been verified.
+This is the fixed v80 recipe with fresh full-2025 fits for missing members and retained matching full-year models for the others. Original ensemble weights and calibrations are fixed. Historical v3/v5-v9 use the archived original27 implementation because their exact historical modeling.py is absent. New GPU fits can differ numerically. No fresh four-month CV or new leaderboard RMSE is claimed. The replay verifies retained component assembly, not a clean-clone/raw-data training rebuild.
 
-Until then, the existing v83 replay and private draft remain the accepted fallback;
-see [the historical reproduction guide](../docs/REPRODUCING.md).
+Source commit: `d396e851afdc7eb02f1936592cebf41f1d990238`. Bundle manifest: `2c9a8dd6b9e32c541d2fad18eff2015398286eadfd4ebd2f8b21646a6247ad24`.
+
+The archive includes an offline replay script, the 51 integer basis vectors, fixed weights, three public-correction input vectors, blank template, source and provenance/model checksums. It excludes the final output and raw external datasets. Provider terms remain documented.
+
+The repository and this draft are authorized for publication only at **14 October 2026, 10:00 UTC / 12:00 Amsterdam**.
+
+## Replay
+
+Download and extract the release archive, then run:
+
+```bash
+python -m pip install -r requirements-replay.txt
+python replay.py reproduce --bundle . --output unique-rose_final.parquet
+```
+
+Acceptance checked at 2026-10-14T06:02:52.025313+00:00. Historical v83 remains archived.

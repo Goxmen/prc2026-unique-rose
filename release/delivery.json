@@ -1,31 +1,70 @@
 {
-  "status": "private_draft_uploaded_hash_verified",
-  "checked_at_utc": "2026-10-13T19:35:33.374831+00:00",
-  "repository": "Goxmen/PRC",
-  "visibility": "PRIVATE",
-  "draft_release_id": 412037499,
-  "draft_url": "https://github.com/Goxmen/PRC/releases/tag/untagged-e7283fb754e31d52d466",
-  "tag_name": "prc-final-v83-20261013",
-  "source_commit": "22caf18557d841e5057f02ef17df8749422001f7",
+  "accepted_final_sha256": "3d996ed6c12f32500c46738c1b89133282239903f94d82329c83dc97a7f4ae20",
   "assets": [
     {
-      "name": "SHA256SUMS",
-      "bytes": 93,
-      "sha256": "ac017f1ea30f5c6516c07ab4be378658ac47e3585ae4f0804337bd71b791dcf3",
-      "github_asset_id": 638040520,
-      "github_digest_verified": true
+      "bytes": 80619520,
+      "github_asset_id": 639414746,
+      "github_digest_verified": true,
+      "name": "v80-refit-3d996ed6c12f3250.tar",
+      "sha256": "8e62b025bd2a7d05763b40c6d72c852f51ee51bfb37fb08efffd28f8d634389f"
     },
     {
-      "name": "unique-rose-v83-replay.tar",
-      "bytes": 124395520,
-      "sha256": "75e9cda920c75b4325a13aae14005f1d125619f05701b9ec3eaa9142f870a949",
-      "github_asset_id": 638040521,
-      "github_digest_verified": true
+      "bytes": 97,
+      "github_asset_id": 639415064,
+      "github_digest_verified": true,
+      "name": "v80-refit-3d996ed6c12f3250-SHA256SUMS",
+      "sha256": "7905017d884febff55da53e69e039160fff5d65cc979e2f41daf00238dbdbba3"
     }
   ],
-  "publication": "Awaiting owner decision under prior private-repository instruction.",
-  "competition_submission_unchanged": true,
-  "accepted_final_upload_utc": "2026-10-13T10:35:01.673843+00:00",
-  "frozen_validation_sources_changed": false,
-  "full_raw_data_retraining_verified": false
+  "checked_at": "2026-10-14T06:02:54.012040+00:00",
+  "draft_url": "https://github.com/Goxmen/PRC/releases/tag/untagged-e366ff47a1e5cac52bbc",
+  "final_acceptance": {
+    "candidate": {
+      "bytes": 4077981,
+      "path": "VALIDATION/runs/v3_20261013_v80_refit_final/final/candidate.parquet",
+      "sha256": "3d996ed6c12f32500c46738c1b89133282239903f94d82329c83dc97a7f4ae20"
+    },
+    "checked_at": "2026-10-14T06:02:52.025313+00:00",
+    "numeric_final_score_published": false,
+    "official": {
+      "bucket": "prc-2026-unique-rose",
+      "file": "unique-rose_final.parquet",
+      "inputs": {
+        "test_set_bucket": "prc-2026-datasets",
+        "test_set_file": "final_submitting.parquet"
+      },
+      "status": "Succeeded",
+      "used_pairs": 670790
+    },
+    "official_stat": {
+      "etag": "47e981584288d36cc572bd68652b8283",
+      "lastModified": "2026-10-14T08:02:42+02:00",
+      "metadata": {
+        "Content-Type": "application/json"
+      },
+      "name": "unique-rose_final.parquet_result.json",
+      "size": 257,
+      "status": "success",
+      "type": "file"
+    },
+    "status": "accepted"
+  },
+  "release_id": 412385040,
+  "release_tag": "prc-final-v80-refit-3d996ed6c12f",
+  "remote_delivery": {
+    "candidate": {
+      "bytes": 4077981,
+      "path": "VALIDATION/runs/v3_20261013_v80_refit_final/final/candidate.parquet",
+      "sha256": "3d996ed6c12f32500c46738c1b89133282239903f94d82329c83dc97a7f4ae20"
+    },
+    "checked_at": "2026-10-14T06:02:34.796794+00:00",
+    "remote": {
+      "bytes": 4077981,
+      "path": "VALIDATION/runs/v3_20261013_v80_refit_final/delivery/remote_verified.parquet",
+      "sha256": "3d996ed6c12f32500c46738c1b89133282239903f94d82329c83dc97a7f4ae20"
+    },
+    "status": "remote_hash_verified"
+  },
+  "source_commit": "d396e851afdc7eb02f1936592cebf41f1d990238",
+  "status": "accepted_v80_refit_private_draft_scheduled"
 }
