@@ -16,5 +16,5 @@ reproduces the final file from the retained51 component vectors, fixed weights
 and3 correction inputs. This certifies component assembly, not full raw-data
 retraining or arbitrary-new-input inference. See [artifact manifest](artifact_manifest.json).
 
-The [repository](https://github.com/Goxmen/PRC) and [verified v84 replay release](https://github.com/Goxmen/PRC/releases/tag/prc-final-v84-76938ead67f3)
+The [repository](https://github.com/Goxmen/prc2026-unique-rose) and [verified v84 replay release](https://github.com/Goxmen/prc2026-unique-rose/releases/tag/prc-final-v84-76938ead67f3)
 are **public**.

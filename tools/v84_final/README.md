@@ -44,7 +44,7 @@ python replay.py reproduce --bundle . \
 
 The frozen source commit is
 `16ce6238236051555a6296d1a6d733de90a2b253`. The public
-[v84 release](https://github.com/Goxmen/PRC/releases/tag/prc-final-v84-76938ead67f3)
+[v84 release](https://github.com/Goxmen/prc2026-unique-rose/releases/tag/prc-final-v84-76938ead67f3)
 contains the exact archive and checksum assets, whose digests were verified. The `draft` stage never activates publication, commits, pushes or
 submits to the competition. Those are separate authorized operations. The old
 v83 release and replay assets remain available for rollback.

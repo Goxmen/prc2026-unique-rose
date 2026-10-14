@@ -147,8 +147,8 @@ and [reproduction guide](docs/REPRODUCING.md) for hardware and runtime details.
 You also need git and the MinIO client `mc` for competition data access.
 
 ```sh
-git clone https://github.com/Goxmen/PRC.git
-cd PRC
+git clone https://github.com/Goxmen/prc2026-unique-rose.git
+cd prc2026-unique-rose
 
 # Python environment
 python3 -m venv .venv
