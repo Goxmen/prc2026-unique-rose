@@ -57,44 +57,31 @@ data are not bundled into git.
    the current source files. Keep credentials, private notes, raw datasets,
    row-level caches and large model bundles out of git. Do not push local
    `refs/codex/` checkpoint references with `--mirror`.
-4. Commit and push the reviewed source and documentation to the private `main`
-   repository. Preserve research artifacts locally; do not move or change source
+4. Commit and push the reviewed source and documentation to `main`. Preserve research artifacts locally; do not move or change source
    files or input caches used by an active validation run.
-5. Public GitHub availability is required for prize eligibility. The owner has
-   authorized publication at **14 October, 09:30 UTC / 11:30 Amsterdam**, and
-   privacy until then. See [the scheduled policy](../release/publication_schedule.json).
+5. Public GitHub availability is required for prize eligibility. The repository
+   and selected release were published at **14 October, 09:25:18 UTC /
+   11:25:18 Amsterdam**, following the owner's immediate-publication request.
+   See [the publication policy](../release/publication_schedule.json).
    Obtain the organizer's repository-handoff instructions if not otherwise announced.
 6. Make required reproduction artifacts available through an appropriate
    release/download channel with the source release. A local-only artifact path
    is not a public download. Observe provider redistribution terms.
 
-No public release or complete raw-data retraining certification is implied merely
-by this checklist being present. Exact replay evidence and artifact distribution
-status are recorded in the reproduction guide and release manifests.
+The public release and exact replay evidence are recorded in the reproduction
+guide and release manifests. Public availability does not establish a complete
+raw-data retraining certification.
 
-## Scheduled publication
+## Completed publication
 
-The desktop user timer `prc-publish-final-20261014.timer` starts the guarded
-publisher at 09:30 UTC (11:30 Amsterdam). It audits current source/history, verifies local/remote
-`main` agreement and the exact draft assets, changes repository visibility, then
-publishes the draft release. It verifies both actions and records a receipt.
-The time guard prohibits early publication, including an accidental manual start.
-Failures preserve receipts and the service retries; partial success is resumed
-without changing the repository back to private. There is no competition upload.
+The guarded publisher verified source/history, local/remote `main`, exact release
+assets, repository visibility and published-release status. Its receipt is
+`release/artifacts/publication.json`, with status `published_verified` at
+09:25:18 UTC / 11:25:18 Amsterdam on 14 October 2026. The public assets are
+available from the
+[v84 release](https://github.com/Goxmen/PRC/releases/tag/prc-final-v84-76938ead67f3).
 
-```bash
-systemctl --user list-timers prc-publish-final-20261014.timer
-systemctl --user status prc-publish-final-20261014.service
-journalctl --user -u prc-publish-final-20261014.service
-cat release/artifacts/publication.json
-```
-
-The desktop and Ubuntu WSL must stay online. A persistent timer catches a missed
-start when WSL next runs but cannot wake a shut-down host; network/authentication
-also must remain available. A changed final model requires repackaging and an
-updated, verified schedule policy. To cancel an authorization before publication:
-
-```bash
-systemctl --user disable --now prc-publish-final-20261014.timer
-systemctl --user stop prc-publish-final-20261014.service
-```
+The owner's immediate-publication request superseded the earlier 11:30 schedule.
+`prc-publish-final-20261014.timer` is disabled; no scheduled publication remains.
+This publication did not change the accepted competition predictions or the
+official **10:00 UTC / 12:00 Amsterdam** final-submission deadline.
