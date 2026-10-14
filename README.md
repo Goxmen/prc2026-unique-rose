@@ -64,8 +64,9 @@ Predict the **taxi-out time** (`TAXITIME_SEC_mvt`, in seconds) of departing flig
   taxi-out times for the accepted evaluation population. Historical scores
   through v61 use the 344,841 original January/July departures.
 - A team's rank is its **best RMSE across its scored submissions**. As recorded
-  on 13 October, best is **v80 at 218.8525** on 344,841 original departures; latest scored
-  is **v83 at 220.9278**. The separate final submission was accepted on all
+  on 14 October, best is **v80 at 218.8525** on 344,841 original departures; latest scored
+  is **v84 at 218.9025**. V84 is a regular leaderboard check of the recovered
+  reconstruction; the selected final remains v83. The separate final submission was accepted on all
   670,790 rows on 13 October; its score is unpublished.
 - Leaderboard REST API: `https://datacomp.opensky-network.org/api/competitions/bb3693e1-26bc-4a9e-8619-4fe78b4eab0c/leaderboard` (paginate via `nextCursor`; Swagger docs at `https://datacomp.opensky-network.org/api/swagger-ui/`).
 

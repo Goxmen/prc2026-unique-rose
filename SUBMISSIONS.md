@@ -16,12 +16,13 @@ scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 4
 were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are `-`.
 On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
-**Active target: 205.00 seconds or lower. Best: v80, 218.8525 s; latest scored: v83, 220.9278 s. Final accepted; score unpublished.**
+**Active target: 205.00 seconds or lower. Best: v80, 218.8525 s; latest scored: v84, 218.9025 s. Selected final remains v83; final score unpublished.**
 V80 improves v79 by **0.7605 seconds**; **13.8525 seconds** remain to the target.
-Public snapshot 13 October 11:49 Amsterdam: **rank 9/246**, all **344,841** original
+Public snapshot 14 October 09:57 Amsterdam: **rank 11/248**, all **344,841** original
 January/July flights scored. V80 Jan/Jul CV is **289.762778**. Its affine parent
 uses our own leaderboard feedback; reused development CV is not independent
-confirmation. Three October13 slots are used; two remain, including the reserved last slot. V83 scored at 11:58 Amsterdam.
+confirmation. V84 is an owner-requested regular leaderboard check of the recovered
+v80 reconstruction; no new CV was run and it has not replaced the selected final.
 [Current research](VALIDATION/reports/TARGET205_RESEARCH.md).
 
 Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
@@ -146,6 +147,7 @@ traffic counts), 800 rounds and a training-label filter of 1–200,000 seconds.
 | 83 | **Portable-public** | Row 81 uses the explicitly reduced affine base. | - | - | - | - | 290.8394 | 221.5240 | v82 |
 | 84 | **Portable-student** | Row 83 adds a fixed correction learned from v80 predictions. | - | - | - | - | 289.6076 | 220.9278 | v83 |
 | 85 | **Final portable-student** | Row 84 applies the same recipe to the final four months. | - | - | - | - | 289.6076 | Pending | final |
+| 86 | **Recovered-v80 reconstruction** | Row 81 is reconstructed from recovered weights and retained refits. | - | - | - | - | - | 218.9025 | v84 |
 
 
 All values are **RMSE in seconds; lower is better**. **Weighted CV was adopted
@@ -1021,3 +1023,5 @@ The organiser has approved open trajectory data if declared; this is the declara
 - **Row 84 (v83)** distills the complete v80 prediction into the 28 recovered components plus portable v82. Four same-month blocked ridge1 fits with a one-day embargo score every Jan/Jul row out of fit; all coefficient/prediction files and an independent input audit precede true-label scoring. CV improves v82 by **1.231818 seconds**, interval **[−1.942349,−0.555292]**, with January −0.756042 and July −1.707595. Versus v80 the mean difference is −0.155170, but its interval crosses zero and January worsens: no superiority claim. One production solve learns from actual original-ranking v80 predictions, without ranking taxi labels, and produces both old and final views. Independent source, Cholesky, raw SQL, constraints, bootstrap and template audits pass. Uploaded once **13 October 11:57 Amsterdam**, remote hash exact; official **220.9278** on 344,841 rows improves v82 by **0.5962** but trails v80 by **2.0753**. Blocked CV is reused development; original-ranking teacher fitting does not validate February/June or jittered final-input transfer. The inherited historical early-model CV caveat remains. [CV audit](VALIDATION/runs/v3_20261013_v80_teacher_distillation/cv/audit.json), [production audit](VALIDATION/runs/v3_20261013_v80_teacher_distillation/production/audit.json), [submission record](VALIDATION/runs/v3_20261013_v80_teacher_distillation/submission_v83/manifest.json).
 
 - **Row 85 (final)** applies the unchanged row84 recipe and retained production coefficients to all670,790 final rows. Uploaded once **13 October12:35Amsterdam**, remote SHA-256 `f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f` matches the audited artifact. Official status is **Succeeded**, used_pairs670790; no numeric score is published. Jan/Jul CV is the complete recipe's existing289.607608, not a new validation run or a final-data score. Independent template/ID/value checks and inherited public-source numerical recovery pass. V83 was selected over v82 on both-month CV and official original-ranking evidence; exact v80 final is unavailable, and the shared-clock hybrid lacks genuine paired-view CV. One daily slot remains reserved; no duplicate upload. [Selection](VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/selection.json), [manifest](VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/manifest.json), [acceptance](VALIDATION/runs/v3_20261013_v80_teacher_distillation/final_submission/acceptance.json).
+
+- **Row 86 (v84)** is the fixed v80 recipe reconstructed with recovered original components, corrected-source v3 and retained replacement models. The owner explicitly requested one regular January/July leaderboard upload after seeing the prediction-fidelity comparison; no new CV was run, and original v80 CV is not relabeled as validation of this reconstruction. On all344,841 unchanged original inputs, disagreement with original v80 is MAE5.455537s/RMS10.263597s; this is prediction agreement, not an accuracy metric. Independent schema/ID, frozen-coefficient and component checks pass. Uploaded once **14 October09:56Amsterdam**, accepted at09:57 with official **218.9025** on all344,841 rows: **0.0500s worse than original v80**, **2.0253s better than v83**. Remote SHA-256 `ab5749c68560aa02bae68aadf9e13b962a87f0c5227b2f2303303a41cff16763` matches. The v83 final remote hash remains unchanged. A separate four-month v84 reconstruction is prepared but unselected; no final replacement was performed. [Delivery and official result](VALIDATION/runs/v3_20261014_exact_v80_recovery/prediction_fidelity_recheck/leaderboard_delivery/manifest.json).
