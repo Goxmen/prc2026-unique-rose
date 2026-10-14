@@ -1,11 +1,13 @@
-# v80 full-year refit final
+# Accepted final v83: reproducible ensemble assembly
 
-Accepted replacement final: 670,790 predictions; SHA-256 `3d996ed6c12f32500c46738c1b89133282239903f94d82329c83dc97a7f4ae20`.
+This release preserves the accepted 670,790-row final submission as of 13 October 2026. The replay recomputes predictions from 28 retained component vectors, the portable anchor, saved coefficients and recorded constraints. It does not copy the final output.
 
-This is the fixed v80 recipe with fresh full-2025 fits for missing members and retained matching full-year models for the others. Original ensemble weights and calibrations are fixed. Historical v3/v5-v9 use the archived original27 implementation because their exact historical modeling.py is absent. New GPU fits can differ numerically. No fresh four-month CV or new leaderboard RMSE is claimed. The replay verifies retained component assembly, not a clean-clone/raw-data training rebuild.
+All predicted values and Parquet bytes reproduce SHA-256 `f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`. No hidden target labels, credentials, training or network access are required for replay.
 
-Source commit: `d396e851afdc7eb02f1936592cebf41f1d990238`. Bundle manifest: `2c9a8dd6b9e32c541d2fad18eff2015398286eadfd4ebd2f8b21646a6247ad24`.
+Download `unique-rose-v83-replay.tar` and `SHA256SUMS`, verify the archive checksum, and extract it. Follow `docs/REPRODUCING.md` in the source repository. Full acquisition/method/attribution/environment records accompany the source.
 
-The archive includes an offline replay script, the 51 integer basis vectors, fixed weights, three public-correction input vectors, blank template, source and provenance/model checksums. It excludes the final output and raw external datasets. Provider terms remain documented.
+This is verified retained-component ensemble replay, not a demonstrated clean raw-data training rebuild or arbitrary-new-month inference pipeline. The owner restored these exact v83 bytes as the selected final on 14 October after an intervening v80 refit. Provider data terms remain applicable to derived inputs; repository source is GPLv3.
 
-The repository and this draft are authorized for publication only at **14 October 2026, 10:00 UTC / 12:00 Amsterdam**.
+This release was prepared privately. The owner authorized public repository and release publication at the challenge deadline, 14 October 2026 at 10:00 UTC (12:00 Amsterdam).
+
+Restoration was accepted at 2026-10-14T08:36:43+02:00 on all 670,790 rows; the final numeric score remains unpublished. The replay archive and original source tag are unchanged.

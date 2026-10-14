@@ -7,12 +7,12 @@ records, but has not been demonstrated in a fresh clone and must not be describe
 as a verified one-command rebuild.
 
 The current accepted artifact and replay route are recorded in
-[selected final status](../release/SELECTED_FINAL.md). A user-run
-[full v80 refit](../tools/v80_refit/README.md) is prepared separately; it updates
-that record after successful final delivery. The v83 instructions below remain
-the historical replay route and must not be used to claim replay of a replacement.
+[selected final status](../release/SELECTED_FINAL.md). The owner restored the exact
+original v83 final on 14 October 2026; all 670,790 rows were accepted again at
+08:36 Amsterdam. The intervening [v80 refit](../tools/v80_refit/README.md) is
+superseded. The v83 instructions below reproduce the current selected final.
 
-The accepted final at the time of the original release preparation was v83, uploaded as
+The accepted final is v83, uploaded as
 `unique-rose_final.parquet`, with 670,790 January, February, June and July 2026
 departures. Its SHA-256 is
 `f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.

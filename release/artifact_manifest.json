@@ -1,27 +1,18 @@
 {
-  "accepted_final_sha256": "3d996ed6c12f32500c46738c1b89133282239903f94d82329c83dc97a7f4ae20",
-  "assets": [
-    {
-      "bytes": 80619520,
-      "github_asset_id": 639414746,
-      "github_digest_verified": true,
-      "name": "v80-refit-3d996ed6c12f3250.tar",
-      "sha256": "8e62b025bd2a7d05763b40c6d72c852f51ee51bfb37fb08efffd28f8d634389f"
-    },
-    {
-      "bytes": 97,
-      "github_asset_id": 639415064,
-      "github_digest_verified": true,
-      "name": "v80-refit-3d996ed6c12f3250-SHA256SUMS",
-      "sha256": "7905017d884febff55da53e69e039160fff5d65cc979e2f41daf00238dbdbba3"
-    }
-  ],
-  "bundle_manifest_sha256": "2c9a8dd6b9e32c541d2fad18eff2015398286eadfd4ebd2f8b21646a6247ad24",
-  "distribution": "Private draft; scheduled for authorized deadline publication",
-  "draft_url": "https://github.com/Goxmen/PRC/releases/tag/untagged-e366ff47a1e5cac52bbc",
-  "rows": 670790,
-  "schema": "prc_release_artifact_v2",
-  "scope": "This is the fixed v80 recipe with fresh full-2025 fits for missing members and retained matching full-year models for the others. Original ensemble weights and calibrations are fixed. Historical v3/v5-v9 use the archived original27 implementation because their exact historical modeling.py is absent. New GPU fits can differ numerically. No fresh four-month CV or new leaderboard RMSE is claimed. The replay verifies retained component assembly, not a clean-clone/raw-data training rebuild.",
-  "source_commit": "d396e851afdc7eb02f1936592cebf41f1d990238",
-  "tag": "prc-final-v80-refit-3d996ed6c12f"
+  "accepted_final_sha256": "f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f",
+  "asset": "unique-rose-v83-replay.tar",
+  "bundle_manifest_sha256": "019021aa429548f028a563a8cdf24174d4e412932c7776468799a65c19639d12",
+  "bytes": 124395520,
+  "distribution": "Private draft uploaded and hash-verified; publication scheduled for 2026-10-14T10:00:00Z.",
+  "draft_url": "https://github.com/Goxmen/PRC/releases/tag/untagged-ad70eef6f2eaebad2b0c",
+  "restored_final_acceptance": {
+    "bytes": 923,
+    "path": "VALIDATION/runs/v3_20261014_restore_v83_final/delivery/acceptance.json",
+    "sha256": "d8128401d16eba212759cb138e93c5356630980a5c34a65f2e9cfa6c3593338f"
+  },
+  "schema": "prc_release_artifact_v1",
+  "scope": "Exact accepted v83 ensemble assembly from retained components; not full raw-data retraining.",
+  "sha256": "75e9cda920c75b4325a13aae14005f1d125619f05701b9ec3eaa9142f870a949",
+  "standalone_package": true,
+  "tag": "prc-final-v83-20261013"
 }

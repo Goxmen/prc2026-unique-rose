@@ -142,7 +142,9 @@ def publish(policy, receipt):
     if check['release_draft']:
         verify_tag(policy)
         guard_time(policy)
-        api(base + '/releases/' + str(policy['release_id']), {'draft': False})
+        api(base + '/releases/' + str(policy['release_id']),
+            {'draft': False, 'tag_name': policy['release_tag'],
+             'target_commitish': policy['release_source_commit']})
     repository, release = api(base), api(base + '/releases/' + str(policy['release_id']))
     verify_remote(policy, repository, release)
     require(not repository['private'] and not release['draft'], 'Publication did not reach requested state.')

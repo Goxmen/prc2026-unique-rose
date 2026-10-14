@@ -1,5 +1,11 @@
 # Submitted models
 
+**Selected final: v83, restored and accepted on 14 October at 08:36 Amsterdam,
+all 670,790 rows.** The intervening v80 refit was accepted at 08:02 and then
+superseded at the owner's request. The restored file exactly matches the original
+13 October v83 final; SHA-256 `f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.
+No final numeric score is published. See [selected final status](release/SELECTED_FINAL.md).
+
 **Current validation for new candidates: Jan/Jul CV.** The older validation columns
 are retained below; they are not run for new candidates. See the notes under the table.
 Best verified Weighted CV: **v42 at 263.5929 s**

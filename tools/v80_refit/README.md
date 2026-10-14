@@ -1,5 +1,10 @@
 # Manual v80 full-year refit and final submission
 
+**Superseded on 14 October 2026.** The owner restored the original v83 final;
+all 670,790 rows were accepted at 08:36 Amsterdam. Use
+[selected final status](../../release/SELECTED_FINAL.md) and the v83 replay guide.
+The command below documents the earlier refit and is not the selected final route.
+
 From the existing research checkout on the desktop, run:
 
 ```bash

@@ -1,22 +1,18 @@
-# v80 full-year refit final
+# Selected final: v83
 
-Accepted replacement final: 670,790 predictions; SHA-256 `3d996ed6c12f32500c46738c1b89133282239903f94d82329c83dc97a7f4ae20`.
+**v83 is restored and accepted** as `unique-rose_final.parquet`, on all 670,790 rows.
+Original upload: 13 October 2026. Restoration accepted: 2026-10-14T08:36:43+02:00.
 
-This is the fixed v80 recipe with fresh full-2025 fits for missing members and retained matching full-year models for the others. Original ensemble weights and calibrations are fixed. Historical v3/v5-v9 use the archived original27 implementation because their exact historical modeling.py is absent. New GPU fits can differ numerically. No fresh four-month CV or new leaderboard RMSE is claimed. The replay verifies retained component assembly, not a clean-clone/raw-data training rebuild.
+SHA-256: `f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.
 
-Source commit: `d396e851afdc7eb02f1936592cebf41f1d990238`. Bundle manifest: `2c9a8dd6b9e32c541d2fad18eff2015398286eadfd4ebd2f8b21646a6247ad24`.
+The restored file is byte-for-byte identical to the previously accepted v83 final.
+The intervening v80 refit is superseded at the owner's request. No further refit or
+competition upload is scheduled. The final numeric score is unpublished.
 
-The archive includes an offline replay script, the 51 integer basis vectors, fixed weights, three public-correction input vectors, blank template, source and provenance/model checksums. It excludes the final output and raw external datasets. Provider terms remain documented.
+Use the original v83 [reproduction guide](../docs/REPRODUCING.md) and
+`unique-rose-v83-replay.tar`. The replay reproduces the complete prediction file
+from retained components and saved coefficients. Its archive and source tag are
+unchanged; see [artifact manifest](artifact_manifest.json).
 
-The repository and this draft are authorized for publication only at **14 October 2026, 10:00 UTC / 12:00 Amsterdam**.
-
-## Replay
-
-Download and extract the release archive, then run:
-
-```bash
-python -m pip install -r requirements-replay.txt
-python replay.py reproduce --bundle . --output unique-rose_final.parquet
-```
-
-Acceptance checked at 2026-10-14T06:02:52.025313+00:00. Historical v83 remains archived.
+The repository and reviewed v83 release remain private until the authorized
+**14 October 2026, 10:00 UTC / 12:00 Amsterdam** publication time.

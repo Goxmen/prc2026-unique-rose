@@ -65,7 +65,8 @@ class PublicationTests(unittest.TestCase):
             receipt = Path(directory) / 'receipt.json'
             self.assertEqual(publish.publish(self.policy, receipt)['status'], 'published_verified')
             self.assertEqual(publish.publish(self.policy, receipt)['status'], 'published_verified')
-        self.assertEqual(mutations, [('repos/Goxmen/PRC/releases/456', {'draft': False})])
+        self.assertEqual(mutations, [('repos/Goxmen/PRC/releases/456',
+            {'draft': False, 'tag_name': 'fixture', 'target_commitish': 'source'})])
 
     def test_cold_publication_order(self):
         mutations = []
@@ -73,6 +74,10 @@ class PublicationTests(unittest.TestCase):
             if payload is not None:
                 mutations.append(payload)
                 (self.release if '/releases/' in endpoint else self.repository).update(payload)
+                # A draft edit without an explicit tag can acquire an untagged
+                # name. Preserve the reviewed tag in the publication request.
+                if '/releases/' in endpoint and 'tag_name' not in payload:
+                    self.release['tag_name'] = 'untagged-draft'
             if endpoint.endswith('/git/ref/heads/main'):
                 return {'object': {'sha': 'head'}}
             if '/git/matching-refs/tags/' in endpoint:
@@ -85,7 +90,8 @@ class PublicationTests(unittest.TestCase):
                 patch.object(publish, 'now', return_value=datetime(2026, 10, 14, 10, 0, tzinfo=timezone.utc)):
             result = publish.publish(self.policy, Path(directory) / 'receipt.json')
         self.assertEqual(result['status'], 'published_verified')
-        self.assertEqual(mutations, [{'private': False}, {'draft': False}])
+        self.assertEqual(mutations, [{'private': False},
+            {'draft': False, 'tag_name': 'fixture', 'target_commitish': 'source'}])
 
     def test_head_change_prevents_all_mutations(self):
         check = dict(reviewed_main='head', repository_private=True, release_draft=True)

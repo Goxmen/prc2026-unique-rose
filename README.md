@@ -15,8 +15,8 @@ and from the current four-month model-selection experiment. Reproduction
 commands never submit predictions.
 
 See [selected final status](release/SELECTED_FINAL.md) for the authoritative
-accepted artifact. The separate [manual v80 refit command](tools/v80_refit/README.md)
-does upload a replacement when the owner runs it.
+accepted artifact. **v83 was restored as the final submission on 14 October**;
+the separate [v80 refit](tools/v80_refit/README.md) is superseded.
 
 [Repository contents](docs/REPOSITORY_CONTENTS.md) explains which source and
 provenance files are retained for review. Datasets, weights, caches, detailed
@@ -33,13 +33,12 @@ distributed separately as release assets.
 | [Four-month validation](VALIDATION/docs/FINAL_MONTH_SELECTION.md) | Ten candidate definitions and embargoed folds |
 | [Submission record](SUBMISSIONS.md) | Actual uploads and selected candidates |
 
-The historical v83 final artifact was uploaded on
-13 October 2026: 670,790 predictions, SHA-256
+The v83 final artifact was first uploaded on 13 October 2026 and restored,
+byte-for-byte, on 14 October at 08:36 Amsterdam: 670,790 predictions, SHA-256
 `f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.
-Acceptance is not a published final RMSE. The current four-month experiment
-does not replace that artifact automatically. The owner has separately selected
-a full v80 recipe refit; its manual runner updates the selected-final record only
-after the replacement is accepted.
+The restoration was accepted on all rows. Acceptance is not a published final
+RMSE. The intervening v80 refit is superseded at the owner's request; no further
+training or competition submission is scheduled.
 
 ## Competition rules & key information
 
