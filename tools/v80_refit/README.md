@@ -5,21 +5,27 @@ all 670,790 rows were accepted at 08:36 Amsterdam. Use
 [selected final status](../../release/SELECTED_FINAL.md) and the v83 replay guide.
 The command below documents the earlier refit and is not the selected final route.
 
-From the existing research checkout on the desktop, run:
+The owner's renewed recovery instruction permits replacing v83 only with fully
+recovered, verified v80. This historical approximate-refit uploader is now blocked
+before changing its selection receipt or contacting the competition. Its `check`
+command remains available for read-only inspection; an assembly replay alone does
+not authorize delivery.
+
+The superseded execution command was:
 
 ```bash
 .venv/bin/python -u tools/v80_refit/run.py run --threads 4
 ```
 
-**This command uploads the resulting final prediction**, replacing the existing
-v83 `unique-rose_final.parquet` after saving its bytes. Keep both computers and
-the terminal online. It uses the desktop for missing tree fits and
-`glaptop-wsl` for the missing neural pool, one heavy worker per host. If the laptop
-cannot be used, choose `--desktop-only` before the first launch; the jobs then
-run sequentially on the desktop. Do not change hosts or thread settings mid-run.
+**Historical behavior before the delivery block:** this command uploaded the
+resulting final prediction, replacing v83 after saving its bytes. The following
+execution notes describe that superseded run. It used the desktop for missing tree
+fits and `glaptop-wsl` for the missing neural pool, one heavy worker per host.
+The optional `--desktop-only` mode ran both workers sequentially on the desktop;
+hosts and thread settings were fixed when the run was initialized.
 
-Expected execution is roughly 2–4 hours, including transfer, correction inference
-and packaging; this is an estimate, not a timed end-to-end measurement. The
+The original execution estimate was 2–4 hours, including transfer, correction
+inference and packaging; no timed end-to-end measurement supported that estimate. The
 submission deadline is 14 October 2026, 10:00 UTC / 12:00 Amsterdam. The runner
 refuses a new final PUT after that deadline.
 
@@ -60,11 +66,10 @@ receipts and release metadata remain separate. Source/input/configuration hashes
 are frozen before execution. Required laptop files are transferred only when
 missing or different, with backups and hash verification.
 
-Rerun the same command after an ordinary interruption. Saved neural epochs include
-optimizer/scheduler/RNG state; completed tree models and correction groups are
-retained. A changed source, input, model or configuration stops the run rather
-than silently mixing artifacts. A tree model saved without its completion receipt
-is preserved and needs inspection, rather than being fitted again automatically.
+The superseded runner resumed ordinary interruptions from saved neural epochs,
+including optimizer/scheduler/RNG state, and retained completed tree models and
+correction groups. Changed source, input, model or configuration stopped the run.
+A tree model saved without its completion receipt was preserved for inspection.
 
 The first run stopped when the rebuilt v5 frame used newly discovered category
 codes instead of the retained model's codes. The repair checks every training
@@ -82,20 +87,20 @@ mean tolerance, and independently checks repaired weights with Brent's method.
 Successful weights and completed airport-day predictions are retained. The
 source/receipt migration and original records are preserved under `recovery/`.
 
-Before delivery the runner checks all 670,790 IDs, schema, integer predictions,
-component arithmetic and exact standalone replay. The final PUT is conditional
-on the reviewed v83 object's ETag. An attempted PUT is recorded first; uncertain
-delivery is reconciled by remote hash, never automatically uploaded again. Official
-acceptance must be fresh, so the previous v83 success cannot be mistaken for the
-new result. The live daily quota is checked before consuming the selected final slot.
+Before its historical delivery the runner checked all 670,790 IDs, schema, integer
+predictions, component arithmetic and exact standalone replay. The final PUT was
+conditional on the reviewed v83 object's ETag. It recorded the attempt before PUT,
+reconciled uncertain delivery by remote hash, checked the daily quota, and required
+fresh official acceptance. These were delivery and assembly checks; they did not
+establish recovery of the original trained weights.
 
 ## Release and reproducibility
 
-Before the final PUT, the runner prepares a verified offline component replay and
-private GitHub draft. After new final acceptance it updates the five generated
-release status files, commits/pushes them on `main`, and switches the existing
-deadline publication policy to the new draft. It does not make the repository
-public before the previously authorized deadline. The v83 draft remains archived.
+Before the historical final PUT, the runner prepared an offline component replay
+and private GitHub draft. After acceptance it updated five generated release files,
+committed/pushed them on `main`, and switched the deadline publication policy.
+The subsequent v83 restoration superseded those updates. The v83 draft is again
+selected for publication at the previously authorized deadline.
 
 The replay bundle regenerates the final bytes from 51 prediction vectors, fixed
 weights, correction inputs and the blank template; it excludes the final output.

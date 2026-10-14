@@ -1,5 +1,6 @@
 """Offline failure-path tests. No competition/GitHub calls or real model fits."""
 import importlib.util
+import io
 import json
 from pathlib import Path
 import sys
@@ -14,6 +15,55 @@ import host
 import run as runner
 
 class UploadContracts(unittest.TestCase):
+    def test_superseded_refit_stops_before_selection_or_network(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp); (root/'delivery').mkdir()
+            selection=root/'delivery/selection.json'
+            selection.write_text('{"preserved": true}\n')
+            before=selection.read_bytes()
+            manifest=dict(candidate={'sha256':'approximate'}, original_weights_recovered_exactly=False)
+            with patch.object(upload,'validate',return_value=manifest), \
+                 patch.object(upload,'save') as save, patch.object(upload,'verify') as verify, \
+                 patch.object(upload,'fetch') as fetch, patch.object(upload,'mc') as mc:
+                with self.assertRaisesRegex(ValueError,'Approximate v80 refit delivery is disabled'):
+                    upload.deliver(root,wait_seconds=0)
+                for call in (save,verify,fetch,mc):
+                    call.assert_not_called()
+            self.assertEqual(selection.read_bytes(),before)
+            self.assertFalse((root/'delivery/attempt.json').exists())
+
+    def test_superseded_refit_read_only_check_remains_available(self):
+        manifest=dict(original_weights_recovered_exactly=False)
+        with tempfile.TemporaryDirectory() as temp, \
+             patch.object(sys,'argv',['upload.py','check','--out',temp]), \
+             patch.object(upload,'validate',return_value=manifest), \
+             patch.object(upload,'deliver') as deliver, patch.object(sys,'stdout',new_callable=io.StringIO) as output:
+            upload.main()
+            self.assertEqual(json.loads(output.getvalue()),manifest)
+            deliver.assert_not_called()
+            self.assertEqual(list(Path(temp).iterdir()),[])
+
+    def test_original_v83_custom_validator_can_reconcile_without_put(self):
+        path=Path(__file__).parents[1]/'release/restore_v83_final.py'
+        spec=importlib.util.spec_from_file_location('v83_restore_test',path)
+        restore=importlib.util.module_from_spec(spec); spec.loader.exec_module(restore)
+        transport=restore.transport
+        original_validator, original_prior=transport.validate, transport.PRIOR_SHA
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp); (root/'delivery').mkdir()
+            candidate=dict(path='candidate.parquet',sha256=restore.V83_SHA,bytes=5)
+            accepted=dict(status='accepted',candidate=candidate)
+            (root/'delivery/acceptance.json').write_text(json.dumps(accepted))
+            manifest=dict(candidate=candidate,recipe='Previously accepted v83, exact original bytes; no retraining')
+            with patch.object(restore,'OUT',root), patch.object(restore,'validate',return_value=manifest), \
+                 patch.object(transport,'verify',return_value=root/'candidate.parquet'), \
+                 patch.object(transport,'fetch',return_value={'sha256':restore.V83_SHA}), \
+                 patch.object(transport,'mc') as mc:
+                self.assertEqual(restore.deliver(wait_seconds=0),accepted)
+                mc.assert_not_called()
+        self.assertIs(transport.validate,original_validator)
+        self.assertEqual(transport.PRIOR_SHA,original_prior)
+
     def test_prefix_stat_requires_exact_filename(self):
         first=dict(name=upload.NAME,status='success',etag='a')
         second=dict(name=upload.NAME+'_result.json',status='success',etag='b')

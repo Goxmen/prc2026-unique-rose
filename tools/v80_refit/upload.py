@@ -102,6 +102,10 @@ def deliver(out, wait_seconds=900):
     with (folder/'upload.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         manifest = validate(out)
+        if manifest.get('original_weights_recovered_exactly') is False:
+            raise ValueError(
+                'Approximate v80 refit delivery is disabled by the owner\'s latest instruction; '
+                'only fully recovered, verified v80 may replace the selected final.')
         save(folder/'selection.json', manifest)
         candidate = verify(manifest['candidate'])
         attempt_path = folder/'attempt.json'
