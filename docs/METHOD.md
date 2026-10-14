@@ -26,6 +26,14 @@ matches the locally audited artifact:
 bind submission, acceptance and replay records. Full computational and delivery
 receipts are retained under `VALIDATION/runs/v3_20261014_v84_final/`.
 
+## System architecture
+
+![v84 system architecture](v84_architecture.svg)
+
+Saved base-learner predictions form 48 historical version vectors and four
+direct public-input mixtures. The fixed v80 assembly chain combines them with
+EUROCONTROL public aggregates; the sections below describe each layer.
+
 ## Feature construction
 
 The shared inputs combine supplied aircraft, operator, airport, stand, runway,
@@ -112,76 +120,6 @@ component predictions, coefficients, corrections, a blank template, source and
 provenance rather than an embedded final prediction file. This verifies ensemble
 assembly reproducibility; a complete clean-clone raw-data training rebuild and
 arbitrary-new-month inference remain unverified.
-
-## Historical v83: portable stack and teacher distillation
-
-The historical v83 model uses the portable v82 public-source ensemble as anchor. That
-anchor carries the retained monthly/daily corrections and joint/other-runway
-increments. Some increments are explicitly transported from their historical
-v70 prior as additive terms; they are not new posterior fits from the anchor.
-`portable_public_source_20261013.py` and its identity/design receipts specify
-the exact order and provenance.
-
-The v83 student approximates the complete original v80 prediction using 28
-historical components that have verified old and final views. In the order
-stored in `production/model.json`, these are versions
-`1, 4, 8, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 30, 33, 34, 37, 38, 45, 46,
-54, 56, 57, 58, 60, 61, 64, 70`.
-
-For anchor `z`, component prediction `p_j`, and teacher `t`, define
-`X_j = p_j - z`. A fixed ridge coefficient vector solves
-
-```text
-(X.T @ X / n + I) beta = X.T @ (t - z) / n
-prediction_before_constraints = z + X @ beta
-```
-
-Ridge strength is 1, without an intercept or learned scaling. The production
-solve uses v80 **predictions**, not hidden evaluation labels, on the 344,841
-original ranking rows. One saved coefficient vector is applied to all final
-rows. The recorded constraint/rule/rounding function is then applied, and the
-template is filled by ID. Replaying must use the saved coefficient vector and
-component bytes; refitting the solve is a separate experiment.
-
-Student CV uses four blocked solves within the historical January/July outer
-predictions: predict days 1–15 from days 17 onward, and days 16 onward from days
-1–14. Each direction has a one-day gap. Predictions precede the separate target
-scoring stage. The student improves its v82 anchor by 1.231818 seconds in mean
-Jan/Jul CV; its 0.155170-second improvement over v80 is inconclusive, with
-January worse. Transferring this approximation to February/June was not
-independently validated when v83 was selected.
-
-## Four-month model-selection protocol
-
-The four-month folds have exactly one excluded adjacent month on each side, interpreted
-cyclically at January. Every fold has nine training months:
-
-| Held month | Training months in 2025 | Excluded months |
-|---|---|---|
-| January | March–November | December, January, February |
-| February | April–December | January, February, March |
-| June | January–April and August–December | May, June, July |
-| July | January–May and September–December | June, July, August |
-
-The older July fold also excluded April and May. Its historical scores must not
-be mixed with the new July scores. Both use 2025 development data rather than
-the hidden 2026 final labels.
-
-The original ten recipes were narrowed at the user's request to C05 (callsign
-PLE plus trees), C07 (public physical-track TabM plus trees), and C10 (their
-neural blend plus trees). Callsign retains seeds42/1042/2042; TabM uses seed42
-only, equally across all four folds. This reduces neural fits from36 to16.
-Blended recipes retain0.71 total neural and0.29 total tree weight and share fresh
-fold-fitted Rome/rule/correction stages. Desktop computes January/July; laptop
-computes February/June. Original completed components and source hashes are
-preserved. Exact recipes and commands are documented in
-[FINAL_MONTH_SELECTION.md](../VALIDATION/docs/FINAL_MONTH_SELECTION.md).
-
-The primary metric is the unweighted mean of four all-row monthly RMSEs. Pooled
-RMSE and each month's RMSE are also reported. All three candidate arrays in all four folds are
-assembled before scoring; selection is manual after the completed results.
-Bootstrap comparisons against fixed C10 are diagnostic, not independent
-confirmation after repeated development-data use.
 
 ## Limitations and reproducibility
 

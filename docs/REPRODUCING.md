@@ -135,8 +135,7 @@ acquisition, feature preparation and training pipeline.
 
 ## Historical validation and rollback
 
-The four-month blocked validation design is described in
-[FINAL_MONTH_SELECTION.md](../VALIDATION/docs/FINAL_MONTH_SELECTION.md). Each
+In the four-month blocked validation design, each
 held-out month excludes itself and its immediate calendar neighbours from
 training. Those candidate runs are separate research artifacts and do not prove
 an official v84 score or a full reproducible training rebuild.

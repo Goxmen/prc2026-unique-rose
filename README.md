@@ -30,7 +30,6 @@ distributed separately as release assets.
 | [Data sources](docs/DATA_SOURCES.md) | Acquisition, snapshots, provider terms and attribution |
 | [Third-party work](docs/THIRD_PARTY.md) | Dependencies, upstream implementations and our contributions |
 | [Release checklist](docs/RELEASE_CHECKLIST.md) | Competition obligations and remaining publication steps |
-| [Four-month validation](VALIDATION/docs/FINAL_MONTH_SELECTION.md) | Ten candidate definitions and embargoed folds |
 | [Submission record](SUBMISSIONS.md) | Actual uploads and selected candidates |
 
 The v84 final artifact was accepted on **14 October 2026 at 10:39 Amsterdam**:
@@ -194,7 +193,7 @@ Historical candidates used January/July validation in
 [`VALIDATION/tuning_seasonal.py`](VALIDATION/tuning_seasonal.py). Final model
 selection now uses January, February, June and July 2025, with exactly one
 adjacent month excluded on each side of each held month; the July fold now
-includes April and May in training. See the [frozen four-fold protocol](VALIDATION/docs/FINAL_MONTH_SELECTION.md).
+includes April and May in training.
 Its mean monthly RMSE is distinct from the official test score. These development
 data have been reused extensively; bootstrap intervals do not make them independent
 confirmation. The [method guide](docs/METHOD.md) explains the final ensemble and

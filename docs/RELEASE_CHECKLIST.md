@@ -37,7 +37,6 @@ place for urgent announcements and unresolved handoff details.
 - [Third-party attribution](THIRD_PARTY.md).
 - [Executable reproduction instructions](REPRODUCING.md), environment records,
   component provenance, and final output verification.
-- [Four-fold model-selection source and protocol](../VALIDATION/docs/FINAL_MONTH_SELECTION.md).
 - Repository secret/history audit, excluding local IDE checkpoint refs that
   are not published by an ordinary push.
 

@@ -1,0 +1,278 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1500" viewBox="0 0 1000 1500" role="img" aria-labelledby="title desc">
+<title id="title">v84 final system architecture</title>
+<desc id="desc">Inputs and features feed tree, neural and Rome-mode base learners. Their saved predictions form 48 historical version vectors and four direct public-input mixtures. A fixed v80 assembly chain (v71 to v79) combines them with public EUROCONTROL aggregates; v84 adds the TabM and robust other-runway corrections and is delivered as unique-rose_final.parquet with an offline replay bundle.</desc>
+<defs><marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker></defs>
+<rect x="0.5" y="0.5" width="999" height="1499" rx="14" fill="#ffffff" stroke="#d0d7de"/>
+<text x="32" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2328" text-anchor="start">v84 final: system architecture</text>
+<text x="32" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="start">The original v80 ensemble recipe, rebuilt from recovered models, retained refits and saved predictions.</text>
+<text x="32" y="104" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#59636e" text-anchor="start" letter-spacing="1.2">INPUTS</text>
+<rect x="32" y="114" width="302" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="46" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="start">Challenge data</text>
+<text x="46" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">2025 departures and arrivals (training)</text>
+<text x="46" y="179" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Final months: Jan, Feb, Jun, Jul 2026</text>
+<text x="46" y="198" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">670,790 departures at 10 airports</text>
+<rect x="349" y="114" width="302" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="363" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="start">Context observations</text>
+<text x="363" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">METAR and Open-Meteo ERA5 weather</text>
+<text x="363" y="179" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">OPDI ground events, ADSB.lol positions</text>
+<text x="363" y="198" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">OSM and X-Plane stand/runway maps</text>
+<rect x="666" y="114" width="302" height="96" rx="8" fill="#fff8c5" stroke="#d4a72c" stroke-width="1"/>
+<text x="680" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#7d4e00" text-anchor="start">EUROCONTROL public aggregates</text>
+<text x="680" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Daily pre-departure delay by airport</text>
+<text x="680" y="179" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Daily runway taxi-out counts and sums</text>
+<text x="680" y="198" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Monthly taxi-out level and quality</text>
+<path d="M183.0,210 L183.0,246" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M500.0,210 L500.0,246" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M817.0,210 L817.0,246" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<rect x="32" y="250" width="936" height="92" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="46" y="274" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="start">Feature construction</text>
+<text x="46" y="296" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Schedule and block clocks · traffic and history · arrival context · stand and runway geometry</text>
+<text x="46" y="315" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Weather · callsign and squawk changes · physical ground tracks · public daily delay and taxi inputs</text>
+<text x="46" y="334" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">Input-only caches; encoders, bins and label-dependent histories are fitted on training months only</text>
+<text x="32" y="374" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#59636e" text-anchor="start" letter-spacing="1.2">BASE LEARNERS</text>
+<path d="M183.0,342 L183.0,388" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M500.0,342 L500.0,388" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M817.0,342 L817.0,388" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<rect x="32" y="392" width="302" height="118" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="46" y="416" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="start">Gradient-boosted trees</text>
+<text x="46" y="438" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Global LightGBM</text>
+<text x="46" y="457" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Per-airport LightGBM</text>
+<text x="46" y="476" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">CatBoost</text>
+<text x="46" y="495" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">Ordinary taxi-out duration</text>
+<rect x="349" y="392" width="302" height="118" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="363" y="416" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="start">Neural regressors</text>
+<text x="363" y="438" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Piecewise-linear-embedding MLP pools</text>
+<text x="363" y="457" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Callsign and physical-track networks</text>
+<text x="363" y="476" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">TabM: 32 heads, 3 seeds</text>
+<text x="363" y="495" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">Ordinary taxi-out duration</text>
+<rect x="666" y="392" width="302" height="118" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="680" y="416" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="start">Rome recording-mode mixture</text>
+<text x="680" y="438" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Mode classifiers (LightGBM, CatBoost)</text>
+<text x="680" y="457" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Ordinary vs schedule-copy value</text>
+<text x="680" y="476" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Frozen prediction rules</text>
+<text x="680" y="495" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">Rome Fiumicino (LIRF) only</text>
+<path d="M183.0,510 L183.0,526" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M500.0,510 L500.0,526" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M817.0,510 L817.0,526" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<rect x="32" y="530" width="936" height="36" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="500" y="553" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328" text-anchor="middle">Each version: learner blend (later versions 0.71 neural + 0.29 trees) → Rome mode mixture → rules → integer seconds</text>
+<text x="32" y="594" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#59636e" text-anchor="start" letter-spacing="1.2">COMPONENT PREDICTIONS</text>
+<path d="M320,566 L320,600" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M796,566 L796,600" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<rect x="32" y="604" width="576" height="248" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="46" y="628" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="start">48 historical version vectors</text>
+<text x="46" y="647" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">Earlier submissions v1–v70, each regenerated for the four final months</text>
+<rect x="47" y="662" width="40" height="24" rx="5" fill="#ffffff" stroke="#8c959f" stroke-width="1"/>
+<text x="67" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v1</text>
+<rect x="93" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="113" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v2</text>
+<rect x="139" y="662" width="40" height="24" rx="5" fill="#c7f0ec" stroke="#1b7c83" stroke-width="1"/>
+<text x="159" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0e5b61" text-anchor="middle">v3</text>
+<rect x="185" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="205" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v4</text>
+<rect x="231" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="251" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v5</text>
+<rect x="277" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="297" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v6</text>
+<rect x="323" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="343" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v7</text>
+<rect x="369" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="389" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v8</text>
+<rect x="415" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="435" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v9</text>
+<rect x="461" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="481" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v12</text>
+<rect x="507" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="527" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v13</text>
+<rect x="553" y="662" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="573" y="678.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v14</text>
+<rect x="47" y="692" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="67" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v15</text>
+<rect x="93" y="692" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="113" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v16</text>
+<rect x="139" y="692" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="159" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v17</text>
+<rect x="185" y="692" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="205" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v18</text>
+<rect x="231" y="692" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="251" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v19</text>
+<rect x="277" y="692" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="297" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v20</text>
+<rect x="323" y="692" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="343" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v21</text>
+<rect x="369" y="692" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="389" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v26</text>
+<rect x="415" y="692" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="435" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v27</text>
+<rect x="461" y="692" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="481" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v28</text>
+<rect x="507" y="692" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="527" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v29</text>
+<rect x="553" y="692" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="573" y="708.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v30</text>
+<rect x="47" y="722" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="67" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v33</text>
+<rect x="93" y="722" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="113" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v34</text>
+<rect x="139" y="722" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="159" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v37</text>
+<rect x="185" y="722" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="205" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v38</text>
+<rect x="231" y="722" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="251" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v43</text>
+<rect x="277" y="722" width="40" height="24" rx="5" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="297" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#116329" text-anchor="middle">v44</text>
+<rect x="323" y="722" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="343" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v45</text>
+<rect x="369" y="722" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="389" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v46</text>
+<rect x="415" y="722" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="435" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v47</text>
+<rect x="461" y="722" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="481" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v48</text>
+<rect x="507" y="722" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="527" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v49</text>
+<rect x="553" y="722" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="573" y="738.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v50</text>
+<rect x="47" y="752" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="67" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v51</text>
+<rect x="93" y="752" width="40" height="24" rx="5" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="113" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#99286e" text-anchor="middle">v53</text>
+<rect x="139" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="159" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v54</text>
+<rect x="185" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="205" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v56</text>
+<rect x="231" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="251" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v57</text>
+<rect x="277" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="297" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v58</text>
+<rect x="323" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="343" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v60</text>
+<rect x="369" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="389" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v61</text>
+<rect x="415" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="435" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v64</text>
+<rect x="461" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1.4" stroke-dasharray="3 2"/>
+<text x="481" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v66</text>
+<rect x="507" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1.4" stroke-dasharray="3 2"/>
+<text x="527" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v68</text>
+<rect x="553" y="752" width="40" height="24" rx="5" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="573" y="768.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#424a53" text-anchor="middle">v70</text>
+<rect x="47" y="785" width="12" height="12" rx="3" fill="#dafbe1" stroke="#2da44e" stroke-width="1"/>
+<text x="66" y="795" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">14 recovered original models</text>
+<rect x="47" y="804" width="12" height="12" rx="3" fill="#ffeff7" stroke="#e85aad" stroke-width="1"/>
+<text x="66" y="814" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">10 retained refits</text>
+<rect x="47" y="823" width="12" height="12" rx="3" fill="#ffffff" stroke="#8c959f" stroke-width="1"/>
+<text x="66" y="833" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">1 airport-mean baseline (v1)</text>
+<rect x="327" y="785" width="12" height="12" rx="3" fill="#c7f0ec" stroke="#1b7c83" stroke-width="1"/>
+<text x="346" y="795" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">1 corrected-source model (v3)</text>
+<rect x="327" y="804" width="12" height="12" rx="3" fill="#eaeef2" stroke="#8c959f" stroke-width="1"/>
+<text x="346" y="814" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">22 archived ports and rebuilds</text>
+<rect x="327" y="823" width="12" height="12" rx="3" fill="#ffffff" stroke="#8c959f" stroke-width="1.4" stroke-dasharray="3 2"/>
+<text x="346" y="833" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">not in the v79 basis</text>
+<rect x="624" y="604" width="344" height="248" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="638" y="628" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="start">Direct public-input mixtures</text>
+<text x="638" y="647" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">Saved model predictions, re-mixed without fitting:</text>
+<text x="638" y="664" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">0.71 × (½ callsign nets + ½ pool) + 0.29 × trees</text>
+<rect x="638" y="684" width="63.0" height="20" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1"/>
+<text x="669.5" y="698" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0550ae" text-anchor="middle">control</text>
+<text x="638" y="719" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">physical-track pool · parent trees</text>
+<rect x="638" y="726" width="63.0" height="20" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1"/>
+<text x="669.5" y="740" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0550ae" text-anchor="middle">v76 arm</text>
+<text x="638" y="761" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">public PLE pool · trees with public main LightGBM</text>
+<rect x="638" y="768" width="70.0" height="20" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1"/>
+<text x="673.0" y="782" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0550ae" text-anchor="middle">main arm</text>
+<text x="638" y="803" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">public PLE pool · daily-main, public airport, public Cat</text>
+<rect x="638" y="810" width="70.0" height="20" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1"/>
+<text x="673.0" y="824" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0550ae" text-anchor="middle">TabM arm</text>
+<text x="638" y="845" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1f2328" text-anchor="start">3-seed TabM pool · main-arm trees</text>
+<text x="32" y="882" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#59636e" text-anchor="start" letter-spacing="1.2">FIXED V80 ASSEMBLY CHAIN</text>
+<path d="M320,852 L320,888" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M796,852 L796,888" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<rect x="32" y="892" width="936" height="408" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="46" y="916" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="start">Saved coefficients and stage order; each stage rounds with rint(max(x, 0)); nothing is fitted to final labels</text>
+<rect x="48" y="932" width="214" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="60" y="956" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start">v71</text>
+<text x="60" y="978" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Signed affine blend of</text>
+<text x="60" y="996" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">the 48 vectors</text>
+<text x="60" y="1014" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">rounded to integer seconds</text>
+<rect x="278" y="932" width="214" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="290" y="956" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start">v72</text>
+<rect x="391.0" y="941" width="91.0" height="20" rx="10" fill="#fff8c5" stroke="#d4a72c" stroke-width="1"/>
+<text x="436.5" y="955" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#7d4e00" text-anchor="middle">daily delay</text>
+<text x="290" y="978" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Daily posterior given</text>
+<text x="290" y="996" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">public delay totals</text>
+<text x="290" y="1014" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">Gaussian → v72; t5 → refined</text>
+<rect x="508" y="932" width="214" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="520" y="956" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start">v73</text>
+<text x="520" y="978" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Affine blend of the</text>
+<text x="520" y="996" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">48 vectors + v72</text>
+<text x="520" y="1014" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">refined: + t5 adjustment</text>
+<rect x="738" y="932" width="214" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="750" y="956" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start">v74</text>
+<rect x="844.0" y="941" width="98.0" height="20" rx="10" fill="#fff8c5" stroke="#d4a72c" stroke-width="1"/>
+<text x="893.0" y="955" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#7d4e00" text-anchor="middle">monthly taxi</text>
+<text x="750" y="978" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Monthly public-level</text>
+<text x="750" y="996" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">shift + plan bounds</text>
+<text x="750" y="1014" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">on v73 and refined v73</text>
+<rect x="48" y="1068" width="214" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="60" y="1092" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start">v76</text>
+<rect x="189.0" y="1077" width="63.0" height="20" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1"/>
+<text x="220.5" y="1091" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0550ae" text-anchor="middle">v76 arm</text>
+<text x="60" y="1114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">v74 + public-input</text>
+<text x="60" y="1132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">model change</text>
+<text x="60" y="1150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">change = v76 arm − control</text>
+<rect x="278" y="1068" width="214" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="290" y="1092" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start">v77</text>
+<rect x="398.0" y="1077" width="84.0" height="20" rx="10" fill="#fff8c5" stroke="#d4a72c" stroke-width="1"/>
+<text x="440.0" y="1091" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#7d4e00" text-anchor="middle">daily taxi</text>
+<rect x="322.0" y="1077" width="70.0" height="20" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1"/>
+<text x="357.0" y="1091" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0550ae" text-anchor="middle">main arm</text>
+<text x="290" y="1114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">refined v74 + main-arm</text>
+<text x="290" y="1132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">change + gated daily</text>
+<text x="290" y="1150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">runway taxi shift</text>
+<rect x="508" y="1068" width="214" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="520" y="1092" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start">v78</text>
+<rect x="614.0" y="1077" width="98.0" height="20" rx="10" fill="#fff8c5" stroke="#d4a72c" stroke-width="1"/>
+<text x="663.0" y="1091" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#7d4e00" text-anchor="middle">joint public</text>
+<text x="520" y="1114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">v77 + ½ joint public</text>
+<text x="520" y="1132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">posterior increment</text>
+<text x="520" y="1150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">taxi count, sum and delay</text>
+<rect x="738" y="1068" width="214" height="96" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="750" y="1092" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#1f2328" text-anchor="start">v79</text>
+<text x="750" y="1114" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Affine blend of 51:</text>
+<text x="750" y="1132" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">46 vectors + v72, v74,</text>
+<text x="750" y="1150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">v76, v77, v78</text>
+<path d="M262,980 L276,980" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M492,980 L506,980" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M722,980 L736,980" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M262,1116 L276,1116" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M492,1116 L506,1116" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M722,1116 L736,1116" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M845.0,1028 L845.0,1048 L155.0,1048 L155.0,1064" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M615.0,1164 L615.0,1200" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M845.0,1164 L845.0,1200" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<rect x="48" y="1204" width="904" height="80" rx="8" fill="#ffffff" stroke="#1f2328" stroke-width="1.5"/>
+<text x="62" y="1232" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start">v84 = v79 + (TabM v78 − v78) + (robust v78 − v78)</text>
+<text x="62" y="1254" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">TabM v78 repeats the v77 → v78 path with the TabM arm; robust v78 = v78 + ½ other-runway delta.</text>
+<text x="62" y="1273" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">Keeps the three-seed TabM replacement and the robust other-runway adjustment from v80.</text>
+<rect x="840.0" y="1216" width="98.0" height="20" rx="10" fill="#fff8c5" stroke="#d4a72c" stroke-width="1"/>
+<text x="889.0" y="1230" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#7d4e00" text-anchor="middle">joint public</text>
+<rect x="764.0" y="1216" width="70.0" height="20" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1"/>
+<text x="799.0" y="1230" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#0550ae" text-anchor="middle">TabM arm</text>
+<text x="32" y="1330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#59636e" text-anchor="start" letter-spacing="1.2">DELIVERY</text>
+<path d="M270,1284 L270,1336" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)"/>
+<path d="M740,1284 L740,1336" fill="none" stroke="#8c959f" stroke-width="1.5" marker-end="url(#head)" stroke-dasharray="4 3"/>
+<rect x="32" y="1340" width="456" height="104" rx="8" fill="#24292f" stroke="#24292f" stroke-width="1"/>
+<text x="46" y="1366" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">unique-rose_final.parquet</text>
+<text x="46" y="1388" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">670,790 rows in the organiser template order and schema</text>
+<text x="46" y="1407" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">Accepted 14 Oct 2026, 10:39:25 Amsterdam</text>
+<text x="46" y="1428" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">SHA-256 76938ead…e074cb41</text>
+<rect x="512" y="1340" width="456" height="104" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="526" y="1364" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="start">Offline replay bundle</text>
+<text x="526" y="1386" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">51 basis vectors, fixed weights, 3 correction vectors</text>
+<text x="526" y="1405" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">Blank template, source and provenance</text>
+<text x="526" y="1424" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">replay.py reproduces the exact final bytes offline</text>
+<text x="752" y="1322" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">exported</text>
+<text x="32" y="1476" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">Scope: exact replay of the retained-component assembly. Raw-data retraining and inference on new months are not demonstrated.</text>
+</svg>

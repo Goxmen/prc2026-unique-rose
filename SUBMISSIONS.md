@@ -16,44 +16,6 @@ scores **263.1476**, −0.47 s against a matched rebuild of v42's recipe. Rows 4
 were chosen and submitted on Jan/Jul CV alone, so their four 16-fold columns are `-`.
 On 2026-10-02 the user dropped the 16-fold validations for new rows.
 
-**Active target: 205.00 seconds or lower. Best: v80, 218.8525 s; latest scored: v84, 218.9025 s. Selected final is v84; final score unpublished.**
-V80 improves v79 by **0.7605 seconds**; **13.8525 seconds** remain to the target.
-Public snapshot 14 October 09:57 Amsterdam: **rank 11/248**, all **344,841** original
-January/July flights scored. V80 Jan/Jul CV is **289.762778**. Its affine parent
-uses our own leaderboard feedback; reused development CV is not independent
-confirmation. V84 is an owner-requested regular leaderboard check of the recovered
-v80 reconstruction; no new CV was run. Its verified four-month predictions were
-subsequently selected and accepted as final.
-[Current research](VALIDATION/reports/TARGET205_RESEARCH.md).
-
-Rows 22–28 are our Rome substitution mixture and hybrids. Rows 22–25 have
-validation scores only and have not been submitted. Rows 26–30 were uploaded as
-v26–v30 and row 33 as v33, so each file number matches its row; v22–v25 and
-v31–v32 were never used. Row 29
-adds Rome recording signals to row 28. Rows 30–32 add stand clock and dirty-day
-inputs to row 29; rows 31–32 have validation scores only. Row 33 applies the
-flight-plan window to row 30's predictions after the model (no refit). Rows 34–36
-each make one change to row 33's predictions; row 34 was uploaded as v34, and rows
-35–36 have validation scores only. The selected Artifact-combined (former row 44)
-is row 37 below and was submitted as **v38**; filename v37 was already used by a
-separate model. Our
-Day-shift hedge is row 40 below and was uploaded as v37. Rows 41 and 42 add inputs
-from open ADS-B ground tracks: row 41 on row 34's recipe, with a validation score
-only, and row 42 on row 37's, the recipe behind v38, uploaded as v39. Row 43 is
-row 42 refitted with the flights the four-hour Rome rule overwrites removed from
-the model fit, uploaded as v40. Row 44 adds four taxi occupancy inputs to row 43 and
-was uploaded as v41; its supported CV gain reversed on the leaderboard. Row 45 adds
-12 snow-duration and completed-arrival inputs to row 43 and was uploaded as **v42**,
-Row 46 adds three stand-position inputs to row 45 and was uploaded as **v43**. Row 47 keeps
-row 46's inputs and retunes its main model's LightGBM settings; it was uploaded as **v44**.
-Row 48 adds 14 inputs from ADSB.lol's open ADS-B heatmaps to row 47 and was uploaded as
-**v45**. Row 49 adds 8 stand-exit inputs from the same positions and the public stand map to
-row 48 and was uploaded as **v46**. Row 50 blends row 49's ordinary regressor with a neural
-network on the same inputs and was uploaded as **v47**. Row 51 improves that network and was
-uploaded as **v49**; row 52 gives row 51's network a larger blend weight and was uploaded as
-**v48**. Row 53 pools 15 of row 52's networks and was uploaded as **v50**. Row 54 adds other
-teams' ideas to row 53 and was uploaded as **v51**, which is the best submission. Row 55 adds an Istanbul snow correction to row 54's predictions, with no refit, and was uploaded as v52; it scored 2.60 s worse. It changes no January/July 2025 flight, so its Jan/Jul CV is row 54's. Row 56 changes only row 54's Rome classifier settings and was uploaded as **v53**, which scored better than v51; one Rome flight in it was held at v51's prediction (see the notes). Row 57 gives every part of row 54 its searched settings and was uploaded as **v54**, which is now the best submission. Rows 58 and 59 are two leaderboard tests on v54, each changing a different group of flights: row 58 lowers snow-day predictions at three airports (v55) and row 59 gives the Rome classifier a flight-number input (v56). Both scored worse than v54. Row 60 lowers the networks' share in row 57's blend (v57); it also scored worse. Row 61 raises the share to 0.71, the value v54's and v57's scores point to, and was uploaded as **v58**, which is now the best submission. Row 62 refits every part of row 61 on each test month's nearest 2025 training flights (v59); it scored 2.35 s worse.
-
 ## Codenames and recipes
 
 Unless a row says otherwise, the models from v3 onwards are LightGBM fits on all
