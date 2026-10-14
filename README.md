@@ -15,8 +15,8 @@ and from the current four-month model-selection experiment. Reproduction
 commands never submit predictions.
 
 See [selected final status](release/SELECTED_FINAL.md) for the authoritative
-accepted artifact. **v83 was restored as the final submission on 14 October**;
-the separate [v80 refit](tools/v80_refit/README.md) is superseded.
+accepted artifact. **v84 was accepted as the final submission on 14 October**;
+the earlier v83 final and separate [v80 refit](tools/v80_refit/README.md) are superseded.
 
 [Repository contents](docs/REPOSITORY_CONTENTS.md) explains which source and
 provenance files are retained for review. Datasets, weights, caches, detailed
@@ -33,12 +33,12 @@ distributed separately as release assets.
 | [Four-month validation](VALIDATION/docs/FINAL_MONTH_SELECTION.md) | Ten candidate definitions and embargoed folds |
 | [Submission record](SUBMISSIONS.md) | Actual uploads and selected candidates |
 
-The v83 final artifact was first uploaded on 13 October 2026 and restored,
-byte-for-byte, on 14 October at 08:36 Amsterdam: 670,790 predictions, SHA-256
-`f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.
-The restoration was accepted on all rows. Acceptance is not a published final
-RMSE. The intervening v80 refit is superseded at the owner's request; no further
-training or competition submission is scheduled.
+The v84 final artifact was accepted on **14 October 2026 at 10:39 Amsterdam**:
+670,790 predictions, SHA-256
+`76938ead67f333e10a57290ad3cea71cb2aba85f94158de929724789e074cb41`.
+The uploaded bytes match the independently verified standalone replay. Its regular
+January/July leaderboard score is218.9025; the final numeric score is unpublished.
+No further training or competition submission is scheduled.
 
 ## Competition rules & key information
 
@@ -66,8 +66,8 @@ Predict the **taxi-out time** (`TAXITIME_SEC_mvt`, in seconds) of departing flig
 - A team's rank is its **best RMSE across its scored submissions**. As recorded
   on 14 October, best is **v80 at 218.8525** on 344,841 original departures; latest scored
   is **v84 at 218.9025**. V84 is a regular leaderboard check of the recovered
-  reconstruction; the selected final remains v83. The separate final submission was accepted on all
-  670,790 rows on 13 October; its score is unpublished.
+  reconstruction; its four-month final was accepted on all670,790 rows on
+  14 October. The final score is unpublished.
 - Leaderboard REST API: `https://datacomp.opensky-network.org/api/competitions/bb3693e1-26bc-4a9e-8619-4fe78b4eab0c/leaderboard` (paginate via `nextCursor`; Swagger docs at `https://datacomp.opensky-network.org/api/swagger-ui/`).
 
 ### Timeline & prizes
@@ -94,7 +94,7 @@ The final files were released on 8 October. Shared old/final movements have
 jittered timestamps, so retain separate flight-keyed features and predictions.
 The first four-month upload, v63, was rejected by the versioned leaderboard
 route, which scores the old population. The separately named final route is
-documented below; our final submission was accepted on 13 October with all
+documented below; our selected v84 final was accepted on 14 October with all
 670,790 rows, without a published numeric score.
 See [SUBMISSIONS.md](SUBMISSIONS.md) for the recorded submission history.
 

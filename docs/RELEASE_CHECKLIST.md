@@ -1,8 +1,8 @@
 # Competition release checklist
 
-Last checked: 13 October 2026. This checklist concerns the accepted v83-derived
-final submission and its source release. The running four-month validation may
-inform a later replacement; its results do not select one automatically.
+Official requirements last checked:13 October2026. Selected artifact updated:
+14 October2026. This checklist concerns the accepted v84 final and its source
+release, with exact retained-component assembly replay independently verified.
 
 ## Official requirements
 
@@ -50,7 +50,7 @@ data are not bundled into git.
 ## Final release procedure
 
 1. Preserve the accepted final until a replacement is explicitly selected and
-   separately trained and verified. Record the selected artifact's configuration,
+   separately produced and verified. Record the selected artifact's configuration,
    source commit, component manifest, row count, prediction hash and acceptance.
 2. Run the offline replay and its integrity checks described in `REPRODUCING.md`.
    A cached-component replay is distinct from a clean raw-data retraining test.

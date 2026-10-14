@@ -6,18 +6,25 @@ occasionally substituted clocks; predicting this recorded value is different
 from estimating physical ground movement alone. All submitted predictions are
 aligned to the organizer's movement IDs and serialized to the template schema.
 
-## Three model identities to keep separate
+## Model identities
 
-| Identity | Evidence and status on 13 October 2026 |
+| Identity | Evidence and status on 14 October 2026 |
 |---|---|
-| v80 | Best original Jan/Jul leaderboard result, **218.8525 seconds** on 344,841 departures. Its exact full ensemble was not recovered for every final row. |
-| v83-derived accepted final | Distilled portable ensemble; original leaderboard result **220.9278**, historical Jan/Jul CV **289.607608**. `unique-rose_final.parquet` was accepted on all **670,790** final departures, with no final numeric score published. |
-| C05/C07/C10 four-month validation | Three shortlisted direct recipes, scored on January, February, June and July 2025. User-launched selection experiment; these are neither exact v80/v83 reconstructions nor an automatically selected replacement submission. |
+| Original v80 | Best original Jan/Jul leaderboard result, **218.8525 seconds** on 344,841 departures. Some original neural weights were not saved. |
+| v84 accepted final | Fixed v80 recipe reconstructed with recovered original trees, recovered v3 source and retained neural refits. Accepted on all **670,790** final rows at **10:39:25 Amsterdam**; no numeric final score published. |
+| v83 historical final | Portable distilled ensemble; original leaderboard **220.9278**, historical Jan/Jul CV **289.607608**. Retained with its replay archive as rollback evidence. |
+| C05/C07/C10 validation | Separate direct recipes under the four-month validation design; neither historical v80/v83 reconstructions nor the selected v84. |
 
-Authoritative final identity, score and receipt references are in the release
-manifest and `VALIDATION/runs/v3_20261013_v80_teacher_distillation/`. The accepted
-file's SHA-256 is
-`f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.
+The accepted final is uploaded as `unique-rose_final.parquet`; its remote SHA-256
+matches the locally audited artifact:
+
+```text
+76938ead67f333e10a57290ad3cea71cb2aba85f94158de929724789e074cb41
+```
+
+[Selected final status](../release/SELECTED_FINAL.md) and the release manifest
+bind submission, acceptance and replay records. Full computational and delivery
+receipts are retained under `VALIDATION/runs/v3_20261014_v84_final/`.
 
 ## Feature construction
 
@@ -65,9 +72,50 @@ clock-derived predictions. Frozen prediction rules and learned corrections are
 then applied in their recorded order. This avoids forcing one ordinary
 regression loss to explain two recording mechanisms.
 
-## Accepted final: portable stack and teacher distillation
+## Accepted final: reconstructed fixed v80 ensemble
 
-The accepted model uses the portable v82 public-source ensemble as anchor. That
+v84 retains the original v80 component coefficients, correction order and integer
+rounding. Its 51-column basis includes reconstructed historical version outputs,
+recovered original tree models, the corrected recovered-source v3 model and saved
+neural refits where early states were absent. Later retained components preserve
+the daily/public source, physical-track and callsign information. Model/input
+identities and the distinction between saved original states, refits and retained
+prediction vectors remain explicit in the dependency inventory.
+
+For the ordered integer basis `P`, fixed historical coefficients `w`, and three
+retained correction vectors, the final arithmetic is:
+
+```text
+v79_reconstructed = rint(max(P @ w, 0))
+v84 = rint(max(v79_reconstructed
+               + (tabm_v78 - v78)
+               + (robust_v78 - v78), 0))
+```
+
+The first correction preserves the three-seed TabM replacement and the second
+the robust other-runway adjustment. The exact coefficients, component order and
+vector bytes are saved; none is newly fitted to final labels. Final assembly
+uses nearest-even integer rounding at both recorded stages and preserves the
+organiser's movement IDs and schema. `tools/v84_final/assemble.py` records the
+full dependency computation; `tools/v84_final/replay.py` independently repeats
+the retained-component arithmetic from the exported bundle.
+
+v84 is not an exact recovery of original v80 predictions or weights. Its old-input
+agreement measures reconstruction differences, not predictive error against
+labels. No dedicated new v84 January/July or four-month CV score was produced;
+historical v80 and v83 scores must not be relabelled as v84 validation. Acceptance
+confirms that the final file was processed successfully, not its accuracy.
+
+The standalone archive was independently extracted and replayed with networking
+disabled, producing all 670,790 final rows and exact Parquet bytes. It includes
+component predictions, coefficients, corrections, a blank template, source and
+provenance rather than an embedded final prediction file. This verifies ensemble
+assembly reproducibility; a complete clean-clone raw-data training rebuild and
+arbitrary-new-month inference remain unverified.
+
+## Historical v83: portable stack and teacher distillation
+
+The historical v83 model uses the portable v82 public-source ensemble as anchor. That
 anchor carries the retained monthly/daily corrections and joint/other-runway
 increments. Some increments are explicitly transported from their historical
 v70 prior as additive terms; they are not new posterior fits from the anchor.
@@ -101,11 +149,11 @@ predictions: predict days 1–15 from days 17 onward, and days 16 onward from da
 scoring stage. The student improves its v82 anchor by 1.231818 seconds in mean
 Jan/Jul CV; its 0.155170-second improvement over v80 is inconclusive, with
 January worse. Transferring this approximation to February/June was not
-independently validated when the accepted final was selected.
+independently validated when v83 was selected.
 
-## Current four-month model-selection protocol
+## Four-month model-selection protocol
 
-The new folds have exactly one excluded adjacent month on each side, interpreted
+The four-month folds have exactly one excluded adjacent month on each side, interpreted
 cyclically at January. Every fold has nine training months:
 
 | Held month | Training months in 2025 | Excluded months |

@@ -1,18 +1,20 @@
-# Selected final: v83
+# Selected final: v84
 
-**v83 is restored and accepted** as `unique-rose_final.parquet`, on all 670,790 rows.
-Original upload: 13 October 2026. Restoration accepted: 2026-10-14T08:36:43+02:00.
+**v84 is accepted** as `unique-rose_final.parquet` on all **670,790 rows**.
+Official acceptance: **14 October 2026, 10:39:25 Europe/Amsterdam**.
 
-SHA-256: `f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.
+SHA-256: `76938ead67f333e10a57290ad3cea71cb2aba85f94158de929724789e074cb41`.
 
-The restored file is byte-for-byte identical to the previously accepted v83 final.
-The intervening v80 refit is superseded at the owner's request. No further refit or
-competition upload is scheduled. The final numeric score is unpublished.
+The uploaded file matches the verified four-month v84 candidate byte for byte.
+The owner selected it after its regular January/July submission scored **218.9025**
+and the standalone package reproduced all final bytes. The final numeric score
+is unpublished. The earlier v83 final is superseded; its artifacts remain archived.
 
-Use the original v83 [reproduction guide](../docs/REPRODUCING.md) and
-`unique-rose-v83-replay.tar`. The replay reproduces the complete prediction file
-from retained components and saved coefficients. Its archive and source tag are
-unchanged; see [artifact manifest](artifact_manifest.json).
+Use the [reproduction guide](../docs/REPRODUCING.md) and
+`v84-final-76938ead67f333e1.tar`. Independent fresh extraction with networking disabled
+reproduces the final file from the retained51 component vectors, fixed weights
+and3 correction inputs. This certifies component assembly, not full raw-data
+retraining or arbitrary-new-input inference. See [artifact manifest](artifact_manifest.json).
 
-The repository and reviewed v83 release remain private until the authorized
+The repository and reviewed v84 release remain private until the authorized
 **14 October 2026, 10:00 UTC / 12:00 Amsterdam** publication time.

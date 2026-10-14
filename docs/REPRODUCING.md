@@ -1,201 +1,151 @@
 # Reproducing the final solution
 
-This document distinguishes an **exact replay of the accepted final assembly**
-from **training the entire solution from raw data**. The former has a standalone
-offline export/replay tool. The latter has extensive retained source and run
-records, but has not been demonstrated in a fresh clone and must not be described
-as a verified one-command rebuild.
-
-The current accepted artifact and replay route are recorded in
-[selected final status](../release/SELECTED_FINAL.md). The owner restored the exact
-original v83 final on 14 October 2026; all 670,790 rows were accepted again at
-08:36 Amsterdam. The intervening [v80 refit](../tools/v80_refit/README.md) is
-superseded. The v83 instructions below reproduce the current selected final.
-
-The accepted final is v83, uploaded as
-`unique-rose_final.parquet`, with 670,790 January, February, June and July 2026
-departures. Its SHA-256 is
-`f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`.
-The organiser acknowledged success for every row; no final numeric score was
-published in that acknowledgement. The old two-month leaderboard score and
-local validation RMSE are different measurements.
-
-## Environment
-
-Use the pinned [requirements.txt](../requirements.txt). The verified replay
-environment is Linux/WSL with Python 3.12.3, NumPy 2.5.2, pandas 3.0.5 and
-PyArrow 25.0.1. The original research environment requires an NVIDIA CUDA-capable GPU for
-CatBoost/neural training. The desktop uses a Ryzen 7 7800X3D and RTX 3080;
-the laptop uses an i7-13650HX and RTX 5060 Laptop. The pinned desktop environment
-is recorded in [environment.json](../release/environment.json).
-GPU/backend versions and exact execution details vary between historical runs;
-their individual identity and training receipts are authoritative. No universal
-bitwise training guarantee is claimed across GPUs, package versions or hosts.
-
-The component replay needs only Python, NumPy, pandas, PyArrow and threadpoolctl
-at the pinned versions. It uses one CPU thread, no GPU, network, credentials,
-labels, training or uploads. It preserves the original matrix multiplication
-order, coefficient precision, plan constraints, template schema and ID ordering.
-
-```bash
-python3 -m venv .venv
-.venv/bin/python -m pip install -r release/requirements-replay.txt
-.venv/bin/python -m unittest discover -s tools/release -p 'test_reproduce_final.py' -q
-```
-
-The [environment snapshot](../release/environment.json) records the exact desktop
-packages and hardware. Training and four-month validation need the full root
-requirements; the smaller replay requirements avoid downloading GPU frameworks.
-
-## Exact final assembly from retained artifacts
-
-The accepted recipe uses a retained portable-v82 anchor `z`, 28 retained component
-prediction vectors `P`, and one saved production coefficient vector `beta`:
+The selected final is **v84**, a reconstruction of the fixed historical v80
+ensemble recipe. It contains 670,790 January, February, June and July 2026
+predictions and is submitted as `unique-rose_final.parquet`. Its SHA-256 is:
 
 ```text
-raw = z + (P - z[:, None]) @ beta
-final = round_to_integer_nonnegative(apply_plan_constraints(raw))
+76938ead67f333e10a57290ad3cea71cb2aba85f94158de929724789e074cb41
 ```
 
-The ordered components are versions 1, 4, 8, 12–21, 30, 33, 34, 37, 38, 45, 46,
-54, 56, 57, 58, 60, 61, 64 and 70. The first constraint bounds predictions using
-the matched flight-plan gap. The second projects predictions outside an excluded
-interval for qualifying recovered plans. Exact formulas and tie handling are
-in [reproduce_final.py](../tools/release/reproduce_final.py), with the original
-formula sources included in the export for review.
+The organiser accepted all 670,790 rows at 10:39:25 Amsterdam on 14 October
+2026; the uploaded bytes match the hash above. No numeric final score was
+published. [Selected final status](../release/SELECTED_FINAL.md) records the
+authoritative submission and acceptance evidence. Historical v80's leaderboard score does not
+measure v84's accuracy; agreement with old predictions is also not validation
+accuracy or an official final score.
 
-On the original research checkout, export the retained inputs once:
+The verified deliverable is an **exact standalone replay of retained-component
+assembly**. Recovered original tree models, the recovered v3 source and saved
+neural refits produced these components. Some original neural weights were not
+saved, so v84 is not an exact recovery of historical v80. A complete raw-data
+training rebuild and inference on arbitrary new months have not been demonstrated
+from a clean clone. The replay does not require those missing weights.
+
+## Download and reproduce
+
+The release tag is `prc-final-v84-76938ead67f3`. Its source is frozen at
+`16ce6238236051555a6296d1a6d733de90a2b253`; later documentation and delivery
+receipts do not change the frozen computation. The repository and draft remain
+private until the authorized publication at 14 October 2026, 10:00 UTC /
+12:00 Amsterdam. After publication, obtain these two assets from the
+[v84 release](https://github.com/Goxmen/PRC/releases/tag/prc-final-v84-76938ead67f3):
+
+- `v84-final-76938ead67f333e1.tar` — 78,264,320 bytes.
+- `v84-final-76938ead67f333e1-SHA256SUMS` — archive checksum.
+
+The archive SHA-256 is
+`e49157508392f312bb0ef10491eac12048e1230908de2c865a28a5afb101b6a7`.
+The bundled `manifest.json` SHA-256 is
+`7aae3b9cadbaf6c0faf6725e64da502c807d396c63423e46fa3406ffd95f9099`.
+These identify the independently tested archive, rather than an unspecified
+future export. [artifact_manifest.json](../release/artifact_manifest.json)
+records the selected release assets.
+
+Run from a directory containing both downloaded assets:
 
 ```bash
-.venv/bin/python tools/release/reproduce_final.py inventory
-.venv/bin/python tools/release/reproduce_final.py export --bundle release/bundles/v83-component-replay
+sha256sum -c v84-final-76938ead67f333e1-SHA256SUMS
+mkdir replay-v84
+tar -xf v84-final-76938ead67f333e1.tar -C replay-v84
+cd replay-v84
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-replay.txt
+.venv/bin/python replay.py verify --bundle . \
+  --manifest-sha256 7aae3b9cadbaf6c0faf6725e64da502c807d396c63423e46fa3406ffd95f9099
+.venv/bin/python replay.py reproduce --bundle . \
+  --manifest-sha256 7aae3b9cadbaf6c0faf6725e64da502c807d396c63423e46fa3406ffd95f9099 \
+  --output unique-rose_final.parquet
+sha256sum unique-rose_final.parquet
 ```
 
-The exporter checks the frozen identity, production coefficient hash, every
-selected original input hash and the accepted output hash. It projects only
-the needed prediction/input columns into the bundle, and records original and
-exported hashes. It includes the official template, saved coefficients, original
-identity, formula sources and acceptance/audit evidence. **It does not copy the
-accepted final prediction into the bundle.** It reads that file only to establish
-the exact expected IDs/predictions digest. Export directories are never silently
-overwritten; an interrupted export retains an `EXPORT_INCOMPLETE.json` marker.
+Use Python 3.12 and the included pinned CPU requirements: NumPy 2.5.2, pandas
+3.0.5, PyArrow 25.0.1 and threadpoolctl 3.7.0. The verified environment used Python
+3.12.3 on Linux/WSL. Dependency installation needs a package source; the replay
+itself needs no network, GPU, credentials, labels, training or uploads. It refuses
+to overwrite an existing output and fails if the regenerated Parquet bytes do
+not match the selected hash.
 
-Provide the complete bundle separately to the reviewer, together with its
-`manifest.json` checksum. Data/prediction artifacts remain gitignored; code and
-documentation alone do not contain this bundle. No distribution upload is
-performed by these commands. Its contents include derived competition inputs;
-retain applicable data attribution and distribution terms.
+## What the archive computes
 
-The prepared release asset is `unique-rose-v83-replay.tar`, with its archive
-checksum in [artifact_manifest.json](../release/artifact_manifest.json).
-It includes a standalone replay script, its CPU requirements, license,
-attribution documents and the `v83-component-replay/` directory. The associated
-GitHub draft tag is `prc-final-v83-20261013`; the owner authorized publication at
-14 October 2026, 10:00 UTC / 12:00 Amsterdam. It remains private until then.
-A private draft is not a public download.
+The archive contains 51 integer component prediction vectors `P`, their fixed
+historical coefficient vector `w`, three correction vectors, and the official
+blank final template. [replay.py](../tools/v84_final/replay.py) computes:
 
-After obtaining the archive and `SHA256SUMS` from that release:
-
-```bash
-sha256sum -c SHA256SUMS
-mkdir -p replay-package
-tar -xf unique-rose-v83-replay.tar -C replay-package
+```text
+v79 = rint(max(P @ w, 0))
+v84 = rint(max(v79 + (tabm_v78 - v78) + (robust_v78 - v78), 0))
 ```
 
-Follow its standalone `README.md`, or use the repository commands below with
-`replay-package/v83-component-replay` as the bundle path.
+`rint` uses NumPy's nearest-even integer rounding. The component order and full
+coefficient precision are retained in `recipe.json`; the matrix multiplication
+uses one BLAS thread. The three correction vectors preserve the selected
+three-TabM and robust-runway adjustments. All inputs are aligned to the template's
+unchanged movement IDs, and the output uses the original two-column schema.
 
-In a fresh clone with that bundle copied to any local folder:
+The archive has 1,077 files, including the standalone script, pinned requirements,
+source, computational identity/audit receipts, attribution documents and license.
+The final prediction file is deliberately absent: replay derives it from the
+retained inputs. The manifest binds every exported file, its size and SHA-256,
+and the expected regenerated output hash. Source and dependency receipts retain
+upstream model/input identities; a hash entry does not imply its model or raw
+data is included in the archive.
 
-```bash
-.venv/bin/python tools/release/reproduce_final.py verify \
-  --bundle /path/to/v83-component-replay \
-  --manifest-sha256 019021aa429548f028a563a8cdf24174d4e412932c7776468799a65c19639d12
-.venv/bin/python tools/release/reproduce_final.py reproduce \
-  --bundle /path/to/v83-component-replay \
-  --manifest-sha256 019021aa429548f028a563a8cdf24174d4e412932c7776468799a65c19639d12 \
-  --output release/reproduced/unique-rose_final.parquet
-```
+Both the producer replay and an independent fresh extraction reproduced all
+670,790 rows and the exact final Parquet bytes. The independent run used Python
+isolated mode with networking disabled in a separate network namespace. It
+verified the archive's safe paths and every member hash, and ran only the bundled
+replay with its installed dependencies. Full local receipts are retained under
+`VALIDATION/runs/v3_20261014_v84_final/release/`, including
+`portable_replay_complete.json` and `independent_local_archive_audit.json`.
 
-Replay recomputes all 670,790 predictions from the 28 component vectors, anchor,
-coefficients and constraints. It checks the regenerated values against the
-accepted semantic digest, then writes the original two-column schema. The JSON
-receipt alongside the output records `values_exact`, `byte_exact` and both output
-hashes. Identical pinned PyArrow versions are needed for byte-level Parquet
-identity; semantic equality is checked separately. It never overwrites the
-accepted submission or uploads the regenerated file.
+## Source, upstream training and data
 
-The prepared bundle contains 43 files totalling 124,256,721 bytes, excluding its
-manifest. Its replay was checked on all 670,790 rows and reproduced the accepted
-Parquet bytes exactly. The small tracked
-[verification receipt](../tools/release/accepted_final_replay.json) records this
-result. The manifest hash above identifies this prepared bundle; an export with
-different Parquet writer metadata may have a different manifest while retaining
-the same original input and prediction digests.
-
-This is reproducible **ensemble assembly**. It does not retrain the upstream
-base models, recompute the public-source anchor or supply a general inference
-pipeline for an arbitrary new month.
-
-## From raw data to the retained solution
-
-Competition files are obtained through the official OpenSky MinIO endpoint
-using the participant's own credentials, as described in the [README](../README.md#setup).
-Never distribute the team's credential files. External inputs and their
-attributions must accompany the release; obtaining the competition files alone
-does not recreate the external caches.
-
-The retained dependency path is:
+The main entry points are [assemble.py](../tools/v84_final/assemble.py),
+[v3.py](../tools/v84_final/v3.py), [package.py](../tools/v84_final/package.py) and
+[replay.py](../tools/v84_final/replay.py). The archive includes the frozen tracked
+Python source and selected computational provenance. Source-only GitHub contents
+cannot replace the separately distributed replay archive.
 
 | Stage | Source and authoritative record |
 | --- | --- |
-| Movement inputs, history and features | `pipeline/`, `VALIDATION/modeling.py`, `VALIDATION/seasonal.py`, `VALIDATION/tuning_seasonal.py`; individual run configuration/identity receipts |
-| Callsign/rotation and observed tracks | `VALIDATION/callsign_clocks.py`, `VALIDATION/adsblol.py`, `VALIDATION/sparse_track_sequence.py`; their input manifests |
-| Historical base-model training | Selected historical run recipes in `VALIDATION/runs/`; retained metadata is listed in [reviewer_files.json](../release/reviewer_files.json) |
-| Saved-model final inference and reconstruction | `VALIDATION/final_legacy_*.py`, `VALIDATION/final_missing_*.py`, `VALIDATION/final_weather_inference.py`; each component's result/audit receipt |
-| Portable affine mixture | `VALIDATION/portable_affine_20261013.py`; run `v3_20261013_portable_affine` |
-| Public-source correction anchor | `VALIDATION/portable_public_source_20261013.py`; run `v3_20261013_portable_public_source`, including the retained final tilt-recovery supplement |
-| Fixed teacher distillation | `VALIDATION/portable_v80_distill_20261013.py`; run `v3_20261013_v80_teacher_distillation`, saved `production/model.json` |
-| Accepted final packaging and audit | `VALIDATION/package_final_v83_20261013.py`; that run's `final_submission/` receipts |
+| Movement history and features | `pipeline/`, `VALIDATION/modeling.py`, `VALIDATION/seasonal.py`; individual configuration and input identities |
+| Callsign, rotation and observed tracks | `VALIDATION/callsign_clocks.py`, `VALIDATION/adsblol.py`, `VALIDATION/sparse_track_sequence.py`; input manifests |
+| Historical model training | Historical producers in `VALIDATION/`; frozen source and run provenance |
+| Original trees and recovered v3 source | `tools/v84_final/v3.py`; recovered-tree receipts referenced by the dependency inventory |
+| Retained neural refits | `tools/v80_refit/`; selected epoch checkpoints and preprocessing identities |
+| Saved-model final components | `VALIDATION/final_legacy_*.py`, `VALIDATION/final_missing_*.py`, `VALIDATION/final_weather_inference.py`; component audits |
+| Fixed v84 assembly | `tools/v84_final/assemble.py`; `assembly_identity.json`, `leaf_catalog.json`, `dependency_inventory.json` and final audit |
+| Portable replay export | `tools/v84_final/package.py` and `tools/v84_final/replay.py`; frozen archive manifest and replay receipts |
 
-These historical scripts have fixed paths, source/input identity guards and
-single-attempt execution protections. They are source references, not a command
-sequence to launch blindly from a fresh clone. Their complete retained model,
-cache and prediction dependencies are not in Git. Some historical missing models
-were reconstructed and audited against retained original predictions; machine
-and reconstruction qualifications remain in those records. Exact full v80 final
-inference was unavailable, and v83 is a distinct portable student rather than an
-exact v80 replay.
+Competition files require the participant's own official OpenSky MinIO access,
+as described in the [README](../README.md#setup). External inputs and their terms
+are documented in [DATA_SOURCES.md](DATA_SOURCES.md) and
+[THIRD_PARTY.md](THIRD_PARTY.md), also included in the archive. Do not distribute
+credentials. The replay archive contains derived prediction inputs; raw datasets
+and large training caches remain outside Git.
 
-A full training handoff still needs an ordered acquisition/preparation/training
-runner and a completed clean-environment rebuild. Preserve the archive and
-document these limitations rather than deleting dependencies or substituting
-new models under historical version names.
+Historical training scripts have fixed paths and source/input identity guards;
+they are not a clean-clone command sequence. Training requires the full root
+[requirements.txt](../requirements.txt), GPU/framework-specific environments and
+upstream caches. Individual run receipts record host/backend differences. No
+universal bitwise training guarantee is claimed across devices or package
+versions. Completing that larger handoff would require a tested ordered data
+acquisition, feature preparation and training pipeline.
 
-## Four-month candidate selection currently in progress
+## Historical validation and rollback
 
-[FINAL_MONTH_SELECTION.md](../VALIDATION/docs/FINAL_MONTH_SELECTION.md) documents
-the newer suite, now reduced to three finalists (C05/C07/C10). Every fold excludes the held-out month and its
-immediate preceding/following calendar months. The four held-out months are
-January, February, June and July 2025; each trains on nine months. The primary
-summary is the equally weighted mean of those four monthly RMSEs; pooled RMSE
-and the January/July and February/June summaries are reported separately.
+The four-month blocked validation design is described in
+[FINAL_MONTH_SELECTION.md](../VALIDATION/docs/FINAL_MONTH_SELECTION.md). Each
+held-out month excludes itself and its immediate calendar neighbours from
+training. Those candidate runs are separate research artifacts and do not prove
+an official v84 score or a full reproducible training rebuild.
 
-Those are new direct recipes, **not historical v80/v83 replays**. They use fresh
-training-only feature/calibration fits and fixed seeds/configurations, preserve
-models and hashes, and share the same postprocessing across all three candidates. Callsign retains three seeds; TabM uses seed42.
-Desktop owns January/July and laptop owns February/June. The new controller
-reuses original worker artifacts and returns compact scoring packets while
-retaining full input pickles on their producing host.
-The runner does not automatically select a winner, produce a full-year model,
-replace the accepted final, or upload anything.
-
-After score review, a chosen new recipe requires its matching full-2025 production
-fit, four-month final-input preparation, prediction/ID/schema audits and an updated
-release manifest. Until that happens, the v83 replay above remains explicitly
-tied to the currently accepted artifact. Never represent a local candidate's
-validation result as its official final score.
-
-Keep source and cached inputs unchanged while the current validation runs.
-Release packaging lives under `tools/release/` and `docs/`; it does not modify
-the runner's frozen `VALIDATION/*.py` or `pipeline/*.py` sources.
+The previously accepted v83 final and its verified replay archive are retained
+as rollback evidence. Its SHA-256 is
+`f4f6a15fe5bb0865727cb906b77e17f182d34dc4b516f657c26937ad097af85f`;
+the old release tag is `prc-final-v83-20261013`. Its replay uses
+`tools/release/reproduce_final.py` and a different 28-component student recipe.
+Do not combine its manifest, coefficients or commands with the selected v84
+bundle. [Selected final status](../release/SELECTED_FINAL.md) identifies the
+current submission.

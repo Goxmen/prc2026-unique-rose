@@ -1,9 +1,10 @@
-# Unselected v84 reconstruction and weight recovery
+# v84 final reconstruction and exact assembly replay
 
-The owner retained **v83 as the competition final** on14October2026. These tools
-prepare and audit a separate v84 reconstruction. They do not authorize replacing
-the accepted final, changing its release selection or publishing before the
-deadline. See [the selected final](../../release/SELECTED_FINAL.md).
+The owner selected **v84 as the competition final** on 14 October 2026. See
+[the selected final](../../release/SELECTED_FINAL.md) for submission/acceptance
+receipts and [reproduction instructions](../../docs/REPRODUCING.md) for the
+standalone archive. Selection does not authorize publication before the
+scheduled 10:00 UTC / 12:00 Amsterdam deadline.
 
 v84 keeps the fixed historical v80 ensemble arithmetic, with recovered original
 tree models, a reconstruction using the recovered v3 source and saved neural
@@ -11,55 +12,58 @@ refits where early original weights were missing. It is not an exact recovery of
 historical v80. Old-input agreement is distinct from prediction accuracy or a
 leaderboard score.
 
-The working artifacts are under
-`VALIDATION/runs/v3_20261014_v84_final/`. Source and audit receipts identify the
-exact model and feature inputs. No training or output vector is silently
-substituted after a gate failure.
+The organiser accepted all 670,790 rows at 10:39:25 Amsterdam on 14 October
+2026, with no numeric final score published. The remote file matches SHA-256
+`76938ead67f333e10a57290ad3cea71cb2aba85f94158de929724789e074cb41`.
+Working artifacts and audits are retained under
+`VALIDATION/runs/v3_20261014_v84_final/`. Source/input identities bind the selected
+components; failed checks never silently substitute another vector or model.
 
-## Actual model weights
+## Offline replay
 
-`weight_inventory.py` traces provenance to real model/preprocessing files;
-prediction Parquets are never counted as model states. Its broad inventory
-includes historical controls and therefore needs the selected-family audit.
-The selected neural inventory separately records actual production checkpoints.
-
-The original October8 HPO156 producer discarded its15 returned models. Retained
-prediction vectors do not resolve that gap. `recover_hpo_weights.py` runs the
-unchanged original data constructor and trainer, saves the returned model and
-actual encoder/bin/scaling states, then requires exact float32 agreement with
-every original old and final prediction and an exact saved-state reload. Any
-mismatch stops the remaining fits; the failed checkpoint and comparisons remain.
-Only an explicitly allocated attempt may run it. Its `plan` command is read-only.
-
-This recovery was stopped at the owner's request after the first member passed
-exact old/final prediction and saved-state checks. Those artifacts are retained;
-the remaining weights are incomplete. The owner subsequently authorized an
-assembly replay package without requiring full model-weight recovery.
-
-## Offline replay and private packaging
-
-`package.py` exports the51 integer component vectors, fixed coefficients, three
+`package.py` exports the 51 integer component vectors, fixed coefficients, three
 correction inputs and blank final template. `replay.py` recomputes the output;
-the final prediction file is excluded from the package. Every exported file and
+the final prediction file is excluded from the archive. Every exported file and
 the regenerated Parquet bytes are checked against SHA-256 manifests.
 
-An eventual reviewed source commit is required:
+The verified archive is `v84-final-76938ead67f333e1.tar`, SHA-256
+`e49157508392f312bb0ef10491eac12048e1230908de2c865a28a5afb101b6a7`.
+Its manifest SHA-256 is
+`7aae3b9cadbaf6c0faf6725e64da502c807d396c63423e46fa3406ffd95f9099`.
+Both a producer replay and an independent fresh extracted replay reproduced the
+selected Parquet bytes exactly; the independent replay ran with networking
+disabled. After verifying and extracting the archive:
 
 ```bash
-.venv/bin/python tools/v84_final/package.py export --source-commit REVIEWED_COMMIT
+python -m pip install -r requirements-replay.txt
+python replay.py verify --bundle . \
+  --manifest-sha256 7aae3b9cadbaf6c0faf6725e64da502c807d396c63423e46fa3406ffd95f9099
+python replay.py reproduce --bundle . \
+  --manifest-sha256 7aae3b9cadbaf6c0faf6725e64da502c807d396c63423e46fa3406ffd95f9099 \
+  --output unique-rose_final.parquet
 ```
 
-Packaging and clean offline replay are authorized; GitHub draft/upload actions
-are not part of the current task. The separate `draft` stage can create a **private draft** only. It never changes
-the active publication schedule, publishes, commits, pushes or submits to the
-competition. Do not invoke it without renewed distribution authorization.
-The v83 release and replay assets remain the selected rollback.
-
-After obtaining a verified standalone bundle, the offline command is:
-
-```bash
-python replay.py reproduce --bundle . --output unique-rose_final.parquet
-```
+The frozen source commit is
+`16ce6238236051555a6296d1a6d733de90a2b253`. The private draft tag is
+`prc-final-v84-76938ead67f3`; its exact uploaded archive and checksum asset digests
+were verified. The `draft` stage never activates publication, commits, pushes or
+submits to the competition. Those are separate authorized operations. The old
+v83 release and replay assets remain available for rollback.
 
 This is exact retained-component assembly replay. Full raw-data retraining and
 arbitrary-new-month inference have not been demonstrated from a clean clone.
+
+## Retained model-state work
+
+`weight_inventory.py` traces provenance to real model/preprocessing files;
+prediction Parquets are never counted as model states. Its broad inventory
+includes historical controls, while the selected neural inventory separately
+records production checkpoints.
+
+The original October 8 HPO156 producer discarded its 15 returned models.
+`recover_hpo_weights.py` preserves the original trainer and saves returned models
+and actual preprocessing states, then checks original old/final float32
+predictions and a saved-state reload. That attempt stopped at the owner's
+request after the first member passed all checks; the remaining weights are
+incomplete. The completed state and stop receipt are retained. No additional
+training is queued or required for the verified assembly replay above.
