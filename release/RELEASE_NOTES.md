@@ -8,6 +8,4 @@ Download `unique-rose-v83-replay.tar` and `SHA256SUMS`, verify the archive check
 
 This is verified retained-component ensemble replay, not a demonstrated clean raw-data training rebuild or arbitrary-new-month inference pipeline. The owner restored these exact v83 bytes as the selected final on 14 October after an intervening v80 refit. Provider data terms remain applicable to derived inputs; repository source is GPLv3.
 
-This release was prepared privately. The owner authorized public repository and release publication at the challenge deadline, 14 October 2026 at 10:00 UTC (12:00 Amsterdam).
-
 Restoration was accepted at 2026-10-14T08:36:43+02:00 on all 670,790 rows; the final numeric score remains unpublished. The replay archive and original source tag are unchanged.

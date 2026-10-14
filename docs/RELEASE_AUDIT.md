@@ -1,6 +1,6 @@
 # Repository publication audit
 
-The repository remains private. This audit prepares source for review; it does
+This audit prepares source for review; it does
 not change visibility, publish artifacts, or rewrite history.
 
 ## Re-run before publishing

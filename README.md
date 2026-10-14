@@ -29,7 +29,7 @@ distributed separately as release assets.
 | [Method](docs/METHOD.md) | Features, models, calibration, validation and limitations |
 | [Data sources](docs/DATA_SOURCES.md) | Acquisition, snapshots, provider terms and attribution |
 | [Third-party work](docs/THIRD_PARTY.md) | Dependencies, upstream implementations and our contributions |
-| [Release checklist](docs/RELEASE_CHECKLIST.md) | Competition obligations and remaining publication steps |
+| [Release checklist](docs/RELEASE_CHECKLIST.md) | Competition obligations and release contents |
 | [Submission record](SUBMISSIONS.md) | Actual uploads and selected candidates |
 
 The v84 final artifact was accepted on **14 October 2026 at 10:39 Amsterdam**:

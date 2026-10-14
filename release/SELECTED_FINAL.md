@@ -17,5 +17,4 @@ and3 correction inputs. This certifies component assembly, not full raw-data
 retraining or arbitrary-new-input inference. See [artifact manifest](artifact_manifest.json).
 
 The [repository](https://github.com/Goxmen/PRC) and [verified v84 replay release](https://github.com/Goxmen/PRC/releases/tag/prc-final-v84-76938ead67f3)
-are **public**, confirmed 14 October 2026 at 11:25:18 Amsterdam. The owner requested immediate
-publication, superseding the earlier11:30 schedule. The old timer is disabled.
+are **public**.

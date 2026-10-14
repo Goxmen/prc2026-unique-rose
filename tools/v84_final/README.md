@@ -3,9 +3,7 @@
 The owner selected **v84 as the competition final** on 14 October 2026. See
 [the selected final](../../release/SELECTED_FINAL.md) for submission/acceptance
 receipts and [reproduction instructions](../../docs/REPRODUCING.md) for the
-standalone archive. The repository and release became public at 09:25:18 UTC /
-11:25:18 Amsterdam on 14 October, following the owner's immediate-publication
-request. The earlier 11:30 timer is disabled.
+standalone archive.
 
 v84 keeps the fixed historical v80 ensemble arithmetic, with recovered original
 tree models, a reconstruction using the recovered v3 source and saved neural

@@ -97,10 +97,9 @@ establish recovery of the original trained weights.
 ## Release and reproducibility
 
 Before the historical final PUT, the runner prepared an offline component replay
-and private GitHub draft. After acceptance it updated five generated release files,
-committed/pushed them on `main`, and switched the deadline publication policy.
-The subsequent v83 restoration superseded those updates. The v83 draft is again
-selected for publication at the previously authorized deadline.
+and a GitHub release draft. After acceptance it updated five generated release
+files and committed/pushed them on `main`. The subsequent v83 restoration and the
+later v84 selection superseded those updates.
 
 The replay bundle regenerates the final bytes from 51 prediction vectors, fixed
 weights, correction inputs and the blank template; it excludes the final output.
